@@ -1,0 +1,122 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/* 
+ * File:   Listener.h
+ * Author: cancian
+ *
+ * Created on 22 de Junho de 2018, 18:53
+ */
+
+#ifndef LISTENER_H
+#define LISTENER_H
+
+#include <string>
+
+#include "Util.h"
+
+class Entity;
+class ModelComponent;
+
+class TraceEvent {
+public:
+	TraceEvent(Util::TraceLevel tracelevel, std::string text) {
+		_tracelevel = tracelevel;
+		_text = text;
+	}
+	Util::TraceLevel getTracelevel() const {
+		return _tracelevel;
+	}
+	std::string getText() const {
+		return _text;
+	}
+private:
+	Util::TraceLevel _tracelevel;
+	std::string _text;
+};
+
+class TraceErrorEvent: public TraceEvent {
+public:
+	TraceErrorEvent(std::string text,std::exception e): TraceEvent(Util::TL_errors, text) {
+		_e = e;
+	}
+
+    std::exception getException() const {
+    	return _e;
+    }
+private:
+	std::exception _e;
+};
+
+class TraceSimulationEvent : public TraceEvent {
+public:
+	ModelComponent* getComponent() const {
+		return _component;
+	}
+	Entity* getEntity() const {
+		return _entity;
+	}
+	double getTime() const {
+		return _time;
+	}
+	TraceSimulationEvent(Util::TraceLevel tracelevel, double time, Entity* entity, ModelComponent* component, std::string text) : TraceEvent(tracelevel, text) {
+		_time = time;
+		_entity = entity;
+		_component = component;
+	}
+private:
+	double _time;
+	Entity* _entity;
+	ModelComponent* _component;
+};
+
+typedef void (*traceListener)(TraceEvent);
+typedef void (*traceErrorListener)(TraceErrorEvent);
+typedef void (*traceSimulationListener)(TraceSimulationEvent);
+
+//class Listener {
+//public:
+//	Listener();
+//	Listener(const Listener& orig);
+//	virtual ~Listener();
+//private:
+//
+//};
+//
+//class TraceEvent {
+//public:
+//	TraceEvent(std::string text) {
+//		_text = text;
+//	}
+//	std::string getText() const {
+//		return _text;
+//	}
+//public:
+//private:
+//	std::string _text;
+//};
+//
+//class TraceListener : public Listener {
+//public:
+//	TraceListener() {}
+//	virtual void trace(TraceEvent e)=0;
+//};
+//
+//class ReplicationEvent {
+//public:
+//	ReplicationEvent() {}
+//private:
+//};
+//
+//class ReplicationListener : public Listener {
+//	ReplicationListener() {}
+//	virtual void replicationStart(ReplicationEvent e) = 0;
+//	virtual void replicationEnd(ReplicationEvent e) = 0;
+//	virtual void replicationStep(ReplicationEvent e) = 0;
+//};
+
+#endif /* LISTENER_H */
+

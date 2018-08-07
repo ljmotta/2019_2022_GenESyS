@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="100">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Arquivos de Cabeçalho"
+                   projectFiles="true">
+      <itemPath>AttributeValue.h</itemPath>
+      <itemPath>Create.h</itemPath>
+      <itemPath>Delay.h</itemPath>
+      <itemPath>Dispose.h</itemPath>
+      <itemPath>Entity.h</itemPath>
+      <itemPath>Event.h</itemPath>
+      <itemPath>List.h</itemPath>
+      <itemPath>Listener.h</itemPath>
+      <itemPath>Model.h</itemPath>
+      <itemPath>ModelComponent.h</itemPath>
+      <itemPath>ModelInfrastructure.h</itemPath>
+      <itemPath>OldEventObserv.h</itemPath>
+      <itemPath>OldObservable.h</itemPath>
+      <itemPath>OldObserver.h</itemPath>
+      <itemPath>Plugin.h</itemPath>
+      <itemPath>Simulator.h</itemPath>
+      <itemPath>SourceModelComponent.h</itemPath>
+      <itemPath>Util.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Arquivos de Código-Fonte"
+                   projectFiles="true">
+      <itemPath>AttributeValue.cpp</itemPath>
+      <itemPath>Create.cpp</itemPath>
+      <itemPath>Delay.cpp</itemPath>
+      <itemPath>Dispose.cpp</itemPath>
+      <itemPath>Entity.cpp</itemPath>
+      <itemPath>Event.cpp</itemPath>
+      <itemPath>List.cpp</itemPath>
+      <itemPath>Listener.cpp</itemPath>
+      <itemPath>Model.cpp</itemPath>
+      <itemPath>ModelComponent.cpp</itemPath>
+      <itemPath>ModelInfrastructure.cpp</itemPath>
+      <itemPath>OldEventObserv.cpp</itemPath>
+      <itemPath>OldObservable.cpp</itemPath>
+      <itemPath>OldObserver.cpp</itemPath>
+      <itemPath>Plugin.cpp</itemPath>
+      <itemPath>Simulator.cpp</itemPath>
+      <itemPath>SourceModelComponent.cpp</itemPath>
+      <itemPath>Util.cpp</itemPath>
+      <itemPath>main.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Arquivos de Recurso"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Arquivos de Teste"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Arquivos Importantes"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>true</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <ccTool>
+          <commandLine>-std=c++11 -fpermissive</commandLine>
+        </ccTool>
+      </compileType>
+      <item path="AttributeValue.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="AttributeValue.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Create.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Create.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Delay.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Delay.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Dispose.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Dispose.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Entity.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Entity.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Event.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Event.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="List.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="List.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Listener.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Listener.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Model.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Model.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ModelComponent.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ModelComponent.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ModelInfrastructure.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ModelInfrastructure.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="OldEventObserv.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="OldEventObserv.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="OldObservable.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="OldObservable.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="OldObserver.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="OldObserver.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Plugin.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Plugin.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Simulator.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Simulator.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SourceModelComponent.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SourceModelComponent.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Util.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Util.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>true</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+      </compileType>
+      <item path="AttributeValue.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="AttributeValue.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Create.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Create.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Delay.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Delay.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Dispose.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Dispose.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Entity.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Entity.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Event.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Event.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="List.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="List.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Listener.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Listener.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Model.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Model.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ModelComponent.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ModelComponent.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ModelInfrastructure.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ModelInfrastructure.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="OldEventObserv.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="OldEventObserv.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="OldObservable.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="OldObservable.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="OldObserver.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="OldObserver.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Plugin.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Plugin.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Simulator.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Simulator.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SourceModelComponent.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SourceModelComponent.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Util.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Util.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
