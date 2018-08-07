@@ -13,10 +13,10 @@
 
 #include "SourceModelComponent.h"
 
-SourceModelComponent::SourceModelComponent() {
+SourceModelComponent::SourceModelComponent(Model* model):ModelComponent(model) {
 }
 
-SourceModelComponent::SourceModelComponent(const SourceModelComponent& orig) {
+SourceModelComponent::SourceModelComponent(const SourceModelComponent& orig):ModelComponent(orig) {
 }
 
 SourceModelComponent::~SourceModelComponent() {

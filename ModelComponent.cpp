@@ -16,7 +16,7 @@
 
 void ModelComponent::execute(Entity* entity, ModelComponent* component) {
 	try {
-		int i=1;
+		component->doExecute(entity);
 	} catch (const std::exception& e) {
 
 	}
@@ -26,7 +26,8 @@ List<ModelComponent*>* ModelComponent::getNextComponents() const {
 	return _nextComponents;
 }
 
-ModelComponent::ModelComponent() {
+ModelComponent::ModelComponent(Model* model) {
+	_model = model;
 	_nextComponents = new List<ModelComponent*>();
 }
 

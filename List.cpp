@@ -108,9 +108,20 @@ typename std::list<T>::iterator List<T>::find(T element) {
 
 template <typename T>
 void List<T>::setCurrent(T element) {
-	for (typename std::list<T>::iterator it=_list->begin(); it!=_list->end(); it++) {
-		
+	return;
+	
+	/* TODO: + Seg fault? why that?? */
+	
+	
+//	for (typename std::list<T>::iterator it=_list->begin(); it!=_list->end(); it++) {
+	for (_it=_list->begin(); _it!=_list->end(); _it++) {
+		if ((*_it)==element) {
+			return;
+		}
 	}
+	// ops. element was not found
+	//this->_it = this->_list->iterator->end();  /* TODO +-: check this method */
+	
 //	typename std::list<T>::iterator it = find(element);
 //	if (it != _list->end()) { /* TODO +-: attached to "find" return is nullptrt or end()? */
 //		this->_it= it;

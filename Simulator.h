@@ -30,11 +30,13 @@ public: // get & set
 	List<Model*>* getModels() const;
 	List<Plugin*>* getPlugins() const;
 public: // event handlers
-private: // attributes
+private: // attributes 1:n
 	List<Plugin*>* _plugins;
 	List<Model*>* _models;
-private:
-	std::string _name;
+private: // attributes 1:1
+	std::string _name = "GenESyS - Generic and Expansible System Simulator [REBORN]";
+	std::string _license = "Academic Mode. In academic mode this software has full functionality and executing training-size simulation models. This software may be duplicated and used for educational purposes only; any commercial application is a violation of the license agreement.";
+	std::string _version = "2018.08.00.5";
 };
 
 #endif /* GENESYS_H */

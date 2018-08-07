@@ -13,12 +13,15 @@
 
 #include "Dispose.h"
 
-Dispose::Dispose() {
+Dispose::Dispose(Model* model):ModelComponent(model) {
 }
 
-Dispose::Dispose(const Dispose& orig) {
+Dispose::Dispose(const Dispose& orig):ModelComponent(orig) {
 }
 
 Dispose::~Dispose() {
 }
 
+void Dispose::doExecute(Entity* entity) {
+	
+}

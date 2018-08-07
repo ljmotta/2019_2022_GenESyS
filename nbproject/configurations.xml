@@ -4,14 +4,19 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Arquivos de Cabeçalho"
                    projectFiles="true">
+      <itemPath>Analyser.h</itemPath>
       <itemPath>AttributeValue.h</itemPath>
+      <itemPath>Collector.h</itemPath>
       <itemPath>Create.h</itemPath>
       <itemPath>Delay.h</itemPath>
       <itemPath>Dispose.h</itemPath>
       <itemPath>Entity.h</itemPath>
       <itemPath>Event.h</itemPath>
+      <itemPath>Fitter.h</itemPath>
+      <itemPath>Integrator.h</itemPath>
       <itemPath>List.h</itemPath>
       <itemPath>Listener.h</itemPath>
+      <itemPath>MMC.h</itemPath>
       <itemPath>Model.h</itemPath>
       <itemPath>ModelComponent.h</itemPath>
       <itemPath>ModelInfrastructure.h</itemPath>
@@ -19,21 +24,28 @@
       <itemPath>OldObservable.h</itemPath>
       <itemPath>OldObserver.h</itemPath>
       <itemPath>Plugin.h</itemPath>
+      <itemPath>Sampler.h</itemPath>
       <itemPath>Simulator.h</itemPath>
       <itemPath>SourceModelComponent.h</itemPath>
+      <itemPath>Statistics.h</itemPath>
       <itemPath>Util.h</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Arquivos de Código-Fonte"
                    projectFiles="true">
+      <itemPath>Analyser.cpp</itemPath>
       <itemPath>AttributeValue.cpp</itemPath>
+      <itemPath>Collector.cpp</itemPath>
       <itemPath>Create.cpp</itemPath>
       <itemPath>Delay.cpp</itemPath>
       <itemPath>Dispose.cpp</itemPath>
       <itemPath>Entity.cpp</itemPath>
       <itemPath>Event.cpp</itemPath>
+      <itemPath>Fitter.cpp</itemPath>
+      <itemPath>Integrator.cpp</itemPath>
       <itemPath>List.cpp</itemPath>
       <itemPath>Listener.cpp</itemPath>
+      <itemPath>MMC.cpp</itemPath>
       <itemPath>Model.cpp</itemPath>
       <itemPath>ModelComponent.cpp</itemPath>
       <itemPath>ModelInfrastructure.cpp</itemPath>
@@ -41,8 +53,10 @@
       <itemPath>OldObservable.cpp</itemPath>
       <itemPath>OldObserver.cpp</itemPath>
       <itemPath>Plugin.cpp</itemPath>
+      <itemPath>Sampler.cpp</itemPath>
       <itemPath>Simulator.cpp</itemPath>
       <itemPath>SourceModelComponent.cpp</itemPath>
+      <itemPath>Statistics.cpp</itemPath>
       <itemPath>Util.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
@@ -75,9 +89,17 @@
           <commandLine>-std=c++11 -fpermissive</commandLine>
         </ccTool>
       </compileType>
+      <item path="Analyser.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Analyser.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="AttributeValue.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="AttributeValue.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Collector.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Collector.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Create.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -99,6 +121,14 @@
       </item>
       <item path="Event.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Fitter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Fitter.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Integrator.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Integrator.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="List.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="List.h" ex="false" tool="3" flavor2="0">
@@ -106,6 +136,10 @@
       <item path="Listener.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Listener.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="MMC.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="MMC.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Model.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -135,6 +169,10 @@
       </item>
       <item path="Plugin.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Sampler.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Sampler.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Simulator.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Simulator.h" ex="false" tool="3" flavor2="0">
@@ -142,6 +180,10 @@
       <item path="SourceModelComponent.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="SourceModelComponent.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Statistics.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Statistics.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Util.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -170,9 +212,17 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="Analyser.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Analyser.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="AttributeValue.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="AttributeValue.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Collector.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Collector.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Create.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -194,6 +244,14 @@
       </item>
       <item path="Event.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Fitter.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Fitter.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Integrator.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Integrator.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="List.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="List.h" ex="false" tool="3" flavor2="0">
@@ -201,6 +259,10 @@
       <item path="Listener.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Listener.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="MMC.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="MMC.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Model.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -230,6 +292,10 @@
       </item>
       <item path="Plugin.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Sampler.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Sampler.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Simulator.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Simulator.h" ex="false" tool="3" flavor2="0">
@@ -237,6 +303,10 @@
       <item path="SourceModelComponent.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="SourceModelComponent.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Statistics.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Statistics.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Util.cpp" ex="false" tool="1" flavor2="0">
       </item>

@@ -13,10 +13,10 @@
 
 #include "Delay.h"
 
-Delay::Delay() {
+Delay::Delay(Model* model):ModelComponent(model) {
 }
 
-Delay::Delay(const Delay& orig) {
+Delay::Delay(const Delay& orig):ModelComponent(orig) {
 }
 
 Delay::~Delay() {
@@ -38,3 +38,6 @@ Util::TimeUnit Delay::getDelayTimeUnit() const {
 	return _delayTimeUnit;
 }
 
+void Delay::doExecute(Entity* entity) {
+	
+}

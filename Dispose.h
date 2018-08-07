@@ -18,9 +18,11 @@
 
 class Dispose: public ModelComponent {
 public:
-	Dispose();
+	Dispose(Model* model);
 	Dispose(const Dispose& orig);
 	virtual ~Dispose();
+protected:
+	virtual void doExecute(Entity* entity);
 private:
 
 };

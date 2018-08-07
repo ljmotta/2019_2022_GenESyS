@@ -31,27 +31,35 @@ void traceSimulationHandler(TraceSimulationEvent e) {
 	std::cout << e.getText() << std::endl;
 }
 
-void buildSimulationSystem() {
-	//OldObserver* traceObserver = new OldObserver();
-
-	Simulator* simulator = new Simulator();
-	Model* model = new Model(simulator);
-
+void buildSimpleCreateDelayDisposeModel(Model* model) {
 	model->addTraceListener(&traceHandler);
 	model->addTraceReportListener(&traceHandler);
 	model->addTraceSimulationListener(&traceHandler);
 	model->addTraceSimulationListener(&traceSimulationHandler);
-
-	simulator->getModels()->insert(model);
-	ModelComponent* create1 = new Create();
-	ModelComponent* delay1 = new Delay();
-	ModelComponent* dispose1 = new Dispose();
+	// create and insert model components
+	ModelComponent* create1 = new Create(model);
+	ModelComponent* delay1 = new Delay(model);
+	ModelComponent* dispose1 = new Dispose(model);
 	List<ModelComponent*>* components = model->getComponents();
 	components->insert(create1);
 	components->insert(delay1);
 	components->insert(dispose1);
+	// connect model components
 	create1->getNextComponents()->insert(delay1);
-	delay1->getNextComponents()->insert(dispose1);
+	delay1->getNextComponents()->insert(dispose1);	
+}
+
+void buildModel(Model* model) {
+	// change next command to build different models
+	buildSimpleCreateDelayDisposeModel(model);
+}
+
+void buildSimulationSystem() {
+	//OldObserver* traceObserver = new OldObserver();
+	Simulator* simulator = new Simulator();
+	Model* model = 	new Model(simulator);
+	buildModel(model);
+	simulator->getModels()->insert(model);
 	model->startSimulation();
 }
 

@@ -22,9 +22,11 @@
 #include "Entity.h"
 #include "ModelInfrastructure.h"
 
+class Model;
+
 class ModelComponent: public ModelInfrastructure {
 public:
-	ModelComponent();
+	ModelComponent(Model* model);
 	ModelComponent(const ModelComponent& orig);
 	virtual ~ModelComponent();
 public:
@@ -33,7 +35,11 @@ public:
 private:
 	List<ModelComponent*>* _nextComponents;
 public:
-	static void execute(Entity* entity, ModelComponent* component);
+	void execute(Entity* entity, ModelComponent* component);
+protected:
+	virtual void doExecute(Entity* entity)=0;
+private:
+	Model* _model;
 };
 
 #endif /* MODELCOMPONENT_H */

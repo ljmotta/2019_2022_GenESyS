@@ -17,8 +17,7 @@
 Simulator::Simulator() {
 	_plugins = new List<Plugin*>();
 	_models = new List<Model*>();
-	_name = "GenESyS - Generic and Expansible System Simulator";
-	std::cout << _name << std::endl;
+	std::cout << _name << "\t" << std::endl << _license << std::endl << std::endl;
 }
 
 Simulator::Simulator(const Simulator& orig) {

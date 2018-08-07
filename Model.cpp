@@ -33,7 +33,7 @@ Model::Model(const Model& orig) {
 }
 
 double Model::_parseExpression(std::string expression) {
-	/* TODO ++: not implemented. A whole parser is necessary */
+	/* TODO +++: not implemented. A whole parser is necessary */
 	double value = std::atof(expression.c_str());
 	return value;
 }
@@ -132,7 +132,7 @@ void Model::_processEvent(Event* event) {
 	_components->setCurrent(event->getComponent());
 	_simulationTime=event->getTime();
 	try {
-	event->getComponent()->execute(event->getEntity(), event->getComponent());
+	event->getComponent()->execute(event->getEntity(), event->getComponent()); // Execute is static
 	} catch (std::exception *e) {
 		_excepcionHandled = e;
 		this->traceError(*e, "Error on processing event "+event->show());

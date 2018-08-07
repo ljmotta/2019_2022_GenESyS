@@ -20,7 +20,7 @@
 
 class SourceModelComponent:public ModelComponent {
 public:
-	SourceModelComponent();
+	SourceModelComponent(Model* model);
 	SourceModelComponent(const SourceModelComponent& orig);
 	virtual ~SourceModelComponent();
 public: // get & set

@@ -35,14 +35,19 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/Analyser.o \
 	${OBJECTDIR}/AttributeValue.o \
+	${OBJECTDIR}/Collector.o \
 	${OBJECTDIR}/Create.o \
 	${OBJECTDIR}/Delay.o \
 	${OBJECTDIR}/Dispose.o \
 	${OBJECTDIR}/Entity.o \
 	${OBJECTDIR}/Event.o \
+	${OBJECTDIR}/Fitter.o \
+	${OBJECTDIR}/Integrator.o \
 	${OBJECTDIR}/List.o \
 	${OBJECTDIR}/Listener.o \
+	${OBJECTDIR}/MMC.o \
 	${OBJECTDIR}/Model.o \
 	${OBJECTDIR}/ModelComponent.o \
 	${OBJECTDIR}/ModelInfrastructure.o \
@@ -50,8 +55,10 @@ OBJECTFILES= \
 	${OBJECTDIR}/OldObservable.o \
 	${OBJECTDIR}/OldObserver.o \
 	${OBJECTDIR}/Plugin.o \
+	${OBJECTDIR}/Sampler.o \
 	${OBJECTDIR}/Simulator.o \
 	${OBJECTDIR}/SourceModelComponent.o \
+	${OBJECTDIR}/Statistics.o \
 	${OBJECTDIR}/Util.o \
 	${OBJECTDIR}/main.o
 
@@ -80,10 +87,20 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/rebornedgenesys: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/rebornedgenesys ${OBJECTFILES} ${LDLIBSOPTIONS}
 
+${OBJECTDIR}/Analyser.o: Analyser.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Analyser.o Analyser.cpp
+
 ${OBJECTDIR}/AttributeValue.o: AttributeValue.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/AttributeValue.o AttributeValue.cpp
+
+${OBJECTDIR}/Collector.o: Collector.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Collector.o Collector.cpp
 
 ${OBJECTDIR}/Create.o: Create.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -110,6 +127,16 @@ ${OBJECTDIR}/Event.o: Event.cpp nbproject/Makefile-${CND_CONF}.mk
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Event.o Event.cpp
 
+${OBJECTDIR}/Fitter.o: Fitter.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Fitter.o Fitter.cpp
+
+${OBJECTDIR}/Integrator.o: Integrator.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Integrator.o Integrator.cpp
+
 ${OBJECTDIR}/List.o: List.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -119,6 +146,11 @@ ${OBJECTDIR}/Listener.o: Listener.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Listener.o Listener.cpp
+
+${OBJECTDIR}/MMC.o: MMC.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/MMC.o MMC.cpp
 
 ${OBJECTDIR}/Model.o: Model.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -155,6 +187,11 @@ ${OBJECTDIR}/Plugin.o: Plugin.cpp nbproject/Makefile-${CND_CONF}.mk
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Plugin.o Plugin.cpp
 
+${OBJECTDIR}/Sampler.o: Sampler.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Sampler.o Sampler.cpp
+
 ${OBJECTDIR}/Simulator.o: Simulator.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -164,6 +201,11 @@ ${OBJECTDIR}/SourceModelComponent.o: SourceModelComponent.cpp nbproject/Makefile
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SourceModelComponent.o SourceModelComponent.cpp
+
+${OBJECTDIR}/Statistics.o: Statistics.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Statistics.o Statistics.cpp
 
 ${OBJECTDIR}/Util.o: Util.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

@@ -18,13 +18,13 @@
 
 class Create: public SourceModelComponent {
 public:
-	Create();
+	Create(Model* model);
 	Create(const Create& orig);
 	virtual ~Create();
 public:
-	static void execute();
 private:
-
+protected:
+	virtual void doExecute(Entity* entity);
 };
 
 #endif /* CREATE_H */

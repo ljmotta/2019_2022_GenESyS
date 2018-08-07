@@ -18,13 +18,15 @@
 
 class Delay: public ModelComponent {
 public:
-	Delay();
+	Delay(Model* model);
 	Delay(const Delay& orig);
 	virtual ~Delay();
     void setDelayExpression(std::string _delayExpression);
     std::string getDelayExpression() const;
     void setDelayTimeUnit(Util::TimeUnit _delayTimeUnit);
     Util::TimeUnit getDelayTimeUnit() const;
+protected:
+	virtual void doExecute(Entity* entity);
 private:
 	std::string _delayExpression="1";
 	Util::TimeUnit _delayTimeUnit=Util::TimeUnit::TU_second;
