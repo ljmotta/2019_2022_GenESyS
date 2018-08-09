@@ -41,7 +41,7 @@ double Model::_parseExpression(std::string expression) {
 bool Model::_finishReplicationCondition() {
 	/* TODO +-: Should consider TimUnits */
 	return this->_events->size() == 0
-			|| _simulationTime > _replicationLenght
+			|| _simulationTime > _replicationLength
 			|| this->_parseExpression(this->_terminatingCondition);
 
 }
@@ -119,7 +119,7 @@ void Model::_stepSimulation() {
 	Event* nextEvent;
 	nextEvent = _events->first();
 	_events->pop_front();
-	if (nextEvent->getTime() <= this->_replicationLenght) { /* TODO +-: should consider time Units */
+	if (nextEvent->getTime() <= this->_replicationLength) { /* TODO +-: should consider time Units */
 		_processEvent(nextEvent);
 	} else {
 		this->_simulationTime = nextEvent->getTime();
@@ -248,20 +248,20 @@ unsigned int Model::getNumberOfReplications() const {
 	return _numberOfReplications;
 }
 
-void Model::setReplicationLenght(double _replicationLenght) {
-	this->_replicationLenght = _replicationLenght;
+void Model::setReplicationLength(double _replicationLength) {
+	this->_replicationLength = _replicationLength;
 }
 
-double Model::getReplicationLenght() const {
-	return _replicationLenght;
+double Model::getReplicationLength() const {
+	return _replicationLength;
 }
 
-void Model::setReplicationLenghtTimeUnit(Util::TimeUnit _replicationLenghtTimeUnit) {
-	this->_replicationLenghtTimeUnit = _replicationLenghtTimeUnit;
+void Model::setReplicationLengthTimeUnit(Util::TimeUnit _replicationLengthTimeUnit) {
+	this->_replicationLengthTimeUnit = _replicationLengthTimeUnit;
 }
 
-Util::TimeUnit Model::getReplicationLenghtTimeUnit() const {
-	return _replicationLenghtTimeUnit;
+Util::TimeUnit Model::getReplicationLengthTimeUnit() const {
+	return _replicationLengthTimeUnit;
 }
 
 void Model::setWarmUpPeriod(double _warmUpPeriod) {
