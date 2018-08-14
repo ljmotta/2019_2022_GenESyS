@@ -16,7 +16,7 @@
 
 void ModelComponent::execute(Entity* entity, ModelComponent* component) {
 	try {
-		component->doExecute(entity);
+		component->_execute(entity);
 	} catch (const std::exception& e) {
 
 	}

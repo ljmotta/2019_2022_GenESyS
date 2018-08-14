@@ -35,3 +35,15 @@ List<Plugin*>* Simulator::getPlugins() const {
 	return _plugins;
 }
 
+std::string Simulator::getVersion() const {
+	return _version;
+}
+
+std::string Simulator::getLicense() const {
+	return _license;
+}
+
+std::string Simulator::getName() const {
+	return _name;
+}
+

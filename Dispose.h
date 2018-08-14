@@ -22,7 +22,7 @@ public:
 	Dispose(const Dispose& orig);
 	virtual ~Dispose();
 protected:
-	virtual void doExecute(Entity* entity);
+	virtual void _execute(Entity* entity);
 private:
 
 };

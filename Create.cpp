@@ -12,6 +12,7 @@
  */
 
 #include "Create.h"
+#include "Model.h"
 
 Create::Create(Model* model):SourceModelComponent(model) {
 }
@@ -22,6 +23,6 @@ Create::Create(const Create& orig):SourceModelComponent(orig) {
 Create::~Create() {
 }
 
-void Create::doExecute(Entity* entity) {
-	//this->get
+void Create::_execute(Entity* entity) {
+	//this->_model->
 }

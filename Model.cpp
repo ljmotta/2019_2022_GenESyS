@@ -14,7 +14,8 @@
 #include <typeinfo>
 #include "Model.h"
 #include "List.cpp"
-#include "SourceModelComponent.h" // avoid link error
+#include "SourceModelComponent.h"
+#include "Simulator.h" // avoid link error
 #include <iostream>
 #include <algorithm>
 
@@ -48,6 +49,10 @@ bool Model::_finishReplicationCondition() {
 }
 
 void Model::startSimulation() {
+	if (!this->check()) {
+		trace(Util::TraceLevel::TL_errors, "Model check failed");
+		return;
+	}
 	_initSimulation();
 	for (unsigned int replicationNum = 1; replicationNum <= _numberOfReplications; replicationNum++) {
 		_initReplication(replicationNum);
@@ -77,6 +82,7 @@ void Model::startSimulation() {
 	_showSimulationStatistics();
 
 }
+
 void Model::showReports() {
 	/*TODO +-: not implemented*/
 }
@@ -87,7 +93,14 @@ void Model::_initSimulation() {
 }
 
 void Model::_initReplication(unsigned int currentReplicationNumber) {
-	trace(Util::TL_simulation, "Replication " + std::to_string(currentReplicationNumber) + " of " + std::to_string(_numberOfReplications) + " is starting.\n");
+	traceReport(Util::TL_simulation, "-----------------------------------------------------");
+	traceReport(Util::TL_simulation, _simulator->getName());
+	traceReport(Util::TL_simulation, _simulator->getLicense());
+	traceReport(Util::TL_simulation, "");
+	traceReport(Util::TL_simulation, "Projet Title: " + this->_projectTitle);
+	traceReport(Util::TL_simulation, "Analysit Name: " + this->_analystName);
+	traceReport(Util::TL_simulation, "");
+	traceReport(Util::TL_simulation, "Replication " + std::to_string(currentReplicationNumber) + " of " + std::to_string(_numberOfReplications) + " is starting.\n");
 
 	_events->clear();
 	_simulationTime = 0.0;
@@ -108,7 +121,7 @@ void Model::_initReplication(unsigned int currentReplicationNumber) {
 			newEntity = new Entity();
 			newEvent = new Event(creationTime, newEntity, (*it));
 			_events->insert(newEvent);
-			this->trace(Util::TraceLevel::TL_mostDetailed, "Future events list: "+_events->show());
+			this->trace(Util::TraceLevel::TL_mostDetailed, "Future events list: " + _events->show());
 		}
 	}
 
@@ -131,15 +144,15 @@ void Model::_stepSimulation() {
 }
 
 void Model::_processEvent(Event* event) {
-	this->trace(Util::TraceLevel::TL_simulation, "Processing event "+event->show());
+	this->trace(Util::TraceLevel::TL_simulation, "Processing event " + event->show());
 	_entities->setCurrent(event->getEntity());
 	_components->setCurrent(event->getComponent());
-	_simulationTime=event->getTime();
+	_simulationTime = event->getTime();
 	try {
-	event->getComponent()->execute(event->getEntity(), event->getComponent()); // Execute is static
+		event->getComponent()->execute(event->getEntity(), event->getComponent()); // Execute is static
 	} catch (std::exception *e) {
 		_excepcionHandled = e;
-		this->traceError(*e, "Error on processing event "+event->show());
+		this->traceError(*e, "Error on processing event " + event->show());
 	}
 }
 
@@ -149,11 +162,50 @@ void Model::_showReplicationStatistics() {
 void Model::_showSimulationStatistics() {
 }
 
+bool Model::check() {
+	trace(Util::TraceLevel::TL_blockInternal, "Checking model consistency");
+	bool passed = this->_checkAndAddInternalLiterals();
+	if (passed) passed = this->_checkConnected();
+	if (passed) passed = this->_checkSymbols();
+	if (passed) passed = this->_checkPathway();
+	if (passed) passed = this->_checkActivationCode();
+	return passed;
+}
+
+bool Model::_checkAndAddInternalLiterals() {
+	/* TODO +-: not implemented yet */
+	return true;
+}
+
+bool Model::_checkConnected() {
+	/* TODO +-: not implemented yet */
+	return true;
+}
+
+bool Model::_checkSymbols() {
+	/* TODO +-: not implemented yet */
+	return true;
+}
+
+bool Model::_checkPathway() {
+	/* TODO +-: not implemented yet */
+	return true;
+}
+
+bool Model::_checkActivationCode() {
+	/* TODO +-: not implemented yet */
+	return true;
+}
+
 void Model::pauseSimulation() {
 }
 
 void Model::stepSimulation() {
 	if (!_simulationIsInitiated) {
+		if (!this->check()) {
+			trace(Util::TraceLevel::TL_errors, "Model check failed");
+			return;
+		}
 		this->_initSimulation();
 	}
 	if (!_replicationIsInitiaded) {

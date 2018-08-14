@@ -38,6 +38,6 @@ Util::TimeUnit Delay::getDelayTimeUnit() const {
 	return _delayTimeUnit;
 }
 
-void Delay::doExecute(Entity* entity) {
+void Delay::_execute(Entity* entity) {
 	
 }

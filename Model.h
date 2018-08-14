@@ -70,7 +70,7 @@ public: // only gets
 	List<ModelComponent*>* getComponents() const;
 	List<ModelInfrastructure*>* getInfrastructures() const;
 public: // simulation control
-	void check();
+	bool check();
 	void startSimulation();
 	void pauseSimulation();
 	void stepSimulation();
@@ -98,6 +98,11 @@ private:
 	void _showReplicationStatistics();
 	void _showSimulationStatistics();
 private:
+	bool _checkAndAddInternalLiterals();
+	bool _checkConnected();
+	bool _checkSymbols();
+	bool _checkPathway();
+	bool _checkActivationCode();
 	bool _finishReplicationCondition();
 	double _parseExpression(std::string expression);
 private:

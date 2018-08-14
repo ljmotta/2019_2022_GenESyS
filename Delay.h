@@ -26,7 +26,7 @@ public:
     void setDelayTimeUnit(Util::TimeUnit _delayTimeUnit);
     Util::TimeUnit getDelayTimeUnit() const;
 protected:
-	virtual void doExecute(Entity* entity);
+	virtual void _execute(Entity* entity);
 private:
 	std::string _delayExpression="1";
 	Util::TimeUnit _delayTimeUnit=Util::TimeUnit::TU_second;

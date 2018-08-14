@@ -22,6 +22,6 @@ Dispose::Dispose(const Dispose& orig):SinkModelComponent(orig) {
 Dispose::~Dispose() {
 }
 
-void Dispose::doExecute(Entity* entity) {
+void Dispose::_execute(Entity* entity) {
 	
 }
