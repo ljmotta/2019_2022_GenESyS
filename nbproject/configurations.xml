@@ -13,7 +13,9 @@
       <itemPath>Entity.h</itemPath>
       <itemPath>Event.h</itemPath>
       <itemPath>Fitter.h</itemPath>
+      <itemPath>Fitter_if.h</itemPath>
       <itemPath>Integrator.h</itemPath>
+      <itemPath>Integrator_if.h</itemPath>
       <itemPath>List.h</itemPath>
       <itemPath>Listener.h</itemPath>
       <itemPath>MMC.h</itemPath>
@@ -29,6 +31,7 @@
       <itemPath>Simulator.h</itemPath>
       <itemPath>SourceModelComponent.h</itemPath>
       <itemPath>Statistics.h</itemPath>
+      <itemPath>Statistics_if.h</itemPath>
       <itemPath>Util.h</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
@@ -42,8 +45,6 @@
       <itemPath>Dispose.cpp</itemPath>
       <itemPath>Entity.cpp</itemPath>
       <itemPath>Event.cpp</itemPath>
-      <itemPath>Fitter.cpp</itemPath>
-      <itemPath>Integrator.cpp</itemPath>
       <itemPath>List.cpp</itemPath>
       <itemPath>Listener.cpp</itemPath>
       <itemPath>Model.cpp</itemPath>
@@ -56,7 +57,6 @@
       <itemPath>Sampler.cpp</itemPath>
       <itemPath>Simulator.cpp</itemPath>
       <itemPath>SourceModelComponent.cpp</itemPath>
-      <itemPath>Statistics.cpp</itemPath>
       <itemPath>Util.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
@@ -121,13 +121,13 @@
       </item>
       <item path="Event.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Fitter.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="Fitter.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Integrator.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Fitter_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Integrator.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Integrator_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="List.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -181,9 +181,9 @@
       </item>
       <item path="SourceModelComponent.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Statistics.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="Statistics.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Statistics_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Util.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -244,13 +244,13 @@
       </item>
       <item path="Event.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Fitter.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="Fitter.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Integrator.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Fitter_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Integrator.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Integrator_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="List.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -304,9 +304,9 @@
       </item>
       <item path="SourceModelComponent.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Statistics.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="Statistics.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Statistics_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Util.cpp" ex="false" tool="1" flavor2="0">
       </item>
