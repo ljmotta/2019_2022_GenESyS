@@ -37,7 +37,6 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/Analyser.o \
 	${OBJECTDIR}/AttributeValue.o \
-	${OBJECTDIR}/Collector.o \
 	${OBJECTDIR}/Create.o \
 	${OBJECTDIR}/Delay.o \
 	${OBJECTDIR}/Dispose.o \
@@ -52,7 +51,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/OldObservable.o \
 	${OBJECTDIR}/OldObserver.o \
 	${OBJECTDIR}/Plugin.o \
-	${OBJECTDIR}/Sampler.o \
 	${OBJECTDIR}/Simulator.o \
 	${OBJECTDIR}/SourceModelComponent.o \
 	${OBJECTDIR}/Util.o \
@@ -92,11 +90,6 @@ ${OBJECTDIR}/AttributeValue.o: AttributeValue.cpp nbproject/Makefile-${CND_CONF}
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/AttributeValue.o AttributeValue.cpp
-
-${OBJECTDIR}/Collector.o: Collector.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Collector.o Collector.cpp
 
 ${OBJECTDIR}/Create.o: Create.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -167,11 +160,6 @@ ${OBJECTDIR}/Plugin.o: Plugin.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Plugin.o Plugin.cpp
-
-${OBJECTDIR}/Sampler.o: Sampler.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Sampler.o Sampler.cpp
 
 ${OBJECTDIR}/Simulator.o: Simulator.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
