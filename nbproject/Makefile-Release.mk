@@ -52,6 +52,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/OldObserver.o \
 	${OBJECTDIR}/Plugin.o \
 	${OBJECTDIR}/Simulator.o \
+	${OBJECTDIR}/SinkModelComponent.o \
 	${OBJECTDIR}/SourceModelComponent.o \
 	${OBJECTDIR}/Util.o \
 	${OBJECTDIR}/main.o
@@ -165,6 +166,11 @@ ${OBJECTDIR}/Simulator.o: Simulator.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Simulator.o Simulator.cpp
+
+${OBJECTDIR}/SinkModelComponent.o: SinkModelComponent.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SinkModelComponent.o SinkModelComponent.cpp
 
 ${OBJECTDIR}/SourceModelComponent.o: SourceModelComponent.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

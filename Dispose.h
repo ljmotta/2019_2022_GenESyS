@@ -14,9 +14,9 @@
 #ifndef DISPOSE_H
 #define DISPOSE_H
 
-#include "ModelComponent.h"
+#include "SinkModelComponent.h"
 
-class Dispose: public ModelComponent {
+class Dispose: public SinkModelComponent {
 public:
 	Dispose(Model* model);
 	Dispose(const Dispose& orig);

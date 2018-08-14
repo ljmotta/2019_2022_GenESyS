@@ -29,6 +29,7 @@
       <itemPath>OldObserver.h</itemPath>
       <itemPath>Plugin.h</itemPath>
       <itemPath>Simulator.h</itemPath>
+      <itemPath>SinkModelComponent.h</itemPath>
       <itemPath>SourceModelComponent.h</itemPath>
       <itemPath>Statistics.h</itemPath>
       <itemPath>Statistics_if.h</itemPath>
@@ -54,6 +55,7 @@
       <itemPath>OldObserver.cpp</itemPath>
       <itemPath>Plugin.cpp</itemPath>
       <itemPath>Simulator.cpp</itemPath>
+      <itemPath>SinkModelComponent.cpp</itemPath>
       <itemPath>SourceModelComponent.cpp</itemPath>
       <itemPath>Util.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
@@ -170,6 +172,10 @@
       <item path="Simulator.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Simulator.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SinkModelComponent.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SinkModelComponent.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="SourceModelComponent.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -289,6 +295,10 @@
       <item path="Simulator.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Simulator.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SinkModelComponent.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SinkModelComponent.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="SourceModelComponent.cpp" ex="false" tool="1" flavor2="0">
       </item>

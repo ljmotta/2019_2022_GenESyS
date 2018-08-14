@@ -13,10 +13,10 @@
 
 #include "Dispose.h"
 
-Dispose::Dispose(Model* model):ModelComponent(model) {
+Dispose::Dispose(Model* model):SinkModelComponent(model) {
 }
 
-Dispose::Dispose(const Dispose& orig):ModelComponent(orig) {
+Dispose::Dispose(const Dispose& orig):SinkModelComponent(orig) {
 }
 
 Dispose::~Dispose() {

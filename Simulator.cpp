@@ -15,6 +15,7 @@
 #include "List.cpp"  // tell the compiler where is the implementation of the template class and avoid link error 
 
 Simulator::Simulator() {
+	// instanciate 1:n attributes 
 	_plugins = new List<Plugin*>();
 	_models = new List<Model*>();
 	std::cout << _name << "\t" << std::endl << _license << std::endl << std::endl;

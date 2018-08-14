@@ -20,13 +20,14 @@
 
 Model::Model(Simulator* simulator) {
 	_simulator = simulator;
+	_name = "Model " + std::to_string(reinterpret_cast<unsigned long> (this));
+	// 1:n attributes
 	_components = new List<ModelComponent*>();
 	_infrastructures = new List<ModelInfrastructure*>();
 	_events = new List<Event*>();
 	_events->sort([](const Event* a, const Event * b) {
 		return a->getTime() < b->getTime();
 	});
-	_name = "Model " + std::to_string(reinterpret_cast<unsigned long> (this));
 }
 
 Model::Model(const Model& orig) {
@@ -75,6 +76,9 @@ void Model::startSimulation() {
 	std::cout << "Simulation has finished.\n";
 	_showSimulationStatistics();
 
+}
+void Model::showReports() {
+	/*TODO +-: not implemented*/
 }
 
 void Model::_initSimulation() {

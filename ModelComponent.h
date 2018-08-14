@@ -24,20 +24,20 @@
 
 class Model;
 
-class ModelComponent: public ModelInfrastructure {
+class ModelComponent : public ModelInfrastructure {
 public:
 	ModelComponent(Model* model);
 	ModelComponent(const ModelComponent& orig);
 	virtual ~ModelComponent();
 public:
 	virtual std::string show();
-    List<ModelComponent*>* getNextComponents() const;
+	List<ModelComponent*>* getNextComponents() const;
 private:
 	List<ModelComponent*>* _nextComponents;
-public:
+public: // ...static...
 	void execute(Entity* entity, ModelComponent* component);
 protected:
-	virtual void doExecute(Entity* entity)=0;
+	virtual void doExecute(Entity* entity) = 0;
 private:
 	Model* _model;
 };

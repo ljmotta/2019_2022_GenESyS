@@ -76,6 +76,7 @@ public: // simulation control
 	void stepSimulation();
 	void stopSimulation();
 	void restartSimulation();
+	void showReports();
 	void setPauseOnEvent(bool _pauseOnEvent);
 	bool isPauseOnEvent() const;
 public:

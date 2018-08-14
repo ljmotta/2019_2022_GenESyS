@@ -32,11 +32,12 @@ void traceSimulationHandler(TraceSimulationEvent e) {
 }
 
 void buildSimpleCreateDelayDisposeModel(Model* model) {
+	// traces handle simulation events to output them
 	model->addTraceListener(&traceHandler);
 	model->addTraceReportListener(&traceHandler);
 	model->addTraceSimulationListener(&traceHandler);
 	model->addTraceSimulationListener(&traceSimulationHandler);
-	// create and insert model components
+	// create and insert model components to the model
 	ModelComponent* create1 = new Create(model);
 	ModelComponent* delay1 = new Delay(model);
 	ModelComponent* dispose1 = new Dispose(model);
@@ -44,7 +45,8 @@ void buildSimpleCreateDelayDisposeModel(Model* model) {
 	components->insert(create1);
 	components->insert(delay1);
 	components->insert(dispose1);
-	// connect model components
+	// connect model components to create a "workflow"
+	// should always start from a SourceModelComponent and end at a SinkModelComponent (it will be checked)
 	create1->getNextComponents()->insert(delay1);
 	delay1->getNextComponents()->insert(dispose1);	
 }
@@ -61,6 +63,7 @@ void buildSimulationSystem() {
 	buildModel(model);
 	simulator->getModels()->insert(model);
 	model->startSimulation();
+	model->showReports();
 }
 
 /*
