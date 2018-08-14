@@ -17,6 +17,7 @@
       <itemPath>List.h</itemPath>
       <itemPath>Listener.h</itemPath>
       <itemPath>MMC.h</itemPath>
+      <itemPath>MMC_if.h</itemPath>
       <itemPath>Model.h</itemPath>
       <itemPath>ModelComponent.h</itemPath>
       <itemPath>ModelInfrastructure.h</itemPath>
@@ -45,7 +46,6 @@
       <itemPath>Integrator.cpp</itemPath>
       <itemPath>List.cpp</itemPath>
       <itemPath>Listener.cpp</itemPath>
-      <itemPath>MMC.cpp</itemPath>
       <itemPath>Model.cpp</itemPath>
       <itemPath>ModelComponent.cpp</itemPath>
       <itemPath>ModelInfrastructure.cpp</itemPath>
@@ -137,9 +137,9 @@
       </item>
       <item path="Listener.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="MMC.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="MMC.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="MMC_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Model.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -260,9 +260,9 @@
       </item>
       <item path="Listener.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="MMC.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="MMC.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="MMC_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Model.cpp" ex="false" tool="1" flavor2="0">
       </item>

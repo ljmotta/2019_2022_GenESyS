@@ -6,6 +6,19 @@
     </data>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group name="Classes"/>
+        <group name="Classes">
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Integrator.cpp</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Sampler.cpp</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Analyser.cpp</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Statistics.h</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Fitter.cpp</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Analyser.h</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Collector.cpp</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Collector.h</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Fitter.h</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Sampler.h</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Statistics.cpp</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Integrator.h</file>
+        </group>
     </open-files>
 </project-private>

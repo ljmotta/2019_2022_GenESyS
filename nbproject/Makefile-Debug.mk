@@ -47,7 +47,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/Integrator.o \
 	${OBJECTDIR}/List.o \
 	${OBJECTDIR}/Listener.o \
-	${OBJECTDIR}/MMC.o \
 	${OBJECTDIR}/Model.o \
 	${OBJECTDIR}/ModelComponent.o \
 	${OBJECTDIR}/ModelInfrastructure.o \
@@ -146,11 +145,6 @@ ${OBJECTDIR}/Listener.o: Listener.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Listener.o Listener.cpp
-
-${OBJECTDIR}/MMC.o: MMC.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/MMC.o MMC.cpp
 
 ${OBJECTDIR}/Model.o: Model.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
