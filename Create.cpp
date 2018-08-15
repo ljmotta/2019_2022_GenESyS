@@ -43,7 +43,7 @@ void Create::_execute(Entity* entity) {
 		Entity* newEntity = new Entity();
 		_model->getEntities()->insert(newEntity);
 		timeBetweenCreations = _model->parseExpression(this->_timeBetweenCreationsExpression);
-		timeScale = Util::_S_timeUnitConvert(this->_timeBetweenCreationsTimeUnit, _model->getReplicationLenghtTimeUnit());
+		timeScale = Util::_S_timeUnitConvert(this->_timeBetweenCreationsTimeUnit, _model->getReplicationLengthTimeUnit());
 		newArrivalTime = tnow + timeBetweenCreations*timeScale;
 		Event* newEvent = new Event(newArrivalTime, newEntity, this);
 		_model->getEvents()->insert(newEvent);

@@ -72,8 +72,8 @@ double Model::parseExpression(const std::string expression) {
 bool Model::_finishReplicationCondition() {
 	/* TODO +-: Should consider TimUnits */
 	return this->_events->size() == 0
-			|| _simulationTime > _replicationLength
-			|| this->_parseExpression(this->_terminatingCondition);
+			|| _simulatedTime > _replicationLength
+			|| this->parseExpression(this->_terminatingCondition);
 }
 
 void Model::startSimulation() {

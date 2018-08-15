@@ -45,7 +45,7 @@ Util::TimeUnit Delay::getDelayTimeUnit() const {
 }
 
 void Delay::_execute(Entity* entity) {
-	double delayEndTime = _model->getSimulationTime() + _model->parseExpression(_delayExpression) * Util::_S_timeUnitConvert(_delayTimeUnit, _model->getReplicationLenghtTimeUnit());
+	double delayEndTime = _model->getSimulationTime() + _model->parseExpression(_delayExpression) * Util::_S_timeUnitConvert(_delayTimeUnit, _model->getReplicationLengthTimeUnit());
 	Event* newEvent = new Event(delayEndTime, entity, this->getNextComponents()->first());
 	_model->getEvents()->insert(newEvent);
 }
