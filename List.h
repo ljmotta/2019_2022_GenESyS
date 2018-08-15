@@ -18,6 +18,7 @@
 #include <list>
 #include <map>
 #include <iterator>
+#include <functional>
 #include "Util.h"
 
 class Simulator;
@@ -25,6 +26,7 @@ class Simulator;
 template <typename T>
 class List {
 public:
+	typedef bool (*CompFunct)(const T, const T);
 public:
 	List();
 	List(const List& orig);
@@ -50,9 +52,11 @@ public:	// improved (easier) methods
 	T first();
 	T last();
 	T previous();
+    void setSortFunc(CompFunct _sortFunc);
 private:
 	//std::map<Util::identitifcation, T>* _map;
 	std::list<T>* _list;
+	CompFunct _sortFunc;
 	typename std::list<T>::iterator _it;
 };
 
@@ -95,7 +99,9 @@ std::string List<T>::show() {
 template <typename T>
 void List<T>::insert(T element) {
 	_it = _list->insert(_list->end(), element);
-	_list->sort(); /* TODO -: insert at end and then sort is not a good idea. Use set for this? */
+	//T first = *(_list->begin());
+	//bool res = this->_sortFunc(first, element);
+	//_list->sort(this->_sortFunc); /* TODO -: insert at end and then sort is not a good idea. Use set for this? */
 }
 
 template <typename T>
@@ -161,6 +167,11 @@ template <typename T>
 T List<T>::previous() {
 	_it--;
 	return (*_it);
+}
+
+template <typename T>
+void List<T>::setSortFunc(CompFunct _sortFunc) {
+	this->_sortFunc = _sortFunc;
 }
 
 template <typename T>

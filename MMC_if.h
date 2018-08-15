@@ -26,7 +26,7 @@ public: // probability distributions
 	virtual double erlang(double mean, int M) = 0;
 	virtual double normal(double mean, double stddev) = 0;
 	virtual double gamma(double mean, double alpha) = 0;
-	virtual double beta(double alpha, double beta) = 0;
+	virtual double beta(double alpha, double beta, double infLimit, double supLimit) = 0;
 	virtual double weibull(double alpha, double scale) = 0;
 	virtual double logNormal(double mean, double stddev) = 0;
 	virtual double triangular(double min, double mode, double max) = 0;

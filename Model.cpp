@@ -18,6 +18,10 @@
 #include <iostream>
 #include <algorithm>
 
+bool EventCompare(const Event* a, const Event * b) {
+	return a->getTime() < b->getTime();
+}
+
 Model::Model(Simulator* simulator) {
 	_simulator = simulator;
 	_name = "Model " + std::to_string(Util::_S_generateNewIdOfType("Model")); // (reinterpret_cast<unsigned long> (this));
@@ -35,9 +39,10 @@ Model::Model(Simulator* simulator) {
 		return a->getId() < b->getId();
 	});
 	_events = new List<Event*>();
-	_events->sort([](const Event* a, const Event * b) {
-		return a->getTime() < b->getTime();
-	});
+	_events->setSortFunc(&EventCompare);
+	//_events->sort([](const Event* a, const Event * b) {
+	//	return a->getTime() < b->getTime();
+	//});
 }
 
 Model::Model(const Model& orig) {

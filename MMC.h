@@ -42,8 +42,8 @@ public: // probability distributions
 	double gamma(double mean, double alpha){
 		return _mmc_impl->gamma(mean, alpha);
 	};
-	double beta(double alpha, double beta){
-		return _mmc_impl->beta(alpha, beta);
+	double beta(double alpha, double beta, double infLimit, double supLimit){
+		return _mmc_impl->beta(alpha, beta, infLimit, supLimit);
 	};
 	double weibull(double alpha, double scale){
 		return _mmc_impl->weibull(alpha, scale);
