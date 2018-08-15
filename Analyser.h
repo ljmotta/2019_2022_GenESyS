@@ -29,7 +29,7 @@ public:
 	~Analyser();
 public:
 	double semiConfidenceInterval(double confidencelevel);
-	unsigned int newSampleLenght(double confidencelevel);
+	unsigned int newSampleLength(double confidencelevel);
 	bool isNormalDistribution(double confidencelevel);
 	bool testAverageDifference(double confidencelevel, double avg, Comparition comp, bool nullhipothesys);
 	bool testProportionDifference(double confidencelevel, double prop, Comparition comp, bool nullhipothesys);
