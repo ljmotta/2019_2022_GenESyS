@@ -14,6 +14,8 @@
 #ifndef CREATE_H
 #define CREATE_H
 
+#include <string>
+#include <limits>
 #include "SourceModelComponent.h"
 
 class Create: public SourceModelComponent {
@@ -22,7 +24,7 @@ public:
 	Create(const Create& orig);
 	virtual ~Create();
 public:
-private:
+	virtual std::string show();
 protected:
 	virtual void _execute(Entity* entity);
 };

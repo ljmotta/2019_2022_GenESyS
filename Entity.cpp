@@ -14,12 +14,22 @@
 #include "Entity.h"
 
 Entity::Entity() {
+	// 1:n
 	_attributeValues = new std::map<std::string, AttributeValue*>();
+	// create default attributes
+	_attributeValues->insert(std::pair<std::string, AttributeValue*>("Entity.ArrivalTime", new AttributeValue()));
+	_attributeValues->insert(std::pair<std::string, AttributeValue*>("Entity.EntityType", new AttributeValue()));
+	_attributeValues->insert(std::pair<std::string, AttributeValue*>("Entity.EntityPicture", new AttributeValue()));
+	// ...
 }
 
 Entity::Entity(const Entity& orig) {
 }
 
 Entity::~Entity() {
+}
+
+std::map<std::string, AttributeValue*>* Entity::getAttributeValues() const {
+	return _attributeValues;
 }
 

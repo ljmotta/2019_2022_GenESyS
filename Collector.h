@@ -42,6 +42,15 @@ public:
 	void setFilename(std::string filename) {
 		_collector_impl->setFilename(filename);
 	};
+	
+	std::string getName() {
+		return _collector_impl->getName();
+	};
+	
+	void setName(std::string name) {
+		_collector_impl->setName(name) ;
+	};
+
 private:
 	Collector_if* _collector_impl;
 };

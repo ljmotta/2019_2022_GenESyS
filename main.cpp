@@ -18,7 +18,6 @@
 #include "Delay.h"
 #include "Listener.h"
 #include "Dispose.h"
-#include "List.cpp"  // tell the compiler where is the implementation of the template class and avoid link error 
 
 
 using namespace std;
@@ -35,12 +34,15 @@ void buildSimpleCreateDelayDisposeModel(Model* model) {
 	// traces handle simulation events to output them
 	model->addTraceListener(&traceHandler);
 	model->addTraceReportListener(&traceHandler);
-	model->addTraceSimulationListener(&traceHandler);
 	model->addTraceSimulationListener(&traceSimulationHandler);
 	// create and insert model components to the model
-	ModelComponent* create1 = new Create(model);
-	ModelComponent* delay1 = new Delay(model);
-	ModelComponent* dispose1 = new Dispose(model);
+	
+	Create* create1 = new Create(model);
+	create1->setTimeBetweenCreationsExpression("1.5");
+	create1->setTimeUnit(Util::TimeUnit::TU_minute);
+	Delay* delay1 = new Delay(model);
+	delay1->setDelayExpression("30");
+	Dispose* dispose1 = new Dispose(model);
 	List<ModelComponent*>* components = model->getComponents();
 	components->insert(create1);
 	components->insert(delay1);

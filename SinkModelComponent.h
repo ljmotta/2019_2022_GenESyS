@@ -23,7 +23,7 @@ public:
 	virtual ~SinkModelComponent();
 public:
 	void setCollectStatistics(bool _collectStatistics);
-	bool IsCollectStatistics() const;
+	bool isCollectStatistics() const;
 public:
 
 private:

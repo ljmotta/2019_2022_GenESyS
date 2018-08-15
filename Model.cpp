@@ -13,7 +13,6 @@
 
 #include <typeinfo>
 #include "Model.h"
-#include "List.cpp"
 #include "SourceModelComponent.h"
 #include "Simulator.h" // avoid link error
 #include <iostream>
@@ -21,10 +20,20 @@
 
 Model::Model(Simulator* simulator) {
 	_simulator = simulator;
-	_name = "Model " + std::to_string(reinterpret_cast<unsigned long> (this));
+	_name = "Model " + std::to_string(Util::_S_generateNewIdOfType("Model")); // (reinterpret_cast<unsigned long> (this));
 	// 1:n attributes
 	_components = new List<ModelComponent*>();
+	_components->sort([](const ModelComponent* a, const ModelComponent * b) {
+		return a->getId() < b->getId();
+	});
 	_infrastructures = new List<ModelInfrastructure*>();
+	_infrastructures->sort([](const ModelInfrastructure* a, const ModelInfrastructure * b) {
+		return a->getId() < b->getId();
+	});
+	_entities = new List<Entity*>();
+	_entities->sort([](const Entity* a, const Entity * b) {
+		return a->getId() < b->getId();
+	});
 	_events = new List<Event*>();
 	_events->sort([](const Event* a, const Event * b) {
 		return a->getTime() < b->getTime();
@@ -34,7 +43,22 @@ Model::Model(Simulator* simulator) {
 Model::Model(const Model& orig) {
 }
 
-double Model::_parseExpression(std::string expression) {
+void Model::sendEntityToComponent(Entity* entity, ModelComponent* component, double timeDelay) {
+	//_currentEntity = entity;
+	//_currentComponent = component;
+	/* TODO event onEntityMove */
+	if (timeDelay > 0) {
+		// schedule to send it
+		Event* newEvent = new Event(_simulatedTime + timeDelay, entity, component);
+		this->getEvents()->insert(newEvent);
+	} else {
+		// send it now
+		/* TODO -: supposed not to be a queue associated to a component */
+		component->execute(entity, component);
+	}
+}
+
+double Model::parseExpression(const std::string expression) {
 	/* TODO +++: not implemented. A whole parser is necessary */
 	double value = std::atof(expression.c_str());
 	return value;
@@ -43,8 +67,8 @@ double Model::_parseExpression(std::string expression) {
 bool Model::_finishReplicationCondition() {
 	/* TODO +-: Should consider TimUnits */
 	return this->_events->size() == 0
-			|| _simulationTime > _replicationLenght
-			|| this->_parseExpression(this->_terminatingCondition);
+			|| _simulatedTime > _replicationLenght
+			|| this->parseExpression(this->_terminatingCondition);
 
 }
 
@@ -75,7 +99,7 @@ void Model::startSimulation() {
 		//		} else if (_parser->parse(_actualModel->getTerminatingCondition())) {
 		//			causeTerminated = "termination condition was achieved";
 		//		} else causeTerminated = "unknown";
-		std::cout << "Replication " << replicationNum << " of " << _numberOfReplications << " has finished at time " << _simulationTime << " because " << causeTerminated << ".\n";
+		std::cout << "Replication " << replicationNum << " of " << _numberOfReplications << " has finished at time " << _simulatedTime << " because " << causeTerminated << ".\n";
 		_showReplicationStatistics();
 	}
 	std::cout << "Simulation has finished.\n";
@@ -88,7 +112,7 @@ void Model::showReports() {
 }
 
 void Model::_initSimulation() {
-	trace(Util::TL_simulation, "Simulation of model\"" + _name + "\" is starting.\n");
+	trace(Util::TL_simulation, "\nSimulation of model \"" + _name + "\" is starting.\n");
 	/*TODO +-: not implemented*/
 }
 
@@ -96,14 +120,13 @@ void Model::_initReplication(unsigned int currentReplicationNumber) {
 	traceReport(Util::TL_simulation, "-----------------------------------------------------");
 	traceReport(Util::TL_simulation, _simulator->getName());
 	traceReport(Util::TL_simulation, _simulator->getLicense());
-	traceReport(Util::TL_simulation, "");
 	traceReport(Util::TL_simulation, "Projet Title: " + this->_projectTitle);
 	traceReport(Util::TL_simulation, "Analysit Name: " + this->_analystName);
 	traceReport(Util::TL_simulation, "");
 	traceReport(Util::TL_simulation, "Replication " + std::to_string(currentReplicationNumber) + " of " + std::to_string(_numberOfReplications) + " is starting.\n");
 
 	_events->clear();
-	_simulationTime = 0.0;
+	_simulatedTime = 0.0;
 	_pauseRequested = false;
 
 	// insert first creation events
@@ -121,7 +144,6 @@ void Model::_initReplication(unsigned int currentReplicationNumber) {
 			newEntity = new Entity();
 			newEvent = new Event(creationTime, newEntity, (*it));
 			_events->insert(newEvent);
-			this->trace(Util::TraceLevel::TL_mostDetailed, "Future events list: " + _events->show());
 		}
 	}
 
@@ -133,21 +155,22 @@ void Model::_initReplication(unsigned int currentReplicationNumber) {
 
 void Model::_stepSimulation() {
 	// process one single event
-	Event* nextEvent;
+	trace(Util::TraceLevel::TL_mostDetailed, "\ntime="+std::to_string(this->_simulatedTime)+ ", events=" + _events->show());
+	Event* nextEvent;	
 	nextEvent = _events->first();
 	_events->pop_front();
 	if (nextEvent->getTime() <= this->_replicationLenght) { /* TODO +-: should consider time Units */
 		_processEvent(nextEvent);
 	} else {
-		this->_simulationTime = nextEvent->getTime();
+		this->_simulatedTime = nextEvent->getTime();
 	}
 }
 
 void Model::_processEvent(Event* event) {
-	this->trace(Util::TraceLevel::TL_simulation, "Processing event " + event->show());
-	_entities->setCurrent(event->getEntity());
-	_components->setCurrent(event->getComponent());
-	_simulationTime = event->getTime();
+	this->trace(Util::TraceLevel::TL_simulation, "Processing event=" + event->show());
+	this->_currentEntity = event->getEntity();
+	this->_currentComponent = event->getComponent();
+	_simulatedTime = event->getTime();
 	try {
 		event->getComponent()->execute(event->getEntity(), event->getComponent()); // Execute is static
 	} catch (std::exception *e) {
@@ -172,6 +195,13 @@ bool Model::check() {
 	return passed;
 }
 
+void Model::removeEntity(Entity* entity, bool collectStatistics) {
+	/* TODO: Collect statistics */
+	// destroy 
+	_entities->remove(entity);
+	entity->~Entity();
+}
+
 bool Model::_checkAndAddInternalLiterals() {
 	/* TODO +-: not implemented yet */
 	return true;
@@ -189,6 +219,10 @@ bool Model::_checkSymbols() {
 
 bool Model::_checkPathway() {
 	/* TODO +-: not implemented yet */
+	std::list<ModelComponent*>* list = this->getComponents()->getList();
+	for (std::list<ModelComponent*>::iterator it=list->begin(); it != list->end(); it++) {
+		this->trace(Util::TraceLevel::TL_mostDetailed, (*it)->show());	////
+	}
 	return true;
 }
 
@@ -352,19 +386,24 @@ Util::TraceLevel Model::getTraceLevel() const {
 	return _traceLevel;
 }
 
-void Model::traceSimulation(Util::TraceLevel tracelevel, std::string text) {
+/*
+ void Model::traceSimulation(Util::TraceLevel tracelevel, std::string text) {
 	if (this->_traceLevel >= tracelevel) {
-
+		TraceSimulationEvent e = TraceEvent(tracelevel, text);
+		for (std::list<traceSimulationListener>::iterator it = this->_traceSimulationListeners->begin(); it != _traceSimulationListeners->end(); it++) {
+			(*it)(e);
+		}
 	}
 }
+*/
 
 void Model::addTraceListener(traceListener traceListener) {
 	this->_traceListeners->insert(_traceListeners->end(), traceListener);
 }
 
-void Model::addTraceSimulationListener(traceListener traceListener) {
-	this->_traceSimulationListeners->insert(_traceSimulationListeners->end(), traceListener);
-}
+//void Model::addTraceSimulationListener(traceListener traceListener) {
+//	this->_traceSimulationListeners->insert(_traceSimulationListeners->end(), traceListener);
+//}
 
 void Model::addTraceSimulationListener(traceSimulationListener traceSimulationListener) {
 	this->_traceSimulationListeners->insert(_traceSimulationListeners->end(), traceSimulationListener);
@@ -414,6 +453,14 @@ void Model::traceReport(Util::TraceLevel tracelevel, std::string text) {
 	}
 }
 
+List<Event*>* Model::getEvents() const {
+	return _events;
+}
+
+List<Entity*>* Model::getEntities() const {
+	return _entities;
+}
+
 void Model::setStepByStep(bool _stepByStep) {
 	this->_stepByStep = _stepByStep;
 }
@@ -431,7 +478,7 @@ bool Model::isPauseOnReplication() const {
 }
 
 double Model::getSimulationTime() const {
-	return _simulationTime;
+	return _simulatedTime;
 }
 
 bool Model::isRunning() const {

@@ -38,8 +38,8 @@ public: // ...static...
 	void execute(Entity* entity, ModelComponent* component);
 protected:
 	virtual void _execute(Entity* entity) = 0;
-	virtual void _read(std::string text) = 0
-private:
+	//virtual void _read(std::string text) = 0;
+protected:
 	Model* _model;
 };
 

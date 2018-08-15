@@ -12,8 +12,10 @@
  */
 
 #include "Dispose.h"
+#include "Model.h"
 
 Dispose::Dispose(Model* model):SinkModelComponent(model) {
+	_name = "Dispose "+Util::_S_generateNewIdOfType("Dispose");
 }
 
 Dispose::Dispose(const Dispose& orig):SinkModelComponent(orig) {
@@ -23,5 +25,5 @@ Dispose::~Dispose() {
 }
 
 void Dispose::_execute(Entity* entity) {
-	
+	_model->removeEntity(entity, this->isCollectStatistics());
 }

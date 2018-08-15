@@ -26,7 +26,7 @@ void SinkModelComponent::setCollectStatistics(bool _collectStatistics) {
 	this->_collectStatistics = _collectStatistics;
 }
 
-bool SinkModelComponent::IsCollectStatistics() const {
+bool SinkModelComponent::isCollectStatistics() const {
 	return _collectStatistics;
 }
 

@@ -7,11 +7,13 @@
       <itemPath>Analyser.h</itemPath>
       <itemPath>AttributeValue.h</itemPath>
       <itemPath>Collector.h</itemPath>
+      <itemPath>CollectorImpl1.h</itemPath>
       <itemPath>Collector_if.h</itemPath>
       <itemPath>Create.h</itemPath>
       <itemPath>Delay.h</itemPath>
       <itemPath>Dispose.h</itemPath>
       <itemPath>Entity.h</itemPath>
+      <itemPath>EntityType.h</itemPath>
       <itemPath>Event.h</itemPath>
       <itemPath>Fitter.h</itemPath>
       <itemPath>Fitter_if.h</itemPath>
@@ -33,6 +35,7 @@
       <itemPath>SourceModelComponent.h</itemPath>
       <itemPath>Statistics.h</itemPath>
       <itemPath>Statistics_if.h</itemPath>
+      <itemPath>Traits.h</itemPath>
       <itemPath>Util.h</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
@@ -40,12 +43,13 @@
                    projectFiles="true">
       <itemPath>Analyser.cpp</itemPath>
       <itemPath>AttributeValue.cpp</itemPath>
+      <itemPath>CollectorImpl1.cpp</itemPath>
       <itemPath>Create.cpp</itemPath>
       <itemPath>Delay.cpp</itemPath>
       <itemPath>Dispose.cpp</itemPath>
       <itemPath>Entity.cpp</itemPath>
+      <itemPath>EntityType.cpp</itemPath>
       <itemPath>Event.cpp</itemPath>
-      <itemPath>List.cpp</itemPath>
       <itemPath>Listener.cpp</itemPath>
       <itemPath>Model.cpp</itemPath>
       <itemPath>ModelComponent.cpp</itemPath>
@@ -99,6 +103,10 @@
       </item>
       <item path="Collector.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="CollectorImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="CollectorImpl1.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Collector_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Create.cpp" ex="false" tool="1" flavor2="0">
@@ -117,6 +125,10 @@
       </item>
       <item path="Entity.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="EntityType.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="EntityType.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Event.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Event.h" ex="false" tool="3" flavor2="0">
@@ -128,8 +140,6 @@
       <item path="Integrator.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Integrator_if.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="List.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="List.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -184,6 +194,8 @@
       <item path="Statistics.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Statistics_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Traits.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Util.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -222,6 +234,10 @@
       </item>
       <item path="Collector.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="CollectorImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="CollectorImpl1.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Collector_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Create.cpp" ex="false" tool="1" flavor2="0">
@@ -240,6 +256,10 @@
       </item>
       <item path="Entity.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="EntityType.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="EntityType.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Event.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Event.h" ex="false" tool="3" flavor2="0">
@@ -251,8 +271,6 @@
       <item path="Integrator.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Integrator_if.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="List.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="List.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -307,6 +325,8 @@
       <item path="Statistics.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Statistics_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Traits.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Util.cpp" ex="false" tool="1" flavor2="0">
       </item>

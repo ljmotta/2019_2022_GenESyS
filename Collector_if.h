@@ -22,6 +22,9 @@ public:
 	virtual void addValue(double value) = 0;
 	virtual double value(unsigned int num) = 0;
 	virtual unsigned int numElements() = 0;
+public:
+	virtual std::string getName() = 0;
+	virtual void setName(std::string name) = 0;
 	virtual std::string getFilename() = 0;
 	virtual void setFilename(std::string filename) = 0;
 };

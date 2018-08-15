@@ -12,7 +12,6 @@
  */
 
 #include "Simulator.h"
-#include "List.cpp"  // tell the compiler where is the implementation of the template class and avoid link error 
 
 Simulator::Simulator() {
 	// instanciate 1:n attributes 

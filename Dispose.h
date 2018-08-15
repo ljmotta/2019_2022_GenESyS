@@ -24,7 +24,6 @@ public:
 protected:
 	virtual void _execute(Entity* entity);
 private:
-
 };
 
 #endif /* DISPOSE_H */

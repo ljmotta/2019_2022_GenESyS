@@ -25,6 +25,8 @@ public:
 	Entity();
 	Entity(const Entity& orig);
 	virtual ~Entity();
+public:
+    std::map<std::string, AttributeValue*>* getAttributeValues() const;
 private:
 	std::map<std::string, AttributeValue*>* _attributeValues;
 };

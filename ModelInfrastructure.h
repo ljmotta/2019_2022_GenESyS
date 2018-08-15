@@ -28,7 +28,7 @@ public: // get & set
     Util::identitifcation getId() const;
     void setName(std::string _name);
     std::string getName() const;
-private:
+protected:
 	Util::identitifcation _id;
 	std::string _name;
 };
