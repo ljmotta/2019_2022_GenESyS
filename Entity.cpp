@@ -14,6 +14,7 @@
 #include "Entity.h"
 
 Entity::Entity() {
+	_name = "Entity " + Util::_S_generateNewIdOfType("Entity");
 	// 1:n
 	_attributeValues = new std::map<std::string, AttributeValue*>();
 	// create default attributes

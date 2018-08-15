@@ -31,7 +31,9 @@ Util::identitifcation Util::_S_generateNewIdOfType(std::string objtype) {
 		Util::_S_lastIdOfType.insert(std::pair<std::string,Util::identitifcation>(objtype, 0));
 		it =  Util::_S_lastIdOfType.find(objtype);
 	}
-	(*it).second = (*it).second + 1;
+	Util::identitifcation next = (*it).second;
+	next++;
+	(*it).second = next;
 	return (*it).second; 
 }
 

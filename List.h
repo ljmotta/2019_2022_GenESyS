@@ -95,6 +95,7 @@ std::string List<T>::show() {
 template <typename T>
 void List<T>::insert(T element) {
 	_it = _list->insert(_list->end(), element);
+	_list->sort(); /* TODO -: insert at end and then sort is not a good idea. Use set for this? */
 }
 
 template <typename T>

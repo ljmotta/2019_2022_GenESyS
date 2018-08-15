@@ -155,7 +155,7 @@ void Model::_initReplication(unsigned int currentReplicationNumber) {
 
 void Model::_stepSimulation() {
 	// process one single event
-	trace(Util::TraceLevel::TL_mostDetailed, "\ntime="+std::to_string(this->_simulatedTime)+ ", events=" + _events->show());
+	trace(Util::TraceLevel::TL_mostDetailed, "\ntime="+std::to_string(this->_simulatedTime)+ ", events=" + _events->show()+", entities="+ _entities->show());
 	Event* nextEvent;	
 	nextEvent = _events->first();
 	_events->pop_front();
