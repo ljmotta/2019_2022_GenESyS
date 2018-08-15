@@ -43,10 +43,10 @@ public: // gets and sets
 	std::string getVersion() const;
 	void setNumberOfReplications(unsigned int _numberOfReplications);
 	unsigned int getNumberOfReplications() const;
-	void setReplicationLenght(double _replicationLenght);
-	double getReplicationLenght() const;
-	void setReplicationLenghtTimeUnit(Util::TimeUnit _replicationLenghtTimeUnit);
-	Util::TimeUnit getReplicationLenghtTimeUnit() const;
+	void setReplicationLength(double _replicationLength);
+	double getReplicationLength() const;
+	void setReplicationLengthTimeUnit(Util::TimeUnit _replicationLengthTimeUnit);
+	Util::TimeUnit getReplicationLengthTimeUnit() const;
 	void setWarmUpPeriod(double _warmUpPeriod);
 	double getWarmUpPeriod() const;
 	void setWarmUpPeriodTimeUnit(Util::TimeUnit _warmUpPeriodTimeUnit);
@@ -126,8 +126,8 @@ private: // with public access (get & set)
 
 	// replication and warmup duration
 	unsigned int _numberOfReplications = 1;
-	double _replicationLenght = 3600.0; // by default, 3600 s
-	Util::TimeUnit _replicationLenghtTimeUnit = Util::TimeUnit::TU_second;
+	double _replicationLength = 3600.0; // by default, 3600 s
+	Util::TimeUnit _replicationLengthTimeUnit = Util::TimeUnit::TU_second;
 	double _warmUpPeriod = 0.0;
 	Util::TimeUnit _warmUpPeriodTimeUnit = Util::TimeUnit::TU_second;
 	std::string _terminatingCondition = "";
