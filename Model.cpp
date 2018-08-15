@@ -46,7 +46,7 @@ Model::Model(const Model& orig) {
 void Model::sendEntityToComponent(Entity* entity, ModelComponent* component, double timeDelay) {
 	//_currentEntity = entity;
 	//_currentComponent = component;
-	/* TODO event onEntityMove */
+	/* TODO -: event onEntityMove */
 	if (timeDelay > 0) {
 		// schedule to send it
 		Event* newEvent = new Event(_simulatedTime + timeDelay, entity, component);
@@ -78,8 +78,12 @@ void Model::startSimulation() {
 		return;
 	}
 	_initSimulation();
+	/* TODO -: event onBeginSimulation */
+
 	for (unsigned int replicationNum = 1; replicationNum <= _numberOfReplications; replicationNum++) {
 		_initReplication(replicationNum);
+		/* TODO -: event onBeginReplication */
+
 		while (!_finishReplicationCondition()) {
 			_stepSimulation();
 			if (_pauseOnEvent) {
@@ -88,6 +92,8 @@ void Model::startSimulation() {
 				std::cout << std::endl;
 			}
 		}
+
+		/* TODO -: event onEndReplication */
 
 		std::string causeTerminated;
 		//		if (_events->empty()) {
@@ -103,6 +109,8 @@ void Model::startSimulation() {
 		_showReplicationStatistics();
 	}
 	std::cout << "Simulation has finished.\n";
+	/* TODO -: event onEndSimulation */
+
 	_showSimulationStatistics();
 
 }
@@ -155,8 +163,10 @@ void Model::_initReplication(unsigned int currentReplicationNumber) {
 
 void Model::_stepSimulation() {
 	// process one single event
-	trace(Util::TraceLevel::TL_mostDetailed, "\ntime="+std::to_string(this->_simulatedTime)+ ", events=" + _events->show()+", entities="+ _entities->show());
-	Event* nextEvent;	
+	trace(Util::TraceLevel::TL_mostDetailed, "\ntime=" + std::to_string(this->_simulatedTime) + ", events=" + _events->show() + ", entities=" + _entities->show());
+	/* TODO -: event onSimulationStep */
+
+	Event* nextEvent;
 	nextEvent = _events->first();
 	_events->pop_front();
 	if (nextEvent->getTime() <= this->_replicationLenght) { /* TODO +-: should consider time Units */
@@ -197,6 +207,7 @@ bool Model::check() {
 
 void Model::removeEntity(Entity* entity, bool collectStatistics) {
 	/* TODO: Collect statistics */
+	/* TODO -: event onEntityRemove */
 	// destroy 
 	_entities->remove(entity);
 	entity->~Entity();
@@ -220,8 +231,8 @@ bool Model::_checkSymbols() {
 bool Model::_checkPathway() {
 	/* TODO +-: not implemented yet */
 	std::list<ModelComponent*>* list = this->getComponents()->getList();
-	for (std::list<ModelComponent*>::iterator it=list->begin(); it != list->end(); it++) {
-		this->trace(Util::TraceLevel::TL_mostDetailed, (*it)->show());	////
+	for (std::list<ModelComponent*>::iterator it = list->begin(); it != list->end(); it++) {
+		this->trace(Util::TraceLevel::TL_mostDetailed, (*it)->show()); ////
 	}
 	return true;
 }
@@ -235,24 +246,16 @@ void Model::pauseSimulation() {
 }
 
 void Model::stepSimulation() {
-	if (!_simulationIsInitiated) {
-		if (!this->check()) {
-			trace(Util::TraceLevel::TL_errors, "Model check failed");
-			return;
-		}
-		this->_initSimulation();
-	}
-	if (!_replicationIsInitiaded) {
-		this->_initReplication(1); /* TODO +: Ops! if user only press step button, model should have to know wich is the current replication. A "for" loop on the startsimulation is not a good idea. It should be an attribute incremented every time a replications ends */
-	}
-	if (!_finishReplicationCondition()) {
-		try {
-			this->_stepSimulation();
-		} catch (std::exception *e) {
-			_excepcionHandled = e;
-			this->traceError((*e), "Error on simulation step");
-		}
+	if (_simulationIsInitiated && _replicationIsInitiaded) {
+		if (!_finishReplicationCondition()) {
+			try {
+				this->_stepSimulation();
+			} catch (std::exception *e) {
+				_excepcionHandled = e;
+				this->traceError((*e), "Error on simulation step");
+			}
 
+		}
 	}
 
 }
@@ -395,7 +398,7 @@ Util::TraceLevel Model::getTraceLevel() const {
 		}
 	}
 }
-*/
+ */
 
 void Model::addTraceListener(traceListener traceListener) {
 	this->_traceListeners->insert(_traceListeners->end(), traceListener);
