@@ -14,6 +14,10 @@
 #ifndef UTIL_H
 #define UTIL_H
 
+#include <map>
+#include <typeinfo>
+#include <string>
+
 class Util {
 public:
 	typedef unsigned long identitifcation;
@@ -21,12 +25,14 @@ public:
 
 	enum TimeUnit {
 		TU_picosecond = 1,
-		TU_microsecond = 2,
-		TU_milisecond = 3,
-		TU_second = 4,
-		TU_minute = 5,
-		TU_hour = 6,
-		TU_day = 7
+		TU_nanosecond = 2,
+		TU_microsecond = 3,
+		TU_milisecond = 4,
+		TU_second = 5,
+		TU_minute = 6,
+		TU_hour = 7,
+		TU_day = 8,
+		TU_week = 9
 	};
 
 	enum TraceLevel {
@@ -40,7 +46,10 @@ public:
 	};
 public:
 	static Util::identitifcation _S_lastId;
-	static Util::identitifcation generateNewId();
+	static std::map<std::string,Util::identitifcation> _S_lastIdOfType;
+	static Util::identitifcation _S_generateNewId();
+	static Util::identitifcation _S_generateNewIdOfType(std::string objtyp);
+	static double _S_timeUnitConvert(Util::TimeUnit timeUnit1, Util::TimeUnit timeUnit2);
 //	static Util::TraceLevel _S_tracelevel;
 //	static void setTraceLevel(Util::TraceLevel tracelevel);
 //	static void Trace(Util::TraceLevel tracelevel, std::string text);

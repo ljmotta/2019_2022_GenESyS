@@ -22,6 +22,11 @@ SourceModelComponent::SourceModelComponent(const SourceModelComponent& orig):Mod
 SourceModelComponent::~SourceModelComponent() {
 }
 
+std::string SourceModelComponent::show() {
+	std::string text = "{" + ModelComponent::show()+",entityType=\""+_entityType+"\",firstCreation="+std::to_string(_firstCreation) + "}";
+	return text;
+}
+
 void SourceModelComponent::setFirstCreation(double _firstCreation) {
 	this->_firstCreation = _firstCreation;
 }
@@ -47,11 +52,11 @@ std::string SourceModelComponent::getEntityType() const {
 }
 
 void SourceModelComponent::setTimeUnit(Util::TimeUnit _timeUnit) {
-	this->_timeUnit = _timeUnit;
+	this->_timeBetweenCreationsTimeUnit = _timeUnit;
 }
 
 Util::TimeUnit SourceModelComponent::getTimeUnit() const {
-	return _timeUnit;
+	return this->_timeBetweenCreationsTimeUnit;
 }
 
 void SourceModelComponent::setTimeBetweenCreationsExpression(std::string _timeBetweenCreations) {
@@ -68,5 +73,21 @@ void SourceModelComponent::setMaxCreations(unsigned int _maxCreations) {
 
 unsigned int SourceModelComponent::getMaxCreations() const {
 	return _maxCreations;
+}
+
+unsigned int SourceModelComponent::getEntitiesCreated() const {
+	return _entitiesCreatedSoFar;
+}
+
+void SourceModelComponent::setEntitiesCreated(unsigned int _entitiesCreated) {
+	this->_entitiesCreatedSoFar = _entitiesCreated;
+}
+
+void SourceModelComponent::setEntitiesPerCreation(unsigned int _entitiesPerCreation) {
+	this->_entitiesPerCreation = _entitiesPerCreation;
+}
+
+unsigned int SourceModelComponent::getEntitiesPerCreation() const {
+	return _entitiesPerCreation;
 }
 

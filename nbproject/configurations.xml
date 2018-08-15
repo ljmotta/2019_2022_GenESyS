@@ -7,16 +7,22 @@
       <itemPath>Analyser.h</itemPath>
       <itemPath>AttributeValue.h</itemPath>
       <itemPath>Collector.h</itemPath>
+      <itemPath>CollectorImpl1.h</itemPath>
+      <itemPath>Collector_if.h</itemPath>
       <itemPath>Create.h</itemPath>
       <itemPath>Delay.h</itemPath>
       <itemPath>Dispose.h</itemPath>
       <itemPath>Entity.h</itemPath>
+      <itemPath>EntityType.h</itemPath>
       <itemPath>Event.h</itemPath>
       <itemPath>Fitter.h</itemPath>
+      <itemPath>Fitter_if.h</itemPath>
       <itemPath>Integrator.h</itemPath>
+      <itemPath>Integrator_if.h</itemPath>
       <itemPath>List.h</itemPath>
       <itemPath>Listener.h</itemPath>
       <itemPath>MMC.h</itemPath>
+      <itemPath>MMC_if.h</itemPath>
       <itemPath>Model.h</itemPath>
       <itemPath>ModelComponent.h</itemPath>
       <itemPath>ModelInfrastructure.h</itemPath>
@@ -24,10 +30,12 @@
       <itemPath>OldObservable.h</itemPath>
       <itemPath>OldObserver.h</itemPath>
       <itemPath>Plugin.h</itemPath>
-      <itemPath>Sampler.h</itemPath>
       <itemPath>Simulator.h</itemPath>
+      <itemPath>SinkModelComponent.h</itemPath>
       <itemPath>SourceModelComponent.h</itemPath>
       <itemPath>Statistics.h</itemPath>
+      <itemPath>Statistics_if.h</itemPath>
+      <itemPath>Traits.h</itemPath>
       <itemPath>Util.h</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
@@ -35,17 +43,14 @@
                    projectFiles="true">
       <itemPath>Analyser.cpp</itemPath>
       <itemPath>AttributeValue.cpp</itemPath>
-      <itemPath>Collector.cpp</itemPath>
+      <itemPath>CollectorImpl1.cpp</itemPath>
       <itemPath>Create.cpp</itemPath>
       <itemPath>Delay.cpp</itemPath>
       <itemPath>Dispose.cpp</itemPath>
       <itemPath>Entity.cpp</itemPath>
+      <itemPath>EntityType.cpp</itemPath>
       <itemPath>Event.cpp</itemPath>
-      <itemPath>Fitter.cpp</itemPath>
-      <itemPath>Integrator.cpp</itemPath>
-      <itemPath>List.cpp</itemPath>
       <itemPath>Listener.cpp</itemPath>
-      <itemPath>MMC.cpp</itemPath>
       <itemPath>Model.cpp</itemPath>
       <itemPath>ModelComponent.cpp</itemPath>
       <itemPath>ModelInfrastructure.cpp</itemPath>
@@ -53,10 +58,9 @@
       <itemPath>OldObservable.cpp</itemPath>
       <itemPath>OldObserver.cpp</itemPath>
       <itemPath>Plugin.cpp</itemPath>
-      <itemPath>Sampler.cpp</itemPath>
       <itemPath>Simulator.cpp</itemPath>
+      <itemPath>SinkModelComponent.cpp</itemPath>
       <itemPath>SourceModelComponent.cpp</itemPath>
-      <itemPath>Statistics.cpp</itemPath>
       <itemPath>Util.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
@@ -97,9 +101,13 @@
       </item>
       <item path="AttributeValue.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Collector.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="Collector.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="CollectorImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="CollectorImpl1.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Collector_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Create.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -117,19 +125,21 @@
       </item>
       <item path="Entity.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="EntityType.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="EntityType.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Event.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Event.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Fitter.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="Fitter.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Integrator.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Fitter_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Integrator.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="List.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Integrator_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="List.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -137,9 +147,9 @@
       </item>
       <item path="Listener.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="MMC.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="MMC.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="MMC_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Model.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -169,21 +179,23 @@
       </item>
       <item path="Plugin.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Sampler.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Sampler.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="Simulator.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Simulator.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SinkModelComponent.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SinkModelComponent.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="SourceModelComponent.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="SourceModelComponent.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Statistics.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="Statistics.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Statistics_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Traits.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Util.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -220,9 +232,13 @@
       </item>
       <item path="AttributeValue.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Collector.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="Collector.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="CollectorImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="CollectorImpl1.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Collector_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Create.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -240,19 +256,21 @@
       </item>
       <item path="Entity.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="EntityType.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="EntityType.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Event.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Event.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Fitter.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="Fitter.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Integrator.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Fitter_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Integrator.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="List.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Integrator_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="List.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -260,9 +278,9 @@
       </item>
       <item path="Listener.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="MMC.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="MMC.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="MMC_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Model.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -292,21 +310,23 @@
       </item>
       <item path="Plugin.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Sampler.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Sampler.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="Simulator.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Simulator.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SinkModelComponent.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SinkModelComponent.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="SourceModelComponent.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="SourceModelComponent.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Statistics.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="Statistics.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Statistics_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Traits.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Util.cpp" ex="false" tool="1" flavor2="0">
       </item>

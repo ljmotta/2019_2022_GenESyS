@@ -22,7 +22,8 @@ public:
     void setValue(double value);
     double getValue() const;
 private:
-	double value;
+	/* TODO +-: not all atrributes are double. It shoud be 'templatezided'? */
+	double value = 0.0; 
 };
 
 #endif /* ATTRIBUTEVALUE_H */

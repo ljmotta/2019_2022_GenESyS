@@ -21,6 +21,7 @@
 #include "ModelInfrastructure.h"
 #include "Event.h"
 #include "Listener.h"
+#include "Collector_if.h"
 
 class Simulator;
 
@@ -69,27 +70,34 @@ public: // only gets
 	Util::identitifcation getId() const;
 	List<ModelComponent*>* getComponents() const;
 	List<ModelInfrastructure*>* getInfrastructures() const;
+    List<Entity*>* getEntities() const;
+    List<Event*>* getEvents() const;
 public: // simulation control
-	void check();
 	void startSimulation();
 	void pauseSimulation();
 	void stepSimulation();
 	void stopSimulation();
 	void restartSimulation();
+	void showReports();
 	void setPauseOnEvent(bool _pauseOnEvent);
 	bool isPauseOnEvent() const;
-public:
+public: // model control
+	bool check();
+	void removeEntity(Entity* entity, bool collectStatistics);
+	void sendEntityToComponent(Entity* entity, ModelComponent* component, double timeDelay);
+	double parseExpression(const std::string expression);
+public: // traces
 	void addTraceListener(traceListener traceListener);
 	void addTraceErrorListener(traceErrorListener traceErrorListener);
 	void addTraceReportListener(traceListener traceReportListener);
-	void addTraceSimulationListener(traceListener traceListener);
+	//void addTraceSimulationListener(traceListener traceListener);
 	void addTraceSimulationListener(traceSimulationListener traceSimulationListener);
 	void trace(Util::TraceLevel tracelevel, std::string text);
 	void traceError(std::exception e, std::string text);
-	void traceSimulation(Util::TraceLevel tracelevel, std::string text);
+	//void traceSimulation(Util::TraceLevel tracelevel, std::string text);
 	void traceSimulation(Util::TraceLevel tracelevel, double time, Entity* entity, ModelComponent* component, std::string text);
 	void traceReport(Util::TraceLevel tracelevel, std::string text);
-private:
+private: // simulation control
 	void _initSimulation();
 	void _initReplication(unsigned int currentReplicationNumber);
 	void _stepSimulation();
@@ -97,8 +105,12 @@ private:
 	void _showReplicationStatistics();
 	void _showSimulationStatistics();
 private:
+	bool _checkAndAddInternalLiterals();
+	bool _checkConnected();
+	bool _checkSymbols();
+	bool _checkPathway();
+	bool _checkActivationCode();
 	bool _finishReplicationCondition();
-	double _parseExpression(std::string expression);
 private:
 	std::list<traceListener>* _traceListeners = new std::list<traceListener>();
 	std::list<traceErrorListener>* _traceErrorListeners = new std::list<traceErrorListener>();
@@ -135,13 +147,16 @@ private: // with public access (get & set)
 
 private: // read only public access (gets)
 	Util::identitifcation _id;
-	double _simulationTime = 1.0;
+	double _simulatedTime = 1.0;
 	bool _running = false;
 	bool _saved = false;
+	// 1:n
+	List<ModelComponent*>* _components;
+	// infrastructures
 	List<ModelInfrastructure*>* _infrastructures;
-	List<ModelComponent*> *_components;
 	List<Entity*>* _entities;
 	List<Event*>* _events;
+	List<Collector_if*>* _collectors;
 
 private: // no public access (no gets / sets)	
 	Simulator* _simulator;
@@ -152,6 +167,9 @@ private: // no public access (no gets / sets)
 	double _lastTimeTraceSimulation = -1.0;
 	Util::identitifcation _lastEntityTraceSimulation = 0;
 	Util::identitifcation _lastModuleTraceSimulation = 0;
+	// needed?
+	Entity* _currentEntity;
+	ModelComponent* _currentComponent;
 };
 
 #endif /* SIMULATIONMODEL_H */

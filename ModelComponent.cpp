@@ -12,13 +12,13 @@
  */
 
 #include "ModelComponent.h"
-#include "List.cpp"
+#include "Model.h"
 
 void ModelComponent::execute(Entity* entity, ModelComponent* component) {
 	try {
-		component->doExecute(entity);
+		component->_execute(entity);
 	} catch (const std::exception& e) {
-
+		this->_model->traceError(e, "Error executing component "+component->show());
 	}
 }
 
@@ -38,5 +38,5 @@ ModelComponent::~ModelComponent() {
 }
 
 std::string ModelComponent::show() {
-	return _nextComponents->show();
+	return ModelInfrastructure::show();  // "{id=" + std::to_string(this->_id) + ", name=\""+this->_name + "\"}"; // , nextComponents[]=(" + _nextComponents->show() + ")}";
 }

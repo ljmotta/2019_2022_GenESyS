@@ -29,6 +29,10 @@ public:
 public: // get & set
 	List<Model*>* getModels() const;
 	List<Plugin*>* getPlugins() const;
+public: // only get
+    std::string getVersion() const;
+    std::string getLicense() const;
+    std::string getName() const;
 public: // event handlers
 private: // attributes 1:n
 	List<Plugin*>* _plugins;

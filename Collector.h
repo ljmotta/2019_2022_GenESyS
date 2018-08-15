@@ -14,18 +14,45 @@
 #ifndef COLLECTOR_H
 #define COLLECTOR_H
 
-class Collector {
+#include "Collector_if.h"
+
+class Collector : public Collector_if {
 public:
-	Collector();
+	Collector(Collector_if* collector_impl) {
+		_collector_impl = collector_impl;
+	};
 	Collector(const Collector& orig);
 	virtual ~Collector();
 public:
-	void clear();
-	void addValue(double value);
-	double value(unsigned int num);
-	unsigned int numElements();
-private:
+	void clear() {
+		_collector_impl->clear();
+	};
+	void addValue(double value){
+		_collector_impl->addValue(value);
+	};
+	double value(unsigned int num) {
+		return _collector_impl->value(num);
+	};
+	unsigned int numElements() {
+		return _collector_impl->numElements();
+	};
+	std::string getFilename() {
+		return _collector_impl->getFilename();
+	};
+	void setFilename(std::string filename) {
+		_collector_impl->setFilename(filename);
+	};
+	
+	std::string getName() {
+		return _collector_impl->getName();
+	};
+	
+	void setName(std::string name) {
+		_collector_impl->setName(name) ;
+	};
 
+private:
+	Collector_if* _collector_impl;
 };
 
 #endif /* COLLECTOR_H */
