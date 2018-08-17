@@ -19,6 +19,7 @@
 #include <map>
 #include <iterator>
 #include <functional>
+#include <algorithm>
 #include "Util.h"
 
 class Simulator;
@@ -26,7 +27,7 @@ class Simulator;
 template <typename T>
 class List {
 public:
-	typedef bool (*CompFunct)(const T, const T);
+	using CompFunct = std::function<bool(const T, const T)>;
 public:
 	List();
 	List(const List& orig);
@@ -56,7 +57,7 @@ public:	// improved (easier) methods
 private:
 	//std::map<Util::identitifcation, T>* _map;
 	std::list<T>* _list;
-	CompFunct _sortFunc;
+	CompFunct _sortFunc{[](const T, const T) {return false;}}; //! Default function: insert at the end of the list.
 	typename std::list<T>::iterator _it;
 };
 
@@ -98,10 +99,7 @@ std::string List<T>::show() {
 
 template <typename T>
 void List<T>::insert(T element) {
-	_it = _list->insert(_list->end(), element);
-	//T first = *(_list->begin());
-	//bool res = this->_sortFunc(first, element);
-	//_list->sort(this->_sortFunc); /* TODO -: insert at end and then sort is not a good idea. Use set for this? */
+	_list->insert(std::upper_bound(_list->cbegin(), _list->cend(), element, _sortFunc), element);
 }
 
 template <typename T>

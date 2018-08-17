@@ -27,22 +27,22 @@ Model::Model(Simulator* simulator) {
 	_name = "Model " + std::to_string(Util::_S_generateNewIdOfType("Model")); // (reinterpret_cast<unsigned long> (this));
 	// 1:n attributes
 	_components = new List<ModelComponent*>();
-	_components->sort([](const ModelComponent* a, const ModelComponent * b) {
+	_components->setSortFunc([](const ModelComponent* a, const ModelComponent * b) {
 		return a->getId() < b->getId();
 	});
 	_infrastructures = new List<ModelInfrastructure*>();
-	_infrastructures->sort([](const ModelInfrastructure* a, const ModelInfrastructure * b) {
+	_infrastructures->setSortFunc([](const ModelInfrastructure* a, const ModelInfrastructure * b) {
 		return a->getId() < b->getId();
 	});
 	_entities = new List<Entity*>();
-	_entities->sort([](const Entity* a, const Entity * b) {
+	_entities->setSortFunc([](const Entity* a, const Entity * b) {
 		return a->getId() < b->getId();
 	});
 	_events = new List<Event*>();
-	_events->setSortFunc(&EventCompare);
-	//_events->sort([](const Event* a, const Event * b) {
-	//	return a->getTime() < b->getTime();
-	//});
+	//_events->setSortFunc(&EventCompare); // It works too
+	_events->setSortFunc([](const Event* a, const Event * b) {
+		return a->getTime() < b->getTime();
+	});
 }
 
 Model::Model(const Model& orig) {
