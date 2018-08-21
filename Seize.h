@@ -44,6 +44,8 @@ public: // get & set
     unsigned short getPriority() const;
     void setAllocationType(unsigned int _allocationType);
     unsigned int getAllocationType() const;
+    void setQueueName(std::string _queueName);
+    std::string getQueueName() const;
 protected:
 	virtual void _execute(Entity* entity);
 private:
@@ -54,7 +56,7 @@ private:
 	std::string _quantity = "1";
 	Resource::ResourceRule _rule = Resource::ResourceRule::rrSMALLESTBUSY;
 	std::string _saveAttribute = "";
-	/* TODO: +: every seize has a queue (or a hold place) */
+	std::string _queueName; /* TODO: +: every seize has a queue (or a hold place) */
 private: // not gets or sets
 	unsigned int _lastMemberSeized = 0;
 };

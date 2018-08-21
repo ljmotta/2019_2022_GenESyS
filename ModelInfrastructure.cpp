@@ -26,7 +26,7 @@ ModelInfrastructure::~ModelInfrastructure() {
 }
 
 std::string ModelInfrastructure::show(){
-	return "{id="+std::to_string(_id)+", name=\""+_name+"\"}";
+	return "id="+std::to_string(_id)+",name=\""+_name+"\"";
 }
 	
 Util::identitifcation ModelInfrastructure::getId() const {

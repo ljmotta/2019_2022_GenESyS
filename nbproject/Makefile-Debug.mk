@@ -52,6 +52,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/OldObservable.o \
 	${OBJECTDIR}/OldObserver.o \
 	${OBJECTDIR}/Plugin.o \
+	${OBJECTDIR}/Queue.o \
 	${OBJECTDIR}/Release.o \
 	${OBJECTDIR}/Resource.o \
 	${OBJECTDIR}/Seize.o \
@@ -170,6 +171,11 @@ ${OBJECTDIR}/Plugin.o: Plugin.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Plugin.o Plugin.cpp
+
+${OBJECTDIR}/Queue.o: Queue.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Queue.o Queue.cpp
 
 ${OBJECTDIR}/Release.o: Release.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

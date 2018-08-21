@@ -218,6 +218,7 @@ void Model::removeEntity(Entity* entity, bool collectStatistics) {
 	/* TODO -: event onEntityRemove */
 	// destroy 
 	this->getEntities()->remove(entity);
+	trace(Util::TraceLevel::TL_blockInternal, "Entity "+std::to_string(entity->getId())+ " was removed from the system");
 	//_entities->remove(entity);
 	entity->~Entity();
 }

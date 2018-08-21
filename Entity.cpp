@@ -35,3 +35,14 @@ std::map<std::string, AttributeValue*>* Entity::getAttributeValues() const {
 	return _attributeValues;
 }
 
+void Entity::setEntityTypeName(std::string _entityTypeName) {
+	this->_entityTypeName = _entityTypeName;
+}
+
+std::string Entity::getEntityTypeName() const {
+	return _entityTypeName;
+}
+
+std::string Entity::show() {
+	return ModelInfrastructure::show()+",entityTypeName="+this->_entityTypeName;
+}

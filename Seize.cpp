@@ -13,14 +13,15 @@
 
 #include "Seize.h"
 
-Seize::Seize(Model* model) :ModelComponent(model, typeid(this).name()) {
+Seize::Seize(Model* model) : ModelComponent(model, typeid (this).name()) {
+	_queueName = _name + "_Queue";
 }
 
-Seize::Seize(const Seize& orig):ModelComponent(orig) {
+Seize::Seize(const Seize& orig) : ModelComponent(orig) {
 }
 
 std::string Seize::show() {
-	return ModelComponent::show()+ ",resourceName="+this->_resourceName+", quantity="+this->_quantity+",...";
+	return ModelComponent::show() + ",resourceName=" + this->_resourceName + ", quantity=" + this->_quantity + ",...";
 }
 
 void Seize::_execute(Entity* entity) {
@@ -90,6 +91,14 @@ void Seize::setAllocationType(unsigned int _allocationType) {
 
 unsigned int Seize::getAllocationType() const {
 	return _allocationType;
+}
+
+void Seize::setQueueName(std::string _queueName) {
+	this->_queueName = _queueName;
+}
+
+std::string Seize::getQueueName() const {
+	return _queueName;
 }
 
 Seize::~Seize() {

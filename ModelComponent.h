@@ -36,6 +36,9 @@ private:
 	List<ModelComponent*>* _nextComponents;
 public: // ...static...
 	void execute(Entity* entity, ModelComponent* component);
+	void readComponent(std::list<std::string> words); // return ModelComponent* ?
+	std::list<std::string> writeComponent(ModelComponent* component);
+	bool verifySymbols(ModelComponent* component, std::string* errorMessage);
 protected:
 	virtual void _execute(Entity* entity) = 0;
 	//virtual void _read(std::string text) = 0;
