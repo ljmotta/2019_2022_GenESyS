@@ -39,5 +39,5 @@ ModelComponent::~ModelComponent() {
 }
 
 std::string ModelComponent::show() {
-	return ModelInfrastructure::show(); // "{id=" + std::to_string(this->_id) + ", name=\""+this->_name + "\"}"; // , nextComponents[]=(" + _nextComponents->show() + ")}";
+	return ModelInfrastructure::show(); // "{id=" + std::to_string(this->_id) + ",name=\""+this->_name + "\"}"; // , nextComponents[]=(" + _nextComponents->show() + ")}";
 }

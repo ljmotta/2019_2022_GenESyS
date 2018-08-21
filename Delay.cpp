@@ -24,7 +24,7 @@ Delay::~Delay() {
 }
 
 std::string Delay::show() {
-	return "{"+ModelComponent::show()+",delayExpression="+this->_delayExpression + " "+std::to_string(this->_delayTimeUnit)+"}";
+	return ModelComponent::show()+",delayExpression="+this->_delayExpression + " "+std::to_string(this->_delayTimeUnit);
 }
 
 void Delay::setDelayExpression(std::string _delayExpression) {

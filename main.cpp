@@ -18,6 +18,8 @@
 #include "Delay.h"
 #include "Listener.h"
 #include "Dispose.h"
+#include "Seize.h"
+#include "Release.h"
 
 
 using namespace std;
@@ -36,7 +38,7 @@ void buildSimpleCreateDelayDisposeModel(Model* model) {
 	model->addTraceReportListener(&traceHandler);
 	model->addTraceSimulationListener(&traceSimulationHandler);
 	// create and insert model components to the model
-	
+
 	Create* create1 = new Create(model);
 	create1->setTimeBetweenCreationsExpression("1.5");
 	create1->setTimeUnit(Util::TimeUnit::TU_minute);
@@ -50,22 +52,60 @@ void buildSimpleCreateDelayDisposeModel(Model* model) {
 	// connect model components to create a "workflow"
 	// should always start from a SourceModelComponent and end at a SinkModelComponent (it will be checked)
 	create1->getNextComponents()->insert(delay1);
-	delay1->getNextComponents()->insert(dispose1);	
+	delay1->getNextComponents()->insert(dispose1);
+}
+
+void buildSimpleCreateSeizeDelayReleaseDisposeModel(Model* model) {
+	// traces handle simulation events to output them
+	model->addTraceListener(&traceHandler);
+	model->addTraceReportListener(&traceHandler);
+	model->addTraceSimulationListener(&traceSimulationHandler);
+	// create and insert model components to the model
+
+	Create* create1 = new Create(model);
+	create1->setTimeBetweenCreationsExpression("1.5");
+	create1->setTimeUnit(Util::TimeUnit::TU_minute);
+
+	Seize* seize1 = new Seize(model);
+	seize1->setResourceName("Máquina 1");
+
+	Delay* delay1 = new Delay(model);
+	delay1->setDelayExpression("30");
+
+	Release* release1 = new Release(model);
+
+	Dispose* dispose1 = new Dispose(model);
+
+	List<ModelComponent*>* components = model->getComponents();
+	components->insert(create1);
+	components->insert(seize1);
+	components->insert(delay1);
+	components->insert(release1);
+	components->insert(dispose1);
+	// connect model components to create a "workflow"
+	// should always start from a SourceModelComponent and end at a SinkModelComponent (it will be checked)
+	create1->getNextComponents()->insert(seize1);
+	seize1->getNextComponents()->insert(delay1);
+	delay1->getNextComponents()->insert(release1);
+	release1->getNextComponents()->insert(dispose1);
 }
 
 void buildModel(Model* model) {
 	// change next command to build different models
-	buildSimpleCreateDelayDisposeModel(model);
+	//buildSimpleCreateDelayDisposeModel(model);
+	buildSimpleCreateSeizeDelayReleaseDisposeModel(model);
 }
 
 void buildSimulationSystem() {
 	//OldObserver* traceObserver = new OldObserver();
 	Simulator* simulator = new Simulator();
-	Model* model = 	new Model(simulator);
+	Model* model = new Model(simulator);
 	buildModel(model);
 	simulator->getModels()->insert(model);
-	model->startSimulation();
-	model->showReports();
+	if (model->check()) {
+		model->startSimulation();
+		model->showReports();
+	}
 }
 
 /*

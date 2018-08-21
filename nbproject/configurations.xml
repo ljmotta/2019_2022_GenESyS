@@ -30,6 +30,9 @@
       <itemPath>OldObservable.h</itemPath>
       <itemPath>OldObserver.h</itemPath>
       <itemPath>Plugin.h</itemPath>
+      <itemPath>Release.h</itemPath>
+      <itemPath>Resource.h</itemPath>
+      <itemPath>Seize.h</itemPath>
       <itemPath>Simulator.h</itemPath>
       <itemPath>SinkModelComponent.h</itemPath>
       <itemPath>SourceModelComponent.h</itemPath>
@@ -58,6 +61,9 @@
       <itemPath>OldObservable.cpp</itemPath>
       <itemPath>OldObserver.cpp</itemPath>
       <itemPath>Plugin.cpp</itemPath>
+      <itemPath>Release.cpp</itemPath>
+      <itemPath>Resource.cpp</itemPath>
+      <itemPath>Seize.cpp</itemPath>
       <itemPath>Simulator.cpp</itemPath>
       <itemPath>SinkModelComponent.cpp</itemPath>
       <itemPath>SourceModelComponent.cpp</itemPath>
@@ -178,6 +184,18 @@
       <item path="Plugin.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Plugin.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Release.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Release.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Resource.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Resource.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Seize.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Seize.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Simulator.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -309,6 +327,18 @@
       <item path="Plugin.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Plugin.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Release.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Release.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Resource.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Resource.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Seize.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Seize.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Simulator.cpp" ex="false" tool="1" flavor2="0">
       </item>

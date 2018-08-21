@@ -52,6 +52,9 @@ OBJECTFILES= \
 	${OBJECTDIR}/OldObservable.o \
 	${OBJECTDIR}/OldObserver.o \
 	${OBJECTDIR}/Plugin.o \
+	${OBJECTDIR}/Release.o \
+	${OBJECTDIR}/Resource.o \
+	${OBJECTDIR}/Seize.o \
 	${OBJECTDIR}/Simulator.o \
 	${OBJECTDIR}/SinkModelComponent.o \
 	${OBJECTDIR}/SourceModelComponent.o \
@@ -167,6 +170,21 @@ ${OBJECTDIR}/Plugin.o: Plugin.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Plugin.o Plugin.cpp
+
+${OBJECTDIR}/Release.o: Release.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Release.o Release.cpp
+
+${OBJECTDIR}/Resource.o: Resource.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Resource.o Resource.cpp
+
+${OBJECTDIR}/Seize.o: Seize.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Seize.o Seize.cpp
 
 ${OBJECTDIR}/Simulator.o: Simulator.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

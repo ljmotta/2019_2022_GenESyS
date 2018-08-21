@@ -21,6 +21,8 @@ public:
 	Dispose(Model* model);
 	Dispose(const Dispose& orig);
 	virtual ~Dispose();
+public:
+	virtual std::string show();
 protected:
 	virtual void _execute(Entity* entity);
 private:

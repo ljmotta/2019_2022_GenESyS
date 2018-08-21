@@ -23,7 +23,7 @@ SourceModelComponent::~SourceModelComponent() {
 }
 
 std::string SourceModelComponent::show() {
-	std::string text = "{" + ModelComponent::show()+",entityType=\""+_entityType+"\",firstCreation="+std::to_string(_firstCreation) + "}";
+	std::string text = ModelComponent::show()+",entityType=\""+_entityType+"\",firstCreation="+std::to_string(_firstCreation);
 	return text;
 }
 

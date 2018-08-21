@@ -23,6 +23,10 @@ Dispose::Dispose(const Dispose& orig):SinkModelComponent(orig) {
 Dispose::~Dispose() {
 }
 
+std::string Dispose::show() {
+	return SinkModelComponent::show();
+}
+
 void Dispose::_execute(Entity* entity) {
 	_model->removeEntity(entity, this->isCollectStatistics());
 }

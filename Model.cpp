@@ -171,7 +171,7 @@ void Model::_initReplication(unsigned int currentReplicationNumber) {
 void Model::_stepSimulation() {
 	// process one single event
 	trace(Util::TraceLevel::TL_simulation,""); // just a new line?
-	//trace(Util::TraceLevel::TL_mostDetailed, "\ntime=" + std::to_string(this->_simulatedTime) + ", events=" + _events->show()); // + ", entities=" + _entities->show());
+	//trace(Util::TraceLevel::TL_mostDetailed, "\ntime=" + std::to_string(this->_simulatedTime) + ",events=" + _events->show()); // + ",entities=" + _entities->show());
 	/* TODO -: event onSimulationStep */
 
 	Event* nextEvent;
