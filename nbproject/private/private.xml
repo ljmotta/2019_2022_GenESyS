@@ -9,23 +9,19 @@
         <group name="Classes">
             <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Model.cpp</file>
             <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/SourceModelComponent.h</file>
-            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Entity.h</file>
-            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/ModelInfrastructure.h</file>
             <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Event.cpp</file>
-            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Util.cpp</file>
             <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/List.h</file>
             <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/ModelComponent.cpp</file>
-            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/ModelInfrastructure.cpp</file>
             <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Simulator.cpp</file>
             <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/main.cpp</file>
             <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Model.h</file>
-            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Util.h</file>
-            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Event.h</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Collector_if.h</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Analyser.h</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Simulator.h</file>
             <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Delay.cpp</file>
-            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/SourceModelComponent.cpp</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Statistics_if.h</file>
             <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Dispose.cpp</file>
             <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Create.cpp</file>
-            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/ModelComponent.h</file>
             <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Entity.cpp</file>
             <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Create.h</file>
         </group>

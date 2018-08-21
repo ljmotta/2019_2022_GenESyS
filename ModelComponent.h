@@ -26,7 +26,7 @@ class Model;
 
 class ModelComponent : public ModelInfrastructure {
 public:
-	ModelComponent(Model* model);
+	ModelComponent(Model* model, std::string thistypename);
 	ModelComponent(const ModelComponent& orig);
 	virtual ~ModelComponent();
 public:

@@ -30,6 +30,14 @@ Model::Model(Simulator* simulator) {
 	_components->setSortFunc([](const ModelComponent* a, const ModelComponent * b) {
 		return a->getId() < b->getId();
 	});
+	_events = new List<Event*>();
+	//_events->setSortFunc(&EventCompare); // It works too
+	_events->setSortFunc([](const Event* a, const Event * b) {
+		return a->getTime() < b->getTime();
+	});
+
+	_infrastructures = new std::map<std::string, List<ModelInfrastructure*>*>();
+	/*
 	_infrastructures = new List<ModelInfrastructure*>();
 	_infrastructures->setSortFunc([](const ModelInfrastructure* a, const ModelInfrastructure * b) {
 		return a->getId() < b->getId();
@@ -38,11 +46,7 @@ Model::Model(Simulator* simulator) {
 	_entities->setSortFunc([](const Entity* a, const Entity * b) {
 		return a->getId() < b->getId();
 	});
-	_events = new List<Event*>();
-	//_events->setSortFunc(&EventCompare); // It works too
-	_events->setSortFunc([](const Event* a, const Event * b) {
-		return a->getTime() < b->getTime();
-	});
+	 */
 }
 
 Model::Model(const Model& orig) {
@@ -70,7 +74,6 @@ double Model::parseExpression(const std::string expression) {
 }
 
 bool Model::_finishReplicationCondition() {
-	/* TODO +-: Should consider TimUnits */
 	return this->_events->size() == 0
 			|| _simulatedTime > _replicationLength
 			|| this->parseExpression(this->_terminatingCondition);
@@ -167,7 +170,8 @@ void Model::_initReplication(unsigned int currentReplicationNumber) {
 
 void Model::_stepSimulation() {
 	// process one single event
-	trace(Util::TraceLevel::TL_mostDetailed, "\ntime=" + std::to_string(this->_simulatedTime) + ", events=" + _events->show() + ", entities=" + _entities->show());
+	trace(Util::TraceLevel::TL_simulation,""); // just a new line?
+	//trace(Util::TraceLevel::TL_mostDetailed, "\ntime=" + std::to_string(this->_simulatedTime) + ", events=" + _events->show()); // + ", entities=" + _entities->show());
 	/* TODO -: event onSimulationStep */
 
 	Event* nextEvent;
@@ -181,7 +185,7 @@ void Model::_stepSimulation() {
 }
 
 void Model::_processEvent(Event* event) {
-	this->trace(Util::TraceLevel::TL_simulation, "Processing event=" + event->show());
+	this->trace(Util::TraceLevel::TL_simulation, "Processing event=(" + event->show()+")");
 	this->_currentEntity = event->getEntity();
 	this->_currentComponent = event->getComponent();
 	_simulatedTime = event->getTime();
@@ -189,7 +193,7 @@ void Model::_processEvent(Event* event) {
 		event->getComponent()->execute(event->getEntity(), event->getComponent()); // Execute is static
 	} catch (std::exception *e) {
 		_excepcionHandled = e;
-		this->traceError(*e, "Error on processing event " + event->show());
+		this->traceError(*e, "Error on processing event (" + event->show()+")");
 	}
 }
 
@@ -213,7 +217,8 @@ void Model::removeEntity(Entity* entity, bool collectStatistics) {
 	/* TODO: Collect statistics */
 	/* TODO -: event onEntityRemove */
 	// destroy 
-	_entities->remove(entity);
+	this->getEntities()->remove(entity);
+	//_entities->remove(entity);
 	entity->~Entity();
 }
 
@@ -464,8 +469,24 @@ List<Event*>* Model::getEvents() const {
 	return _events;
 }
 
+List<ModelInfrastructure*>* Model::getInfrastructures(std::string infraTypename) const {
+	std::map<std::string, List<ModelInfrastructure*>*>::iterator it = this->_infrastructures->find(infraTypename);
+	if (it == this->_infrastructures->end()) {
+		// list does not exists yet. Create it and set a valid iterator
+		List<ModelInfrastructure*>* newList = new List<ModelInfrastructure*>();
+		newList->setSortFunc([](const ModelInfrastructure* a, const ModelInfrastructure * b) {
+			return a->getId() < b->getId();
+		});
+		_infrastructures->insert(std::pair<std::string, List<ModelInfrastructure*>*>(infraTypename, newList));
+		it = this->_infrastructures->find(infraTypename);
+	}
+	List<ModelInfrastructure*>* infras = it->second;
+	return infras;
+}
+
 List<Entity*>* Model::getEntities() const {
-	return _entities;
+	List<Entity*>* ents = (List<Entity*>*)(getInfrastructures(typeid (Entity).name())); // static_cast ??
+	return ents;
 }
 
 void Model::setStepByStep(bool _stepByStep) {
@@ -484,7 +505,7 @@ bool Model::isPauseOnReplication() const {
 	return _pauseOnReplication;
 }
 
-double Model::getSimulationTime() const {
+double Model::getSimulatedTime() const {
 	return _simulatedTime;
 }
 
@@ -504,7 +525,4 @@ List<ModelComponent*>* Model::getComponents() const {
 	return _components;
 }
 
-List<ModelInfrastructure*>* Model::getInfrastructures() const {
-	return _infrastructures;
-}
 

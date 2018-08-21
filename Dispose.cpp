@@ -14,8 +14,7 @@
 #include "Dispose.h"
 #include "Model.h"
 
-Dispose::Dispose(Model* model):SinkModelComponent(model) {
-	_name = "Dispose "+Util::_S_generateNewIdOfType("Dispose");
+Dispose::Dispose(Model* model):SinkModelComponent(model, typeid(this).name()) {
 }
 
 Dispose::Dispose(const Dispose& orig):SinkModelComponent(orig) {

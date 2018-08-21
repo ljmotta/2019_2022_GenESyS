@@ -18,7 +18,7 @@
 
 class SinkModelComponent : public ModelComponent {
 public:
-	SinkModelComponent(Model* model);
+	SinkModelComponent(Model* model, std::string thistypename);
 	SinkModelComponent(const SinkModelComponent& orig);
 	virtual ~SinkModelComponent();
 public:

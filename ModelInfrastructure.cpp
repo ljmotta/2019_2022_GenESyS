@@ -14,9 +14,9 @@
 #include <typeinfo>
 #include "ModelInfrastructure.h"
 
-ModelInfrastructure::ModelInfrastructure() {
-	_id = reinterpret_cast<Util::identitifcation>(this); // ID is always the address of this
-//	_name = "Infra " + std::to_string(Util::_S_generateNewIdOfType("ModelInfrastructure")); //// std::to_string(_id);
+ModelInfrastructure::ModelInfrastructure(std::string thistypename) {
+	_id = Util::_S_generateNewIdOfType(thistypename);
+	_name = thistypename+ " "+std::to_string(_id);
 }
 
 ModelInfrastructure::ModelInfrastructure(const ModelInfrastructure& orig) {

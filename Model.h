@@ -64,14 +64,14 @@ public: // gets and sets
 	void setPauseOnReplication(bool _pauseBetweenReplications);
 	bool isPauseOnReplication() const;
 public: // only gets	
-	double getSimulationTime() const;
+	double getSimulatedTime() const;
 	bool isRunning() const;
 	bool isSaved() const;
 	Util::identitifcation getId() const;
 	List<ModelComponent*>* getComponents() const;
-	List<ModelInfrastructure*>* getInfrastructures() const;
-    List<Entity*>* getEntities() const;
     List<Event*>* getEvents() const;
+	List<Entity*>* getEntities() const;
+	List<ModelInfrastructure*>* getInfrastructures(std::string infraTypename) const;
 public: // simulation control
 	void startSimulation();
 	void pauseSimulation();
@@ -152,11 +152,12 @@ private: // read only public access (gets)
 	bool _saved = false;
 	// 1:n
 	List<ModelComponent*>* _components;
-	// infrastructures
-	List<ModelInfrastructure*>* _infrastructures;
-	List<Entity*>* _entities;
 	List<Event*>* _events;
-	List<Collector_if*>* _collectors;
+	// infrastructures
+	std::map<std::string, List<ModelInfrastructure*>*>* _infrastructures;
+	//List<ModelInfrastructure*>* _infrastructures;
+	//List<Entity*>* _entities;
+	//List<Collector_if*>* _collectors;
 
 private: // no public access (no gets / sets)	
 	Simulator* _simulator;
@@ -170,6 +171,7 @@ private: // no public access (no gets / sets)
 	// needed?
 	Entity* _currentEntity;
 	ModelComponent* _currentComponent;
+	//Parser _paser;
 };
 
 #endif /* SIMULATIONMODEL_H */

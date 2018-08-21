@@ -15,10 +15,11 @@
 #include "Model.h"
 
 void ModelComponent::execute(Entity* entity, ModelComponent* component) {
+	this->_model->trace(Util::TraceLevel::TL_blockArrival, "Entity "+std::to_string(entity->getId())+ " has arrived at component \""+ component->_name+"\""); //std::to_string(component->_id));
 	try {
 		component->_execute(entity);
 	} catch (const std::exception& e) {
-		this->_model->traceError(e, "Error executing component "+component->show());
+		this->_model->traceError(e, "Error executing component " + component->show());
 	}
 }
 
@@ -26,17 +27,17 @@ List<ModelComponent*>* ModelComponent::getNextComponents() const {
 	return _nextComponents;
 }
 
-ModelComponent::ModelComponent(Model* model) {
+ModelComponent::ModelComponent(Model* model, std::string thistypename) : ModelInfrastructure(thistypename) {
 	_model = model;
 	_nextComponents = new List<ModelComponent*>();
 }
 
-ModelComponent::ModelComponent(const ModelComponent& orig) {
+ModelComponent::ModelComponent(const ModelComponent& orig) : ModelInfrastructure(orig) {
 }
 
 ModelComponent::~ModelComponent() {
 }
 
 std::string ModelComponent::show() {
-	return ModelInfrastructure::show();  // "{id=" + std::to_string(this->_id) + ", name=\""+this->_name + "\"}"; // , nextComponents[]=(" + _nextComponents->show() + ")}";
+	return ModelInfrastructure::show(); // "{id=" + std::to_string(this->_id) + ", name=\""+this->_name + "\"}"; // , nextComponents[]=(" + _nextComponents->show() + ")}";
 }

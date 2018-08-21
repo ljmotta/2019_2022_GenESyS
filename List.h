@@ -99,7 +99,7 @@ std::string List<T>::show() {
 
 template <typename T>
 void List<T>::insert(T element) {
-	_list->insert(std::upper_bound(_list->cbegin(), _list->cend(), element, _sortFunc), element);
+	 _list->insert(std::upper_bound(_list->begin(), _list->end(), element, _sortFunc), element);
 }
 
 template <typename T>

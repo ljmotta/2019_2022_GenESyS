@@ -19,7 +19,7 @@
 
 class ModelInfrastructure {
 public:
-	ModelInfrastructure();
+	ModelInfrastructure(std::string infrastructureTypename);
 	ModelInfrastructure(const ModelInfrastructure& orig);
 	virtual ~ModelInfrastructure();
 public:
