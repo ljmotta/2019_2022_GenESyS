@@ -15,15 +15,17 @@
 #define QUEUE_H
 
 #include "ModelInfrastructure.h"
+#include "LinkedByComponent.h"
 
 
-class Queue: public ModelInfrastructure {
+class Queue: public ModelInfrastructure, public LinkedByComponent {
 public:
 	Queue();
 	Queue(const Queue& orig);
 	virtual ~Queue();
 public:
 	virtual std::string show();
+public: //g&s
 private:
 
 };

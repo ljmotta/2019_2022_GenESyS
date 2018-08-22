@@ -485,6 +485,27 @@ List<ModelInfrastructure*>* Model::getInfrastructures(std::string infraTypename)
 	return infras;
 }
 
+ModelInfrastructure* Model::getInfrastructure(std::string infraTypename, Util::identitifcation id) {
+	List<ModelInfrastructure*>* list = getInfrastructures(infraTypename);
+	for (std::list<ModelInfrastructure*>::iterator it=list->getList()->begin(); it!=list->getList()->end(); it++) {
+		if ((*it)->getId()== id) { // found
+			return (*it);
+		}
+	}
+	return nullptr;
+}
+
+ModelInfrastructure* Model::getInfrastructure(std::string infraTypename, std::string name){
+	List<ModelInfrastructure*>* list = getInfrastructures(infraTypename);
+	for (std::list<ModelInfrastructure*>::iterator it=list->getList()->begin(); it!=list->getList()->end(); it++) {
+		if ((*it)->getName()== name) { // found
+			return (*it);
+		}
+	}
+	return nullptr;
+}
+
+
 List<Entity*>* Model::getEntities() const {
 	List<Entity*>* ents = (List<Entity*>*)(getInfrastructures(typeid (Entity).name())); // static_cast ??
 	return ents;

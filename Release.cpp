@@ -14,7 +14,8 @@
 #include "Release.h"
 #include "Model.h"
 
-Release::Release(Model* model) : ModelComponent(model, typeid (this).name()) {
+Release::Release(Model* model) : ModelComponent(model) {
+	_name = "Release "+std::to_string(Util::_S_generateNewIdOfType(typeid(this).name()));
 }
 
 Release::Release(const Release& orig) : ModelComponent(orig) {

@@ -13,10 +13,10 @@
 
 #include "Queue.h"
 
-Queue::Queue(): ModelInfrastructure(typeid(this).name()) {
+Queue::Queue() : ModelInfrastructure(typeid (this).name()) {
 }
 
-Queue::Queue(const Queue& orig):ModelInfrastructure(orig) {
+Queue::Queue(const Queue& orig) : ModelInfrastructure(orig) {
 }
 
 Queue::~Queue() {
@@ -25,4 +25,5 @@ Queue::~Queue() {
 std::string Queue::show() {
 	return ModelInfrastructure::show();
 }
+
 

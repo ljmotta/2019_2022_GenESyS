@@ -14,7 +14,8 @@
 #include "Create.h"
 #include "Model.h"
 
-Create::Create(Model* model):SourceModelComponent(model, typeid(this).name()) {
+Create::Create(Model* model):SourceModelComponent(model) {
+	_name = "Create "+std::to_string(Util::_S_generateNewIdOfType(typeid(this).name()));
 }
 
 Create::Create(const Create& orig):SourceModelComponent(orig) {

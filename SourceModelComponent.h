@@ -21,7 +21,7 @@
 
 class SourceModelComponent : public ModelComponent {
 public:
-	SourceModelComponent(Model* model, std::string thistypename);
+	SourceModelComponent(Model* model);
 	SourceModelComponent(const SourceModelComponent& orig);
 	virtual ~SourceModelComponent();
 public: // get & set

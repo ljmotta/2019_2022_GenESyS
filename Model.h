@@ -72,6 +72,8 @@ public: // only gets
     List<Event*>* getEvents() const;
 	List<Entity*>* getEntities() const;
 	List<ModelInfrastructure*>* getInfrastructures(std::string infraTypename) const;
+	ModelInfrastructure* getInfrastructure(std::string infraTypename, Util::identitifcation id);
+	ModelInfrastructure* getInfrastructure(std::string infraTypename, std::string name);
 public: // simulation control
 	void startSimulation();
 	void pauseSimulation();

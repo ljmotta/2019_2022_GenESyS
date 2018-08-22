@@ -15,8 +15,9 @@
 #define RESOURCE_H
 
 #include "ModelInfrastructure.h"
+#include "LinkedByComponent.h"
 
-class Resource : public ModelInfrastructure {
+class Resource : public ModelInfrastructure, public LinkedByComponent {
 public:
 
 	enum ResourceType {

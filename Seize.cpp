@@ -13,15 +13,25 @@
 
 #include "Seize.h"
 
-Seize::Seize(Model* model) : ModelComponent(model, typeid (this).name()) {
-	_queueName = _name + "_Queue";
+Seize::Seize(Model* model) : ModelComponent(model) {
+	_name = "Seize "+std::to_string(Util::_S_generateNewIdOfType(typeid(this).name()));
+	_queue = _model->getInfrastructure(typeid (Queue).name(), _name + "_Queue");
+	if (_queue == nullptr) {
+		_queue = new Queue();
+		_queue->setName(_name + "_Queue");
+	}
+	_resource = _model->getInfrastructure(typeid (Resource).name(), "Resource 1");
+	if (_resource == nullptr) {
+		_resource = new Resource();
+		_resource->setName("Resource 1");
+	}
 }
 
 Seize::Seize(const Seize& orig) : ModelComponent(orig) {
 }
 
 std::string Seize::show() {
-	return ModelComponent::show() + ",resourceName=" + this->_resourceName + ", quantity=" + this->_quantity + ",...";
+	return ModelComponent::show() + ", quantity=" + this->_quantity + ",...";
 }
 
 void Seize::_execute(Entity* entity) {
@@ -61,14 +71,6 @@ std::string Seize::getQuantity() const {
 	return _quantity;
 }
 
-void Seize::setResourceName(std::string _resourceName) {
-	this->_resourceName = _resourceName;
-}
-
-std::string Seize::getResourceName() const {
-	return _resourceName;
-}
-
 void Seize::setResourceType(Resource::ResourceType _resourceType) {
 	this->_resourceType = _resourceType;
 }
@@ -94,11 +96,55 @@ unsigned int Seize::getAllocationType() const {
 }
 
 void Seize::setQueueName(std::string _queueName) {
-	this->_queueName = _queueName;
+	if (_queue->getName() != _queueName) {
+		Queue* queueNewName = _model->getInfrastructure(typeid (Queue).name(), _queueName);
+		if (queueNewName == nullptr) { // there is no queue with the new name
+			if (!_queue->isLinked()) { // no one else uses it. Only change the name
+				_queue->setName(_queueName);
+			} else { // it is linked. Create a new one
+				_queue = new Queue();
+				_queue->setName(_queueName);
+			}
+		} else { // there is another queue with the same name
+			if (!_queue->isLinked()) { // no one else uses it. It can be removed
+				_queue->~Queue();
+			} else { // there is another one using the queue with old name. Let it there
+				_queue->removeLink();
+			}
+			_queue = queueNewName;
+			_queue->addLink();
+		}
+	}
+}
+
+void Seize::setResourceName(std::string _resourceName) {
+	if (_resource->getName() != _resourceName) {
+		Resource* resourceNewName = _model->getInfrastructure(typeid (Resource).name(), _resourceName);
+		if (resourceNewName == nullptr) { // there is no resource with the new name
+			if (!_resource->isLinked()) { // no one else uses it. Only change the name
+				_resource->setName(_resourceName);
+			} else { // it is linked. Create a new one
+				_resource = new Resource();
+				_resource->setName(_resourceName);
+			}
+		} else { // there is another resource with the same name
+			if (!_resource->isLinked()) { // no one else uses it. It can be removed
+				_resource->~Resource();
+			} else { // there is another one using the resource with old name. Let it there
+				_resource->removeLink();
+			}
+			_resource = resourceNewName;
+			_resource->addLink();
+		}
+	}
+}
+
+std::string Seize::getResourceName() const {
+	return _resource->getName();
 }
 
 std::string Seize::getQueueName() const {
-	return _queueName;
+	return _queue->getName();
 }
 
 Seize::~Seize() {

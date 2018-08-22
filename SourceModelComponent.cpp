@@ -13,7 +13,7 @@
 
 #include "SourceModelComponent.h"
 
-SourceModelComponent::SourceModelComponent(Model* model, std::string thistypename):ModelComponent(model, thistypename) {
+SourceModelComponent::SourceModelComponent(Model* model):ModelComponent(model) {
 }
 
 SourceModelComponent::SourceModelComponent(const SourceModelComponent& orig):ModelComponent(orig) {

@@ -44,6 +44,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Entity.o \
 	${OBJECTDIR}/EntityType.o \
 	${OBJECTDIR}/Event.o \
+	${OBJECTDIR}/LinkedByComponent.o \
 	${OBJECTDIR}/Listener.o \
 	${OBJECTDIR}/Model.o \
 	${OBJECTDIR}/ModelComponent.o \
@@ -131,6 +132,11 @@ ${OBJECTDIR}/Event.o: Event.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Event.o Event.cpp
+
+${OBJECTDIR}/LinkedByComponent.o: LinkedByComponent.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/LinkedByComponent.o LinkedByComponent.cpp
 
 ${OBJECTDIR}/Listener.o: Listener.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
