@@ -52,6 +52,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/OldEventObserv.o \
 	${OBJECTDIR}/OldObservable.o \
 	${OBJECTDIR}/OldObserver.o \
+	${OBJECTDIR}/Parser.o \
 	${OBJECTDIR}/Plugin.o \
 	${OBJECTDIR}/Queue.o \
 	${OBJECTDIR}/Release.o \
@@ -172,6 +173,11 @@ ${OBJECTDIR}/OldObserver.o: OldObserver.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/OldObserver.o OldObserver.cpp
+
+${OBJECTDIR}/Parser.o: Parser.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Parser.o Parser.cpp
 
 ${OBJECTDIR}/Plugin.o: Plugin.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

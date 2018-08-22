@@ -22,6 +22,7 @@
 #include "Event.h"
 #include "Listener.h"
 #include "Collector_if.h"
+#include "Parser.h"
 
 class Simulator;
 
@@ -164,6 +165,7 @@ private: // read only public access (gets)
 private: // no public access (no gets / sets)	
 	Simulator* _simulator;
 	bool _pauseRequested = false;
+	bool _stopRequested = false;
 	bool _simulationIsInitiated = false;
 	bool _replicationIsInitiaded = false;
 	std::exception* _excepcionHandled = nullptr; 
@@ -173,7 +175,7 @@ private: // no public access (no gets / sets)
 	// needed?
 	Entity* _currentEntity;
 	ModelComponent* _currentComponent;
-	//Parser _paser;
+	Parser* _parser;
 };
 
 #endif /* SIMULATIONMODEL_H */

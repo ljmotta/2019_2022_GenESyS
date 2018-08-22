@@ -103,6 +103,11 @@ void List<T>::insert(T element) {
 }
 
 template <typename T>
+bool List<T>::empty() {
+	return _list->empty();
+}
+
+template <typename T>
 void List<T>::pop_front() {
 	typename std::list<T>::iterator itTemp = _list->begin();
 	_list->pop_front();

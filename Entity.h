@@ -30,10 +30,11 @@ public:
 	virtual std::string show();
 public: // g & s
     std::map<std::string, AttributeValue*>* getAttributeValues() const;
-    void setEntityTypeName(std::string _entityTypeName);
+    void setEntityTypeName(std::string _entityTypeName); // indirect access to EntityType
     std::string getEntityTypeName() const;
 private:
-	std::string _entityTypeName = "EntityType 1";
+	//EntityType* _entityType;
+	std::string _entityTypeName = "Entity Type 1";
 private: // 1::n
 	std::map<std::string, AttributeValue*>* _attributeValues;
 };

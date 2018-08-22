@@ -14,7 +14,8 @@
 #include <typeinfo>
 #include "Model.h"
 #include "SourceModelComponent.h"
-#include "Simulator.h" // avoid link error
+#include "Simulator.h"
+#include "Parser.h" // avoid link error
 #include <iostream>
 #include <algorithm>
 
@@ -25,6 +26,8 @@ bool EventCompare(const Event* a, const Event * b) {
 Model::Model(Simulator* simulator) {
 	_simulator = simulator;
 	_name = "Model " + std::to_string(Util::_S_generateNewIdOfType("Model")); // (reinterpret_cast<unsigned long> (this));
+	// 1:1
+	_parser = new Parser(this);
 	// 1:n attributes
 	_components = new List<ModelComponent*>();
 	_components->setSortFunc([](const ModelComponent* a, const ModelComponent * b) {
@@ -69,8 +72,7 @@ void Model::sendEntityToComponent(Entity* entity, ModelComponent* component, dou
 
 double Model::parseExpression(const std::string expression) {
 	/* TODO +++: not implemented. A whole parser is necessary */
-	double value = std::atof(expression.c_str());
-	return value;
+	return _parser->parse(expression);
 }
 
 bool Model::_finishReplicationCondition() {
@@ -103,15 +105,15 @@ void Model::startSimulation() {
 		/* TODO -: event onEndReplication */
 
 		std::string causeTerminated;
-		//		if (_events->empty()) {
-		//			causeTerminated = "event queue is empty";
-		//		} else if (_stopRequested) {
-		//			causeTerminated = "user requested to stop";
-		//		} else if (!(_tnow < _actualModel->getReplicationLength())) {
-		//			causeTerminated = "replication length was achieved";
-		//		} else if (_parser->parse(_actualModel->getTerminatingCondition())) {
-		//			causeTerminated = "termination condition was achieved";
-		//		} else causeTerminated = "unknown";
+		if (_events->empty()) {
+			causeTerminated = "event queue is empty";
+		} else if (_stopRequested) {
+			causeTerminated = "user requested to stop";
+		} else if (!(this->_simulatedTime < this->getReplicationLength())) {
+			causeTerminated = "replication length "+std::to_string(_replicationLength)+" was achieved";
+		} else if (_parser->parse(this->getTerminatingCondition())) {
+			causeTerminated = "termination condition was achieved";
+		} else causeTerminated = "unknown";
 		std::cout << "Replication " << replicationNum << " of " << _numberOfReplications << " has finished at time " << _simulatedTime << " because " << causeTerminated << ".\n";
 		_showReplicationStatistics();
 	}
@@ -170,7 +172,7 @@ void Model::_initReplication(unsigned int currentReplicationNumber) {
 
 void Model::_stepSimulation() {
 	// process one single event
-	trace(Util::TraceLevel::TL_simulation,""); // just a new line?
+	trace(Util::TraceLevel::TL_simulation, ""); // just a new line?
 	//trace(Util::TraceLevel::TL_mostDetailed, "\ntime=" + std::to_string(this->_simulatedTime) + ",events=" + _events->show()); // + ",entities=" + _entities->show());
 	/* TODO -: event onSimulationStep */
 
@@ -185,7 +187,7 @@ void Model::_stepSimulation() {
 }
 
 void Model::_processEvent(Event* event) {
-	this->trace(Util::TraceLevel::TL_simulation, "Processing event=(" + event->show()+")");
+	this->trace(Util::TraceLevel::TL_simulation, "Processing event=(" + event->show() + ")");
 	this->_currentEntity = event->getEntity();
 	this->_currentComponent = event->getComponent();
 	_simulatedTime = event->getTime();
@@ -193,7 +195,7 @@ void Model::_processEvent(Event* event) {
 		event->getComponent()->execute(event->getEntity(), event->getComponent()); // Execute is static
 	} catch (std::exception *e) {
 		_excepcionHandled = e;
-		this->traceError(*e, "Error on processing event (" + event->show()+")");
+		this->traceError(*e, "Error on processing event (" + event->show() + ")");
 	}
 }
 
@@ -218,7 +220,7 @@ void Model::removeEntity(Entity* entity, bool collectStatistics) {
 	/* TODO -: event onEntityRemove */
 	// destroy 
 	this->getEntities()->remove(entity);
-	trace(Util::TraceLevel::TL_blockInternal, "Entity "+std::to_string(entity->getId())+ " was removed from the system");
+	trace(Util::TraceLevel::TL_blockInternal, "Entity " + std::to_string(entity->getId()) + " was removed from the system");
 	//_entities->remove(entity);
 	entity->~Entity();
 }
@@ -487,24 +489,23 @@ List<ModelInfrastructure*>* Model::getInfrastructures(std::string infraTypename)
 
 ModelInfrastructure* Model::getInfrastructure(std::string infraTypename, Util::identitifcation id) {
 	List<ModelInfrastructure*>* list = getInfrastructures(infraTypename);
-	for (std::list<ModelInfrastructure*>::iterator it=list->getList()->begin(); it!=list->getList()->end(); it++) {
-		if ((*it)->getId()== id) { // found
+	for (std::list<ModelInfrastructure*>::iterator it = list->getList()->begin(); it != list->getList()->end(); it++) {
+		if ((*it)->getId() == id) { // found
 			return (*it);
 		}
 	}
 	return nullptr;
 }
 
-ModelInfrastructure* Model::getInfrastructure(std::string infraTypename, std::string name){
+ModelInfrastructure* Model::getInfrastructure(std::string infraTypename, std::string name) {
 	List<ModelInfrastructure*>* list = getInfrastructures(infraTypename);
-	for (std::list<ModelInfrastructure*>::iterator it=list->getList()->begin(); it!=list->getList()->end(); it++) {
-		if ((*it)->getName()== name) { // found
+	for (std::list<ModelInfrastructure*>::iterator it = list->getList()->begin(); it != list->getList()->end(); it++) {
+		if ((*it)->getName() == name) { // found
 			return (*it);
 		}
 	}
 	return nullptr;
 }
-
 
 List<Entity*>* Model::getEntities() const {
 	List<Entity*>* ents = (List<Entity*>*)(getInfrastructures(typeid (Entity).name())); // static_cast ??
