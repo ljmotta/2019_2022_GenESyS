@@ -35,7 +35,6 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/Analyser.o \
 	${OBJECTDIR}/AttributeValue.o \
 	${OBJECTDIR}/CollectorMyImpl1.o \
 	${OBJECTDIR}/Create.o \
@@ -45,6 +44,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/EntityType.o \
 	${OBJECTDIR}/Event.o \
 	${OBJECTDIR}/FitterMyImpl1.o \
+	${OBJECTDIR}/HypothesisTesterMyImpl1.o \
 	${OBJECTDIR}/IntegratorMyImpl1.o \
 	${OBJECTDIR}/LinkedBy.o \
 	${OBJECTDIR}/Listener.o \
@@ -52,9 +52,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/ModelCheckerMyImpl1.o \
 	${OBJECTDIR}/ModelComponent.o \
 	${OBJECTDIR}/ModelInfrastructure.o \
-	${OBJECTDIR}/OldEventObserv.o \
-	${OBJECTDIR}/OldObservable.o \
-	${OBJECTDIR}/OldObserver.o \
 	${OBJECTDIR}/ParserMyImpl1.o \
 	${OBJECTDIR}/Plugin.o \
 	${OBJECTDIR}/ProbDistrib.o \
@@ -94,11 +91,6 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/rebornedgenesys: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/rebornedgenesys ${OBJECTFILES} ${LDLIBSOPTIONS}
-
-${OBJECTDIR}/Analyser.o: Analyser.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Analyser.o Analyser.cpp
 
 ${OBJECTDIR}/AttributeValue.o: AttributeValue.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -145,6 +137,11 @@ ${OBJECTDIR}/FitterMyImpl1.o: FitterMyImpl1.cpp nbproject/Makefile-${CND_CONF}.m
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FitterMyImpl1.o FitterMyImpl1.cpp
 
+${OBJECTDIR}/HypothesisTesterMyImpl1.o: HypothesisTesterMyImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/HypothesisTesterMyImpl1.o HypothesisTesterMyImpl1.cpp
+
 ${OBJECTDIR}/IntegratorMyImpl1.o: IntegratorMyImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -179,21 +176,6 @@ ${OBJECTDIR}/ModelInfrastructure.o: ModelInfrastructure.cpp nbproject/Makefile-$
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelInfrastructure.o ModelInfrastructure.cpp
-
-${OBJECTDIR}/OldEventObserv.o: OldEventObserv.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/OldEventObserv.o OldEventObserv.cpp
-
-${OBJECTDIR}/OldObservable.o: OldObservable.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/OldObservable.o OldObservable.cpp
-
-${OBJECTDIR}/OldObserver.o: OldObserver.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/OldObserver.o OldObserver.cpp
 
 ${OBJECTDIR}/ParserMyImpl1.o: ParserMyImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

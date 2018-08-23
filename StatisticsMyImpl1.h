@@ -34,7 +34,8 @@ public:
 	double variance();
 	double stddeviation();
 	double variationCoef();
-	double halfWidth(double alpha);
+	double halfWidthConfidenceInterval(double confidencelevel);
+	unsigned int newSampleSize(double confidencelevel, double halfWidth);
 	double quartil(unsigned short num);
 	double decil(unsigned short num);
 	double centil(unsigned short num);

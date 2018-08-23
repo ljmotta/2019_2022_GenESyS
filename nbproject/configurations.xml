@@ -68,12 +68,6 @@
     <logicalFolder name="f7" displayName="Not Used" projectFiles="true">
       <itemPath>Listener.cpp</itemPath>
       <itemPath>Listener.h</itemPath>
-      <itemPath>OldEventObserv.cpp</itemPath>
-      <itemPath>OldEventObserv.h</itemPath>
-      <itemPath>OldObservable.cpp</itemPath>
-      <itemPath>OldObservable.h</itemPath>
-      <itemPath>OldObserver.cpp</itemPath>
-      <itemPath>OldObserver.h</itemPath>
     </logicalFolder>
     <logicalFolder name="f3" displayName="Parser" projectFiles="true">
       <itemPath>ParserMyImpl1.cpp</itemPath>
@@ -83,14 +77,15 @@
     <logicalFolder name="f5" displayName="Shell" projectFiles="true">
     </logicalFolder>
     <logicalFolder name="f8" displayName="Tools" projectFiles="true">
-      <itemPath>Analyser.cpp</itemPath>
-      <itemPath>Analyser.h</itemPath>
       <itemPath>CollectorMyImpl1.cpp</itemPath>
       <itemPath>CollectorMyImpl1.h</itemPath>
       <itemPath>Collector_if.h</itemPath>
       <itemPath>FitterMyImpl1.cpp</itemPath>
       <itemPath>FitterMyImpl1.h</itemPath>
       <itemPath>Fitter_if.h</itemPath>
+      <itemPath>HypothesisTesterMyImpl1.cpp</itemPath>
+      <itemPath>HypothesisTesterMyImpl1.h</itemPath>
+      <itemPath>HypothesisTester_if.h</itemPath>
       <itemPath>IntegratorMyImpl1.cpp</itemPath>
       <itemPath>IntegratorMyImpl1.h</itemPath>
       <itemPath>Integrator_if.h</itemPath>
@@ -135,10 +130,6 @@
           <commandLine>-std=c++11 -fpermissive</commandLine>
         </ccTool>
       </compileType>
-      <item path="Analyser.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Analyser.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="AttributeValue.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="AttributeValue.h" ex="false" tool="3" flavor2="0">
@@ -179,6 +170,12 @@
       </item>
       <item path="Fitter_if.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="HypothesisTesterMyImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="HypothesisTesterMyImpl1.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="HypothesisTester_if.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="IntegratorMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="IntegratorMyImpl1.h" ex="false" tool="3" flavor2="0">
@@ -212,18 +209,6 @@
       <item path="ModelInfrastructure.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ModelInfrastructure.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="OldEventObserv.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="OldEventObserv.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="OldObservable.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="OldObservable.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="OldObserver.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="OldObserver.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ParserMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -308,10 +293,6 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="Analyser.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Analyser.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="AttributeValue.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="AttributeValue.h" ex="false" tool="3" flavor2="0">
@@ -352,6 +333,12 @@
       </item>
       <item path="Fitter_if.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="HypothesisTesterMyImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="HypothesisTesterMyImpl1.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="HypothesisTester_if.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="IntegratorMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="IntegratorMyImpl1.h" ex="false" tool="3" flavor2="0">
@@ -385,18 +372,6 @@
       <item path="ModelInfrastructure.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ModelInfrastructure.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="OldEventObserv.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="OldEventObserv.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="OldObservable.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="OldObservable.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="OldObserver.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="OldObserver.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ParserMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>

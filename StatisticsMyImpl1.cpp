@@ -49,7 +49,10 @@ double StatisticsMyImpl1::stddeviation() {
 double StatisticsMyImpl1::variationCoef() {
 }
 
-double StatisticsMyImpl1::halfWidth(double alpha) {
+double StatisticsMyImpl1::halfWidthConfidenceInterval(double confidencelevel) {
+}
+
+unsigned int StatisticsMyImpl1::newSampleSize(double confidencelevel, double halfWidth) {
 }
 
 double StatisticsMyImpl1::quartil(unsigned short num) {

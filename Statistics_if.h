@@ -30,7 +30,8 @@ public:
 	virtual double variance() = 0;
 	virtual double stddeviation() = 0;
 	virtual double variationCoef() = 0;
-	virtual double halfWidth(double alpha) = 0;
+	virtual double halfWidthConfidenceInterval(double confidencelevel) = 0;
+	virtual unsigned int newSampleSize(double confidencelevel, double halfWidth) = 0;
 	virtual double quartil(unsigned short num) = 0;
 	virtual double decil(unsigned short num) = 0;
 	virtual double centil(unsigned short num) = 0;

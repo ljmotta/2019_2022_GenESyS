@@ -22,6 +22,7 @@ public:
 	FitterMyImpl1(const FitterMyImpl1& orig);
 	~FitterMyImpl1();
 public:
+	bool isNormalDistributed(double confidencelevel);
 	void fitUniform (double *sqrerror, double *min, double *max);
 	void fitTriangular (double *sqrerror, double *min, double *mo, double *max);
 	void fitNormal (double *sqrerror, double *avg, double *stddev);

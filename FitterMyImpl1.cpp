@@ -22,6 +22,10 @@ FitterMyImpl1::FitterMyImpl1(const FitterMyImpl1& orig) {
 FitterMyImpl1::~FitterMyImpl1() {
 }
 
+bool FitterMyImpl1::isNormalDistributed(double confidencelevel) {
+	
+}
+
 void FitterMyImpl1::fitUniform(double *sqrerror, double *min, double *max) {
 
 }
