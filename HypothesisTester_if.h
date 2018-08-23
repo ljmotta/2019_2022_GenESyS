@@ -27,12 +27,12 @@ public:
 	};
 public:
 	/* TODO: all "test" methods should return double p-value, not bool */
-	virtual bool testAverageDifference(double confidencelevel, double avg, H1Comparition comp) = 0;
-	virtual bool testProportionDifference(double confidencelevel, double prop, H1Comparition comp) = 0;
-	virtual bool testVarianceDifference(double confidencelevel, double var, H1Comparition comp) = 0;
-	virtual bool testAverageDifference(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) = 0;
-	virtual bool testProportionDifference(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) = 0;
-	virtual bool testVarianceDifference(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) = 0;
+	virtual bool testAverage(double confidencelevel, double avg, H1Comparition comp) = 0;
+	virtual bool testProportion(double confidencelevel, double prop, H1Comparition comp) = 0;
+	virtual bool testVariance(double confidencelevel, double var, H1Comparition comp) = 0;
+	virtual bool testAverage(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) = 0;
+	virtual bool testProportion(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) = 0;
+	virtual bool testVariance(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) = 0;
 	virtual void setDataFilename(std::string dataFilename) = 0;
 	virtual std::string getDataFilename() = 0;
 };

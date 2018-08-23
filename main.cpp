@@ -177,11 +177,13 @@ void testStudentSoftwareDevelopments() {
 	// Test some hypothesis about the datafile
 	HypothesisTester_if* tester = new Traits<HypothesisTester_if>::Implementation();
 	tester->setDataFilename(collector->getDataFilename());
-	res = tester->testAverageDifference(0.95, 5500, HypothesisTester_if::GREATER_THAN);
-	res = tester->testAverageDifference(0.95, 4500, HypothesisTester_if::LESS_THAN);
-	res = tester->testAverageDifference(0.95, 3000, HypothesisTester_if::EQUAL);
-	res = tester->testAverageDifference(0.95, 5000, HypothesisTester_if::EQUAL);
-	res = tester->testAverageDifference(0.95, 5100, HypothesisTester_if::DIFFERENT);
+	res = tester->testAverage(0.95, 5500, HypothesisTester_if::GREATER_THAN);
+	res = tester->testAverage(0.95, 4500, HypothesisTester_if::LESS_THAN);
+	res = tester->testAverage(0.95, 3000, HypothesisTester_if::EQUAL);
+	res = tester->testAverage(0.95, 5000, HypothesisTester_if::EQUAL);
+	res = tester->testAverage(0.95, 5100, HypothesisTester_if::DIFFERENT);
+	res = tester->testVariance(0.95, 350*350, HypothesisTester_if::EQUAL);
+	res = tester->testVariance(0.95, 350*350, HypothesisTester_if::LESS_THAN);
 
 }
 

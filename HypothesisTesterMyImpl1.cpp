@@ -22,22 +22,22 @@ HypothesisTesterMyImpl1::HypothesisTesterMyImpl1(const HypothesisTesterMyImpl1& 
 HypothesisTesterMyImpl1::~HypothesisTesterMyImpl1() {
 }
 
-bool HypothesisTesterMyImpl1::testAverageDifference(double confidencelevel, double avg, H1Comparition comp) {
+bool HypothesisTesterMyImpl1::testAverage(double confidencelevel, double avg, H1Comparition comp) {
 }
 
-bool HypothesisTesterMyImpl1::testProportionDifference(double confidencelevel, double prop, H1Comparition comp) {
+bool HypothesisTesterMyImpl1::testProportion(double confidencelevel, double prop, H1Comparition comp) {
 }
 
-bool HypothesisTesterMyImpl1::testVarianceDifference(double confidencelevel, double var, H1Comparition comp) {
+bool HypothesisTesterMyImpl1::testVariance(double confidencelevel, double var, H1Comparition comp) {
 }
 
-bool HypothesisTesterMyImpl1::testAverageDifference(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) {
+bool HypothesisTesterMyImpl1::testAverage(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) {
 }
 
-bool HypothesisTesterMyImpl1::testProportionDifference(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) {
+bool HypothesisTesterMyImpl1::testProportion(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) {
 }
 
-bool HypothesisTesterMyImpl1::testVarianceDifference(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) {
+bool HypothesisTesterMyImpl1::testVariance(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) {
 }
 
 void HypothesisTesterMyImpl1::setDataFilename(std::string dataFilename) {

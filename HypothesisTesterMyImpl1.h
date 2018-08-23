@@ -22,12 +22,12 @@ public:
 	HypothesisTesterMyImpl1(const HypothesisTesterMyImpl1& orig);
 	~HypothesisTesterMyImpl1();
 public:
-	bool testAverageDifference(double confidencelevel, double avg, H1Comparition comp);
-	bool testProportionDifference(double confidencelevel, double prop, H1Comparition comp);
-	bool testVarianceDifference(double confidencelevel, double var, H1Comparition comp);
-	bool testAverageDifference(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp);
-	bool testProportionDifference(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp);
-	bool testVarianceDifference(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp);
+	bool testAverage(double confidencelevel, double avg, H1Comparition comp);
+	bool testProportion(double confidencelevel, double prop, H1Comparition comp);
+	bool testVariance(double confidencelevel, double var, H1Comparition comp);
+	bool testAverage(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp);
+	bool testProportion(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp);
+	bool testVariance(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp);
 	void setDataFilename(std::string dataFilename);
 	std::string getDataFilename();
 private:
