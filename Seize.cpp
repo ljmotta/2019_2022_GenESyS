@@ -15,12 +15,12 @@
 
 Seize::Seize(Model* model) : ModelComponent(model) {
 	_name = "Seize "+std::to_string(Util::_S_generateNewIdOfType(typeid(this).name()));
-	_queue = _model->getInfrastructure(typeid (Queue).name(), _name + "_Queue");
+	_queue = (Queue*)_model->getInfrastructure(typeid (Queue).name(), _name + "_Queue");
 	if (_queue == nullptr) {
 		_queue = new Queue();
 		_queue->setName(_name + "_Queue");
 	}
-	_resource = _model->getInfrastructure(typeid (Resource).name(), "Resource 1");
+	_resource = (Resource*)_model->getInfrastructure(typeid (Resource).name(), "Resource 1");
 	if (_resource == nullptr) {
 		_resource = new Resource();
 		_resource->setName("Resource 1");
@@ -97,7 +97,7 @@ unsigned int Seize::getAllocationType() const {
 
 void Seize::setQueueName(std::string _queueName) {
 	if (_queue->getName() != _queueName) {
-		Queue* queueNewName = _model->getInfrastructure(typeid (Queue).name(), _queueName);
+		Queue* queueNewName = (Queue*)_model->getInfrastructure(typeid (Queue).name(), _queueName);
 		if (queueNewName == nullptr) { // there is no queue with the new name
 			if (!_queue->isLinked()) { // no one else uses it. Only change the name
 				_queue->setName(_queueName);
@@ -119,7 +119,7 @@ void Seize::setQueueName(std::string _queueName) {
 
 void Seize::setResourceName(std::string _resourceName) {
 	if (_resource->getName() != _resourceName) {
-		Resource* resourceNewName = _model->getInfrastructure(typeid (Resource).name(), _resourceName);
+		Resource* resourceNewName = (Resource*)_model->getInfrastructure(typeid (Resource).name(), _resourceName);
 		if (resourceNewName == nullptr) { // there is no resource with the new name
 			if (!_resource->isLinked()) { // no one else uses it. Only change the name
 				_resource->setName(_resourceName);

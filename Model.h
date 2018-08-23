@@ -21,8 +21,8 @@
 #include "ModelInfrastructure.h"
 #include "Event.h"
 #include "Listener.h"
-#include "Collector_if.h"
-#include "Parser.h"
+#include "ModelChecker_if.h"
+#include "Parser_if.h"
 
 class Simulator;
 
@@ -108,11 +108,6 @@ private: // simulation control
 	void _showReplicationStatistics();
 	void _showSimulationStatistics();
 private:
-	bool _checkAndAddInternalLiterals();
-	bool _checkConnected();
-	bool _checkSymbols();
-	bool _checkPathway();
-	bool _checkActivationCode();
 	bool _finishReplicationCondition();
 private:
 	std::list<traceListener>* _traceListeners = new std::list<traceListener>();
@@ -158,9 +153,7 @@ private: // read only public access (gets)
 	List<Event*>* _events;
 	// infrastructures
 	std::map<std::string, List<ModelInfrastructure*>*>* _infrastructures;
-	//List<ModelInfrastructure*>* _infrastructures;
-	//List<Entity*>* _entities;
-	//List<Collector_if*>* _collectors;
+
 
 private: // no public access (no gets / sets)	
 	Simulator* _simulator;
@@ -175,7 +168,8 @@ private: // no public access (no gets / sets)
 	// needed?
 	Entity* _currentEntity;
 	ModelComponent* _currentComponent;
-	Parser* _parser;
+	Parser_if* _parser;
+	ModelChecker_if* _modelChecker;
 };
 
 #endif /* SIMULATIONMODEL_H */

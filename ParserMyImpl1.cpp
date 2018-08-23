@@ -5,25 +5,25 @@
  */
 
 /* 
- * File:   Parser.cpp
+ * File:   ParserMyImpl1.cpp
  * Author: cancian
  * 
  * Created on 22 de Agosto de 2018, 08:45
  */
 
-#include "Parser.h"
+#include "ParserMyImpl1.h"
 
-Parser::Parser(Model* model) {
+ParserMyImpl1::ParserMyImpl1(Model* model) {
 	_model = model;
 }
 
-Parser::Parser(const Parser& orig) {
+ParserMyImpl1::ParserMyImpl1(const ParserMyImpl1& orig) {
 }
 
-Parser::~Parser() {
+ParserMyImpl1::~ParserMyImpl1() {
 }
 
-double Parser::parse(const std::string expression) {
+double ParserMyImpl1::parse(const std::string expression) {
 	double result = std::atof(expression.c_str());
 	return result;
 }

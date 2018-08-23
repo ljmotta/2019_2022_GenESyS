@@ -46,3 +46,11 @@ std::string Simulator::getName() const {
 	return _name;
 }
 
+Sampler_if* Simulator::getSampler() const {
+	return _sampler;
+}
+
+Fitter_if* Simulator::getFitter() const {
+	return _fitter;
+}
+

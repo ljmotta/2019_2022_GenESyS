@@ -25,8 +25,8 @@ public:
 public:
 	virtual std::string getName() = 0;
 	virtual void setName(std::string name) = 0;
-	virtual std::string getFilename() = 0;
-	virtual void setFilename(std::string filename) = 0;
+	virtual std::string getDataFilename() = 0;
+	virtual void setDataFilename(std::string filename) = 0;
 };
 
 #endif /* COLLECTOR_IF_H */

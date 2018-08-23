@@ -26,6 +26,9 @@ public:
 	virtual void fitBeta (double *sqrerror, double *a, double *b, double *offset,double *mult) = 0;
 	virtual void fitWeibull (double *sqrerror, double *a, double *b, double *offset, double *mult) = 0;
 	virtual void fitAll (double *sqrerror, std::string *name) = 0;
+public:
+	virtual void setDataFilename(std::string dataFilename) = 0;
+	virtual std::string getDataFilename() = 0;
 };
 
 #endif /* FITTER_IF_H */

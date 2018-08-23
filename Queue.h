@@ -15,10 +15,10 @@
 #define QUEUE_H
 
 #include "ModelInfrastructure.h"
-#include "LinkedByComponent.h"
+#include "LinkedBy.h"
 
 
-class Queue: public ModelInfrastructure, public LinkedByComponent {
+class Queue: public ModelInfrastructure, public LinkedBy {
 public:
 	Queue();
 	Queue(const Queue& orig);

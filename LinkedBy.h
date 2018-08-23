@@ -5,7 +5,7 @@
  */
 
 /* 
- * File:   LinkedByComponent.h
+ * File:   LinkedBy.h
  * Author: cancian
  *
  * Created on 22 de Agosto de 2018, 07:35
@@ -14,11 +14,11 @@
 #ifndef LINKEDBYCOMPONENT_H
 #define LINKEDBYCOMPONENT_H
 
-class LinkedByComponent {
+class LinkedBy {
 public:
-	LinkedByComponent();
-	LinkedByComponent(const LinkedByComponent& orig);
-	virtual ~LinkedByComponent();
+	LinkedBy();
+	LinkedBy(const LinkedBy& orig);
+	virtual ~LinkedBy();
 public:
 	void addLink();
 	void removeLink();

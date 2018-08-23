@@ -5,29 +5,30 @@
  */
 
 /* 
- * File:   Parser.h
+ * File:   ParserMyImpl1.h
  * Author: cancian
  *
  * Created on 22 de Agosto de 2018, 08:45
  */
 
-#ifndef PARSER_H
-#define PARSER_H
+#ifndef PARSERMYIMPL1_H
+#define PARSERMYIMPL1_H
 
 #include <string>
+#include "Parser_if.h"
 
 class Model;
 
-class Parser {
+class ParserMyImpl1 : public Parser_if {
 public:
-	Parser(Model* model);
-	Parser(const Parser& orig);
-	virtual ~Parser();
+	ParserMyImpl1(Model* model);
+	ParserMyImpl1(const ParserMyImpl1& orig);
+	virtual ~ParserMyImpl1();
 public:
 	double parse(const std::string expression);
 private:
 	Model* _model;
 };
 
-#endif /* PARSER_H */
+#endif /* PARSERMYIMPL1_H */
 

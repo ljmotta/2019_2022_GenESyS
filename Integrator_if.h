@@ -16,19 +16,12 @@
 
 class Integrator_if {
 public:
-	virtual double integrate(double min, double max, double (*f)(double), double p1) = 0;
-	virtual double integrate(double min, double max, double (*f)(double, double), double p1, double p2) = 0;
-	virtual double integrate(double min, double max, double (*f)(double, double,double), double p1, double p2, double p3) = 0;
-public:
-	static double uniform(double min, double max);
-	static double exponential(double mean);
-	static double erlang(double mean, int M);
-	static double normal(double mean, double stddev);
-	static double gamma(double mean, double alpha);
-	static double beta(double alpha, double beta);
-	static double weibull(double alpha, double scale);
-	static double logNormal(double mean, double stddev);
-	static double triangular(double min, double mode, double max);
+	virtual void setPrecision(double e) = 0;
+	virtual double getPrecision() = 0;
+	virtual double integrate(double min, double max, double (*f)(double, double), double p2) = 0;
+	virtual double integrate(double min, double max, double (*f)(double, double, double), double p2, double p3) = 0;
+	virtual double integrate(double min, double max, double (*f)(double, double, double, double),  double p2, double p3, double p4) = 0;
+	virtual double integrate(double min, double max, double (*f)(double, double, double, double, double), double p2, double p3, double p4, double p5) = 0;
 };
 
 #endif /* INTEGRATOR_IF_H */

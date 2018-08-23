@@ -37,30 +37,36 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/Analyser.o \
 	${OBJECTDIR}/AttributeValue.o \
-	${OBJECTDIR}/CollectorImpl1.o \
+	${OBJECTDIR}/CollectorMyImpl1.o \
 	${OBJECTDIR}/Create.o \
 	${OBJECTDIR}/Delay.o \
 	${OBJECTDIR}/Dispose.o \
 	${OBJECTDIR}/Entity.o \
 	${OBJECTDIR}/EntityType.o \
 	${OBJECTDIR}/Event.o \
-	${OBJECTDIR}/LinkedByComponent.o \
+	${OBJECTDIR}/FitterMyImpl1.o \
+	${OBJECTDIR}/IntegratorMyImpl1.o \
+	${OBJECTDIR}/LinkedBy.o \
 	${OBJECTDIR}/Listener.o \
 	${OBJECTDIR}/Model.o \
+	${OBJECTDIR}/ModelCheckerMyImpl1.o \
 	${OBJECTDIR}/ModelComponent.o \
 	${OBJECTDIR}/ModelInfrastructure.o \
 	${OBJECTDIR}/OldEventObserv.o \
 	${OBJECTDIR}/OldObservable.o \
 	${OBJECTDIR}/OldObserver.o \
-	${OBJECTDIR}/Parser.o \
+	${OBJECTDIR}/ParserMyImpl1.o \
 	${OBJECTDIR}/Plugin.o \
+	${OBJECTDIR}/ProbDistrib.o \
 	${OBJECTDIR}/Queue.o \
 	${OBJECTDIR}/Release.o \
 	${OBJECTDIR}/Resource.o \
+	${OBJECTDIR}/SamplerMyImpl1.o \
 	${OBJECTDIR}/Seize.o \
 	${OBJECTDIR}/Simulator.o \
 	${OBJECTDIR}/SinkModelComponent.o \
 	${OBJECTDIR}/SourceModelComponent.o \
+	${OBJECTDIR}/StatisticsMyImpl1.o \
 	${OBJECTDIR}/Util.o \
 	${OBJECTDIR}/main.o
 
@@ -99,10 +105,10 @@ ${OBJECTDIR}/AttributeValue.o: AttributeValue.cpp nbproject/Makefile-${CND_CONF}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/AttributeValue.o AttributeValue.cpp
 
-${OBJECTDIR}/CollectorImpl1.o: CollectorImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/CollectorMyImpl1.o: CollectorMyImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/CollectorImpl1.o CollectorImpl1.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/CollectorMyImpl1.o CollectorMyImpl1.cpp
 
 ${OBJECTDIR}/Create.o: Create.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -134,10 +140,20 @@ ${OBJECTDIR}/Event.o: Event.cpp nbproject/Makefile-${CND_CONF}.mk
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Event.o Event.cpp
 
-${OBJECTDIR}/LinkedByComponent.o: LinkedByComponent.cpp nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/FitterMyImpl1.o: FitterMyImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/LinkedByComponent.o LinkedByComponent.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FitterMyImpl1.o FitterMyImpl1.cpp
+
+${OBJECTDIR}/IntegratorMyImpl1.o: IntegratorMyImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/IntegratorMyImpl1.o IntegratorMyImpl1.cpp
+
+${OBJECTDIR}/LinkedBy.o: LinkedBy.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/LinkedBy.o LinkedBy.cpp
 
 ${OBJECTDIR}/Listener.o: Listener.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -148,6 +164,11 @@ ${OBJECTDIR}/Model.o: Model.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Model.o Model.cpp
+
+${OBJECTDIR}/ModelCheckerMyImpl1.o: ModelCheckerMyImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelCheckerMyImpl1.o ModelCheckerMyImpl1.cpp
 
 ${OBJECTDIR}/ModelComponent.o: ModelComponent.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -174,15 +195,20 @@ ${OBJECTDIR}/OldObserver.o: OldObserver.cpp nbproject/Makefile-${CND_CONF}.mk
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/OldObserver.o OldObserver.cpp
 
-${OBJECTDIR}/Parser.o: Parser.cpp nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/ParserMyImpl1.o: ParserMyImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Parser.o Parser.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ParserMyImpl1.o ParserMyImpl1.cpp
 
 ${OBJECTDIR}/Plugin.o: Plugin.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Plugin.o Plugin.cpp
+
+${OBJECTDIR}/ProbDistrib.o: ProbDistrib.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ProbDistrib.o ProbDistrib.cpp
 
 ${OBJECTDIR}/Queue.o: Queue.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -198,6 +224,11 @@ ${OBJECTDIR}/Resource.o: Resource.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Resource.o Resource.cpp
+
+${OBJECTDIR}/SamplerMyImpl1.o: SamplerMyImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SamplerMyImpl1.o SamplerMyImpl1.cpp
 
 ${OBJECTDIR}/Seize.o: Seize.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -218,6 +249,11 @@ ${OBJECTDIR}/SourceModelComponent.o: SourceModelComponent.cpp nbproject/Makefile
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SourceModelComponent.o SourceModelComponent.cpp
+
+${OBJECTDIR}/StatisticsMyImpl1.o: StatisticsMyImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/StatisticsMyImpl1.o StatisticsMyImpl1.cpp
 
 ${OBJECTDIR}/Util.o: Util.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

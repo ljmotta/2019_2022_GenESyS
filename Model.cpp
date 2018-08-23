@@ -15,7 +15,7 @@
 #include "Model.h"
 #include "SourceModelComponent.h"
 #include "Simulator.h"
-#include "Parser.h" // avoid link error
+#include "ParserMyImpl1.h" // avoid link error
 #include <iostream>
 #include <algorithm>
 
@@ -27,7 +27,10 @@ Model::Model(Simulator* simulator) {
 	_simulator = simulator;
 	_name = "Model " + std::to_string(Util::_S_generateNewIdOfType("Model")); // (reinterpret_cast<unsigned long> (this));
 	// 1:1
-	_parser = new Parser(this);
+	_parser = new Traits<Parser_if>::Implementation(this);
+	//_parser->setModel(this);
+	_modelChecker = new Traits<ModelChecker_if>::Implementation(this);
+	//_modelChecker->setModel(this);
 	// 1:n attributes
 	_components = new List<ModelComponent*>();
 	_components->setSortFunc([](const ModelComponent* a, const ModelComponent * b) {
@@ -207,12 +210,7 @@ void Model::_showSimulationStatistics() {
 
 bool Model::check() {
 	trace(Util::TraceLevel::TL_blockInternal, "Checking model consistency");
-	bool passed = this->_checkAndAddInternalLiterals();
-	if (passed) passed = this->_checkConnected();
-	if (passed) passed = this->_checkSymbols();
-	if (passed) passed = this->_checkPathway();
-	if (passed) passed = this->_checkActivationCode();
-	return passed;
+	return this->_modelChecker->checkAll();
 }
 
 void Model::removeEntity(Entity* entity, bool collectStatistics) {
@@ -223,35 +221,6 @@ void Model::removeEntity(Entity* entity, bool collectStatistics) {
 	trace(Util::TraceLevel::TL_blockInternal, "Entity " + std::to_string(entity->getId()) + " was removed from the system");
 	//_entities->remove(entity);
 	entity->~Entity();
-}
-
-bool Model::_checkAndAddInternalLiterals() {
-	/* TODO +-: not implemented yet */
-	return true;
-}
-
-bool Model::_checkConnected() {
-	/* TODO +-: not implemented yet */
-	return true;
-}
-
-bool Model::_checkSymbols() {
-	/* TODO +-: not implemented yet */
-	return true;
-}
-
-bool Model::_checkPathway() {
-	/* TODO +-: not implemented yet */
-	std::list<ModelComponent*>* list = this->getComponents()->getList();
-	for (std::list<ModelComponent*>::iterator it = list->begin(); it != list->end(); it++) {
-		this->trace(Util::TraceLevel::TL_mostDetailed, (*it)->show()); ////
-	}
-	return true;
-}
-
-bool Model::_checkActivationCode() {
-	/* TODO +-: not implemented yet */
-	return true;
 }
 
 void Model::pauseSimulation() {

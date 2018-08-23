@@ -5,31 +5,31 @@
  */
 
 /* 
- * File:   LinkedByComponent.cpp
+ * File:   LinkedBy.cpp
  * Author: cancian
  * 
  * Created on 22 de Agosto de 2018, 07:35
  */
 
-#include "LinkedByComponent.h"
+#include "LinkedBy.h"
 
-LinkedByComponent::LinkedByComponent() {
+LinkedBy::LinkedBy() {
 }
 
-LinkedByComponent::LinkedByComponent(const LinkedByComponent& orig) {
+LinkedBy::LinkedBy(const LinkedBy& orig) {
 }
 
-LinkedByComponent::~LinkedByComponent() {
+LinkedBy::~LinkedBy() {
 }
 
-void LinkedByComponent::addLink() {
+void LinkedBy::addLink() {
 	this->_linkedBy++;
 }
 	
-void LinkedByComponent::removeLink() {
+void LinkedBy::removeLink() {
 	this->_linkedBy--;
 }
 
-bool LinkedByComponent::isLinked() {
+bool LinkedBy::isLinked() {
 	return this->_linkedBy > 0;
 }

@@ -4,34 +4,45 @@
         <activeConfTypeElem>1</activeConfTypeElem>
         <activeConfIndexElem>0</activeConfIndexElem>
     </data>
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="2">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="6">
         <file>
             <url>Model.cpp</url>
             <bookmark id="2">
                 <name/>
-                <line>477</line>
+                <line>479</line>
+                <key/>
+            </bookmark>
+        </file>
+        <file>
+            <url>Seize.cpp</url>
+            <bookmark id="4">
+                <name/>
+                <line>17</line>
+                <key/>
+            </bookmark>
+            <bookmark id="6">
+                <name/>
+                <line>72</line>
                 <key/>
             </bookmark>
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="Classes">
-            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Model.cpp</file>
-            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Entity.h</file>
-            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/ModelInfrastructure.h</file>
-            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Dispose.h</file>
-            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Seize.h</file>
-            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Resource.h</file>
-            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/List.h</file>
-            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Queue.cpp</file>
-            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/ModelInfrastructure.cpp</file>
-            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Queue.h</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Sampler_if.h</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/SamplerMyImpl1.cpp</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Traits.h</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Parser.cpp</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/EntityType.h</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/CollectorMyImpl1.h</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Parser.h</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/SamplerMyImpl1.h</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/CollectorMyImpl1.cpp</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Statistics.h</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Fitter_if.h</file>
             <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Seize.cpp</file>
-            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Release.cpp</file>
-            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Dispose.cpp</file>
-            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Resource.cpp</file>
-            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/ModelComponent.h</file>
-            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Entity.cpp</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/Statistics_if.h</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/EntityType.cpp</file>
         </group>
     </open-files>
 </project-private>

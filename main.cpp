@@ -14,9 +14,22 @@
 #include <cstdlib>
 #include <iostream>
 #include "Simulator.h"
+#include "Listener.h"
+#include "Traits.h"
+
+// Simulator objects
+#include "Sampler_if.h" // old MMC
+#include "Fitter_if.h"
+
+// Tools and Utils
+#include "Collector_if.h"
+#include "Statistics_if.h"
+#include "Integrator_if.h"
+#include "ProbDistrib.h"
+
+// Model Components
 #include "Create.h"
 #include "Delay.h"
-#include "Listener.h"
 #include "Dispose.h"
 #include "Seize.h"
 #include "Release.h"
@@ -97,7 +110,6 @@ void buildModel(Model* model) {
 }
 
 void buildSimulationSystem() {
-	//OldObserver* traceObserver = new OldObserver();
 	Simulator* simulator = new Simulator();
 	Model* model = new Model(simulator);
 	buildModel(model);
@@ -108,11 +120,63 @@ void buildSimulationSystem() {
 	}
 }
 
+void testStudentSoftwareDevelopments() {
+	Simulator* simulator = new Simulator();
+	Sampler_if* mmc = simulator->getSampler(); // Sampler is the new MMC
+	Collector_if* collector = new Traits<Collector_if>::Implementation();
+	collector->setDataFilename("./datafile.txt");
+	
+	// generate a datafile with a thousand values that should be normal distributed == NORM(5000,350)
+	double value;
+	for (unsigned int i=0; i<1e3; i++) {
+		value = mmc->sampleNormal(5000,350);
+		collector->addValue(value);
+	}
+	
+	// generate statistics about that datafile 
+	Statistics_if* statistics = new Traits<Statistics_if>::Implementation();
+	statistics->setDataFilename(collector->getDataFilename());
+	double statVal;
+	statVal = statistics->numElements();
+	statVal = statistics->average();
+	statVal = statistics->stddeviation();
+	statVal = statistics->halfWidth(0.05);
+	statVal = statistics->quartil(2);
+	statVal = statistics->mediane();
+	statVal = statistics->histogramNumClasses();
+	statVal = statistics->histogramClassFrequency(0);
+	statVal = statistics->histogramClassFrequency(1);
+	
+	// fit datafile to different probability distributions
+	Fitter_if* fitter = simulator->getFitter();
+	fitter->setDataFilename(collector->getDataFilename());
+	double sqrerror, p1, p2, p3, p4;
+	std::string distribName;
+	fitter->fitUniform(&sqrerror, &p1, &p2);
+	fitter->fitTriangular(&sqrerror, &p1, &p2, &p3);
+	fitter->fitNormal(&sqrerror, &p1, &p2);
+	fitter->fitAll(&sqrerror, &distribName);
+	
+	// get some values from the PDF (Probability Density Functions)
+	value = ProbDistrib::uniform(0.25, 0.0, 1.0);
+	value = ProbDistrib::uniform(0.5, 0.0, 1.0);
+	value = ProbDistrib::uniform(0.75, 0.0, 1.0);
+	value = ProbDistrib::normal(10.0, 50.0, 20.0);
+	value = ProbDistrib::normal(30.0, 50.0, 20.0);
+	value = ProbDistrib::normal(50.0, 50.0, 20.0);
+
+	// calculate some integrals just for fun
+	Integrator_if* integrator = new Traits<Integrator_if>::Implementation();
+	value = integrator->integrate(0.0, 0.4, &ProbDistrib::uniform, 0.0, 0.1);
+	value = integrator->integrate(0.0, 100, &ProbDistrib::normal, 100, 10);
+}
+
 /*
  * 
  */
 int main(int argc, char** argv) {
-	buildSimulationSystem();
+	//buildSimulationSystem();
+	testStudentSoftwareDevelopments();
 	return 0;
 }
 
