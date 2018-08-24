@@ -34,10 +34,6 @@ std::string Seize::show() {
 	return ModelComponent::show() + ", quantity=" + this->_quantity + ",...";
 }
 
-void Seize::_execute(Entity* entity) {
-	/* TODO +: not implemented yet */
-	_model->sendEntityToComponent(entity, this->getNextComponents()->first(), 0.0);
-}
 
 void Seize::setLastMemberSeized(unsigned int _lastMemberSeized) {
 	this->_lastMemberSeized = _lastMemberSeized;
@@ -150,3 +146,23 @@ std::string Seize::getQueueName() const {
 Seize::~Seize() {
 }
 
+
+void Seize::_execute(Entity* entity) {
+	/* TODO +: not implemented yet */
+	_model->sendEntityToComponent(entity, this->getNextComponents()->first(), 0.0);
+}
+
+
+
+void Seize::_readComponent(std::list<std::string> words) {
+
+}
+
+std::list<std::string>* Seize::_writeComponent() {
+	std::list<std::string>* words = new std::list<std::string>();
+	return words;
+}
+
+bool Seize::_verifySymbols(std::string* errorMessage) {
+	return true;
+}

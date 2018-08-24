@@ -34,3 +34,18 @@ void Release::_execute(Entity* entity) {
 	
 }
 
+
+
+void Release::_readComponent(std::list<std::string> words) {
+
+}
+
+std::list<std::string>* Release::_writeComponent() {
+	std::list<std::string>* words = new std::list<std::string>();
+	return words;
+
+}
+
+bool Release::_verifySymbols(std::string* errorMessage) {
+	return true;
+}

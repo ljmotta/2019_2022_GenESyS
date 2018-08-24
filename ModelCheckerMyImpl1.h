@@ -29,6 +29,7 @@ public:
 	bool checkSymbols();
 	bool checkPathway();
 	bool checkActivationCode();
+	bool verifySymbol(std::string componentName, std::string expressionName, std::string expression, std::string expressionResult, bool mandatory);
 private:
 	Model* _model = nullptr;
 };

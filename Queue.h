@@ -17,6 +17,8 @@
 #include "ModelInfrastructure.h"
 #include "LinkedBy.h"
 
+#include "List.h"
+#include "Entity.h"
 
 class Queue: public ModelInfrastructure, public LinkedBy {
 public:
@@ -27,7 +29,7 @@ public:
 	virtual std::string show();
 public: //g&s
 private:
-
+	List<Entity*>* _list = new List<Entity*>();
 };
 
 #endif /* QUEUE_H */

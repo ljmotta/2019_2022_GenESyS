@@ -16,7 +16,7 @@
 
 class Parser_if {
 public:
-	virtual double parse(const std::string expression) = 0;
+	virtual double parse(const std::string expression) = 0; // may throw exception
 };
 
 #endif /* PARSER_IF_H */

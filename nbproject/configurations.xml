@@ -26,10 +26,7 @@
       <itemPath>Seize.cpp</itemPath>
       <itemPath>Seize.h</itemPath>
     </logicalFolder>
-    <logicalFolder name="f9"
-                   displayName="Configuration"
-                   projectFiles="true"
-                   kind="ROOT">
+    <logicalFolder name="f9" displayName="Configuration" projectFiles="true">
       <itemPath>Traits.h</itemPath>
     </logicalFolder>
     <logicalFolder name="f4" displayName="Infrastructure" projectFiles="true">
@@ -56,6 +53,9 @@
       <itemPath>ModelComponent.h</itemPath>
       <itemPath>ModelInfrastructure.cpp</itemPath>
       <itemPath>ModelInfrastructure.h</itemPath>
+      <itemPath>ModelPersistenceMyImpl1.cpp</itemPath>
+      <itemPath>ModelPersistenceMyImpl1.h</itemPath>
+      <itemPath>ModelPersistence_if.h</itemPath>
       <itemPath>Plugin.cpp</itemPath>
       <itemPath>Plugin.h</itemPath>
       <itemPath>Simulator.cpp</itemPath>
@@ -209,6 +209,12 @@
       <item path="ModelInfrastructure.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ModelInfrastructure.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ModelPersistenceMyImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ModelPersistenceMyImpl1.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ModelPersistence_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ParserMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -372,6 +378,12 @@
       <item path="ModelInfrastructure.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ModelInfrastructure.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ModelPersistenceMyImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ModelPersistenceMyImpl1.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ModelPersistence_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ParserMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>

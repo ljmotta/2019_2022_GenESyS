@@ -52,6 +52,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/ModelCheckerMyImpl1.o \
 	${OBJECTDIR}/ModelComponent.o \
 	${OBJECTDIR}/ModelInfrastructure.o \
+	${OBJECTDIR}/ModelPersistenceMyImpl1.o \
 	${OBJECTDIR}/ParserMyImpl1.o \
 	${OBJECTDIR}/Plugin.o \
 	${OBJECTDIR}/ProbDistrib.o \
@@ -176,6 +177,11 @@ ${OBJECTDIR}/ModelInfrastructure.o: ModelInfrastructure.cpp nbproject/Makefile-$
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelInfrastructure.o ModelInfrastructure.cpp
+
+${OBJECTDIR}/ModelPersistenceMyImpl1.o: ModelPersistenceMyImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelPersistenceMyImpl1.o ModelPersistenceMyImpl1.cpp
 
 ${OBJECTDIR}/ParserMyImpl1.o: ParserMyImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

@@ -14,11 +14,22 @@
 #include "Create.h"
 #include "Model.h"
 
-Create::Create(Model* model):SourceModelComponent(model) {
-	_name = "Create "+std::to_string(Util::_S_generateNewIdOfType(typeid(this).name()));
+/*
+std::string Create::COMPONENT_KIND = "";
+std::string Create::COMPONENT_AUTHOR = "";
+std::string Create::COMPONENT_VERSION = "";
+std::string Create::COMPONENT_DESCRIPTION = "";
+std::string Create::COMPONENT_IS_VISUAL = "";
+std::string Create::COMPONENT_IS_SOURCE = "";
+std::string Create::COMPONENT_IS_SINK = "";
+std::string Create::COMPONENT_DEPENDENCES = "";
+*/
+
+Create::Create(Model* model) : SourceModelComponent(model) {
+	_name = "Create " + std::to_string(Util::_S_generateNewIdOfType(typeid (this).name()));
 }
 
-Create::Create(const Create& orig):SourceModelComponent(orig) {
+Create::Create(const Create& orig) : SourceModelComponent(orig) {
 }
 
 Create::~Create() {
@@ -34,11 +45,11 @@ void Create::_execute(Entity* entity) {
 	if (it != entity->getAttributeValues()::end()) {
 		(*it)->second->setValue(this->_model->getSimulationTime());
 	}
-	*/
+	 */
 	double tnow = _model->getSimulatedTime();
 	entity->getAttributeValues()->find("Entity.ArrivalTime")->second->setValue(tnow);
 	double timeBetweenCreations, timeScale, newArrivalTime;
-	for (unsigned int i=0; i<this->_entitiesPerCreation; i++) {
+	for (unsigned int i = 0; i<this->_entitiesPerCreation; i++) {
 		this->_entitiesCreatedSoFar++;
 		Entity* newEntity = new Entity();
 		_model->getEntities()->insert(newEntity);
@@ -47,8 +58,31 @@ void Create::_execute(Entity* entity) {
 		newArrivalTime = tnow + timeBetweenCreations*timeScale;
 		Event* newEvent = new Event(newArrivalTime, newEntity, this);
 		_model->getEvents()->insert(newEvent);
-		_model->traceSimulation(Util::TraceLevel::TL_blockInternal, tnow, entity, this, "Arrival of entity "+std::to_string(newEntity->getId()) + " schedule for time " +std::to_string(newArrivalTime));
+		_model->traceSimulation(Util::TraceLevel::TL_blockInternal, tnow, entity, this, "Arrival of entity " + std::to_string(newEntity->getId()) + " schedule for time " + std::to_string(newArrivalTime));
 		//_model->trace(Util::TraceLevel::TL_blockInternal, "Arrival of entity "+std::to_string(entity->getId()) + " schedule for time " +std::to_string(newArrivalTime));
 	}
 	_model->sendEntityToComponent(entity, this->getNextComponents()->first(), 0.0);
+}
+
+void Create::_readComponent(std::list<std::string> words) {
+
+}
+
+std::list<std::string>* Create::_writeComponent() {
+	std::list<std::string>* words = new std::list<std::string>();
+	words->insert(words->end(), typeid(this).name());
+	words->insert(words->end(), std::to_string(this->_collectStatistics));
+	words->insert(words->end(), std::to_string(this->_entitiesPerCreation));
+	words->insert(words->end(), (this->_entityType));
+	words->insert(words->end(), std::to_string(this->_firstCreation));
+	words->insert(words->end(), std::to_string(this->_maxCreations));
+	words->insert(words->end(), (this->_timeBetweenCreationsExpression));
+	words->insert(words->end(), std::to_string(this->_timeBetweenCreationsTimeUnit));
+	return words;
+}
+
+bool Create::_verifySymbols(std::string* errorMessage) {
+	//Genesys.AuxFunctions.VerifySymbol(thismodule.Name, 'Time Between Creations', thisModule.aTimeBetweenCreations, cEXPRESSION, true);
+	bool res = _model->verifySymbol(this->_name, "Time Between Creations", this->_timeBetweenCreationsExpression, "EXPRESSION", true); // Todo: typeid(Expression)
+	return res;
 }

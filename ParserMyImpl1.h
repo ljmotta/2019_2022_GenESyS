@@ -25,7 +25,7 @@ public:
 	ParserMyImpl1(const ParserMyImpl1& orig);
 	virtual ~ParserMyImpl1();
 public:
-	double parse(const std::string expression);
+	double parse(const std::string expression);  // may throw exception
 private:
 	Model* _model;
 };

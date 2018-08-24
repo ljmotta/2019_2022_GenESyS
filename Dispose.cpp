@@ -31,3 +31,19 @@ std::string Dispose::show() {
 void Dispose::_execute(Entity* entity) {
 	_model->removeEntity(entity, this->isCollectStatistics());
 }
+
+
+
+void Dispose::_readComponent(std::list<std::string> words) {
+
+}
+
+std::list<std::string>* Dispose::_writeComponent() {
+	std::list<std::string>* words = new std::list<std::string>();
+	return words;
+
+}
+
+bool Dispose::_verifySymbols(std::string* errorMessage) {
+	return true;
+}

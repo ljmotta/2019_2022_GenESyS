@@ -23,6 +23,7 @@
 #include "Listener.h"
 #include "ModelChecker_if.h"
 #include "Parser_if.h"
+#include "ModelPersistence_if.h"
 
 class Simulator;
 
@@ -31,6 +32,35 @@ public:
 	Model(Simulator* simulator);
 	Model(const Model& orig);
 	virtual ~Model();
+public: // simulation control
+	void startSimulation();
+	void pauseSimulation();
+	void stepSimulation();
+	void stopSimulation();
+	void restartSimulation();
+	void showReports();
+	void setPauseOnEvent(bool _pauseOnEvent);
+	bool isPauseOnEvent() const;
+public: // model control
+	bool saveModel(std::string filename);
+	bool loadModel(std::string filename); 
+	bool check();
+	bool verifySymbol(std::string componentName, std::string expressionName, std::string expression, std::string expressionResult, bool mandatory);
+	void removeEntity(Entity* entity, bool collectStatistics);
+	void sendEntityToComponent(Entity* entity, ModelComponent* component, double timeDelay);
+	double parseExpression(const std::string expression);
+public: // traces
+	void addTraceListener(traceListener traceListener);
+	void addTraceErrorListener(traceErrorListener traceErrorListener);
+	void addTraceReportListener(traceListener traceReportListener);
+	//void addTraceSimulationListener(traceListener traceListener);
+	void addTraceSimulationListener(traceSimulationListener traceSimulationListener);
+	void trace(Util::TraceLevel tracelevel, std::string text);
+	void traceError(std::exception e, std::string text);
+	//void traceSimulation(Util::TraceLevel tracelevel, std::string text);
+	void traceSimulation(Util::TraceLevel tracelevel, double time, Entity* entity, ModelComponent* component, std::string text);
+	void traceReport(Util::TraceLevel tracelevel, std::string text);
+    List<std::string>* getErrorMessages() const;
 public: // gets and sets
 	void setName(std::string _name);
 	std::string getName() const;
@@ -75,31 +105,6 @@ public: // only gets
 	List<ModelInfrastructure*>* getInfrastructures(std::string infraTypename) const;
 	ModelInfrastructure* getInfrastructure(std::string infraTypename, Util::identitifcation id);
 	ModelInfrastructure* getInfrastructure(std::string infraTypename, std::string name);
-public: // simulation control
-	void startSimulation();
-	void pauseSimulation();
-	void stepSimulation();
-	void stopSimulation();
-	void restartSimulation();
-	void showReports();
-	void setPauseOnEvent(bool _pauseOnEvent);
-	bool isPauseOnEvent() const;
-public: // model control
-	bool check();
-	void removeEntity(Entity* entity, bool collectStatistics);
-	void sendEntityToComponent(Entity* entity, ModelComponent* component, double timeDelay);
-	double parseExpression(const std::string expression);
-public: // traces
-	void addTraceListener(traceListener traceListener);
-	void addTraceErrorListener(traceErrorListener traceErrorListener);
-	void addTraceReportListener(traceListener traceReportListener);
-	//void addTraceSimulationListener(traceListener traceListener);
-	void addTraceSimulationListener(traceSimulationListener traceSimulationListener);
-	void trace(Util::TraceLevel tracelevel, std::string text);
-	void traceError(std::exception e, std::string text);
-	//void traceSimulation(Util::TraceLevel tracelevel, std::string text);
-	void traceSimulation(Util::TraceLevel tracelevel, double time, Entity* entity, ModelComponent* component, std::string text);
-	void traceReport(Util::TraceLevel tracelevel, std::string text);
 private: // simulation control
 	void _initSimulation();
 	void _initReplication(unsigned int currentReplicationNumber);
@@ -149,11 +154,11 @@ private: // read only public access (gets)
 	bool _running = false;
 	bool _saved = false;
 	// 1:n
+	List<std::string>* _errorMessages; /* todo: 18/08/24 this is a new one. several methods should use it */
 	List<ModelComponent*>* _components;
 	List<Event*>* _events;
 	// infrastructures
 	std::map<std::string, List<ModelInfrastructure*>*>* _infrastructures;
-
 
 private: // no public access (no gets / sets)	
 	Simulator* _simulator;
@@ -170,6 +175,7 @@ private: // no public access (no gets / sets)
 	ModelComponent* _currentComponent;
 	Parser_if* _parser;
 	ModelChecker_if* _modelChecker;
+	ModelPersistence_if* _modelPersistence;
 };
 
 #endif /* SIMULATIONMODEL_H */

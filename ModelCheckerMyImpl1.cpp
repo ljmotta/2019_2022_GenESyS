@@ -43,7 +43,13 @@ bool ModelCheckerMyImpl1::checkConnected() {
 }
 
 bool ModelCheckerMyImpl1::checkSymbols() {
-	return true;
+	bool res = true;
+	std::string* errorMessage;  // replaced by errorMessages in model??
+	List<ModelComponent*>* components = this->_model->getComponents();
+	for (std::list<ModelComponent*>::iterator it= components->getList()->begin(); it!=components->getList()->end(); it++) {
+		res &= (*it)->VerifySymbols((*it), errorMessage);
+	}
+	return res;
 }
 
 bool ModelCheckerMyImpl1::checkPathway() {
@@ -60,3 +66,12 @@ bool ModelCheckerMyImpl1::checkActivationCode() {
 	return true;
 }
 
+bool ModelCheckerMyImpl1::verifySymbol(std::string componentName, std::string expressionName, std::string expression, std::string expressionResult, bool mandatory) {
+	bool res = true;
+	if (mandatory && expression=="") {
+		_model->getErrorMessages()->insert("Error verifying symbol \""+expressionName+"\" of component \""+componentName+"\n: Mandatory symbol is empty");
+		res = false;
+	}
+	/* TODO: Not implemented yet */
+	return res;
+}

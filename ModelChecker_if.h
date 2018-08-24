@@ -14,17 +14,22 @@
 #ifndef MODELCHECKER_IF_H
 #define MODELCHECKER_IF_H
 
+#include <typeinfo>
+#include <string>
+
 //#include "Model.h"
 //class Model;
 
 class ModelChecker_if {
 public:
-	virtual bool checkAll()=0;
-	virtual bool checkAndAddInternalLiterals()=0;
-	virtual bool checkConnected()=0;
-	virtual bool checkSymbols()=0;
-	virtual bool checkPathway()=0;
-	virtual bool checkActivationCode()=0;
+	virtual bool checkAll() = 0;
+	virtual bool checkAndAddInternalLiterals() = 0;
+	virtual bool checkConnected() = 0;
+	virtual bool checkSymbols() = 0;
+	virtual bool checkPathway() = 0;
+	virtual bool checkActivationCode() = 0;
+
+	virtual bool verifySymbol(std::string componentName, std::string expressionName, std::string expression, std::string expressionResult, bool mandatory) = 0;
 };
 
 #endif /* MODELCHECKER_IF_H */

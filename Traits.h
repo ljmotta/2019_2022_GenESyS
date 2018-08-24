@@ -24,6 +24,7 @@
 #include "Statistics_if.h"
 #include "Integrator_if.h"
 #include "HypothesisTester_if.h"
+#include "ModelPersistence_if.h"
 
 // possible implementations
 #include "CollectorMyImpl1.h"
@@ -34,6 +35,7 @@
 #include "StatisticsMyImpl1.h"
 #include "IntegratorMyImpl1.h"
 #include "HypothesisTesterMyImpl1.h"
+#include "ModelPersistenceMyImpl1.h"
 
 template <typename T>
 struct Traits {
@@ -73,6 +75,10 @@ template <> struct Traits<Integrator_if> {
 
 template <> struct Traits<HypothesisTester_if> {
 	typedef HypothesisTesterMyImpl1 Implementation;
+};
+
+template <> struct Traits<ModelPersistence_if> {
+	typedef ModelPersistenceMyImpl1 Implementation;
 };
 
 #endif /* TRAITS_H */

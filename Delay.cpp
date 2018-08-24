@@ -50,3 +50,19 @@ void Delay::_execute(Entity* entity) {
 	_model->getEvents()->insert(newEvent);
 	_model->trace(Util::TraceLevel::TL_blockInternal, "End of delay of entity " + std::to_string(entity->getId()) + " schedule to time " + std::to_string(delayEndTime));
 }
+
+
+
+void Delay::_readComponent(std::list<std::string> words) {
+
+}
+
+std::list<std::string>* Delay::_writeComponent() {
+	std::list<std::string>* words = new std::list<std::string>();
+	return words;
+
+}
+
+bool Delay::_verifySymbols(std::string* errorMessage) {
+	return true;
+}

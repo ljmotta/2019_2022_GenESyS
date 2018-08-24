@@ -29,6 +29,9 @@ public:
 public: // get & set
 protected:
 	virtual void _execute(Entity* entity);
+	virtual void _readComponent(std::list<std::string> words);
+	virtual std::list<std::string>* _writeComponent();
+	virtual bool _verifySymbols(std::string* errorMessage);
 private:
 //	unsigned int _allocationType = 0; // uint ? enum?
 	unsigned short _priority = 0;

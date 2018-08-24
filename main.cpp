@@ -116,6 +116,7 @@ void buildSimulationSystem() {
 	buildModel(model);
 	simulator->getModels()->insert(model);
 	if (model->check()) {
+		model->saveModel("./genesysmodel.txt");
 		model->startSimulation();
 		model->showReports();
 	}
@@ -191,8 +192,12 @@ void testStudentSoftwareDevelopments() {
  * 
  */
 int main(int argc, char** argv) {
-	//buildSimulationSystem();
-	testStudentSoftwareDevelopments();
+	// uncomment bellow to execute a simulation
+	buildSimulationSystem();
+	
+	// uncomment bellow to test Software Development (DS) implementations
+	//testStudentSoftwareDevelopments();
+	
 	return 0;
 }
 

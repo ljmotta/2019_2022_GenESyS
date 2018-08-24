@@ -18,7 +18,7 @@
 #include <limits>
 #include "SourceModelComponent.h"
 
-class Create: public SourceModelComponent {
+class Create : public SourceModelComponent {
 public:
 	Create(Model* model);
 	Create(const Create& orig);
@@ -27,6 +27,9 @@ public:
 	virtual std::string show();
 protected:
 	virtual void _execute(Entity* entity);
+	virtual void _readComponent(std::list<std::string> words);
+	virtual std::list<std::string>* _writeComponent();
+	virtual bool _verifySymbols(std::string* errorMessage);
 };
 
 #endif /* CREATE_H */

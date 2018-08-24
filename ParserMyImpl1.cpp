@@ -23,7 +23,7 @@ ParserMyImpl1::ParserMyImpl1(const ParserMyImpl1& orig) {
 ParserMyImpl1::~ParserMyImpl1() {
 }
 
-double ParserMyImpl1::parse(const std::string expression) {
-	double result = std::atof(expression.c_str());
+double ParserMyImpl1::parse(const std::string expression) {  // may throw exception
+	double result = std::atof(expression.c_str()); // change by a real parser
 	return result;
 }

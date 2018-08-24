@@ -28,9 +28,8 @@ Model::Model(Simulator* simulator) {
 	_name = "Model " + std::to_string(Util::_S_generateNewIdOfType("Model")); // (reinterpret_cast<unsigned long> (this));
 	// 1:1
 	_parser = new Traits<Parser_if>::Implementation(this);
-	//_parser->setModel(this);
 	_modelChecker = new Traits<ModelChecker_if>::Implementation(this);
-	//_modelChecker->setModel(this);
+	_modelPersistence = new Traits<ModelPersistence_if>::Implementation(this);
 	// 1:n attributes
 	_components = new List<ModelComponent*>();
 	_components->setSortFunc([](const ModelComponent* a, const ModelComponent * b) {
@@ -69,8 +68,16 @@ void Model::sendEntityToComponent(Entity* entity, ModelComponent* component, dou
 	} else {
 		// send it now
 		/* TODO -: supposed not to be a queue associated to a component */
-		component->execute(entity, component);
+		component->Execute(entity, component);
 	}
+}
+
+bool Model::saveModel(std::string filename) {
+	return this->_modelPersistence->save(filename);
+}
+
+bool Model::loadModel(std::string filename) {
+	return this->_modelPersistence->load(filename);
 }
 
 double Model::parseExpression(const std::string expression) {
@@ -113,7 +120,7 @@ void Model::startSimulation() {
 		} else if (_stopRequested) {
 			causeTerminated = "user requested to stop";
 		} else if (!(this->_simulatedTime < this->getReplicationLength())) {
-			causeTerminated = "replication length "+std::to_string(_replicationLength)+" was achieved";
+			causeTerminated = "replication length " + std::to_string(_replicationLength) + " was achieved";
 		} else if (_parser->parse(this->getTerminatingCondition())) {
 			causeTerminated = "termination condition was achieved";
 		} else causeTerminated = "unknown";
@@ -195,7 +202,7 @@ void Model::_processEvent(Event* event) {
 	this->_currentComponent = event->getComponent();
 	_simulatedTime = event->getTime();
 	try {
-		event->getComponent()->execute(event->getEntity(), event->getComponent()); // Execute is static
+		event->getComponent()->Execute(event->getEntity(), event->getComponent()); // Execute is static
 	} catch (std::exception *e) {
 		_excepcionHandled = e;
 		this->traceError(*e, "Error on processing event (" + event->show() + ")");
@@ -211,6 +218,10 @@ void Model::_showSimulationStatistics() {
 bool Model::check() {
 	trace(Util::TraceLevel::TL_blockInternal, "Checking model consistency");
 	return this->_modelChecker->checkAll();
+}
+
+bool Model::verifySymbol(std::string componentName, std::string expressionName, std::string expression, std::string expressionResult, bool mandatory) {
+	return this->_modelChecker->verifySymbol(componentName, expressionName, expression, expressionResult, mandatory);
 }
 
 void Model::removeEntity(Entity* entity, bool collectStatistics) {
@@ -435,6 +446,10 @@ void Model::traceReport(Util::TraceLevel tracelevel, std::string text) {
 			(*it)(e);
 		}
 	}
+}
+
+List<std::string>* Model::getErrorMessages() const {
+	return _errorMessages;
 }
 
 List<Event*>* Model::getEvents() const {
