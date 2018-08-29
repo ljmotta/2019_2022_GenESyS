@@ -23,7 +23,6 @@
 class Sampler_if {
 public:
 	struct RNG_Parameters{
-		unsigned int seed;
 	};
 public: // probability distributions
 	virtual double random() = 0;
@@ -38,8 +37,8 @@ public: // probability distributions
 	virtual double sampleTriangular(double min, double mode, double max) = 0;
 	virtual double sampleDiscrete(double value, double acumProb, ...) = 0;
 public:
-	virtual void setRNGparameters(RNG_Parameters param) = 0;
-	virtual RNG_Parameters getRNGparameters() const = 0;
+	virtual void setRNGparameters(RNG_Parameters* param) = 0;
+	virtual RNG_Parameters* getRNGparameters() const = 0;
 };
 
 #endif /* Sampler_IF_H */

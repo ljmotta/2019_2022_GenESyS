@@ -12,6 +12,7 @@
  */
 
 #include "SamplerMyImpl1.h"
+#include <iostream> //remove
 
 SamplerMyImpl1::SamplerMyImpl1() {
 }
@@ -55,10 +56,10 @@ double SamplerMyImpl1::sampleTriangular(double min, double mode, double max) {
 double SamplerMyImpl1::sampleDiscrete(double value, double acumProb, ...) {
 }
 
-void SamplerMyImpl1::setRNGparameters(SamplerMyImpl1::RNG_Parameters param){
-	
+void SamplerMyImpl1::setRNGparameters(SamplerMyImpl1::RNG_Parameters* param){
+	_param = param;
 }
 
-SamplerMyImpl1::RNG_Parameters SamplerMyImpl1::getRNGparameters() const {
-	
+SamplerMyImpl1::RNG_Parameters* SamplerMyImpl1::getRNGparameters() const {
+	return _param; 
 }

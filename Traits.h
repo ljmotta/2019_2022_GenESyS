@@ -47,6 +47,7 @@ template <> struct Traits<Model> {
 
 template <> struct Traits<Sampler_if> {
 	typedef SamplerMyImpl1 Implementation;
+	typedef SamplerMyImpl1::MyRNG_Parameters Parameters;
 };
 
 template <> struct Traits<Fitter_if> {

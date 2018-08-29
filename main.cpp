@@ -27,6 +27,7 @@
 #include "Integrator_if.h"
 #include "HypothesisTester_if.h"
 #include "ProbDistrib.h"
+#include "Sampler_if.h"
 
 // Model Components
 #include "Create.h"
@@ -125,6 +126,11 @@ void buildSimulationSystem() {
 void testStudentSoftwareDevelopments() {
 	Simulator* simulator = new Simulator();
 	Sampler_if* mmc = simulator->getSampler(); // Sampler is the new MMC
+	Traits<Sampler_if>::Parameters*  parameters =  mmc->getRNGparameters();
+	parameters->module = 2147483648;
+	parameters->multiplier = 1103515245;
+	parameters->seed = 1234;
+	mmc->setRNGparameters(parameters);
 	Collector_if* collector = new Traits<Collector_if>::Implementation();
 	collector->setDataFilename("./datafile.txt");
 
@@ -193,10 +199,10 @@ void testStudentSoftwareDevelopments() {
  */
 int main(int argc, char** argv) {
 	// uncomment bellow to execute a simulation
-	buildSimulationSystem();
+	//buildSimulationSystem();
 	
 	// uncomment bellow to test Software Development (DS) implementations
-	//testStudentSoftwareDevelopments();
+	testStudentSoftwareDevelopments();
 	
 	return 0;
 }
