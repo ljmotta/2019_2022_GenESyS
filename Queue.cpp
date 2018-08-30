@@ -13,7 +13,7 @@
 
 #include "Queue.h"
 
-Queue::Queue() : ModelInfrastructure(typeid (this).name()) {
+Queue::Queue() : ModelInfrastructure(Util::TypeOf<Queue>()) {
 }
 
 Queue::Queue(const Queue& orig) : ModelInfrastructure(orig) {

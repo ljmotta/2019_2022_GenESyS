@@ -18,19 +18,19 @@
 #include "Resource.h"
 
 Release::Release(Model* model) : ModelComponent(model) {
-	_name = "Release " + std::to_string(Util::_S_generateNewIdOfType(typeid (this).name()));
-	_resource = (Resource*) _model->getInfrastructure(typeid (Resource).name(), "Resource 1");
+	_name = "Release " + std::to_string(Util::GenerateNewIdOfType<Release>());
+	_resource = (Resource*) _model->getInfrastructure(Util::TypeOf<Resource>(), "Resource 1");
 	if (_resource == nullptr) {
 		_resource = new Resource();
 		_resource->setName("Resource 1");
-		_model->getInfrastructures(typeid (Resource).name())->insert(_resource);
+		_model->getInfrastructures(Util::TypeOf<Resource>())->insert(_resource);
 	}
 	std::string queueName = _resource->getName() + "_Queue"; // _name + "_Queue";
-	_queue = (Queue*) _model->getInfrastructure(typeid (Queue).name(), queueName);
+	_queue = (Queue*) _model->getInfrastructure(Util::TypeOf<Queue>(), queueName);
 	if (_queue == nullptr) {
 		_queue = new Queue();
 		_queue->setName(_name + "_Queue");
-		_model->getInfrastructures(typeid (Queue).name())->insert(_queue);
+		_model->getInfrastructures(Util::TypeOf<Queue>())->insert(_queue);
 	}
 
 }
@@ -135,7 +135,7 @@ bool Release::_verifySymbols(std::string* errorMessage) {
 
 void Release::setQueueName(std::string _queueName) {
 	if (_queue->getName() != _queueName) {
-		Queue* queueWithNewName = (Queue*) _model->getInfrastructure(typeid (Queue).name(), _queueName);
+		Queue* queueWithNewName = (Queue*) _model->getInfrastructure(Util::TypeOf<Queue>(), _queueName);
 		if (queueWithNewName == nullptr) { // there is no queue with the new name
 			if (!_queue->isLinked()) { // no one else uses it. Only change the name
 				_queue->setName(_queueName);
@@ -145,7 +145,7 @@ void Release::setQueueName(std::string _queueName) {
 			}
 		} else { // there is another queue with the same name
 			if (!_queue->isLinked()) { // no one else uses it. It can be removed
-				_model->getInfrastructures(typeid (Queue).name())->remove(_queue);
+				_model->getInfrastructures(Util::TypeOf<Queue>())->remove(_queue);
 				_queue->~Queue();
 			} else { // there is another one using the queue with old name. Let it there
 				_queue->removeLink();
@@ -158,7 +158,7 @@ void Release::setQueueName(std::string _queueName) {
 
 void Release::setResourceName(std::string _resourceName) {
 	if (_resource->getName() != _resourceName) {
-		Resource* resourceWithNewName = (Resource*) _model->getInfrastructure(typeid (Resource).name(), _resourceName);
+		Resource* resourceWithNewName = (Resource*) _model->getInfrastructure(Util::TypeOf<Resource>(), _resourceName);
 		if (resourceWithNewName == nullptr) { // there is no resource with the new name
 			if (!_resource->isLinked()) { // no one else uses it. Only change the name
 				_resource->setName(_resourceName);
@@ -168,7 +168,7 @@ void Release::setResourceName(std::string _resourceName) {
 			}
 		} else { // there is another resource with the same name
 			if (!_resource->isLinked()) { // no one else uses it. It can be removed
-				_model->getInfrastructures(typeid (Resource).name())->remove(_queue);
+				_model->getInfrastructures(Util::TypeOf<Resource>())->remove(_queue);
 				_resource->~Resource();
 			} else { // there is another one using the resource with old name. Let it there
 				_resource->removeLink();

@@ -14,7 +14,7 @@
 #include "Resource.h"
 #include "AttributeValue.h"
 
-Resource::Resource() : ModelInfrastructure(typeid (this).name()) {
+Resource::Resource() : ModelInfrastructure(Util::TypeOf<Resource>()) {
 }
 
 Resource::Resource(const Resource& orig) : ModelInfrastructure(orig) {

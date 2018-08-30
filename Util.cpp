@@ -19,12 +19,13 @@
 Util::identitifcation Util::_S_lastId = 0;
 std::map<std::string,Util::identitifcation> Util::_S_lastIdOfType = std::map<std::string,Util::identitifcation>();
 
-Util::identitifcation Util::_S_generateNewId() {
+Util::identitifcation Util::GenerateNewId() {
 	Util::_S_lastId++;
 	return Util::_S_lastId;
 }
 
-Util::identitifcation Util::_S_generateNewIdOfType(std::string objtype) {
+
+Util::identitifcation Util::_GenerateNewIdOfType(std::string objtype) {
 	std::map<std::string,Util::identitifcation>::iterator it =  Util::_S_lastIdOfType.find(objtype);
 	if (it == Util::_S_lastIdOfType.end() ) {
 		// a new one. create the pair
@@ -37,7 +38,8 @@ Util::identitifcation Util::_S_generateNewIdOfType(std::string objtype) {
 	return (*it).second; 
 }
 
-double Util::_S_timeUnitConvert(Util::TimeUnit timeUnit1, Util::TimeUnit timeUnit2) {
+
+double Util::TimeUnitConvert(Util::TimeUnit timeUnit1, Util::TimeUnit timeUnit2) {
 	double scaleValues[] = {1.0, 1000.0, 1000.0, 1000.0, 1000.0, 60.0, 60.0, 24.0, 7.0};
 	// TU_picosecond = 1, TU_microsecond = 3, TU_milisecond = 4, TU_second = 5, TU_minute = 6, TU_hour = 7, TU_day = 8, TU_week = 9
 	double res = 1.0;

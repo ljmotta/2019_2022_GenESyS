@@ -94,7 +94,7 @@ std::string List<T>::show() {
 	for (typename std::list<T>::iterator it = _list->begin(); it != _list->end(); it++, i++) {
 		text += "[" + std::to_string(i) + "]=(" + (*it)->show() + "),";
 	}
-	text += "};";
+	text += "}";
 	return text;
 }
 

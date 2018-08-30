@@ -25,7 +25,7 @@ bool EventCompare(const Event* a, const Event * b) {
 
 Model::Model(Simulator* simulator) {
 	_simulator = simulator;
-	_name = "Model " + std::to_string(Util::_S_generateNewIdOfType("Model")); // (reinterpret_cast<unsigned long> (this));
+	_name = "Model " + std::to_string(Util::GenerateNewIdOfType<Model>()); // (reinterpret_cast<unsigned long> (this));
 	// 1:1
 	_parser = new Traits<Parser_if>::Implementation(this);
 	_modelChecker = new Traits<ModelChecker_if>::Implementation(this);
@@ -520,7 +520,7 @@ ModelInfrastructure* Model::getInfrastructure(std::string infraTypename, std::st
 }
 
 List<Entity*>* Model::getEntities() const {
-	List<Entity*>* ents = (List<Entity*>*)(getInfrastructures(typeid (Entity).name())); // static_cast ??
+	List<Entity*>* ents = (List<Entity*>*)(getInfrastructures(Util::TypeOf<Entity>())); // static_cast ??
 	return ents;
 }
 

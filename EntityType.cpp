@@ -15,7 +15,7 @@
 #include "CollectorMyImpl1.h" /////
 #include "Traits.h"
 
-EntityType::EntityType(): ModelInfrastructure(typeid(this).name()) {
+EntityType::EntityType(): ModelInfrastructure(typeid(EntityType).name()) {
 	//Collector_if _coll = Traits<Collector_if>::Collector_Impl(); // uses the Collector implementation defined in Traits
 	
 	//Collector_if* _cstatWaitingTime = new Collector(new Traits<Collector_if>::Collector());

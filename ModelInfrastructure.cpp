@@ -15,7 +15,7 @@
 #include "ModelInfrastructure.h"
 
 ModelInfrastructure::ModelInfrastructure(std::string thistypename) {
-	_id = Util::_S_generateNewIdOfType(thistypename);
+	_id = Util::_GenerateNewIdOfType(thistypename);
 	_name = thistypename+ " "+std::to_string(_id);
 }
 

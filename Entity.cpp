@@ -14,8 +14,8 @@
 #include <typeinfo>
 #include "Entity.h"
 
-Entity::Entity() : ModelInfrastructure(typeid (Entity).name()) {
-	_name = "Entity " + Util::_S_generateNewIdOfType("Entity");
+Entity::Entity() : ModelInfrastructure(Util::TypeOf<Entity>()) {
+	_name = "Entity " + Util::GenerateNewIdOfType<Entity>();
 	// 1:n
 	_attributeValues = new std::map<std::string, AttributeValue*>();
 	// create default attributes
@@ -44,5 +44,7 @@ std::string Entity::getEntityTypeName() const {
 }
 
 std::string Entity::show() {
-	return ModelInfrastructure::show()+",entityTypeName="+this->_entityTypeName;
+	return ModelInfrastructure::show()+
+			",entityTypeName="+this->_entityTypeName+
+			",attributeValues="+std::to_string(this->_attributeValues);
 }

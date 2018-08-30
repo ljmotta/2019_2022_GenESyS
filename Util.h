@@ -46,14 +46,33 @@ public:
 	};
 public:
 	static Util::identitifcation _S_lastId;
-	static std::map<std::string,Util::identitifcation> _S_lastIdOfType;
-	static Util::identitifcation _S_generateNewId();
-	static Util::identitifcation _S_generateNewIdOfType(std::string objtyp);
-	static double _S_timeUnitConvert(Util::TimeUnit timeUnit1, Util::TimeUnit timeUnit2);
-//	static Util::TraceLevel _S_tracelevel;
-//	static void setTraceLevel(Util::TraceLevel tracelevel);
-//	static void Trace(Util::TraceLevel tracelevel, std::string text);
-	
+	static std::map<std::string, Util::identitifcation> _S_lastIdOfType;
+	static Util::identitifcation GenerateNewId();
+
+	static double TimeUnitConvert(Util::TimeUnit timeUnit1, Util::TimeUnit timeUnit2);
+	//private:
+	static Util::identitifcation _GenerateNewIdOfType(std::string objtyp);
+
+public: // template implementations
+	template<class T> static std::string TypeOf() {
+		std::string name = typeid (T).name();
+		/* TODO -: corret (remove) first chars (numbers) of the name */
+		return name;
+	}
+	template<class T> static Util::identitifcation GenerateNewIdOfType() {
+		std::string objtype = Util::TypeOf<T>();
+		std::map<std::string, Util::identitifcation>::iterator it = Util::_S_lastIdOfType.find(objtype);
+		if (it == Util::_S_lastIdOfType.end()) {
+			// a new one. create the pair
+			Util::_S_lastIdOfType.insert(std::pair<std::string, Util::identitifcation>(objtype, 0));
+			it = Util::_S_lastIdOfType.find(objtype);
+		}
+		Util::identitifcation next = (*it).second;
+		next++;
+		(*it).second = next;
+		return (*it).second;
+	}
+
 private:
 	Util();
 	Util(const Util& orig);

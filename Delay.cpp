@@ -15,7 +15,7 @@
 #include "Model.h"
 
 Delay::Delay(Model* model) : ModelComponent(model) {
-	_name = "Delay "+std::to_string(Util::_S_generateNewIdOfType(typeid(this).name()));
+	_name = "Delay "+std::to_string(Util::GenerateNewIdOfType<Delay>());
 }
 
 Delay::Delay(const Delay& orig) : ModelComponent(orig) {
@@ -47,7 +47,7 @@ Util::TimeUnit Delay::getDelayTimeUnit() const {
 }
 
 void Delay::_execute(Entity* entity) {
-	double delayEndTime = _model->getSimulatedTime() + _model->parseExpression(_delayExpression) * Util::_S_timeUnitConvert(_delayTimeUnit, _model->getReplicationLengthTimeUnit());
+	double delayEndTime = _model->getSimulatedTime() + _model->parseExpression(_delayExpression) * Util::TimeUnitConvert(_delayTimeUnit, _model->getReplicationLengthTimeUnit());
 	Event* newEvent = new Event(delayEndTime, entity, this->getNextComponents()->first());
 	_model->getEvents()->insert(newEvent);
 	_model->trace(Util::TraceLevel::TL_blockInternal, "End of delay of entity " + std::to_string(entity->getId()) + " schedule to time " + std::to_string(delayEndTime));

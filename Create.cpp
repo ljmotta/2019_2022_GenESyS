@@ -13,9 +13,10 @@
 
 #include "Create.h"
 #include "Model.h"
+#include <typeinfo>
 
 Create::Create(Model* model) : SourceModelComponent(model) {
-	_name = "Create " + std::to_string(Util::_S_generateNewIdOfType(typeid (this).name()));
+	_name = "Create " + std::to_string(Util::GenerateNewIdOfType<Create>()); 
 }
 
 Create::Create(const Create& orig) : SourceModelComponent(orig) {
@@ -43,7 +44,7 @@ void Create::_execute(Entity* entity) {
 		Entity* newEntity = new Entity();
 		_model->getEntities()->insert(newEntity);
 		timeBetweenCreations = _model->parseExpression(this->_timeBetweenCreationsExpression);
-		timeScale = Util::_S_timeUnitConvert(this->_timeBetweenCreationsTimeUnit, _model->getReplicationLengthTimeUnit());
+		timeScale = Util::TimeUnitConvert(this->_timeBetweenCreationsTimeUnit, _model->getReplicationLengthTimeUnit());
 		newArrivalTime = tnow + timeBetweenCreations*timeScale;
 		Event* newEvent = new Event(newArrivalTime, newEntity, this);
 		_model->getEvents()->insert(newEvent);
@@ -59,7 +60,7 @@ void Create::_readComponent(std::list<std::string> words) {
 
 std::list<std::string>* Create::_writeComponent() {
 	std::list<std::string>* words = new std::list<std::string>();
-	words->insert(words->end(), typeid(this).name());
+	words->insert(words->end(), typeid(Create).name());
 	words->insert(words->end(), std::to_string(this->_collectStatistics));
 	words->insert(words->end(), std::to_string(this->_entitiesPerCreation));
 	words->insert(words->end(), (this->_entityType));
