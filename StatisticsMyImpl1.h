@@ -22,8 +22,8 @@ public:
 	StatisticsMyImpl1(const StatisticsMyImpl1& orig);
 	~StatisticsMyImpl1();
 public:
-    void setDataFilename(std::string _filename);
-    std::string getDataFilename() const;
+	Collector_if* getCollector();
+	void setCollector(Collector_if* collector);
 public:
 	unsigned int numElements();
 	double min();

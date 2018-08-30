@@ -103,13 +103,13 @@ void Release::_execute(Entity* entity) {
 	_resource->release(quantity, _model->getSimulatedTime()); //{releases and sets the 'LastTimeSeized'property}
 	//Genesys.Model.SIMAN.EntityAllocationTimeAdd(entity, thisModule.aAllocationType, thisRec.LastTimeSeized);
 	_model->traceSimulation(Util::TraceLevel::TL_blockInternal, _model->getSimulatedTime(), entity, this, "Entity frees " + std::to_string(quantity) + " units of resource \"" + resource->getName() + "\"");
-	if (_queue->getList()->size() > 0) {
-		WaitingResource* firstWaiting = (WaitingResource*) _queue->getList()->first();
+	if (_queue->size() > 0) { //  ->getList()->size() > 0) {
+		WaitingResource* firstWaiting = (WaitingResource*) _queue->first();//>getList()->first();
 		if (firstWaiting->getQuantity() >= quantity) { // entity waiting can seize the resource now
 			Event* newEvent = new Event(_model->getSimulatedTime(), firstWaiting->getEntity(), firstWaiting->getComponent());
 			_model->getEvents()->insert(newEvent);
 			_model->traceSimulation(Util::TraceLevel::TL_blockInternal, _model->getSimulatedTime(), entity, this, "Entity removes entity " + std::to_string(firstWaiting->getEntity()->getId()) + " from queue \"" + _queue->getName() + "\"");
-			_queue->getList()->remove(firstWaiting);
+			_queue->removeElement(firstWaiting, _model->getSimulatedTime()); //->getList()->remove(firstWaiting);
 		} else {
 			_model->traceSimulation(Util::TraceLevel::TL_blockInternal, _model->getSimulatedTime(), entity, this, "Entity " + std::to_string(firstWaiting->getEntity()->getId()) + " remains waiting in queue \"" + _queue->getName() + "\" for " + std::to_string(firstWaiting->getQuantity()) + " instances of resource \"" + resource->getName() + "\"");
 

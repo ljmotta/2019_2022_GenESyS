@@ -21,7 +21,9 @@
 #include "Entity.h"
 #include "Waiting.h"
 
-class Queue: public ModelInfrastructure, public LinkedBy {
+#include "StatisticsCollector.h"
+
+class Queue : public ModelInfrastructure, public LinkedBy {
 public:
 	Queue();
 	Queue(const Queue& orig);
@@ -29,12 +31,18 @@ public:
 public:
 	virtual std::string show();
 public:
-	//void insertElement(Waiting* element);
-	//unsigned int size();
-    List<Waiting*>* getList() const;
+	void insertElement(Waiting* element);
+	void removeElement(Waiting* element, double tnow);
+	unsigned int size();
+	Waiting* first();
+	//List<Waiting*>* getList() const; // can't give direct access so Queue can collect statistics
 public: //g&s
-private:
+
+private: //1::n
 	List<Waiting*>* _list = new List<Waiting*>();
+private: //1::1
+	StatisticsCollector* _cstatNumberInQueue = new StatisticsCollector();
+	StatisticsCollector* _cstatTimeInQueue = new StatisticsCollector();
 };
 
 #endif /* QUEUE_H */

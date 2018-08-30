@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/AttributeValue.o \
+	${OBJECTDIR}/CollectorDatafileMyImpl1.o \
 	${OBJECTDIR}/CollectorMyImpl1.o \
 	${OBJECTDIR}/Create.o \
 	${OBJECTDIR}/Delay.o \
@@ -64,6 +65,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Simulator.o \
 	${OBJECTDIR}/SinkModelComponent.o \
 	${OBJECTDIR}/SourceModelComponent.o \
+	${OBJECTDIR}/StatisticsCollector.o \
 	${OBJECTDIR}/StatisticsMyImpl1.o \
 	${OBJECTDIR}/Util.o \
 	${OBJECTDIR}/Waiting.o \
@@ -99,6 +101,11 @@ ${OBJECTDIR}/AttributeValue.o: AttributeValue.cpp nbproject/Makefile-${CND_CONF}
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/AttributeValue.o AttributeValue.cpp
+
+${OBJECTDIR}/CollectorDatafileMyImpl1.o: CollectorDatafileMyImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/CollectorDatafileMyImpl1.o CollectorDatafileMyImpl1.cpp
 
 ${OBJECTDIR}/CollectorMyImpl1.o: CollectorMyImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -239,6 +246,11 @@ ${OBJECTDIR}/SourceModelComponent.o: SourceModelComponent.cpp nbproject/Makefile
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SourceModelComponent.o SourceModelComponent.cpp
+
+${OBJECTDIR}/StatisticsCollector.o: StatisticsCollector.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/StatisticsCollector.o StatisticsCollector.cpp
 
 ${OBJECTDIR}/StatisticsMyImpl1.o: StatisticsMyImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

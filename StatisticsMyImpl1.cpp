@@ -76,8 +76,9 @@ double StatisticsMyImpl1::histogramClassLowerLimit(unsigned short classNum) {
 unsigned int StatisticsMyImpl1::histogramClassFrequency(unsigned short classNum) {
 }
 
-void StatisticsMyImpl1::setDataFilename(std::string _filename) {
+Collector_if* StatisticsMyImpl1::getCollector() {
 }
 
-std::string StatisticsMyImpl1::getDataFilename() const {
+void StatisticsMyImpl1::setCollector(Collector_if* collector){
+	
 }

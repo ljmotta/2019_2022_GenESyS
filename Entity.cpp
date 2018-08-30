@@ -45,6 +45,5 @@ std::string Entity::getEntityTypeName() const {
 
 std::string Entity::show() {
 	return ModelInfrastructure::show()+
-			",entityTypeName="+this->_entityTypeName+
-			",attributeValues="+std::to_string(this->_attributeValues);
+			",entityTypeName="+this->_entityTypeName; //+ ",attributeValues="+std::to_string(this->_attributeValues);
 }

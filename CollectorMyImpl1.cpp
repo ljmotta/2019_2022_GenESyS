@@ -23,29 +23,18 @@ CollectorMyImpl1::~CollectorMyImpl1() {
 }
 
 void CollectorMyImpl1::clear() {
+	_numElements = 0;
 }
 
 void CollectorMyImpl1::addValue(double value) {
+	_lastValue = value;
+	_numElements++;
 }
 
-double CollectorMyImpl1::value(unsigned int num) {
+double CollectorMyImpl1::getLastValue() {
+	return this->_lastValue;
 }
 
 unsigned int CollectorMyImpl1::numElements() {
-}
-
-std::string CollectorMyImpl1::getName() {
-	return _name;
-}
-
-void CollectorMyImpl1::setName(std::string name) {
-	_name = name;
-}
-
-std::string CollectorMyImpl1::getDataFilename() {
-	return this->_dataFilename;
-}
-
-void CollectorMyImpl1::setDataFilename(std::string filename) {
-	_dataFilename = filename;
+	return this->_numElements;
 }

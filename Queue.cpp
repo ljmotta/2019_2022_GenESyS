@@ -27,16 +27,31 @@ std::string Queue::show() {
 			",waiting="+this->_list->show();
 }
 
-//void Queue::insertElement(Waiting* element) {
-//	_list->insert(element);
-//}
-
-//unsigned int Queue::size() {
-//	return _list->size();
-//}
-
-List<Waiting*>* Queue::getList() const {
-	return _list;
+void Queue::insertElement(Waiting* element) {
+	_list->insert(element);
+	this->_cstatNumberInQueue->getCollector()->addValue(_list->size());
 }
+	
+void Queue::removeElement(Waiting* element, double tnow) {
+	_list->remove(element);
+	this->_cstatNumberInQueue->getCollector()->addValue(_list->size());
+	double timeInQueue = tnow - element->getTimeStartedWaiting();
+	this->_cstatTimeInQueue->getCollector()->addValue(timeInQueue);
+}
+
+
+unsigned int Queue::size() {
+	return _list->size();
+}
+
+Waiting* Queue::first() {
+	return _list->first();
+}
+
+		
+		
+//List<Waiting*>* Queue::getList() const {
+//	return _list;
+//}
 
 

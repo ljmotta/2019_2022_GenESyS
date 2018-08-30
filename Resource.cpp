@@ -45,12 +45,14 @@ void Resource::release(unsigned int quantity, double tnow) {
 		_numberBusy = 0;
 	}
 	_numberOut++;
-	double seizedDuration = tnow - _whenSeized;
+	double timeSeized = tnow - _whenSeized;
 	// Collect statistics about time seized
 	//cstats := Genesys.Model.SIMAN._GetModuleStructuresByKind(cCSTAT);
 	//i := cstats.IndexOf(IntToStr(aCSTATTimeSeizedID));
 	//TCStat(cstats.Objects[i]).AddValue(timeSeized);
-	_lastTimeSeized = seizedDuration; // check. Isn't it TNOW?	
+	this->_cstatTimeSeized->getCollector()->addValue(timeSeized);
+	//
+	_lastTimeSeized = timeSeized; // check. Isn't it TNOW?	
 }
 
 void Resource::setResourceState(ResourceState _resourceState) {

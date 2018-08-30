@@ -15,11 +15,12 @@
 #define STATISTICS_IF_H
 
 #include <string>
+#include "Collector_if.h"
 
 class Statistics_if {
-public: // get & set
-    virtual void setDataFilename(std::string _filename) = 0;
-    virtual std::string getDataFilename() const = 0;
+public:
+	virtual Collector_if* getCollector() = 0;
+	virtual void setCollector(Collector_if* collector) = 0;
 public:
 	virtual unsigned int numElements() = 0;
 	virtual double min() = 0;

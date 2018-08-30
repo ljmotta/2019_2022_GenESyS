@@ -40,6 +40,8 @@
       <itemPath>Queue.h</itemPath>
       <itemPath>Resource.cpp</itemPath>
       <itemPath>Resource.h</itemPath>
+      <itemPath>StatisticsCollector.cpp</itemPath>
+      <itemPath>StatisticsCollector.h</itemPath>
       <itemPath>Waiting.cpp</itemPath>
       <itemPath>Waiting.h</itemPath>
       <itemPath>WaitingResource.cpp</itemPath>
@@ -81,6 +83,9 @@
     <logicalFolder name="f5" displayName="Shell" projectFiles="true">
     </logicalFolder>
     <logicalFolder name="f8" displayName="Tools" projectFiles="true">
+      <itemPath>CollectorDatafileMyImpl1.cpp</itemPath>
+      <itemPath>CollectorDatafileMyImpl1.h</itemPath>
+      <itemPath>CollectorDatafile_if.h</itemPath>
       <itemPath>CollectorMyImpl1.cpp</itemPath>
       <itemPath>CollectorMyImpl1.h</itemPath>
       <itemPath>Collector_if.h</itemPath>
@@ -138,6 +143,12 @@
       </item>
       <item path="AttributeValue.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="CollectorDatafileMyImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="CollectorDatafileMyImpl1.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="CollectorDatafile_if.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="CollectorMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="CollectorMyImpl1.h" ex="false" tool="3" flavor2="0">
@@ -267,6 +278,10 @@
       <item path="SourceModelComponent.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="SourceModelComponent.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="StatisticsCollector.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="StatisticsCollector.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="StatisticsMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -315,6 +330,12 @@
       </item>
       <item path="AttributeValue.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="CollectorDatafileMyImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="CollectorDatafileMyImpl1.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="CollectorDatafile_if.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="CollectorMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="CollectorMyImpl1.h" ex="false" tool="3" flavor2="0">
@@ -444,6 +465,10 @@
       <item path="SourceModelComponent.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="SourceModelComponent.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="StatisticsCollector.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="StatisticsCollector.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="StatisticsMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>

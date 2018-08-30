@@ -20,13 +20,8 @@ class Collector_if {
 public:
 	virtual void clear() = 0;
 	virtual void addValue(double value) = 0;
-	virtual double value(unsigned int num) = 0; // same as getValue, or value[num]
+	virtual double getLastValue() = 0;
 	virtual unsigned int numElements() = 0;
-public:
-	virtual std::string getName() = 0;
-	virtual void setName(std::string name) = 0;
-	virtual std::string getDataFilename() = 0;
-	virtual void setDataFilename(std::string filename) = 0;
 };
 
 #endif /* COLLECTOR_IF_H */

@@ -16,6 +16,7 @@
 
 #include "ModelInfrastructure.h"
 #include "LinkedBy.h"
+#include "StatisticsCollector.h"
 
 class Resource : public ModelInfrastructure, public LinkedBy {
 public:
@@ -69,6 +70,8 @@ private: // not gets nor sets
 	unsigned int _seizes = 0;
 	double _lastTimeSeized = 0.0; // to check
 	double _whenSeized; // same as last? check
+private:
+	StatisticsCollector* _cstatTimeSeized = new StatisticsCollector();
 	// aCSTATTimeSeizedID:	word;
 	//aFailures:	TStringList;
 	//std::list<Failure*>* _failures;

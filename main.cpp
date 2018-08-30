@@ -23,6 +23,7 @@
 
 // Tools and Utils
 #include "Collector_if.h"
+#include "CollectorDatafile_if.h"
 #include "Statistics_if.h"
 #include "Integrator_if.h"
 #include "HypothesisTester_if.h"
@@ -128,7 +129,7 @@ void buildSimulationSystem() {
 void testStudentSoftwareDevelopments() {
 	Simulator* simulator = new Simulator();
 	Sampler_if* mmc = simulator->getSampler(); // Sampler is the new MMC
-	Collector_if* collector = new Traits<Collector_if>::Implementation();
+	CollectorDatafile_if* collector = new Traits<Collector_if>::Implementation();
 	collector->setDataFilename("./datafile.txt");
 	// just to show how to change MMC parameters
 	Traits<Sampler_if>::Parameters*  parameters = (Traits<Sampler_if>::Parameters*) mmc->getRNGparameters(); 
@@ -146,7 +147,7 @@ void testStudentSoftwareDevelopments() {
 
 	// generate statistics about that datafile 
 	Statistics_if* statistics = new Traits<Statistics_if>::Implementation();
-	statistics->setDataFilename(collector->getDataFilename());
+	statistics->setCollector(collector); //setDataFilename(collector->getDataFilename());
 	double statVal;
 	statVal = statistics->numElements();
 	statVal = statistics->average();
