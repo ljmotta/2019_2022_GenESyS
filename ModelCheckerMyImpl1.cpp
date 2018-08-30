@@ -54,10 +54,6 @@ bool ModelCheckerMyImpl1::checkSymbols() {
 
 bool ModelCheckerMyImpl1::checkPathway() {
 	/* TODO +-: not implemented yet */
-	std::list<ModelComponent*>* list = _model->getComponents()->getList();
-	for (std::list<ModelComponent*>::iterator it = list->begin(); it != list->end(); it++) {
-		_model->trace(Util::TraceLevel::TL_mostDetailed, (*it)->show()); ////
-	}
 	return true;
 
 }

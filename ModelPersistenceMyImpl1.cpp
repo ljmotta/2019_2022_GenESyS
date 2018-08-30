@@ -30,6 +30,13 @@ bool ModelPersistenceMyImpl1::saveAsTXT(std::string filename) {
 }
 
 bool ModelPersistenceMyImpl1::loadAsTXT(std::string filename) {
+	bool res = true;
+	std::list<std::string>* words;
+	List<ModelComponent*>* components = this->_model->getComponents();
+	for (std::list<ModelComponent*>::iterator it = components->getList()->begin(); it != components->getList()->end(); it++) {
+		words = (*it)->WriteComponent((*it));
+		_saveLine(words);
+	}
 }
 
 bool ModelPersistenceMyImpl1::saveAsXML(std::string filename) {
@@ -39,23 +46,17 @@ bool ModelPersistenceMyImpl1::loadAsXML(std::string filename) {
 }
 
 void ModelPersistenceMyImpl1::_saveLine(std::list<std::string>* words) {
-	std::string line="";
-	for (std::list<std::string>::iterator it=words->begin(); it!=words->end(); it++) {
-		line += (*it)+" ; ";
+	std::string line = "";
+	for (std::list<std::string>::iterator it = words->begin(); it != words->end(); it++) {
+		line += (*it) + " ; ";
 	}
 	_model->trace(Util::TL_mostDetailed, line);
 }
 
 bool ModelPersistenceMyImpl1::save(std::string filename) {
-	bool res = true;
-	std::list<std::string>* words;
-	List<ModelComponent*>* components = this->_model->getComponents();
-	for (std::list<ModelComponent*>::iterator it= components->getList()->begin(); it!=components->getList()->end(); it++) {
-		words = (*it)->WriteComponent((*it));
-		_saveLine(words);
-	}
-	
+	return this->saveAsTXT(filename);
 }
 
 bool ModelPersistenceMyImpl1::load(std::string filename) {
+	return this->loadAsTXT(filename);
 }

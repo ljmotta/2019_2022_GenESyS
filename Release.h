@@ -18,6 +18,7 @@
 
 #include "ModelComponent.h"
 #include "Resource.h"
+#include "Queue.h"
 
 class Release: public ModelComponent {
 public:
@@ -27,6 +28,22 @@ public:
 public:
 	virtual std::string show();
 public: // get & set
+    void setPriority(unsigned short _priority);
+    unsigned short getPriority() const;
+    void setResourceType(Resource::ResourceType _resourceType);
+    Resource::ResourceType getResourceType() const;
+    void setQuantity(std::string _quantity);
+    std::string getQuantity() const;
+    void setRule(Resource::ResourceRule _rule);
+    Resource::ResourceRule getRule() const;
+    void setSaveAttribute(std::string _saveAttribute);
+    std::string getSaveAttribute() const;
+	// indirect access to Queue* and Resource*
+    void setResourceName(std::string _resourceName);
+    std::string getResourceName() const;
+    void setQueueName(std::string _queueName);
+    std::string getQueueName() const;
+	
 protected:
 	virtual void _execute(Entity* entity);
 	virtual void _readComponent(std::list<std::string> words);
@@ -36,13 +53,13 @@ private:
 //	unsigned int _allocationType = 0; // uint ? enum?
 	unsigned short _priority = 0;
 	Resource::ResourceType _resourceType = Resource::ResourceType::rtRESOURCE;
-	std::string _resourceName = "Resource 1";
 	std::string _quantity = "1";
 	Resource::ResourceRule _rule = Resource::ResourceRule::rrSMALLESTBUSY;
 	std::string _saveAttribute = "";
 	
 private: // no g&s
-
+	Resource* _resource;
+	Queue* _queue;
 };
 
 #endif /* RELEASE_H */

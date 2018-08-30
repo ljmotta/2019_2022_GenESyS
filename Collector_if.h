@@ -20,7 +20,7 @@ class Collector_if {
 public:
 	virtual void clear() = 0;
 	virtual void addValue(double value) = 0;
-	virtual double value(unsigned int num) = 0;
+	virtual double value(unsigned int num) = 0; // same as getValue, or value[num]
 	virtual unsigned int numElements() = 0;
 public:
 	virtual std::string getName() = 0;

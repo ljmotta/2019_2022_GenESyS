@@ -23,7 +23,20 @@ Queue::~Queue() {
 }
 
 std::string Queue::show() {
-	return ModelInfrastructure::show();
+	return ModelInfrastructure::show()+
+			",waiting="+this->_list->show();
+}
+
+//void Queue::insertElement(Waiting* element) {
+//	_list->insert(element);
+//}
+
+//unsigned int Queue::size() {
+//	return _list->size();
+//}
+
+List<Waiting*>* Queue::getList() const {
+	return _list;
 }
 
 

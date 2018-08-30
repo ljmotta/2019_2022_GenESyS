@@ -19,7 +19,8 @@
 class SamplerMyImpl1 : public Sampler_if {
 public:
 
-	struct MyRNG_Parameters : public RNG_Parameters {
+	class MyRNG_Parameters : public RNG_Parameters {
+	public:
 		unsigned int seed;
 		unsigned int module;
 		unsigned int multiplier;

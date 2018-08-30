@@ -32,6 +32,11 @@ EntityType::EntityType(const EntityType& orig):ModelInfrastructure(orig) {
 EntityType::~EntityType() {
 }
 
+std::string EntityType::show() {
+	return ModelInfrastructure::show()+
+			",initialPicture="+this->_initialPicture; // add more...
+}
+
 void EntityType::setInitialWaitingCost(double _initialWaitingCost) {
 	this->_initialWaitingCost = _initialWaitingCost;
 }

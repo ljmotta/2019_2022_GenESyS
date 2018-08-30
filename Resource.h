@@ -28,12 +28,50 @@ public:
 		rrRANDOM, rrCICLICAL, rrESPECIFIC, rrSMALLESTBUSY, rrLARGESTREMAININGCAPACITY
 	};
 
+	enum ResourceState {
+		rsIDLE, rsBUSY, rsFAILED, rsINACTIVE, rsOTHER
+	};
+
 public:
 	Resource();
 	Resource(const Resource& orig);
 	virtual ~Resource();
+public:
+	virtual std::string show();
+public:
+	void seize(unsigned int quantity, double tnow);
+	void release(unsigned int quantity, double tnow);
+public: // g&s
+	void setResourceState(ResourceState _resourceState);
+	ResourceState getResourceState() const;
+	void setCapacity(unsigned int _capacity);
+	unsigned int getCapacity() const;
+	void setCostBusyHour(double _costBusyHour);
+	double getCostBusyHour() const;
+	void setCostIdleHour(double _costIdleHour);
+	double getCostIdleHour() const;
+	void setCostPerUse(double _costPerUse);
+	double getCostPerUse() const;
+public: // gets
+	unsigned int getNumberBusy() const;
+	unsigned int getNumberOut() const;
 private:
-
+	unsigned int _capacity = 1;
+	double _costBusyHour = 1.0;
+	double _costIdleHour = 1.0;
+	double _costPerUse = 1.0;
+	ResourceState _resourceState = ResourceState::rsIDLE;
+	//Queue* _queue;
+private: // only gets
+	unsigned int _numberBusy = 0;
+	unsigned int _numberOut = 0;
+private: // not gets nor sets
+	unsigned int _seizes = 0;
+	double _lastTimeSeized = 0.0; // to check
+	double _whenSeized; // same as last? check
+	// aCSTATTimeSeizedID:	word;
+	//aFailures:	TStringList;
+	//std::list<Failure*>* _failures;
 };
 
 #endif /* RESOURCE_H */

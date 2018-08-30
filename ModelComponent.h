@@ -25,6 +25,18 @@
 class Model;
 
 class ModelComponent : public ModelInfrastructure {
+/*
+	class ModelComponentDescription {
+		std::string COMPONENT_KIND = "";
+		std::string COMPONENT_AUTHOR = "";
+		std::string COMPONENT_VERSION = "";
+		std::string COMPONENT_DESCRIPTION = "";
+		std::string COMPONENT_IS_VISUAL = "";
+		std::string COMPONENT_IS_SOURCE = "";
+		std::string COMPONENT_IS_SINK = "";
+		std::string COMPONENT_DEPENDENCES = "";
+	}
+*/
 public:
 	ModelComponent(Model* model);
 	ModelComponent(const ModelComponent& orig);
@@ -47,17 +59,17 @@ protected: // ...static... ?? must be overriden by derived classes
 	//virtual void _read(std::string text) = 0;
 protected:
 	Model* _model;
-/*	
-protected:
-	static std::string COMPONENT_KIND;
-	static std::string COMPONENT_AUTHOR;
-	static std::string COMPONENT_VERSION;
-	static std::string COMPONENT_DESCRIPTION;
-	static std::string COMPONENT_IS_VISUAL;
-	static std::string COMPONENT_IS_SOURCE;
-	static std::string COMPONENT_IS_SINK;
-	static std::string COMPONENT_DEPENDENCES; 
-*/
+	/*	
+	protected:
+		static std::string COMPONENT_KIND;
+		static std::string COMPONENT_AUTHOR;
+		static std::string COMPONENT_VERSION;
+		static std::string COMPONENT_DESCRIPTION;
+		static std::string COMPONENT_IS_VISUAL;
+		static std::string COMPONENT_IS_SOURCE;
+		static std::string COMPONENT_IS_SINK;
+		static std::string COMPONENT_DEPENDENCES; 
+	 */
 };
 
 #endif /* MODELCOMPONENT_H */

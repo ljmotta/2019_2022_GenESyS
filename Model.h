@@ -43,7 +43,7 @@ public: // simulation control
 	bool isPauseOnEvent() const;
 public: // model control
 	bool saveModel(std::string filename);
-	bool loadModel(std::string filename); 
+	bool loadModel(std::string filename);
 	bool check();
 	bool verifySymbol(std::string componentName, std::string expressionName, std::string expression, std::string expressionResult, bool mandatory);
 	void removeEntity(Entity* entity, bool collectStatistics);
@@ -60,7 +60,7 @@ public: // traces
 	//void traceSimulation(Util::TraceLevel tracelevel, std::string text);
 	void traceSimulation(Util::TraceLevel tracelevel, double time, Entity* entity, ModelComponent* component, std::string text);
 	void traceReport(Util::TraceLevel tracelevel, std::string text);
-    List<std::string>* getErrorMessages() const;
+	List<std::string>* getErrorMessages() const;
 public: // gets and sets
 	void setName(std::string _name);
 	std::string getName() const;
@@ -100,7 +100,7 @@ public: // only gets
 	bool isSaved() const;
 	Util::identitifcation getId() const;
 	List<ModelComponent*>* getComponents() const;
-    List<Event*>* getEvents() const;
+	List<Event*>* getEvents() const;
 	List<Entity*>* getEntities() const;
 	List<ModelInfrastructure*>* getInfrastructures(std::string infraTypename) const;
 	ModelInfrastructure* getInfrastructure(std::string infraTypename, Util::identitifcation id);
@@ -114,6 +114,8 @@ private: // simulation control
 	void _showSimulationStatistics();
 private:
 	bool _finishReplicationCondition();
+	void _showModel();
+	void _showInfrastructures();
 private:
 	std::list<traceListener>* _traceListeners = new std::list<traceListener>();
 	std::list<traceErrorListener>* _traceErrorListeners = new std::list<traceErrorListener>();
@@ -122,9 +124,9 @@ private:
 private: // with public access (get & set)
 	// model general information
 	std::string _name;
-	std::string _analystName;
-	std::string _description;
-	std::string _projectTitle;
+	std::string _analystName = "";
+	std::string _description = "";
+	std::string _projectTitle = "";
 	std::string _version = "1.0";
 
 	// replication and warmup duration
@@ -166,7 +168,7 @@ private: // no public access (no gets / sets)
 	bool _stopRequested = false;
 	bool _simulationIsInitiated = false;
 	bool _replicationIsInitiaded = false;
-	std::exception* _excepcionHandled = nullptr; 
+	std::exception* _excepcionHandled = nullptr;
 	double _lastTimeTraceSimulation = -1.0;
 	Util::identitifcation _lastEntityTraceSimulation = 0;
 	Util::identitifcation _lastModuleTraceSimulation = 0;

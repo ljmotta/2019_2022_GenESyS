@@ -23,6 +23,8 @@ public:
 	EntityType();
 	EntityType(const EntityType& orig);
 	virtual ~EntityType();
+public:
+	virtual std::string show();
 public: //get & set
     void setInitialWaitingCost(double _initialWaitingCost);
     double getInitialWaitingCost() const;

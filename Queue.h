@@ -19,6 +19,7 @@
 
 #include "List.h"
 #include "Entity.h"
+#include "Waiting.h"
 
 class Queue: public ModelInfrastructure, public LinkedBy {
 public:
@@ -27,9 +28,13 @@ public:
 	virtual ~Queue();
 public:
 	virtual std::string show();
+public:
+	//void insertElement(Waiting* element);
+	//unsigned int size();
+    List<Waiting*>* getList() const;
 public: //g&s
 private:
-	List<Entity*>* _list = new List<Entity*>();
+	List<Waiting*>* _list = new List<Waiting*>();
 };
 
 #endif /* QUEUE_H */

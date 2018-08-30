@@ -66,6 +66,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/SourceModelComponent.o \
 	${OBJECTDIR}/StatisticsMyImpl1.o \
 	${OBJECTDIR}/Util.o \
+	${OBJECTDIR}/Waiting.o \
+	${OBJECTDIR}/WaitingResource.o \
 	${OBJECTDIR}/main.o
 
 
@@ -247,6 +249,16 @@ ${OBJECTDIR}/Util.o: Util.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Util.o Util.cpp
+
+${OBJECTDIR}/Waiting.o: Waiting.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Waiting.o Waiting.cpp
+
+${OBJECTDIR}/WaitingResource.o: WaitingResource.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/WaitingResource.o WaitingResource.cpp
 
 ${OBJECTDIR}/main.o: main.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

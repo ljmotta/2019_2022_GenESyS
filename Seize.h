@@ -64,7 +64,7 @@ private:
 	//std::string _queueName;
 
 private: // not gets or sets
-	Queue* _queue;         // usually has a queue, but not always (it could be a hold)
+	Queue* _queue;         // usually has a queue, but not always (it could be a hold) /* Todo: Evaluate if is better to associate queue to seize or to the resource */
 	Resource* _resource;   // usually has a resource, but not always (it could be a set)
 	unsigned int _lastMemberSeized = 0;
 };

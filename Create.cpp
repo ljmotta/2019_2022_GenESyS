@@ -14,17 +14,6 @@
 #include "Create.h"
 #include "Model.h"
 
-/*
-std::string Create::COMPONENT_KIND = "";
-std::string Create::COMPONENT_AUTHOR = "";
-std::string Create::COMPONENT_VERSION = "";
-std::string Create::COMPONENT_DESCRIPTION = "";
-std::string Create::COMPONENT_IS_VISUAL = "";
-std::string Create::COMPONENT_IS_SOURCE = "";
-std::string Create::COMPONENT_IS_SINK = "";
-std::string Create::COMPONENT_DEPENDENCES = "";
-*/
-
 Create::Create(Model* model) : SourceModelComponent(model) {
 	_name = "Create " + std::to_string(Util::_S_generateNewIdOfType(typeid (this).name()));
 }

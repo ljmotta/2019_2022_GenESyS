@@ -209,6 +209,29 @@ void Model::_processEvent(Event* event) {
 	}
 }
 
+void Model::_showModel() {
+	trace(Util::TraceLevel::TL_mostDetailed, "Simulation Model:");
+	std::list<ModelComponent*>* list = getComponents()->getList();
+	for (std::list<ModelComponent*>::iterator it = list->begin(); it != list->end(); it++) {
+		trace(Util::TraceLevel::TL_mostDetailed, "   "+(*it)->show()); ////
+	}
+}
+
+void Model::_showInfrastructures() {
+	trace(Util::TraceLevel::TL_mostDetailed, "Model Infrastructures:");
+	//std::map<std::string, List<ModelInfrastructure*>*>* _infrastructures;
+	std::string key;
+	List<ModelInfrastructure*>* list;
+	for (std::map<std::string, List<ModelInfrastructure*>*>::iterator infraIt = _infrastructures->begin(); infraIt != _infrastructures->end(); infraIt++) {
+		key = (*infraIt).first;
+		trace(Util::TraceLevel::TL_mostDetailed, "   "+key+":");
+		list = (*infraIt).second;
+		for (std::list<ModelInfrastructure*>::iterator it=list->getList()->begin(); it!= list->getList()->end(); it++) {
+			trace(Util::TraceLevel::TL_mostDetailed, "      "+(*it)->show()); 
+		}
+	}
+}
+
 void Model::_showReplicationStatistics() {
 }
 
@@ -217,7 +240,12 @@ void Model::_showSimulationStatistics() {
 
 bool Model::check() {
 	trace(Util::TraceLevel::TL_blockInternal, "Checking model consistency");
-	return this->_modelChecker->checkAll();
+	bool res = this->_modelChecker->checkAll();
+	/* todo: remove show model and infra from here*/
+	this->_showModel();
+	this->_showInfrastructures();
+	//
+	return res;
 }
 
 bool Model::verifySymbol(std::string componentName, std::string expressionName, std::string expression, std::string expressionResult, bool mandatory) {

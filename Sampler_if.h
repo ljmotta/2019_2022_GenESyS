@@ -22,7 +22,7 @@
 
 class Sampler_if {
 public:
-	struct RNG_Parameters{
+	class RNG_Parameters{
 	};
 public: // probability distributions
 	virtual double random() = 0;

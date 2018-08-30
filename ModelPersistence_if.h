@@ -18,6 +18,7 @@
 
 class ModelPersistence_if {
 public:
+	// not a good interface
 	virtual bool saveAsTXT(std::string filename) = 0;
 	virtual bool loadAsTXT(std::string filename) = 0;
 	virtual bool saveAsXML(std::string filename) = 0;

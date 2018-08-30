@@ -88,6 +88,8 @@ void buildSimpleCreateSeizeDelayReleaseDisposeModel(Model* model) {
 	delay1->setDelayExpression("30");
 
 	Release* release1 = new Release(model);
+	release1->setResourceName("Máquina 1");
+	release1->setQueueName(seize1->getQueueName());
 
 	Dispose* dispose1 = new Dispose(model);
 
@@ -126,13 +128,14 @@ void buildSimulationSystem() {
 void testStudentSoftwareDevelopments() {
 	Simulator* simulator = new Simulator();
 	Sampler_if* mmc = simulator->getSampler(); // Sampler is the new MMC
-	Traits<Sampler_if>::Parameters*  parameters =  mmc->getRNGparameters();
+	Collector_if* collector = new Traits<Collector_if>::Implementation();
+	collector->setDataFilename("./datafile.txt");
+	// just to show how to change MMC parameters
+	Traits<Sampler_if>::Parameters*  parameters = (Traits<Sampler_if>::Parameters*) mmc->getRNGparameters(); 
 	parameters->module = 2147483648;
 	parameters->multiplier = 1103515245;
 	parameters->seed = 1234;
 	mmc->setRNGparameters(parameters);
-	Collector_if* collector = new Traits<Collector_if>::Implementation();
-	collector->setDataFilename("./datafile.txt");
 
 	// generate a datafile with a thousand values that should be normal distributed == NORM(5000,350)
 	double value;
@@ -199,10 +202,10 @@ void testStudentSoftwareDevelopments() {
  */
 int main(int argc, char** argv) {
 	// uncomment bellow to execute a simulation
-	//buildSimulationSystem();
+	buildSimulationSystem();
 	
 	// uncomment bellow to test Software Development (DS) implementations
-	testStudentSoftwareDevelopments();
+	//testStudentSoftwareDevelopments();
 	
 	return 0;
 }
