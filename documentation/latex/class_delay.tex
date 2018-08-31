@@ -1,0 +1,198 @@
+\hypertarget{class_delay}{\section{Delay Class Reference}
+\label{class_delay}\index{Delay@{Delay}}
+}
+
+
+{\ttfamily \#include $<$Delay.\-h$>$}
+
+
+
+Inheritance diagram for Delay\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{class_delay__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Delay\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=241pt]{class_delay__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_delay_a155ad32911b3289d968cca746f940520}{Delay} (\hyperlink{class_model}{Model} $\ast$model)
+\item 
+\hyperlink{class_delay_a5892fd8feb283f11980c0a9adb9befa7}{Delay} (const \hyperlink{class_delay}{Delay} \&orig)
+\item 
+virtual \hyperlink{class_delay_afee934130955d45563a6c5baaaf052d2}{$\sim$\-Delay} ()
+\item 
+void \hyperlink{class_delay_a683b53af607a424477acb946eb3afdfc}{set\-Delay\-Expression} (std\-::string \-\_\-delay\-Expression)
+\item 
+std\-::string \hyperlink{class_delay_a58559eda9ed25330d29b967c1bb0add5}{get\-Delay\-Expression} () const 
+\item 
+void \hyperlink{class_delay_abe7e89dba0974a81d00e6d2c0548fc1e}{set\-Delay\-Time\-Unit} (\hyperlink{class_util_aadbd82055afeaa7d4fb4da513de628ff}{Util\-::\-Time\-Unit} \-\_\-delay\-Time\-Unit)
+\item 
+\hyperlink{class_util_aadbd82055afeaa7d4fb4da513de628ff}{Util\-::\-Time\-Unit} \hyperlink{class_delay_a0561a6fdb4dd317952b5bb8d87b0c15f}{get\-Delay\-Time\-Unit} () const 
+\item 
+virtual std\-::string \hyperlink{class_delay_af8187e4515417b547dc22b5ee0a1f95d}{show} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_delay_a029d91a2cd736ff9c361c69336e6ab41}{\-\_\-execute} (\hyperlink{class_entity}{Entity} $\ast$entity)
+\item 
+virtual void \hyperlink{class_delay_a9d199bd226f9e504b6f6b6619d8f14dc}{\-\_\-read\-Component} (std\-::list$<$ std\-::string $>$ words)
+\item 
+virtual std\-::list$<$ std\-::string $>$ $\ast$ \hyperlink{class_delay_aeb8506fddf709ad5e55fc67170e875b0}{\-\_\-write\-Component} ()
+\item 
+virtual bool \hyperlink{class_delay_af1690df9ba58e9972f5721f5bdc2b520}{\-\_\-verify\-Symbols} (std\-::string $\ast$error\-Message)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_delay_a155ad32911b3289d968cca746f940520}{\index{Delay@{Delay}!Delay@{Delay}}
+\index{Delay@{Delay}!Delay@{Delay}}
+\subsubsection[{Delay}]{\setlength{\rightskip}{0pt plus 5cm}Delay\-::\-Delay (
+\begin{DoxyParamCaption}
+\item[{{\bf Model} $\ast$}]{model}
+\end{DoxyParamCaption}
+)}}\label{class_delay_a155ad32911b3289d968cca746f940520}
+\hypertarget{class_delay_a5892fd8feb283f11980c0a9adb9befa7}{\index{Delay@{Delay}!Delay@{Delay}}
+\index{Delay@{Delay}!Delay@{Delay}}
+\subsubsection[{Delay}]{\setlength{\rightskip}{0pt plus 5cm}Delay\-::\-Delay (
+\begin{DoxyParamCaption}
+\item[{const {\bf Delay} \&}]{orig}
+\end{DoxyParamCaption}
+)}}\label{class_delay_a5892fd8feb283f11980c0a9adb9befa7}
+\hypertarget{class_delay_afee934130955d45563a6c5baaaf052d2}{\index{Delay@{Delay}!$\sim$\-Delay@{$\sim$\-Delay}}
+\index{$\sim$\-Delay@{$\sim$\-Delay}!Delay@{Delay}}
+\subsubsection[{$\sim$\-Delay}]{\setlength{\rightskip}{0pt plus 5cm}Delay\-::$\sim$\-Delay (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_delay_afee934130955d45563a6c5baaaf052d2}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_delay_a029d91a2cd736ff9c361c69336e6ab41}{\index{Delay@{Delay}!\-\_\-execute@{\-\_\-execute}}
+\index{\-\_\-execute@{\-\_\-execute}!Delay@{Delay}}
+\subsubsection[{\-\_\-execute}]{\setlength{\rightskip}{0pt plus 5cm}void Delay\-::\-\_\-execute (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity} $\ast$}]{entity}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_delay_a029d91a2cd736ff9c361c69336e6ab41}
+
+
+Implements \hyperlink{class_model_component_ae3fcf8bbdd8368c882438424aa73f714}{Model\-Component}.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_delay_a029d91a2cd736ff9c361c69336e6ab41_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_delay_a9d199bd226f9e504b6f6b6619d8f14dc}{\index{Delay@{Delay}!\-\_\-read\-Component@{\-\_\-read\-Component}}
+\index{\-\_\-read\-Component@{\-\_\-read\-Component}!Delay@{Delay}}
+\subsubsection[{\-\_\-read\-Component}]{\setlength{\rightskip}{0pt plus 5cm}void Delay\-::\-\_\-read\-Component (
+\begin{DoxyParamCaption}
+\item[{std\-::list$<$ std\-::string $>$}]{words}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_delay_a9d199bd226f9e504b6f6b6619d8f14dc}
+
+
+Implements \hyperlink{class_model_component_aa16546b209d8fda2c8fa951e88652973}{Model\-Component}.
+
+\hypertarget{class_delay_af1690df9ba58e9972f5721f5bdc2b520}{\index{Delay@{Delay}!\-\_\-verify\-Symbols@{\-\_\-verify\-Symbols}}
+\index{\-\_\-verify\-Symbols@{\-\_\-verify\-Symbols}!Delay@{Delay}}
+\subsubsection[{\-\_\-verify\-Symbols}]{\setlength{\rightskip}{0pt plus 5cm}bool Delay\-::\-\_\-verify\-Symbols (
+\begin{DoxyParamCaption}
+\item[{std\-::string $\ast$}]{error\-Message}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_delay_af1690df9ba58e9972f5721f5bdc2b520}
+
+
+Implements \hyperlink{class_model_component_a183696468482133b2a09b761b7770521}{Model\-Component}.
+
+\hypertarget{class_delay_aeb8506fddf709ad5e55fc67170e875b0}{\index{Delay@{Delay}!\-\_\-write\-Component@{\-\_\-write\-Component}}
+\index{\-\_\-write\-Component@{\-\_\-write\-Component}!Delay@{Delay}}
+\subsubsection[{\-\_\-write\-Component}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<$ std\-::string $>$ $\ast$ Delay\-::\-\_\-write\-Component (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_delay_aeb8506fddf709ad5e55fc67170e875b0}
+
+
+Implements \hyperlink{class_model_component_a5847971e860713d9df3e41c603c772c0}{Model\-Component}.
+
+\hypertarget{class_delay_a58559eda9ed25330d29b967c1bb0add5}{\index{Delay@{Delay}!get\-Delay\-Expression@{get\-Delay\-Expression}}
+\index{get\-Delay\-Expression@{get\-Delay\-Expression}!Delay@{Delay}}
+\subsubsection[{get\-Delay\-Expression}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Delay\-::get\-Delay\-Expression (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_delay_a58559eda9ed25330d29b967c1bb0add5}
+\hypertarget{class_delay_a0561a6fdb4dd317952b5bb8d87b0c15f}{\index{Delay@{Delay}!get\-Delay\-Time\-Unit@{get\-Delay\-Time\-Unit}}
+\index{get\-Delay\-Time\-Unit@{get\-Delay\-Time\-Unit}!Delay@{Delay}}
+\subsubsection[{get\-Delay\-Time\-Unit}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Util\-::\-Time\-Unit} Delay\-::get\-Delay\-Time\-Unit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_delay_a0561a6fdb4dd317952b5bb8d87b0c15f}
+\hypertarget{class_delay_a683b53af607a424477acb946eb3afdfc}{\index{Delay@{Delay}!set\-Delay\-Expression@{set\-Delay\-Expression}}
+\index{set\-Delay\-Expression@{set\-Delay\-Expression}!Delay@{Delay}}
+\subsubsection[{set\-Delay\-Expression}]{\setlength{\rightskip}{0pt plus 5cm}void Delay\-::set\-Delay\-Expression (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{\-\_\-delay\-Expression}
+\end{DoxyParamCaption}
+)}}\label{class_delay_a683b53af607a424477acb946eb3afdfc}
+\hypertarget{class_delay_abe7e89dba0974a81d00e6d2c0548fc1e}{\index{Delay@{Delay}!set\-Delay\-Time\-Unit@{set\-Delay\-Time\-Unit}}
+\index{set\-Delay\-Time\-Unit@{set\-Delay\-Time\-Unit}!Delay@{Delay}}
+\subsubsection[{set\-Delay\-Time\-Unit}]{\setlength{\rightskip}{0pt plus 5cm}void Delay\-::set\-Delay\-Time\-Unit (
+\begin{DoxyParamCaption}
+\item[{{\bf Util\-::\-Time\-Unit}}]{\-\_\-delay\-Time\-Unit}
+\end{DoxyParamCaption}
+)}}\label{class_delay_abe7e89dba0974a81d00e6d2c0548fc1e}
+\hypertarget{class_delay_af8187e4515417b547dc22b5ee0a1f95d}{\index{Delay@{Delay}!show@{show}}
+\index{show@{show}!Delay@{Delay}}
+\subsubsection[{show}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Delay\-::show (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_delay_af8187e4515417b547dc22b5ee0a1f95d}
+
+
+Reimplemented from \hyperlink{class_model_component_ad8bc846e36b028eab7efb7da6c549eca}{Model\-Component}.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_delay_af8187e4515417b547dc22b5ee0a1f95d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_delay_8h}{Delay.\-h}\item 
+\hyperlink{_delay_8cpp}{Delay.\-cpp}\end{DoxyCompactItemize}

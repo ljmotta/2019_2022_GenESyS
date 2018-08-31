@@ -1,0 +1,172 @@
+\hypertarget{class_hypothesis_tester__if}{\section{Hypothesis\-Tester\-\_\-if Class Reference}
+\label{class_hypothesis_tester__if}\index{Hypothesis\-Tester\-\_\-if@{Hypothesis\-Tester\-\_\-if}}
+}
+
+
+{\ttfamily \#include $<$Hypothesis\-Tester\-\_\-if.\-h$>$}
+
+
+
+Inheritance diagram for Hypothesis\-Tester\-\_\-if\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{class_hypothesis_tester__if__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_hypothesis_tester__if_a89153ff990252f9f79856a2f2532c349}{H1\-Comparition} \{ \hyperlink{class_hypothesis_tester__if_a89153ff990252f9f79856a2f2532c349a58aba9f031dcbe91654e790416d84969}{L\-E\-S\-S\-\_\-\-T\-H\-A\-N} = 1, 
+\hyperlink{class_hypothesis_tester__if_a89153ff990252f9f79856a2f2532c349a42d8b143727dc6856dddb0d0ce94c791}{E\-Q\-U\-A\-L} = 2, 
+\hyperlink{class_hypothesis_tester__if_a89153ff990252f9f79856a2f2532c349acf8c0147414ce2a7cfdc8b26854464f8}{D\-I\-F\-F\-E\-R\-E\-N\-T} = 3, 
+\hyperlink{class_hypothesis_tester__if_a89153ff990252f9f79856a2f2532c349ad0539d107f27b07e600a3c46da5b1934}{G\-R\-E\-A\-T\-E\-R\-\_\-\-T\-H\-A\-N} = 4
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \hyperlink{class_hypothesis_tester__if_a00a01e530acaf3f4db644b439c1c162e}{test\-Average} (double confidencelevel, double avg, \hyperlink{class_hypothesis_tester__if_a89153ff990252f9f79856a2f2532c349}{H1\-Comparition} comp)=0
+\item 
+virtual bool \hyperlink{class_hypothesis_tester__if_a9a07fdf3648371e4595acb3599f7b03b}{test\-Proportion} (double confidencelevel, double prop, \hyperlink{class_hypothesis_tester__if_a89153ff990252f9f79856a2f2532c349}{H1\-Comparition} comp)=0
+\item 
+virtual bool \hyperlink{class_hypothesis_tester__if_a1734abfa4bd0c3e8fc67c96172aca728}{test\-Variance} (double confidencelevel, double var, \hyperlink{class_hypothesis_tester__if_a89153ff990252f9f79856a2f2532c349}{H1\-Comparition} comp)=0
+\item 
+virtual bool \hyperlink{class_hypothesis_tester__if_a0c0314bc8ff8bef239583f2c8af4ed56}{test\-Average} (double confidencelevel, std\-::string second\-Population\-Data\-Filename, \hyperlink{class_hypothesis_tester__if_a89153ff990252f9f79856a2f2532c349}{H1\-Comparition} comp)=0
+\item 
+virtual bool \hyperlink{class_hypothesis_tester__if_a10b193007a3fde816120b32903241336}{test\-Proportion} (double confidencelevel, std\-::string second\-Population\-Data\-Filename, \hyperlink{class_hypothesis_tester__if_a89153ff990252f9f79856a2f2532c349}{H1\-Comparition} comp)=0
+\item 
+virtual bool \hyperlink{class_hypothesis_tester__if_ad2360392ccf3858da38092448152c33d}{test\-Variance} (double confidencelevel, std\-::string second\-Population\-Data\-Filename, \hyperlink{class_hypothesis_tester__if_a89153ff990252f9f79856a2f2532c349}{H1\-Comparition} comp)=0
+\item 
+virtual void \hyperlink{class_hypothesis_tester__if_ae7cfc801a3c0206844e3bc73e0b4234a}{set\-Data\-Filename} (std\-::string data\-Filename)=0
+\item 
+virtual std\-::string \hyperlink{class_hypothesis_tester__if_a37b02ea209d8f6b566af9e2fff6511cc}{get\-Data\-Filename} ()=0
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{class_hypothesis_tester__if_a89153ff990252f9f79856a2f2532c349}{\index{Hypothesis\-Tester\-\_\-if@{Hypothesis\-Tester\-\_\-if}!H1\-Comparition@{H1\-Comparition}}
+\index{H1\-Comparition@{H1\-Comparition}!HypothesisTester_if@{Hypothesis\-Tester\-\_\-if}}
+\subsubsection[{H1\-Comparition}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Hypothesis\-Tester\-\_\-if\-::\-H1\-Comparition}}}\label{class_hypothesis_tester__if_a89153ff990252f9f79856a2f2532c349}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{L\-E\-S\-S\-\_\-\-T\-H\-A\-N@{L\-E\-S\-S\-\_\-\-T\-H\-A\-N}!Hypothesis\-Tester\-\_\-if@{Hypothesis\-Tester\-\_\-if}}\index{Hypothesis\-Tester\-\_\-if@{Hypothesis\-Tester\-\_\-if}!L\-E\-S\-S\-\_\-\-T\-H\-A\-N@{L\-E\-S\-S\-\_\-\-T\-H\-A\-N}}\item[{\em 
+\hypertarget{class_hypothesis_tester__if_a89153ff990252f9f79856a2f2532c349a58aba9f031dcbe91654e790416d84969}{L\-E\-S\-S\-\_\-\-T\-H\-A\-N}\label{class_hypothesis_tester__if_a89153ff990252f9f79856a2f2532c349a58aba9f031dcbe91654e790416d84969}
+}]\index{E\-Q\-U\-A\-L@{E\-Q\-U\-A\-L}!Hypothesis\-Tester\-\_\-if@{Hypothesis\-Tester\-\_\-if}}\index{Hypothesis\-Tester\-\_\-if@{Hypothesis\-Tester\-\_\-if}!E\-Q\-U\-A\-L@{E\-Q\-U\-A\-L}}\item[{\em 
+\hypertarget{class_hypothesis_tester__if_a89153ff990252f9f79856a2f2532c349a42d8b143727dc6856dddb0d0ce94c791}{E\-Q\-U\-A\-L}\label{class_hypothesis_tester__if_a89153ff990252f9f79856a2f2532c349a42d8b143727dc6856dddb0d0ce94c791}
+}]\index{D\-I\-F\-F\-E\-R\-E\-N\-T@{D\-I\-F\-F\-E\-R\-E\-N\-T}!Hypothesis\-Tester\-\_\-if@{Hypothesis\-Tester\-\_\-if}}\index{Hypothesis\-Tester\-\_\-if@{Hypothesis\-Tester\-\_\-if}!D\-I\-F\-F\-E\-R\-E\-N\-T@{D\-I\-F\-F\-E\-R\-E\-N\-T}}\item[{\em 
+\hypertarget{class_hypothesis_tester__if_a89153ff990252f9f79856a2f2532c349acf8c0147414ce2a7cfdc8b26854464f8}{D\-I\-F\-F\-E\-R\-E\-N\-T}\label{class_hypothesis_tester__if_a89153ff990252f9f79856a2f2532c349acf8c0147414ce2a7cfdc8b26854464f8}
+}]\index{G\-R\-E\-A\-T\-E\-R\-\_\-\-T\-H\-A\-N@{G\-R\-E\-A\-T\-E\-R\-\_\-\-T\-H\-A\-N}!Hypothesis\-Tester\-\_\-if@{Hypothesis\-Tester\-\_\-if}}\index{Hypothesis\-Tester\-\_\-if@{Hypothesis\-Tester\-\_\-if}!G\-R\-E\-A\-T\-E\-R\-\_\-\-T\-H\-A\-N@{G\-R\-E\-A\-T\-E\-R\-\_\-\-T\-H\-A\-N}}\item[{\em 
+\hypertarget{class_hypothesis_tester__if_a89153ff990252f9f79856a2f2532c349ad0539d107f27b07e600a3c46da5b1934}{G\-R\-E\-A\-T\-E\-R\-\_\-\-T\-H\-A\-N}\label{class_hypothesis_tester__if_a89153ff990252f9f79856a2f2532c349ad0539d107f27b07e600a3c46da5b1934}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_hypothesis_tester__if_a37b02ea209d8f6b566af9e2fff6511cc}{\index{Hypothesis\-Tester\-\_\-if@{Hypothesis\-Tester\-\_\-if}!get\-Data\-Filename@{get\-Data\-Filename}}
+\index{get\-Data\-Filename@{get\-Data\-Filename}!HypothesisTester_if@{Hypothesis\-Tester\-\_\-if}}
+\subsubsection[{get\-Data\-Filename}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\-::string Hypothesis\-Tester\-\_\-if\-::get\-Data\-Filename (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_hypothesis_tester__if_a37b02ea209d8f6b566af9e2fff6511cc}
+
+
+Implemented in \hyperlink{class_hypothesis_tester_my_impl1_a78fc8e7ab09108a7c7698cc3a182b9d7}{Hypothesis\-Tester\-My\-Impl1}.
+
+\hypertarget{class_hypothesis_tester__if_ae7cfc801a3c0206844e3bc73e0b4234a}{\index{Hypothesis\-Tester\-\_\-if@{Hypothesis\-Tester\-\_\-if}!set\-Data\-Filename@{set\-Data\-Filename}}
+\index{set\-Data\-Filename@{set\-Data\-Filename}!HypothesisTester_if@{Hypothesis\-Tester\-\_\-if}}
+\subsubsection[{set\-Data\-Filename}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Hypothesis\-Tester\-\_\-if\-::set\-Data\-Filename (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{data\-Filename}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_hypothesis_tester__if_ae7cfc801a3c0206844e3bc73e0b4234a}
+
+
+Implemented in \hyperlink{class_hypothesis_tester_my_impl1_a96347967e7fb3ed8760d517b6dea9438}{Hypothesis\-Tester\-My\-Impl1}.
+
+\hypertarget{class_hypothesis_tester__if_a00a01e530acaf3f4db644b439c1c162e}{\index{Hypothesis\-Tester\-\_\-if@{Hypothesis\-Tester\-\_\-if}!test\-Average@{test\-Average}}
+\index{test\-Average@{test\-Average}!HypothesisTester_if@{Hypothesis\-Tester\-\_\-if}}
+\subsubsection[{test\-Average}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Hypothesis\-Tester\-\_\-if\-::test\-Average (
+\begin{DoxyParamCaption}
+\item[{double}]{confidencelevel, }
+\item[{double}]{avg, }
+\item[{{\bf H1\-Comparition}}]{comp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_hypothesis_tester__if_a00a01e530acaf3f4db644b439c1c162e}
+
+
+Implemented in \hyperlink{class_hypothesis_tester_my_impl1_ae221c4d7e9144d9ecdcb604c778ba0e8}{Hypothesis\-Tester\-My\-Impl1}.
+
+\hypertarget{class_hypothesis_tester__if_a0c0314bc8ff8bef239583f2c8af4ed56}{\index{Hypothesis\-Tester\-\_\-if@{Hypothesis\-Tester\-\_\-if}!test\-Average@{test\-Average}}
+\index{test\-Average@{test\-Average}!HypothesisTester_if@{Hypothesis\-Tester\-\_\-if}}
+\subsubsection[{test\-Average}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Hypothesis\-Tester\-\_\-if\-::test\-Average (
+\begin{DoxyParamCaption}
+\item[{double}]{confidencelevel, }
+\item[{std\-::string}]{second\-Population\-Data\-Filename, }
+\item[{{\bf H1\-Comparition}}]{comp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_hypothesis_tester__if_a0c0314bc8ff8bef239583f2c8af4ed56}
+
+
+Implemented in \hyperlink{class_hypothesis_tester_my_impl1_a0cfde7f4c69ea260350257b0c9c93c37}{Hypothesis\-Tester\-My\-Impl1}.
+
+\hypertarget{class_hypothesis_tester__if_a9a07fdf3648371e4595acb3599f7b03b}{\index{Hypothesis\-Tester\-\_\-if@{Hypothesis\-Tester\-\_\-if}!test\-Proportion@{test\-Proportion}}
+\index{test\-Proportion@{test\-Proportion}!HypothesisTester_if@{Hypothesis\-Tester\-\_\-if}}
+\subsubsection[{test\-Proportion}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Hypothesis\-Tester\-\_\-if\-::test\-Proportion (
+\begin{DoxyParamCaption}
+\item[{double}]{confidencelevel, }
+\item[{double}]{prop, }
+\item[{{\bf H1\-Comparition}}]{comp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_hypothesis_tester__if_a9a07fdf3648371e4595acb3599f7b03b}
+
+
+Implemented in \hyperlink{class_hypothesis_tester_my_impl1_a1adf16a900ed4c8b8296a9516877c38b}{Hypothesis\-Tester\-My\-Impl1}.
+
+\hypertarget{class_hypothesis_tester__if_a10b193007a3fde816120b32903241336}{\index{Hypothesis\-Tester\-\_\-if@{Hypothesis\-Tester\-\_\-if}!test\-Proportion@{test\-Proportion}}
+\index{test\-Proportion@{test\-Proportion}!HypothesisTester_if@{Hypothesis\-Tester\-\_\-if}}
+\subsubsection[{test\-Proportion}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Hypothesis\-Tester\-\_\-if\-::test\-Proportion (
+\begin{DoxyParamCaption}
+\item[{double}]{confidencelevel, }
+\item[{std\-::string}]{second\-Population\-Data\-Filename, }
+\item[{{\bf H1\-Comparition}}]{comp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_hypothesis_tester__if_a10b193007a3fde816120b32903241336}
+
+
+Implemented in \hyperlink{class_hypothesis_tester_my_impl1_a13d8ceafa5c23714105f7deae83b5b2e}{Hypothesis\-Tester\-My\-Impl1}.
+
+\hypertarget{class_hypothesis_tester__if_a1734abfa4bd0c3e8fc67c96172aca728}{\index{Hypothesis\-Tester\-\_\-if@{Hypothesis\-Tester\-\_\-if}!test\-Variance@{test\-Variance}}
+\index{test\-Variance@{test\-Variance}!HypothesisTester_if@{Hypothesis\-Tester\-\_\-if}}
+\subsubsection[{test\-Variance}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Hypothesis\-Tester\-\_\-if\-::test\-Variance (
+\begin{DoxyParamCaption}
+\item[{double}]{confidencelevel, }
+\item[{double}]{var, }
+\item[{{\bf H1\-Comparition}}]{comp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_hypothesis_tester__if_a1734abfa4bd0c3e8fc67c96172aca728}
+
+
+Implemented in \hyperlink{class_hypothesis_tester_my_impl1_a6aca02089c37992e8a6761807a5a127c}{Hypothesis\-Tester\-My\-Impl1}.
+
+\hypertarget{class_hypothesis_tester__if_ad2360392ccf3858da38092448152c33d}{\index{Hypothesis\-Tester\-\_\-if@{Hypothesis\-Tester\-\_\-if}!test\-Variance@{test\-Variance}}
+\index{test\-Variance@{test\-Variance}!HypothesisTester_if@{Hypothesis\-Tester\-\_\-if}}
+\subsubsection[{test\-Variance}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Hypothesis\-Tester\-\_\-if\-::test\-Variance (
+\begin{DoxyParamCaption}
+\item[{double}]{confidencelevel, }
+\item[{std\-::string}]{second\-Population\-Data\-Filename, }
+\item[{{\bf H1\-Comparition}}]{comp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_hypothesis_tester__if_ad2360392ccf3858da38092448152c33d}
+
+
+Implemented in \hyperlink{class_hypothesis_tester_my_impl1_aea5e966244b773179262205369d496d9}{Hypothesis\-Tester\-My\-Impl1}.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_hypothesis_tester__if_8h}{Hypothesis\-Tester\-\_\-if.\-h}\end{DoxyCompactItemize}

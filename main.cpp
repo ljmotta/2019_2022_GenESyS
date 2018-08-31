@@ -36,6 +36,7 @@
 #include "Dispose.h"
 #include "Seize.h"
 #include "Release.h"
+#include "Assign.h"
 
 
 using namespace std;
@@ -71,7 +72,7 @@ void buildSimpleCreateDelayDisposeModel(Model* model) {
 	delay1->getNextComponents()->insert(dispose1);
 }
 
-void buildSimpleCreateSeizeDelayReleaseDisposeModel(Model* model) {
+void buildModelWithAllImplementedComponents(Model* model) {
 	// traces handle simulation events to output them
 	model->addTraceListener(&traceHandler);
 	model->addTraceReportListener(&traceHandler);
@@ -81,6 +82,8 @@ void buildSimpleCreateSeizeDelayReleaseDisposeModel(Model* model) {
 	Create* create1 = new Create(model);
 	create1->setTimeBetweenCreationsExpression("1.5");
 	create1->setTimeUnit(Util::TimeUnit::TU_minute);
+	
+	Assign* assign1 = new Assign(model);
 
 	Seize* seize1 = new Seize(model);
 	seize1->setResourceName("Máquina 1");
@@ -96,13 +99,15 @@ void buildSimpleCreateSeizeDelayReleaseDisposeModel(Model* model) {
 
 	List<ModelComponent*>* components = model->getComponents();
 	components->insert(create1);
+	components->insert(assign1);
 	components->insert(seize1);
 	components->insert(delay1);
 	components->insert(release1);
 	components->insert(dispose1);
 	// connect model components to create a "workflow"
 	// should always start from a SourceModelComponent and end at a SinkModelComponent (it will be checked)
-	create1->getNextComponents()->insert(seize1);
+	create1->getNextComponents()->insert(assign1);
+	assign1->getNextComponents()->insert(seize1);
 	seize1->getNextComponents()->insert(delay1);
 	delay1->getNextComponents()->insert(release1);
 	release1->getNextComponents()->insert(dispose1);
@@ -111,7 +116,7 @@ void buildSimpleCreateSeizeDelayReleaseDisposeModel(Model* model) {
 void buildModel(Model* model) {
 	// change next command to build different models
 	//buildSimpleCreateDelayDisposeModel(model);
-	buildSimpleCreateSeizeDelayReleaseDisposeModel(model);
+	buildModelWithAllImplementedComponents(model);
 }
 
 void buildSimulationSystem() {

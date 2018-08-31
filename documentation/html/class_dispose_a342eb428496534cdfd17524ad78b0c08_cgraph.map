@@ -1,0 +1,10 @@
+<map id="Dispose::_execute" name="Dispose::_execute">
+<area shape="rect" id="node2" href="$class_model.html#ae62bb3a21cd56fbf9d34195edf2fb9e0" title="Model::removeEntity" alt="" coords="205,89,347,116"/>
+<area shape="rect" id="node9" href="$class_dispose.html#aff15fbea8737b30efe9b3521d12350bd" title="Dispose::isCollectStatistics" alt="" coords="184,140,368,167"/>
+<area shape="rect" id="node3" href="$class_model.html#ae09e777b481981772818ea3fd2880c4c" title="Model::getEntities" alt="" coords="417,13,543,40"/>
+<area shape="rect" id="node6" href="$class_model_infrastructure.html#aa4d3fa8f302cc6dc4fccdd3187e6a168" title="ModelInfrastructure\l::getId" alt="" coords="809,57,943,98"/>
+<area shape="rect" id="node7" href="$class_model.html#a5de086b514742e84b61ac9a7b128ae8b" title="Model::trace" alt="" coords="433,115,527,141"/>
+<area shape="rect" id="node8" href="$class_entity.html#adf6d3f7cb1b2ba029b6b048a395cc8ae" title="Entity::~Entity" alt="" coords="427,165,533,192"/>
+<area shape="rect" id="node4" href="$class_model.html#a43ca6ff93bd0b9fbc4c2792962e6b4ed" title="Model::getInfrastructures" alt="" coords="593,13,759,40"/>
+<area shape="rect" id="node5" href="$class_list.html#a31a37746c0d960f2f2bb4071b2735c5e" title="List::setSortFunc" alt="" coords="815,5,937,32"/>
+</map>

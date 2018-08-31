@@ -1,0 +1,26 @@
+var class_statistics_my_impl1 =
+[
+    [ "StatisticsMyImpl1", "class_statistics_my_impl1.html#a74965279c4d06cea81c4f64903a21b74", null ],
+    [ "StatisticsMyImpl1", "class_statistics_my_impl1.html#a887576759d5f1d83de788fda0c1efb84", null ],
+    [ "~StatisticsMyImpl1", "class_statistics_my_impl1.html#abac2ae9a1f5c27467969017fb0bc0298", null ],
+    [ "average", "class_statistics_my_impl1.html#aed2e463c216a215c23004904c5fdb520", null ],
+    [ "centil", "class_statistics_my_impl1.html#acdadfa7b651ae6dcbe5c43d77b0cb084", null ],
+    [ "decil", "class_statistics_my_impl1.html#ae9b726c6f571f906cf413a618da7e87b", null ],
+    [ "getCollector", "class_statistics_my_impl1.html#a7c01fbd99fabf6edd4e039c125a6eb3d", null ],
+    [ "halfWidthConfidenceInterval", "class_statistics_my_impl1.html#ac0211d104dab15928738fea6990ccad8", null ],
+    [ "histogramClassFrequency", "class_statistics_my_impl1.html#a01889ba1456bea0be29caac98de4d666", null ],
+    [ "histogramClassLowerLimit", "class_statistics_my_impl1.html#aa78fe0eff5d2aa36dda26837d18796f4", null ],
+    [ "histogramNumClasses", "class_statistics_my_impl1.html#a43e7f87f01b84e9f137eb8c60a036a6f", null ],
+    [ "max", "class_statistics_my_impl1.html#a74d67916a66528d0813ed066788f0010", null ],
+    [ "mediane", "class_statistics_my_impl1.html#aa50da1ebb25c6c8fb30b8f4355ac5a89", null ],
+    [ "min", "class_statistics_my_impl1.html#a6342489ef309c427fd2de529e8d27f93", null ],
+    [ "mode", "class_statistics_my_impl1.html#a3bdde1e171fbfac219d8f22e654deb8d", null ],
+    [ "newSampleSize", "class_statistics_my_impl1.html#a61278828268208d484ae1ceb82bc8ad8", null ],
+    [ "numElements", "class_statistics_my_impl1.html#a2849b72a9be58c379b5a97281082e63a", null ],
+    [ "quartil", "class_statistics_my_impl1.html#abf81ba44177a032fce8bbe7f775b77b6", null ],
+    [ "setCollector", "class_statistics_my_impl1.html#a220ad0da6ffa6dc237dcd182f35c3221", null ],
+    [ "setHistogramNumClasses", "class_statistics_my_impl1.html#a589bb9a58d92720b4b9ab18456fcf95a", null ],
+    [ "stddeviation", "class_statistics_my_impl1.html#ac5bb46f4782920b8be4a297b0ae2bd5e", null ],
+    [ "variance", "class_statistics_my_impl1.html#afa5cfa9ad68d31cb2707dbfccf8fb5c5", null ],
+    [ "variationCoef", "class_statistics_my_impl1.html#abe90460ab3f591c78a60a1924ebe43f5", null ]
+];

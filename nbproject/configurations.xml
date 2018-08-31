@@ -15,6 +15,8 @@
                    projectFiles="true">
     </logicalFolder>
     <logicalFolder name="f2" displayName="Components" projectFiles="true">
+      <itemPath>Assign.cpp</itemPath>
+      <itemPath>Assign.h</itemPath>
       <itemPath>Create.cpp</itemPath>
       <itemPath>Create.h</itemPath>
       <itemPath>Delay.cpp</itemPath>
@@ -139,6 +141,10 @@
           <commandLine>-std=c++11 -fpermissive</commandLine>
         </ccTool>
       </compileType>
+      <item path="Assign.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Assign.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="AttributeValue.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="AttributeValue.h" ex="false" tool="3" flavor2="0">
@@ -326,6 +332,10 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="Assign.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Assign.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="AttributeValue.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="AttributeValue.h" ex="false" tool="3" flavor2="0">

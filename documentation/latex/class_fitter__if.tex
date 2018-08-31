@@ -1,0 +1,192 @@
+\hypertarget{class_fitter__if}{\section{Fitter\-\_\-if Class Reference}
+\label{class_fitter__if}\index{Fitter\-\_\-if@{Fitter\-\_\-if}}
+}
+
+
+{\ttfamily \#include $<$Fitter\-\_\-if.\-h$>$}
+
+
+
+Inheritance diagram for Fitter\-\_\-if\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=156pt]{class_fitter__if__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \hyperlink{class_fitter__if_a53e98635fcdee314e8ade8089f41ddad}{is\-Normal\-Distributed} (double confidencelevel)=0
+\item 
+virtual void \hyperlink{class_fitter__if_adec53dfede4bdb31b175e57e6a2c2fc7}{fit\-Uniform} (double $\ast$sqrerror, double $\ast$min, double $\ast$max)=0
+\item 
+virtual void \hyperlink{class_fitter__if_a2bfc41c6a8044520aeafb2c5c71fe570}{fit\-Triangular} (double $\ast$sqrerror, double $\ast$min, double $\ast$mo, double $\ast$max)=0
+\item 
+virtual void \hyperlink{class_fitter__if_af95b4de00b7ed5d67b10d9ee458379bf}{fit\-Normal} (double $\ast$sqrerror, double $\ast$avg, double $\ast$stddev)=0
+\item 
+virtual void \hyperlink{class_fitter__if_a5ab5ac575b736bb720e6a40b334de5a3}{fit\-Expo} (double $\ast$sqrerror, double $\ast$avg1)=0
+\item 
+virtual void \hyperlink{class_fitter__if_aa46a5cd2d50d3cab34a719099e1058a1}{fit\-Erlang} (double $\ast$sqrerror, double $\ast$a, double $\ast$b, double $\ast$offset, double $\ast$mult)=0
+\item 
+virtual void \hyperlink{class_fitter__if_a686a7d540919b2e604df93b3049562d1}{fit\-Beta} (double $\ast$sqrerror, double $\ast$a, double $\ast$b, double $\ast$offset, double $\ast$mult)=0
+\item 
+virtual void \hyperlink{class_fitter__if_ae46e4cbb4354d6d06167aa498855d7ea}{fit\-Weibull} (double $\ast$sqrerror, double $\ast$a, double $\ast$b, double $\ast$offset, double $\ast$mult)=0
+\item 
+virtual void \hyperlink{class_fitter__if_a819a5ca8715ba4be30d2c7a3957aa467}{fit\-All} (double $\ast$sqrerror, std\-::string $\ast$name)=0
+\item 
+virtual void \hyperlink{class_fitter__if_aa2d2f13548a09a2f727a4190a6b9c2dd}{set\-Data\-Filename} (std\-::string data\-Filename)=0
+\item 
+virtual std\-::string \hyperlink{class_fitter__if_a3c6926020b1224a960890fe308abcc86}{get\-Data\-Filename} ()=0
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_fitter__if_a819a5ca8715ba4be30d2c7a3957aa467}{\index{Fitter\-\_\-if@{Fitter\-\_\-if}!fit\-All@{fit\-All}}
+\index{fit\-All@{fit\-All}!Fitter_if@{Fitter\-\_\-if}}
+\subsubsection[{fit\-All}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Fitter\-\_\-if\-::fit\-All (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{sqrerror, }
+\item[{std\-::string $\ast$}]{name}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_fitter__if_a819a5ca8715ba4be30d2c7a3957aa467}
+
+
+Implemented in \hyperlink{class_fitter_my_impl1_ad10f9269396cb86f2230edf652242f23}{Fitter\-My\-Impl1}.
+
+\hypertarget{class_fitter__if_a686a7d540919b2e604df93b3049562d1}{\index{Fitter\-\_\-if@{Fitter\-\_\-if}!fit\-Beta@{fit\-Beta}}
+\index{fit\-Beta@{fit\-Beta}!Fitter_if@{Fitter\-\_\-if}}
+\subsubsection[{fit\-Beta}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Fitter\-\_\-if\-::fit\-Beta (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{sqrerror, }
+\item[{double $\ast$}]{a, }
+\item[{double $\ast$}]{b, }
+\item[{double $\ast$}]{offset, }
+\item[{double $\ast$}]{mult}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_fitter__if_a686a7d540919b2e604df93b3049562d1}
+
+
+Implemented in \hyperlink{class_fitter_my_impl1_acc9bcdffd5336751b197ed495c5826ca}{Fitter\-My\-Impl1}.
+
+\hypertarget{class_fitter__if_aa46a5cd2d50d3cab34a719099e1058a1}{\index{Fitter\-\_\-if@{Fitter\-\_\-if}!fit\-Erlang@{fit\-Erlang}}
+\index{fit\-Erlang@{fit\-Erlang}!Fitter_if@{Fitter\-\_\-if}}
+\subsubsection[{fit\-Erlang}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Fitter\-\_\-if\-::fit\-Erlang (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{sqrerror, }
+\item[{double $\ast$}]{a, }
+\item[{double $\ast$}]{b, }
+\item[{double $\ast$}]{offset, }
+\item[{double $\ast$}]{mult}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_fitter__if_aa46a5cd2d50d3cab34a719099e1058a1}
+
+
+Implemented in \hyperlink{class_fitter_my_impl1_af5e7d08e466ae2154a97356939447f3c}{Fitter\-My\-Impl1}.
+
+\hypertarget{class_fitter__if_a5ab5ac575b736bb720e6a40b334de5a3}{\index{Fitter\-\_\-if@{Fitter\-\_\-if}!fit\-Expo@{fit\-Expo}}
+\index{fit\-Expo@{fit\-Expo}!Fitter_if@{Fitter\-\_\-if}}
+\subsubsection[{fit\-Expo}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Fitter\-\_\-if\-::fit\-Expo (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{sqrerror, }
+\item[{double $\ast$}]{avg1}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_fitter__if_a5ab5ac575b736bb720e6a40b334de5a3}
+
+
+Implemented in \hyperlink{class_fitter_my_impl1_aba4920314b8dcf17ee9d4f6d19ea48b2}{Fitter\-My\-Impl1}.
+
+\hypertarget{class_fitter__if_af95b4de00b7ed5d67b10d9ee458379bf}{\index{Fitter\-\_\-if@{Fitter\-\_\-if}!fit\-Normal@{fit\-Normal}}
+\index{fit\-Normal@{fit\-Normal}!Fitter_if@{Fitter\-\_\-if}}
+\subsubsection[{fit\-Normal}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Fitter\-\_\-if\-::fit\-Normal (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{sqrerror, }
+\item[{double $\ast$}]{avg, }
+\item[{double $\ast$}]{stddev}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_fitter__if_af95b4de00b7ed5d67b10d9ee458379bf}
+
+
+Implemented in \hyperlink{class_fitter_my_impl1_a42ad0944837a2921674289c2ac264176}{Fitter\-My\-Impl1}.
+
+\hypertarget{class_fitter__if_a2bfc41c6a8044520aeafb2c5c71fe570}{\index{Fitter\-\_\-if@{Fitter\-\_\-if}!fit\-Triangular@{fit\-Triangular}}
+\index{fit\-Triangular@{fit\-Triangular}!Fitter_if@{Fitter\-\_\-if}}
+\subsubsection[{fit\-Triangular}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Fitter\-\_\-if\-::fit\-Triangular (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{sqrerror, }
+\item[{double $\ast$}]{min, }
+\item[{double $\ast$}]{mo, }
+\item[{double $\ast$}]{max}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_fitter__if_a2bfc41c6a8044520aeafb2c5c71fe570}
+
+
+Implemented in \hyperlink{class_fitter_my_impl1_a41a9b0e578a67a5bb33bb248388f5cb4}{Fitter\-My\-Impl1}.
+
+\hypertarget{class_fitter__if_adec53dfede4bdb31b175e57e6a2c2fc7}{\index{Fitter\-\_\-if@{Fitter\-\_\-if}!fit\-Uniform@{fit\-Uniform}}
+\index{fit\-Uniform@{fit\-Uniform}!Fitter_if@{Fitter\-\_\-if}}
+\subsubsection[{fit\-Uniform}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Fitter\-\_\-if\-::fit\-Uniform (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{sqrerror, }
+\item[{double $\ast$}]{min, }
+\item[{double $\ast$}]{max}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_fitter__if_adec53dfede4bdb31b175e57e6a2c2fc7}
+
+
+Implemented in \hyperlink{class_fitter_my_impl1_adde8080641759eaea1d247d3c7436b1d}{Fitter\-My\-Impl1}.
+
+\hypertarget{class_fitter__if_ae46e4cbb4354d6d06167aa498855d7ea}{\index{Fitter\-\_\-if@{Fitter\-\_\-if}!fit\-Weibull@{fit\-Weibull}}
+\index{fit\-Weibull@{fit\-Weibull}!Fitter_if@{Fitter\-\_\-if}}
+\subsubsection[{fit\-Weibull}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Fitter\-\_\-if\-::fit\-Weibull (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{sqrerror, }
+\item[{double $\ast$}]{a, }
+\item[{double $\ast$}]{b, }
+\item[{double $\ast$}]{offset, }
+\item[{double $\ast$}]{mult}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_fitter__if_ae46e4cbb4354d6d06167aa498855d7ea}
+
+
+Implemented in \hyperlink{class_fitter_my_impl1_a28bc8f7f558e4328bede20c941b6c32b}{Fitter\-My\-Impl1}.
+
+\hypertarget{class_fitter__if_a3c6926020b1224a960890fe308abcc86}{\index{Fitter\-\_\-if@{Fitter\-\_\-if}!get\-Data\-Filename@{get\-Data\-Filename}}
+\index{get\-Data\-Filename@{get\-Data\-Filename}!Fitter_if@{Fitter\-\_\-if}}
+\subsubsection[{get\-Data\-Filename}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\-::string Fitter\-\_\-if\-::get\-Data\-Filename (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_fitter__if_a3c6926020b1224a960890fe308abcc86}
+
+
+Implemented in \hyperlink{class_fitter_my_impl1_a7a9ea5c0a702ba2880dd3ed652f92030}{Fitter\-My\-Impl1}.
+
+\hypertarget{class_fitter__if_a53e98635fcdee314e8ade8089f41ddad}{\index{Fitter\-\_\-if@{Fitter\-\_\-if}!is\-Normal\-Distributed@{is\-Normal\-Distributed}}
+\index{is\-Normal\-Distributed@{is\-Normal\-Distributed}!Fitter_if@{Fitter\-\_\-if}}
+\subsubsection[{is\-Normal\-Distributed}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Fitter\-\_\-if\-::is\-Normal\-Distributed (
+\begin{DoxyParamCaption}
+\item[{double}]{confidencelevel}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_fitter__if_a53e98635fcdee314e8ade8089f41ddad}
+
+
+Implemented in \hyperlink{class_fitter_my_impl1_abcb39383a71603a570d1e2c396c6b7ca}{Fitter\-My\-Impl1}.
+
+\hypertarget{class_fitter__if_aa2d2f13548a09a2f727a4190a6b9c2dd}{\index{Fitter\-\_\-if@{Fitter\-\_\-if}!set\-Data\-Filename@{set\-Data\-Filename}}
+\index{set\-Data\-Filename@{set\-Data\-Filename}!Fitter_if@{Fitter\-\_\-if}}
+\subsubsection[{set\-Data\-Filename}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Fitter\-\_\-if\-::set\-Data\-Filename (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{data\-Filename}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_fitter__if_aa2d2f13548a09a2f727a4190a6b9c2dd}
+
+
+Implemented in \hyperlink{class_fitter_my_impl1_a02c8f65838daa1f086586561aea6e4da}{Fitter\-My\-Impl1}.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_fitter__if_8h}{Fitter\-\_\-if.\-h}\end{DoxyCompactItemize}

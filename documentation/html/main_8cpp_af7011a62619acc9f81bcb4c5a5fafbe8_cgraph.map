@@ -1,0 +1,31 @@
+<map id="testStudentSoftwareDevelopments" name="testStudentSoftwareDevelopments">
+<area shape="rect" id="node2" href="$class_simulator.html#a7477e74d6751ea9e4b841178b0c42f34" title="Simulator::getSampler" alt="" coords="307,5,458,32"/>
+<area shape="rect" id="node3" href="$class_collector_datafile__if.html#ab826bbf5472a5cfdbf2f2c30273da8eb" title="CollectorDatafile_if\l::setDataFilename" alt="" coords="316,57,449,98"/>
+<area shape="rect" id="node4" href="$class_sampler__if.html#adb21edf9170ad5d9b27f4788db74bafa" title="Sampler_if::getRNGparameters" alt="" coords="280,123,485,149"/>
+<area shape="rect" id="node5" href="$class_sampler__if.html#a630a0cbbef6e49869063530b03d3bb35" title="Sampler_if::setRNGparameters" alt="" coords="280,173,485,200"/>
+<area shape="rect" id="node6" href="$class_sampler__if.html#a559f1f29b5e4455c9e59cf00d622da47" title="Sampler_if::sampleNormal" alt="" coords="295,224,471,251"/>
+<area shape="rect" id="node7" href="$class_collector__if.html#ac7b83bce8ddb4903d247c1eddd656171" title="Collector_if::addValue" alt="" coords="307,275,458,301"/>
+<area shape="rect" id="node8" href="$class_statistics__if.html#a203ffe8e5215e887b716b7810023adc6" title="Statistics_if::setCollector" alt="" coords="298,325,467,352"/>
+<area shape="rect" id="node9" href="$class_statistics__if.html#a1e76d98f8a61fe03df9e36194eaa5722" title="Statistics_if::numElements" alt="" coords="293,376,472,403"/>
+<area shape="rect" id="node10" href="$class_statistics__if.html#a791ab6bbd166254429a3131bdf6e8dd6" title="Statistics_if::average" alt="" coords="310,427,455,453"/>
+<area shape="rect" id="node11" href="$class_statistics__if.html#a88d2478c6dfd8de19436ab248080a509" title="Statistics_if::stddeviation" alt="" coords="298,477,467,504"/>
+<area shape="rect" id="node12" href="$class_statistics__if.html#a093e08a43aefa0738f94ea4f68eaa40d" title="Statistics_if::halfWidth\lConfidenceInterval" alt="" coords="305,529,460,570"/>
+<area shape="rect" id="node13" href="$class_statistics__if.html#af85daafcb428420ceeacdd4807c045eb" title="Statistics_if::quartil" alt="" coords="315,595,450,621"/>
+<area shape="rect" id="node14" href="$class_statistics__if.html#a0414c1df9272ca674cba6fc30f027684" title="Statistics_if::mediane" alt="" coords="309,645,457,672"/>
+<area shape="rect" id="node15" href="$class_statistics__if.html#ab86db530e84375431be9d13c88424de3" title="Statistics_if::histogram\lNumClasses" alt="" coords="305,697,461,738"/>
+<area shape="rect" id="node16" href="$class_statistics__if.html#a7b72e8473ff71da5f8b77e4f2c15a407" title="Statistics_if::histogram\lClassFrequency" alt="" coords="305,762,461,803"/>
+<area shape="rect" id="node17" href="$class_simulator.html#a7498ab51b3112e487f73eefb6d384b74" title="Simulator::getFitter" alt="" coords="316,828,449,855"/>
+<area shape="rect" id="node18" href="$class_fitter__if.html#aa2d2f13548a09a2f727a4190a6b9c2dd" title="Fitter_if::setDataFilename" alt="" coords="296,879,469,905"/>
+<area shape="rect" id="node19" href="$class_collector_datafile__if.html#a81d109f34c25f5295f76ba13f4234a3c" title="CollectorDatafile_if\l::getDataFilename" alt="" coords="316,930,449,971"/>
+<area shape="rect" id="node20" href="$class_fitter__if.html#a53e98635fcdee314e8ade8089f41ddad" title="Fitter_if::isNormalDistributed" alt="" coords="288,996,477,1023"/>
+<area shape="rect" id="node21" href="$class_fitter__if.html#adec53dfede4bdb31b175e57e6a2c2fc7" title="Fitter_if::fitUniform" alt="" coords="317,1047,448,1073"/>
+<area shape="rect" id="node22" href="$class_fitter__if.html#a2bfc41c6a8044520aeafb2c5c71fe570" title="Fitter_if::fitTriangular" alt="" coords="311,1097,454,1124"/>
+<area shape="rect" id="node23" href="$class_fitter__if.html#af95b4de00b7ed5d67b10d9ee458379bf" title="Fitter_if::fitNormal" alt="" coords="319,1148,446,1175"/>
+<area shape="rect" id="node24" href="$class_fitter__if.html#a819a5ca8715ba4be30d2c7a3957aa467" title="Fitter_if::fitAll" alt="" coords="333,1199,433,1225"/>
+<area shape="rect" id="node25" href="$class_prob_distrib.html#a4ff9f4d4faa1c29eb970c2629b332032" title="ProbDistrib::uniform" alt="" coords="313,1249,452,1276"/>
+<area shape="rect" id="node26" href="$class_prob_distrib.html#a5ca4ebda2818070339b707a880e3d1a4" title="ProbDistrib::normal" alt="" coords="315,1300,450,1327"/>
+<area shape="rect" id="node27" href="$class_integrator__if.html#a841c836fd72d4c428178d1e28a999ec9" title="Integrator_if::integrate" alt="" coords="308,1351,457,1377"/>
+<area shape="rect" id="node28" href="$class_hypothesis_tester__if.html#ae7cfc801a3c0206844e3bc73e0b4234a" title="HypothesisTester_if\l::setDataFilename" alt="" coords="313,1402,452,1443"/>
+<area shape="rect" id="node29" href="$class_hypothesis_tester__if.html#a00a01e530acaf3f4db644b439c1c162e" title="HypothesisTester_if\l::testAverage" alt="" coords="313,1467,452,1509"/>
+<area shape="rect" id="node30" href="$class_hypothesis_tester__if.html#a1734abfa4bd0c3e8fc67c96172aca728" title="HypothesisTester_if\l::testVariance" alt="" coords="313,1533,452,1574"/>
+</map>

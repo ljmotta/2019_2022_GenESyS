@@ -1,0 +1,215 @@
+\hypertarget{class_sampler__if}{\section{Sampler\-\_\-if Class Reference}
+\label{class_sampler__if}\index{Sampler\-\_\-if@{Sampler\-\_\-if}}
+}
+
+
+{\ttfamily \#include $<$Sampler\-\_\-if.\-h$>$}
+
+
+
+Inheritance diagram for Sampler\-\_\-if\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=170pt]{class_sampler__if__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_sampler__if_1_1_r_n_g___parameters}{R\-N\-G\-\_\-\-Parameters}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual double \hyperlink{class_sampler__if_a8136ccd467ee5621813269fa23791423}{random} ()=0
+\item 
+virtual double \hyperlink{class_sampler__if_a0643f4ca1d770d01afefa956e9f78edf}{sample\-Uniform} (double min, double max)=0
+\item 
+virtual double \hyperlink{class_sampler__if_aeb17b9d84bc05c14f0be2ce0b60ed263}{sample\-Exponential} (double mean)=0
+\item 
+virtual double \hyperlink{class_sampler__if_acd16e61c373f5e051c5f4103848e5c8a}{sample\-Erlang} (double mean, int M)=0
+\item 
+virtual double \hyperlink{class_sampler__if_a559f1f29b5e4455c9e59cf00d622da47}{sample\-Normal} (double mean, double stddev)=0
+\item 
+virtual double \hyperlink{class_sampler__if_aafcceb6ad73790ddca45af1ea7f2088d}{sample\-Gamma} (double mean, double alpha)=0
+\item 
+virtual double \hyperlink{class_sampler__if_a1081daf677b12de42f0abfcbe5ba9301}{sample\-Beta} (double alpha, double beta, double inf\-Limit, double sup\-Limit)=0
+\item 
+virtual double \hyperlink{class_sampler__if_ac02b82a18e78c4bbaea1bc90c617857b}{sample\-Weibull} (double alpha, double scale)=0
+\item 
+virtual double \hyperlink{class_sampler__if_a031e1170c529e2cc67131d4da6ee683e}{sample\-Log\-Normal} (double mean, double stddev)=0
+\item 
+virtual double \hyperlink{class_sampler__if_a02d68c26089c6dd53b99882da79c88ca}{sample\-Triangular} (double min, double mode, double max)=0
+\item 
+virtual double \hyperlink{class_sampler__if_a2fcdf79225b5cdd023db7751655f1ceb}{sample\-Discrete} (double value, double acum\-Prob,...)=0
+\item 
+virtual void \hyperlink{class_sampler__if_a630a0cbbef6e49869063530b03d3bb35}{set\-R\-N\-Gparameters} (\hyperlink{class_sampler__if_1_1_r_n_g___parameters}{R\-N\-G\-\_\-\-Parameters} $\ast$param)=0
+\item 
+virtual \hyperlink{class_sampler__if_1_1_r_n_g___parameters}{R\-N\-G\-\_\-\-Parameters} $\ast$ \hyperlink{class_sampler__if_adb21edf9170ad5d9b27f4788db74bafa}{get\-R\-N\-Gparameters} () const =0
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_sampler__if_adb21edf9170ad5d9b27f4788db74bafa}{\index{Sampler\-\_\-if@{Sampler\-\_\-if}!get\-R\-N\-Gparameters@{get\-R\-N\-Gparameters}}
+\index{get\-R\-N\-Gparameters@{get\-R\-N\-Gparameters}!Sampler_if@{Sampler\-\_\-if}}
+\subsubsection[{get\-R\-N\-Gparameters}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf R\-N\-G\-\_\-\-Parameters}$\ast$ Sampler\-\_\-if\-::get\-R\-N\-Gparameters (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_sampler__if_adb21edf9170ad5d9b27f4788db74bafa}
+
+
+Implemented in \hyperlink{class_sampler_my_impl1_aca9bb2c81e9e7aa64f16ce0219da3265}{Sampler\-My\-Impl1}.
+
+\hypertarget{class_sampler__if_a8136ccd467ee5621813269fa23791423}{\index{Sampler\-\_\-if@{Sampler\-\_\-if}!random@{random}}
+\index{random@{random}!Sampler_if@{Sampler\-\_\-if}}
+\subsubsection[{random}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Sampler\-\_\-if\-::random (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_sampler__if_a8136ccd467ee5621813269fa23791423}
+
+
+Implemented in \hyperlink{class_sampler_my_impl1_a41e356a35042c5ecd982081d867c6d29}{Sampler\-My\-Impl1}.
+
+\hypertarget{class_sampler__if_a1081daf677b12de42f0abfcbe5ba9301}{\index{Sampler\-\_\-if@{Sampler\-\_\-if}!sample\-Beta@{sample\-Beta}}
+\index{sample\-Beta@{sample\-Beta}!Sampler_if@{Sampler\-\_\-if}}
+\subsubsection[{sample\-Beta}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Sampler\-\_\-if\-::sample\-Beta (
+\begin{DoxyParamCaption}
+\item[{double}]{alpha, }
+\item[{double}]{beta, }
+\item[{double}]{inf\-Limit, }
+\item[{double}]{sup\-Limit}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_sampler__if_a1081daf677b12de42f0abfcbe5ba9301}
+
+
+Implemented in \hyperlink{class_sampler_my_impl1_ad47d2778be3363f99508a7cfa6669de1}{Sampler\-My\-Impl1}.
+
+\hypertarget{class_sampler__if_a2fcdf79225b5cdd023db7751655f1ceb}{\index{Sampler\-\_\-if@{Sampler\-\_\-if}!sample\-Discrete@{sample\-Discrete}}
+\index{sample\-Discrete@{sample\-Discrete}!Sampler_if@{Sampler\-\_\-if}}
+\subsubsection[{sample\-Discrete}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Sampler\-\_\-if\-::sample\-Discrete (
+\begin{DoxyParamCaption}
+\item[{double}]{value, }
+\item[{double}]{acum\-Prob, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_sampler__if_a2fcdf79225b5cdd023db7751655f1ceb}
+
+
+Implemented in \hyperlink{class_sampler_my_impl1_ad7afa6ea23e55b07fc600b4d992dd3ac}{Sampler\-My\-Impl1}.
+
+\hypertarget{class_sampler__if_acd16e61c373f5e051c5f4103848e5c8a}{\index{Sampler\-\_\-if@{Sampler\-\_\-if}!sample\-Erlang@{sample\-Erlang}}
+\index{sample\-Erlang@{sample\-Erlang}!Sampler_if@{Sampler\-\_\-if}}
+\subsubsection[{sample\-Erlang}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Sampler\-\_\-if\-::sample\-Erlang (
+\begin{DoxyParamCaption}
+\item[{double}]{mean, }
+\item[{int}]{M}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_sampler__if_acd16e61c373f5e051c5f4103848e5c8a}
+
+
+Implemented in \hyperlink{class_sampler_my_impl1_a6b2b8cc459b89d37c6c9793374875e04}{Sampler\-My\-Impl1}.
+
+\hypertarget{class_sampler__if_aeb17b9d84bc05c14f0be2ce0b60ed263}{\index{Sampler\-\_\-if@{Sampler\-\_\-if}!sample\-Exponential@{sample\-Exponential}}
+\index{sample\-Exponential@{sample\-Exponential}!Sampler_if@{Sampler\-\_\-if}}
+\subsubsection[{sample\-Exponential}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Sampler\-\_\-if\-::sample\-Exponential (
+\begin{DoxyParamCaption}
+\item[{double}]{mean}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_sampler__if_aeb17b9d84bc05c14f0be2ce0b60ed263}
+
+
+Implemented in \hyperlink{class_sampler_my_impl1_a5ca6b9ca11b938d27521ae066b825af2}{Sampler\-My\-Impl1}.
+
+\hypertarget{class_sampler__if_aafcceb6ad73790ddca45af1ea7f2088d}{\index{Sampler\-\_\-if@{Sampler\-\_\-if}!sample\-Gamma@{sample\-Gamma}}
+\index{sample\-Gamma@{sample\-Gamma}!Sampler_if@{Sampler\-\_\-if}}
+\subsubsection[{sample\-Gamma}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Sampler\-\_\-if\-::sample\-Gamma (
+\begin{DoxyParamCaption}
+\item[{double}]{mean, }
+\item[{double}]{alpha}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_sampler__if_aafcceb6ad73790ddca45af1ea7f2088d}
+
+
+Implemented in \hyperlink{class_sampler_my_impl1_a67a7d791f7e738d49843fd8df97130f5}{Sampler\-My\-Impl1}.
+
+\hypertarget{class_sampler__if_a031e1170c529e2cc67131d4da6ee683e}{\index{Sampler\-\_\-if@{Sampler\-\_\-if}!sample\-Log\-Normal@{sample\-Log\-Normal}}
+\index{sample\-Log\-Normal@{sample\-Log\-Normal}!Sampler_if@{Sampler\-\_\-if}}
+\subsubsection[{sample\-Log\-Normal}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Sampler\-\_\-if\-::sample\-Log\-Normal (
+\begin{DoxyParamCaption}
+\item[{double}]{mean, }
+\item[{double}]{stddev}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_sampler__if_a031e1170c529e2cc67131d4da6ee683e}
+
+
+Implemented in \hyperlink{class_sampler_my_impl1_a7f7e069b65ffaafb2d1196ccbc23ec8a}{Sampler\-My\-Impl1}.
+
+\hypertarget{class_sampler__if_a559f1f29b5e4455c9e59cf00d622da47}{\index{Sampler\-\_\-if@{Sampler\-\_\-if}!sample\-Normal@{sample\-Normal}}
+\index{sample\-Normal@{sample\-Normal}!Sampler_if@{Sampler\-\_\-if}}
+\subsubsection[{sample\-Normal}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Sampler\-\_\-if\-::sample\-Normal (
+\begin{DoxyParamCaption}
+\item[{double}]{mean, }
+\item[{double}]{stddev}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_sampler__if_a559f1f29b5e4455c9e59cf00d622da47}
+
+
+Implemented in \hyperlink{class_sampler_my_impl1_a0c925e9a73dfbab332d95a92f5a08fc2}{Sampler\-My\-Impl1}.
+
+\hypertarget{class_sampler__if_a02d68c26089c6dd53b99882da79c88ca}{\index{Sampler\-\_\-if@{Sampler\-\_\-if}!sample\-Triangular@{sample\-Triangular}}
+\index{sample\-Triangular@{sample\-Triangular}!Sampler_if@{Sampler\-\_\-if}}
+\subsubsection[{sample\-Triangular}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Sampler\-\_\-if\-::sample\-Triangular (
+\begin{DoxyParamCaption}
+\item[{double}]{min, }
+\item[{double}]{mode, }
+\item[{double}]{max}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_sampler__if_a02d68c26089c6dd53b99882da79c88ca}
+
+
+Implemented in \hyperlink{class_sampler_my_impl1_a370bcf50d6f899ded0214d782df4c37f}{Sampler\-My\-Impl1}.
+
+\hypertarget{class_sampler__if_a0643f4ca1d770d01afefa956e9f78edf}{\index{Sampler\-\_\-if@{Sampler\-\_\-if}!sample\-Uniform@{sample\-Uniform}}
+\index{sample\-Uniform@{sample\-Uniform}!Sampler_if@{Sampler\-\_\-if}}
+\subsubsection[{sample\-Uniform}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Sampler\-\_\-if\-::sample\-Uniform (
+\begin{DoxyParamCaption}
+\item[{double}]{min, }
+\item[{double}]{max}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_sampler__if_a0643f4ca1d770d01afefa956e9f78edf}
+
+
+Implemented in \hyperlink{class_sampler_my_impl1_a49871c3b67c7dbf262fbe23b7a0e8719}{Sampler\-My\-Impl1}.
+
+\hypertarget{class_sampler__if_ac02b82a18e78c4bbaea1bc90c617857b}{\index{Sampler\-\_\-if@{Sampler\-\_\-if}!sample\-Weibull@{sample\-Weibull}}
+\index{sample\-Weibull@{sample\-Weibull}!Sampler_if@{Sampler\-\_\-if}}
+\subsubsection[{sample\-Weibull}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Sampler\-\_\-if\-::sample\-Weibull (
+\begin{DoxyParamCaption}
+\item[{double}]{alpha, }
+\item[{double}]{scale}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_sampler__if_ac02b82a18e78c4bbaea1bc90c617857b}
+
+
+Implemented in \hyperlink{class_sampler_my_impl1_a6027d811554b7f90740b549778ed66e2}{Sampler\-My\-Impl1}.
+
+\hypertarget{class_sampler__if_a630a0cbbef6e49869063530b03d3bb35}{\index{Sampler\-\_\-if@{Sampler\-\_\-if}!set\-R\-N\-Gparameters@{set\-R\-N\-Gparameters}}
+\index{set\-R\-N\-Gparameters@{set\-R\-N\-Gparameters}!Sampler_if@{Sampler\-\_\-if}}
+\subsubsection[{set\-R\-N\-Gparameters}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Sampler\-\_\-if\-::set\-R\-N\-Gparameters (
+\begin{DoxyParamCaption}
+\item[{{\bf R\-N\-G\-\_\-\-Parameters} $\ast$}]{param}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_sampler__if_a630a0cbbef6e49869063530b03d3bb35}
+
+
+Implemented in \hyperlink{class_sampler_my_impl1_a7a1cad991badceb2f2445bc28064355a}{Sampler\-My\-Impl1}.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_sampler__if_8h}{Sampler\-\_\-if.\-h}\end{DoxyCompactItemize}

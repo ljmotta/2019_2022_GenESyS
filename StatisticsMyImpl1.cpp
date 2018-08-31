@@ -77,8 +77,9 @@ unsigned int StatisticsMyImpl1::histogramClassFrequency(unsigned short classNum)
 }
 
 Collector_if* StatisticsMyImpl1::getCollector() {
+	return this->_collector;
 }
 
-void StatisticsMyImpl1::setCollector(Collector_if* collector){
-	
+void StatisticsMyImpl1::setCollector(Collector_if* collector) {
+
 }

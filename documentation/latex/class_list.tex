@@ -1,0 +1,221 @@
+\hypertarget{class_list}{\section{List$<$ T $>$ Class Template Reference}
+\label{class_list}\index{List$<$ T $>$@{List$<$ T $>$}}
+}
+
+
+{\ttfamily \#include $<$List.\-h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{class_list_ae43380038701ec3a2fbecaf31f37dd19}{Comp\-Funct} = std\-::function$<$ bool(const T, const T)$>$
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_list_a5c5e27671b21b3815d4e25b953c69454}{List} ()
+\item 
+\hyperlink{class_list_a46e402e625d805b8ccb565129d4d9680}{List} (const \hyperlink{class_list}{List} \&orig)
+\item 
+virtual \hyperlink{class_list_a2b58189090f6e5ce52939c9195e59e85}{$\sim$\-List} ()
+\item 
+unsigned int \hyperlink{class_list_ad908ab5cf19370fcdf61cf1927e5e8f5}{size} ()
+\item 
+bool \hyperlink{class_list_a3737ca60365287ce663393d8c07d1a41}{empty} ()
+\item 
+void \hyperlink{class_list_ae296516a252e11963dbf963727ce429a}{clear} ()
+\item 
+void \hyperlink{class_list_a024af4543f71544345351a45850c42d8}{pop\-\_\-front} ()
+\item 
+{\footnotesize template$<$class Compare $>$ }\\void \hyperlink{class_list_af5bf0ad4812b1a9da9eb20a4646e3e96}{sort} (Compare comp)
+\item 
+std\-::list$<$ T $>$ $\ast$ \hyperlink{class_list_a570498345450f635b72d1ca2675145cc}{get\-List} () const 
+\item 
+T \hyperlink{class_list_a3439065c3222c241427e9deb6adf1b01}{create} ()
+\item 
+{\footnotesize template$<$typename U $>$ }\\T \hyperlink{class_list_a767b6b53a19368f4623d72cea74f9c7b}{create} (U arg)
+\item 
+std\-::string \hyperlink{class_list_a8f30a708a550bcca33f64dc6fea8affa}{show} ()
+\item 
+std\-::list$<$ T $>$\-::iterator \hyperlink{class_list_a2f50d3342e016ec57876798ad4e8bf31}{find} (T element)
+\item 
+void \hyperlink{class_list_a518d00fd77740525522949d4316e8826}{insert} (T element)
+\item 
+void \hyperlink{class_list_a0ac08f7f3dad900b99e9a73e76d2beee}{remove} (T element)
+\item 
+T \hyperlink{class_list_a2dce655743c2b6c7cc7c9b6034badf78}{next} ()
+\item 
+T \hyperlink{class_list_a42761114ff6730da1402089d4bd3f795}{first} ()
+\item 
+T \hyperlink{class_list_a9944c09ee1bd6390bbf017be5c858063}{last} ()
+\item 
+T \hyperlink{class_list_ab43f87321c901694807e6c9315a72cd0}{previous} ()
+\item 
+T \hyperlink{class_list_a58474bac3aa3d1ef7208aa06a3789d57}{actual} ()
+\item 
+void \hyperlink{class_list_a31a37746c0d960f2f2bb4071b2735c5e}{set\-Sort\-Func} (\hyperlink{class_list_ae43380038701ec3a2fbecaf31f37dd19}{Comp\-Funct} \-\_\-sort\-Func)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Typedef Documentation}
+\hypertarget{class_list_ae43380038701ec3a2fbecaf31f37dd19}{\index{List@{List}!Comp\-Funct@{Comp\-Funct}}
+\index{Comp\-Funct@{Comp\-Funct}!List@{List}}
+\subsubsection[{Comp\-Funct}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ using {\bf List}$<$ T $>$\-::{\bf Comp\-Funct} =  std\-::function$<$bool(const T, const T)$>$}}\label{class_list_ae43380038701ec3a2fbecaf31f37dd19}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_list_a5c5e27671b21b3815d4e25b953c69454}{\index{List@{List}!List@{List}}
+\index{List@{List}!List@{List}}
+\subsubsection[{List}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf List}$<$ T $>$\-::{\bf List} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_list_a5c5e27671b21b3815d4e25b953c69454}
+\hypertarget{class_list_a46e402e625d805b8ccb565129d4d9680}{\index{List@{List}!List@{List}}
+\index{List@{List}!List@{List}}
+\subsubsection[{List}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf List}$<$ T $>$\-::{\bf List} (
+\begin{DoxyParamCaption}
+\item[{const {\bf List}$<$ T $>$ \&}]{orig}
+\end{DoxyParamCaption}
+)}}\label{class_list_a46e402e625d805b8ccb565129d4d9680}
+\hypertarget{class_list_a2b58189090f6e5ce52939c9195e59e85}{\index{List@{List}!$\sim$\-List@{$\sim$\-List}}
+\index{$\sim$\-List@{$\sim$\-List}!List@{List}}
+\subsubsection[{$\sim$\-List}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf List}$<$ T $>$\-::$\sim${\bf List} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_list_a2b58189090f6e5ce52939c9195e59e85}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_list_a58474bac3aa3d1ef7208aa06a3789d57}{\index{List@{List}!actual@{actual}}
+\index{actual@{actual}!List@{List}}
+\subsubsection[{actual}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ T {\bf List}$<$ T $>$\-::actual (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_list_a58474bac3aa3d1ef7208aa06a3789d57}
+\hypertarget{class_list_ae296516a252e11963dbf963727ce429a}{\index{List@{List}!clear@{clear}}
+\index{clear@{clear}!List@{List}}
+\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf List}$<$ T $>$\-::clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_list_ae296516a252e11963dbf963727ce429a}
+\hypertarget{class_list_a3439065c3222c241427e9deb6adf1b01}{\index{List@{List}!create@{create}}
+\index{create@{create}!List@{List}}
+\subsubsection[{create}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ T {\bf List}$<$ T $>$\-::create (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_list_a3439065c3222c241427e9deb6adf1b01}
+\hypertarget{class_list_a767b6b53a19368f4623d72cea74f9c7b}{\index{List@{List}!create@{create}}
+\index{create@{create}!List@{List}}
+\subsubsection[{create}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ template$<$typename U $>$ T {\bf List}$<$ T $>$\-::create (
+\begin{DoxyParamCaption}
+\item[{U}]{arg}
+\end{DoxyParamCaption}
+)}}\label{class_list_a767b6b53a19368f4623d72cea74f9c7b}
+\hypertarget{class_list_a3737ca60365287ce663393d8c07d1a41}{\index{List@{List}!empty@{empty}}
+\index{empty@{empty}!List@{List}}
+\subsubsection[{empty}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ bool {\bf List}$<$ T $>$\-::empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_list_a3737ca60365287ce663393d8c07d1a41}
+\hypertarget{class_list_a2f50d3342e016ec57876798ad4e8bf31}{\index{List@{List}!find@{find}}
+\index{find@{find}!List@{List}}
+\subsubsection[{find}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ std\-::list$<$ T $>$\-::iterator {\bf List}$<$ T $>$\-::find (
+\begin{DoxyParamCaption}
+\item[{T}]{element}
+\end{DoxyParamCaption}
+)}}\label{class_list_a2f50d3342e016ec57876798ad4e8bf31}
+\hypertarget{class_list_a42761114ff6730da1402089d4bd3f795}{\index{List@{List}!first@{first}}
+\index{first@{first}!List@{List}}
+\subsubsection[{first}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ T {\bf List}$<$ T $>$\-::first (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_list_a42761114ff6730da1402089d4bd3f795}
+\hypertarget{class_list_a570498345450f635b72d1ca2675145cc}{\index{List@{List}!get\-List@{get\-List}}
+\index{get\-List@{get\-List}!List@{List}}
+\subsubsection[{get\-List}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ std\-::list$<$ T $>$ $\ast$ {\bf List}$<$ T $>$\-::get\-List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_list_a570498345450f635b72d1ca2675145cc}
+\hypertarget{class_list_a518d00fd77740525522949d4316e8826}{\index{List@{List}!insert@{insert}}
+\index{insert@{insert}!List@{List}}
+\subsubsection[{insert}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf List}$<$ T $>$\-::insert (
+\begin{DoxyParamCaption}
+\item[{T}]{element}
+\end{DoxyParamCaption}
+)}}\label{class_list_a518d00fd77740525522949d4316e8826}
+\hypertarget{class_list_a9944c09ee1bd6390bbf017be5c858063}{\index{List@{List}!last@{last}}
+\index{last@{last}!List@{List}}
+\subsubsection[{last}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ T {\bf List}$<$ T $>$\-::last (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_list_a9944c09ee1bd6390bbf017be5c858063}
+\hypertarget{class_list_a2dce655743c2b6c7cc7c9b6034badf78}{\index{List@{List}!next@{next}}
+\index{next@{next}!List@{List}}
+\subsubsection[{next}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ T {\bf List}$<$ T $>$\-::next (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_list_a2dce655743c2b6c7cc7c9b6034badf78}
+\hypertarget{class_list_a024af4543f71544345351a45850c42d8}{\index{List@{List}!pop\-\_\-front@{pop\-\_\-front}}
+\index{pop\-\_\-front@{pop\-\_\-front}!List@{List}}
+\subsubsection[{pop\-\_\-front}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf List}$<$ T $>$\-::pop\-\_\-front (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_list_a024af4543f71544345351a45850c42d8}
+\hypertarget{class_list_ab43f87321c901694807e6c9315a72cd0}{\index{List@{List}!previous@{previous}}
+\index{previous@{previous}!List@{List}}
+\subsubsection[{previous}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ T {\bf List}$<$ T $>$\-::previous (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_list_ab43f87321c901694807e6c9315a72cd0}
+\hypertarget{class_list_a0ac08f7f3dad900b99e9a73e76d2beee}{\index{List@{List}!remove@{remove}}
+\index{remove@{remove}!List@{List}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T$>$ void {\bf List}$<$ T $>$\-::remove (
+\begin{DoxyParamCaption}
+\item[{T}]{element}
+\end{DoxyParamCaption}
+)}}\label{class_list_a0ac08f7f3dad900b99e9a73e76d2beee}
+\hypertarget{class_list_a31a37746c0d960f2f2bb4071b2735c5e}{\index{List@{List}!set\-Sort\-Func@{set\-Sort\-Func}}
+\index{set\-Sort\-Func@{set\-Sort\-Func}!List@{List}}
+\subsubsection[{set\-Sort\-Func}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf List}$<$ T $>$\-::set\-Sort\-Func (
+\begin{DoxyParamCaption}
+\item[{{\bf Comp\-Funct}}]{\-\_\-sort\-Func}
+\end{DoxyParamCaption}
+)}}\label{class_list_a31a37746c0d960f2f2bb4071b2735c5e}
+\hypertarget{class_list_a8f30a708a550bcca33f64dc6fea8affa}{\index{List@{List}!show@{show}}
+\index{show@{show}!List@{List}}
+\subsubsection[{show}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ std\-::string {\bf List}$<$ T $>$\-::show (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_list_a8f30a708a550bcca33f64dc6fea8affa}
+\hypertarget{class_list_ad908ab5cf19370fcdf61cf1927e5e8f5}{\index{List@{List}!size@{size}}
+\index{size@{size}!List@{List}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ unsigned int {\bf List}$<$ T $>$\-::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_list_ad908ab5cf19370fcdf61cf1927e5e8f5}
+\hypertarget{class_list_af5bf0ad4812b1a9da9eb20a4646e3e96}{\index{List@{List}!sort@{sort}}
+\index{sort@{sort}!List@{List}}
+\subsubsection[{sort}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ template$<$class Compare $>$ void {\bf List}$<$ T $>$\-::sort (
+\begin{DoxyParamCaption}
+\item[{Compare}]{comp}
+\end{DoxyParamCaption}
+)}}\label{class_list_af5bf0ad4812b1a9da9eb20a4646e3e96}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_list_8h}{List.\-h}\end{DoxyCompactItemize}

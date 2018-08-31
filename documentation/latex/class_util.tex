@@ -1,0 +1,174 @@
+\hypertarget{class_util}{\section{Util Class Reference}
+\label{class_util}\index{Util@{Util}}
+}
+
+
+{\ttfamily \#include $<$Util.\-h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_util_aadbd82055afeaa7d4fb4da513de628ff}{Time\-Unit} \{ \\*
+\hyperlink{class_util_aadbd82055afeaa7d4fb4da513de628ffa61a2b7f78d5154e21558eeb7f7dcf189}{T\-U\-\_\-picosecond} = 1, 
+\hyperlink{class_util_aadbd82055afeaa7d4fb4da513de628ffa180a2c9d13a0f09f4736faadcf647652}{T\-U\-\_\-nanosecond} = 2, 
+\hyperlink{class_util_aadbd82055afeaa7d4fb4da513de628ffaea45c265b26be1b824e13c8c0197c596}{T\-U\-\_\-microsecond} = 3, 
+\hyperlink{class_util_aadbd82055afeaa7d4fb4da513de628ffab2d1939f8eede127ea155ff7377a6408}{T\-U\-\_\-milisecond} = 4, 
+\\*
+\hyperlink{class_util_aadbd82055afeaa7d4fb4da513de628ffa2b8682aecb882a22a72fa80cee868574}{T\-U\-\_\-second} = 5, 
+\hyperlink{class_util_aadbd82055afeaa7d4fb4da513de628ffa8a8dec2e0147e6d1d6de316c6607022c}{T\-U\-\_\-minute} = 6, 
+\hyperlink{class_util_aadbd82055afeaa7d4fb4da513de628ffaed08a13fb576de0d635c1ada62e6ed64}{T\-U\-\_\-hour} = 7, 
+\hyperlink{class_util_aadbd82055afeaa7d4fb4da513de628ffa7c189f7f3cfd7d611da081990ebd3971}{T\-U\-\_\-day} = 8, 
+\\*
+\hyperlink{class_util_aadbd82055afeaa7d4fb4da513de628ffa556642171373fb32274a3ff32e9818a9}{T\-U\-\_\-week} = 9
+ \}
+\item 
+enum \hyperlink{class_util_a604561d00f5999b5ca280401140e58d9}{Trace\-Level} \{ \\*
+\hyperlink{class_util_a604561d00f5999b5ca280401140e58d9ae16cd2d59f52612b89b7a094bf6ed758}{T\-L\-\_\-no\-Traces} = 0, 
+\hyperlink{class_util_a604561d00f5999b5ca280401140e58d9a301dc2838784fa24261650a639c11cf1}{T\-L\-\_\-errors} = 10, 
+\hyperlink{class_util_a604561d00f5999b5ca280401140e58d9a4b58bddec93bc38da370802e995c3e60}{T\-L\-\_\-simulation} = 20, 
+\hyperlink{class_util_a604561d00f5999b5ca280401140e58d9a8b8962b6e41245523e7d7b967f582272}{T\-L\-\_\-transfer\-Only} = 30, 
+\\*
+\hyperlink{class_util_a604561d00f5999b5ca280401140e58d9a3a33606fc3e2b432131173eeed280d9a}{T\-L\-\_\-block\-Arrival} = 40, 
+\hyperlink{class_util_a604561d00f5999b5ca280401140e58d9a3bf34b905a3128734e417619af900d0e}{T\-L\-\_\-block\-Internal} = 50, 
+\hyperlink{class_util_a604561d00f5999b5ca280401140e58d9a64fd55e7b2e7fa00956ebc5185cef8b0}{T\-L\-\_\-most\-Detailed} = 60
+ \}
+\item 
+typedef unsigned long \hyperlink{class_util_ad17d458d9344b10bba64347e514d6d71}{identitifcation}
+\item 
+typedef unsigned int \hyperlink{class_util_a2a402b3a3a889d699bb3a1a87cbe6d1e}{rank}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_util_ad17d458d9344b10bba64347e514d6d71}{Util\-::identitifcation} \hyperlink{class_util_a59ecba8027c38a9d0a3a0e9e9dc94ad7}{Generate\-New\-Id} ()
+\item 
+static double \hyperlink{class_util_a5f537febaa83db4721745a4730657bab}{Time\-Unit\-Convert} (\hyperlink{class_util_aadbd82055afeaa7d4fb4da513de628ff}{Util\-::\-Time\-Unit} time\-Unit1, \hyperlink{class_util_aadbd82055afeaa7d4fb4da513de628ff}{Util\-::\-Time\-Unit} time\-Unit2)
+\item 
+static \hyperlink{class_util_ad17d458d9344b10bba64347e514d6d71}{Util\-::identitifcation} \hyperlink{class_util_ab92bcba2a33782b6228d575da4aae0ad}{\-\_\-\-Generate\-New\-Id\-Of\-Type} (std\-::string objtyp)
+\item 
+{\footnotesize template$<$class T $>$ }\\static std\-::string \hyperlink{class_util_a1010d1207367e48e1d417381f32abf1f}{Type\-Of} ()
+\item 
+{\footnotesize template$<$class T $>$ }\\static \hyperlink{class_util_ad17d458d9344b10bba64347e514d6d71}{Util\-::identitifcation} \hyperlink{class_util_aec5f31f4f467113c25a6aef7bb5f4a40}{Generate\-New\-Id\-Of\-Type} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{class_util_ad17d458d9344b10bba64347e514d6d71}{Util\-::identitifcation} \hyperlink{class_util_afe2f6d8c09ef1108299a4dc8ec59b133}{\-\_\-\-S\-\_\-last\-Id} = 0
+\item 
+static std\-::map$<$ std\-::string, \\*
+\hyperlink{class_util_ad17d458d9344b10bba64347e514d6d71}{Util\-::identitifcation} $>$ \hyperlink{class_util_a06a8897362f4bd17c68d59557083fc56}{\-\_\-\-S\-\_\-last\-Id\-Of\-Type} = std\-::map$<$std\-::string,\hyperlink{class_util_ad17d458d9344b10bba64347e514d6d71}{Util\-::identitifcation}$>$()
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Typedef Documentation}
+\hypertarget{class_util_ad17d458d9344b10bba64347e514d6d71}{\index{Util@{Util}!identitifcation@{identitifcation}}
+\index{identitifcation@{identitifcation}!Util@{Util}}
+\subsubsection[{identitifcation}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned long {\bf Util\-::identitifcation}}}\label{class_util_ad17d458d9344b10bba64347e514d6d71}
+\hypertarget{class_util_a2a402b3a3a889d699bb3a1a87cbe6d1e}{\index{Util@{Util}!rank@{rank}}
+\index{rank@{rank}!Util@{Util}}
+\subsubsection[{rank}]{\setlength{\rightskip}{0pt plus 5cm}typedef unsigned int {\bf Util\-::rank}}}\label{class_util_a2a402b3a3a889d699bb3a1a87cbe6d1e}
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{class_util_aadbd82055afeaa7d4fb4da513de628ff}{\index{Util@{Util}!Time\-Unit@{Time\-Unit}}
+\index{Time\-Unit@{Time\-Unit}!Util@{Util}}
+\subsubsection[{Time\-Unit}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Util\-::\-Time\-Unit}}}\label{class_util_aadbd82055afeaa7d4fb4da513de628ff}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{T\-U\-\_\-picosecond@{T\-U\-\_\-picosecond}!Util@{Util}}\index{Util@{Util}!T\-U\-\_\-picosecond@{T\-U\-\_\-picosecond}}\item[{\em 
+\hypertarget{class_util_aadbd82055afeaa7d4fb4da513de628ffa61a2b7f78d5154e21558eeb7f7dcf189}{T\-U\-\_\-picosecond}\label{class_util_aadbd82055afeaa7d4fb4da513de628ffa61a2b7f78d5154e21558eeb7f7dcf189}
+}]\index{T\-U\-\_\-nanosecond@{T\-U\-\_\-nanosecond}!Util@{Util}}\index{Util@{Util}!T\-U\-\_\-nanosecond@{T\-U\-\_\-nanosecond}}\item[{\em 
+\hypertarget{class_util_aadbd82055afeaa7d4fb4da513de628ffa180a2c9d13a0f09f4736faadcf647652}{T\-U\-\_\-nanosecond}\label{class_util_aadbd82055afeaa7d4fb4da513de628ffa180a2c9d13a0f09f4736faadcf647652}
+}]\index{T\-U\-\_\-microsecond@{T\-U\-\_\-microsecond}!Util@{Util}}\index{Util@{Util}!T\-U\-\_\-microsecond@{T\-U\-\_\-microsecond}}\item[{\em 
+\hypertarget{class_util_aadbd82055afeaa7d4fb4da513de628ffaea45c265b26be1b824e13c8c0197c596}{T\-U\-\_\-microsecond}\label{class_util_aadbd82055afeaa7d4fb4da513de628ffaea45c265b26be1b824e13c8c0197c596}
+}]\index{T\-U\-\_\-milisecond@{T\-U\-\_\-milisecond}!Util@{Util}}\index{Util@{Util}!T\-U\-\_\-milisecond@{T\-U\-\_\-milisecond}}\item[{\em 
+\hypertarget{class_util_aadbd82055afeaa7d4fb4da513de628ffab2d1939f8eede127ea155ff7377a6408}{T\-U\-\_\-milisecond}\label{class_util_aadbd82055afeaa7d4fb4da513de628ffab2d1939f8eede127ea155ff7377a6408}
+}]\index{T\-U\-\_\-second@{T\-U\-\_\-second}!Util@{Util}}\index{Util@{Util}!T\-U\-\_\-second@{T\-U\-\_\-second}}\item[{\em 
+\hypertarget{class_util_aadbd82055afeaa7d4fb4da513de628ffa2b8682aecb882a22a72fa80cee868574}{T\-U\-\_\-second}\label{class_util_aadbd82055afeaa7d4fb4da513de628ffa2b8682aecb882a22a72fa80cee868574}
+}]\index{T\-U\-\_\-minute@{T\-U\-\_\-minute}!Util@{Util}}\index{Util@{Util}!T\-U\-\_\-minute@{T\-U\-\_\-minute}}\item[{\em 
+\hypertarget{class_util_aadbd82055afeaa7d4fb4da513de628ffa8a8dec2e0147e6d1d6de316c6607022c}{T\-U\-\_\-minute}\label{class_util_aadbd82055afeaa7d4fb4da513de628ffa8a8dec2e0147e6d1d6de316c6607022c}
+}]\index{T\-U\-\_\-hour@{T\-U\-\_\-hour}!Util@{Util}}\index{Util@{Util}!T\-U\-\_\-hour@{T\-U\-\_\-hour}}\item[{\em 
+\hypertarget{class_util_aadbd82055afeaa7d4fb4da513de628ffaed08a13fb576de0d635c1ada62e6ed64}{T\-U\-\_\-hour}\label{class_util_aadbd82055afeaa7d4fb4da513de628ffaed08a13fb576de0d635c1ada62e6ed64}
+}]\index{T\-U\-\_\-day@{T\-U\-\_\-day}!Util@{Util}}\index{Util@{Util}!T\-U\-\_\-day@{T\-U\-\_\-day}}\item[{\em 
+\hypertarget{class_util_aadbd82055afeaa7d4fb4da513de628ffa7c189f7f3cfd7d611da081990ebd3971}{T\-U\-\_\-day}\label{class_util_aadbd82055afeaa7d4fb4da513de628ffa7c189f7f3cfd7d611da081990ebd3971}
+}]\index{T\-U\-\_\-week@{T\-U\-\_\-week}!Util@{Util}}\index{Util@{Util}!T\-U\-\_\-week@{T\-U\-\_\-week}}\item[{\em 
+\hypertarget{class_util_aadbd82055afeaa7d4fb4da513de628ffa556642171373fb32274a3ff32e9818a9}{T\-U\-\_\-week}\label{class_util_aadbd82055afeaa7d4fb4da513de628ffa556642171373fb32274a3ff32e9818a9}
+}]\end{description}
+\end{Desc}
+\hypertarget{class_util_a604561d00f5999b5ca280401140e58d9}{\index{Util@{Util}!Trace\-Level@{Trace\-Level}}
+\index{Trace\-Level@{Trace\-Level}!Util@{Util}}
+\subsubsection[{Trace\-Level}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Util\-::\-Trace\-Level}}}\label{class_util_a604561d00f5999b5ca280401140e58d9}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{T\-L\-\_\-no\-Traces@{T\-L\-\_\-no\-Traces}!Util@{Util}}\index{Util@{Util}!T\-L\-\_\-no\-Traces@{T\-L\-\_\-no\-Traces}}\item[{\em 
+\hypertarget{class_util_a604561d00f5999b5ca280401140e58d9ae16cd2d59f52612b89b7a094bf6ed758}{T\-L\-\_\-no\-Traces}\label{class_util_a604561d00f5999b5ca280401140e58d9ae16cd2d59f52612b89b7a094bf6ed758}
+}]\index{T\-L\-\_\-errors@{T\-L\-\_\-errors}!Util@{Util}}\index{Util@{Util}!T\-L\-\_\-errors@{T\-L\-\_\-errors}}\item[{\em 
+\hypertarget{class_util_a604561d00f5999b5ca280401140e58d9a301dc2838784fa24261650a639c11cf1}{T\-L\-\_\-errors}\label{class_util_a604561d00f5999b5ca280401140e58d9a301dc2838784fa24261650a639c11cf1}
+}]\index{T\-L\-\_\-simulation@{T\-L\-\_\-simulation}!Util@{Util}}\index{Util@{Util}!T\-L\-\_\-simulation@{T\-L\-\_\-simulation}}\item[{\em 
+\hypertarget{class_util_a604561d00f5999b5ca280401140e58d9a4b58bddec93bc38da370802e995c3e60}{T\-L\-\_\-simulation}\label{class_util_a604561d00f5999b5ca280401140e58d9a4b58bddec93bc38da370802e995c3e60}
+}]\index{T\-L\-\_\-transfer\-Only@{T\-L\-\_\-transfer\-Only}!Util@{Util}}\index{Util@{Util}!T\-L\-\_\-transfer\-Only@{T\-L\-\_\-transfer\-Only}}\item[{\em 
+\hypertarget{class_util_a604561d00f5999b5ca280401140e58d9a8b8962b6e41245523e7d7b967f582272}{T\-L\-\_\-transfer\-Only}\label{class_util_a604561d00f5999b5ca280401140e58d9a8b8962b6e41245523e7d7b967f582272}
+}]\index{T\-L\-\_\-block\-Arrival@{T\-L\-\_\-block\-Arrival}!Util@{Util}}\index{Util@{Util}!T\-L\-\_\-block\-Arrival@{T\-L\-\_\-block\-Arrival}}\item[{\em 
+\hypertarget{class_util_a604561d00f5999b5ca280401140e58d9a3a33606fc3e2b432131173eeed280d9a}{T\-L\-\_\-block\-Arrival}\label{class_util_a604561d00f5999b5ca280401140e58d9a3a33606fc3e2b432131173eeed280d9a}
+}]\index{T\-L\-\_\-block\-Internal@{T\-L\-\_\-block\-Internal}!Util@{Util}}\index{Util@{Util}!T\-L\-\_\-block\-Internal@{T\-L\-\_\-block\-Internal}}\item[{\em 
+\hypertarget{class_util_a604561d00f5999b5ca280401140e58d9a3bf34b905a3128734e417619af900d0e}{T\-L\-\_\-block\-Internal}\label{class_util_a604561d00f5999b5ca280401140e58d9a3bf34b905a3128734e417619af900d0e}
+}]\index{T\-L\-\_\-most\-Detailed@{T\-L\-\_\-most\-Detailed}!Util@{Util}}\index{Util@{Util}!T\-L\-\_\-most\-Detailed@{T\-L\-\_\-most\-Detailed}}\item[{\em 
+\hypertarget{class_util_a604561d00f5999b5ca280401140e58d9a64fd55e7b2e7fa00956ebc5185cef8b0}{T\-L\-\_\-most\-Detailed}\label{class_util_a604561d00f5999b5ca280401140e58d9a64fd55e7b2e7fa00956ebc5185cef8b0}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_util_ab92bcba2a33782b6228d575da4aae0ad}{\index{Util@{Util}!\-\_\-\-Generate\-New\-Id\-Of\-Type@{\-\_\-\-Generate\-New\-Id\-Of\-Type}}
+\index{\-\_\-\-Generate\-New\-Id\-Of\-Type@{\-\_\-\-Generate\-New\-Id\-Of\-Type}!Util@{Util}}
+\subsubsection[{\-\_\-\-Generate\-New\-Id\-Of\-Type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Util\-::identitifcation} Util\-::\-\_\-\-Generate\-New\-Id\-Of\-Type (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{objtyp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_util_ab92bcba2a33782b6228d575da4aae0ad}
+\hypertarget{class_util_a59ecba8027c38a9d0a3a0e9e9dc94ad7}{\index{Util@{Util}!Generate\-New\-Id@{Generate\-New\-Id}}
+\index{Generate\-New\-Id@{Generate\-New\-Id}!Util@{Util}}
+\subsubsection[{Generate\-New\-Id}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Util\-::identitifcation} Util\-::\-Generate\-New\-Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_util_a59ecba8027c38a9d0a3a0e9e9dc94ad7}
+\hypertarget{class_util_aec5f31f4f467113c25a6aef7bb5f4a40}{\index{Util@{Util}!Generate\-New\-Id\-Of\-Type@{Generate\-New\-Id\-Of\-Type}}
+\index{Generate\-New\-Id\-Of\-Type@{Generate\-New\-Id\-Of\-Type}!Util@{Util}}
+\subsubsection[{Generate\-New\-Id\-Of\-Type}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ static {\bf Util\-::identitifcation} Util\-::\-Generate\-New\-Id\-Of\-Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{class_util_aec5f31f4f467113c25a6aef7bb5f4a40}
+\hypertarget{class_util_a5f537febaa83db4721745a4730657bab}{\index{Util@{Util}!Time\-Unit\-Convert@{Time\-Unit\-Convert}}
+\index{Time\-Unit\-Convert@{Time\-Unit\-Convert}!Util@{Util}}
+\subsubsection[{Time\-Unit\-Convert}]{\setlength{\rightskip}{0pt plus 5cm}double Util\-::\-Time\-Unit\-Convert (
+\begin{DoxyParamCaption}
+\item[{{\bf Util\-::\-Time\-Unit}}]{time\-Unit1, }
+\item[{{\bf Util\-::\-Time\-Unit}}]{time\-Unit2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_util_a5f537febaa83db4721745a4730657bab}
+\hypertarget{class_util_a1010d1207367e48e1d417381f32abf1f}{\index{Util@{Util}!Type\-Of@{Type\-Of}}
+\index{Type\-Of@{Type\-Of}!Util@{Util}}
+\subsubsection[{Type\-Of}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ static std\-::string Util\-::\-Type\-Of (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{class_util_a1010d1207367e48e1d417381f32abf1f}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_util_afe2f6d8c09ef1108299a4dc8ec59b133}{\index{Util@{Util}!\-\_\-\-S\-\_\-last\-Id@{\-\_\-\-S\-\_\-last\-Id}}
+\index{\-\_\-\-S\-\_\-last\-Id@{\-\_\-\-S\-\_\-last\-Id}!Util@{Util}}
+\subsubsection[{\-\_\-\-S\-\_\-last\-Id}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Util\-::identitifcation} Util\-::\-\_\-\-S\-\_\-last\-Id = 0\hspace{0.3cm}{\ttfamily [static]}}}\label{class_util_afe2f6d8c09ef1108299a4dc8ec59b133}
+\hypertarget{class_util_a06a8897362f4bd17c68d59557083fc56}{\index{Util@{Util}!\-\_\-\-S\-\_\-last\-Id\-Of\-Type@{\-\_\-\-S\-\_\-last\-Id\-Of\-Type}}
+\index{\-\_\-\-S\-\_\-last\-Id\-Of\-Type@{\-\_\-\-S\-\_\-last\-Id\-Of\-Type}!Util@{Util}}
+\subsubsection[{\-\_\-\-S\-\_\-last\-Id\-Of\-Type}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$ std\-::string, {\bf Util\-::identitifcation} $>$ Util\-::\-\_\-\-S\-\_\-last\-Id\-Of\-Type = std\-::map$<$std\-::string,{\bf Util\-::identitifcation}$>$()\hspace{0.3cm}{\ttfamily [static]}}}\label{class_util_a06a8897362f4bd17c68d59557083fc56}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_util_8h}{Util.\-h}\item 
+\hyperlink{_util_8cpp}{Util.\-cpp}\end{DoxyCompactItemize}

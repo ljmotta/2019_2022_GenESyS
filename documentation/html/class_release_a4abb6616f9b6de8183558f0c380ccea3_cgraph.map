@@ -1,0 +1,9 @@
+<map id="Release::Release" name="Release::Release">
+<area shape="rect" id="node2" href="$class_model.html#ab460d8d215b5e4fb353f129c04493fa5" title="Model::getInfrastructure" alt="" coords="181,85,341,112"/>
+<area shape="rect" id="node3" href="$class_model.html#a43ca6ff93bd0b9fbc4c2792962e6b4ed" title="Model::getInfrastructures" alt="" coords="390,35,557,61"/>
+<area shape="rect" id="node7" href="$class_model_infrastructure.html#a8ebb1f9b4475e732d31b6c8980ddccc0" title="ModelInfrastructure\l::setName" alt="" coords="194,137,329,178"/>
+<area shape="rect" id="node8" href="$class_model_infrastructure.html#ac06ca99d36c8d1a957697ef003e979b1" title="ModelInfrastructure\l::getName" alt="" coords="194,202,329,243"/>
+<area shape="rect" id="node6" href="$class_list.html#a570498345450f635b72d1ca2675145cc" title="List::getList" alt="" coords="428,85,519,112"/>
+<area shape="rect" id="node4" href="$class_list.html#a31a37746c0d960f2f2bb4071b2735c5e" title="List::setSortFunc" alt="" coords="612,5,735,32"/>
+<area shape="rect" id="node5" href="$class_model_infrastructure.html#aa4d3fa8f302cc6dc4fccdd3187e6a168" title="ModelInfrastructure\l::getId" alt="" coords="606,57,741,98"/>
+</map>

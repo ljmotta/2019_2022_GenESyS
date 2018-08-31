@@ -1,0 +1,18 @@
+<map id="Release.h" name="Release.h">
+<area shape="rect" id="node3" href="$_model_component_8h.html" title="ModelComponent.h" alt="" coords="598,229,732,256"/>
+<area shape="rect" id="node16" href="$_resource_8h.html" title="Resource.h" alt="" coords="1017,80,1105,107"/>
+<area shape="rect" id="node23" href="$_queue_8h.html" title="Queue.h" alt="" coords="854,80,924,107"/>
+<area shape="rect" id="node5" href="$_plugin_8h.html" title="Plugin.h" alt="" coords="560,379,629,405"/>
+<area shape="rect" id="node9" href="$_list_8h.html" title="List.h" alt="" coords="330,304,384,331"/>
+<area shape="rect" id="node13" href="$_entity_8h.html" title="Entity.h" alt="" coords="735,304,801,331"/>
+<area shape="rect" id="node14" href="$_model_infrastructure_8h.html" title="ModelInfrastructure.h" alt="" coords="945,379,1089,405"/>
+<area shape="rect" id="node6" href="$_util_8h.html" title="Util.h" alt="" coords="564,453,617,480"/>
+<area shape="rect" id="node15" href="$_attribute_value_8h.html" title="AttributeValue.h" alt="" coords="805,379,920,405"/>
+<area shape="rect" id="node17" href="$_linked_by_8h.html" title="LinkedBy.h" alt="" coords="978,155,1064,181"/>
+<area shape="rect" id="node18" href="$_statistics_collector_8h.html" title="StatisticsCollector.h" alt="" coords="975,229,1115,256"/>
+<area shape="rect" id="node19" href="$_statistics_my_impl1_8h.html" title="StatisticsMyImpl1.h" alt="" coords="1215,304,1353,331"/>
+<area shape="rect" id="node22" href="$_collector_my_impl1_8h.html" title="CollectorMyImpl1.h" alt="" coords="1114,379,1248,405"/>
+<area shape="rect" id="node20" href="$_statistics__if_8h.html" title="Statistics_if.h" alt="" coords="1273,379,1375,405"/>
+<area shape="rect" id="node21" href="$_collector__if_8h.html" title="Collector_if.h" alt="" coords="1132,453,1231,480"/>
+<area shape="rect" id="node24" href="$_waiting_8h.html" title="Waiting.h" alt="" coords="724,155,800,181"/>
+</map>

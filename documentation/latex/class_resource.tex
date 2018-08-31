@@ -1,0 +1,311 @@
+\hypertarget{class_resource}{\section{Resource Class Reference}
+\label{class_resource}\index{Resource@{Resource}}
+}
+
+
+{\ttfamily \#include $<$Resource.\-h$>$}
+
+
+
+Inheritance diagram for Resource\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=255pt]{class_resource__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Resource\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=255pt]{class_resource__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_resource_ae2554291a9f2c6b3fedb01d0ca41bfd8}{Resource\-Type} \{ \hyperlink{class_resource_ae2554291a9f2c6b3fedb01d0ca41bfd8a4d9374214afc5a64dc30c7406fa2282d}{rt\-S\-E\-T}, 
+\hyperlink{class_resource_ae2554291a9f2c6b3fedb01d0ca41bfd8a9d86c2e4e2f9cb022e88d5593a9517af}{rt\-R\-E\-S\-O\-U\-R\-C\-E}
+ \}
+\item 
+enum \hyperlink{class_resource_a8e67503c93766e1ecb47c6a9d744f86d}{Resource\-Rule} \{ \\*
+\hyperlink{class_resource_a8e67503c93766e1ecb47c6a9d744f86da35e421844dca71ec174971aa97115840}{rr\-R\-A\-N\-D\-O\-M}, 
+\hyperlink{class_resource_a8e67503c93766e1ecb47c6a9d744f86dafe57c66e48e17e6731cfbc8a172b98bb}{rr\-C\-I\-C\-L\-I\-C\-A\-L}, 
+\hyperlink{class_resource_a8e67503c93766e1ecb47c6a9d744f86da3d868b559ad89a9b17c107d5f1fea2c8}{rr\-E\-S\-P\-E\-C\-I\-F\-I\-C}, 
+\hyperlink{class_resource_a8e67503c93766e1ecb47c6a9d744f86da8423d3c9eb253a2aaab93238704bcc27}{rr\-S\-M\-A\-L\-L\-E\-S\-T\-B\-U\-S\-Y}, 
+\\*
+\hyperlink{class_resource_a8e67503c93766e1ecb47c6a9d744f86da732d729550952cbc7a1ae02d4d29f029}{rr\-L\-A\-R\-G\-E\-S\-T\-R\-E\-M\-A\-I\-N\-I\-N\-G\-C\-A\-P\-A\-C\-I\-T\-Y}
+ \}
+\item 
+enum \hyperlink{class_resource_ad7a514f9a27e0010b59e147b8368970f}{Resource\-State} \{ \\*
+\hyperlink{class_resource_ad7a514f9a27e0010b59e147b8368970fa58d7f4e406cf4c81434aeba75bc2c5ce}{rs\-I\-D\-L\-E}, 
+\hyperlink{class_resource_ad7a514f9a27e0010b59e147b8368970fab5265186ddf53906ee4b96b376f5eac6}{rs\-B\-U\-S\-Y}, 
+\hyperlink{class_resource_ad7a514f9a27e0010b59e147b8368970fa42c07e49a872f3c388028ca9c9f23f9a}{rs\-F\-A\-I\-L\-E\-D}, 
+\hyperlink{class_resource_ad7a514f9a27e0010b59e147b8368970fa69fd406e2c63317863f50fe9de605305}{rs\-I\-N\-A\-C\-T\-I\-V\-E}, 
+\\*
+\hyperlink{class_resource_ad7a514f9a27e0010b59e147b8368970fae6ab6440bf6274e3965c6cddd700a5d2}{rs\-O\-T\-H\-E\-R}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_resource_a5a87b23dc0327bbf8d53c6f38f637f48}{Resource} ()
+\item 
+\hyperlink{class_resource_a30f2ca8f0617a6628ebd246b14b50566}{Resource} (const \hyperlink{class_resource}{Resource} \&orig)
+\item 
+virtual \hyperlink{class_resource_a0e5ec475e2601bdb33644468e86f6f10}{$\sim$\-Resource} ()
+\item 
+virtual std\-::string \hyperlink{class_resource_a593cf83404dc90706943b4e60213fd01}{show} ()
+\item 
+void \hyperlink{class_resource_a4c9cc891367f2af07511d8897255d625}{seize} (unsigned int quantity, double tnow)
+\item 
+void \hyperlink{class_resource_ad5da4dca5dd48a4818827e6273c20c2d}{release} (unsigned int quantity, double tnow)
+\item 
+void \hyperlink{class_resource_aba60047e3a2400f2aec478b1cfa3647e}{set\-Resource\-State} (\hyperlink{class_resource_ad7a514f9a27e0010b59e147b8368970f}{Resource\-State} \-\_\-resource\-State)
+\item 
+\hyperlink{class_resource_ad7a514f9a27e0010b59e147b8368970f}{Resource\-State} \hyperlink{class_resource_ac832a54ae1e20a2f7137aefd3a5fc003}{get\-Resource\-State} () const 
+\item 
+void \hyperlink{class_resource_aa8530e4507ab493de34feb4fef7d4d03}{set\-Capacity} (unsigned int \-\_\-capacity)
+\item 
+unsigned int \hyperlink{class_resource_a0aa3a9287571af52be298611580e661e}{get\-Capacity} () const 
+\item 
+void \hyperlink{class_resource_a28c348f8562fcf63e174229e9001f55c}{set\-Cost\-Busy\-Hour} (double \-\_\-cost\-Busy\-Hour)
+\item 
+double \hyperlink{class_resource_a66bd7e365c6ccb088afad2a6f24afdae}{get\-Cost\-Busy\-Hour} () const 
+\item 
+void \hyperlink{class_resource_aee4482e9f914b0b4e83cdb4ada50e45e}{set\-Cost\-Idle\-Hour} (double \-\_\-cost\-Idle\-Hour)
+\item 
+double \hyperlink{class_resource_a8033fb963bed0116f01af2b637bd4cad}{get\-Cost\-Idle\-Hour} () const 
+\item 
+void \hyperlink{class_resource_adedf8ae8388efb1a194441613647b669}{set\-Cost\-Per\-Use} (double \-\_\-cost\-Per\-Use)
+\item 
+double \hyperlink{class_resource_a93d303fba82b1ef9879cc75fbafef506}{get\-Cost\-Per\-Use} () const 
+\item 
+unsigned int \hyperlink{class_resource_a6fafa0b8da75c9596ca52932482a5568}{get\-Number\-Busy} () const 
+\item 
+unsigned int \hyperlink{class_resource_a1aedd0bf239010a6b7e2a6c15a324481}{get\-Number\-Out} () const 
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{class_resource_a8e67503c93766e1ecb47c6a9d744f86d}{\index{Resource@{Resource}!Resource\-Rule@{Resource\-Rule}}
+\index{Resource\-Rule@{Resource\-Rule}!Resource@{Resource}}
+\subsubsection[{Resource\-Rule}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Resource\-::\-Resource\-Rule}}}\label{class_resource_a8e67503c93766e1ecb47c6a9d744f86d}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{rr\-R\-A\-N\-D\-O\-M@{rr\-R\-A\-N\-D\-O\-M}!Resource@{Resource}}\index{Resource@{Resource}!rr\-R\-A\-N\-D\-O\-M@{rr\-R\-A\-N\-D\-O\-M}}\item[{\em 
+\hypertarget{class_resource_a8e67503c93766e1ecb47c6a9d744f86da35e421844dca71ec174971aa97115840}{rr\-R\-A\-N\-D\-O\-M}\label{class_resource_a8e67503c93766e1ecb47c6a9d744f86da35e421844dca71ec174971aa97115840}
+}]\index{rr\-C\-I\-C\-L\-I\-C\-A\-L@{rr\-C\-I\-C\-L\-I\-C\-A\-L}!Resource@{Resource}}\index{Resource@{Resource}!rr\-C\-I\-C\-L\-I\-C\-A\-L@{rr\-C\-I\-C\-L\-I\-C\-A\-L}}\item[{\em 
+\hypertarget{class_resource_a8e67503c93766e1ecb47c6a9d744f86dafe57c66e48e17e6731cfbc8a172b98bb}{rr\-C\-I\-C\-L\-I\-C\-A\-L}\label{class_resource_a8e67503c93766e1ecb47c6a9d744f86dafe57c66e48e17e6731cfbc8a172b98bb}
+}]\index{rr\-E\-S\-P\-E\-C\-I\-F\-I\-C@{rr\-E\-S\-P\-E\-C\-I\-F\-I\-C}!Resource@{Resource}}\index{Resource@{Resource}!rr\-E\-S\-P\-E\-C\-I\-F\-I\-C@{rr\-E\-S\-P\-E\-C\-I\-F\-I\-C}}\item[{\em 
+\hypertarget{class_resource_a8e67503c93766e1ecb47c6a9d744f86da3d868b559ad89a9b17c107d5f1fea2c8}{rr\-E\-S\-P\-E\-C\-I\-F\-I\-C}\label{class_resource_a8e67503c93766e1ecb47c6a9d744f86da3d868b559ad89a9b17c107d5f1fea2c8}
+}]\index{rr\-S\-M\-A\-L\-L\-E\-S\-T\-B\-U\-S\-Y@{rr\-S\-M\-A\-L\-L\-E\-S\-T\-B\-U\-S\-Y}!Resource@{Resource}}\index{Resource@{Resource}!rr\-S\-M\-A\-L\-L\-E\-S\-T\-B\-U\-S\-Y@{rr\-S\-M\-A\-L\-L\-E\-S\-T\-B\-U\-S\-Y}}\item[{\em 
+\hypertarget{class_resource_a8e67503c93766e1ecb47c6a9d744f86da8423d3c9eb253a2aaab93238704bcc27}{rr\-S\-M\-A\-L\-L\-E\-S\-T\-B\-U\-S\-Y}\label{class_resource_a8e67503c93766e1ecb47c6a9d744f86da8423d3c9eb253a2aaab93238704bcc27}
+}]\index{rr\-L\-A\-R\-G\-E\-S\-T\-R\-E\-M\-A\-I\-N\-I\-N\-G\-C\-A\-P\-A\-C\-I\-T\-Y@{rr\-L\-A\-R\-G\-E\-S\-T\-R\-E\-M\-A\-I\-N\-I\-N\-G\-C\-A\-P\-A\-C\-I\-T\-Y}!Resource@{Resource}}\index{Resource@{Resource}!rr\-L\-A\-R\-G\-E\-S\-T\-R\-E\-M\-A\-I\-N\-I\-N\-G\-C\-A\-P\-A\-C\-I\-T\-Y@{rr\-L\-A\-R\-G\-E\-S\-T\-R\-E\-M\-A\-I\-N\-I\-N\-G\-C\-A\-P\-A\-C\-I\-T\-Y}}\item[{\em 
+\hypertarget{class_resource_a8e67503c93766e1ecb47c6a9d744f86da732d729550952cbc7a1ae02d4d29f029}{rr\-L\-A\-R\-G\-E\-S\-T\-R\-E\-M\-A\-I\-N\-I\-N\-G\-C\-A\-P\-A\-C\-I\-T\-Y}\label{class_resource_a8e67503c93766e1ecb47c6a9d744f86da732d729550952cbc7a1ae02d4d29f029}
+}]\end{description}
+\end{Desc}
+\hypertarget{class_resource_ad7a514f9a27e0010b59e147b8368970f}{\index{Resource@{Resource}!Resource\-State@{Resource\-State}}
+\index{Resource\-State@{Resource\-State}!Resource@{Resource}}
+\subsubsection[{Resource\-State}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Resource\-::\-Resource\-State}}}\label{class_resource_ad7a514f9a27e0010b59e147b8368970f}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{rs\-I\-D\-L\-E@{rs\-I\-D\-L\-E}!Resource@{Resource}}\index{Resource@{Resource}!rs\-I\-D\-L\-E@{rs\-I\-D\-L\-E}}\item[{\em 
+\hypertarget{class_resource_ad7a514f9a27e0010b59e147b8368970fa58d7f4e406cf4c81434aeba75bc2c5ce}{rs\-I\-D\-L\-E}\label{class_resource_ad7a514f9a27e0010b59e147b8368970fa58d7f4e406cf4c81434aeba75bc2c5ce}
+}]\index{rs\-B\-U\-S\-Y@{rs\-B\-U\-S\-Y}!Resource@{Resource}}\index{Resource@{Resource}!rs\-B\-U\-S\-Y@{rs\-B\-U\-S\-Y}}\item[{\em 
+\hypertarget{class_resource_ad7a514f9a27e0010b59e147b8368970fab5265186ddf53906ee4b96b376f5eac6}{rs\-B\-U\-S\-Y}\label{class_resource_ad7a514f9a27e0010b59e147b8368970fab5265186ddf53906ee4b96b376f5eac6}
+}]\index{rs\-F\-A\-I\-L\-E\-D@{rs\-F\-A\-I\-L\-E\-D}!Resource@{Resource}}\index{Resource@{Resource}!rs\-F\-A\-I\-L\-E\-D@{rs\-F\-A\-I\-L\-E\-D}}\item[{\em 
+\hypertarget{class_resource_ad7a514f9a27e0010b59e147b8368970fa42c07e49a872f3c388028ca9c9f23f9a}{rs\-F\-A\-I\-L\-E\-D}\label{class_resource_ad7a514f9a27e0010b59e147b8368970fa42c07e49a872f3c388028ca9c9f23f9a}
+}]\index{rs\-I\-N\-A\-C\-T\-I\-V\-E@{rs\-I\-N\-A\-C\-T\-I\-V\-E}!Resource@{Resource}}\index{Resource@{Resource}!rs\-I\-N\-A\-C\-T\-I\-V\-E@{rs\-I\-N\-A\-C\-T\-I\-V\-E}}\item[{\em 
+\hypertarget{class_resource_ad7a514f9a27e0010b59e147b8368970fa69fd406e2c63317863f50fe9de605305}{rs\-I\-N\-A\-C\-T\-I\-V\-E}\label{class_resource_ad7a514f9a27e0010b59e147b8368970fa69fd406e2c63317863f50fe9de605305}
+}]\index{rs\-O\-T\-H\-E\-R@{rs\-O\-T\-H\-E\-R}!Resource@{Resource}}\index{Resource@{Resource}!rs\-O\-T\-H\-E\-R@{rs\-O\-T\-H\-E\-R}}\item[{\em 
+\hypertarget{class_resource_ad7a514f9a27e0010b59e147b8368970fae6ab6440bf6274e3965c6cddd700a5d2}{rs\-O\-T\-H\-E\-R}\label{class_resource_ad7a514f9a27e0010b59e147b8368970fae6ab6440bf6274e3965c6cddd700a5d2}
+}]\end{description}
+\end{Desc}
+\hypertarget{class_resource_ae2554291a9f2c6b3fedb01d0ca41bfd8}{\index{Resource@{Resource}!Resource\-Type@{Resource\-Type}}
+\index{Resource\-Type@{Resource\-Type}!Resource@{Resource}}
+\subsubsection[{Resource\-Type}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Resource\-::\-Resource\-Type}}}\label{class_resource_ae2554291a9f2c6b3fedb01d0ca41bfd8}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{rt\-S\-E\-T@{rt\-S\-E\-T}!Resource@{Resource}}\index{Resource@{Resource}!rt\-S\-E\-T@{rt\-S\-E\-T}}\item[{\em 
+\hypertarget{class_resource_ae2554291a9f2c6b3fedb01d0ca41bfd8a4d9374214afc5a64dc30c7406fa2282d}{rt\-S\-E\-T}\label{class_resource_ae2554291a9f2c6b3fedb01d0ca41bfd8a4d9374214afc5a64dc30c7406fa2282d}
+}]\index{rt\-R\-E\-S\-O\-U\-R\-C\-E@{rt\-R\-E\-S\-O\-U\-R\-C\-E}!Resource@{Resource}}\index{Resource@{Resource}!rt\-R\-E\-S\-O\-U\-R\-C\-E@{rt\-R\-E\-S\-O\-U\-R\-C\-E}}\item[{\em 
+\hypertarget{class_resource_ae2554291a9f2c6b3fedb01d0ca41bfd8a9d86c2e4e2f9cb022e88d5593a9517af}{rt\-R\-E\-S\-O\-U\-R\-C\-E}\label{class_resource_ae2554291a9f2c6b3fedb01d0ca41bfd8a9d86c2e4e2f9cb022e88d5593a9517af}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_resource_a5a87b23dc0327bbf8d53c6f38f637f48}{\index{Resource@{Resource}!Resource@{Resource}}
+\index{Resource@{Resource}!Resource@{Resource}}
+\subsubsection[{Resource}]{\setlength{\rightskip}{0pt plus 5cm}Resource\-::\-Resource (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_resource_a5a87b23dc0327bbf8d53c6f38f637f48}
+\hypertarget{class_resource_a30f2ca8f0617a6628ebd246b14b50566}{\index{Resource@{Resource}!Resource@{Resource}}
+\index{Resource@{Resource}!Resource@{Resource}}
+\subsubsection[{Resource}]{\setlength{\rightskip}{0pt plus 5cm}Resource\-::\-Resource (
+\begin{DoxyParamCaption}
+\item[{const {\bf Resource} \&}]{orig}
+\end{DoxyParamCaption}
+)}}\label{class_resource_a30f2ca8f0617a6628ebd246b14b50566}
+\hypertarget{class_resource_a0e5ec475e2601bdb33644468e86f6f10}{\index{Resource@{Resource}!$\sim$\-Resource@{$\sim$\-Resource}}
+\index{$\sim$\-Resource@{$\sim$\-Resource}!Resource@{Resource}}
+\subsubsection[{$\sim$\-Resource}]{\setlength{\rightskip}{0pt plus 5cm}Resource\-::$\sim$\-Resource (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_resource_a0e5ec475e2601bdb33644468e86f6f10}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_resource_a0aa3a9287571af52be298611580e661e}{\index{Resource@{Resource}!get\-Capacity@{get\-Capacity}}
+\index{get\-Capacity@{get\-Capacity}!Resource@{Resource}}
+\subsubsection[{get\-Capacity}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Resource\-::get\-Capacity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_resource_a0aa3a9287571af52be298611580e661e}
+\hypertarget{class_resource_a66bd7e365c6ccb088afad2a6f24afdae}{\index{Resource@{Resource}!get\-Cost\-Busy\-Hour@{get\-Cost\-Busy\-Hour}}
+\index{get\-Cost\-Busy\-Hour@{get\-Cost\-Busy\-Hour}!Resource@{Resource}}
+\subsubsection[{get\-Cost\-Busy\-Hour}]{\setlength{\rightskip}{0pt plus 5cm}double Resource\-::get\-Cost\-Busy\-Hour (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_resource_a66bd7e365c6ccb088afad2a6f24afdae}
+\hypertarget{class_resource_a8033fb963bed0116f01af2b637bd4cad}{\index{Resource@{Resource}!get\-Cost\-Idle\-Hour@{get\-Cost\-Idle\-Hour}}
+\index{get\-Cost\-Idle\-Hour@{get\-Cost\-Idle\-Hour}!Resource@{Resource}}
+\subsubsection[{get\-Cost\-Idle\-Hour}]{\setlength{\rightskip}{0pt plus 5cm}double Resource\-::get\-Cost\-Idle\-Hour (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_resource_a8033fb963bed0116f01af2b637bd4cad}
+\hypertarget{class_resource_a93d303fba82b1ef9879cc75fbafef506}{\index{Resource@{Resource}!get\-Cost\-Per\-Use@{get\-Cost\-Per\-Use}}
+\index{get\-Cost\-Per\-Use@{get\-Cost\-Per\-Use}!Resource@{Resource}}
+\subsubsection[{get\-Cost\-Per\-Use}]{\setlength{\rightskip}{0pt plus 5cm}double Resource\-::get\-Cost\-Per\-Use (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_resource_a93d303fba82b1ef9879cc75fbafef506}
+\hypertarget{class_resource_a6fafa0b8da75c9596ca52932482a5568}{\index{Resource@{Resource}!get\-Number\-Busy@{get\-Number\-Busy}}
+\index{get\-Number\-Busy@{get\-Number\-Busy}!Resource@{Resource}}
+\subsubsection[{get\-Number\-Busy}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Resource\-::get\-Number\-Busy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_resource_a6fafa0b8da75c9596ca52932482a5568}
+\hypertarget{class_resource_a1aedd0bf239010a6b7e2a6c15a324481}{\index{Resource@{Resource}!get\-Number\-Out@{get\-Number\-Out}}
+\index{get\-Number\-Out@{get\-Number\-Out}!Resource@{Resource}}
+\subsubsection[{get\-Number\-Out}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Resource\-::get\-Number\-Out (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_resource_a1aedd0bf239010a6b7e2a6c15a324481}
+\hypertarget{class_resource_ac832a54ae1e20a2f7137aefd3a5fc003}{\index{Resource@{Resource}!get\-Resource\-State@{get\-Resource\-State}}
+\index{get\-Resource\-State@{get\-Resource\-State}!Resource@{Resource}}
+\subsubsection[{get\-Resource\-State}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Resource\-::\-Resource\-State} Resource\-::get\-Resource\-State (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_resource_ac832a54ae1e20a2f7137aefd3a5fc003}
+\hypertarget{class_resource_ad5da4dca5dd48a4818827e6273c20c2d}{\index{Resource@{Resource}!release@{release}}
+\index{release@{release}!Resource@{Resource}}
+\subsubsection[{release}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\-::release (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{quantity, }
+\item[{double}]{tnow}
+\end{DoxyParamCaption}
+)}}\label{class_resource_ad5da4dca5dd48a4818827e6273c20c2d}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=326pt]{class_resource_ad5da4dca5dd48a4818827e6273c20c2d_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_resource_a4c9cc891367f2af07511d8897255d625}{\index{Resource@{Resource}!seize@{seize}}
+\index{seize@{seize}!Resource@{Resource}}
+\subsubsection[{seize}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\-::seize (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{quantity, }
+\item[{double}]{tnow}
+\end{DoxyParamCaption}
+)}}\label{class_resource_a4c9cc891367f2af07511d8897255d625}
+\hypertarget{class_resource_aa8530e4507ab493de34feb4fef7d4d03}{\index{Resource@{Resource}!set\-Capacity@{set\-Capacity}}
+\index{set\-Capacity@{set\-Capacity}!Resource@{Resource}}
+\subsubsection[{set\-Capacity}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\-::set\-Capacity (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{\-\_\-capacity}
+\end{DoxyParamCaption}
+)}}\label{class_resource_aa8530e4507ab493de34feb4fef7d4d03}
+\hypertarget{class_resource_a28c348f8562fcf63e174229e9001f55c}{\index{Resource@{Resource}!set\-Cost\-Busy\-Hour@{set\-Cost\-Busy\-Hour}}
+\index{set\-Cost\-Busy\-Hour@{set\-Cost\-Busy\-Hour}!Resource@{Resource}}
+\subsubsection[{set\-Cost\-Busy\-Hour}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\-::set\-Cost\-Busy\-Hour (
+\begin{DoxyParamCaption}
+\item[{double}]{\-\_\-cost\-Busy\-Hour}
+\end{DoxyParamCaption}
+)}}\label{class_resource_a28c348f8562fcf63e174229e9001f55c}
+\hypertarget{class_resource_aee4482e9f914b0b4e83cdb4ada50e45e}{\index{Resource@{Resource}!set\-Cost\-Idle\-Hour@{set\-Cost\-Idle\-Hour}}
+\index{set\-Cost\-Idle\-Hour@{set\-Cost\-Idle\-Hour}!Resource@{Resource}}
+\subsubsection[{set\-Cost\-Idle\-Hour}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\-::set\-Cost\-Idle\-Hour (
+\begin{DoxyParamCaption}
+\item[{double}]{\-\_\-cost\-Idle\-Hour}
+\end{DoxyParamCaption}
+)}}\label{class_resource_aee4482e9f914b0b4e83cdb4ada50e45e}
+\hypertarget{class_resource_adedf8ae8388efb1a194441613647b669}{\index{Resource@{Resource}!set\-Cost\-Per\-Use@{set\-Cost\-Per\-Use}}
+\index{set\-Cost\-Per\-Use@{set\-Cost\-Per\-Use}!Resource@{Resource}}
+\subsubsection[{set\-Cost\-Per\-Use}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\-::set\-Cost\-Per\-Use (
+\begin{DoxyParamCaption}
+\item[{double}]{\-\_\-cost\-Per\-Use}
+\end{DoxyParamCaption}
+)}}\label{class_resource_adedf8ae8388efb1a194441613647b669}
+\hypertarget{class_resource_aba60047e3a2400f2aec478b1cfa3647e}{\index{Resource@{Resource}!set\-Resource\-State@{set\-Resource\-State}}
+\index{set\-Resource\-State@{set\-Resource\-State}!Resource@{Resource}}
+\subsubsection[{set\-Resource\-State}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\-::set\-Resource\-State (
+\begin{DoxyParamCaption}
+\item[{{\bf Resource\-State}}]{\-\_\-resource\-State}
+\end{DoxyParamCaption}
+)}}\label{class_resource_aba60047e3a2400f2aec478b1cfa3647e}
+\hypertarget{class_resource_a593cf83404dc90706943b4e60213fd01}{\index{Resource@{Resource}!show@{show}}
+\index{show@{show}!Resource@{Resource}}
+\subsubsection[{show}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Resource\-::show (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_resource_a593cf83404dc90706943b4e60213fd01}
+
+
+Reimplemented from \hyperlink{class_model_infrastructure_a649a5a89a0c9931783d3c51de2acf266}{Model\-Infrastructure}.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{class_resource_a593cf83404dc90706943b4e60213fd01_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_resource_8h}{Resource.\-h}\item 
+\hyperlink{_resource_8cpp}{Resource.\-cpp}\end{DoxyCompactItemize}

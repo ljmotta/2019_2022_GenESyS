@@ -1,0 +1,11 @@
+<map id="Model::sendEntityToComponent" name="Model::sendEntityToComponent">
+<area shape="rect" id="node2" href="$class_model.html#a841c78bda0eb27c652c6921094dc5921" title="Model::getEvents" alt="" coords="293,21,417,48"/>
+<area shape="rect" id="node3" href="$class_list.html#a518d00fd77740525522949d4316e8826" title="List::insert" alt="" coords="313,72,396,99"/>
+<area shape="rect" id="node4" href="$class_model_component.html#a08c5312c2f94f6621577cc1836c2d3e0" title="ModelComponent::Execute" alt="" coords="265,123,445,149"/>
+<area shape="rect" id="node5" href="$class_model.html#a5de086b514742e84b61ac9a7b128ae8b" title="Model::trace" alt="" coords="539,5,634,32"/>
+<area shape="rect" id="node6" href="$class_model_infrastructure.html#aa4d3fa8f302cc6dc4fccdd3187e6a168" title="ModelInfrastructure\l::getId" alt="" coords="519,57,654,98"/>
+<area shape="rect" id="node7" href="$class_model_component.html#ae3fcf8bbdd8368c882438424aa73f714" title="ModelComponent::_execute" alt="" coords="494,123,679,149"/>
+<area shape="rect" id="node8" href="$class_model.html#a092b7062edcb59344f286d858ed10fac" title="Model::traceError" alt="" coords="525,173,648,200"/>
+<area shape="rect" id="node9" href="$class_model_component.html#ad8bc846e36b028eab7efb7da6c549eca" title="ModelComponent::show" alt="" coords="505,224,668,251"/>
+<area shape="rect" id="node10" href="$class_model_infrastructure.html#a649a5a89a0c9931783d3c51de2acf266" title="ModelInfrastructure\l::show" alt="" coords="729,217,863,258"/>
+</map>

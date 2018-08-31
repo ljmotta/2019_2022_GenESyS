@@ -33,17 +33,22 @@
 #include "FitterMyImpl1.h"
 #include "ModelCheckerMyImpl1.h"
 #include "ParserMyImpl1.h"
-#include "StatisticsMyImpl1.h"
 #include "IntegratorMyImpl1.h"
 #include "HypothesisTesterMyImpl1.h"
 #include "ModelPersistenceMyImpl1.h"
+#include "StatisticsMyImpl1.h"
 
 template <typename T>
 struct Traits {
 	static const bool debugged = true;
+	static const Util::TraceLevel traceLevel = Util::TraceLevel::TL_mostDetailed; 
 };
 
 template <> struct Traits<Model> {
+};
+
+template <> struct Traits<ModelComponent> {
+	typedef CollectorMyImpl1 CollectorImplementation;
 };
 
 template <> struct Traits<Sampler_if> {
@@ -57,6 +62,7 @@ template <> struct Traits<Fitter_if> {
 
 template <> struct Traits<Collector_if> {
 	typedef CollectorDatafileMyImpl1 Implementation;
+	typedef CollectorMyImpl1 ModelImplementation; //TEMP
 };
 
 template <> struct Traits<ModelChecker_if> {

@@ -16,10 +16,10 @@
 
 #include <string>
 #include <iostream>
+#include "Traits.h"
 #include "Model.h"
 #include "Plugin.h"
 #include "List.h"
-#include "Traits.h"
 #include "Fitter_if.h"
 
 class Simulator {

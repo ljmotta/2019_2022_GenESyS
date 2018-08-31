@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/Assign.o \
 	${OBJECTDIR}/AttributeValue.o \
 	${OBJECTDIR}/CollectorDatafileMyImpl1.o \
 	${OBJECTDIR}/CollectorMyImpl1.o \
@@ -96,6 +97,11 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/rebornedgenesys: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/rebornedgenesys ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/Assign.o: Assign.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Assign.o Assign.cpp
 
 ${OBJECTDIR}/AttributeValue.o: AttributeValue.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

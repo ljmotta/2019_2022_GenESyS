@@ -17,6 +17,7 @@
 #include <map>
 #include <typeinfo>
 #include <string>
+#include <cctype>
 
 class Util {
 public:
@@ -57,6 +58,9 @@ public: // template implementations
 	template<class T> static std::string TypeOf() {
 		std::string name = typeid (T).name();
 		/* TODO -: corret (remove) first chars (numbers) of the name */
+		while (std::isdigit(name[0])) {
+			name.erase(0,1);
+		}
 		return name;
 	}
 	template<class T> static Util::identitifcation GenerateNewIdOfType() {

@@ -15,12 +15,15 @@
 #define STATISTICSMYIMPL1_H
 
 #include "Statistics_if.h"
+#include "CollectorMyImpl1.h"
+//#include "Collector_if.h"
+//#include "Traits.h"
 
-class StatisticsMyImpl1: public Statistics_if {
+class StatisticsMyImpl1 : public Statistics_if {
 public:
 	StatisticsMyImpl1();
 	StatisticsMyImpl1(const StatisticsMyImpl1& orig);
-	~StatisticsMyImpl1();
+	virtual ~StatisticsMyImpl1();
 public:
 	Collector_if* getCollector();
 	void setCollector(Collector_if* collector);
@@ -44,6 +47,10 @@ public:
 	double histogramClassLowerLimit(unsigned short classNum);
 	unsigned int histogramClassFrequency(unsigned short classNum);
 private:
+	Collector_if* _collector = new CollectorMyImpl1();
+	/* TODO:  WTF? Why the next lines do not compile? */
+	//Collector_if* _collector = new Traits<ModelComponent>::CollectorImplementation();
+	//Collector_if* _collector = new Traits<Collector_if>::ModelImplementation();
 
 };
 

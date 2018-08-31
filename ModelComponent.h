@@ -56,20 +56,8 @@ protected: // ...static... ?? must be overriden by derived classes
 	virtual void _readComponent(std::list<std::string> words) = 0;
 	virtual std::list<std::string>* _writeComponent() = 0;
 	virtual bool _verifySymbols(std::string* errorMessage) = 0;
-	//virtual void _read(std::string text) = 0;
 protected:
 	Model* _model;
-	/*	
-	protected:
-		static std::string COMPONENT_KIND;
-		static std::string COMPONENT_AUTHOR;
-		static std::string COMPONENT_VERSION;
-		static std::string COMPONENT_DESCRIPTION;
-		static std::string COMPONENT_IS_VISUAL;
-		static std::string COMPONENT_IS_SOURCE;
-		static std::string COMPONENT_IS_SINK;
-		static std::string COMPONENT_DEPENDENCES; 
-	 */
 };
 
 #endif /* MODELCOMPONENT_H */
