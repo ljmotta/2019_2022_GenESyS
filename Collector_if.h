@@ -16,6 +16,9 @@
 
 #include <string>
 
+/**
+ * Interface for collecting values of a single stochastic variable.  Values collected can be used as base for statistical analysis. 
+ */
 class Collector_if {
 public:
 	virtual void clear() = 0;

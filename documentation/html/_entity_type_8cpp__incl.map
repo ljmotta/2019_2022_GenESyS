@@ -1,7 +1,7 @@
 <map id="EntityType.cpp" name="EntityType.cpp">
-<area shape="rect" id="node2" href="$_entity_type_8h.html" title="EntityType.h" alt="" coords="161,80,257,107"/>
-<area shape="rect" id="node9" href="$_collector_my_impl1_8h.html" title="CollectorMyImpl1.h" alt="" coords="282,80,416,107"/>
-<area shape="rect" id="node4" href="$_model_infrastructure_8h.html" title="ModelInfrastructure.h" alt="" coords="26,155,171,181"/>
-<area shape="rect" id="node8" href="$_collector__if_8h.html" title="Collector_if.h" alt="" coords="247,155,345,181"/>
-<area shape="rect" id="node5" href="$_util_8h.html" title="Util.h" alt="" coords="68,229,121,256"/>
+<area shape="rect" id="node2" href="$_entity_type_8h.html" title="EntityType.h" alt="" coords="179,80,275,107"/>
+<area shape="rect" id="node10" href="$_collector_my_impl1_8h.html" title="CollectorMyImpl1.h" alt="" coords="299,80,433,107"/>
+<area shape="rect" id="node4" href="$_model_infrastructure_8h.html" title="ModelInfrastructure.h" alt="" coords="43,155,188,181"/>
+<area shape="rect" id="node9" href="$_collector__if_8h.html" title="Collector_if.h" alt="" coords="264,155,363,181"/>
+<area shape="rect" id="node5" href="$_util_8h.html" title="Util.h" alt="" coords="85,229,139,256"/>
 </map>

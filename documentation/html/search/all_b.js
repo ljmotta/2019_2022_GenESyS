@@ -17,6 +17,7 @@ var searchData=
   ['modelcomponent',['ModelComponent',['../class_model_component.html',1,'ModelComponent'],['../class_model_component.html#a1e2b24c3592711a9bd3f131706b7f0c7',1,'ModelComponent::ModelComponent(Model *model)'],['../class_model_component.html#a5b95933e7a265039eb01f6ec88d92675',1,'ModelComponent::ModelComponent(const ModelComponent &amp;orig)']]],
   ['modelcomponent_2ecpp',['ModelComponent.cpp',['../_model_component_8cpp.html',1,'']]],
   ['modelcomponent_2eh',['ModelComponent.h',['../_model_component_8h.html',1,'']]],
+  ['modelimplementation',['ModelImplementation',['../struct_traits_3_01_collector__if_01_4.html#a38ef8e0ef3488a361965174720a895ae',1,'Traits&lt; Collector_if &gt;']]],
   ['modelinfrastructure',['ModelInfrastructure',['../class_model_infrastructure.html',1,'ModelInfrastructure'],['../class_model_infrastructure.html#aa7e7206a487b4e3ac89df8a23546a187',1,'ModelInfrastructure::ModelInfrastructure(std::string infrastructureTypename)'],['../class_model_infrastructure.html#a530efed59a4cd02b607849dc0538eddf',1,'ModelInfrastructure::ModelInfrastructure(const ModelInfrastructure &amp;orig)']]],
   ['modelinfrastructure_2ecpp',['ModelInfrastructure.cpp',['../_model_infrastructure_8cpp.html',1,'']]],
   ['modelinfrastructure_2eh',['ModelInfrastructure.h',['../_model_infrastructure_8h.html',1,'']]],

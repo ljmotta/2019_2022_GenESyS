@@ -22,6 +22,9 @@
 #include "List.h"
 #include "Fitter_if.h"
 
+/**
+ * The main class of the Genesys KERNEL simulation. It gives access to simulation models and tools.
+ */
 class Simulator {
 	typedef void (*eventHandler)();
 public:

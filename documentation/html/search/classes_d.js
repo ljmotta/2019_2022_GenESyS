@@ -10,6 +10,7 @@ var searchData=
   ['traits_3c_20integrator_5fif_20_3e',['Traits&lt; Integrator_if &gt;',['../struct_traits_3_01_integrator__if_01_4.html',1,'']]],
   ['traits_3c_20model_20_3e',['Traits&lt; Model &gt;',['../struct_traits_3_01_model_01_4.html',1,'']]],
   ['traits_3c_20modelchecker_5fif_20_3e',['Traits&lt; ModelChecker_if &gt;',['../struct_traits_3_01_model_checker__if_01_4.html',1,'']]],
+  ['traits_3c_20modelcomponent_20_3e',['Traits&lt; ModelComponent &gt;',['../struct_traits_3_01_model_component_01_4.html',1,'']]],
   ['traits_3c_20modelpersistence_5fif_20_3e',['Traits&lt; ModelPersistence_if &gt;',['../struct_traits_3_01_model_persistence__if_01_4.html',1,'']]],
   ['traits_3c_20parser_5fif_20_3e',['Traits&lt; Parser_if &gt;',['../struct_traits_3_01_parser__if_01_4.html',1,'']]],
   ['traits_3c_20sampler_5fif_20_3e',['Traits&lt; Sampler_if &gt;',['../struct_traits_3_01_sampler__if_01_4.html',1,'']]],

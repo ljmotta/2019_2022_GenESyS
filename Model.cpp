@@ -92,7 +92,7 @@ bool Model::_finishReplicationCondition() {
 }
 
 void Model::startSimulation() {
-	if (!this->check()) {
+	if (!this->checkModel()) {
 		trace(Util::TraceLevel::TL_errors, "Model check failed");
 		return;
 	}
@@ -238,7 +238,7 @@ void Model::_showReplicationStatistics() {
 void Model::_showSimulationStatistics() {
 }
 
-bool Model::check() {
+bool Model::checkModel() {
 	trace(Util::TraceLevel::TL_blockInternal, "Checking model consistency");
 	bool res = this->_modelChecker->checkAll();
 	/* todo: remove show model and infra from here*/

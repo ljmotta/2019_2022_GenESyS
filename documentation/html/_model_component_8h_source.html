@@ -166,24 +166,12 @@ $(document).ready(function(){initNavTree('_model_component_8h_source.html','');}
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_model_component.html#aa16546b209d8fda2c8fa951e88652973">_readComponent</a>(std::list&lt;std::string&gt; words) = 0;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">virtual</span> std::list&lt;std::string&gt;* <a class="code" href="class_model_component.html#a5847971e860713d9df3e41c603c772c0">_writeComponent</a>() = 0;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_model_component.html#a183696468482133b2a09b761b7770521">_verifySymbols</a>(std::string* errorMessage) = 0;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="comment">//virtual void _read(std::string text) = 0;</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="class_model_component.html#a9d9e835755618a794c9759882641bc3c">   61</a></span>&#160;    <a class="code" href="class_model.html">Model</a>* <a class="code" href="class_model_component.html#a9d9e835755618a794c9759882641bc3c">_model</a>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="comment">/*  </span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">    protected:</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">        static std::string COMPONENT_KIND;</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">        static std::string COMPONENT_AUTHOR;</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="comment">        static std::string COMPONENT_VERSION;</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">        static std::string COMPONENT_DESCRIPTION;</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">        static std::string COMPONENT_IS_VISUAL;</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">        static std::string COMPONENT_IS_SOURCE;</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">        static std::string COMPONENT_IS_SINK;</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">        static std::string COMPONENT_DEPENDENCES; </span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;};</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* MODELCOMPONENT_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="class_model_component.html#a9d9e835755618a794c9759882641bc3c">   60</a></span>&#160;    <a class="code" href="class_model.html">Model</a>* <a class="code" href="class_model_component.html#a9d9e835755618a794c9759882641bc3c">_model</a>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;};</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* MODELCOMPONENT_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor"></span></div>
 <div class="ttc" id="class_model_component_html_a183696468482133b2a09b761b7770521"><div class="ttname"><a href="class_model_component.html#a183696468482133b2a09b761b7770521">ModelComponent::_verifySymbols</a></div><div class="ttdeci">virtual bool _verifySymbols(std::string *errorMessage)=0</div></div>
 <div class="ttc" id="class_model_html"><div class="ttname"><a href="class_model.html">Model</a></div><div class="ttdef"><b>Definition:</b> Model.h:30</div></div>
 <div class="ttc" id="class_model_component_html_a0798a220cf903b34ce28c40e136d207d"><div class="ttname"><a href="class_model_component.html#a0798a220cf903b34ce28c40e136d207d">ModelComponent::VerifySymbols</a></div><div class="ttdeci">static bool VerifySymbols(ModelComponent *component, std::string *errorMessage)</div><div class="ttdef"><b>Definition:</b> ModelComponent.cpp:48</div></div>
@@ -195,7 +183,7 @@ $(document).ready(function(){initNavTree('_model_component_8h_source.html','');}
 <div class="ttc" id="class_list_html"><div class="ttname"><a href="class_list.html">List&lt; ModelComponent * &gt;</a></div></div>
 <div class="ttc" id="class_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdef"><b>Definition:</b> Entity.h:24</div></div>
 <div class="ttc" id="class_model_component_html_a89fe8e3fb064c68aebbecd36eeed7d43"><div class="ttname"><a href="class_model_component.html#a89fe8e3fb064c68aebbecd36eeed7d43">ModelComponent::getNextComponents</a></div><div class="ttdeci">List&lt; ModelComponent * &gt; * getNextComponents() const </div><div class="ttdef"><b>Definition:</b> ModelComponent.cpp:62</div></div>
-<div class="ttc" id="class_model_component_html_a9d9e835755618a794c9759882641bc3c"><div class="ttname"><a href="class_model_component.html#a9d9e835755618a794c9759882641bc3c">ModelComponent::_model</a></div><div class="ttdeci">Model * _model</div><div class="ttdef"><b>Definition:</b> ModelComponent.h:61</div></div>
+<div class="ttc" id="class_model_component_html_a9d9e835755618a794c9759882641bc3c"><div class="ttname"><a href="class_model_component.html#a9d9e835755618a794c9759882641bc3c">ModelComponent::_model</a></div><div class="ttdeci">Model * _model</div><div class="ttdef"><b>Definition:</b> ModelComponent.h:60</div></div>
 <div class="ttc" id="class_model_component_html_a3bdf3706c49706e674ab13fd9d1d83ed"><div class="ttname"><a href="class_model_component.html#a3bdf3706c49706e674ab13fd9d1d83ed">ModelComponent::WriteComponent</a></div><div class="ttdeci">std::list&lt; std::string &gt; * WriteComponent(ModelComponent *component)</div><div class="ttdef"><b>Definition:</b> ModelComponent.cpp:37</div></div>
 <div class="ttc" id="_model_infrastructure_8h_html"><div class="ttname"><a href="_model_infrastructure_8h.html">ModelInfrastructure.h</a></div></div>
 <div class="ttc" id="class_model_component_html_a5847971e860713d9df3e41c603c772c0"><div class="ttname"><a href="class_model_component.html#a5847971e860713d9df3e41c603c772c0">ModelComponent::_writeComponent</a></div><div class="ttdeci">virtual std::list&lt; std::string &gt; * _writeComponent()=0</div></div>
@@ -212,7 +200,7 @@ $(document).ready(function(){initNavTree('_model_component_8h_source.html','');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="_model_component_8h.html">ModelComponent.h</a></li>
-    <li class="footer">Generated on Fri Aug 31 2018 10:39:21 for RebornedGenESyS by
+    <li class="footer">Generated on Fri Aug 31 2018 12:42:05 for RebornedGenESyS by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

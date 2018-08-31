@@ -2,7 +2,7 @@
 <area shape="rect" id="node2" href="$main_8cpp.html#aeea741000e292b33dca181a0a8a6106f" title="buildModel" alt="" coords="242,612,326,638"/>
 <area shape="rect" id="node30" href="$class_list.html#a518d00fd77740525522949d4316e8826" title="List::insert" alt="" coords="744,789,827,816"/>
 <area shape="rect" id="node32" href="$class_simulator.html#adf2949b99c40c3c94c790786de1a038f" title="Simulator::getModels" alt="" coords="211,840,357,866"/>
-<area shape="rect" id="node33" href="$class_model.html#a01c9bc6de757ca0662267e3c92a6973a" title="Model::check" alt="" coords="459,840,559,866"/>
+<area shape="rect" id="node33" href="$class_model.html#ae3b293adffbef6fd254d661ceeb2e116" title="Model::checkModel" alt="" coords="442,840,577,866"/>
 <area shape="rect" id="node36" href="$class_model.html#ae099910781f5267a51fb5d607246af4a" title="Model::saveModel" alt="" coords="220,992,348,1018"/>
 <area shape="rect" id="node38" href="$class_model.html#a6fd6613a5141552a6493eb3a840cde24" title="Model::startSimulation" alt="" coords="208,941,360,968"/>
 <area shape="rect" id="node42" href="$class_model.html#a44c66f552308e7a6a5701801186a8637" title="Model::showReports" alt="" coords="213,1042,355,1069"/>

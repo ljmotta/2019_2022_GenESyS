@@ -16,6 +16,9 @@
 
 #include <string>
 
+/**
+ * Interface for parametric hypothesis tests based on a datafile. 
+ */
 class HypothesisTester_if {
 public:
 

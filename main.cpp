@@ -124,7 +124,7 @@ void buildSimulationSystem() {
 	Model* model = new Model(simulator);
 	buildModel(model);
 	simulator->getModels()->insert(model);
-	if (model->check()) {
+	if (model->checkModel()) {
 		model->saveModel("./genesysmodel.txt");
 		model->startSimulation();
 		model->showReports();

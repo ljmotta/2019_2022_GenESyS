@@ -1,5 +1,5 @@
 <map id="Model::startSimulation" name="Model::startSimulation">
-<area shape="rect" id="node2" href="$class_model.html#a01c9bc6de757ca0662267e3c92a6973a" title="Model::check" alt="" coords="249,56,349,83"/>
+<area shape="rect" id="node2" href="$class_model.html#ae3b293adffbef6fd254d661ceeb2e116" title="Model::checkModel" alt="" coords="231,56,366,83"/>
 <area shape="rect" id="node3" href="$class_model.html#a5de086b514742e84b61ac9a7b128ae8b" title="Model::trace" alt="" coords="482,5,577,32"/>
 <area shape="rect" id="node5" href="$class_list.html#a3737ca60365287ce663393d8c07d1a41" title="List::empty" alt="" coords="255,107,342,133"/>
 <area shape="rect" id="node6" href="$class_model.html#a6bb4d4fbf90f49c990a00385a9df18d9" title="Model::getReplicationLength" alt="" coords="205,157,392,184"/>

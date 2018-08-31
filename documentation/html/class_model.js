@@ -7,7 +7,7 @@ var class_model =
     [ "addTraceListener", "class_model.html#a144f16211e64bdc0ac4622cda5f5f4ae", null ],
     [ "addTraceReportListener", "class_model.html#ad94736b0e6c53b3dedd112f21506092a", null ],
     [ "addTraceSimulationListener", "class_model.html#a06f7035263e7ad33360651a9569ed2d6", null ],
-    [ "check", "class_model.html#a01c9bc6de757ca0662267e3c92a6973a", null ],
+    [ "checkModel", "class_model.html#ae3b293adffbef6fd254d661ceeb2e116", null ],
     [ "getAnalystName", "class_model.html#a9b539226cc78c36bfe911252e9ccd055", null ],
     [ "getComponents", "class_model.html#ae5773d78fc47cb35be7fbeb74b7d63e4", null ],
     [ "getDescription", "class_model.html#a40ad9af9a5cebe907d483fb51d0f4974", null ],

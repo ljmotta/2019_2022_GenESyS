@@ -82,6 +82,7 @@ var hierarchy =
     [ "Traits< Integrator_if >", "struct_traits_3_01_integrator__if_01_4.html", null ],
     [ "Traits< Model >", "struct_traits_3_01_model_01_4.html", null ],
     [ "Traits< ModelChecker_if >", "struct_traits_3_01_model_checker__if_01_4.html", null ],
+    [ "Traits< ModelComponent >", "struct_traits_3_01_model_component_01_4.html", null ],
     [ "Traits< ModelPersistence_if >", "struct_traits_3_01_model_persistence__if_01_4.html", null ],
     [ "Traits< Parser_if >", "struct_traits_3_01_parser__if_01_4.html", null ],
     [ "Traits< Sampler_if >", "struct_traits_3_01_sampler__if_01_4.html", null ],

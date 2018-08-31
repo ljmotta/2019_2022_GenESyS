@@ -44,8 +44,8 @@ public: // simulation control
 public: // model control
 	bool saveModel(std::string filename);
 	bool loadModel(std::string filename);
-	bool check();
-	bool verifySymbol(std::string componentName, std::string expressionName, std::string expression, std::string expressionResult, bool mandatory);
+	bool checkModel();
+	bool verifySymbol(std::string componentName, std::string expressionName, std::string expression, std::string expressionResult, bool mandatory); 
 	void removeEntity(Entity* entity, bool collectStatistics);
 	void sendEntityToComponent(Entity* entity, ModelComponent* component, double timeDelay);
 	double parseExpression(const std::string expression);
@@ -95,7 +95,7 @@ public: // gets and sets
 	void setPauseOnReplication(bool _pauseBetweenReplications);
 	bool isPauseOnReplication() const;
 public: // only gets	
-	double getSimulatedTime() const;
+	double getSimulatedTime() const; // TNOW
 	bool isRunning() const;
 	bool isSaved() const;
 	Util::identitifcation getId() const;

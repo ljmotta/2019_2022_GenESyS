@@ -170,6 +170,7 @@ var files =
     [ "Traits.h", "_traits_8h.html", [
       [ "Traits", "struct_traits.html", null ],
       [ "Traits< Model >", "struct_traits_3_01_model_01_4.html", null ],
+      [ "Traits< ModelComponent >", "struct_traits_3_01_model_component_01_4.html", "struct_traits_3_01_model_component_01_4" ],
       [ "Traits< Sampler_if >", "struct_traits_3_01_sampler__if_01_4.html", "struct_traits_3_01_sampler__if_01_4" ],
       [ "Traits< Fitter_if >", "struct_traits_3_01_fitter__if_01_4.html", "struct_traits_3_01_fitter__if_01_4" ],
       [ "Traits< Collector_if >", "struct_traits_3_01_collector__if_01_4.html", "struct_traits_3_01_collector__if_01_4" ],

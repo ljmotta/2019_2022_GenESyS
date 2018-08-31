@@ -126,42 +126,42 @@ $(document).ready(function(){initNavTree('_simulator_8h_source.html','');});
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_model_8h.html">Model.h</a>&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_plugin_8h.html">Plugin.h</a>&quot;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_list_8h.html">List.h</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_traits_8h.html">Traits.h</a>&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_traits_8h.html">Traits.h</a>&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_model_8h.html">Model.h</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_plugin_8h.html">Plugin.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_list_8h.html">List.h</a>&quot;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_fitter__if_8h.html">Fitter_if.h</a>&quot;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_simulator.html">   25</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_simulator.html">Simulator</a> {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">typedef</span> void (*eventHandler)();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="class_simulator.html#a031573bfcfe2e0f5c9539bcc1c7fc5d9">Simulator</a>();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="class_simulator.html#a031573bfcfe2e0f5c9539bcc1c7fc5d9">Simulator</a>(<span class="keyword">const</span> <a class="code" href="class_simulator.html">Simulator</a>&amp; orig);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_simulator.html#a0f49aa04f42060a785adf77346b9de9f">~Simulator</a>();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">public</span>: <span class="comment">// get &amp; set</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="class_list.html">List&lt;Model*&gt;</a>* <a class="code" href="class_simulator.html#adf2949b99c40c3c94c790786de1a038f">getModels</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="class_list.html">List&lt;Plugin*&gt;</a>* <a class="code" href="class_simulator.html#a0e68b96d9af4bb7cf3f0b8a5c2e66d31">getPlugins</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span>: <span class="comment">// only get</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    std::string <a class="code" href="class_simulator.html#a2e9d26646db9e0cc35a870514d8dcc3e">getVersion</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    std::string <a class="code" href="class_simulator.html#ae180aeffe94a7b0af5fb64ce8ad29810">getLicense</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    std::string <a class="code" href="class_simulator.html#a767a6811df08f6327524ab6ccb715672">getName</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="class_sampler__if.html">Sampler_if</a>* <a class="code" href="class_simulator.html#a7477e74d6751ea9e4b841178b0c42f34">getSampler</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="class_fitter__if.html">Fitter_if</a>* <a class="code" href="class_simulator.html#a7498ab51b3112e487f73eefb6d384b74">getFitter</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">public</span>: <span class="comment">// event handlers</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">private</span>: <span class="comment">// attributes 1:n</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="class_list.html">List&lt;Plugin*&gt;</a>* _plugins;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="class_list.html">List&lt;Model*&gt;</a>* _models;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">private</span>: <span class="comment">// attributes 1:1 objects</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="class_fitter__if.html">Fitter_if</a>* _fitter = <span class="keyword">new</span> <a class="code" href="struct_traits.html">Traits&lt;Fitter_if&gt;::Implementation</a>();</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="class_sampler__if.html">Sampler_if</a>* _sampler = <span class="keyword">new</span> <a class="code" href="struct_traits.html">Traits&lt;Sampler_if&gt;::Implementation</a>();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">private</span>: <span class="comment">// attributes 1:1 native</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    std::string _name = <span class="stringliteral">&quot;GenESyS - Generic and Expansible System Simulator [REBORN]&quot;</span>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    std::string _license = <span class="stringliteral">&quot;Academic Mode. In academic mode this software has full functionality and executing training-size simulation models. This software may be duplicated and used for educational purposes only; any commercial application is a violation of the license agreement.&quot;</span>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    std::string _version = <span class="stringliteral">&quot;2018.08.00.5&quot;</span>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* GENESYS_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="class_simulator.html">   28</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_simulator.html">Simulator</a> {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">typedef</span> void (*eventHandler)();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="class_simulator.html#a031573bfcfe2e0f5c9539bcc1c7fc5d9">Simulator</a>();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="class_simulator.html#a031573bfcfe2e0f5c9539bcc1c7fc5d9">Simulator</a>(<span class="keyword">const</span> <a class="code" href="class_simulator.html">Simulator</a>&amp; orig);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_simulator.html#a0f49aa04f42060a785adf77346b9de9f">~Simulator</a>();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span>: <span class="comment">// get &amp; set</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="class_list.html">List&lt;Model*&gt;</a>* <a class="code" href="class_simulator.html#adf2949b99c40c3c94c790786de1a038f">getModels</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="class_list.html">List&lt;Plugin*&gt;</a>* <a class="code" href="class_simulator.html#a0e68b96d9af4bb7cf3f0b8a5c2e66d31">getPlugins</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">public</span>: <span class="comment">// only get</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    std::string <a class="code" href="class_simulator.html#a2e9d26646db9e0cc35a870514d8dcc3e">getVersion</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    std::string <a class="code" href="class_simulator.html#ae180aeffe94a7b0af5fb64ce8ad29810">getLicense</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    std::string <a class="code" href="class_simulator.html#a767a6811df08f6327524ab6ccb715672">getName</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="class_sampler__if.html">Sampler_if</a>* <a class="code" href="class_simulator.html#a7477e74d6751ea9e4b841178b0c42f34">getSampler</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="class_fitter__if.html">Fitter_if</a>* <a class="code" href="class_simulator.html#a7498ab51b3112e487f73eefb6d384b74">getFitter</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">public</span>: <span class="comment">// event handlers</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">private</span>: <span class="comment">// attributes 1:n</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="class_list.html">List&lt;Plugin*&gt;</a>* _plugins;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="class_list.html">List&lt;Model*&gt;</a>* _models;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">private</span>: <span class="comment">// attributes 1:1 objects</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="class_fitter__if.html">Fitter_if</a>* _fitter = <span class="keyword">new</span> <a class="code" href="struct_traits.html">Traits&lt;Fitter_if&gt;::Implementation</a>();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="class_sampler__if.html">Sampler_if</a>* _sampler = <span class="keyword">new</span> <a class="code" href="struct_traits.html">Traits&lt;Sampler_if&gt;::Implementation</a>();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">private</span>: <span class="comment">// attributes 1:1 native</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    std::string _name = <span class="stringliteral">&quot;GenESyS - Generic and Expansible System Simulator [REBORN]&quot;</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    std::string _license = <span class="stringliteral">&quot;Academic Mode. In academic mode this software has full functionality and executing training-size simulation models. This software may be duplicated and used for educational purposes only; any commercial application is a violation of the license agreement.&quot;</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    std::string _version = <span class="stringliteral">&quot;2018.08.00.5&quot;</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;};</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* GENESYS_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor"></span></div>
 <div class="ttc" id="class_simulator_html_a0e68b96d9af4bb7cf3f0b8a5c2e66d31"><div class="ttname"><a href="class_simulator.html#a0e68b96d9af4bb7cf3f0b8a5c2e66d31">Simulator::getPlugins</a></div><div class="ttdeci">List&lt; Plugin * &gt; * getPlugins() const </div><div class="ttdef"><b>Definition:</b> Simulator.cpp:33</div></div>
 <div class="ttc" id="class_simulator_html_a767a6811df08f6327524ab6ccb715672"><div class="ttname"><a href="class_simulator.html#a767a6811df08f6327524ab6ccb715672">Simulator::getName</a></div><div class="ttdeci">std::string getName() const </div><div class="ttdef"><b>Definition:</b> Simulator.cpp:45</div></div>
 <div class="ttc" id="_model_8h_html"><div class="ttname"><a href="_model_8h.html">Model.h</a></div></div>
@@ -170,7 +170,7 @@ $(document).ready(function(){initNavTree('_simulator_8h_source.html','');});
 <div class="ttc" id="class_sampler__if_html"><div class="ttname"><a href="class_sampler__if.html">Sampler_if</a></div><div class="ttdef"><b>Definition:</b> Sampler_if.h:23</div></div>
 <div class="ttc" id="class_simulator_html_ae180aeffe94a7b0af5fb64ce8ad29810"><div class="ttname"><a href="class_simulator.html#ae180aeffe94a7b0af5fb64ce8ad29810">Simulator::getLicense</a></div><div class="ttdeci">std::string getLicense() const </div><div class="ttdef"><b>Definition:</b> Simulator.cpp:41</div></div>
 <div class="ttc" id="class_simulator_html_adf2949b99c40c3c94c790786de1a038f"><div class="ttname"><a href="class_simulator.html#adf2949b99c40c3c94c790786de1a038f">Simulator::getModels</a></div><div class="ttdeci">List&lt; Model * &gt; * getModels() const </div><div class="ttdef"><b>Definition:</b> Simulator.cpp:29</div></div>
-<div class="ttc" id="class_simulator_html"><div class="ttname"><a href="class_simulator.html">Simulator</a></div><div class="ttdef"><b>Definition:</b> Simulator.h:25</div></div>
+<div class="ttc" id="class_simulator_html"><div class="ttname"><a href="class_simulator.html">Simulator</a></div><div class="ttdef"><b>Definition:</b> Simulator.h:28</div></div>
 <div class="ttc" id="_plugin_8h_html"><div class="ttname"><a href="_plugin_8h.html">Plugin.h</a></div></div>
 <div class="ttc" id="class_list_html"><div class="ttname"><a href="class_list.html">List&lt; Model * &gt;</a></div></div>
 <div class="ttc" id="class_simulator_html_a7498ab51b3112e487f73eefb6d384b74"><div class="ttname"><a href="class_simulator.html#a7498ab51b3112e487f73eefb6d384b74">Simulator::getFitter</a></div><div class="ttdeci">Fitter_if * getFitter() const </div><div class="ttdef"><b>Definition:</b> Simulator.cpp:53</div></div>
@@ -187,7 +187,7 @@ $(document).ready(function(){initNavTree('_simulator_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="_simulator_8h.html">Simulator.h</a></li>
-    <li class="footer">Generated on Fri Aug 31 2018 10:39:21 for RebornedGenESyS by
+    <li class="footer">Generated on Fri Aug 31 2018 12:42:05 for RebornedGenESyS by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

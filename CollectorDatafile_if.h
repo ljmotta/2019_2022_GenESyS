@@ -16,6 +16,9 @@
 
 #include "Collector_if.h"
 
+/**
+ * Interface for collecting values of a stochastic variable that will be stores in a datafile. 
+ */
 class CollectorDatafile_if: public Collector_if {
 public:
 	virtual double getValue(unsigned int num) = 0; // same as getValue, or value[num]

@@ -1,9 +1,9 @@
 <map id="StatisticsCollector.cpp" name="StatisticsCollector.cpp">
-<area shape="rect" id="node2" href="$_statistics_collector_8h.html" title="StatisticsCollector.h" alt="" coords="130,80,269,107"/>
-<area shape="rect" id="node3" href="$_statistics_my_impl1_8h.html" title="StatisticsMyImpl1.h" alt="" coords="5,155,144,181"/>
-<area shape="rect" id="node7" href="$_collector_my_impl1_8h.html" title="CollectorMyImpl1.h" alt="" coords="133,229,267,256"/>
-<area shape="rect" id="node8" href="$_model_infrastructure_8h.html" title="ModelInfrastructure.h" alt="" coords="291,229,436,256"/>
-<area shape="rect" id="node4" href="$_statistics__if_8h.html" title="Statistics_if.h" alt="" coords="6,229,108,256"/>
-<area shape="rect" id="node6" href="$_collector__if_8h.html" title="Collector_if.h" alt="" coords="108,304,207,331"/>
-<area shape="rect" id="node9" href="$_util_8h.html" title="Util.h" alt="" coords="335,304,388,331"/>
+<area shape="rect" id="node2" href="$_statistics_collector_8h.html" title="StatisticsCollector.h" alt="" coords="157,80,296,107"/>
+<area shape="rect" id="node3" href="$_statistics_my_impl1_8h.html" title="StatisticsMyImpl1.h" alt="" coords="51,155,189,181"/>
+<area shape="rect" id="node7" href="$_collector_my_impl1_8h.html" title="CollectorMyImpl1.h" alt="" coords="131,229,265,256"/>
+<area shape="rect" id="node8" href="$_model_infrastructure_8h.html" title="ModelInfrastructure.h" alt="" coords="290,229,435,256"/>
+<area shape="rect" id="node4" href="$_statistics__if_8h.html" title="Statistics_if.h" alt="" coords="5,229,107,256"/>
+<area shape="rect" id="node6" href="$_collector__if_8h.html" title="Collector_if.h" alt="" coords="93,304,192,331"/>
+<area shape="rect" id="node9" href="$_util_8h.html" title="Util.h" alt="" coords="336,304,389,331"/>
 </map>

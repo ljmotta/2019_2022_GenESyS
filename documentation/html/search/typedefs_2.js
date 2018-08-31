@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['parameters',['Parameters',['../struct_traits_3_01_sampler__if_01_4.html#a4ad2f3625d3d6fc6cfb35de363d5594e',1,'Traits&lt; Sampler_if &gt;']]]
+  ['modelimplementation',['ModelImplementation',['../struct_traits_3_01_collector__if_01_4.html#a38ef8e0ef3488a361965174720a895ae',1,'Traits&lt; Collector_if &gt;']]]
 ];
