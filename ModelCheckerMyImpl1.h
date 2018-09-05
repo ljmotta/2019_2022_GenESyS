@@ -17,6 +17,9 @@
 #include "ModelChecker_if.h"
 #include "Model.h"
 
+/*!
+ * Just an example of possible implementation of the ModelChecker interface. Developers can implement their own class
+ */
 class ModelCheckerMyImpl1: public ModelChecker_if {
 public:
 	ModelCheckerMyImpl1(Model* model);

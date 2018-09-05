@@ -55,3 +55,16 @@ Waiting* Queue::first() {
 //}
 
 
+
+void Queue::_loadInstance(std::list<std::string> words) {
+
+}
+
+std::list<std::string>* Queue::_saveInstance() {
+	std::list<std::string>* words = new std::list<std::string>();
+	return words;
+}
+
+bool Queue::_verifySymbols(std::string* errorMessage) {
+
+}

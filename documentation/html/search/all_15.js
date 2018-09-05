@@ -32,6 +32,7 @@ var searchData=
   ['_7esourcemodelcomponent',['~SourceModelComponent',['../class_source_model_component.html#ab8a4b0d8035f1fe9da093fdde16c421c',1,'SourceModelComponent']]],
   ['_7estatisticscollector',['~StatisticsCollector',['../class_statistics_collector.html#aef9244a0c9f715bc19136d283b759c6e',1,'StatisticsCollector']]],
   ['_7estatisticsmyimpl1',['~StatisticsMyImpl1',['../class_statistics_my_impl1.html#abac2ae9a1f5c27467969017fb0bc0298',1,'StatisticsMyImpl1']]],
+  ['_7evariable',['~Variable',['../class_variable.html#acfc14d0ad77af53025f890b4d3a7745a',1,'Variable']]],
   ['_7ewaiting',['~Waiting',['../class_waiting.html#a21c753b1e80111e3ee5fd7f50dd31a14',1,'Waiting']]],
   ['_7ewaitingresource',['~WaitingResource',['../class_waiting_resource.html#ac25ae06be17218e803d623fb1398aa8a',1,'WaitingResource']]]
 ];

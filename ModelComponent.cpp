@@ -34,11 +34,11 @@ void ModelComponent::Execute(Entity* entity, ModelComponent* component) {
 	}
 }
 
-std::list<std::string>* ModelComponent::WriteComponent(ModelComponent* component) {
+std::list<std::string>* ModelComponent::SaveInstance(ModelComponent* component) {
 	component->_model->trace(Util::TraceLevel::TL_blockArrival, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));
 	std::list<std::string>* words = new std::list<std::string>();
 	try {
-		words = component->_writeComponent();
+		words = component->_saveInstance();
 	} catch (const std::exception& e) {
 		component->_model->traceError(e, "Error executing component " + component->show());
 	}

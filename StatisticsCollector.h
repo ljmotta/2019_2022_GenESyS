@@ -21,10 +21,17 @@
 class StatisticsCollector: public ModelInfrastructure, public StatisticsMyImpl1 {
 public:
 	StatisticsCollector();
+	StatisticsCollector(std::string name);
 	StatisticsCollector(const StatisticsCollector& orig);
 	virtual ~StatisticsCollector();
 public:
 	virtual std::string show();
+	
+protected: 
+	virtual void _loadInstance(std::list<std::string> words);
+	virtual std::list<std::string>* _saveInstance();
+	virtual bool _verifySymbols(std::string* errorMessage);
+
 private:
 
 };

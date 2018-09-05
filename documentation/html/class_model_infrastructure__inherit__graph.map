@@ -5,6 +5,7 @@
 <area shape="rect" id="node13" href="$class_queue.html" title="Queue" alt="" coords="343,80,403,107"/>
 <area shape="rect" id="node14" href="$class_resource.html" title="Resource" alt="" coords="427,80,505,107"/>
 <area shape="rect" id="node15" href="$class_statistics_collector.html" title="StatisticsCollector" alt="" coords="530,80,659,107"/>
+<area shape="rect" id="node16" href="$class_variable.html" title="Variable" alt="" coords="684,80,753,107"/>
 <area shape="rect" id="node5" href="$class_assign.html" title="Assign" alt="" coords="10,155,72,181"/>
 <area shape="rect" id="node6" href="$class_delay.html" title="Delay" alt="" coords="97,155,152,181"/>
 <area shape="rect" id="node7" href="$class_release.html" title="Release" alt="" coords="178,155,248,181"/>

@@ -44,6 +44,18 @@ std::string Entity::getEntityTypeName() const {
 }
 
 std::string Entity::show() {
-	return ModelInfrastructure::show()+
-			",entityTypeName="+this->_entityTypeName; //+ ",attributeValues="+std::to_string(this->_attributeValues);
+	return ModelInfrastructure::show() +
+			",entityTypeName=" + this->_entityTypeName; //+ ",attributeValues="+std::to_string(this->_attributeValues);
+}
+
+void Entity::_loadInstance(std::list<std::string> words) {
+}
+
+std::list<std::string>* Entity::_saveInstance() {
+	std::list<std::string>* words = new std::list<std::string>();
+	return words;
+}
+
+bool Entity::_verifySymbols(std::string* errorMessage) {
+	//this->_
 }

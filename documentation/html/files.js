@@ -185,6 +185,10 @@ var files =
     [ "Util.h", "_util_8h.html", [
       [ "Util", "class_util.html", "class_util" ]
     ] ],
+    [ "Variable.cpp", "_variable_8cpp.html", null ],
+    [ "Variable.h", "_variable_8h.html", [
+      [ "Variable", "class_variable.html", "class_variable" ]
+    ] ],
     [ "Waiting.cpp", "_waiting_8cpp.html", null ],
     [ "Waiting.h", "_waiting_8h.html", [
       [ "Waiting", "class_waiting.html", "class_waiting" ]

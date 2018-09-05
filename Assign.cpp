@@ -29,15 +29,31 @@ std::string Assign::show() {
 			"";
 }
 
+void Assign::setExpression(std::string _expression) {
+	this->_expression = _expression;
+}
+
+std::string Assign::getExpression() const {
+	return _expression;
+}
+
+void Assign::setDestination(std::string _destination) {
+	this->_destination = _destination;
+}
+
+std::string Assign::getDestination() const {
+	return _destination;
+}
+
 void Assign::_execute(Entity* entity) {
 	/* TODO +: implement */
 	this->_model->sendEntityToComponent(entity, this->getNextComponents()->first(), 0.0);
 }
 
-void Assign::_readComponent(std::list<std::string> words) {
+void Assign::_loadInstance(std::list<std::string> words) {
 }
 
-std::list<std::string>* Assign::_writeComponent() {
+std::list<std::string>* Assign::_saveInstance() {
 	std::list<std::string>* words = new std::list<std::string>();
 	return words;
 }

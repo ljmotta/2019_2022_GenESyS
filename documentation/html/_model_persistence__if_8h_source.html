@@ -126,24 +126,24 @@ $(document).ready(function(){initNavTree('_model_persistence__if_8h_source.html'
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_model_persistence__if.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_model_persistence__if.html">ModelPersistence_if</a> {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="comment">// not a good interface</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_model_persistence__if.html#a4cabe06b4f610b9237c52208ee6c51bd">saveAsTXT</a>(std::string filename) = 0;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_model_persistence__if.html#af1ee016d7810fc3798b5bf013398de7f">loadAsTXT</a>(std::string filename) = 0;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_model_persistence__if.html#afb8e1011e873757febfb0d055d592d38">saveAsXML</a>(std::string filename) = 0;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_model_persistence__if.html#a8c44f9b2e917b33812cbaa7c844854c8">loadAsXML</a>(std::string filename) = 0;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_model_persistence__if.html#a960acf977c56ed52a153524c6ed8d4c6">save</a>(std::string filename) = 0;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_model_persistence__if.html#a48f90bbb37e106ee4b423075660d5a73">load</a>(std::string filename) = 0;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;};</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* MODELPERSISTENCE_IF_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_model_persistence__if.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_model_persistence__if.html">ModelPersistence_if</a> {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">// not a good interface</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_model_persistence__if.html#a4cabe06b4f610b9237c52208ee6c51bd">saveAsTXT</a>(std::string filename) = 0;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_model_persistence__if.html#af1ee016d7810fc3798b5bf013398de7f">loadAsTXT</a>(std::string filename) = 0;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_model_persistence__if.html#afb8e1011e873757febfb0d055d592d38">saveAsXML</a>(std::string filename) = 0;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_model_persistence__if.html#a8c44f9b2e917b33812cbaa7c844854c8">loadAsXML</a>(std::string filename) = 0;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_model_persistence__if.html#a960acf977c56ed52a153524c6ed8d4c6">save</a>(std::string filename) = 0;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_model_persistence__if.html#a48f90bbb37e106ee4b423075660d5a73">load</a>(std::string filename) = 0;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* MODELPERSISTENCE_IF_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor"></span></div>
 <div class="ttc" id="class_model_persistence__if_html_af1ee016d7810fc3798b5bf013398de7f"><div class="ttname"><a href="class_model_persistence__if.html#af1ee016d7810fc3798b5bf013398de7f">ModelPersistence_if::loadAsTXT</a></div><div class="ttdeci">virtual bool loadAsTXT(std::string filename)=0</div></div>
 <div class="ttc" id="class_model_persistence__if_html_a960acf977c56ed52a153524c6ed8d4c6"><div class="ttname"><a href="class_model_persistence__if.html#a960acf977c56ed52a153524c6ed8d4c6">ModelPersistence_if::save</a></div><div class="ttdeci">virtual bool save(std::string filename)=0</div></div>
-<div class="ttc" id="class_model_persistence__if_html"><div class="ttname"><a href="class_model_persistence__if.html">ModelPersistence_if</a></div><div class="ttdef"><b>Definition:</b> ModelPersistence_if.h:19</div></div>
+<div class="ttc" id="class_model_persistence__if_html"><div class="ttname"><a href="class_model_persistence__if.html">ModelPersistence_if</a></div><div class="ttdef"><b>Definition:</b> ModelPersistence_if.h:22</div></div>
 <div class="ttc" id="class_model_persistence__if_html_a4cabe06b4f610b9237c52208ee6c51bd"><div class="ttname"><a href="class_model_persistence__if.html#a4cabe06b4f610b9237c52208ee6c51bd">ModelPersistence_if::saveAsTXT</a></div><div class="ttdeci">virtual bool saveAsTXT(std::string filename)=0</div></div>
 <div class="ttc" id="class_model_persistence__if_html_afb8e1011e873757febfb0d055d592d38"><div class="ttname"><a href="class_model_persistence__if.html#afb8e1011e873757febfb0d055d592d38">ModelPersistence_if::saveAsXML</a></div><div class="ttdeci">virtual bool saveAsXML(std::string filename)=0</div></div>
 <div class="ttc" id="class_model_persistence__if_html_a48f90bbb37e106ee4b423075660d5a73"><div class="ttname"><a href="class_model_persistence__if.html#a48f90bbb37e106ee4b423075660d5a73">ModelPersistence_if::load</a></div><div class="ttdeci">virtual bool load(std::string filename)=0</div></div>
@@ -154,7 +154,7 @@ $(document).ready(function(){initNavTree('_model_persistence__if_8h_source.html'
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="_model_persistence__if_8h.html">ModelPersistence_if.h</a></li>
-    <li class="footer">Generated on Fri Aug 31 2018 12:42:05 for RebornedGenESyS by
+    <li class="footer">Generated on Tue Sep 4 2018 21:04:12 for RebornedGenESyS by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

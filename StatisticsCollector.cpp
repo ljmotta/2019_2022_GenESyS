@@ -16,6 +16,10 @@
 StatisticsCollector::StatisticsCollector() : ModelInfrastructure(typeid (this).name()) {
 }
 
+StatisticsCollector::StatisticsCollector(std::string name) : ModelInfrastructure(typeid (this).name()) {
+	_name = name;
+}
+
 StatisticsCollector::StatisticsCollector(const StatisticsCollector& orig) : ModelInfrastructure(orig) {
 }
 
@@ -24,4 +28,17 @@ StatisticsCollector::~StatisticsCollector() {
 
 std::string StatisticsCollector::show() {
 	return ModelInfrastructure::show();
+}
+
+void StatisticsCollector::_loadInstance(std::list<std::string> words) {
+
+}
+
+std::list<std::string>* StatisticsCollector::_saveInstance() {
+	std::list<std::string>* words = new std::list<std::string>();
+	return words;
+}
+
+bool StatisticsCollector::_verifySymbols(std::string* errorMessage) {
+
 }

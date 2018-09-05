@@ -55,11 +55,11 @@ void Delay::_execute(Entity* entity) {
 
 
 
-void Delay::_readComponent(std::list<std::string> words) {
+void Delay::_loadInstance(std::list<std::string> words) {
 
 }
 
-std::list<std::string>* Delay::_writeComponent() {
+std::list<std::string>* Delay::_saveInstance() {
 	std::list<std::string>* words = new std::list<std::string>();
 	return words;
 

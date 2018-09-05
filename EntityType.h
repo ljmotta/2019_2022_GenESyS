@@ -16,11 +16,12 @@
 
 #include <string>
 #include "ModelInfrastructure.h"
-#include "Collector_if.h"
+#include "StatisticsCollector.h"
+#include "Model.h"
 
 class EntityType: public ModelInfrastructure {
 public:
-	EntityType();
+	EntityType(Model* model);
 	EntityType(const EntityType& orig);
 	virtual ~EntityType();
 public:
@@ -37,12 +38,19 @@ public: //get & set
     void setInitialPicture(std::string _initialPicture);
     std::string getInitialPicture() const;
 public: //get
-    Collector_if* getCstatTimeInSystem() const;
-    Collector_if* getCstatNVATime() const;
-    Collector_if* getCstatVATime() const;
-    Collector_if* getCstatOtherTime() const;
-    Collector_if* getCstatTransferTime() const;
-    Collector_if* getCstatWaitingTime() const;
+    StatisticsCollector* getCstatTimeInSystem() const;
+    StatisticsCollector* getCstatNVATime() const;
+    StatisticsCollector* getCstatVATime() const;
+    StatisticsCollector* getCstatOtherTime() const;
+    StatisticsCollector* getCstatTransferTime() const;
+    StatisticsCollector* getCstatWaitingTime() const;
+	
+	
+protected: 
+	virtual void _loadInstance(std::list<std::string> words);
+	virtual std::list<std::string>* _saveInstance();
+	virtual bool _verifySymbols(std::string* errorMessage);
+	
 private:
 	std::string _initialPicture = "report";
 	double _initialVACost = 0.0;
@@ -50,12 +58,12 @@ private:
 	double _initialOtherCost = 0.0;
 	double _initialWaitingCost = 0.0;
 private:
-	Collector_if* _cstatWaitingTime;
-	Collector_if* _cstatTransferTime;
-	Collector_if* _cstatOtherTime;
-	Collector_if* _cstatVATime;
-	Collector_if* _cstatNVATime;
-	Collector_if* _cstatTimeInSystem;
+	StatisticsCollector* _cstatWaitingTime = new StatisticsCollector("Waiting Time");
+	StatisticsCollector* _cstatTransferTime = new StatisticsCollector("Transfer Time");
+	StatisticsCollector* _cstatOtherTime = new StatisticsCollector("Other Time");
+	StatisticsCollector* _cstatVATime = new StatisticsCollector("Value Added Time");
+	StatisticsCollector* _cstatNVATime = new StatisticsCollector("Non Value Added Time");
+	StatisticsCollector* _cstatTimeInSystem = new StatisticsCollector("Time In System");
 };
 
 #endif /* ENTITYTYPE_H */

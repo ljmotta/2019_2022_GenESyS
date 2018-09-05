@@ -16,21 +16,28 @@
 
 #include "ModelComponent.h"
 
-class Assign: public ModelComponent {
+class Assign : public ModelComponent {
 public:
 	Assign(Model* model);
 	Assign(const Assign& orig);
 	virtual ~Assign();
 public:
 	virtual std::string show();
-	
+public:
+	void setExpression(std::string _expression);
+	std::string getExpression() const;
+	void setDestination(std::string _destination);
+	std::string getDestination() const;
+
 protected:
 	virtual void _execute(Entity* entity);
-	virtual void _readComponent(std::list<std::string> words);
-	virtual std::list<std::string>* _writeComponent();
+	virtual void _loadInstance(std::list<std::string> words);
+	virtual std::list<std::string>* _saveInstance();
 	virtual bool _verifySymbols(std::string* errorMessage);
 private:
 private:
+	std::string _destination = "";
+	std::string _expression = "";
 
 };
 

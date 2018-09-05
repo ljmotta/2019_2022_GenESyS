@@ -44,18 +44,15 @@ public:
 public:
 	virtual std::string show();
 	List<ModelComponent*>* getNextComponents() const;
+public:
+	static void Execute(Entity* entity, ModelComponent* component);
+	static bool VerifySymbols(ModelComponent* component, std::string* errorMessage);
+	static std::list<std::string>* SaveInstance(ModelComponent* component);
 private:
 	List<ModelComponent*>* _nextComponents;
-public: // static
-	static void Execute(Entity* entity, ModelComponent* component);
-	static void ReadComponent(std::list<std::string> words); // TODO: return ModelComponent* ?
-	std::list<std::string>* WriteComponent(ModelComponent* component);
-	static bool VerifySymbols(ModelComponent* component, std::string* errorMessage);
-protected: // ...static... ?? must be overriden by derived classes
+protected:
 	virtual void _execute(Entity* entity) = 0;
-	virtual void _readComponent(std::list<std::string> words) = 0;
-	virtual std::list<std::string>* _writeComponent() = 0;
-	virtual bool _verifySymbols(std::string* errorMessage) = 0;
+
 protected:
 	Model* _model;
 };

@@ -148,6 +148,9 @@ bool \hyperlink{class_model_a8d47ce2750e22e14e5249b724cdf4fd3}{is\-Saved} () con
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+\hyperlink{class_model}{Model} is probably the most important class of Genesys kernel. It represents a discrete event-\/driven simulation model. Each model is responsible for controlling its own simulation, ie, for sequentially processing events and collecting statistical results. A model is mainly represented by a collection of components (\hyperlink{class_model_component}{Model\-Component}), adequately configurated and connected, and a collection of under layered infrastructure (\hyperlink{class_model_infrastructure}{Model\-Infrastructure}). 
+
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{class_model_ae86e1403523e8036ba6366d1967ecac0}{\index{Model@{Model}!Model@{Model}}
 \index{Model@{Model}!Model@{Model}}
@@ -156,7 +159,11 @@ bool \hyperlink{class_model_a8d47ce2750e22e14e5249b724cdf4fd3}{is\-Saved} () con
 \item[{{\bf Simulator} $\ast$}]{simulator}
 \end{DoxyParamCaption}
 )}}\label{class_model_ae86e1403523e8036ba6366d1967ecac0}
+Components are sorted by I\-D
 
+Events are sorted chronologically
+
+Infrastructures are organized as a map from a string (key), the type of an infrastructure, and a list of infrastructures of that type 
 
 Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
@@ -258,7 +265,7 @@ Here is the call graph for this function\-:\nopagebreak
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_model_ae09e777b481981772818ea3fd2880c4c}
-
+The future events list chronologically sorted; Events are scheduled by components when processing other events, and a replication evolves over time by sequentially processing the very first event in this list. It's initialized with events first described by source components (Source\-Component\-Model) 
 
 Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
@@ -283,7 +290,7 @@ Here is the call graph for this function\-:\nopagebreak
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_model_a841c78bda0eb27c652c6921094dc5921}
-\hypertarget{class_model_abfd7753d30de6abea64b3f0846e097eb}{\index{Model@{Model}!get\-Id@{get\-Id}}
+A list of components that compose this model \hypertarget{class_model_abfd7753d30de6abea64b3f0846e097eb}{\index{Model@{Model}!get\-Id@{get\-Id}}
 \index{get\-Id@{get\-Id}!Model@{Model}}
 \subsubsection[{get\-Id}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Util\-::identitifcation} Model\-::get\-Id (
 \begin{DoxyParamCaption}
@@ -458,7 +465,7 @@ Here is the call graph for this function\-:\nopagebreak
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_model_a597bdaa89e9b6b396bded780e6d32fdf}
-\hypertarget{class_model_a8d47ce2750e22e14e5249b724cdf4fd3}{\index{Model@{Model}!is\-Saved@{is\-Saved}}
+The current time in the model being simulated, i.\-e., the instant when the current event was triggered \hypertarget{class_model_a8d47ce2750e22e14e5249b724cdf4fd3}{\index{Model@{Model}!is\-Saved@{is\-Saved}}
 \index{is\-Saved@{is\-Saved}!Model@{Model}}
 \subsubsection[{is\-Saved}]{\setlength{\rightskip}{0pt plus 5cm}bool Model\-::is\-Saved (
 \begin{DoxyParamCaption}
@@ -497,7 +504,7 @@ Here is the call graph for this function\-:\nopagebreak
 \item[{const std\-::string}]{expression}
 \end{DoxyParamCaption}
 )}}\label{class_model_a5ea283e339b50c0b77040bf908e25af3}
-
+Used by components (\hyperlink{class_model_component}{Model\-Component}) to send entities to another specific component, usually the next one connected to it, or used by the model itself, when processing an event (\hyperlink{class_event}{Event}). 
 
 Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
@@ -515,7 +522,7 @@ Here is the call graph for this function\-:\nopagebreak
 {}
 \end{DoxyParamCaption}
 )}}\label{class_model_ab10d4bdc433d11bf4bb7117675091d8c}
-\hypertarget{class_model_ae62bb3a21cd56fbf9d34195edf2fb9e0}{\index{Model@{Model}!remove\-Entity@{remove\-Entity}}
+Starts a sequential execution of a simulation, ie, a set of repliations of this model \hypertarget{class_model_ae62bb3a21cd56fbf9d34195edf2fb9e0}{\index{Model@{Model}!remove\-Entity@{remove\-Entity}}
 \index{remove\-Entity@{remove\-Entity}!Model@{Model}}
 \subsubsection[{remove\-Entity}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-::remove\-Entity (
 \begin{DoxyParamCaption}
@@ -523,7 +530,7 @@ Here is the call graph for this function\-:\nopagebreak
 \item[{bool}]{collect\-Statistics}
 \end{DoxyParamCaption}
 )}}\label{class_model_ae62bb3a21cd56fbf9d34195edf2fb9e0}
-
+Verifies if a symbol defined in a component (\hyperlink{class_model_component}{Model\-Component}) or infrastructure is syntactically valid and addresses existing components or infrastructures. It's used only by and directed by the component that defines the symbol. 
 
 Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
@@ -748,7 +755,7 @@ Here is the call graph for this function\-:\nopagebreak
 {}
 \end{DoxyParamCaption}
 )}}\label{class_model_a6452e846a5e560220236b7a59f1dd84b}
-\hypertarget{class_model_a5de086b514742e84b61ac9a7b128ae8b}{\index{Model@{Model}!trace@{trace}}
+Executes the processing of a single event, the next one in the future events list \hypertarget{class_model_a5de086b514742e84b61ac9a7b128ae8b}{\index{Model@{Model}!trace@{trace}}
 \index{trace@{trace}!Model@{Model}}
 \subsubsection[{trace}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-::trace (
 \begin{DoxyParamCaption}
@@ -794,7 +801,7 @@ Here is the call graph for this function\-:\nopagebreak
 \item[{bool}]{mandatory}
 \end{DoxyParamCaption}
 )}}\label{class_model_ae2be8579f8519eec5da9e6f72c7ec361}
-
+Checks the integrity and consistency of the model, possibly corrects some inconsistencies, and returns if the model is in position to the simulated. 
 
 Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]

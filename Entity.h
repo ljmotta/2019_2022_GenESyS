@@ -28,10 +28,17 @@ public:
 	virtual ~Entity();
 public:
 	virtual std::string show();
+
 public: // g & s
     std::map<std::string, AttributeValue*>* getAttributeValues() const;
     void setEntityTypeName(std::string _entityTypeName); // indirect access to EntityType
     std::string getEntityTypeName() const;
+	
+protected: 
+	virtual void _loadInstance(std::list<std::string> words);
+	virtual std::list<std::string>* _saveInstance();
+	virtual bool _verifySymbols(std::string* errorMessage);
+	
 private:
 	//EntityType* _entityType;
 	std::string _entityTypeName = "Entity Type 1";

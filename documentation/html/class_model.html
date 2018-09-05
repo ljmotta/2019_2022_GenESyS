@@ -257,7 +257,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad6711b51ea9feeacb59eaf70cc8faaed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_model_infrastructure.html">ModelInfrastructure</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#ad6711b51ea9feeacb59eaf70cc8faaed">getInfrastructure</a> (std::string infraTypename, std::string name)</td></tr>
 <tr class="separator:ad6711b51ea9feeacb59eaf70cc8faaed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="class_model.html">Model</a> is probably the most important class of Genesys kernel. It represents a discrete event-driven simulation model. Each model is responsible for controlling its own simulation, ie, for sequentially processing events and collecting statistical results. A model is mainly represented by a collection of components (<a class="el" href="class_model_component.html">ModelComponent</a>), adequately configurated and connected, and a collection of under layered infrastructure (<a class="el" href="class_model_infrastructure.html">ModelInfrastructure</a>). </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ae86e1403523e8036ba6366d1967ecac0"></a>
 <div class="memitem">
 <div class="memproto">
@@ -271,6 +273,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Components are sorted by ID</p>
+<p>Events are sorted chronologically</p>
+<p>Infrastructures are organized as a map from a string (key), the type of an infrastructure, and a list of infrastructures of that type </p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -468,6 +473,7 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>The future events list chronologically sorted; Events are scheduled by components when processing other events, and a replication evolves over time by sequentially processing the very first event in this list. It's initialized with events first described by source components (SourceComponentModel) </p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -507,6 +513,7 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>A list of components that compose this model </p>
 
 </div>
 </div>
@@ -857,6 +864,7 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>The current time in the model being simulated, i.e., the instant when the current event was triggered </p>
 
 </div>
 </div>
@@ -928,6 +936,7 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Used by components (<a class="el" href="class_model_component.html">ModelComponent</a>) to send entities to another specific component, usually the next one connected to it, or used by the model itself, when processing an event (<a class="el" href="class_event.html">Event</a>). </p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -952,6 +961,7 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Starts a sequential execution of a simulation, ie, a set of repliations of this model </p>
 
 </div>
 </div>
@@ -978,6 +988,7 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Verifies if a symbol defined in a component (<a class="el" href="class_model_component.html">ModelComponent</a>) or infrastructure is syntactically valid and addresses existing components or infrastructures. It's used only by and directed by the component that defines the symbol. </p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1418,6 +1429,7 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Executes the processing of a single event, the next one in the future events list </p>
 
 </div>
 </div>
@@ -1584,6 +1596,7 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Checks the integrity and consistency of the model, possibly corrects some inconsistencies, and returns if the model is in position to the simulated. </p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1606,7 +1619,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_model.html">Model</a></li>
-    <li class="footer">Generated on Fri Aug 31 2018 12:42:05 for RebornedGenESyS by
+    <li class="footer">Generated on Tue Sep 4 2018 21:04:12 for RebornedGenESyS by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

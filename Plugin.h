@@ -17,6 +17,10 @@
 #include "Util.h"
 #include <string>
 
+/*!
+ * A Plugin represents a dynamically linked component class (ModelComponent) or infrastructure class (ModelInfrastructure); It gives access to a ModelComponent so it can be used by the model. Classes like Create, Delay, and Dispose are examples of PlugIns.  It corresponds directly to the  "Expansible" part (the capitalized 'E') of the GenESyS acronymous
+PlugIns are NOT implemented yet
+ */
 class Plugin {
 public:
 	Plugin(std::string name, bool source, bool drain);

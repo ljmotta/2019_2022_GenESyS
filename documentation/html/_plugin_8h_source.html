@@ -127,26 +127,26 @@ $(document).ready(function(){initNavTree('_plugin_8h_source.html','');});
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_util_8h.html">Util.h</a>&quot;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_plugin.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_plugin.html">Plugin</a> {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="class_plugin.html#a1180a8be15f3a920f1044e528d807ea1">Plugin</a>(std::string name, <span class="keywordtype">bool</span> source, <span class="keywordtype">bool</span> drain);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="class_plugin.html#a1180a8be15f3a920f1044e528d807ea1">Plugin</a>(<span class="keyword">const</span> <a class="code" href="class_plugin.html">Plugin</a>&amp; orig);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_plugin.html#aee4cc1864a2afa84a9ad935153f3fe39">~Plugin</a>();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_plugin.html#a1f1610d1eee7009dedf030f8495ab748">isDrain</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_plugin.html#a87ed4a6c7eab8e84a650c4e057f15dd1">isSource</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">public</span>: <span class="comment">// get &amp; set</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">private</span>: <span class="comment">// read only</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    std::string _fullfilename;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">bool</span> _source;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">bool</span> _drain;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;};</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* PLUGIN_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_plugin.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_plugin.html">Plugin</a> {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_plugin.html#a1180a8be15f3a920f1044e528d807ea1">Plugin</a>(std::string name, <span class="keywordtype">bool</span> source, <span class="keywordtype">bool</span> drain);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="class_plugin.html#a1180a8be15f3a920f1044e528d807ea1">Plugin</a>(<span class="keyword">const</span> <a class="code" href="class_plugin.html">Plugin</a>&amp; orig);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_plugin.html#aee4cc1864a2afa84a9ad935153f3fe39">~Plugin</a>();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_plugin.html#a1f1610d1eee7009dedf030f8495ab748">isDrain</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_plugin.html#a87ed4a6c7eab8e84a650c4e057f15dd1">isSource</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">public</span>: <span class="comment">// get &amp; set</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">private</span>: <span class="comment">// read only</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    std::string _fullfilename;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">bool</span> _source;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">bool</span> _drain;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;};</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* PLUGIN_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor"></span></div>
 <div class="ttc" id="_util_8h_html"><div class="ttname"><a href="_util_8h.html">Util.h</a></div></div>
 <div class="ttc" id="class_plugin_html_a1180a8be15f3a920f1044e528d807ea1"><div class="ttname"><a href="class_plugin.html#a1180a8be15f3a920f1044e528d807ea1">Plugin::Plugin</a></div><div class="ttdeci">Plugin(std::string name, bool source, bool drain)</div><div class="ttdef"><b>Definition:</b> Plugin.cpp:16</div></div>
-<div class="ttc" id="class_plugin_html"><div class="ttname"><a href="class_plugin.html">Plugin</a></div><div class="ttdef"><b>Definition:</b> Plugin.h:20</div></div>
+<div class="ttc" id="class_plugin_html"><div class="ttname"><a href="class_plugin.html">Plugin</a></div><div class="ttdef"><b>Definition:</b> Plugin.h:24</div></div>
 <div class="ttc" id="class_plugin_html_a87ed4a6c7eab8e84a650c4e057f15dd1"><div class="ttname"><a href="class_plugin.html#a87ed4a6c7eab8e84a650c4e057f15dd1">Plugin::isSource</a></div><div class="ttdeci">bool isSource() const </div><div class="ttdef"><b>Definition:</b> Plugin.cpp:32</div></div>
 <div class="ttc" id="class_plugin_html_a1f1610d1eee7009dedf030f8495ab748"><div class="ttname"><a href="class_plugin.html#a1f1610d1eee7009dedf030f8495ab748">Plugin::isDrain</a></div><div class="ttdeci">bool isDrain() const </div><div class="ttdef"><b>Definition:</b> Plugin.cpp:28</div></div>
 <div class="ttc" id="class_plugin_html_aee4cc1864a2afa84a9ad935153f3fe39"><div class="ttname"><a href="class_plugin.html#aee4cc1864a2afa84a9ad935153f3fe39">Plugin::~Plugin</a></div><div class="ttdeci">virtual ~Plugin()</div><div class="ttdef"><b>Definition:</b> Plugin.cpp:25</div></div>
@@ -156,7 +156,7 @@ $(document).ready(function(){initNavTree('_plugin_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="_plugin_8h.html">Plugin.h</a></li>
-    <li class="footer">Generated on Fri Aug 31 2018 12:42:05 for RebornedGenESyS by
+    <li class="footer">Generated on Tue Sep 4 2018 21:04:12 for RebornedGenESyS by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

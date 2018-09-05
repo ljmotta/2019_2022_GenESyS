@@ -21,7 +21,7 @@ Release::Release(Model* model) : ModelComponent(model) {
 	_name = "Release " + std::to_string(Util::GenerateNewIdOfType<Release>());
 	_resource = (Resource*) _model->getInfrastructure(Util::TypeOf<Resource>(), "Resource 1");
 	if (_resource == nullptr) {
-		_resource = new Resource();
+		_resource = new Resource(_model);
 		_resource->setName("Resource 1");
 		_model->getInfrastructures(Util::TypeOf<Resource>())->insert(_resource);
 	}
@@ -119,11 +119,11 @@ void Release::_execute(Entity* entity) {
 
 }
 
-void Release::_readComponent(std::list<std::string> words) {
+void Release::_loadInstance(std::list<std::string> words) {
 
 }
 
-std::list<std::string>* Release::_writeComponent() {
+std::list<std::string>* Release::_saveInstance() {
 	std::list<std::string>* words = new std::list<std::string>();
 	return words;
 
@@ -163,12 +163,12 @@ void Release::setResourceName(std::string _resourceName) {
 			if (!_resource->isLinked()) { // no one else uses it. Only change the name
 				_resource->setName(_resourceName);
 			} else { // it is linked. Create a new one
-				_resource = new Resource();
+				_resource = new Resource(_model);
 				_resource->setName(_resourceName);
 			}
 		} else { // there is another resource with the same name
 			if (!_resource->isLinked()) { // no one else uses it. It can be removed
-				_model->getInfrastructures(Util::TypeOf<Resource>())->remove(_queue);
+				_model->getInfrastructures(Util::TypeOf<Resource>())->remove(_resource);
 				_resource->~Resource();
 			} else { // there is another one using the resource with old name. Let it there
 				_resource->removeLink();

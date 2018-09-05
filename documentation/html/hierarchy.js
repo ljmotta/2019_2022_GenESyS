@@ -49,7 +49,8 @@ var hierarchy =
       ] ],
       [ "Queue", "class_queue.html", null ],
       [ "Resource", "class_resource.html", null ],
-      [ "StatisticsCollector", "class_statistics_collector.html", null ]
+      [ "StatisticsCollector", "class_statistics_collector.html", null ],
+      [ "Variable", "class_variable.html", null ]
     ] ],
     [ "ModelPersistence_if", "class_model_persistence__if.html", [
       [ "ModelPersistenceMyImpl1", "class_model_persistence_my_impl1.html", null ]

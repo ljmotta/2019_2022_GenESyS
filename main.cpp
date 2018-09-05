@@ -77,13 +77,15 @@ void buildModelWithAllImplementedComponents(Model* model) {
 	model->addTraceListener(&traceHandler);
 	model->addTraceReportListener(&traceHandler);
 	model->addTraceSimulationListener(&traceSimulationHandler);
-	// create and insert model components to the model
 
+	// create and insert model components to the model
 	Create* create1 = new Create(model);
 	create1->setTimeBetweenCreationsExpression("1.5");
 	create1->setTimeUnit(Util::TimeUnit::TU_minute);
 	
 	Assign* assign1 = new Assign(model);
+	assign1->setDestination("Variable 1");
+	assign1->setExpression("Norm(20,5) + Unif(-5,5)");
 
 	Seize* seize1 = new Seize(model);
 	seize1->setResourceName("Máquina 1");
@@ -97,6 +99,7 @@ void buildModelWithAllImplementedComponents(Model* model) {
 
 	Dispose* dispose1 = new Dispose(model);
 
+	// add the components to the model
 	List<ModelComponent*>* components = model->getComponents();
 	components->insert(create1);
 	components->insert(assign1);
@@ -104,8 +107,8 @@ void buildModelWithAllImplementedComponents(Model* model) {
 	components->insert(delay1);
 	components->insert(release1);
 	components->insert(dispose1);
-	// connect model components to create a "workflow"
-	// should always start from a SourceModelComponent and end at a SinkModelComponent (it will be checked)
+	
+	// connect model components to create a "workflow" -- should always start from a SourceModelComponent and end at a SinkModelComponent (it will be checked)
 	create1->getNextComponents()->insert(assign1);
 	assign1->getNextComponents()->insert(seize1);
 	seize1->getNextComponents()->insert(delay1);
@@ -209,6 +212,9 @@ void testStudentSoftwareDevelopments() {
 int main(int argc, char** argv) {
 	// uncomment bellow to execute a simulation
 	buildSimulationSystem();
+	
+	//command shell
+	//build_command_shell();
 	
 	// uncomment bellow to test Software Development (DS) implementations
 	//testStudentSoftwareDevelopments();

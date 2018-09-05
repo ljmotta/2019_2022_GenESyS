@@ -22,7 +22,7 @@
 #include "List.h"
 #include "Fitter_if.h"
 
-/**
+/*!
  * The main class of the Genesys KERNEL simulation. It gives access to simulation models and tools.
  */
 class Simulator {
@@ -32,6 +32,9 @@ public:
 	Simulator(const Simulator& orig);
 	virtual ~Simulator();
 public: // get & set
+	/*!
+	 
+	 */
 	List<Model*>* getModels() const;
 	List<Plugin*>* getPlugins() const;
 public: // only get
@@ -48,9 +51,9 @@ private: // attributes 1:1 objects
 	Fitter_if* _fitter = new Traits<Fitter_if>::Implementation();
 	Sampler_if* _sampler = new Traits<Sampler_if>::Implementation();
 private: // attributes 1:1 native
-	std::string _name = "GenESyS - Generic and Expansible System Simulator [REBORN]";
-	std::string _license = "Academic Mode. In academic mode this software has full functionality and executing training-size simulation models. This software may be duplicated and used for educational purposes only; any commercial application is a violation of the license agreement.";
-	std::string _version = "2018.08.00.5";
+	const std::string _name = "GenESyS - Generic and Expansible System Simulator [REBORN]";
+	const std::string _license = "Academic Mode. In academic mode this software has full functionality and executing training-size simulation models. This software may be duplicated and used for educational purposes only; any commercial application is a violation of the license agreement.";
+	const std::string _version = "2018.2.9";
 };
 
 #endif /* GENESYS_H */

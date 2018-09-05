@@ -14,7 +14,8 @@
 #include "Resource.h"
 #include "AttributeValue.h"
 
-Resource::Resource() : ModelInfrastructure(Util::TypeOf<Resource>()) {
+Resource::Resource(Model* model) : ModelInfrastructure(Util::TypeOf<Resource>()) {
+	model->getInfrastructures(Util::TypeOf<StatisticsCollector>())->insert(this->_cstatTimeSeized);
 }
 
 Resource::Resource(const Resource& orig) : ModelInfrastructure(orig) {
@@ -103,3 +104,16 @@ unsigned int Resource::getNumberOut() const {
 	return _numberOut;
 }
 
+
+void Resource::_loadInstance(std::list<std::string> words) {
+
+}
+
+std::list<std::string>* Resource::_saveInstance() {
+	std::list<std::string>* words = new std::list<std::string>();
+	return words;
+}
+
+bool Resource::_verifySymbols(std::string* errorMessage) {
+
+}

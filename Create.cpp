@@ -54,13 +54,13 @@ void Create::_execute(Entity* entity) {
 	_model->sendEntityToComponent(entity, this->getNextComponents()->first(), 0.0);
 }
 
-void Create::_readComponent(std::list<std::string> words) {
+void Create::_loadInstance(std::list<std::string> words) {
 
 }
 
-std::list<std::string>* Create::_writeComponent() {
+std::list<std::string>* Create::_saveInstance() {
 	std::list<std::string>* words = new std::list<std::string>();
-	words->insert(words->end(), typeid(Create).name());
+	words->insert(words->end(), Util::TypeOf<Create>());
 	words->insert(words->end(), std::to_string(this->_collectStatistics));
 	words->insert(words->end(), std::to_string(this->_entitiesPerCreation));
 	words->insert(words->end(), (this->_entityType));

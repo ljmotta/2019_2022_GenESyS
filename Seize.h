@@ -20,6 +20,9 @@
 #include "Resource.h"
 #include "Queue.h"
 
+/*!
+ * Seize tries to allocate a certain amount of a resource
+ */
 class Seize : public ModelComponent {
 
 public:
@@ -50,8 +53,8 @@ public: // get & set
     std::string getQueueName() const;
 protected:
 	virtual void _execute(Entity* entity);
-	virtual void _readComponent(std::list<std::string> words);
-	virtual std::list<std::string>* _writeComponent();
+	virtual void _loadInstance(std::list<std::string> words);
+	virtual std::list<std::string>* _saveInstance();
 	virtual bool _verifySymbols(std::string* errorMessage);
 private:
 	unsigned int _allocationType = 0; // uint ? enum?

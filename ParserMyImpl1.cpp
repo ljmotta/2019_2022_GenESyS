@@ -23,7 +23,20 @@ ParserMyImpl1::ParserMyImpl1(const ParserMyImpl1& orig) {
 ParserMyImpl1::~ParserMyImpl1() {
 }
 
-double ParserMyImpl1::parse(const std::string expression) {  // may throw exception
+double ParserMyImpl1::parse(const std::string expression) { // may throw exception
 	double result = std::atof(expression.c_str()); // change by a real parser
 	return result;
+}
+
+double ParserMyImpl1::parse(const std::string expression, bool* success, std::string* errorMessage) {
+	try {
+		double result = this->parse(expression);
+		*errorMessage = "";
+		*success = true;
+		return result;
+	} catch (...) {
+		*errorMessage = "Error parsing...";
+		*success = false;
+		return 0.0;
+	}
 }

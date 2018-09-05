@@ -19,6 +19,9 @@
 #include <limits>
 //#include <numeric_limits>
 
+/*!
+ * A source component implements the base for inserting entities into the model when its simulation is initialized. During the initialization, the new and empty future events list is populated by events of creating entities and sending them to the source components existing in the model
+ */
 class SourceModelComponent : public ModelComponent {
 public:
 	SourceModelComponent(Model* model);

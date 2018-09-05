@@ -17,6 +17,7 @@
 #include "ModelInfrastructure.h"
 #include "LinkedBy.h"
 #include "StatisticsCollector.h"
+#include "Model.h"
 
 class Resource : public ModelInfrastructure, public LinkedBy {
 public:
@@ -34,7 +35,7 @@ public:
 	};
 
 public:
-	Resource();
+	Resource(Model* model);
 	Resource(const Resource& orig);
 	virtual ~Resource();
 public:
@@ -56,6 +57,13 @@ public: // g&s
 public: // gets
 	unsigned int getNumberBusy() const;
 	unsigned int getNumberOut() const;
+	
+	
+protected: 
+	virtual void _loadInstance(std::list<std::string> words);
+	virtual std::list<std::string>* _saveInstance();
+	virtual bool _verifySymbols(std::string* errorMessage);
+	
 private:
 	unsigned int _capacity = 1;
 	double _costBusyHour = 1.0;
@@ -71,7 +79,7 @@ private: // not gets nor sets
 	double _lastTimeSeized = 0.0; // to check
 	double _whenSeized; // same as last? check
 private:
-	StatisticsCollector* _cstatTimeSeized = new StatisticsCollector();
+	StatisticsCollector* _cstatTimeSeized = new StatisticsCollector("Time Seized");
 	// aCSTATTimeSeizedID:	word;
 	//aFailures:	TStringList;
 	//std::list<Failure*>* _failures;

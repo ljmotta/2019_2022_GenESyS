@@ -32,8 +32,14 @@
       <itemPath>Traits.h</itemPath>
     </logicalFolder>
     <logicalFolder name="f4" displayName="Infrastructure" projectFiles="true">
-      <itemPath>AttributeValue.cpp</itemPath>
-      <itemPath>AttributeValue.h</itemPath>
+      <logicalFolder name="f1" displayName="Element" projectFiles="true">
+        <itemPath>AttributeValue.cpp</itemPath>
+        <itemPath>AttributeValue.h</itemPath>
+        <itemPath>Waiting.cpp</itemPath>
+        <itemPath>Waiting.h</itemPath>
+        <itemPath>WaitingResource.cpp</itemPath>
+        <itemPath>WaitingResource.h</itemPath>
+      </logicalFolder>
       <itemPath>Entity.cpp</itemPath>
       <itemPath>Entity.h</itemPath>
       <itemPath>EntityType.cpp</itemPath>
@@ -44,10 +50,8 @@
       <itemPath>Resource.h</itemPath>
       <itemPath>StatisticsCollector.cpp</itemPath>
       <itemPath>StatisticsCollector.h</itemPath>
-      <itemPath>Waiting.cpp</itemPath>
-      <itemPath>Waiting.h</itemPath>
-      <itemPath>WaitingResource.cpp</itemPath>
-      <itemPath>WaitingResource.h</itemPath>
+      <itemPath>Variable.cpp</itemPath>
+      <itemPath>Variable.h</itemPath>
     </logicalFolder>
     <logicalFolder name="f1" displayName="Kernel" projectFiles="true">
       <itemPath>Event.cpp</itemPath>
@@ -301,6 +305,10 @@
       </item>
       <item path="Util.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Variable.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Variable.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Waiting.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Waiting.h" ex="false" tool="3" flavor2="0">
@@ -491,6 +499,10 @@
       <item path="Util.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Util.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Variable.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Variable.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Waiting.cpp" ex="false" tool="1" flavor2="0">
       </item>

@@ -33,15 +33,15 @@ Model::Model(Simulator* simulator) {
 	// 1:n attributes
 	_components = new List<ModelComponent*>();
 	_components->setSortFunc([](const ModelComponent* a, const ModelComponent * b) {
-		return a->getId() < b->getId();
+		return a->getId() < b->getId(); /// Components are sorted by ID
 	});
-	_events = new List<Event*>();
+	_events = new List<Event*>(); /// The future events list must be chronologicaly sorted
 	//_events->setSortFunc(&EventCompare); // It works too
 	_events->setSortFunc([](const Event* a, const Event * b) {
-		return a->getTime() < b->getTime();
+		return a->getTime() < b->getTime(); /// Events are sorted chronologically
 	});
 
-	_infrastructures = new std::map<std::string, List<ModelInfrastructure*>*>();
+	_infrastructures = new std::map<std::string, List<ModelInfrastructure*>*>(); /// Infrastructures are organized as a map from a string (key), the type of an infrastructure, and a list of infrastructures of that type 
 	/*
 	_infrastructures = new List<ModelInfrastructure*>();
 	_infrastructures->setSortFunc([](const ModelInfrastructure* a, const ModelInfrastructure * b) {
@@ -507,6 +507,14 @@ ModelInfrastructure* Model::getInfrastructure(std::string infraTypename, Util::i
 		}
 	}
 	return nullptr;
+}
+
+std::list<std::string>* Model::getInfrastructureTypenames() const {
+	std::list<std::string>* keys = new std::list<std::string>();
+	for (std::map<std::string, List<ModelInfrastructure*>*>::iterator it= _infrastructures->begin(); it!=_infrastructures->end(); it++) {
+		keys->insert(keys->end(), (*it).first);
+	}
+	return keys;
 }
 
 ModelInfrastructure* Model::getInfrastructure(std::string infraTypename, std::string name) {

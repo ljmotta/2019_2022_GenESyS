@@ -43,11 +43,11 @@ void Dispose::_execute(Entity* entity) {
 
 
 
-void Dispose::_readComponent(std::list<std::string> words) {
+void Dispose::_loadInstance(std::list<std::string> words) {
 
 }
 
-std::list<std::string>* Dispose::_writeComponent() {
+std::list<std::string>* Dispose::_saveInstance() {
 	std::list<std::string>* words = new std::list<std::string>();
 	return words;
 

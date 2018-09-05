@@ -13,6 +13,8 @@
 
 #include <typeinfo>
 #include "ModelInfrastructure.h"
+#include <iostream>   
+//TEMP
 
 ModelInfrastructure::ModelInfrastructure(std::string thistypename) {
 	_id = Util::_GenerateNewIdOfType(thistypename);
@@ -41,3 +43,14 @@ std::string ModelInfrastructure::getName() const {
 	return _name;
 }
 
+std::list<std::string>* ModelInfrastructure::SaveInstance(ModelInfrastructure* infrastructure) {
+	//infrastructure->_model->trace(Util::TraceLevel::TL_blockArrival, "Writing infrastructure \"" + infrastructure->_name + "\""); //std::to_string(component->_id));
+	std::cout << "Wrinting infra " << infrastructure->_name << std::endl;
+	std::list<std::string>* words;// = new std::list<std::string>();
+	try {
+		words = infrastructure->_saveInstance();
+	} catch (const std::exception& e) {
+		//infrastructure->_model->traceError(e, "Error saving infra " + infrastructure->show());
+	}
+	return words;
+}

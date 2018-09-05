@@ -15,26 +15,26 @@
 #include "CollectorMyImpl1.h" /////
 //#include "Traits.h"
 
-EntityType::EntityType(): ModelInfrastructure(typeid(EntityType).name()) {
-	//Collector_if _coll = Traits<Collector_if>::Collector_Impl(); // uses the Collector implementation defined in Traits
-	
-	//Collector_if* _cstatWaitingTime = new Collector(new Traits<Collector_if>::Collector());
-	//Collector_if* _cstatTransferTime = new Traits<Collector_if>::Implementation();
-	//Collector_if* _cstatOtherTime;
-	//Collector_if* _cstatVATime;
-	//Collector_if* _cstatNVATime;
-	//Collector_if* _cstatTimeInSystem;
+EntityType::EntityType(Model* model) : ModelInfrastructure(typeid (EntityType).name()) {
+	// add cstats as infrastructures
+	List<ModelInfrastructure*>* infras = model->getInfrastructures(Util::TypeOf<StatisticsCollector>());
+	infras->insert(this->_cstatNVATime);
+	infras->insert(this->_cstatOtherTime);
+	infras->insert(this->_cstatTimeInSystem);
+	infras->insert(this->_cstatTransferTime);
+	infras->insert(this->_cstatVATime);
+	infras->insert(this->_cstatWaitingTime);
 }
 
-EntityType::EntityType(const EntityType& orig):ModelInfrastructure(orig) {
+EntityType::EntityType(const EntityType& orig) : ModelInfrastructure(orig) {
 }
 
 EntityType::~EntityType() {
 }
 
 std::string EntityType::show() {
-	return ModelInfrastructure::show()+
-			",initialPicture="+this->_initialPicture; // add more...
+	return ModelInfrastructure::show() +
+			",initialPicture=" + this->_initialPicture; // add more...
 }
 
 void EntityType::setInitialWaitingCost(double _initialWaitingCost) {
@@ -77,27 +77,41 @@ std::string EntityType::getInitialPicture() const {
 	return _initialPicture;
 }
 
-Collector_if* EntityType::getCstatTimeInSystem() const {
+StatisticsCollector* EntityType::getCstatTimeInSystem() const {
 	return _cstatTimeInSystem;
 }
 
-Collector_if* EntityType::getCstatNVATime() const {
+StatisticsCollector* EntityType::getCstatNVATime() const {
 	return _cstatNVATime;
 }
 
-Collector_if* EntityType::getCstatVATime() const {
+StatisticsCollector* EntityType::getCstatVATime() const {
 	return _cstatVATime;
 }
 
-Collector_if* EntityType::getCstatOtherTime() const {
+StatisticsCollector* EntityType::getCstatOtherTime() const {
 	return _cstatOtherTime;
 }
 
-Collector_if* EntityType::getCstatTransferTime() const {
+StatisticsCollector* EntityType::getCstatTransferTime() const {
 	return _cstatTransferTime;
 }
 
-Collector_if* EntityType::getCstatWaitingTime() const {
+StatisticsCollector* EntityType::getCstatWaitingTime() const {
 	return _cstatWaitingTime;
 }
+
+void EntityType::_loadInstance(std::list<std::string> words) {
+
+}
+
+std::list<std::string>* EntityType::_saveInstance() {
+	std::list<std::string>* words = new std::list<std::string>();
+	return words;
+}
+
+bool EntityType::_verifySymbols(std::string* errorMessage) {
+
+}
+
 

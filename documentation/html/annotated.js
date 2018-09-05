@@ -59,6 +59,7 @@ var annotated =
     [ "Traits< Sampler_if >", "struct_traits_3_01_sampler__if_01_4.html", "struct_traits_3_01_sampler__if_01_4" ],
     [ "Traits< Statistics_if >", "struct_traits_3_01_statistics__if_01_4.html", "struct_traits_3_01_statistics__if_01_4" ],
     [ "Util", "class_util.html", "class_util" ],
+    [ "Variable", "class_variable.html", "class_variable" ],
     [ "Waiting", "class_waiting.html", "class_waiting" ],
     [ "WaitingResource", "class_waiting_resource.html", "class_waiting_resource" ]
 ];

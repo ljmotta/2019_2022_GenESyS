@@ -69,6 +69,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/StatisticsCollector.o \
 	${OBJECTDIR}/StatisticsMyImpl1.o \
 	${OBJECTDIR}/Util.o \
+	${OBJECTDIR}/Variable.o \
 	${OBJECTDIR}/Waiting.o \
 	${OBJECTDIR}/WaitingResource.o \
 	${OBJECTDIR}/main.o
@@ -267,6 +268,11 @@ ${OBJECTDIR}/Util.o: Util.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Util.o Util.cpp
+
+${OBJECTDIR}/Variable.o: Variable.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Variable.o Variable.cpp
 
 ${OBJECTDIR}/Waiting.o: Waiting.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

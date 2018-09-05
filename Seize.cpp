@@ -16,13 +16,15 @@
 
 Seize::Seize(Model* model) : ModelComponent(model) {
 	_name = "Seize " + std::to_string(Util::GenerateNewIdOfType<Seize>());
-	_resource = (Resource*) _model->getInfrastructure(Util::TypeOf<Resource>(), "Resource 1");
-	if (_resource == nullptr) {
-		_resource = new Resource();
-		_resource->setName("Resource 1");
-		_model->getInfrastructures(Util::TypeOf<Resource>())->insert(_resource);
+	// look for a resource with a default new name
+	std::string defaultResourceName = "Resource " + std::to_string(Util::GenerateNewIdOfType<Resource>());
+	_resource = (Resource*) _model->getInfrastructure(Util::TypeOf<Resource>(), defaultResourceName);
+	if (_resource == nullptr) { // it does not exist. Simply creates a new resource infra
+		_resource = new Resource(_model);
+		_resource->setName(defaultResourceName);
+		_model->getInfrastructures(Util::TypeOf<Resource>())->insert(_resource); // inserts the new resource as infrastructure
 	}
-	std::string queueName = _resource->getName() + "_Queue"; // _name + "_Queue";
+	std::string queueName = _resource->getName() + "_Queue"; // resourceName + "_Queue";
 	_queue = (Queue*) _model->getInfrastructure(Util::TypeOf<Queue>(), queueName);
 	if (_queue == nullptr) {
 		_queue = new Queue();
@@ -122,22 +124,22 @@ void Seize::setQueueName(std::string _queueName) {
 
 void Seize::setResourceName(std::string _resourceName) {
 	if (_resource->getName() != _resourceName) {
-		Resource* resourceNewName = (Resource*) _model->getInfrastructure(Util::TypeOf<Resource>(), _resourceName);
-		if (resourceNewName == nullptr) { // there is no resource with the new name
+		Resource* resourceWithTheNewName = (Resource*) _model->getInfrastructure(Util::TypeOf<Resource>(), _resourceName);
+		if (resourceWithTheNewName == nullptr) { // there is no resource with the new name
 			if (!_resource->isLinked()) { // no one else uses it. Only change the name
 				_resource->setName(_resourceName);
 			} else { // it is linked. Create a new one
-				_resource = new Resource();
+				_resource = new Resource(_model);
 				_resource->setName(_resourceName);
 			}
 		} else { // there is another resource with the same name
 			if (!_resource->isLinked()) { // no one else uses it. It can be removed
-				_model->getInfrastructures(Util::TypeOf<Resource>())->remove(_queue);
+				_model->getInfrastructures(Util::TypeOf<Resource>())->remove(_resource);
 				_resource->~Resource();
 			} else { // there is another one using the resource with old name. Let it there
 				_resource->removeLink();
 			}
-			_resource = resourceNewName;
+			_resource = resourceWithTheNewName;
 			_resource->addLink();
 		}
 	}
@@ -278,11 +280,11 @@ void Seize::_execute(Entity* entity) {
 	}
 }
 
-void Seize::_readComponent(std::list<std::string> words) {
+void Seize::_loadInstance(std::list<std::string> words) {
 
 }
 
-std::list<std::string>* Seize::_writeComponent() {
+std::list<std::string>* Seize::_saveInstance() {
 	std::list<std::string>* words = new std::list<std::string>();
 	return words;
 }
