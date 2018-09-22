@@ -116,10 +116,112 @@ void buildModelWithAllImplementedComponents(Model* model) {
 	release1->getNextComponents()->insert(dispose1);
 }
 
+void buildSimpleCreateForTwoDisposeModel(Model* model) {
+	// traces handle simulation events to output them
+	model->addTraceListener(&traceHandler);
+	model->addTraceReportListener(&traceHandler);
+	model->addTraceSimulationListener(&traceSimulationHandler);
+	// create and insert model components to the model
+
+	Create* create1 = new Create(model);
+	create1->setTimeBetweenCreationsExpression("1.5");
+	create1->setTimeUnit(Util::TimeUnit::TU_minute);
+	Delay* delay1 = new Delay(model);
+	delay1->setDelayExpression("30");
+        Delay* delay2 = new Delay(model);
+	delay2->setDelayExpression("50");
+	Dispose* dispose1 = new Dispose(model);
+        Dispose* dispose2 = new Dispose(model);
+	List<ModelComponent*>* components = model->getComponents();
+	components->insert(create1);
+	components->insert(delay1);
+        components->insert(delay2);
+	components->insert(dispose1);
+        components->insert(dispose2);
+	// connect model components to create a "workflow"
+	// should always start from a SourceModelComponent and end at a SinkModelComponent (it will be checked)
+	create1->getNextComponents()->insert(delay1);
+        create1->getNextComponents()->insert(delay2);
+	delay1->getNextComponents()->insert(dispose1);
+        delay2->getNextComponents()->insert(dispose2);
+}
+
+void buildTwoCreatesForOneDisposeModel(Model* model) {
+	// traces handle simulation events to output them
+	model->addTraceListener(&traceHandler);
+	model->addTraceReportListener(&traceHandler);
+	model->addTraceSimulationListener(&traceSimulationHandler);
+	// create and insert model components to the model
+
+	Create* create1 = new Create(model);
+	create1->setTimeBetweenCreationsExpression("1.5");
+	create1->setTimeUnit(Util::TimeUnit::TU_minute);
+        Create* create2 = new Create(model);
+	create2->setTimeBetweenCreationsExpression("3.5");
+	create2->setTimeUnit(Util::TimeUnit::TU_minute);
+	Delay* delay1 = new Delay(model);
+	delay1->setDelayExpression("30");
+        Delay* delay2 = new Delay(model);
+	delay2->setDelayExpression("50");
+	Dispose* dispose1 = new Dispose(model);
+	List<ModelComponent*>* components = model->getComponents();
+	components->insert(create1);
+        components->insert(create2);
+	components->insert(delay1);
+        components->insert(delay2);
+	components->insert(dispose1);
+	// connect model components to create a "workflow"
+	// should always start from a SourceModelComponent and end at a SinkModelComponent (it will be checked)
+	create1->getNextComponents()->insert(delay1);
+        create2->getNextComponents()->insert(delay2);
+	delay1->getNextComponents()->insert(dispose1);
+        delay2->getNextComponents()->insert(dispose1);
+}
+
+
+void buildTwoCreatesForDiferentDisposesModel(Model* model) {
+	// traces handle simulation events to output them
+	model->addTraceListener(&traceHandler);
+	model->addTraceReportListener(&traceHandler);
+	model->addTraceSimulationListener(&traceSimulationHandler);
+	// create and insert model components to the model
+
+	Create* create1 = new Create(model);
+	create1->setTimeBetweenCreationsExpression("1.5");
+	create1->setTimeUnit(Util::TimeUnit::TU_minute);
+        Create* create2 = new Create(model);
+	create2->setTimeBetweenCreationsExpression("3.5");
+	create2->setTimeUnit(Util::TimeUnit::TU_minute);
+	Delay* delay1 = new Delay(model);
+	delay1->setDelayExpression("30");
+        Delay* delay2 = new Delay(model);
+	delay2->setDelayExpression("50");
+	Dispose* dispose1 = new Dispose(model);
+        Dispose* dispose2 = new Dispose(model);
+	List<ModelComponent*>* components = model->getComponents();
+	components->insert(create1);
+        components->insert(create2);
+	components->insert(delay1);
+        components->insert(delay2);
+	components->insert(dispose1);
+        components->insert(dispose2);
+	// connect model components to create a "workflow"
+	// should always start from a SourceModelComponent and end at a SinkModelComponent (it will be checked)
+	create1->getNextComponents()->insert(delay1);
+	delay1->getNextComponents()->insert(dispose1);
+        
+        create2->getNextComponents()->insert(delay2);
+        delay2->getNextComponents()->insert(dispose2);
+}
+
+
 void buildModel(Model* model) {
 	// change next command to build different models
-	//buildSimpleCreateDelayDisposeModel(model);
-	buildModelWithAllImplementedComponents(model);
+	// buildSimpleCreateDelayDisposeModel(model);
+	// buildModelWithAllImplementedComponents(model);
+        //buildSimpleCreateForTwoDisposeModel(model);
+        // buildTwoCreatesForOneDisposeModel(model);
+        buildTwoCreatesForDiferentDisposesModel(model);
 }
 
 void buildSimulationSystem() {

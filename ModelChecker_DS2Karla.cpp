@@ -44,13 +44,15 @@ bool ModelChecker_DS2Karla::checkConnected() {
     /*From every Create component, it will be verified a path to a Dispose Component.*/
     for (std::list<ModelComponent*>::iterator it= components->getList()->begin(); it!=components->getList()->end(); it++) {
         if(dynamic_cast<SourceModelComponent*>(*it)){
-            (*it)->setCheckedConnection(checkConnectionToDispose((*it)->getNextComponents()));
+            //
+            checkConnectionToDispose((*it)->getNextComponents());
+            (*it)->setCheckedConnection((*it)->getNextComponents()->getList()->front()->getCheckedConnection());
         }
     }
     
     /*It will check if all the components were visited and respect the rule*/
     for (std::list<ModelComponent*>::iterator it= components->getList()->begin(); it!=components->getList()->end(); it++) {
-        printf("!!CheckComponent = %s\n", (*it)->getCheckedConnection() ? "true" : "false");
+        //printf("!!CheckComponent = %s\n", (*it)->getCheckedConnection() ? "true" : "false");
         if(!(*it)->getCheckedConnection()){
             return false;
         }
@@ -59,19 +61,20 @@ bool ModelChecker_DS2Karla::checkConnected() {
 }
 
 /*If the path ends up with dispose returns true, if don't returns false*/
-bool ModelChecker_DS2Karla::checkConnectionToDispose(List<ModelComponent*>* components){
+void ModelChecker_DS2Karla::checkConnectionToDispose(List<ModelComponent*>* components){
         
     for (std::list<ModelComponent*>::iterator next = components->getList()->begin(); next!=components->getList()->end(); next++) {
         if(!(*next)->getNextComponents()->empty()){
-            (*next)->setCheckedConnection(checkConnectionToDispose((*next)->getNextComponents()));
-            return (*next)->getCheckedConnection();
+            checkConnectionToDispose((*next)->getNextComponents());
+            (*next)->setCheckedConnection((*next)->getNextComponents()->getList()->front()->getCheckedConnection());
+            //return (*next)->getCheckedConnection();
         }
         else if(dynamic_cast<SinkModelComponent*>(*next) || (*next)->getCheckedConnection()){
             (*next)->setCheckedConnection(true);
-            return true;
+            //return true;
         }
     }
-    return false;
+    //return false;
 }
 
 bool ModelChecker_DS2Karla::checkSymbols() {

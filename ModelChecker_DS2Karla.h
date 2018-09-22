@@ -32,7 +32,7 @@ public:
 	bool verifySymbol(std::string componentName, std::string expressionName, std::string expression, std::string expressionResult, bool mandatory);
 private:
 	Model* _model = nullptr;
-        bool checkConnectionToDispose(List<ModelComponent*>* components);
+        void checkConnectionToDispose(List<ModelComponent*>* components);
 };
 
 #endif /* MODELCHECKER_DS2KARLA_H */
