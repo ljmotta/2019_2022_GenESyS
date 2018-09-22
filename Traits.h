@@ -37,6 +37,7 @@
 #include "HypothesisTesterMyImpl1.h"
 #include "ModelPersistenceMyImpl1.h"
 #include "StatisticsMyImpl1.h"
+#include "ModelChecker_DS2Karla.h"
 
 template <typename T>
 struct Traits {
@@ -66,7 +67,7 @@ template <> struct Traits<Collector_if> {
 };
 
 template <> struct Traits<ModelChecker_if> {
-	typedef ModelCheckerMyImpl1 Implementation;
+	typedef ModelChecker_DS2Karla Implementation;
 };
 
 template <> struct Traits<Parser_if> {
