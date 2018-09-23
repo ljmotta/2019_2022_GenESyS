@@ -13,9 +13,11 @@
 
 #include "Assign.h"
 #include "Model.h" // to avoid compile error: invalid use of incomplete type ‘class Model’
+#include <iostream>
 
 Assign::Assign(Model* model) : ModelComponent(model) {
 	_name = "Assign " + std::to_string(Util::GenerateNewIdOfType<Assign>());
+        _model = model;
 }
 
 Assign::Assign(const Assign& orig) : ModelComponent(orig) {
@@ -59,5 +61,15 @@ std::list<std::string>* Assign::_saveInstance() {
 }
 
 bool Assign::_verifySymbols(std::string* errorMessage) {
-	return true;
+    try
+    {
+        double temp;
+        temp = this->_model->parseExpression(getExpression());
+        temp = this->_model->parseExpression(getDestination());
+        return true;
+    }
+    catch (int e)
+    {
+        std::cout << (*errorMessage) << e << std::endl;
+    }
 }

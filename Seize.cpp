@@ -290,5 +290,39 @@ std::list<std::string>* Seize::_saveInstance() {
 }
 
 bool Seize::_verifySymbols(std::string* errorMessage) {
-	return true;
+    
+    try
+    {
+        double temp;
+        temp = this->_model->parseExpression(getSaveAttribute());
+        temp = this->_model->parseExpression(getQuantity());
+        return true;
+    }
+    catch (int e)
+    {
+        std::cout << (*errorMessage) << e << std::endl;
+    }
+    
+    /*Checking if all the resources were declared*/
+    //List<ModelInfrastructure*>* resources = _model->getInfrastructures(Util::TypeOf<Resource>());
+    
+    //Resource* resource = (Resource*) _model->getInfrastructure(Util::TypeOf<Resource>(), _resource->getName());
+    /*if (resource == nullptr) { // there is no resource with  name
+            if (!_resource->isLinked()) { // no one else uses it. Only change the name
+                    _resource->setName(_resourceName);
+            } else { // it is linked. Create a new one
+                    _resource = new Resource(_model);
+                    _resource->setName(_resourceName);
+            }
+    }
+    return true;*/
+    /* if(resource->find(_resource)){
+        return true;
+    }*/
+    
+    //_resource->getName()
+    /*for (std::list<ModelInfrastructure*>::iterator it= resources->getList()->begin(); it!=resources->getList()->end(); it++) {
+         
+    }*/
+    return true;
 }
