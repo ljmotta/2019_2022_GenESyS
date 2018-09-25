@@ -130,17 +130,22 @@ std::list<std::string>* Release::_saveInstance() {
 }
 
 bool Release::_verifySymbols(std::string* errorMessage) {
-    try
+    bool result;
+    this->_model->parseExpression(getQuantity(), &result, errorMessage);
+    return result;
+    /*    try
     {
         double temp;
         temp = this->_model->parseExpression(getQuantity());
-        temp = this->_model->parseExpression(getSaveAttribute());
+        //temp = this->_model->parseExpression(getSaveAttribute());
         return true;
     }
     catch (int e)
     {
-        std::cout << (*errorMessage) << e << std::endl;
+        *errorMessage = e;
+        return false;
     }
+ */ 
 }
 
 void Release::setQueueName(std::string _queueName) {
