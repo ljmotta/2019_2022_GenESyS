@@ -23,7 +23,34 @@ Variable::~Variable() {
 }
 
 std::string Variable::show() {
-	return ModelInfrastructure::show();
+	return ModelInfrastructure::show(); // @TODO: include values
+}
+
+double Variable::getValue() {
+	return getValue("");
+}
+
+double Variable::getValue(std::string index) {
+	std::map<std::string, double>::iterator it = _values->find(index);
+	if (it == _values->end()) {
+		return 0.0; // index does not exist. Assuming sparse matrix, it's zero. 
+	} else {
+		return it->second;
+	}
+}
+
+void Variable::setValue(double value) {
+	setValue("", value);
+}
+
+void Variable::setValue(std::string index, double value) {
+	std::map<std::string, double>::iterator it = _values->find(index);
+	if (it == _values->end()) {
+		// index does not exist. Create it.
+		_values->insert(std::pair<std::string, double>(index, value));
+	} else {
+		it->second = value;
+	}
 }
 
 void Variable::_loadInstance(std::list<std::string> words) {

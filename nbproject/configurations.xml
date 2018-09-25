@@ -33,13 +33,13 @@
     </logicalFolder>
     <logicalFolder name="f4" displayName="Infrastructure" projectFiles="true">
       <logicalFolder name="f1" displayName="Element" projectFiles="true">
-        <itemPath>AttributeValue.cpp</itemPath>
-        <itemPath>AttributeValue.h</itemPath>
         <itemPath>Waiting.cpp</itemPath>
         <itemPath>Waiting.h</itemPath>
         <itemPath>WaitingResource.cpp</itemPath>
         <itemPath>WaitingResource.h</itemPath>
       </logicalFolder>
+      <itemPath>Attribute.cpp</itemPath>
+      <itemPath>Attribute.h</itemPath>
       <itemPath>Entity.cpp</itemPath>
       <itemPath>Entity.h</itemPath>
       <itemPath>EntityType.cpp</itemPath>
@@ -149,9 +149,9 @@
       </item>
       <item path="Assign.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="AttributeValue.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Attribute.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="AttributeValue.h" ex="false" tool="3" flavor2="0">
+      <item path="Attribute.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="CollectorDatafileMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -344,9 +344,9 @@
       </item>
       <item path="Assign.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="AttributeValue.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Attribute.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="AttributeValue.h" ex="false" tool="3" flavor2="0">
+      <item path="Attribute.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="CollectorDatafileMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>

@@ -36,7 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/Assign.o \
-	${OBJECTDIR}/AttributeValue.o \
+	${OBJECTDIR}/Attribute.o \
 	${OBJECTDIR}/CollectorDatafileMyImpl1.o \
 	${OBJECTDIR}/CollectorMyImpl1.o \
 	${OBJECTDIR}/Create.o \
@@ -104,10 +104,10 @@ ${OBJECTDIR}/Assign.o: Assign.cpp nbproject/Makefile-${CND_CONF}.mk
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Assign.o Assign.cpp
 
-${OBJECTDIR}/AttributeValue.o: AttributeValue.cpp nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/Attribute.o: Attribute.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/AttributeValue.o AttributeValue.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Attribute.o Attribute.cpp
 
 ${OBJECTDIR}/CollectorDatafileMyImpl1.o: CollectorDatafileMyImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

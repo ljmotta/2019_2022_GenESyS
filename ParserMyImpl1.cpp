@@ -28,6 +28,11 @@ double ParserMyImpl1::parse(const std::string expression) { // may throw excepti
 	return result;
 }
 
+std::string* ParserMyImpl1::getErrorMessage() {
+	std::string* errorMsg = new std::string();	
+	return errorMsg; /* @TODO */
+}
+
 double ParserMyImpl1::parse(const std::string expression, bool* success, std::string* errorMessage) {
 	try {
 		double result = this->parse(expression);

@@ -29,21 +29,10 @@ std::string Assign::show() {
 			"";
 }
 
-void Assign::setExpression(std::string _expression) {
-	this->_expression = _expression;
+List<Assign::Assignment*>* Assign::getAssignments() const {
+	return _assignments;
 }
 
-std::string Assign::getExpression() const {
-	return _expression;
-}
-
-void Assign::setDestination(std::string _destination) {
-	this->_destination = _destination;
-}
-
-std::string Assign::getDestination() const {
-	return _destination;
-}
 
 void Assign::_execute(Entity* entity) {
 	/* TODO +: implement */

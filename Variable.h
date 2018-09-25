@@ -16,6 +16,7 @@
 
 #include "ModelInfrastructure.h"
 
+
 class Variable : public ModelInfrastructure {
 public:
 	Variable();
@@ -24,6 +25,10 @@ public:
 public:
 	virtual std::string show();
 public:
+	double getValue();
+	double getValue(std::string index);
+	void setValue(double value);
+	void setValue(std::string index, double value);
 	
 protected: 
 	virtual void _loadInstance(std::list<std::string> words);
@@ -31,7 +36,9 @@ protected:
 	virtual bool _verifySymbols(std::string* errorMessage);
 
 private:
-
+	unsigned int _numRows = 1;
+	unsigned int _numCols = 1;
+	std::map<std::string, double>* _values = new std::map<std::string, double>();
 };
 
 #endif /* VARIABLE_H */
