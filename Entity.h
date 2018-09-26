@@ -19,7 +19,7 @@
 
 #include "Util.h"
 #include "ModelInfrastructure.h"
-#include "AttributeValue.h"
+#include "List.h"
 
 class Entity: public ModelInfrastructure {
 public:
@@ -30,9 +30,11 @@ public:
 	virtual std::string show();
 
 public: // g & s
-    std::map<std::string, AttributeValue*>* getAttributeValues() const;
     void setEntityTypeName(std::string _entityTypeName); // indirect access to EntityType
     std::string getEntityTypeName() const;
+public:	
+	double getAttributeValue(std::string attributeName);
+	void setAttributeValue(std::string attributeName, double value);
 	
 protected: 
 	virtual void _loadInstance(std::list<std::string> words);
@@ -43,7 +45,7 @@ private:
 	//EntityType* _entityType;
 	std::string _entityTypeName = "Entity Type 1";
 private: // 1::n
-	std::map<std::string, AttributeValue*>* _attributeValues;
+	List<double>* _attributeValues = new List<double>();
 };
 
 #endif /* ENTITY_H */

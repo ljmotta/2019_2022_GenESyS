@@ -15,8 +15,47 @@
 #define ASSIGN_H
 
 #include "ModelComponent.h"
+#include "Model.h"
 
 class Assign : public ModelComponent {
+public:
+
+	enum DestinationType {
+		Attribute, Variable
+	};
+
+	class Assignment {
+	public:
+		Assignment(DestinationType destinationType, std::string destination, std::string expression) {
+			this->_destinationType = destinationType;
+			this->_destination = destination;
+			this->_expression = expression;
+		};
+	public:
+		void setDestination(std::string _destination) {
+			this->_destination = _destination;
+		}
+		std::string getDestination() const {
+			return _destination;
+		}
+		void setDestinationType(DestinationType _destinationType) {
+			this->_destinationType = _destinationType;
+		}
+		DestinationType getDestinationType() const {
+			return _destinationType;
+		}
+		void setExpression(std::string _expression) {
+			this->_expression = _expression;
+		}
+		std::string getExpression() const {
+			return _expression;
+		}
+	private:
+		DestinationType _destinationType = Attribute;
+		std::string _destination = "";
+		std::string _expression = "";
+
+	};
 public:
 	Assign(Model* model);
 	Assign(const Assign& orig);
@@ -24,10 +63,7 @@ public:
 public:
 	virtual std::string show();
 public:
-	void setExpression(std::string _expression);
-	std::string getExpression() const;
-	void setDestination(std::string _destination);
-	std::string getDestination() const;
+	List<Assignment*>* getAssignments() const;
 
 protected:
 	virtual void _execute(Entity* entity);
@@ -36,9 +72,7 @@ protected:
 	virtual bool _verifySymbols(std::string* errorMessage);
 private:
 private:
-	std::string _destination = "";
-	std::string _expression = "";
-
+	List<Assignment*>* _assignments = new List<Assignment*>();
 };
 
 #endif /* ASSIGN_H */

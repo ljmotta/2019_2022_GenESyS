@@ -71,9 +71,15 @@ bool Delay::_verifySymbols(std::string* errorMessage) {
         double temp;
         temp = this->_model->parseExpression(getDelayExpression());
         return true;
+        
+        /*NOT ABLE TO DO: 
+         * bool result;
+         * this->_model->parseExpression(getDelayExpression(), &result, errorMessage);
+         * return result;*/
     }
     catch (int e)
     {
-        std::cout << (*errorMessage) << e << std::endl;
+        *errorMessage = e;
+        return false;
     }
 }

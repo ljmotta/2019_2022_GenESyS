@@ -84,8 +84,10 @@ void buildModelWithAllImplementedComponents(Model* model) {
 	create1->setTimeUnit(Util::TimeUnit::TU_minute);
 	
 	Assign* assign1 = new Assign(model);
-	assign1->setDestination("Variable 1");
-	assign1->setExpression("Norm(20,5) + Unif(-5,5)");
+	Assign::Assignment* var1Assignment = new Assign::Assignment(Assign::DestinationType::Variable, "Variable 1", "Norm(20,5) + Unif(-5,5)");
+	assign1->getAssignments()->insert(var1Assignment); 
+	Assign::Assignment* attrib1Assignment = new Assign::Assignment(Assign::DestinationType::Attribute, "Attribute 1", "Variable 1");
+	assign1->getAssignments()->insert(attrib1Assignment); 
 
 	Seize* seize1 = new Seize(model);
 	seize1->setResourceName("Máquina 1");
@@ -178,7 +180,6 @@ void buildTwoCreatesForOneDisposeModel(Model* model) {
         delay2->getNextComponents()->insert(dispose1);
 }
 
-
 void buildTwoCreatesForDiferentDisposesModel(Model* model) {
 	// traces handle simulation events to output them
 	model->addTraceListener(&traceHandler);
@@ -214,14 +215,13 @@ void buildTwoCreatesForDiferentDisposesModel(Model* model) {
         delay2->getNextComponents()->insert(dispose2);
 }
 
-
 void buildModel(Model* model) {
 	// change next command to build different models
-	// buildSimpleCreateDelayDisposeModel(model);
-	// buildModelWithAllImplementedComponents(model);
+	buildSimpleCreateDelayDisposeModel(model);
+	//buildModelWithAllImplementedComponents(model); OCORRE ERRO! Pode ser por ser o único a chamar Assign e Assign está com problema no VerifySymbol()
         //buildSimpleCreateForTwoDisposeModel(model);
-        // buildTwoCreatesForOneDisposeModel(model);
-        buildTwoCreatesForDiferentDisposesModel(model);
+        //buildTwoCreatesForOneDisposeModel(model);
+        //buildTwoCreatesForDiferentDisposesModel(model);
 }
 
 void buildSimulationSystem() {

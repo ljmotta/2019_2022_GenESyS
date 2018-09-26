@@ -12,7 +12,6 @@
  */
 
 #include "Resource.h"
-#include "AttributeValue.h"
 
 Resource::Resource(Model* model) : ModelInfrastructure(Util::TypeOf<Resource>()) {
 	model->getInfrastructures(Util::TypeOf<StatisticsCollector>())->insert(this->_cstatTimeSeized);

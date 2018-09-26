@@ -13,10 +13,11 @@
 
 #include "Create.h"
 #include "Model.h"
-#include <typeinfo>
+#include "EntityType.h"
+//#include <typeinfo>
 
 Create::Create(Model* model) : SourceModelComponent(model) {
-	_name = "Create " + std::to_string(Util::GenerateNewIdOfType<Create>()); 
+	_name = "Create " + std::to_string(Util::GenerateNewIdOfType<Create>());
 }
 
 Create::Create(const Create& orig) : SourceModelComponent(orig) {
@@ -37,7 +38,7 @@ void Create::_execute(Entity* entity) {
 	}
 	 */
 	double tnow = _model->getSimulatedTime();
-	entity->getAttributeValues()->find("Entity.ArrivalTime")->second->setValue(tnow);
+	entity->setAttributeValue("Entity.ArrivalTime", tnow); // ->find("Entity.ArrivalTime")->second->setValue(tnow);
 	double timeBetweenCreations, timeScale, newArrivalTime;
 	for (unsigned int i = 0; i<this->_entitiesPerCreation; i++) {
 		this->_entitiesCreatedSoFar++;
@@ -55,24 +56,59 @@ void Create::_execute(Entity* entity) {
 }
 
 void Create::_loadInstance(std::list<std::string> words) {
-
+	// the first word (CREATE) have to be deleted before. It begins on the second word
+	std::list<std::string>::iterator it = words.begin();
+	this->_entitiesPerCreation = std::stoi((*it++));
+	this->_firstCreation = std::stoi((*it++));
+	this->_timeBetweenCreationsExpression = (*it++);
+	this->_timeBetweenCreationsTimeUnit = std::stoi((*it++));
+	this->_maxCreations = std::stoi((*it++));
+	this->_entityType = (*it++);
+	this->_collectStatistics = std::stoi(*it++);
 }
 
 std::list<std::string>* Create::_saveInstance() {
 	std::list<std::string>* words = new std::list<std::string>();
 	words->insert(words->end(), Util::TypeOf<Create>());
-	words->insert(words->end(), std::to_string(this->_collectStatistics));
 	words->insert(words->end(), std::to_string(this->_entitiesPerCreation));
-	words->insert(words->end(), (this->_entityType));
 	words->insert(words->end(), std::to_string(this->_firstCreation));
-	words->insert(words->end(), std::to_string(this->_maxCreations));
 	words->insert(words->end(), (this->_timeBetweenCreationsExpression));
 	words->insert(words->end(), std::to_string(this->_timeBetweenCreationsTimeUnit));
+	words->insert(words->end(), std::to_string(this->_maxCreations));
+	words->insert(words->end(), (this->_entityType));
+	words->insert(words->end(), std::to_string(this->_collectStatistics));
 	return words;
 }
 
 bool Create::_verifySymbols(std::string* errorMessage) {
 	//Genesys.AuxFunctions.VerifySymbol(thismodule.Name, 'Time Between Creations', thisModule.aTimeBetweenCreations, cEXPRESSION, true);
-	bool res = _model->verifySymbol(this->_name, "Time Between Creations", this->_timeBetweenCreationsExpression, "EXPRESSION", true); // Todo: typeid(Expression)
-	return res;
+	
+        // bool res = _model->verifySymbol(this->_name, "Time Between Creations", this->_timeBetweenCreationsExpression, "EXPRESSION", true); // Todo: typeid(Expression)
+	
+    try{
+        
+        /*Checking Time Between Creations*/
+        this->_model->parseExpression(this->_timeBetweenCreationsExpression);
+        /*NOT ABLE TO DO: 
+         * bool result;
+         * this->_model->parseExpression(this->_timeBetweenCreationsExpression, &result, errorMessage);
+         * return result;*/
+        
+        /*Checking Entity*/
+        // get the list of all EntityType from model infrastrucure and check if it exists
+	if (_model->getInfrastructure(Util::TypeOf<EntityType>(), this->_entityType) == nullptr) {
+		// the _entityType does not exists yet, so create it
+		EntityType* newEntityType = new EntityType(_model);
+		newEntityType->setName(this->_entityType);
+		// insert the new EntittyType into the infrastructure list
+		_model->getInfrastructures(Util::TypeOf<EntityType>())->insert(newEntityType);
+	}
+	return true;
+    }
+    catch(int e)
+    {
+        *errorMessage = e;
+        return false;
+    }
+
 }

@@ -12,7 +12,7 @@
  */
 
 #include "Assign.h"
-#include "Model.h" // to avoid compile error: invalid use of incomplete type ‘class Model’
+#include "Attribute.h" // to avoid compile error: invalid use of incomplete type ‘class Model’
 #include <iostream>
 
 Assign::Assign(Model* model) : ModelComponent(model) {
@@ -31,21 +31,10 @@ std::string Assign::show() {
 			"";
 }
 
-void Assign::setExpression(std::string _expression) {
-	this->_expression = _expression;
+List<Assign::Assignment*>* Assign::getAssignments() const {
+	return _assignments;
 }
 
-std::string Assign::getExpression() const {
-	return _expression;
-}
-
-void Assign::setDestination(std::string _destination) {
-	this->_destination = _destination;
-}
-
-std::string Assign::getDestination() const {
-	return _destination;
-}
 
 void Assign::_execute(Entity* entity) {
 	/* TODO +: implement */
@@ -63,13 +52,39 @@ std::list<std::string>* Assign::_saveInstance() {
 bool Assign::_verifySymbols(std::string* errorMessage) {
     try
     {
-        double temp;
-        temp = this->_model->parseExpression(getExpression());
-        temp = this->_model->parseExpression(getDestination());
+        for (Assignment* it = this->getAssignments()->first(); it!=this->getAssignments()->last(); it++) {
+            this->_model->parseExpression(it->getExpression());
+            /*NOT ABLE TO DO: 
+             * bool temp;
+            * this->_model->parseExpression(it->getExpression(), &temp, errorMessage);  */
+            
+            
+            /*Checking Destination*/
+            if(it->getDestinationType() == DestinationType::Attribute){
+                
+                //Attribute* attributeBeenChecked = new Attribute();
+                //attributeBeenChecked = (Attribute*) _model->getInfrastructure(Util::TypeOf<Attribute>(), it->getDestination());
+                /*if ((Attribute*) _model->getInfrastructure(Util::TypeOf<Attribute>(), it->getDestination()) == nullptr) { // there is no Attribute with the  name
+                    Attribute* newAttribute = new Attribute();
+                    newAttribute->setName(it->getDestination());
+                    _model->getInfrastructures(Util::TypeOf<Attribute>())->insert(newAttribute);
+                }*/
+                
+            }else{ //(it->getDestinationType() == DestinationType.Variable)
+                /*if (_model->getInfrastructure(Util::TypeOf<Variable>(), it->getDestination()) == nullptr) { // there is no Variable with the  name
+                    Variable* newVariable = new Variable();
+                    newVariable->setName(it->getDestination());
+                    _model->getInfrastructures(Util::TypeOf<Variable>())->insert(newVariable);
+                }*/
+            }
+            
+        }
+        
         return true;
     }
     catch (int e)
     {
-        std::cout << (*errorMessage) << e << std::endl;
+        *errorMessage = e;
+        return false;
     }
 }

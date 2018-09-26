@@ -27,6 +27,7 @@ public:
 public:
 	double parse(const std::string expression);  // may throw exception
 	double parse(const std::string expression,  bool* success, std::string* errorMessage);
+	std::string* getErrorMessage(); 
 private:
 	Model* _model;
 };

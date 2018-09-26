@@ -16,23 +16,12 @@
 
 Entity::Entity() : ModelInfrastructure(Util::TypeOf<Entity>()) {
 	_name = "Entity " + Util::GenerateNewIdOfType<Entity>();
-	// 1:n
-	_attributeValues = new std::map<std::string, AttributeValue*>();
-	// create default attributes
-	_attributeValues->insert(std::pair<std::string, AttributeValue*>("Entity.ArrivalTime", new AttributeValue()));
-	_attributeValues->insert(std::pair<std::string, AttributeValue*>("Entity.EntityType", new AttributeValue()));
-	_attributeValues->insert(std::pair<std::string, AttributeValue*>("Entity.EntityPicture", new AttributeValue()));
-	// ...
 }
 
 Entity::Entity(const Entity& orig) : ModelInfrastructure(orig) {
 }
 
 Entity::~Entity() {
-}
-
-std::map<std::string, AttributeValue*>* Entity::getAttributeValues() const {
-	return _attributeValues;
 }
 
 void Entity::setEntityTypeName(std::string _entityTypeName) {
@@ -46,6 +35,12 @@ std::string Entity::getEntityTypeName() const {
 std::string Entity::show() {
 	return ModelInfrastructure::show() +
 			",entityTypeName=" + this->_entityTypeName; //+ ",attributeValues="+std::to_string(this->_attributeValues);
+}
+
+double Entity::getAttributeValue(std::string attributeName) {
+}
+
+void Entity::setAttributeValue(std::string attributeName, double value) {
 }
 
 void Entity::_loadInstance(std::list<std::string> words) {
