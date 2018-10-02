@@ -213,13 +213,13 @@ void testStudentSoftwareDevelopments() {
  */
 int main(int argc, char** argv) {
 	// uncomment bellow to execute a simulation
-	buildSimulationSystem();
+	//buildSimulationSystem();
 	
 	//command shell
 	//build_command_shell();
 	
 	// uncomment bellow to test Software Development (DS) implementations
-	//testStudentSoftwareDevelopments();
+	testStudentSoftwareDevelopments();
 	
 	return 0;
 }

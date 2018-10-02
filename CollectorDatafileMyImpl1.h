@@ -25,7 +25,7 @@ public:
 	void clear();
 	void addValue(double value);
 	double getLastValue();
-	unsigned int numElements();
+	unsigned long numElements();
 public:
 	double getValue(unsigned int num);
 	std::string getDataFilename();

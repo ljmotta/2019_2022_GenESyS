@@ -24,7 +24,7 @@ public:
 	virtual void clear() = 0;
 	virtual void addValue(double value) = 0;
 	virtual double getLastValue() = 0;
-	virtual unsigned int numElements() = 0;
+	virtual unsigned long numElements() = 0;
 };
 
 #endif /* COLLECTOR_IF_H */

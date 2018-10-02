@@ -31,7 +31,7 @@ void CollectorDatafileMyImpl1::addValue(double value) {
 double CollectorDatafileMyImpl1::getLastValue() {
 }
 
-unsigned int CollectorDatafileMyImpl1::numElements() {
+unsigned long CollectorDatafileMyImpl1::numElements() {
 }
 
 double CollectorDatafileMyImpl1::getValue(unsigned int num) {
