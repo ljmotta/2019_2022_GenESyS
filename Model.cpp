@@ -12,12 +12,14 @@
  */
 
 #include <typeinfo>
+#include <iostream>
+#include <algorithm>
+
 #include "Model.h"
 #include "SourceModelComponent.h"
 #include "Simulator.h"
 #include "ParserMyImpl1.h" // avoid link error
-#include <iostream>
-#include <algorithm>
+#include "StatisticsCollector.h"
 
 bool EventCompare(const Event* a, const Event * b) {
 	return a->getTime() < b->getTime();
@@ -91,6 +93,9 @@ bool Model::_finishReplicationCondition() {
 			|| this->parseExpression(this->_terminatingCondition);
 }
 
+/*!
+ * Checks the model and if ok then initialize the simulation, execute repeatedly each replication and then show simulation statistics
+ */
 void Model::startSimulation() {
 	if (!this->checkModel()) {
 		trace(Util::TraceLevel::TL_errors, "Model check failed");
@@ -143,6 +148,9 @@ void Model::_initSimulation() {
 	/*TODO +-: not implemented*/
 }
 
+/*!
+ Clear the event list, restarts simulated time, initialize event list and statistics
+ */
 void Model::_initReplication(unsigned int currentReplicationNumber) {
 	traceReport(Util::TL_simulation, "-----------------------------------------------------");
 	traceReport(Util::TL_simulation, _simulator->getName());
@@ -175,7 +183,12 @@ void Model::_initReplication(unsigned int currentReplicationNumber) {
 	}
 
 	if (this->_initializeStatisticsBetweenReplications) {
-		/* TODO +: not implemented */
+		StatisticsCollector* cstat;
+		List<ModelInfrastructure*>* list = getInfrastructures(Util::TypeOf<StatisticsCollector>());
+		for (std::list<ModelInfrastructure*>::iterator it = list->getList()->begin(); it != list->getList()->end(); it++) {
+			cstat = (*it);
+			cstat->getCollector()->clear();
+		}
 	}
 
 }
@@ -213,7 +226,7 @@ void Model::_showModel() {
 	trace(Util::TraceLevel::TL_mostDetailed, "Simulation Model:");
 	std::list<ModelComponent*>* list = getComponents()->getList();
 	for (std::list<ModelComponent*>::iterator it = list->begin(); it != list->end(); it++) {
-		trace(Util::TraceLevel::TL_mostDetailed, "   "+(*it)->show()); ////
+		trace(Util::TraceLevel::TL_mostDetailed, "   " + (*it)->show()); ////
 	}
 }
 
@@ -224,10 +237,10 @@ void Model::_showInfrastructures() {
 	List<ModelInfrastructure*>* list;
 	for (std::map<std::string, List<ModelInfrastructure*>*>::iterator infraIt = _infrastructures->begin(); infraIt != _infrastructures->end(); infraIt++) {
 		key = (*infraIt).first;
-		trace(Util::TraceLevel::TL_mostDetailed, "   "+key+":");
+		trace(Util::TraceLevel::TL_mostDetailed, "   " + key + ":");
 		list = (*infraIt).second;
-		for (std::list<ModelInfrastructure*>::iterator it=list->getList()->begin(); it!= list->getList()->end(); it++) {
-			trace(Util::TraceLevel::TL_mostDetailed, "      "+(*it)->show()); 
+		for (std::list<ModelInfrastructure*>::iterator it = list->getList()->begin(); it != list->getList()->end(); it++) {
+			trace(Util::TraceLevel::TL_mostDetailed, "      " + (*it)->show());
 		}
 	}
 }
@@ -511,7 +524,7 @@ ModelInfrastructure* Model::getInfrastructure(std::string infraTypename, Util::i
 
 std::list<std::string>* Model::getInfrastructureTypenames() const {
 	std::list<std::string>* keys = new std::list<std::string>();
-	for (std::map<std::string, List<ModelInfrastructure*>*>::iterator it= _infrastructures->begin(); it!=_infrastructures->end(); it++) {
+	for (std::map<std::string, List<ModelInfrastructure*>*>::iterator it = _infrastructures->begin(); it != _infrastructures->end(); it++) {
 		keys->insert(keys->end(), (*it).first);
 	}
 	return keys;

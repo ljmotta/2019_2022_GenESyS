@@ -25,6 +25,7 @@
 #include "Integrator_if.h"
 #include "HypothesisTester_if.h"
 #include "ModelPersistence_if.h"
+#include "GenesysApplication_if.h"
 
 // possible implementations
 #include "CollectorMyImpl1.h"
@@ -38,15 +39,22 @@
 #include "IntegratorMyImpl1.h"
 #include "IntegratorDiogoImpl.h"
 #include "HypothesisTesterMyImpl1.h"
-#include "HypothesisTesterDiogo.h"
+//#include "HypothesisTesterDiogo.h"
 #include "ModelPersistenceMyImpl1.h"
 #include "StatisticsMyImpl1.h"
 #include "StatisticsCancianImpl.h"
+#include "BuildSimpleModel1.h"
+//#include "testInputAnalyserTools.h"
 
 template <typename T>
 struct Traits {
 	static const bool debugged = true;
 	static const Util::TraceLevel traceLevel = Util::TraceLevel::TL_mostDetailed; 
+};
+
+template <> struct Traits<GenesysApplication_if> {
+	//typedef TestInputAnalyserTool Application;  
+	typedef BuildSimpleModel Application;  
 };
 
 template <> struct Traits<Model> {
@@ -92,8 +100,8 @@ template <> struct Traits<Integrator_if> {
 };
 
 template <> struct Traits<HypothesisTester_if> {
-	//typedef HypothesisTesterMyImpl1 Implementation;
-	typedef HypothesisTesterDiogo Implementation;
+	typedef HypothesisTesterMyImpl1 Implementation;
+	//typedef HypothesisTesterDiogo Implementation;
 };
 
 template <> struct Traits<ModelPersistence_if> {

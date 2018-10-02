@@ -37,6 +37,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/Assign.o \
 	${OBJECTDIR}/Attribute.o \
+	${OBJECTDIR}/BuildSimpleModel.o \
 	${OBJECTDIR}/CollectorDatafileCancianImpl.o \
 	${OBJECTDIR}/CollectorDatafileMyImpl1.o \
 	${OBJECTDIR}/CollectorMyImpl1.o \
@@ -47,7 +48,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/EntityType.o \
 	${OBJECTDIR}/Event.o \
 	${OBJECTDIR}/FitterMyImpl1.o \
-	${OBJECTDIR}/HypothesisTesterDiogo.o \
 	${OBJECTDIR}/HypothesisTesterMyImpl1.o \
 	${OBJECTDIR}/HypothesisTester_ar.o \
 	${OBJECTDIR}/IntegratorDiogoImpl.o \
@@ -75,6 +75,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/StatisticsCancianImpl.o \
 	${OBJECTDIR}/StatisticsCollector.o \
 	${OBJECTDIR}/StatisticsMyImpl1.o \
+	${OBJECTDIR}/TestInputAnalyserTools.o \
 	${OBJECTDIR}/Util.o \
 	${OBJECTDIR}/Variable.o \
 	${OBJECTDIR}/Waiting.o \
@@ -115,6 +116,11 @@ ${OBJECTDIR}/Attribute.o: Attribute.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Attribute.o Attribute.cpp
+
+${OBJECTDIR}/BuildSimpleModel.o: BuildSimpleModel.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/BuildSimpleModel.o BuildSimpleModel.cpp
 
 ${OBJECTDIR}/CollectorDatafileCancianImpl.o: CollectorDatafileCancianImpl.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -165,11 +171,6 @@ ${OBJECTDIR}/FitterMyImpl1.o: FitterMyImpl1.cpp nbproject/Makefile-${CND_CONF}.m
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FitterMyImpl1.o FitterMyImpl1.cpp
-
-${OBJECTDIR}/HypothesisTesterDiogo.o: HypothesisTesterDiogo.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/HypothesisTesterDiogo.o HypothesisTesterDiogo.cpp
 
 ${OBJECTDIR}/HypothesisTesterMyImpl1.o: HypothesisTesterMyImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -305,6 +306,11 @@ ${OBJECTDIR}/StatisticsMyImpl1.o: StatisticsMyImpl1.cpp nbproject/Makefile-${CND
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/StatisticsMyImpl1.o StatisticsMyImpl1.cpp
+
+${OBJECTDIR}/TestInputAnalyserTools.o: TestInputAnalyserTools.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestInputAnalyserTools.o TestInputAnalyserTools.cpp
 
 ${OBJECTDIR}/Util.o: Util.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
