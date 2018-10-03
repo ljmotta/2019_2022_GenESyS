@@ -44,8 +44,6 @@ std::string ModelInfrastructure::getName() const {
 }
 
 std::list<std::string>* ModelInfrastructure::SaveInstance(ModelInfrastructure* infrastructure) {
-	//infrastructure->_model->trace(Util::TraceLevel::TL_blockArrival, "Writing infrastructure \"" + infrastructure->_name + "\""); //std::to_string(component->_id));
-	std::cout << "Wrinting infra " << infrastructure->_name << std::endl;
 	std::list<std::string>* words;// = new std::list<std::string>();
 	try {
 		words = infrastructure->_saveInstance();

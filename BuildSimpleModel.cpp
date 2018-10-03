@@ -67,10 +67,12 @@ void buildModelWithAllImplementedComponents(Model* model) {
 	create1->setTimeUnit(Util::TimeUnit::TU_minute);
 
 	Assign* assign1 = new Assign(model);
-	Assign::Assignment* var1Assignment = new Assign::Assignment(Assign::DestinationType::Variable, "Variable 1", "Norm(20,5) + Unif(-5,5)");
-	assign1->getAssignments()->insert(var1Assignment);
+	//Assign::Assignment* var1Assignment = new Assign::Assignment(Assign::DestinationType::Variable, "Variable 1", "Norm(20,5) + Unif(-5,5)");
+	//assign1->getAssignments()->insert(var1Assignment);
 	Assign::Assignment* attrib1Assignment = new Assign::Assignment(Assign::DestinationType::Attribute, "Attribute 1", "Variable 1");
 	assign1->getAssignments()->insert(attrib1Assignment);
+	Assign::Assignment* attrib2Assignment = new Assign::Assignment(Assign::DestinationType::Attribute, "Variable 1", "Variable 1 + 1");
+	assign1->getAssignments()->insert(attrib2Assignment);
 
 	Seize* seize1 = new Seize(model);
 	seize1->setResourceName("Máquina 1");

@@ -12,7 +12,9 @@
  */
 
 #include "Assign.h"
-#include "Model.h" // to avoid compile error: invalid use of incomplete type ‘class Model’
+#include "Model.h"
+#include "Variable.h" // to avoid compile error: invalid use of incomplete type ‘class Model’
+//
 
 Assign::Assign(Model* model) : ModelComponent(model) {
 	_name = "Assign " + std::to_string(Util::GenerateNewIdOfType<Assign>());
@@ -25,7 +27,7 @@ Assign::~Assign() {
 }
 
 std::string Assign::show() {
-	return ModelComponent::show()+
+	return ModelComponent::show() +
 			"";
 }
 
@@ -33,9 +35,24 @@ List<Assign::Assignment*>* Assign::getAssignments() const {
 	return _assignments;
 }
 
-
 void Assign::_execute(Entity* entity) {
 	/* TODO +: implement */
+	Assignment* let;
+	std::list<Assignment*>* lets = this->_assignments->getList();
+	for (std::list<Assignment*>::iterator it = lets->begin(); it != lets->end(); it++) {
+		let = (*it);
+		double value = _model->parseExpression(let->getExpression());
+		_model->trace(Util::TraceLevel::TL_blockInternal, "Let \"" + let->getDestination() + "\" = " + std::to_string(value));
+		/* TODO: this is NOT the best way to do it */
+		if (let->getDestinationType() == DestinationType::Variable) {
+			/* TODO: WHY THERE IS AN ERROR IN THIS ?? */
+			//Variable* var = (Variable*) this->_model->getInfrastructure(Util::TypeOf<Variable>(), let->getDestination());
+			//var->setValue(value);
+		} else if (let->getDestinationType() == DestinationType::Attribute) {
+			entity->setAttributeValue(let->getDestination(), value);
+		}
+	}
+
 	this->_model->sendEntityToComponent(entity, this->getNextComponents()->first(), 0.0);
 }
 

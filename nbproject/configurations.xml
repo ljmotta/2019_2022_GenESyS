@@ -8,8 +8,6 @@
     <logicalFolder name="SourceFiles"
                    displayName="Arquivos de Código-Fonte"
                    projectFiles="true">
-      <itemPath>BuildSimpleModel.cpp</itemPath>
-      <itemPath>TestInputAnalyserTools.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -137,6 +135,10 @@
       <logicalFolder name="f3" displayName="Output Analyser" projectFiles="true">
       </logicalFolder>
       <logicalFolder name="f4" displayName="Process Analyser" projectFiles="true">
+        <itemPath>ExperimentDesign.cpp</itemPath>
+        <itemPath>ExperimentDesign.h</itemPath>
+        <itemPath>SimulationScenario.cpp</itemPath>
+        <itemPath>SimulationScenario.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f5" displayName="System Optimization" projectFiles="true">
       </logicalFolder>
@@ -144,8 +146,10 @@
     <logicalFolder name="f10"
                    displayName="User Program Interfaces"
                    projectFiles="true">
+      <itemPath>BuildSimpleModel.cpp</itemPath>
       <itemPath>BuildSimpleModel1.h</itemPath>
       <itemPath>GenesysApplication_if.h</itemPath>
+      <itemPath>TestInputAnalyserTools.cpp</itemPath>
       <itemPath>TestInputAnalyserTools.h</itemPath>
     </logicalFolder>
     <logicalFolder name="f6" displayName="Util" projectFiles="true">
@@ -231,6 +235,10 @@
       <item path="Event.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Event.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ExperimentDesign.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ExperimentDesign.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="FitterMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -337,6 +345,10 @@
       <item path="Seize.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Seize.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SimulationScenario.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SimulationScenario.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Simulator.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -461,6 +473,10 @@
       </item>
       <item path="Event.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="ExperimentDesign.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ExperimentDesign.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="FitterMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="FitterMyImpl1.h" ex="false" tool="3" flavor2="0">
@@ -566,6 +582,10 @@
       <item path="Seize.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Seize.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SimulationScenario.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SimulationScenario.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Simulator.cpp" ex="false" tool="1" flavor2="0">
       </item>
