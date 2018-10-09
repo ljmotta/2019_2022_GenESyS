@@ -17,7 +17,7 @@
 #include "Traits.h"
 
 /*
- * 
+ * This is the MAIN application of GenESyS. It just calls the Application specificied on the configuration file.
  */
 int main(int argc, char** argv) {
 	// do not change it. Set you own application in Traits file => Traits<GenesysApplication_if>::Application

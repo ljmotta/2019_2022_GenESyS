@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>RebornedGenESyS: Plugin Class Reference</title>
+<title>GenESyS - Generic and Expansible System Simulator [REBORN]: Plugin Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="software_genesys.gif"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">RebornedGenESyS
-   &#160;<span id="projectnumber">Reborned 20182</span>
+   <div id="projectname">GenESyS - Generic and Expansible System Simulator [REBORN]
+   &#160;<span id="projectnumber">2018-2</span>
    </div>
-   <div id="projectbrief">Generic and Expansible System Simulator</div>
+   <div id="projectbrief">Generic System Simulator</div>
   </td>
  </tr>
  </tbody>
@@ -48,6 +48,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -96,7 +97,7 @@ $(document).ready(function(){initNavTree('class_plugin.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -131,6 +132,8 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A <a class="el" href="class_plugin.html">Plugin</a> represents a dynamically linked component class (<a class="el" href="class_model_component.html">ModelComponent</a>) or infrastructure class (<a class="el" href="class_model_infrastructure.html">ModelInfrastructure</a>); It gives access to a <a class="el" href="class_model_component.html">ModelComponent</a> so it can be used by the model. Classes like <a class="el" href="class_create.html">Create</a>, <a class="el" href="class_delay.html">Delay</a>, and <a class="el" href="class_dispose.html">Dispose</a> are examples of PlugIns. It corresponds directly to the "Expansible" part (the capitalized 'E') of the GenESyS acronymous PlugIns are NOT implemented yet </p>
+
+<p>Definition at line <a class="el" href="_plugin_8h_source.html#l00024">24</a> of file <a class="el" href="_plugin_8h_source.html">Plugin.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a1180a8be15f3a920f1044e528d807ea1"></a>
 <div class="memitem">
@@ -162,6 +165,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_plugin_8cpp_source.html#l00016">16</a> of file <a class="el" href="_plugin_8cpp_source.html">Plugin.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="acececc8908162c6b0c883e62995abad8"></a>
@@ -177,6 +182,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_plugin_8cpp_source.html#l00022">22</a> of file <a class="el" href="_plugin_8cpp_source.html">Plugin.cpp</a>.</p>
 
 </div>
 </div>
@@ -201,6 +208,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_plugin_8cpp_source.html#l00025">25</a> of file <a class="el" href="_plugin_8cpp_source.html">Plugin.cpp</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -217,6 +226,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_plugin_8cpp_source.html#l00028">28</a> of file <a class="el" href="_plugin_8cpp_source.html">Plugin.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a87ed4a6c7eab8e84a650c4e057f15dd1"></a>
@@ -232,11 +243,13 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_plugin_8cpp_source.html#l00032">32</a> of file <a class="el" href="_plugin_8cpp_source.html">Plugin.cpp</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_plugin_8h_source.html">Plugin.h</a></li>
-<li><a class="el" href="_plugin_8cpp.html">Plugin.cpp</a></li>
+<li><a class="el" href="_plugin_8cpp_source.html">Plugin.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -244,7 +257,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_plugin.html">Plugin</a></li>
-    <li class="footer">Generated on Tue Sep 4 2018 21:04:12 for RebornedGenESyS by
+    <li class="footer">Generated on Tue Oct 9 2018 13:18:23 for GenESyS - Generic and Expansible System Simulator [REBORN] by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

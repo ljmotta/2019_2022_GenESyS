@@ -26,7 +26,7 @@ Collaboration diagram for Entity\-Type\-:\nopagebreak
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_entity_type_abea5cf6495bb0fb677ccf0a5e52716d3}{Entity\-Type} ()
+\hyperlink{class_entity_type_a76c09c732793a586dc3b474485e9824f}{Entity\-Type} (\hyperlink{class_model}{Model} $\ast$model)
 \item 
 \hyperlink{class_entity_type_a34b9576e2453ed309c75840319bbb2f8}{Entity\-Type} (const \hyperlink{class_entity_type}{Entity\-Type} \&orig)
 \item 
@@ -54,29 +54,61 @@ void \hyperlink{class_entity_type_ab3a19031f9b46b376bdd35aa3044c90e}{set\-Initia
 \item 
 std\-::string \hyperlink{class_entity_type_a9a464c546bc2f7fe56fbea9b761ac1f7}{get\-Initial\-Picture} () const 
 \item 
-\hyperlink{class_collector__if}{Collector\-\_\-if} $\ast$ \hyperlink{class_entity_type_a03977d36fb845ba7366185fa1f5fffd9}{get\-Cstat\-Time\-In\-System} () const 
+\hyperlink{class_statistics_collector}{Statistics\-Collector} $\ast$ \hyperlink{class_entity_type_acdcb00168a8fc2e23cf8bf3302464ce3}{get\-Cstat\-Time\-In\-System} () const 
 \item 
-\hyperlink{class_collector__if}{Collector\-\_\-if} $\ast$ \hyperlink{class_entity_type_acf55bd71e2f6bb30ea6a01a98afe7422}{get\-Cstat\-N\-V\-A\-Time} () const 
+\hyperlink{class_statistics_collector}{Statistics\-Collector} $\ast$ \hyperlink{class_entity_type_a48e1dedd3e7d7b198ee4e7a61c6afb7e}{get\-Cstat\-N\-V\-A\-Time} () const 
 \item 
-\hyperlink{class_collector__if}{Collector\-\_\-if} $\ast$ \hyperlink{class_entity_type_a846625383404c36329af057f674d825c}{get\-Cstat\-V\-A\-Time} () const 
+\hyperlink{class_statistics_collector}{Statistics\-Collector} $\ast$ \hyperlink{class_entity_type_aafb65d3cdceae776da454989b7b4a874}{get\-Cstat\-V\-A\-Time} () const 
 \item 
-\hyperlink{class_collector__if}{Collector\-\_\-if} $\ast$ \hyperlink{class_entity_type_abe5f66a11ccc80a4138b1f44c1e8a9fe}{get\-Cstat\-Other\-Time} () const 
+\hyperlink{class_statistics_collector}{Statistics\-Collector} $\ast$ \hyperlink{class_entity_type_a8b6a8b11d428c9e23800d01701e7fbd1}{get\-Cstat\-Other\-Time} () const 
 \item 
-\hyperlink{class_collector__if}{Collector\-\_\-if} $\ast$ \hyperlink{class_entity_type_acc36d61158eb2f6ab72caca114023bc2}{get\-Cstat\-Transfer\-Time} () const 
+\hyperlink{class_statistics_collector}{Statistics\-Collector} $\ast$ \hyperlink{class_entity_type_a2604288226dd7fc0c6c322d415b891cc}{get\-Cstat\-Transfer\-Time} () const 
 \item 
-\hyperlink{class_collector__if}{Collector\-\_\-if} $\ast$ \hyperlink{class_entity_type_ac2682128310221efaaa81b3007ef8d50}{get\-Cstat\-Waiting\-Time} () const 
+\hyperlink{class_statistics_collector}{Statistics\-Collector} $\ast$ \hyperlink{class_entity_type_ae43feed54cd8661efb317ef4891bcfcf}{get\-Cstat\-Waiting\-Time} () const 
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_entity_type_af88c3d67f9eb8b92b4e32e04bed6730f}{\-\_\-load\-Instance} (std\-::list$<$ std\-::string $>$ words)
+\item 
+virtual std\-::list$<$ std\-::string $>$ $\ast$ \hyperlink{class_entity_type_a4f6179d5043e750d9555d6eeef8de4cd}{\-\_\-save\-Instance} ()
+\item 
+virtual bool \hyperlink{class_entity_type_a50e21c4807823132e777529c70bf7cef}{\-\_\-verify\-Symbols} (std\-::string $\ast$error\-Message)
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
+\subsection{Detailed Description}
+
+
+Definition at line 22 of file Entity\-Type.\-h.
+
+
+
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{class_entity_type_abea5cf6495bb0fb677ccf0a5e52716d3}{\index{Entity\-Type@{Entity\-Type}!Entity\-Type@{Entity\-Type}}
+\hypertarget{class_entity_type_a76c09c732793a586dc3b474485e9824f}{\index{Entity\-Type@{Entity\-Type}!Entity\-Type@{Entity\-Type}}
 \index{Entity\-Type@{Entity\-Type}!EntityType@{Entity\-Type}}
 \subsubsection[{Entity\-Type}]{\setlength{\rightskip}{0pt plus 5cm}Entity\-Type\-::\-Entity\-Type (
 \begin{DoxyParamCaption}
-{}
+\item[{{\bf Model} $\ast$}]{model}
 \end{DoxyParamCaption}
-)}}\label{class_entity_type_abea5cf6495bb0fb677ccf0a5e52716d3}
+)}}\label{class_entity_type_a76c09c732793a586dc3b474485e9824f}
+
+
+Definition at line 18 of file Entity\-Type.\-cpp.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_entity_type_a76c09c732793a586dc3b474485e9824f_cgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{class_entity_type_a34b9576e2453ed309c75840319bbb2f8}{\index{Entity\-Type@{Entity\-Type}!Entity\-Type@{Entity\-Type}}
 \index{Entity\-Type@{Entity\-Type}!EntityType@{Entity\-Type}}
 \subsubsection[{Entity\-Type}]{\setlength{\rightskip}{0pt plus 5cm}Entity\-Type\-::\-Entity\-Type (
@@ -84,6 +116,10 @@ std\-::string \hyperlink{class_entity_type_a9a464c546bc2f7fe56fbea9b761ac1f7}{ge
 \item[{const {\bf Entity\-Type} \&}]{orig}
 \end{DoxyParamCaption}
 )}}\label{class_entity_type_a34b9576e2453ed309c75840319bbb2f8}
+
+
+Definition at line 29 of file Entity\-Type.\-cpp.
+
 \hypertarget{class_entity_type_aee11e4242d000965f06018723bdf0946}{\index{Entity\-Type@{Entity\-Type}!$\sim$\-Entity\-Type@{$\sim$\-Entity\-Type}}
 \index{$\sim$\-Entity\-Type@{$\sim$\-Entity\-Type}!EntityType@{Entity\-Type}}
 \subsubsection[{$\sim$\-Entity\-Type}]{\setlength{\rightskip}{0pt plus 5cm}Entity\-Type\-::$\sim$\-Entity\-Type (
@@ -93,49 +129,122 @@ std\-::string \hyperlink{class_entity_type_a9a464c546bc2f7fe56fbea9b761ac1f7}{ge
 )\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_entity_type_aee11e4242d000965f06018723bdf0946}
 
 
+Definition at line 32 of file Entity\-Type.\-cpp.
+
+
+
 \subsection{Member Function Documentation}
-\hypertarget{class_entity_type_acf55bd71e2f6bb30ea6a01a98afe7422}{\index{Entity\-Type@{Entity\-Type}!get\-Cstat\-N\-V\-A\-Time@{get\-Cstat\-N\-V\-A\-Time}}
+\hypertarget{class_entity_type_af88c3d67f9eb8b92b4e32e04bed6730f}{\index{Entity\-Type@{Entity\-Type}!\-\_\-load\-Instance@{\-\_\-load\-Instance}}
+\index{\-\_\-load\-Instance@{\-\_\-load\-Instance}!EntityType@{Entity\-Type}}
+\subsubsection[{\-\_\-load\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}void Entity\-Type\-::\-\_\-load\-Instance (
+\begin{DoxyParamCaption}
+\item[{std\-::list$<$ std\-::string $>$}]{words}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_entity_type_af88c3d67f9eb8b92b4e32e04bed6730f}
+
+
+Implements \hyperlink{class_model_infrastructure_ae118c8ad2ac9d4397c40d004af51b2dc}{Model\-Infrastructure}.
+
+
+
+Definition at line 104 of file Entity\-Type.\-cpp.
+
+\hypertarget{class_entity_type_a4f6179d5043e750d9555d6eeef8de4cd}{\index{Entity\-Type@{Entity\-Type}!\-\_\-save\-Instance@{\-\_\-save\-Instance}}
+\index{\-\_\-save\-Instance@{\-\_\-save\-Instance}!EntityType@{Entity\-Type}}
+\subsubsection[{\-\_\-save\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<$ std\-::string $>$ $\ast$ Entity\-Type\-::\-\_\-save\-Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_entity_type_a4f6179d5043e750d9555d6eeef8de4cd}
+
+
+Implements \hyperlink{class_model_infrastructure_a3da2fd381c44752598bc448b207e8287}{Model\-Infrastructure}.
+
+
+
+Definition at line 108 of file Entity\-Type.\-cpp.
+
+\hypertarget{class_entity_type_a50e21c4807823132e777529c70bf7cef}{\index{Entity\-Type@{Entity\-Type}!\-\_\-verify\-Symbols@{\-\_\-verify\-Symbols}}
+\index{\-\_\-verify\-Symbols@{\-\_\-verify\-Symbols}!EntityType@{Entity\-Type}}
+\subsubsection[{\-\_\-verify\-Symbols}]{\setlength{\rightskip}{0pt plus 5cm}bool Entity\-Type\-::\-\_\-verify\-Symbols (
+\begin{DoxyParamCaption}
+\item[{std\-::string $\ast$}]{error\-Message}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_entity_type_a50e21c4807823132e777529c70bf7cef}
+
+
+Implements \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a388}{Model\-Infrastructure}.
+
+
+
+Definition at line 113 of file Entity\-Type.\-cpp.
+
+\hypertarget{class_entity_type_a48e1dedd3e7d7b198ee4e7a61c6afb7e}{\index{Entity\-Type@{Entity\-Type}!get\-Cstat\-N\-V\-A\-Time@{get\-Cstat\-N\-V\-A\-Time}}
 \index{get\-Cstat\-N\-V\-A\-Time@{get\-Cstat\-N\-V\-A\-Time}!EntityType@{Entity\-Type}}
-\subsubsection[{get\-Cstat\-N\-V\-A\-Time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Collector\-\_\-if} $\ast$ Entity\-Type\-::get\-Cstat\-N\-V\-A\-Time (
+\subsubsection[{get\-Cstat\-N\-V\-A\-Time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Statistics\-Collector} $\ast$ Entity\-Type\-::get\-Cstat\-N\-V\-A\-Time (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_entity_type_acf55bd71e2f6bb30ea6a01a98afe7422}
-\hypertarget{class_entity_type_abe5f66a11ccc80a4138b1f44c1e8a9fe}{\index{Entity\-Type@{Entity\-Type}!get\-Cstat\-Other\-Time@{get\-Cstat\-Other\-Time}}
+) const}}\label{class_entity_type_a48e1dedd3e7d7b198ee4e7a61c6afb7e}
+
+
+Definition at line 84 of file Entity\-Type.\-cpp.
+
+\hypertarget{class_entity_type_a8b6a8b11d428c9e23800d01701e7fbd1}{\index{Entity\-Type@{Entity\-Type}!get\-Cstat\-Other\-Time@{get\-Cstat\-Other\-Time}}
 \index{get\-Cstat\-Other\-Time@{get\-Cstat\-Other\-Time}!EntityType@{Entity\-Type}}
-\subsubsection[{get\-Cstat\-Other\-Time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Collector\-\_\-if} $\ast$ Entity\-Type\-::get\-Cstat\-Other\-Time (
+\subsubsection[{get\-Cstat\-Other\-Time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Statistics\-Collector} $\ast$ Entity\-Type\-::get\-Cstat\-Other\-Time (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_entity_type_abe5f66a11ccc80a4138b1f44c1e8a9fe}
-\hypertarget{class_entity_type_a03977d36fb845ba7366185fa1f5fffd9}{\index{Entity\-Type@{Entity\-Type}!get\-Cstat\-Time\-In\-System@{get\-Cstat\-Time\-In\-System}}
+) const}}\label{class_entity_type_a8b6a8b11d428c9e23800d01701e7fbd1}
+
+
+Definition at line 92 of file Entity\-Type.\-cpp.
+
+\hypertarget{class_entity_type_acdcb00168a8fc2e23cf8bf3302464ce3}{\index{Entity\-Type@{Entity\-Type}!get\-Cstat\-Time\-In\-System@{get\-Cstat\-Time\-In\-System}}
 \index{get\-Cstat\-Time\-In\-System@{get\-Cstat\-Time\-In\-System}!EntityType@{Entity\-Type}}
-\subsubsection[{get\-Cstat\-Time\-In\-System}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Collector\-\_\-if} $\ast$ Entity\-Type\-::get\-Cstat\-Time\-In\-System (
+\subsubsection[{get\-Cstat\-Time\-In\-System}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Statistics\-Collector} $\ast$ Entity\-Type\-::get\-Cstat\-Time\-In\-System (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_entity_type_a03977d36fb845ba7366185fa1f5fffd9}
-\hypertarget{class_entity_type_acc36d61158eb2f6ab72caca114023bc2}{\index{Entity\-Type@{Entity\-Type}!get\-Cstat\-Transfer\-Time@{get\-Cstat\-Transfer\-Time}}
+) const}}\label{class_entity_type_acdcb00168a8fc2e23cf8bf3302464ce3}
+
+
+Definition at line 80 of file Entity\-Type.\-cpp.
+
+\hypertarget{class_entity_type_a2604288226dd7fc0c6c322d415b891cc}{\index{Entity\-Type@{Entity\-Type}!get\-Cstat\-Transfer\-Time@{get\-Cstat\-Transfer\-Time}}
 \index{get\-Cstat\-Transfer\-Time@{get\-Cstat\-Transfer\-Time}!EntityType@{Entity\-Type}}
-\subsubsection[{get\-Cstat\-Transfer\-Time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Collector\-\_\-if} $\ast$ Entity\-Type\-::get\-Cstat\-Transfer\-Time (
+\subsubsection[{get\-Cstat\-Transfer\-Time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Statistics\-Collector} $\ast$ Entity\-Type\-::get\-Cstat\-Transfer\-Time (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_entity_type_acc36d61158eb2f6ab72caca114023bc2}
-\hypertarget{class_entity_type_a846625383404c36329af057f674d825c}{\index{Entity\-Type@{Entity\-Type}!get\-Cstat\-V\-A\-Time@{get\-Cstat\-V\-A\-Time}}
+) const}}\label{class_entity_type_a2604288226dd7fc0c6c322d415b891cc}
+
+
+Definition at line 96 of file Entity\-Type.\-cpp.
+
+\hypertarget{class_entity_type_aafb65d3cdceae776da454989b7b4a874}{\index{Entity\-Type@{Entity\-Type}!get\-Cstat\-V\-A\-Time@{get\-Cstat\-V\-A\-Time}}
 \index{get\-Cstat\-V\-A\-Time@{get\-Cstat\-V\-A\-Time}!EntityType@{Entity\-Type}}
-\subsubsection[{get\-Cstat\-V\-A\-Time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Collector\-\_\-if} $\ast$ Entity\-Type\-::get\-Cstat\-V\-A\-Time (
+\subsubsection[{get\-Cstat\-V\-A\-Time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Statistics\-Collector} $\ast$ Entity\-Type\-::get\-Cstat\-V\-A\-Time (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_entity_type_a846625383404c36329af057f674d825c}
-\hypertarget{class_entity_type_ac2682128310221efaaa81b3007ef8d50}{\index{Entity\-Type@{Entity\-Type}!get\-Cstat\-Waiting\-Time@{get\-Cstat\-Waiting\-Time}}
+) const}}\label{class_entity_type_aafb65d3cdceae776da454989b7b4a874}
+
+
+Definition at line 88 of file Entity\-Type.\-cpp.
+
+\hypertarget{class_entity_type_ae43feed54cd8661efb317ef4891bcfcf}{\index{Entity\-Type@{Entity\-Type}!get\-Cstat\-Waiting\-Time@{get\-Cstat\-Waiting\-Time}}
 \index{get\-Cstat\-Waiting\-Time@{get\-Cstat\-Waiting\-Time}!EntityType@{Entity\-Type}}
-\subsubsection[{get\-Cstat\-Waiting\-Time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Collector\-\_\-if} $\ast$ Entity\-Type\-::get\-Cstat\-Waiting\-Time (
+\subsubsection[{get\-Cstat\-Waiting\-Time}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Statistics\-Collector} $\ast$ Entity\-Type\-::get\-Cstat\-Waiting\-Time (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_entity_type_ac2682128310221efaaa81b3007ef8d50}
+) const}}\label{class_entity_type_ae43feed54cd8661efb317ef4891bcfcf}
+
+
+Definition at line 100 of file Entity\-Type.\-cpp.
+
 \hypertarget{class_entity_type_ae8b26deba82e687d5a07b863f750baf4}{\index{Entity\-Type@{Entity\-Type}!get\-Initial\-N\-V\-A\-Cost@{get\-Initial\-N\-V\-A\-Cost}}
 \index{get\-Initial\-N\-V\-A\-Cost@{get\-Initial\-N\-V\-A\-Cost}!EntityType@{Entity\-Type}}
 \subsubsection[{get\-Initial\-N\-V\-A\-Cost}]{\setlength{\rightskip}{0pt plus 5cm}double Entity\-Type\-::get\-Initial\-N\-V\-A\-Cost (
@@ -143,6 +252,10 @@ std\-::string \hyperlink{class_entity_type_a9a464c546bc2f7fe56fbea9b761ac1f7}{ge
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_entity_type_ae8b26deba82e687d5a07b863f750baf4}
+
+
+Definition at line 60 of file Entity\-Type.\-cpp.
+
 \hypertarget{class_entity_type_ac5708811f5f6eaf7ac587fc88190b7f2}{\index{Entity\-Type@{Entity\-Type}!get\-Initial\-Other\-Cost@{get\-Initial\-Other\-Cost}}
 \index{get\-Initial\-Other\-Cost@{get\-Initial\-Other\-Cost}!EntityType@{Entity\-Type}}
 \subsubsection[{get\-Initial\-Other\-Cost}]{\setlength{\rightskip}{0pt plus 5cm}double Entity\-Type\-::get\-Initial\-Other\-Cost (
@@ -150,6 +263,10 @@ std\-::string \hyperlink{class_entity_type_a9a464c546bc2f7fe56fbea9b761ac1f7}{ge
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_entity_type_ac5708811f5f6eaf7ac587fc88190b7f2}
+
+
+Definition at line 52 of file Entity\-Type.\-cpp.
+
 \hypertarget{class_entity_type_a9a464c546bc2f7fe56fbea9b761ac1f7}{\index{Entity\-Type@{Entity\-Type}!get\-Initial\-Picture@{get\-Initial\-Picture}}
 \index{get\-Initial\-Picture@{get\-Initial\-Picture}!EntityType@{Entity\-Type}}
 \subsubsection[{get\-Initial\-Picture}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Entity\-Type\-::get\-Initial\-Picture (
@@ -157,6 +274,10 @@ std\-::string \hyperlink{class_entity_type_a9a464c546bc2f7fe56fbea9b761ac1f7}{ge
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_entity_type_a9a464c546bc2f7fe56fbea9b761ac1f7}
+
+
+Definition at line 76 of file Entity\-Type.\-cpp.
+
 \hypertarget{class_entity_type_a9833d4a85dcb5c5bd9db02e1e2e45dd9}{\index{Entity\-Type@{Entity\-Type}!get\-Initial\-V\-A\-Cost@{get\-Initial\-V\-A\-Cost}}
 \index{get\-Initial\-V\-A\-Cost@{get\-Initial\-V\-A\-Cost}!EntityType@{Entity\-Type}}
 \subsubsection[{get\-Initial\-V\-A\-Cost}]{\setlength{\rightskip}{0pt plus 5cm}double Entity\-Type\-::get\-Initial\-V\-A\-Cost (
@@ -164,6 +285,10 @@ std\-::string \hyperlink{class_entity_type_a9a464c546bc2f7fe56fbea9b761ac1f7}{ge
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_entity_type_a9833d4a85dcb5c5bd9db02e1e2e45dd9}
+
+
+Definition at line 68 of file Entity\-Type.\-cpp.
+
 \hypertarget{class_entity_type_a46dd0977b19bf167eeb12db97464b757}{\index{Entity\-Type@{Entity\-Type}!get\-Initial\-Waiting\-Cost@{get\-Initial\-Waiting\-Cost}}
 \index{get\-Initial\-Waiting\-Cost@{get\-Initial\-Waiting\-Cost}!EntityType@{Entity\-Type}}
 \subsubsection[{get\-Initial\-Waiting\-Cost}]{\setlength{\rightskip}{0pt plus 5cm}double Entity\-Type\-::get\-Initial\-Waiting\-Cost (
@@ -171,6 +296,10 @@ std\-::string \hyperlink{class_entity_type_a9a464c546bc2f7fe56fbea9b761ac1f7}{ge
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_entity_type_a46dd0977b19bf167eeb12db97464b757}
+
+
+Definition at line 44 of file Entity\-Type.\-cpp.
+
 \hypertarget{class_entity_type_a935cac67adc2b13aa25290c3db04c847}{\index{Entity\-Type@{Entity\-Type}!set\-Initial\-N\-V\-A\-Cost@{set\-Initial\-N\-V\-A\-Cost}}
 \index{set\-Initial\-N\-V\-A\-Cost@{set\-Initial\-N\-V\-A\-Cost}!EntityType@{Entity\-Type}}
 \subsubsection[{set\-Initial\-N\-V\-A\-Cost}]{\setlength{\rightskip}{0pt plus 5cm}void Entity\-Type\-::set\-Initial\-N\-V\-A\-Cost (
@@ -178,6 +307,10 @@ std\-::string \hyperlink{class_entity_type_a9a464c546bc2f7fe56fbea9b761ac1f7}{ge
 \item[{double}]{\-\_\-initial\-N\-V\-A\-Cost}
 \end{DoxyParamCaption}
 )}}\label{class_entity_type_a935cac67adc2b13aa25290c3db04c847}
+
+
+Definition at line 56 of file Entity\-Type.\-cpp.
+
 \hypertarget{class_entity_type_a32f126822c567a887a446a763db13d64}{\index{Entity\-Type@{Entity\-Type}!set\-Initial\-Other\-Cost@{set\-Initial\-Other\-Cost}}
 \index{set\-Initial\-Other\-Cost@{set\-Initial\-Other\-Cost}!EntityType@{Entity\-Type}}
 \subsubsection[{set\-Initial\-Other\-Cost}]{\setlength{\rightskip}{0pt plus 5cm}void Entity\-Type\-::set\-Initial\-Other\-Cost (
@@ -185,6 +318,10 @@ std\-::string \hyperlink{class_entity_type_a9a464c546bc2f7fe56fbea9b761ac1f7}{ge
 \item[{double}]{\-\_\-initial\-Other\-Cost}
 \end{DoxyParamCaption}
 )}}\label{class_entity_type_a32f126822c567a887a446a763db13d64}
+
+
+Definition at line 48 of file Entity\-Type.\-cpp.
+
 \hypertarget{class_entity_type_ab3a19031f9b46b376bdd35aa3044c90e}{\index{Entity\-Type@{Entity\-Type}!set\-Initial\-Picture@{set\-Initial\-Picture}}
 \index{set\-Initial\-Picture@{set\-Initial\-Picture}!EntityType@{Entity\-Type}}
 \subsubsection[{set\-Initial\-Picture}]{\setlength{\rightskip}{0pt plus 5cm}void Entity\-Type\-::set\-Initial\-Picture (
@@ -192,6 +329,10 @@ std\-::string \hyperlink{class_entity_type_a9a464c546bc2f7fe56fbea9b761ac1f7}{ge
 \item[{std\-::string}]{\-\_\-initial\-Picture}
 \end{DoxyParamCaption}
 )}}\label{class_entity_type_ab3a19031f9b46b376bdd35aa3044c90e}
+
+
+Definition at line 72 of file Entity\-Type.\-cpp.
+
 \hypertarget{class_entity_type_aecd52de7178bb03be55798378d15d3e8}{\index{Entity\-Type@{Entity\-Type}!set\-Initial\-V\-A\-Cost@{set\-Initial\-V\-A\-Cost}}
 \index{set\-Initial\-V\-A\-Cost@{set\-Initial\-V\-A\-Cost}!EntityType@{Entity\-Type}}
 \subsubsection[{set\-Initial\-V\-A\-Cost}]{\setlength{\rightskip}{0pt plus 5cm}void Entity\-Type\-::set\-Initial\-V\-A\-Cost (
@@ -199,6 +340,10 @@ std\-::string \hyperlink{class_entity_type_a9a464c546bc2f7fe56fbea9b761ac1f7}{ge
 \item[{double}]{\-\_\-initial\-V\-A\-Cost}
 \end{DoxyParamCaption}
 )}}\label{class_entity_type_aecd52de7178bb03be55798378d15d3e8}
+
+
+Definition at line 64 of file Entity\-Type.\-cpp.
+
 \hypertarget{class_entity_type_affd1d2dd13149ae0989aae5cc9ea1e05}{\index{Entity\-Type@{Entity\-Type}!set\-Initial\-Waiting\-Cost@{set\-Initial\-Waiting\-Cost}}
 \index{set\-Initial\-Waiting\-Cost@{set\-Initial\-Waiting\-Cost}!EntityType@{Entity\-Type}}
 \subsubsection[{set\-Initial\-Waiting\-Cost}]{\setlength{\rightskip}{0pt plus 5cm}void Entity\-Type\-::set\-Initial\-Waiting\-Cost (
@@ -206,6 +351,10 @@ std\-::string \hyperlink{class_entity_type_a9a464c546bc2f7fe56fbea9b761ac1f7}{ge
 \item[{double}]{\-\_\-initial\-Waiting\-Cost}
 \end{DoxyParamCaption}
 )}}\label{class_entity_type_affd1d2dd13149ae0989aae5cc9ea1e05}
+
+
+Definition at line 40 of file Entity\-Type.\-cpp.
+
 \hypertarget{class_entity_type_ab5a696912b12a9f51decded90f368dea}{\index{Entity\-Type@{Entity\-Type}!show@{show}}
 \index{show@{show}!EntityType@{Entity\-Type}}
 \subsubsection[{show}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Entity\-Type\-::show (
@@ -216,6 +365,10 @@ std\-::string \hyperlink{class_entity_type_a9a464c546bc2f7fe56fbea9b761ac1f7}{ge
 
 
 Reimplemented from \hyperlink{class_model_infrastructure_a649a5a89a0c9931783d3c51de2acf266}{Model\-Infrastructure}.
+
+
+
+Definition at line 35 of file Entity\-Type.\-cpp.
 
 
 

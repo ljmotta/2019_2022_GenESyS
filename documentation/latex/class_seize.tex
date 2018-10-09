@@ -75,13 +75,20 @@ std\-::string \hyperlink{class_seize_a37f2b1a10e1ae390d5186a87bdebe30a}{get\-Que
 \item 
 virtual void \hyperlink{class_seize_a96f6517a40b3bfd0d5ea753d59cef797}{\-\_\-execute} (\hyperlink{class_entity}{Entity} $\ast$entity)
 \item 
-virtual void \hyperlink{class_seize_a69fe928579655a1bdd550ff368965419}{\-\_\-read\-Component} (std\-::list$<$ std\-::string $>$ words)
+virtual void \hyperlink{class_seize_a421a0ec6382cb30f6a0342f8dea050db}{\-\_\-load\-Instance} (std\-::list$<$ std\-::string $>$ words)
 \item 
-virtual std\-::list$<$ std\-::string $>$ $\ast$ \hyperlink{class_seize_a870a593f82847bce26272e27a66bbc69}{\-\_\-write\-Component} ()
+virtual std\-::list$<$ std\-::string $>$ $\ast$ \hyperlink{class_seize_a38a8af6942b51ce11d191469d277661d}{\-\_\-save\-Instance} ()
 \item 
 virtual bool \hyperlink{class_seize_a51dc9257dc692083006f676546ddfff8}{\-\_\-verify\-Symbols} (std\-::string $\ast$error\-Message)
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_seize}{Seize} tries to allocate a certain amount of a resource 
+
+Definition at line 26 of file Seize.\-h.
+
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -92,6 +99,10 @@ virtual bool \hyperlink{class_seize_a51dc9257dc692083006f676546ddfff8}{\-\_\-ver
 \item[{{\bf Model} $\ast$}]{model}
 \end{DoxyParamCaption}
 )}}\label{class_seize_a28a360900407ddb26fe627fd147a93fe}
+
+
+Definition at line 17 of file Seize.\-cpp.
+
 
 
 Here is the call graph for this function\-:\nopagebreak
@@ -110,6 +121,10 @@ Here is the call graph for this function\-:\nopagebreak
 \item[{const {\bf Seize} \&}]{orig}
 \end{DoxyParamCaption}
 )}}\label{class_seize_a0aa70f5748586700ec6c23ef57ba27c2}
+
+
+Definition at line 36 of file Seize.\-cpp.
+
 \hypertarget{class_seize_a45d3e0e4c34c669f5467cc7789bbfab9}{\index{Seize@{Seize}!$\sim$\-Seize@{$\sim$\-Seize}}
 \index{$\sim$\-Seize@{$\sim$\-Seize}!Seize@{Seize}}
 \subsubsection[{$\sim$\-Seize}]{\setlength{\rightskip}{0pt plus 5cm}Seize\-::$\sim$\-Seize (
@@ -117,6 +132,10 @@ Here is the call graph for this function\-:\nopagebreak
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_seize_a45d3e0e4c34c669f5467cc7789bbfab9}
+
+
+Definition at line 156 of file Seize.\-cpp.
+
 
 
 \subsection{Member Function Documentation}
@@ -133,6 +152,10 @@ Implements \hyperlink{class_model_component_ae3fcf8bbdd8368c882438424aa73f714}{M
 
 
 
+Definition at line 262 of file Seize.\-cpp.
+
+
+
 Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -142,16 +165,35 @@ Here is the call graph for this function\-:\nopagebreak
 \end{figure}
 
 
-\hypertarget{class_seize_a69fe928579655a1bdd550ff368965419}{\index{Seize@{Seize}!\-\_\-read\-Component@{\-\_\-read\-Component}}
-\index{\-\_\-read\-Component@{\-\_\-read\-Component}!Seize@{Seize}}
-\subsubsection[{\-\_\-read\-Component}]{\setlength{\rightskip}{0pt plus 5cm}void Seize\-::\-\_\-read\-Component (
+\hypertarget{class_seize_a421a0ec6382cb30f6a0342f8dea050db}{\index{Seize@{Seize}!\-\_\-load\-Instance@{\-\_\-load\-Instance}}
+\index{\-\_\-load\-Instance@{\-\_\-load\-Instance}!Seize@{Seize}}
+\subsubsection[{\-\_\-load\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}void Seize\-::\-\_\-load\-Instance (
 \begin{DoxyParamCaption}
 \item[{std\-::list$<$ std\-::string $>$}]{words}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_seize_a69fe928579655a1bdd550ff368965419}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_seize_a421a0ec6382cb30f6a0342f8dea050db}
 
 
-Implements \hyperlink{class_model_component_aa16546b209d8fda2c8fa951e88652973}{Model\-Component}.
+Implements \hyperlink{class_model_infrastructure_ae118c8ad2ac9d4397c40d004af51b2dc}{Model\-Infrastructure}.
+
+
+
+Definition at line 283 of file Seize.\-cpp.
+
+\hypertarget{class_seize_a38a8af6942b51ce11d191469d277661d}{\index{Seize@{Seize}!\-\_\-save\-Instance@{\-\_\-save\-Instance}}
+\index{\-\_\-save\-Instance@{\-\_\-save\-Instance}!Seize@{Seize}}
+\subsubsection[{\-\_\-save\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<$ std\-::string $>$ $\ast$ Seize\-::\-\_\-save\-Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_seize_a38a8af6942b51ce11d191469d277661d}
+
+
+Implements \hyperlink{class_model_infrastructure_a3da2fd381c44752598bc448b207e8287}{Model\-Infrastructure}.
+
+
+
+Definition at line 287 of file Seize.\-cpp.
 
 \hypertarget{class_seize_a51dc9257dc692083006f676546ddfff8}{\index{Seize@{Seize}!\-\_\-verify\-Symbols@{\-\_\-verify\-Symbols}}
 \index{\-\_\-verify\-Symbols@{\-\_\-verify\-Symbols}!Seize@{Seize}}
@@ -162,18 +204,11 @@ Implements \hyperlink{class_model_component_aa16546b209d8fda2c8fa951e88652973}{M
 )\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_seize_a51dc9257dc692083006f676546ddfff8}
 
 
-Implements \hyperlink{class_model_component_a183696468482133b2a09b761b7770521}{Model\-Component}.
-
-\hypertarget{class_seize_a870a593f82847bce26272e27a66bbc69}{\index{Seize@{Seize}!\-\_\-write\-Component@{\-\_\-write\-Component}}
-\index{\-\_\-write\-Component@{\-\_\-write\-Component}!Seize@{Seize}}
-\subsubsection[{\-\_\-write\-Component}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<$ std\-::string $>$ $\ast$ Seize\-::\-\_\-write\-Component (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_seize_a870a593f82847bce26272e27a66bbc69}
+Implements \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a388}{Model\-Infrastructure}.
 
 
-Implements \hyperlink{class_model_component_a5847971e860713d9df3e41c603c772c0}{Model\-Component}.
+
+Definition at line 292 of file Seize.\-cpp.
 
 \hypertarget{class_seize_ac40f22e56d4448c5d5bae40b64ef4deb}{\index{Seize@{Seize}!get\-Allocation\-Type@{get\-Allocation\-Type}}
 \index{get\-Allocation\-Type@{get\-Allocation\-Type}!Seize@{Seize}}
@@ -182,6 +217,10 @@ Implements \hyperlink{class_model_component_a5847971e860713d9df3e41c603c772c0}{M
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_seize_ac40f22e56d4448c5d5bae40b64ef4deb}
+
+
+Definition at line 98 of file Seize.\-cpp.
+
 \hypertarget{class_seize_ad9b9ad81692568b0462b4336c1e65141}{\index{Seize@{Seize}!get\-Last\-Member\-Seized@{get\-Last\-Member\-Seized}}
 \index{get\-Last\-Member\-Seized@{get\-Last\-Member\-Seized}!Seize@{Seize}}
 \subsubsection[{get\-Last\-Member\-Seized}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Seize\-::get\-Last\-Member\-Seized (
@@ -189,6 +228,10 @@ Implements \hyperlink{class_model_component_a5847971e860713d9df3e41c603c772c0}{M
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_seize_ad9b9ad81692568b0462b4336c1e65141}
+
+
+Definition at line 50 of file Seize.\-cpp.
+
 \hypertarget{class_seize_aae382dc1d1d3dc9a3de927cc9d7811c9}{\index{Seize@{Seize}!get\-Priority@{get\-Priority}}
 \index{get\-Priority@{get\-Priority}!Seize@{Seize}}
 \subsubsection[{get\-Priority}]{\setlength{\rightskip}{0pt plus 5cm}unsigned short Seize\-::get\-Priority (
@@ -196,6 +239,10 @@ Implements \hyperlink{class_model_component_a5847971e860713d9df3e41c603c772c0}{M
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_seize_aae382dc1d1d3dc9a3de927cc9d7811c9}
+
+
+Definition at line 90 of file Seize.\-cpp.
+
 \hypertarget{class_seize_a3d35c1a3b959b045aeeaf11ec8a86cbc}{\index{Seize@{Seize}!get\-Quantity@{get\-Quantity}}
 \index{get\-Quantity@{get\-Quantity}!Seize@{Seize}}
 \subsubsection[{get\-Quantity}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Seize\-::get\-Quantity (
@@ -203,6 +250,10 @@ Implements \hyperlink{class_model_component_a5847971e860713d9df3e41c603c772c0}{M
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_seize_a3d35c1a3b959b045aeeaf11ec8a86cbc}
+
+
+Definition at line 74 of file Seize.\-cpp.
+
 \hypertarget{class_seize_a37f2b1a10e1ae390d5186a87bdebe30a}{\index{Seize@{Seize}!get\-Queue\-Name@{get\-Queue\-Name}}
 \index{get\-Queue\-Name@{get\-Queue\-Name}!Seize@{Seize}}
 \subsubsection[{get\-Queue\-Name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Seize\-::get\-Queue\-Name (
@@ -210,6 +261,10 @@ Implements \hyperlink{class_model_component_a5847971e860713d9df3e41c603c772c0}{M
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_seize_a37f2b1a10e1ae390d5186a87bdebe30a}
+
+
+Definition at line 152 of file Seize.\-cpp.
+
 
 
 Here is the call graph for this function\-:\nopagebreak
@@ -221,6 +276,18 @@ Here is the call graph for this function\-:\nopagebreak
 \end{figure}
 
 
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_seize_a37f2b1a10e1ae390d5186a87bdebe30a_icgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{class_seize_a30781601e8fcfb165c99aee731c081e8}{\index{Seize@{Seize}!get\-Resource\-Name@{get\-Resource\-Name}}
 \index{get\-Resource\-Name@{get\-Resource\-Name}!Seize@{Seize}}
 \subsubsection[{get\-Resource\-Name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Seize\-::get\-Resource\-Name (
@@ -228,6 +295,10 @@ Here is the call graph for this function\-:\nopagebreak
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_seize_a30781601e8fcfb165c99aee731c081e8}
+
+
+Definition at line 148 of file Seize.\-cpp.
+
 
 
 Here is the call graph for this function\-:\nopagebreak
@@ -246,6 +317,10 @@ Here is the call graph for this function\-:\nopagebreak
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_seize_a2b10c5172c67b6fa033dc5ef8a002af6}
+
+
+Definition at line 82 of file Seize.\-cpp.
+
 \hypertarget{class_seize_a00c5526a54b5ca033afdeb3b2a5c4bee}{\index{Seize@{Seize}!get\-Rule@{get\-Rule}}
 \index{get\-Rule@{get\-Rule}!Seize@{Seize}}
 \subsubsection[{get\-Rule}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Resource\-::\-Resource\-Rule} Seize\-::get\-Rule (
@@ -253,6 +328,10 @@ Here is the call graph for this function\-:\nopagebreak
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_seize_a00c5526a54b5ca033afdeb3b2a5c4bee}
+
+
+Definition at line 66 of file Seize.\-cpp.
+
 \hypertarget{class_seize_aaa1af663808e0e80f59aae5b2bc93398}{\index{Seize@{Seize}!get\-Save\-Attribute@{get\-Save\-Attribute}}
 \index{get\-Save\-Attribute@{get\-Save\-Attribute}!Seize@{Seize}}
 \subsubsection[{get\-Save\-Attribute}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Seize\-::get\-Save\-Attribute (
@@ -260,6 +339,10 @@ Here is the call graph for this function\-:\nopagebreak
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_seize_aaa1af663808e0e80f59aae5b2bc93398}
+
+
+Definition at line 58 of file Seize.\-cpp.
+
 \hypertarget{class_seize_a4f6354bf4897ce4c46ff9c1e2dd5c150}{\index{Seize@{Seize}!set\-Allocation\-Type@{set\-Allocation\-Type}}
 \index{set\-Allocation\-Type@{set\-Allocation\-Type}!Seize@{Seize}}
 \subsubsection[{set\-Allocation\-Type}]{\setlength{\rightskip}{0pt plus 5cm}void Seize\-::set\-Allocation\-Type (
@@ -267,6 +350,10 @@ Here is the call graph for this function\-:\nopagebreak
 \item[{unsigned int}]{\-\_\-allocation\-Type}
 \end{DoxyParamCaption}
 )}}\label{class_seize_a4f6354bf4897ce4c46ff9c1e2dd5c150}
+
+
+Definition at line 94 of file Seize.\-cpp.
+
 \hypertarget{class_seize_ad4788b62f2b68266930b8916e69df8c7}{\index{Seize@{Seize}!set\-Last\-Member\-Seized@{set\-Last\-Member\-Seized}}
 \index{set\-Last\-Member\-Seized@{set\-Last\-Member\-Seized}!Seize@{Seize}}
 \subsubsection[{set\-Last\-Member\-Seized}]{\setlength{\rightskip}{0pt plus 5cm}void Seize\-::set\-Last\-Member\-Seized (
@@ -274,6 +361,10 @@ Here is the call graph for this function\-:\nopagebreak
 \item[{unsigned int}]{\-\_\-last\-Member\-Seized}
 \end{DoxyParamCaption}
 )}}\label{class_seize_ad4788b62f2b68266930b8916e69df8c7}
+
+
+Definition at line 46 of file Seize.\-cpp.
+
 \hypertarget{class_seize_aa9c7a856ef519696526192a06dab9551}{\index{Seize@{Seize}!set\-Priority@{set\-Priority}}
 \index{set\-Priority@{set\-Priority}!Seize@{Seize}}
 \subsubsection[{set\-Priority}]{\setlength{\rightskip}{0pt plus 5cm}void Seize\-::set\-Priority (
@@ -281,6 +372,10 @@ Here is the call graph for this function\-:\nopagebreak
 \item[{unsigned short}]{\-\_\-priority}
 \end{DoxyParamCaption}
 )}}\label{class_seize_aa9c7a856ef519696526192a06dab9551}
+
+
+Definition at line 86 of file Seize.\-cpp.
+
 \hypertarget{class_seize_af1d376022212dabf763f28d67a1a549b}{\index{Seize@{Seize}!set\-Quantity@{set\-Quantity}}
 \index{set\-Quantity@{set\-Quantity}!Seize@{Seize}}
 \subsubsection[{set\-Quantity}]{\setlength{\rightskip}{0pt plus 5cm}void Seize\-::set\-Quantity (
@@ -288,6 +383,10 @@ Here is the call graph for this function\-:\nopagebreak
 \item[{std\-::string}]{\-\_\-quantity}
 \end{DoxyParamCaption}
 )}}\label{class_seize_af1d376022212dabf763f28d67a1a549b}
+
+
+Definition at line 70 of file Seize.\-cpp.
+
 \hypertarget{class_seize_a4d24a3326db05e92439379e1c4efa940}{\index{Seize@{Seize}!set\-Queue\-Name@{set\-Queue\-Name}}
 \index{set\-Queue\-Name@{set\-Queue\-Name}!Seize@{Seize}}
 \subsubsection[{set\-Queue\-Name}]{\setlength{\rightskip}{0pt plus 5cm}void Seize\-::set\-Queue\-Name (
@@ -295,6 +394,10 @@ Here is the call graph for this function\-:\nopagebreak
 \item[{std\-::string}]{\-\_\-queue\-Name}
 \end{DoxyParamCaption}
 )}}\label{class_seize_a4d24a3326db05e92439379e1c4efa940}
+
+
+Definition at line 102 of file Seize.\-cpp.
+
 
 
 Here is the call graph for this function\-:\nopagebreak
@@ -315,11 +418,27 @@ Here is the call graph for this function\-:\nopagebreak
 )}}\label{class_seize_a2bdaa616c4fd499f754099eb59729547}
 
 
+Definition at line 125 of file Seize.\-cpp.
+
+
+
 Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{class_seize_a2bdaa616c4fd499f754099eb59729547_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_seize_a2bdaa616c4fd499f754099eb59729547_icgraph}
 \end{center}
 \end{figure}
 
@@ -331,6 +450,10 @@ Here is the call graph for this function\-:\nopagebreak
 \item[{{\bf Resource\-::\-Resource\-Type}}]{\-\_\-resource\-Type}
 \end{DoxyParamCaption}
 )}}\label{class_seize_a8e01625b7a2c0fa8eb5c374c98a4266d}
+
+
+Definition at line 78 of file Seize.\-cpp.
+
 \hypertarget{class_seize_afabaeaa0ca4eecc40e8196368ca6b6ed}{\index{Seize@{Seize}!set\-Rule@{set\-Rule}}
 \index{set\-Rule@{set\-Rule}!Seize@{Seize}}
 \subsubsection[{set\-Rule}]{\setlength{\rightskip}{0pt plus 5cm}void Seize\-::set\-Rule (
@@ -338,6 +461,10 @@ Here is the call graph for this function\-:\nopagebreak
 \item[{{\bf Resource\-::\-Resource\-Rule}}]{\-\_\-rule}
 \end{DoxyParamCaption}
 )}}\label{class_seize_afabaeaa0ca4eecc40e8196368ca6b6ed}
+
+
+Definition at line 62 of file Seize.\-cpp.
+
 \hypertarget{class_seize_a2081e282fce820d86490607063c4d631}{\index{Seize@{Seize}!set\-Save\-Attribute@{set\-Save\-Attribute}}
 \index{set\-Save\-Attribute@{set\-Save\-Attribute}!Seize@{Seize}}
 \subsubsection[{set\-Save\-Attribute}]{\setlength{\rightskip}{0pt plus 5cm}void Seize\-::set\-Save\-Attribute (
@@ -345,6 +472,10 @@ Here is the call graph for this function\-:\nopagebreak
 \item[{std\-::string}]{\-\_\-save\-Attribute}
 \end{DoxyParamCaption}
 )}}\label{class_seize_a2081e282fce820d86490607063c4d631}
+
+
+Definition at line 54 of file Seize.\-cpp.
+
 \hypertarget{class_seize_a495ace3a156680b5816c8b285135322c}{\index{Seize@{Seize}!show@{show}}
 \index{show@{show}!Seize@{Seize}}
 \subsubsection[{show}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Seize\-::show (
@@ -355,6 +486,10 @@ Here is the call graph for this function\-:\nopagebreak
 
 
 Reimplemented from \hyperlink{class_model_component_ad8bc846e36b028eab7efb7da6c549eca}{Model\-Component}.
+
+
+
+Definition at line 39 of file Seize.\-cpp.
 
 
 

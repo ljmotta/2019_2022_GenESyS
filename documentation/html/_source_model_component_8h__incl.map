@@ -1,9 +1,8 @@
 <map id="SourceModelComponent.h" name="SourceModelComponent.h">
 <area shape="rect" id="node2" href="$_model_component_8h.html" title="ModelComponent.h" alt="" coords="243,80,377,107"/>
 <area shape="rect" id="node5" href="$_plugin_8h.html" title="Plugin.h" alt="" coords="93,229,163,256"/>
-<area shape="rect" id="node10" href="$_list_8h.html" title="List.h" alt="" coords="649,229,703,256"/>
-<area shape="rect" id="node14" href="$_entity_8h.html" title="Entity.h" alt="" coords="389,155,456,181"/>
+<area shape="rect" id="node10" href="$_list_8h.html" title="List.h" alt="" coords="561,229,615,256"/>
+<area shape="rect" id="node14" href="$_entity_8h.html" title="Entity.h" alt="" coords="368,155,435,181"/>
 <area shape="rect" id="node15" href="$_model_infrastructure_8h.html" title="ModelInfrastructure.h" alt="" coords="238,229,383,256"/>
-<area shape="rect" id="node6" href="$_util_8h.html" title="Util.h" alt="" coords="351,304,404,331"/>
-<area shape="rect" id="node16" href="$_attribute_value_8h.html" title="AttributeValue.h" alt="" coords="408,229,523,256"/>
+<area shape="rect" id="node6" href="$_util_8h.html" title="Util.h" alt="" coords="336,304,389,331"/>
 </map>

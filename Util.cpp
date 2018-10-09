@@ -25,7 +25,7 @@ Util::identitifcation Util::GenerateNewId() {
 }
 
 
-Util::identitifcation Util::_GenerateNewIdOfType(std::string objtype) {
+Util::identitifcation Util::GenerateNewIdOfType(std::string objtype) {
 	std::map<std::string,Util::identitifcation>::iterator it =  Util::_S_lastIdOfType.find(objtype);
 	if (it == Util::_S_lastIdOfType.end() ) {
 		// a new one. create the pair

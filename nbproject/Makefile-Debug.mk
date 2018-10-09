@@ -37,7 +37,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/Assign.o \
 	${OBJECTDIR}/Attribute.o \
-	${OBJECTDIR}/BuildSimpleModel.o \
+	${OBJECTDIR}/BuildSimpleModel1.o \
 	${OBJECTDIR}/CollectorDatafileCancianImpl.o \
 	${OBJECTDIR}/CollectorDatafileMyImpl1.o \
 	${OBJECTDIR}/CollectorMyImpl1.o \
@@ -119,10 +119,10 @@ ${OBJECTDIR}/Attribute.o: Attribute.cpp nbproject/Makefile-${CND_CONF}.mk
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Attribute.o Attribute.cpp
 
-${OBJECTDIR}/BuildSimpleModel.o: BuildSimpleModel.cpp nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/BuildSimpleModel1.o: BuildSimpleModel1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/BuildSimpleModel.o BuildSimpleModel.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/BuildSimpleModel1.o BuildSimpleModel1.cpp
 
 ${OBJECTDIR}/CollectorDatafileCancianImpl.o: CollectorDatafileCancianImpl.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

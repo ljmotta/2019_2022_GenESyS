@@ -1,0 +1,7 @@
+<map id="List::size" name="List::size">
+<area shape="rect" id="node2" href="$class_queue.html#a961b5b7ca80317aa69f958612fb988ad" title="Queue::insertElement" alt="" coords="134,5,282,32"/>
+<area shape="rect" id="node4" href="$class_queue.html#a114d5144b3026b57cca9cf481b1f0d65" title="Queue::removeElement" alt="" coords="129,56,287,83"/>
+<area shape="rect" id="node6" href="$class_queue.html#a4cd92f99b7abc9ec4df32690dc5a037d" title="Queue::size" alt="" coords="162,107,254,133"/>
+<area shape="rect" id="node3" href="$class_seize.html#a96f6517a40b3bfd0d5ea753d59cef797" title="Seize::_execute" alt="" coords="343,5,459,32"/>
+<area shape="rect" id="node5" href="$class_release.html#a63c3cd89082e7f6c1fb61646b93a5c32" title="Release::_execute" alt="" coords="336,81,467,108"/>
+</map>

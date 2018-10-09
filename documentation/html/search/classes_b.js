@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['release',['Release',['../class_release.html',1,'']]],
-  ['resource',['Resource',['../class_resource.html',1,'']]],
-  ['rng_5fparameters',['RNG_Parameters',['../class_sampler__if_1_1_r_n_g___parameters.html',1,'Sampler_if']]]
+  ['parser_5fif',['Parser_if',['../class_parser__if.html',1,'']]],
+  ['parsermyimpl1',['ParserMyImpl1',['../class_parser_my_impl1.html',1,'']]],
+  ['plugin',['Plugin',['../class_plugin.html',1,'']]],
+  ['probdistrib',['ProbDistrib',['../class_prob_distrib.html',1,'']]]
 ];

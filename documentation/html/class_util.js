@@ -21,5 +21,12 @@ var class_util =
       [ "TL_blockArrival", "class_util.html#a604561d00f5999b5ca280401140e58d9a3a33606fc3e2b432131173eeed280d9a", null ],
       [ "TL_blockInternal", "class_util.html#a604561d00f5999b5ca280401140e58d9a3bf34b905a3128734e417619af900d0e", null ],
       [ "TL_mostDetailed", "class_util.html#a604561d00f5999b5ca280401140e58d9a64fd55e7b2e7fa00956ebc5185cef8b0", null ]
-    ] ]
+    ] ],
+    [ "GenerateNewId", "class_util.html#a59ecba8027c38a9d0a3a0e9e9dc94ad7", null ],
+    [ "GenerateNewIdOfType", "class_util.html#a96dd76236d7f5888b8dac562e93f9278", null ],
+    [ "GenerateNewIdOfType", "class_util.html#aec5f31f4f467113c25a6aef7bb5f4a40", null ],
+    [ "TimeUnitConvert", "class_util.html#a5f537febaa83db4721745a4730657bab", null ],
+    [ "TypeOf", "class_util.html#a1010d1207367e48e1d417381f32abf1f", null ],
+    [ "_S_lastId", "class_util.html#afe2f6d8c09ef1108299a4dc8ec59b133", null ],
+    [ "_S_lastIdOfType", "class_util.html#a06a8897362f4bd17c68d59557083fc56", null ]
 ];

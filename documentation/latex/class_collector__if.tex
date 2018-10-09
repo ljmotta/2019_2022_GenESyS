@@ -7,11 +7,12 @@
 
 
 
-Inheritance diagram for Collector\-\_\-if\-:\nopagebreak
+Inheritance diagram for Collector\-\_\-if\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=304pt]{class_collector__if__inherit__graph}
+\includegraphics[width=350pt]{class_collector__if__inherit__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
@@ -23,12 +24,16 @@ virtual void \hyperlink{class_collector__if_ac7b83bce8ddb4903d247c1eddd656171}{a
 \item 
 virtual double \hyperlink{class_collector__if_aa14f7e1065af8fd38ab592e224fb7e43}{get\-Last\-Value} ()=0
 \item 
-virtual unsigned int \hyperlink{class_collector__if_a75c20c68c54089105ca8c440997a7cca}{num\-Elements} ()=0
+virtual unsigned long \hyperlink{class_collector__if_a97fa632508ffdfad1365b3a949acf745}{num\-Elements} ()=0
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 Interface for collecting values of a single stochastic variable. Values collected can be used as base for statistical analysis. 
+
+Definition at line 22 of file Collector\-\_\-if.\-h.
+
+
 
 \subsection{Member Function Documentation}
 \hypertarget{class_collector__if_ac7b83bce8ddb4903d247c1eddd656171}{\index{Collector\-\_\-if@{Collector\-\_\-if}!add\-Value@{add\-Value}}
@@ -40,7 +45,19 @@ Interface for collecting values of a single stochastic variable. Values collecte
 )\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_collector__if_ac7b83bce8ddb4903d247c1eddd656171}
 
 
-Implemented in \hyperlink{class_collector_my_impl1_acc5d658a3429af8b7d4265cbc37485b5}{Collector\-My\-Impl1}, and \hyperlink{class_collector_datafile_my_impl1_aa909fc87f2ee082512616840c9031365}{Collector\-Datafile\-My\-Impl1}.
+Implemented in \hyperlink{class_collector_datafile_cancian_impl_ab6a718100f5bdd04e3fef9edf23045ec}{Collector\-Datafile\-Cancian\-Impl}, \hyperlink{class_collector_my_impl1_acc5d658a3429af8b7d4265cbc37485b5}{Collector\-My\-Impl1}, and \hyperlink{class_collector_datafile_my_impl1_aa909fc87f2ee082512616840c9031365}{Collector\-Datafile\-My\-Impl1}.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_collector__if_ac7b83bce8ddb4903d247c1eddd656171_icgraph}
+\end{center}
+\end{figure}
+
 
 \hypertarget{class_collector__if_a035bd1300c85866870c2f6178a9528e8}{\index{Collector\-\_\-if@{Collector\-\_\-if}!clear@{clear}}
 \index{clear@{clear}!Collector_if@{Collector\-\_\-if}}
@@ -51,7 +68,7 @@ Implemented in \hyperlink{class_collector_my_impl1_acc5d658a3429af8b7d4265cbc374
 )\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_collector__if_a035bd1300c85866870c2f6178a9528e8}
 
 
-Implemented in \hyperlink{class_collector_my_impl1_a9b570931955cafde878d6734aa914039}{Collector\-My\-Impl1}, and \hyperlink{class_collector_datafile_my_impl1_a594004f005db5dd1122946445f4db70d}{Collector\-Datafile\-My\-Impl1}.
+Implemented in \hyperlink{class_collector_datafile_cancian_impl_a9fe0e4e764f1cc868d9c91bc68ff0ed8}{Collector\-Datafile\-Cancian\-Impl}, \hyperlink{class_collector_my_impl1_a9b570931955cafde878d6734aa914039}{Collector\-My\-Impl1}, and \hyperlink{class_collector_datafile_my_impl1_a594004f005db5dd1122946445f4db70d}{Collector\-Datafile\-My\-Impl1}.
 
 \hypertarget{class_collector__if_aa14f7e1065af8fd38ab592e224fb7e43}{\index{Collector\-\_\-if@{Collector\-\_\-if}!get\-Last\-Value@{get\-Last\-Value}}
 \index{get\-Last\-Value@{get\-Last\-Value}!Collector_if@{Collector\-\_\-if}}
@@ -62,18 +79,18 @@ Implemented in \hyperlink{class_collector_my_impl1_a9b570931955cafde878d6734aa91
 )\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_collector__if_aa14f7e1065af8fd38ab592e224fb7e43}
 
 
-Implemented in \hyperlink{class_collector_my_impl1_a56e754ba3175e2f335290e2a737e7104}{Collector\-My\-Impl1}, and \hyperlink{class_collector_datafile_my_impl1_a5a29b2f71a4630c658fb83c047fb1054}{Collector\-Datafile\-My\-Impl1}.
+Implemented in \hyperlink{class_collector_datafile_cancian_impl_a24b93dedb5f56e710e810c05e89dc36f}{Collector\-Datafile\-Cancian\-Impl}, \hyperlink{class_collector_my_impl1_a56e754ba3175e2f335290e2a737e7104}{Collector\-My\-Impl1}, and \hyperlink{class_collector_datafile_my_impl1_a5a29b2f71a4630c658fb83c047fb1054}{Collector\-Datafile\-My\-Impl1}.
 
-\hypertarget{class_collector__if_a75c20c68c54089105ca8c440997a7cca}{\index{Collector\-\_\-if@{Collector\-\_\-if}!num\-Elements@{num\-Elements}}
+\hypertarget{class_collector__if_a97fa632508ffdfad1365b3a949acf745}{\index{Collector\-\_\-if@{Collector\-\_\-if}!num\-Elements@{num\-Elements}}
 \index{num\-Elements@{num\-Elements}!Collector_if@{Collector\-\_\-if}}
-\subsubsection[{num\-Elements}]{\setlength{\rightskip}{0pt plus 5cm}virtual unsigned int Collector\-\_\-if\-::num\-Elements (
+\subsubsection[{num\-Elements}]{\setlength{\rightskip}{0pt plus 5cm}virtual unsigned long Collector\-\_\-if\-::num\-Elements (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_collector__if_a75c20c68c54089105ca8c440997a7cca}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_collector__if_a97fa632508ffdfad1365b3a949acf745}
 
 
-Implemented in \hyperlink{class_collector_my_impl1_ac71aac361d3c9a5d0c9cc76c1c75e47e}{Collector\-My\-Impl1}, and \hyperlink{class_collector_datafile_my_impl1_a6e20d49a94f677a7483412b8d9689950}{Collector\-Datafile\-My\-Impl1}.
+Implemented in \hyperlink{class_collector_datafile_cancian_impl_ab10e682e4b991a881efb56caebb4efa9}{Collector\-Datafile\-Cancian\-Impl}, \hyperlink{class_collector_my_impl1_a25427d84682943e0f588d494c54f79d8}{Collector\-My\-Impl1}, and \hyperlink{class_collector_datafile_my_impl1_ac8ad59a3b664d082c8ca4fca9887148a}{Collector\-Datafile\-My\-Impl1}.
 
 
 

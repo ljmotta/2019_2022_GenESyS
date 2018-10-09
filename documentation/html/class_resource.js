@@ -18,9 +18,12 @@ var class_resource =
       [ "rtSET", "class_resource.html#ae2554291a9f2c6b3fedb01d0ca41bfd8a4d9374214afc5a64dc30c7406fa2282d", null ],
       [ "rtRESOURCE", "class_resource.html#ae2554291a9f2c6b3fedb01d0ca41bfd8a9d86c2e4e2f9cb022e88d5593a9517af", null ]
     ] ],
-    [ "Resource", "class_resource.html#a5a87b23dc0327bbf8d53c6f38f637f48", null ],
+    [ "Resource", "class_resource.html#a1a8ae095067797fa47b0241ee278536c", null ],
     [ "Resource", "class_resource.html#a30f2ca8f0617a6628ebd246b14b50566", null ],
     [ "~Resource", "class_resource.html#a0e5ec475e2601bdb33644468e86f6f10", null ],
+    [ "_loadInstance", "class_resource.html#a5c4aedea65e6800cf44fb3620d559148", null ],
+    [ "_saveInstance", "class_resource.html#a546f61a6f5f57f0c41c722b9b9dc7478", null ],
+    [ "_verifySymbols", "class_resource.html#a3b282a34c4c706ca63716cb74e7f8183", null ],
     [ "getCapacity", "class_resource.html#a0aa3a9287571af52be298611580e661e", null ],
     [ "getCostBusyHour", "class_resource.html#a66bd7e365c6ccb088afad2a6f24afdae", null ],
     [ "getCostIdleHour", "class_resource.html#a8033fb963bed0116f01af2b637bd4cad", null ],

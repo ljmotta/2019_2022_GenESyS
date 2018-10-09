@@ -34,14 +34,31 @@ virtual \hyperlink{class_entity_adf6d3f7cb1b2ba029b6b048a395cc8ae}{$\sim$\-Entit
 \item 
 virtual std\-::string \hyperlink{class_entity_a86cc324050b451b31b134943e7978e36}{show} ()
 \item 
-std\-::map$<$ std\-::string, \\*
-\hyperlink{class_attribute_value}{Attribute\-Value} $\ast$ $>$ $\ast$ \hyperlink{class_entity_a5990dbefc2f21a7e8e0f91f9bf434fb9}{get\-Attribute\-Values} () const 
-\item 
 void \hyperlink{class_entity_a40053760a2c84dd72fd5aeb425f6781d}{set\-Entity\-Type\-Name} (std\-::string \-\_\-entity\-Type\-Name)
 \item 
 std\-::string \hyperlink{class_entity_a860a6385aa2af6b8d205a8e3ea912c38}{get\-Entity\-Type\-Name} () const 
+\item 
+double \hyperlink{class_entity_aed93eae1f252705e713dd7f8019ace35}{get\-Attribute\-Value} (std\-::string attribute\-Name)
+\item 
+void \hyperlink{class_entity_ad1a2bc190ef151a4a5c7eff902ee468d}{set\-Attribute\-Value} (std\-::string attribute\-Name, double value)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_entity_a51972e626aef5f92a10d5f800e323237}{\-\_\-load\-Instance} (std\-::list$<$ std\-::string $>$ words)
+\item 
+virtual std\-::list$<$ std\-::string $>$ $\ast$ \hyperlink{class_entity_a1569ba1b09e70e4769c5f02f611a8c61}{\-\_\-save\-Instance} ()
+\item 
+virtual bool \hyperlink{class_entity_a5a5fc79267b3671839597c99f8630a87}{\-\_\-verify\-Symbols} (std\-::string $\ast$error\-Message)
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 24 of file Entity.\-h.
+
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -52,6 +69,10 @@ std\-::string \hyperlink{class_entity_a860a6385aa2af6b8d205a8e3ea912c38}{get\-En
 {}
 \end{DoxyParamCaption}
 )}}\label{class_entity_a980f368aa07ce358583982821533a54a}
+
+
+Definition at line 17 of file Entity.\-cpp.
+
 \hypertarget{class_entity_a9de139ff12775dd95fb80bec08247de7}{\index{Entity@{Entity}!Entity@{Entity}}
 \index{Entity@{Entity}!Entity@{Entity}}
 \subsubsection[{Entity}]{\setlength{\rightskip}{0pt plus 5cm}Entity\-::\-Entity (
@@ -59,6 +80,10 @@ std\-::string \hyperlink{class_entity_a860a6385aa2af6b8d205a8e3ea912c38}{get\-En
 \item[{const {\bf Entity} \&}]{orig}
 \end{DoxyParamCaption}
 )}}\label{class_entity_a9de139ff12775dd95fb80bec08247de7}
+
+
+Definition at line 21 of file Entity.\-cpp.
+
 \hypertarget{class_entity_adf6d3f7cb1b2ba029b6b048a395cc8ae}{\index{Entity@{Entity}!$\sim$\-Entity@{$\sim$\-Entity}}
 \index{$\sim$\-Entity@{$\sim$\-Entity}!Entity@{Entity}}
 \subsubsection[{$\sim$\-Entity}]{\setlength{\rightskip}{0pt plus 5cm}Entity\-::$\sim$\-Entity (
@@ -68,14 +93,79 @@ std\-::string \hyperlink{class_entity_a860a6385aa2af6b8d205a8e3ea912c38}{get\-En
 )\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_entity_adf6d3f7cb1b2ba029b6b048a395cc8ae}
 
 
+Definition at line 24 of file Entity.\-cpp.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_entity_adf6d3f7cb1b2ba029b6b048a395cc8ae_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
 \subsection{Member Function Documentation}
-\hypertarget{class_entity_a5990dbefc2f21a7e8e0f91f9bf434fb9}{\index{Entity@{Entity}!get\-Attribute\-Values@{get\-Attribute\-Values}}
-\index{get\-Attribute\-Values@{get\-Attribute\-Values}!Entity@{Entity}}
-\subsubsection[{get\-Attribute\-Values}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$ std\-::string, {\bf Attribute\-Value} $\ast$ $>$ $\ast$ Entity\-::get\-Attribute\-Values (
+\hypertarget{class_entity_a51972e626aef5f92a10d5f800e323237}{\index{Entity@{Entity}!\-\_\-load\-Instance@{\-\_\-load\-Instance}}
+\index{\-\_\-load\-Instance@{\-\_\-load\-Instance}!Entity@{Entity}}
+\subsubsection[{\-\_\-load\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}void Entity\-::\-\_\-load\-Instance (
+\begin{DoxyParamCaption}
+\item[{std\-::list$<$ std\-::string $>$}]{words}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_entity_a51972e626aef5f92a10d5f800e323237}
+
+
+Implements \hyperlink{class_model_infrastructure_ae118c8ad2ac9d4397c40d004af51b2dc}{Model\-Infrastructure}.
+
+
+
+Definition at line 46 of file Entity.\-cpp.
+
+\hypertarget{class_entity_a1569ba1b09e70e4769c5f02f611a8c61}{\index{Entity@{Entity}!\-\_\-save\-Instance@{\-\_\-save\-Instance}}
+\index{\-\_\-save\-Instance@{\-\_\-save\-Instance}!Entity@{Entity}}
+\subsubsection[{\-\_\-save\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<$ std\-::string $>$ $\ast$ Entity\-::\-\_\-save\-Instance (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_entity_a5990dbefc2f21a7e8e0f91f9bf434fb9}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_entity_a1569ba1b09e70e4769c5f02f611a8c61}
+
+
+Implements \hyperlink{class_model_infrastructure_a3da2fd381c44752598bc448b207e8287}{Model\-Infrastructure}.
+
+
+
+Definition at line 49 of file Entity.\-cpp.
+
+\hypertarget{class_entity_a5a5fc79267b3671839597c99f8630a87}{\index{Entity@{Entity}!\-\_\-verify\-Symbols@{\-\_\-verify\-Symbols}}
+\index{\-\_\-verify\-Symbols@{\-\_\-verify\-Symbols}!Entity@{Entity}}
+\subsubsection[{\-\_\-verify\-Symbols}]{\setlength{\rightskip}{0pt plus 5cm}bool Entity\-::\-\_\-verify\-Symbols (
+\begin{DoxyParamCaption}
+\item[{std\-::string $\ast$}]{error\-Message}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_entity_a5a5fc79267b3671839597c99f8630a87}
+
+
+Implements \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a388}{Model\-Infrastructure}.
+
+
+
+Definition at line 54 of file Entity.\-cpp.
+
+\hypertarget{class_entity_aed93eae1f252705e713dd7f8019ace35}{\index{Entity@{Entity}!get\-Attribute\-Value@{get\-Attribute\-Value}}
+\index{get\-Attribute\-Value@{get\-Attribute\-Value}!Entity@{Entity}}
+\subsubsection[{get\-Attribute\-Value}]{\setlength{\rightskip}{0pt plus 5cm}double Entity\-::get\-Attribute\-Value (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{attribute\-Name}
+\end{DoxyParamCaption}
+)}}\label{class_entity_aed93eae1f252705e713dd7f8019ace35}
+
+
+Definition at line 40 of file Entity.\-cpp.
+
 \hypertarget{class_entity_a860a6385aa2af6b8d205a8e3ea912c38}{\index{Entity@{Entity}!get\-Entity\-Type\-Name@{get\-Entity\-Type\-Name}}
 \index{get\-Entity\-Type\-Name@{get\-Entity\-Type\-Name}!Entity@{Entity}}
 \subsubsection[{get\-Entity\-Type\-Name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Entity\-::get\-Entity\-Type\-Name (
@@ -83,6 +173,34 @@ std\-::string \hyperlink{class_entity_a860a6385aa2af6b8d205a8e3ea912c38}{get\-En
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_entity_a860a6385aa2af6b8d205a8e3ea912c38}
+
+
+Definition at line 31 of file Entity.\-cpp.
+
+\hypertarget{class_entity_ad1a2bc190ef151a4a5c7eff902ee468d}{\index{Entity@{Entity}!set\-Attribute\-Value@{set\-Attribute\-Value}}
+\index{set\-Attribute\-Value@{set\-Attribute\-Value}!Entity@{Entity}}
+\subsubsection[{set\-Attribute\-Value}]{\setlength{\rightskip}{0pt plus 5cm}void Entity\-::set\-Attribute\-Value (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{attribute\-Name, }
+\item[{double}]{value}
+\end{DoxyParamCaption}
+)}}\label{class_entity_ad1a2bc190ef151a4a5c7eff902ee468d}
+
+
+Definition at line 43 of file Entity.\-cpp.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{class_entity_ad1a2bc190ef151a4a5c7eff902ee468d_icgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{class_entity_a40053760a2c84dd72fd5aeb425f6781d}{\index{Entity@{Entity}!set\-Entity\-Type\-Name@{set\-Entity\-Type\-Name}}
 \index{set\-Entity\-Type\-Name@{set\-Entity\-Type\-Name}!Entity@{Entity}}
 \subsubsection[{set\-Entity\-Type\-Name}]{\setlength{\rightskip}{0pt plus 5cm}void Entity\-::set\-Entity\-Type\-Name (
@@ -90,6 +208,10 @@ std\-::string \hyperlink{class_entity_a860a6385aa2af6b8d205a8e3ea912c38}{get\-En
 \item[{std\-::string}]{\-\_\-entity\-Type\-Name}
 \end{DoxyParamCaption}
 )}}\label{class_entity_a40053760a2c84dd72fd5aeb425f6781d}
+
+
+Definition at line 27 of file Entity.\-cpp.
+
 \hypertarget{class_entity_a86cc324050b451b31b134943e7978e36}{\index{Entity@{Entity}!show@{show}}
 \index{show@{show}!Entity@{Entity}}
 \subsubsection[{show}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Entity\-::show (
@@ -100,6 +222,10 @@ std\-::string \hyperlink{class_entity_a860a6385aa2af6b8d205a8e3ea912c38}{get\-En
 
 
 Reimplemented from \hyperlink{class_model_infrastructure_a649a5a89a0c9931783d3c51de2acf266}{Model\-Infrastructure}.
+
+
+
+Definition at line 35 of file Entity.\-cpp.
 
 
 

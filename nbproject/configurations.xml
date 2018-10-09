@@ -146,7 +146,7 @@
     <logicalFolder name="f10"
                    displayName="User Program Interfaces"
                    projectFiles="true">
-      <itemPath>BuildSimpleModel.cpp</itemPath>
+      <itemPath>BuildSimpleModel1.cpp</itemPath>
       <itemPath>BuildSimpleModel1.h</itemPath>
       <itemPath>GenesysApplication_if.h</itemPath>
       <itemPath>TestInputAnalyserTools.cpp</itemPath>
@@ -192,7 +192,7 @@
       </item>
       <item path="Attribute.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="BuildSimpleModel.cpp" ex="false" tool="1" flavor2="0">
+      <item path="BuildSimpleModel1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="BuildSimpleModel1.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -429,7 +429,7 @@
       </item>
       <item path="Attribute.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="BuildSimpleModel.cpp" ex="false" tool="1" flavor2="0">
+      <item path="BuildSimpleModel1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="BuildSimpleModel1.h" ex="false" tool="3" flavor2="0">
       </item>

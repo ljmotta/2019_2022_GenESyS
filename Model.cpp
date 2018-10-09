@@ -14,11 +14,12 @@
 #include <typeinfo>
 #include <iostream>
 #include <algorithm>
+#include <string>
 
 #include "Model.h"
 #include "SourceModelComponent.h"
 #include "Simulator.h"
-#include "ParserMyImpl1.h" // avoid link error
+//#include "ParserMyImpl1.h" // avoid link error
 #include "StatisticsCollector.h"
 
 bool EventCompare(const Event* a, const Event * b) {
@@ -44,6 +45,7 @@ Model::Model(Simulator* simulator) {
 	});
 
 	_infrastructures = new std::map<std::string, List<ModelInfrastructure*>*>(); /// Infrastructures are organized as a map from a string (key), the type of an infrastructure, and a list of infrastructures of that type 
+	/* TODO: -- Sort methods for infrastructures should be a decorator */
 	/*
 	_infrastructures = new List<ModelInfrastructure*>();
 	_infrastructures->setSortFunc([](const ModelInfrastructure* a, const ModelInfrastructure * b) {
@@ -87,6 +89,10 @@ double Model::parseExpression(const std::string expression) {
 	return _parser->parse(expression);
 }
 
+double Model::parseExpression(const std::string expression, bool* success, std::string* errorMessage) {
+	return _parser->parse(expression, success, errorMessage);
+}
+
 bool Model::_finishReplicationCondition() {
 	return this->_events->size() == 0
 			|| _simulatedTime > _replicationLength
@@ -98,14 +104,14 @@ bool Model::_finishReplicationCondition() {
  */
 void Model::startSimulation() {
 	if (!this->checkModel()) {
-		trace(Util::TraceLevel::TL_errors, "Model check failed");
+		trace(Util::TraceLevel::TL_errors, "Model check failed. Cannot start simulation.");
 		return;
 	}
 	_initSimulation();
 	/* TODO -: event onBeginSimulation */
 
-	for (unsigned int replicationNum = 1; replicationNum <= _numberOfReplications; replicationNum++) {
-		_initReplication(replicationNum);
+	for (_currentReplicationNumber = 1; _currentReplicationNumber <= _numberOfReplications; _currentReplicationNumber++) {
+		_initReplication();
 		/* TODO -: event onBeginReplication */
 
 		while (!_finishReplicationCondition()) {
@@ -129,20 +135,23 @@ void Model::startSimulation() {
 		} else if (_parser->parse(this->getTerminatingCondition())) {
 			causeTerminated = "termination condition was achieved";
 		} else causeTerminated = "unknown";
-		std::cout << "Replication " << replicationNum << " of " << _numberOfReplications << " has finished at time " << _simulatedTime << " because " << causeTerminated << ".\n";
+		std::cout << "Replication " << _currentReplicationNumber << " of " << _numberOfReplications << " has finished at time " << _simulatedTime << " because " << causeTerminated << ".\n";
 		_showReplicationStatistics();
 	}
+	_showSimulationStatistics();
+
 	std::cout << "Simulation has finished.\n";
 	/* TODO -: event onEndSimulation */
-
-	_showSimulationStatistics();
 
 }
 
 void Model::showReports() {
-	/*TODO +-: not implemented*/
+	/*TODO +-: not implemented. NEEDED? Probably not. It is included in showReplicationStatistics() and _showSimulationStatistics(). */
 }
 
+/*!
+ * Initialize once for all replications
+ */
 void Model::_initSimulation() {
 	trace(Util::TL_simulation, "\nSimulation of model \"" + _name + "\" is starting.\n");
 	/*TODO +-: not implemented*/
@@ -151,14 +160,14 @@ void Model::_initSimulation() {
 /*!
  Clear the event list, restarts simulated time, initialize event list and statistics
  */
-void Model::_initReplication(unsigned int currentReplicationNumber) {
+void Model::_initReplication() {
 	traceReport(Util::TL_simulation, "-----------------------------------------------------");
 	traceReport(Util::TL_simulation, _simulator->getName());
 	traceReport(Util::TL_simulation, _simulator->getLicense());
 	traceReport(Util::TL_simulation, "Projet Title: " + this->_projectTitle);
 	traceReport(Util::TL_simulation, "Analysit Name: " + this->_analystName);
 	traceReport(Util::TL_simulation, "");
-	traceReport(Util::TL_simulation, "Replication " + std::to_string(currentReplicationNumber) + " of " + std::to_string(_numberOfReplications) + " is starting.\n");
+	traceReport(Util::TL_simulation, "Replication " + std::to_string(_currentReplicationNumber) + " of " + std::to_string(_numberOfReplications) + " is starting.\n");
 
 	_events->clear();
 	_simulatedTime = 0.0;
@@ -186,11 +195,10 @@ void Model::_initReplication(unsigned int currentReplicationNumber) {
 		StatisticsCollector* cstat;
 		List<ModelInfrastructure*>* list = getInfrastructures(Util::TypeOf<StatisticsCollector>());
 		for (std::list<ModelInfrastructure*>::iterator it = list->getList()->begin(); it != list->getList()->end(); it++) {
-			cstat = (*it);
+			cstat = (StatisticsCollector*)(*it);
 			cstat->getCollector()->clear();
 		}
 	}
-
 }
 
 void Model::_stepSimulation() {
@@ -202,7 +210,7 @@ void Model::_stepSimulation() {
 	Event* nextEvent;
 	nextEvent = _events->first();
 	_events->pop_front();
-	if (nextEvent->getTime() <= this->_replicationLength) { /* TODO +-: should consider time Units */
+	if (nextEvent->getTime() <= this->_replicationLength) {
 		_processEvent(nextEvent);
 	} else {
 		this->_simulatedTime = nextEvent->getTime();
@@ -246,9 +254,25 @@ void Model::_showInfrastructures() {
 }
 
 void Model::_showReplicationStatistics() {
+	traceReport(Util::TraceLevel::TL_report, "\nReport for replication " + std::to_string(_currentReplicationNumber) + " of " + std::to_string(_numberOfReplications));
+
+	/*TODO: + To implement */
+
+	// show statistics
+	traceReport(Util::TraceLevel::TL_report, "Statistics:");
+	StatisticsCollector* cstat;
+	List<ModelInfrastructure*>* list = getInfrastructures(Util::TypeOf<StatisticsCollector>());
+	for (std::list<ModelInfrastructure*>::iterator it = list->getList()->begin(); it != list->getList()->end(); it++) {
+		cstat = (StatisticsCollector*)(*it);
+		std::string message = cstat->getName()+"\t N="+ std::to_string(cstat->numElements())+", avg="+ std::to_string(cstat->average())+", stddev="+ std::to_string(cstat->stddeviation())+", varCoef="+ std::to_string(cstat->variationCoef())+", min="+ std::to_string(cstat->min())+", max="+ std::to_string(cstat->max())+", e0_95%="+ std::to_string(cstat->halfWidthConfidenceInterval(0.95));
+		traceReport(Util::TraceLevel::TL_report, "     "+message);
+	}
+
 }
 
 void Model::_showSimulationStatistics() {
+	traceReport(Util::TraceLevel::TL_report, "\nReport for simulation\n");
+	/* TODO */
 }
 
 bool Model::checkModel() {

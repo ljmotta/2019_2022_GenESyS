@@ -41,15 +41,15 @@ void FitterMyImpl1::fitNormal(double *sqrerror, double *avg, double *stddev) {
 void FitterMyImpl1::fitExpo(double *sqrerror, double *avg1) {
 }
 
-void FitterMyImpl1::fitErlang(double *sqrerror, double *a, double *b, double *offset, double *mult) {
+void FitterMyImpl1::fitErlang (double *sqrerror, double *avg, int *m) {
 
 }
 
-void FitterMyImpl1::fitBeta(double *sqrerror, double *a, double *b, double *offset, double *mult) {
+void FitterMyImpl1::fitBeta (double *sqrerror, double *alpha, double *beta, double *infLimit,double *supLimit) {
 
 }
 
-void FitterMyImpl1::fitWeibull(double *sqrerror, double *a, double *b, double *offset, double *mult) {
+void FitterMyImpl1::fitWeibull (double *sqrerror, double *alpha, double *scale)  {
 
 }
 

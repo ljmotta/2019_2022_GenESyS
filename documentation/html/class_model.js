@@ -18,6 +18,7 @@ var class_model =
     [ "getInfrastructure", "class_model.html#ab460d8d215b5e4fb353f129c04493fa5", null ],
     [ "getInfrastructure", "class_model.html#ad6711b51ea9feeacb59eaf70cc8faaed", null ],
     [ "getInfrastructures", "class_model.html#a43ca6ff93bd0b9fbc4c2792962e6b4ed", null ],
+    [ "getInfrastructureTypenames", "class_model.html#ac1a47354f008dc27fcb7fc902bb8d664", null ],
     [ "getName", "class_model.html#a1a1c7e795ee409d8e61c942db5f94d17", null ],
     [ "getNumberOfReplications", "class_model.html#af2fe357b860298f4977f8f48cee7115a", null ],
     [ "getProjectTitle", "class_model.html#ae2197c7da38542ec199491c3d5797efd", null ],

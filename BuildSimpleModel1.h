@@ -16,9 +16,9 @@
 
 #include "GenesysApplication_if.h"
 
-class BuildSimpleModel : public GenesysApplication_if {
+class BuildSimpleModel1 : public GenesysApplication_if {
 public:
-	BuildSimpleModel();
+	BuildSimpleModel1();
 protected:
 public:
 	int main(int argc, char** argv);

@@ -1,11 +1,7 @@
 var searchData=
 [
-  ['model',['Model',['../class_model.html',1,'']]],
-  ['modelchecker_5fif',['ModelChecker_if',['../class_model_checker__if.html',1,'']]],
-  ['modelcheckermyimpl1',['ModelCheckerMyImpl1',['../class_model_checker_my_impl1.html',1,'']]],
-  ['modelcomponent',['ModelComponent',['../class_model_component.html',1,'']]],
-  ['modelinfrastructure',['ModelInfrastructure',['../class_model_infrastructure.html',1,'']]],
-  ['modelpersistence_5fif',['ModelPersistence_if',['../class_model_persistence__if.html',1,'']]],
-  ['modelpersistencemyimpl1',['ModelPersistenceMyImpl1',['../class_model_persistence_my_impl1.html',1,'']]],
-  ['myrng_5fparameters',['MyRNG_Parameters',['../class_sampler_my_impl1_1_1_my_r_n_g___parameters.html',1,'SamplerMyImpl1']]]
+  ['integrator_5far',['Integrator_ar',['../classstd_1_1_integrator__ar.html',1,'std']]],
+  ['integrator_5fif',['Integrator_if',['../class_integrator__if.html',1,'']]],
+  ['integratordiogoimpl',['IntegratorDiogoImpl',['../class_integrator_diogo_impl.html',1,'']]],
+  ['integratormyimpl1',['IntegratorMyImpl1',['../class_integrator_my_impl1.html',1,'']]]
 ];

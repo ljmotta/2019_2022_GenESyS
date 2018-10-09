@@ -17,7 +17,7 @@
 //TEMP
 
 ModelInfrastructure::ModelInfrastructure(std::string thistypename) {
-	_id = Util::_GenerateNewIdOfType(thistypename);
+	_id = Util::GenerateNewIdOfType(thistypename);
 	_name = thistypename+ " "+std::to_string(_id);
 }
 

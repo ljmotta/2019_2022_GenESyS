@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>RebornedGenESyS: ModelInfrastructure Class Reference</title>
+<title>GenESyS - Generic and Expansible System Simulator [REBORN]: ModelInfrastructure Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="software_genesys.gif"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">RebornedGenESyS
-   &#160;<span id="projectnumber">Reborned 20182</span>
+   <div id="projectname">GenESyS - Generic and Expansible System Simulator [REBORN]
+   &#160;<span id="projectnumber">2018-2</span>
    </div>
-   <div id="projectbrief">Generic and Expansible System Simulator</div>
+   <div id="projectbrief">Generic System Simulator</div>
   </td>
  </tr>
  </tbody>
@@ -48,6 +48,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -96,7 +97,7 @@ $(document).ready(function(){initNavTree('class_model_infrastructure.html','');}
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -108,10 +109,12 @@ $(document).ready(function(){initNavTree('class_model_infrastructure.html','');}
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="class_model_infrastructure-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">ModelInfrastructure Class Reference</div>  </div>
+<div class="title">ModelInfrastructure Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -141,6 +144,24 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac06ca99d36c8d1a957697ef003e979b1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model_infrastructure.html#ac06ca99d36c8d1a957697ef003e979b1">getName</a> () const </td></tr>
 <tr class="separator:ac06ca99d36c8d1a957697ef003e979b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a3e309d346ecc1a96c67a13f5f5f18bf4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model_infrastructure.html#a3e309d346ecc1a96c67a13f5f5f18bf4">LoadInstance</a> (std::list&lt; std::string &gt; words)</td></tr>
+<tr class="separator:a3e309d346ecc1a96c67a13f5f5f18bf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4da62e3f3b294abc9e266d1dcfb830cc"><td class="memItemLeft" align="right" valign="top">static std::list&lt; std::string &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model_infrastructure.html#a4da62e3f3b294abc9e266d1dcfb830cc">SaveInstance</a> (<a class="el" href="class_model_infrastructure.html">ModelInfrastructure</a> *infrastructure)</td></tr>
+<tr class="separator:a4da62e3f3b294abc9e266d1dcfb830cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ac134e84f885300a188fcc0904f1848"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model_infrastructure.html#a8ac134e84f885300a188fcc0904f1848">VerifySymbols</a> (<a class="el" href="class_model_infrastructure.html">ModelInfrastructure</a> *infrastructure, std::string *errorMessage)</td></tr>
+<tr class="separator:a8ac134e84f885300a188fcc0904f1848"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:ae118c8ad2ac9d4397c40d004af51b2dc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model_infrastructure.html#ae118c8ad2ac9d4397c40d004af51b2dc">_loadInstance</a> (std::list&lt; std::string &gt; words)=0</td></tr>
+<tr class="separator:ae118c8ad2ac9d4397c40d004af51b2dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3da2fd381c44752598bc448b207e8287"><td class="memItemLeft" align="right" valign="top">virtual std::list&lt; std::string &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model_infrastructure.html#a3da2fd381c44752598bc448b207e8287">_saveInstance</a> ()=0</td></tr>
+<tr class="separator:a3da2fd381c44752598bc448b207e8287"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43de089b35b96c32dd24ca4f9636a388"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model_infrastructure.html#a43de089b35b96c32dd24ca4f9636a388">_verifySymbols</a> (std::string *errorMessage)=0</td></tr>
+<tr class="separator:a43de089b35b96c32dd24ca4f9636a388"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:af6fe00f683f5e29cbcd667e4d3bd24d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_util.html#ad17d458d9344b10bba64347e514d6d71">Util::identitifcation</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model_infrastructure.html#af6fe00f683f5e29cbcd667e4d3bd24d0">_id</a></td></tr>
@@ -148,7 +169,10 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:aa73c0444ba8e3515e2aec3154eaad85d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model_infrastructure.html#aa73c0444ba8e3515e2aec3154eaad85d">_name</a></td></tr>
 <tr class="separator:aa73c0444ba8e3515e2aec3154eaad85d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p>Definition at line <a class="el" href="_model_infrastructure_8h_source.html#l00021">21</a> of file <a class="el" href="_model_infrastructure_8h_source.html">ModelInfrastructure.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="aa7e7206a487b4e3ac89df8a23546a187"></a>
 <div class="memitem">
 <div class="memproto">
@@ -163,12 +187,14 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_infrastructure_8cpp_source.html#l00019">19</a> of file <a class="el" href="_model_infrastructure_8cpp_source.html">ModelInfrastructure.cpp</a>.</p>
+
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_model_infrastructure_aa7e7206a487b4e3ac89df8a23546a187_cgraph.png" border="0" usemap="#class_model_infrastructure_aa7e7206a487b4e3ac89df8a23546a187_cgraph" alt=""/></div>
 <map name="class_model_infrastructure_aa7e7206a487b4e3ac89df8a23546a187_cgraph" id="class_model_infrastructure_aa7e7206a487b4e3ac89df8a23546a187_cgraph">
-<area shape="rect" id="node2" href="class_util.html#ab92bcba2a33782b6228d575da4aae0ad" title="Util::_GenerateNewIdOfType" alt="" coords="198,12,389,39"/></map>
+<area shape="rect" id="node2" href="class_util.html#aec5f31f4f467113c25a6aef7bb5f4a40" title="Util::GenerateNewIdOfType" alt="" coords="197,12,381,39"/></map>
 </div>
 </p>
 
@@ -187,6 +213,8 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_model_infrastructure_8cpp_source.html#l00024">24</a> of file <a class="el" href="_model_infrastructure_8cpp_source.html">ModelInfrastructure.cpp</a>.</p>
 
 </div>
 </div>
@@ -211,9 +239,106 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_infrastructure_8cpp_source.html#l00027">27</a> of file <a class="el" href="_model_infrastructure_8cpp_source.html">ModelInfrastructure.cpp</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ae118c8ad2ac9d4397c40d004af51b2dc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void ModelInfrastructure::_loadInstance </td>
+          <td>(</td>
+          <td class="paramtype">std::list&lt; std::string &gt;&#160;</td>
+          <td class="paramname"><em>words</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_assign.html#a95e3169a6ae13ef3dc6dd9f0dde16c30">Assign</a>, <a class="el" href="class_resource.html#a5c4aedea65e6800cf44fb3620d559148">Resource</a>, <a class="el" href="class_seize.html#a421a0ec6382cb30f6a0342f8dea050db">Seize</a>, <a class="el" href="class_entity_type.html#af88c3d67f9eb8b92b4e32e04bed6730f">EntityType</a>, <a class="el" href="class_release.html#a1c3820675ad6a119a8cc6a75b870bd49">Release</a>, <a class="el" href="class_queue.html#ac722922c7cac47ed74502c2d7206c074">Queue</a>, <a class="el" href="class_entity.html#a51972e626aef5f92a10d5f800e323237">Entity</a>, <a class="el" href="class_variable.html#a37db5791f858048daf0549d2ea3f3a62">Variable</a>, <a class="el" href="class_create.html#aaa3cb1a4359586b0b8df817f57916286">Create</a>, <a class="el" href="class_delay.html#acd33d05fc1c8d6d66a6f674e49ee7c61">Delay</a>, <a class="el" href="class_dispose.html#a245f73bff07925e3efc1eeffd84c9ac6">Dispose</a>, and <a class="el" href="class_statistics_collector.html#aa13d2bc6d9deeffa9667388ae3e4f962">StatisticsCollector</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3da2fd381c44752598bc448b207e8287"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::list&lt;std::string&gt;* ModelInfrastructure::_saveInstance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_assign.html#a8b38a0a1bec283f5d2f44f67be5a4a6b">Assign</a>, <a class="el" href="class_resource.html#a546f61a6f5f57f0c41c722b9b9dc7478">Resource</a>, <a class="el" href="class_seize.html#a38a8af6942b51ce11d191469d277661d">Seize</a>, <a class="el" href="class_entity_type.html#a4f6179d5043e750d9555d6eeef8de4cd">EntityType</a>, <a class="el" href="class_release.html#a2e15540e86b8d0ce62c553f3e9b095c3">Release</a>, <a class="el" href="class_queue.html#a9245790264a9d68030ae8bd884c85bcf">Queue</a>, <a class="el" href="class_entity.html#a1569ba1b09e70e4769c5f02f611a8c61">Entity</a>, <a class="el" href="class_variable.html#a67373d2c7210dd0cab25b4c4df1b5c0e">Variable</a>, <a class="el" href="class_create.html#ae1fd0c281cec35dcf91881acba8d7041">Create</a>, <a class="el" href="class_delay.html#a73676f11cddd31439a407b5dabcea43a">Delay</a>, <a class="el" href="class_dispose.html#ae12482052fb78fa534dda5d4c0a74e3e">Dispose</a>, and <a class="el" href="class_statistics_collector.html#a66eed8e1bd0316588575aa7310ac028b">StatisticsCollector</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_infrastructure_a3da2fd381c44752598bc448b207e8287_icgraph.png" border="0" usemap="#class_model_infrastructure_a3da2fd381c44752598bc448b207e8287_icgraph" alt=""/></div>
+<map name="class_model_infrastructure_a3da2fd381c44752598bc448b207e8287_icgraph" id="class_model_infrastructure_a3da2fd381c44752598bc448b207e8287_icgraph">
+<area shape="rect" id="node2" href="class_model_component.html#a45d3805f9b7051b7acc142e5d85cded6" title="ModelComponent::SaveInstance" alt="" coords="190,5,402,32"/><area shape="rect" id="node3" href="class_model_infrastructure.html#a4da62e3f3b294abc9e266d1dcfb830cc" title="ModelInfrastructure\l::SaveInstance" alt="" coords="229,57,363,98"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a43de089b35b96c32dd24ca4f9636a388"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool ModelInfrastructure::_verifySymbols </td>
+          <td>(</td>
+          <td class="paramtype">std::string *&#160;</td>
+          <td class="paramname"><em>errorMessage</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_assign.html#a5f3a7d8a7214574fea926cae1b1acb94">Assign</a>, <a class="el" href="class_resource.html#a3b282a34c4c706ca63716cb74e7f8183">Resource</a>, <a class="el" href="class_seize.html#a51dc9257dc692083006f676546ddfff8">Seize</a>, <a class="el" href="class_entity_type.html#a50e21c4807823132e777529c70bf7cef">EntityType</a>, <a class="el" href="class_release.html#a81a30c1357d00e830bdc044418865e31">Release</a>, <a class="el" href="class_queue.html#a81f6676597a7974af394ddd3f67c7926">Queue</a>, <a class="el" href="class_entity.html#a5a5fc79267b3671839597c99f8630a87">Entity</a>, <a class="el" href="class_variable.html#ad29a567d28d673450fb1ecd193bd8d90">Variable</a>, <a class="el" href="class_create.html#ad445fd3bec94b4e66669089f10f96057">Create</a>, <a class="el" href="class_delay.html#af1690df9ba58e9972f5721f5bdc2b520">Delay</a>, <a class="el" href="class_dispose.html#a5ad64b97bbb16662aa9d914eda2a7e38">Dispose</a>, and <a class="el" href="class_statistics_collector.html#a5aeefa5028a2b6a0157db55c0dfc7419">StatisticsCollector</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a388_icgraph.png" border="0" usemap="#class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a388_icgraph" alt=""/></div>
+<map name="class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a388_icgraph" id="class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a388_icgraph">
+<area shape="rect" id="node2" href="class_model_component.html#a0798a220cf903b34ce28c40e136d207d" title="ModelComponent::VerifySymbols" alt="" coords="190,12,407,39"/></map>
+</div>
+</p>
+
+</div>
+</div>
 <a class="anchor" id="aa4d3fa8f302cc6dc4fccdd3187e6a168"></a>
 <div class="memitem">
 <div class="memproto">
@@ -226,6 +351,17 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_model_infrastructure_8cpp_source.html#l00034">34</a> of file <a class="el" href="_model_infrastructure_8cpp_source.html">ModelInfrastructure.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_infrastructure_aa4d3fa8f302cc6dc4fccdd3187e6a168_icgraph.png" border="0" usemap="#class_model_infrastructure_aa4d3fa8f302cc6dc4fccdd3187e6a168_icgraph" alt=""/></div>
+<map name="class_model_infrastructure_aa4d3fa8f302cc6dc4fccdd3187e6a168_icgraph" id="class_model_infrastructure_aa4d3fa8f302cc6dc4fccdd3187e6a168_icgraph">
+<area shape="rect" id="node2" href="class_create.html#acd3a4b8805561591e0c88d3fd689cf74" title="Create::_execute" alt="" coords="709,44,832,70"/><area shape="rect" id="node3" href="class_delay.html#a029d91a2cd736ff9c361c69336e6ab41" title="Delay::_execute" alt="" coords="221,449,339,476"/><area shape="rect" id="node4" href="class_event.html#a640f132001d454af52cb0d0e20ebb856" title="Event::show" alt="" coords="233,500,327,526"/><area shape="rect" id="node5" href="class_model.html#ae86e1403523e8036ba6366d1967ecac0" title="Model::Model" alt="" coords="230,550,330,577"/><area shape="rect" id="node6" href="class_model.html#ae62bb3a21cd56fbf9d34195edf2fb9e0" title="Model::removeEntity" alt="" coords="699,94,842,121"/><area shape="rect" id="node8" href="class_model.html#a43ca6ff93bd0b9fbc4c2792962e6b4ed" title="Model::getInfrastructures" alt="" coords="197,398,363,425"/><area shape="rect" id="node27" href="class_model_component.html#a08c5312c2f94f6621577cc1836c2d3e0" title="ModelComponent::Execute" alt="" coords="190,145,370,172"/><area shape="rect" id="node29" href="class_release.html#a63c3cd89082e7f6c1fb61646b93a5c32" title="Release::_execute" alt="" coords="705,196,836,222"/><area shape="rect" id="node31" href="class_waiting.html#aa8b8a3e589f580e3e066a0f9423f4c76" title="Waiting::show" alt="" coords="227,710,333,737"/><area shape="rect" id="node7" href="class_dispose.html#a342eb428496534cdfd17524ad78b0c08" title="Dispose::_execute" alt="" coords="948,94,1079,121"/><area shape="rect" id="node9" href="class_create.html#ad445fd3bec94b4e66669089f10f96057" title="Create::_verifySymbols" alt="" coords="691,297,850,324"/><area shape="rect" id="node10" href="class_entity_type.html#a76c09c732793a586dc3b474485e9824f" title="EntityType::EntityType" alt="" coords="446,652,602,678"/><area shape="rect" id="node11" href="class_model.html#ab460d8d215b5e4fb353f129c04493fa5" title="Model::getInfrastructure" alt="" coords="444,398,604,425"/><area shape="rect" id="node13" href="class_release.html#a4abb6616f9b6de8183558f0c380ccea3" title="Release::Release" alt="" coords="707,348,834,374"/><area shape="rect" id="node14" href="class_release.html#ae845be9db739fbb317bd05f0b0fe21c5" title="Release::setQueueName" alt="" coords="686,398,855,425"/><area shape="rect" id="node19" href="class_release.html#a26fda460abe6f9a92872027014c41d4a" title="Release::setResourceName" alt="" coords="677,449,864,476"/><area shape="rect" id="node20" href="class_seize.html#a28a360900407ddb26fe627fd147a93fe" title="Seize::Seize" alt="" coords="723,550,819,577"/><area shape="rect" id="node21" href="class_seize.html#a4d24a3326db05e92439379e1c4efa940" title="Seize::setQueueName" alt="" coords="693,601,848,628"/><area shape="rect" id="node22" href="class_seize.html#a2bdaa616c4fd499f754099eb59729547" title="Seize::setResourceName" alt="" coords="685,500,857,526"/><area shape="rect" id="node23" href="class_model.html#ae09e777b481981772818ea3fd2880c4c" title="Model::getEntities" alt="" coords="461,44,587,70"/><area shape="rect" id="node24" href="class_model_persistence_my_impl1.html#a367b40dfac801508f75a3176f7b40c6a" title="ModelPersistenceMyImpl1\l::saveAsTXT" alt="" coords="436,703,612,744"/><area shape="rect" id="node26" href="class_resource.html#a1a8ae095067797fa47b0241ee278536c" title="Resource::Resource" alt="" coords="453,769,595,796"/><area shape="rect" id="node12" href="class_assign.html#a5fabf69268b2e65d8b01ce247be87a40" title="Assign::_execute" alt="" coords="709,246,832,273"/><area shape="rect" id="node15" href="_build_simple_model1_8cpp.html#a22c3fce0bba99e34d617dafbf4f1f54e" title="buildModelWithAllImplemented\lComponents" alt="" coords="913,442,1114,483"/><area shape="rect" id="node16" href="_build_simple_model1_8cpp.html#aeea741000e292b33dca181a0a8a6106f" title="buildModel" alt="" coords="1163,449,1247,476"/><area shape="rect" id="node17" href="_build_simple_model1_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="1296,449,1451,476"/><area shape="rect" id="node18" href="class_build_simple_model1.html#aa6e2b862963b2fb738c738bb20b4e913" title="BuildSimpleModel1::main" alt="" coords="1499,449,1669,476"/><area shape="rect" id="node25" href="class_model_persistence_my_impl1.html#ab24f2e3aea25d628748dd8b9e63d326a" title="ModelPersistenceMyImpl1\l::save" alt="" coords="683,703,859,744"/><area shape="rect" id="node28" href="class_model.html#a244dff6d6bef962b0d95fbe712954079" title="Model::sendEntityToComponent" alt="" coords="419,145,629,172"/><area shape="rect" id="node30" href="class_seize.html#a96f6517a40b3bfd0d5ea753d59cef797" title="Seize::_execute" alt="" coords="713,145,829,172"/><area shape="rect" id="node32" href="class_waiting_resource.html#afb0323a90d99b50d66de7f38d069b122" title="WaitingResource::show" alt="" coords="443,820,605,846"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -242,6 +378,76 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_infrastructure_8cpp_source.html#l00042">42</a> of file <a class="el" href="_model_infrastructure_8cpp_source.html">ModelInfrastructure.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_infrastructure_ac06ca99d36c8d1a957697ef003e979b1_icgraph.png" border="0" usemap="#class_model_infrastructure_ac06ca99d36c8d1a957697ef003e979b1_icgraph" alt=""/></div>
+<map name="class_model_infrastructure_ac06ca99d36c8d1a957697ef003e979b1_icgraph" id="class_model_infrastructure_ac06ca99d36c8d1a957697ef003e979b1_icgraph">
+<area shape="rect" id="node2" href="class_event.html#a640f132001d454af52cb0d0e20ebb856" title="Event::show" alt="" coords="235,5,330,32"/><area shape="rect" id="node3" href="class_release.html#a4abb6616f9b6de8183558f0c380ccea3" title="Release::Release" alt="" coords="219,56,346,83"/><area shape="rect" id="node4" href="class_release.html#a1ec7b35553820f0f228f31be1df468c3" title="Release::show" alt="" coords="228,107,337,133"/><area shape="rect" id="node5" href="class_release.html#a63c3cd89082e7f6c1fb61646b93a5c32" title="Release::_execute" alt="" coords="217,157,348,184"/><area shape="rect" id="node6" href="class_release.html#ae845be9db739fbb317bd05f0b0fe21c5" title="Release::setQueueName" alt="" coords="198,208,367,235"/><area shape="rect" id="node11" href="class_release.html#a26fda460abe6f9a92872027014c41d4a" title="Release::setResourceName" alt="" coords="189,259,376,285"/><area shape="rect" id="node12" href="class_release.html#a75e54be899af04450feb2d8a1c32cfe7" title="Release::getResourceName" alt="" coords="189,309,376,336"/><area shape="rect" id="node13" href="class_release.html#aa8571b1bd8a9880d316a2556df1a07f3" title="Release::getQueueName" alt="" coords="198,360,367,387"/><area shape="rect" id="node14" href="class_seize.html#a28a360900407ddb26fe627fd147a93fe" title="Seize::Seize" alt="" coords="235,411,331,437"/><area shape="rect" id="node15" href="class_seize.html#a495ace3a156680b5816c8b285135322c" title="Seize::show" alt="" coords="235,461,330,488"/><area shape="rect" id="node16" href="class_seize.html#a4d24a3326db05e92439379e1c4efa940" title="Seize::setQueueName" alt="" coords="205,512,360,539"/><area shape="rect" id="node17" href="class_seize.html#a2bdaa616c4fd499f754099eb59729547" title="Seize::setResourceName" alt="" coords="197,563,369,589"/><area shape="rect" id="node18" href="class_seize.html#a30781601e8fcfb165c99aee731c081e8" title="Seize::getResourceName" alt="" coords="197,613,369,640"/><area shape="rect" id="node19" href="class_seize.html#a37f2b1a10e1ae390d5186a87bdebe30a" title="Seize::getQueueName" alt="" coords="205,664,360,691"/><area shape="rect" id="node20" href="class_seize.html#a96f6517a40b3bfd0d5ea753d59cef797" title="Seize::_execute" alt="" coords="225,715,341,741"/><area shape="rect" id="node21" href="class_waiting.html#aa8b8a3e589f580e3e066a0f9423f4c76" title="Waiting::show" alt="" coords="230,765,335,792"/><area shape="rect" id="node7" href="_build_simple_model1_8cpp.html#a22c3fce0bba99e34d617dafbf4f1f54e" title="buildModelWithAllImplemented\lComponents" alt="" coords="425,403,626,445"/><area shape="rect" id="node8" href="_build_simple_model1_8cpp.html#aeea741000e292b33dca181a0a8a6106f" title="buildModel" alt="" coords="675,411,759,437"/><area shape="rect" id="node9" href="_build_simple_model1_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="808,411,963,437"/><area shape="rect" id="node10" href="class_build_simple_model1.html#aa6e2b862963b2fb738c738bb20b4e913" title="BuildSimpleModel1::main" alt="" coords="1011,411,1181,437"/><area shape="rect" id="node22" href="class_waiting_resource.html#afb0323a90d99b50d66de7f38d069b122" title="WaitingResource::show" alt="" coords="445,765,606,792"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a3e309d346ecc1a96c67a13f5f5f18bf4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void ModelInfrastructure::LoadInstance </td>
+          <td>(</td>
+          <td class="paramtype">std::list&lt; std::string &gt;&#160;</td>
+          <td class="paramname"><em>words</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a4da62e3f3b294abc9e266d1dcfb830cc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::list&lt; std::string &gt; * ModelInfrastructure::SaveInstance </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_model_infrastructure.html">ModelInfrastructure</a> *&#160;</td>
+          <td class="paramname"><em>infrastructure</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_model_infrastructure_8cpp_source.html#l00046">46</a> of file <a class="el" href="_model_infrastructure_8cpp_source.html">ModelInfrastructure.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_infrastructure_a4da62e3f3b294abc9e266d1dcfb830cc_cgraph.png" border="0" usemap="#class_model_infrastructure_a4da62e3f3b294abc9e266d1dcfb830cc_cgraph" alt=""/></div>
+<map name="class_model_infrastructure_a4da62e3f3b294abc9e266d1dcfb830cc_cgraph" id="class_model_infrastructure_a4da62e3f3b294abc9e266d1dcfb830cc_cgraph">
+<area shape="rect" id="node2" href="class_model_infrastructure.html#a3da2fd381c44752598bc448b207e8287" title="ModelInfrastructure\l::_saveInstance" alt="" coords="190,5,325,46"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a8ebb1f9b4475e732d31b6c8980ddccc0"></a>
@@ -257,6 +463,17 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_model_infrastructure_8cpp_source.html#l00038">38</a> of file <a class="el" href="_model_infrastructure_8cpp_source.html">ModelInfrastructure.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_infrastructure_a8ebb1f9b4475e732d31b6c8980ddccc0_icgraph.png" border="0" usemap="#class_model_infrastructure_a8ebb1f9b4475e732d31b6c8980ddccc0_icgraph" alt=""/></div>
+<map name="class_model_infrastructure_a8ebb1f9b4475e732d31b6c8980ddccc0_icgraph" id="class_model_infrastructure_a8ebb1f9b4475e732d31b6c8980ddccc0_icgraph">
+<area shape="rect" id="node2" href="class_create.html#ad445fd3bec94b4e66669089f10f96057" title="Create::_verifySymbols" alt="" coords="203,5,362,32"/><area shape="rect" id="node3" href="class_release.html#a4abb6616f9b6de8183558f0c380ccea3" title="Release::Release" alt="" coords="219,56,346,83"/><area shape="rect" id="node4" href="class_release.html#ae845be9db739fbb317bd05f0b0fe21c5" title="Release::setQueueName" alt="" coords="198,107,367,133"/><area shape="rect" id="node9" href="class_release.html#a26fda460abe6f9a92872027014c41d4a" title="Release::setResourceName" alt="" coords="189,157,376,184"/><area shape="rect" id="node10" href="class_seize.html#a28a360900407ddb26fe627fd147a93fe" title="Seize::Seize" alt="" coords="235,208,331,235"/><area shape="rect" id="node11" href="class_seize.html#a4d24a3326db05e92439379e1c4efa940" title="Seize::setQueueName" alt="" coords="205,259,360,285"/><area shape="rect" id="node12" href="class_seize.html#a2bdaa616c4fd499f754099eb59729547" title="Seize::setResourceName" alt="" coords="197,309,369,336"/><area shape="rect" id="node5" href="_build_simple_model1_8cpp.html#a22c3fce0bba99e34d617dafbf4f1f54e" title="buildModelWithAllImplemented\lComponents" alt="" coords="425,150,626,191"/><area shape="rect" id="node6" href="_build_simple_model1_8cpp.html#aeea741000e292b33dca181a0a8a6106f" title="buildModel" alt="" coords="675,157,759,184"/><area shape="rect" id="node7" href="_build_simple_model1_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="808,157,963,184"/><area shape="rect" id="node8" href="class_build_simple_model1.html#aa6e2b862963b2fb738c738bb20b4e913" title="BuildSimpleModel1::main" alt="" coords="1011,157,1181,184"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -281,7 +498,52 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="class_model_component.html#ad8bc846e36b028eab7efb7da6c549eca">ModelComponent</a>, <a class="el" href="class_source_model_component.html#a4011597b5780fcc0495e8e22ab8158f6">SourceModelComponent</a>, <a class="el" href="class_resource.html#a593cf83404dc90706943b4e60213fd01">Resource</a>, <a class="el" href="class_queue.html#ac78cc84cd91539c7f38d95dc17dabac5">Queue</a>, <a class="el" href="class_create.html#a8d1832d2165bbeea4a5a88aded883f86">Create</a>, <a class="el" href="class_delay.html#af8187e4515417b547dc22b5ee0a1f95d">Delay</a>, <a class="el" href="class_entity.html#a86cc324050b451b31b134943e7978e36">Entity</a>, <a class="el" href="class_seize.html#a495ace3a156680b5816c8b285135322c">Seize</a>, <a class="el" href="class_release.html#a1ec7b35553820f0f228f31be1df468c3">Release</a>, <a class="el" href="class_entity_type.html#ab5a696912b12a9f51decded90f368dea">EntityType</a>, <a class="el" href="class_statistics_collector.html#a7ce8dad7e29d06c73a01d2ddee93fe00">StatisticsCollector</a>, <a class="el" href="class_assign.html#af5022b92204adcd9ee3e444b7e316d07">Assign</a>, <a class="el" href="class_dispose.html#aee8ef98d5ca22eb18a97b258ed059865">Dispose</a>, and <a class="el" href="class_variable.html#a8bd0a772bb32fd630e252306306cd154">Variable</a>.</p>
+<p>Reimplemented in <a class="el" href="class_assign.html#af5022b92204adcd9ee3e444b7e316d07">Assign</a>, <a class="el" href="class_source_model_component.html#a4011597b5780fcc0495e8e22ab8158f6">SourceModelComponent</a>, <a class="el" href="class_model_component.html#ad8bc846e36b028eab7efb7da6c549eca">ModelComponent</a>, <a class="el" href="class_resource.html#a593cf83404dc90706943b4e60213fd01">Resource</a>, <a class="el" href="class_seize.html#a495ace3a156680b5816c8b285135322c">Seize</a>, <a class="el" href="class_queue.html#ac78cc84cd91539c7f38d95dc17dabac5">Queue</a>, <a class="el" href="class_create.html#a8d1832d2165bbeea4a5a88aded883f86">Create</a>, <a class="el" href="class_delay.html#af8187e4515417b547dc22b5ee0a1f95d">Delay</a>, <a class="el" href="class_entity.html#a86cc324050b451b31b134943e7978e36">Entity</a>, <a class="el" href="class_release.html#a1ec7b35553820f0f228f31be1df468c3">Release</a>, <a class="el" href="class_entity_type.html#ab5a696912b12a9f51decded90f368dea">EntityType</a>, <a class="el" href="class_statistics_collector.html#a7ce8dad7e29d06c73a01d2ddee93fe00">StatisticsCollector</a>, <a class="el" href="class_variable.html#a8bd0a772bb32fd630e252306306cd154">Variable</a>, and <a class="el" href="class_dispose.html#aee8ef98d5ca22eb18a97b258ed059865">Dispose</a>.</p>
+
+<p>Definition at line <a class="el" href="_model_infrastructure_8cpp_source.html#l00030">30</a> of file <a class="el" href="_model_infrastructure_8cpp_source.html">ModelInfrastructure.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_infrastructure_a649a5a89a0c9931783d3c51de2acf266_icgraph.png" border="0" usemap="#class_model_infrastructure_a649a5a89a0c9931783d3c51de2acf266_icgraph" alt=""/></div>
+<map name="class_model_infrastructure_a649a5a89a0c9931783d3c51de2acf266_icgraph" id="class_model_infrastructure_a649a5a89a0c9931783d3c51de2acf266_icgraph">
+<area shape="rect" id="node2" href="class_entity.html#a86cc324050b451b31b134943e7978e36" title="Entity::show" alt="" coords="223,107,318,133"/><area shape="rect" id="node3" href="class_entity_type.html#ab5a696912b12a9f51decded90f368dea" title="EntityType::show" alt="" coords="209,157,333,184"/><area shape="rect" id="node4" href="class_model_component.html#ad8bc846e36b028eab7efb7da6c549eca" title="ModelComponent::show" alt="" coords="189,208,352,235"/><area shape="rect" id="node20" href="class_queue.html#ac78cc84cd91539c7f38d95dc17dabac5" title="Queue::show" alt="" coords="221,259,320,285"/><area shape="rect" id="node21" href="class_resource.html#a593cf83404dc90706943b4e60213fd01" title="Resource::show" alt="" coords="212,309,329,336"/><area shape="rect" id="node22" href="class_statistics_collector.html#a7ce8dad7e29d06c73a01d2ddee93fe00" title="StatisticsCollector\l::show" alt="" coords="206,361,335,402"/><area shape="rect" id="node23" href="class_variable.html#a8bd0a772bb32fd630e252306306cd154" title="Variable::show" alt="" coords="217,427,325,453"/><area shape="rect" id="node5" href="class_assign.html#af5022b92204adcd9ee3e444b7e316d07" title="Assign::show" alt="" coords="459,5,560,32"/><area shape="rect" id="node6" href="class_delay.html#af8187e4515417b547dc22b5ee0a1f95d" title="Delay::show" alt="" coords="462,56,557,83"/><area shape="rect" id="node7" href="class_dispose.html#aee8ef98d5ca22eb18a97b258ed059865" title="Dispose::show" alt="" coords="455,107,564,133"/><area shape="rect" id="node8" href="class_model_component.html#a08c5312c2f94f6621577cc1836c2d3e0" title="ModelComponent::Execute" alt="" coords="419,157,599,184"/><area shape="rect" id="node14" href="class_model_component.html#a45d3805f9b7051b7acc142e5d85cded6" title="ModelComponent::SaveInstance" alt="" coords="403,208,615,235"/><area shape="rect" id="node15" href="class_model_component.html#a0798a220cf903b34ce28c40e136d207d" title="ModelComponent::VerifySymbols" alt="" coords="401,259,618,285"/><area shape="rect" id="node16" href="class_release.html#a1ec7b35553820f0f228f31be1df468c3" title="Release::show" alt="" coords="455,309,564,336"/><area shape="rect" id="node17" href="class_seize.html#a495ace3a156680b5816c8b285135322c" title="Seize::show" alt="" coords="462,360,557,387"/><area shape="rect" id="node18" href="class_source_model_component.html#a4011597b5780fcc0495e8e22ab8158f6" title="SourceModelComponent\l::show" alt="" coords="427,411,592,453"/><area shape="rect" id="node9" href="class_model.html#a244dff6d6bef962b0d95fbe712954079" title="Model::sendEntityToComponent" alt="" coords="667,157,877,184"/><area shape="rect" id="node10" href="class_assign.html#a5fabf69268b2e65d8b01ce247be87a40" title="Assign::_execute" alt="" coords="929,81,1052,108"/><area shape="rect" id="node11" href="class_create.html#acd3a4b8805561591e0c88d3fd689cf74" title="Create::_execute" alt="" coords="929,132,1052,159"/><area shape="rect" id="node12" href="class_release.html#a63c3cd89082e7f6c1fb61646b93a5c32" title="Release::_execute" alt="" coords="925,183,1056,209"/><area shape="rect" id="node13" href="class_seize.html#a96f6517a40b3bfd0d5ea753d59cef797" title="Seize::_execute" alt="" coords="933,233,1049,260"/><area shape="rect" id="node19" href="class_create.html#a8d1832d2165bbeea4a5a88aded883f86" title="Create::show" alt="" coords="722,419,822,445"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a8ac134e84f885300a188fcc0904f1848"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool ModelInfrastructure::VerifySymbols </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_model_infrastructure.html">ModelInfrastructure</a> *&#160;</td>
+          <td class="paramname"><em>infrastructure</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string *&#160;</td>
+          <td class="paramname"><em>errorMessage</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -304,6 +566,8 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_infrastructure_8h_source.html#l00044">44</a> of file <a class="el" href="_model_infrastructure_8h_source.html">ModelInfrastructure.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="aa73c0444ba8e3515e2aec3154eaad85d"></a>
@@ -324,11 +588,13 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_infrastructure_8h_source.html#l00045">45</a> of file <a class="el" href="_model_infrastructure_8h_source.html">ModelInfrastructure.h</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_model_infrastructure_8h_source.html">ModelInfrastructure.h</a></li>
-<li><a class="el" href="_model_infrastructure_8cpp.html">ModelInfrastructure.cpp</a></li>
+<li><a class="el" href="_model_infrastructure_8cpp_source.html">ModelInfrastructure.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -336,7 +602,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_model_infrastructure.html">ModelInfrastructure</a></li>
-    <li class="footer">Generated on Tue Sep 4 2018 21:04:12 for RebornedGenESyS by
+    <li class="footer">Generated on Tue Oct 9 2018 13:18:23 for GenESyS - Generic and Expansible System Simulator [REBORN] by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

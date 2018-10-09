@@ -16,6 +16,7 @@
 
 #include <string>
 #include <list>
+#include "List.h"
 
 class Attribute {
 public:

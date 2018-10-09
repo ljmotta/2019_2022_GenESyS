@@ -1,5 +1,5 @@
 var struct_traits_3_01_sampler__if_01_4 =
 [
-    [ "Implementation", "struct_traits_3_01_sampler__if_01_4.html#aabc4648655c0f3f075ddf4c2a8ca0140", null ],
-    [ "Parameters", "struct_traits_3_01_sampler__if_01_4.html#a4ad2f3625d3d6fc6cfb35de363d5594e", null ]
+    [ "Implementation", "struct_traits_3_01_sampler__if_01_4.html#ac671b4707ba7d48439b364bdc9341a2e", null ],
+    [ "Parameters", "struct_traits_3_01_sampler__if_01_4.html#a3e3228ca7fdd226d0a78be29ba406660", null ]
 ];

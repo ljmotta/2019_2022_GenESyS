@@ -51,7 +51,7 @@ enum \hyperlink{class_resource_ad7a514f9a27e0010b59e147b8368970f}{Resource\-Stat
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_resource_a5a87b23dc0327bbf8d53c6f38f637f48}{Resource} ()
+\hyperlink{class_resource_a1a8ae095067797fa47b0241ee278536c}{Resource} (\hyperlink{class_model}{Model} $\ast$model)
 \item 
 \hyperlink{class_resource_a30f2ca8f0617a6628ebd246b14b50566}{Resource} (const \hyperlink{class_resource}{Resource} \&orig)
 \item 
@@ -87,7 +87,23 @@ unsigned int \hyperlink{class_resource_a6fafa0b8da75c9596ca52932482a5568}{get\-N
 \item 
 unsigned int \hyperlink{class_resource_a1aedd0bf239010a6b7e2a6c15a324481}{get\-Number\-Out} () const 
 \end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_resource_a5c4aedea65e6800cf44fb3620d559148}{\-\_\-load\-Instance} (std\-::list$<$ std\-::string $>$ words)
+\item 
+virtual std\-::list$<$ std\-::string $>$ $\ast$ \hyperlink{class_resource_a546f61a6f5f57f0c41c722b9b9dc7478}{\-\_\-save\-Instance} ()
+\item 
+virtual bool \hyperlink{class_resource_a3b282a34c4c706ca63716cb74e7f8183}{\-\_\-verify\-Symbols} (std\-::string $\ast$error\-Message)
+\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 22 of file Resource.\-h.
+
 
 
 \subsection{Member Enumeration Documentation}
@@ -109,6 +125,10 @@ unsigned int \hyperlink{class_resource_a1aedd0bf239010a6b7e2a6c15a324481}{get\-N
 \hypertarget{class_resource_a8e67503c93766e1ecb47c6a9d744f86da732d729550952cbc7a1ae02d4d29f029}{rr\-L\-A\-R\-G\-E\-S\-T\-R\-E\-M\-A\-I\-N\-I\-N\-G\-C\-A\-P\-A\-C\-I\-T\-Y}\label{class_resource_a8e67503c93766e1ecb47c6a9d744f86da732d729550952cbc7a1ae02d4d29f029}
 }]\end{description}
 \end{Desc}
+
+
+Definition at line 29 of file Resource.\-h.
+
 \hypertarget{class_resource_ad7a514f9a27e0010b59e147b8368970f}{\index{Resource@{Resource}!Resource\-State@{Resource\-State}}
 \index{Resource\-State@{Resource\-State}!Resource@{Resource}}
 \subsubsection[{Resource\-State}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Resource\-::\-Resource\-State}}}\label{class_resource_ad7a514f9a27e0010b59e147b8368970f}
@@ -127,6 +147,10 @@ unsigned int \hyperlink{class_resource_a1aedd0bf239010a6b7e2a6c15a324481}{get\-N
 \hypertarget{class_resource_ad7a514f9a27e0010b59e147b8368970fae6ab6440bf6274e3965c6cddd700a5d2}{rs\-O\-T\-H\-E\-R}\label{class_resource_ad7a514f9a27e0010b59e147b8368970fae6ab6440bf6274e3965c6cddd700a5d2}
 }]\end{description}
 \end{Desc}
+
+
+Definition at line 33 of file Resource.\-h.
+
 \hypertarget{class_resource_ae2554291a9f2c6b3fedb01d0ca41bfd8}{\index{Resource@{Resource}!Resource\-Type@{Resource\-Type}}
 \index{Resource\-Type@{Resource\-Type}!Resource@{Resource}}
 \subsubsection[{Resource\-Type}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Resource\-::\-Resource\-Type}}}\label{class_resource_ae2554291a9f2c6b3fedb01d0ca41bfd8}
@@ -141,14 +165,34 @@ unsigned int \hyperlink{class_resource_a1aedd0bf239010a6b7e2a6c15a324481}{get\-N
 \end{Desc}
 
 
+Definition at line 25 of file Resource.\-h.
+
+
+
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{class_resource_a5a87b23dc0327bbf8d53c6f38f637f48}{\index{Resource@{Resource}!Resource@{Resource}}
+\hypertarget{class_resource_a1a8ae095067797fa47b0241ee278536c}{\index{Resource@{Resource}!Resource@{Resource}}
 \index{Resource@{Resource}!Resource@{Resource}}
 \subsubsection[{Resource}]{\setlength{\rightskip}{0pt plus 5cm}Resource\-::\-Resource (
 \begin{DoxyParamCaption}
-{}
+\item[{{\bf Model} $\ast$}]{model}
 \end{DoxyParamCaption}
-)}}\label{class_resource_a5a87b23dc0327bbf8d53c6f38f637f48}
+)}}\label{class_resource_a1a8ae095067797fa47b0241ee278536c}
+
+
+Definition at line 16 of file Resource.\-cpp.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_resource_a1a8ae095067797fa47b0241ee278536c_cgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{class_resource_a30f2ca8f0617a6628ebd246b14b50566}{\index{Resource@{Resource}!Resource@{Resource}}
 \index{Resource@{Resource}!Resource@{Resource}}
 \subsubsection[{Resource}]{\setlength{\rightskip}{0pt plus 5cm}Resource\-::\-Resource (
@@ -156,6 +200,10 @@ unsigned int \hyperlink{class_resource_a1aedd0bf239010a6b7e2a6c15a324481}{get\-N
 \item[{const {\bf Resource} \&}]{orig}
 \end{DoxyParamCaption}
 )}}\label{class_resource_a30f2ca8f0617a6628ebd246b14b50566}
+
+
+Definition at line 20 of file Resource.\-cpp.
+
 \hypertarget{class_resource_a0e5ec475e2601bdb33644468e86f6f10}{\index{Resource@{Resource}!$\sim$\-Resource@{$\sim$\-Resource}}
 \index{$\sim$\-Resource@{$\sim$\-Resource}!Resource@{Resource}}
 \subsubsection[{$\sim$\-Resource}]{\setlength{\rightskip}{0pt plus 5cm}Resource\-::$\sim$\-Resource (
@@ -165,7 +213,68 @@ unsigned int \hyperlink{class_resource_a1aedd0bf239010a6b7e2a6c15a324481}{get\-N
 )\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_resource_a0e5ec475e2601bdb33644468e86f6f10}
 
 
+Definition at line 23 of file Resource.\-cpp.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_resource_a0e5ec475e2601bdb33644468e86f6f10_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
 \subsection{Member Function Documentation}
+\hypertarget{class_resource_a5c4aedea65e6800cf44fb3620d559148}{\index{Resource@{Resource}!\-\_\-load\-Instance@{\-\_\-load\-Instance}}
+\index{\-\_\-load\-Instance@{\-\_\-load\-Instance}!Resource@{Resource}}
+\subsubsection[{\-\_\-load\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\-::\-\_\-load\-Instance (
+\begin{DoxyParamCaption}
+\item[{std\-::list$<$ std\-::string $>$}]{words}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_resource_a5c4aedea65e6800cf44fb3620d559148}
+
+
+Implements \hyperlink{class_model_infrastructure_ae118c8ad2ac9d4397c40d004af51b2dc}{Model\-Infrastructure}.
+
+
+
+Definition at line 107 of file Resource.\-cpp.
+
+\hypertarget{class_resource_a546f61a6f5f57f0c41c722b9b9dc7478}{\index{Resource@{Resource}!\-\_\-save\-Instance@{\-\_\-save\-Instance}}
+\index{\-\_\-save\-Instance@{\-\_\-save\-Instance}!Resource@{Resource}}
+\subsubsection[{\-\_\-save\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<$ std\-::string $>$ $\ast$ Resource\-::\-\_\-save\-Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_resource_a546f61a6f5f57f0c41c722b9b9dc7478}
+
+
+Implements \hyperlink{class_model_infrastructure_a3da2fd381c44752598bc448b207e8287}{Model\-Infrastructure}.
+
+
+
+Definition at line 111 of file Resource.\-cpp.
+
+\hypertarget{class_resource_a3b282a34c4c706ca63716cb74e7f8183}{\index{Resource@{Resource}!\-\_\-verify\-Symbols@{\-\_\-verify\-Symbols}}
+\index{\-\_\-verify\-Symbols@{\-\_\-verify\-Symbols}!Resource@{Resource}}
+\subsubsection[{\-\_\-verify\-Symbols}]{\setlength{\rightskip}{0pt plus 5cm}bool Resource\-::\-\_\-verify\-Symbols (
+\begin{DoxyParamCaption}
+\item[{std\-::string $\ast$}]{error\-Message}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_resource_a3b282a34c4c706ca63716cb74e7f8183}
+
+
+Implements \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a388}{Model\-Infrastructure}.
+
+
+
+Definition at line 116 of file Resource.\-cpp.
+
 \hypertarget{class_resource_a0aa3a9287571af52be298611580e661e}{\index{Resource@{Resource}!get\-Capacity@{get\-Capacity}}
 \index{get\-Capacity@{get\-Capacity}!Resource@{Resource}}
 \subsubsection[{get\-Capacity}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Resource\-::get\-Capacity (
@@ -173,6 +282,22 @@ unsigned int \hyperlink{class_resource_a1aedd0bf239010a6b7e2a6c15a324481}{get\-N
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_resource_a0aa3a9287571af52be298611580e661e}
+
+
+Definition at line 70 of file Resource.\-cpp.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{class_resource_a0aa3a9287571af52be298611580e661e_icgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{class_resource_a66bd7e365c6ccb088afad2a6f24afdae}{\index{Resource@{Resource}!get\-Cost\-Busy\-Hour@{get\-Cost\-Busy\-Hour}}
 \index{get\-Cost\-Busy\-Hour@{get\-Cost\-Busy\-Hour}!Resource@{Resource}}
 \subsubsection[{get\-Cost\-Busy\-Hour}]{\setlength{\rightskip}{0pt plus 5cm}double Resource\-::get\-Cost\-Busy\-Hour (
@@ -180,6 +305,10 @@ unsigned int \hyperlink{class_resource_a1aedd0bf239010a6b7e2a6c15a324481}{get\-N
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_resource_a66bd7e365c6ccb088afad2a6f24afdae}
+
+
+Definition at line 78 of file Resource.\-cpp.
+
 \hypertarget{class_resource_a8033fb963bed0116f01af2b637bd4cad}{\index{Resource@{Resource}!get\-Cost\-Idle\-Hour@{get\-Cost\-Idle\-Hour}}
 \index{get\-Cost\-Idle\-Hour@{get\-Cost\-Idle\-Hour}!Resource@{Resource}}
 \subsubsection[{get\-Cost\-Idle\-Hour}]{\setlength{\rightskip}{0pt plus 5cm}double Resource\-::get\-Cost\-Idle\-Hour (
@@ -187,6 +316,10 @@ unsigned int \hyperlink{class_resource_a1aedd0bf239010a6b7e2a6c15a324481}{get\-N
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_resource_a8033fb963bed0116f01af2b637bd4cad}
+
+
+Definition at line 86 of file Resource.\-cpp.
+
 \hypertarget{class_resource_a93d303fba82b1ef9879cc75fbafef506}{\index{Resource@{Resource}!get\-Cost\-Per\-Use@{get\-Cost\-Per\-Use}}
 \index{get\-Cost\-Per\-Use@{get\-Cost\-Per\-Use}!Resource@{Resource}}
 \subsubsection[{get\-Cost\-Per\-Use}]{\setlength{\rightskip}{0pt plus 5cm}double Resource\-::get\-Cost\-Per\-Use (
@@ -194,6 +327,10 @@ unsigned int \hyperlink{class_resource_a1aedd0bf239010a6b7e2a6c15a324481}{get\-N
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_resource_a93d303fba82b1ef9879cc75fbafef506}
+
+
+Definition at line 94 of file Resource.\-cpp.
+
 \hypertarget{class_resource_a6fafa0b8da75c9596ca52932482a5568}{\index{Resource@{Resource}!get\-Number\-Busy@{get\-Number\-Busy}}
 \index{get\-Number\-Busy@{get\-Number\-Busy}!Resource@{Resource}}
 \subsubsection[{get\-Number\-Busy}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Resource\-::get\-Number\-Busy (
@@ -201,6 +338,22 @@ unsigned int \hyperlink{class_resource_a1aedd0bf239010a6b7e2a6c15a324481}{get\-N
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_resource_a6fafa0b8da75c9596ca52932482a5568}
+
+
+Definition at line 98 of file Resource.\-cpp.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{class_resource_a6fafa0b8da75c9596ca52932482a5568_icgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{class_resource_a1aedd0bf239010a6b7e2a6c15a324481}{\index{Resource@{Resource}!get\-Number\-Out@{get\-Number\-Out}}
 \index{get\-Number\-Out@{get\-Number\-Out}!Resource@{Resource}}
 \subsubsection[{get\-Number\-Out}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Resource\-::get\-Number\-Out (
@@ -208,6 +361,10 @@ unsigned int \hyperlink{class_resource_a1aedd0bf239010a6b7e2a6c15a324481}{get\-N
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_resource_a1aedd0bf239010a6b7e2a6c15a324481}
+
+
+Definition at line 102 of file Resource.\-cpp.
+
 \hypertarget{class_resource_ac832a54ae1e20a2f7137aefd3a5fc003}{\index{Resource@{Resource}!get\-Resource\-State@{get\-Resource\-State}}
 \index{get\-Resource\-State@{get\-Resource\-State}!Resource@{Resource}}
 \subsubsection[{get\-Resource\-State}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Resource\-::\-Resource\-State} Resource\-::get\-Resource\-State (
@@ -215,6 +372,10 @@ unsigned int \hyperlink{class_resource_a1aedd0bf239010a6b7e2a6c15a324481}{get\-N
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_resource_ac832a54ae1e20a2f7137aefd3a5fc003}
+
+
+Definition at line 62 of file Resource.\-cpp.
+
 \hypertarget{class_resource_ad5da4dca5dd48a4818827e6273c20c2d}{\index{Resource@{Resource}!release@{release}}
 \index{release@{release}!Resource@{Resource}}
 \subsubsection[{release}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\-::release (
@@ -225,11 +386,27 @@ unsigned int \hyperlink{class_resource_a1aedd0bf239010a6b7e2a6c15a324481}{get\-N
 )}}\label{class_resource_ad5da4dca5dd48a4818827e6273c20c2d}
 
 
+Definition at line 41 of file Resource.\-cpp.
+
+
+
 Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=326pt]{class_resource_ad5da4dca5dd48a4818827e6273c20c2d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{class_resource_ad5da4dca5dd48a4818827e6273c20c2d_icgraph}
 \end{center}
 \end{figure}
 
@@ -242,6 +419,22 @@ Here is the call graph for this function\-:\nopagebreak
 \item[{double}]{tnow}
 \end{DoxyParamCaption}
 )}}\label{class_resource_a4c9cc891367f2af07511d8897255d625}
+
+
+Definition at line 35 of file Resource.\-cpp.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{class_resource_a4c9cc891367f2af07511d8897255d625_icgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{class_resource_aa8530e4507ab493de34feb4fef7d4d03}{\index{Resource@{Resource}!set\-Capacity@{set\-Capacity}}
 \index{set\-Capacity@{set\-Capacity}!Resource@{Resource}}
 \subsubsection[{set\-Capacity}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\-::set\-Capacity (
@@ -249,6 +442,10 @@ Here is the call graph for this function\-:\nopagebreak
 \item[{unsigned int}]{\-\_\-capacity}
 \end{DoxyParamCaption}
 )}}\label{class_resource_aa8530e4507ab493de34feb4fef7d4d03}
+
+
+Definition at line 66 of file Resource.\-cpp.
+
 \hypertarget{class_resource_a28c348f8562fcf63e174229e9001f55c}{\index{Resource@{Resource}!set\-Cost\-Busy\-Hour@{set\-Cost\-Busy\-Hour}}
 \index{set\-Cost\-Busy\-Hour@{set\-Cost\-Busy\-Hour}!Resource@{Resource}}
 \subsubsection[{set\-Cost\-Busy\-Hour}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\-::set\-Cost\-Busy\-Hour (
@@ -256,6 +453,10 @@ Here is the call graph for this function\-:\nopagebreak
 \item[{double}]{\-\_\-cost\-Busy\-Hour}
 \end{DoxyParamCaption}
 )}}\label{class_resource_a28c348f8562fcf63e174229e9001f55c}
+
+
+Definition at line 74 of file Resource.\-cpp.
+
 \hypertarget{class_resource_aee4482e9f914b0b4e83cdb4ada50e45e}{\index{Resource@{Resource}!set\-Cost\-Idle\-Hour@{set\-Cost\-Idle\-Hour}}
 \index{set\-Cost\-Idle\-Hour@{set\-Cost\-Idle\-Hour}!Resource@{Resource}}
 \subsubsection[{set\-Cost\-Idle\-Hour}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\-::set\-Cost\-Idle\-Hour (
@@ -263,6 +464,10 @@ Here is the call graph for this function\-:\nopagebreak
 \item[{double}]{\-\_\-cost\-Idle\-Hour}
 \end{DoxyParamCaption}
 )}}\label{class_resource_aee4482e9f914b0b4e83cdb4ada50e45e}
+
+
+Definition at line 82 of file Resource.\-cpp.
+
 \hypertarget{class_resource_adedf8ae8388efb1a194441613647b669}{\index{Resource@{Resource}!set\-Cost\-Per\-Use@{set\-Cost\-Per\-Use}}
 \index{set\-Cost\-Per\-Use@{set\-Cost\-Per\-Use}!Resource@{Resource}}
 \subsubsection[{set\-Cost\-Per\-Use}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\-::set\-Cost\-Per\-Use (
@@ -270,6 +475,10 @@ Here is the call graph for this function\-:\nopagebreak
 \item[{double}]{\-\_\-cost\-Per\-Use}
 \end{DoxyParamCaption}
 )}}\label{class_resource_adedf8ae8388efb1a194441613647b669}
+
+
+Definition at line 90 of file Resource.\-cpp.
+
 \hypertarget{class_resource_aba60047e3a2400f2aec478b1cfa3647e}{\index{Resource@{Resource}!set\-Resource\-State@{set\-Resource\-State}}
 \index{set\-Resource\-State@{set\-Resource\-State}!Resource@{Resource}}
 \subsubsection[{set\-Resource\-State}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\-::set\-Resource\-State (
@@ -277,6 +486,10 @@ Here is the call graph for this function\-:\nopagebreak
 \item[{{\bf Resource\-State}}]{\-\_\-resource\-State}
 \end{DoxyParamCaption}
 )}}\label{class_resource_aba60047e3a2400f2aec478b1cfa3647e}
+
+
+Definition at line 58 of file Resource.\-cpp.
+
 \hypertarget{class_resource_a593cf83404dc90706943b4e60213fd01}{\index{Resource@{Resource}!show@{show}}
 \index{show@{show}!Resource@{Resource}}
 \subsubsection[{show}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Resource\-::show (
@@ -287,6 +500,10 @@ Here is the call graph for this function\-:\nopagebreak
 
 
 Reimplemented from \hyperlink{class_model_infrastructure_a649a5a89a0c9931783d3c51de2acf266}{Model\-Infrastructure}.
+
+
+
+Definition at line 26 of file Resource.\-cpp.
 
 
 

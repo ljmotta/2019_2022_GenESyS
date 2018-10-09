@@ -1,0 +1,475 @@
+\hypertarget{class_sampler___bru_fab_joa}{\section{Sampler\-\_\-\-Bru\-Fab\-Joa Class Reference}
+\label{class_sampler___bru_fab_joa}\index{Sampler\-\_\-\-Bru\-Fab\-Joa@{Sampler\-\_\-\-Bru\-Fab\-Joa}}
+}
+
+
+{\ttfamily \#include $<$Sampler\-\_\-\-Bru\-Fab\-Joa.\-h$>$}
+
+
+
+Inheritance diagram for Sampler\-\_\-\-Bru\-Fab\-Joa\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{class_sampler___bru_fab_joa__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Sampler\-\_\-\-Bru\-Fab\-Joa\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{class_sampler___bru_fab_joa__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_sampler___bru_fab_joa_1_1_my_r_n_g___parameters}{My\-R\-N\-G\-\_\-\-Parameters}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_sampler___bru_fab_joa_ac5c1b07d30e0bc71cbd649d7309bc8d5}{Sampler\-\_\-\-Bru\-Fab\-Joa} ()=default
+\item 
+\hyperlink{class_sampler___bru_fab_joa_a7160ab6a7a00e69c22a4eb0b840b5cb9}{Sampler\-\_\-\-Bru\-Fab\-Joa} (const \hyperlink{class_sampler___bru_fab_joa}{Sampler\-\_\-\-Bru\-Fab\-Joa} \&orig)=delete
+\item 
+\hyperlink{class_sampler___bru_fab_joa_a1ce52dacb81a5175b217ec218941a77c}{$\sim$\-Sampler\-\_\-\-Bru\-Fab\-Joa} ()=default
+\item 
+double \hyperlink{class_sampler___bru_fab_joa_a0345255356e072f0a1b938227d272ac8}{random} ()
+\item 
+double \hyperlink{class_sampler___bru_fab_joa_a7f75268eabd66fad415e794a3eda6261}{sample\-Uniform} (double min, double max)
+\item 
+double \hyperlink{class_sampler___bru_fab_joa_a4335f6cabcaabb35e9819733e136633e}{sample\-Exponential} (double mean)
+\item 
+double \hyperlink{class_sampler___bru_fab_joa_a4d6967d5b31138b7e4d91eeb04ecb5d4}{sample\-Erlang} (double mean, int M)
+\item 
+double \hyperlink{class_sampler___bru_fab_joa_af2ceb8fb7083313d1fc11943c6e74cef}{sample\-Normal} (double mean, double stddev)
+\item 
+double \hyperlink{class_sampler___bru_fab_joa_a153a0271be4644e81ddce07a5516632d}{sample\-Gamma} (double mean, double alpha)
+\begin{DoxyCompactList}\small\item\em Reference\-: \href{http://pdg.lbl.gov/2011/reviews/rpp2011-rev-monte-carlo-techniques.pdf}{\tt http\-://pdg.\-lbl.\-gov/2011/reviews/rpp2011-\/rev-\/monte-\/carlo-\/techniques.\-pdf}. \end{DoxyCompactList}\item 
+double \hyperlink{class_sampler___bru_fab_joa_ade1272ea2e4cf1011f3ad3449db90181}{sample\-Beta} (double alpha, double beta, double inf\-Limit, double sup\-Limit)
+\item 
+double \hyperlink{class_sampler___bru_fab_joa_a164e1ee8bb1e2c3e8a36f8154623c068}{sample\-Weibull} (double alpha, double scale)
+\item 
+double \hyperlink{class_sampler___bru_fab_joa_a7d67d644a3a8d2318f3efbe141209715}{sample\-Log\-Normal} (double mean, double stddev)
+\item 
+double \hyperlink{class_sampler___bru_fab_joa_adf431f34befb1c34c92bf3b8b771115a}{sample\-Triangular} (double min, double mode, double max)
+\item 
+double \hyperlink{class_sampler___bru_fab_joa_a92b6f623bf14640d6a6aa61d0ccf0061}{sample\-Discrete} (double value, double acum\-Prob,...)
+\item 
+void \hyperlink{class_sampler___bru_fab_joa_aa0c97683d644b30d76754621d14cd303}{set\-R\-N\-Gparameters} (\hyperlink{class_sampler__if_1_1_r_n_g___parameters}{R\-N\-G\-\_\-\-Parameters} $\ast$param)
+\item 
+\hyperlink{class_sampler__if_1_1_r_n_g___parameters}{R\-N\-G\-\_\-\-Parameters} $\ast$ \hyperlink{class_sampler___bru_fab_joa_ac0c836807825ae2b4e7de6fd07e6efa9}{get\-R\-N\-Gparameters} () const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 21 of file Sampler\-\_\-\-Bru\-Fab\-Joa.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_sampler___bru_fab_joa_ac5c1b07d30e0bc71cbd649d7309bc8d5}{\index{Sampler\-\_\-\-Bru\-Fab\-Joa@{Sampler\-\_\-\-Bru\-Fab\-Joa}!Sampler\-\_\-\-Bru\-Fab\-Joa@{Sampler\-\_\-\-Bru\-Fab\-Joa}}
+\index{Sampler\-\_\-\-Bru\-Fab\-Joa@{Sampler\-\_\-\-Bru\-Fab\-Joa}!Sampler_BruFabJoa@{Sampler\-\_\-\-Bru\-Fab\-Joa}}
+\subsubsection[{Sampler\-\_\-\-Bru\-Fab\-Joa}]{\setlength{\rightskip}{0pt plus 5cm}Sampler\-\_\-\-Bru\-Fab\-Joa\-::\-Sampler\-\_\-\-Bru\-Fab\-Joa (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [default]}}}\label{class_sampler___bru_fab_joa_ac5c1b07d30e0bc71cbd649d7309bc8d5}
+\hypertarget{class_sampler___bru_fab_joa_a7160ab6a7a00e69c22a4eb0b840b5cb9}{\index{Sampler\-\_\-\-Bru\-Fab\-Joa@{Sampler\-\_\-\-Bru\-Fab\-Joa}!Sampler\-\_\-\-Bru\-Fab\-Joa@{Sampler\-\_\-\-Bru\-Fab\-Joa}}
+\index{Sampler\-\_\-\-Bru\-Fab\-Joa@{Sampler\-\_\-\-Bru\-Fab\-Joa}!Sampler_BruFabJoa@{Sampler\-\_\-\-Bru\-Fab\-Joa}}
+\subsubsection[{Sampler\-\_\-\-Bru\-Fab\-Joa}]{\setlength{\rightskip}{0pt plus 5cm}Sampler\-\_\-\-Bru\-Fab\-Joa\-::\-Sampler\-\_\-\-Bru\-Fab\-Joa (
+\begin{DoxyParamCaption}
+\item[{const {\bf Sampler\-\_\-\-Bru\-Fab\-Joa} \&}]{orig}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [delete]}}}\label{class_sampler___bru_fab_joa_a7160ab6a7a00e69c22a4eb0b840b5cb9}
+\hypertarget{class_sampler___bru_fab_joa_a1ce52dacb81a5175b217ec218941a77c}{\index{Sampler\-\_\-\-Bru\-Fab\-Joa@{Sampler\-\_\-\-Bru\-Fab\-Joa}!$\sim$\-Sampler\-\_\-\-Bru\-Fab\-Joa@{$\sim$\-Sampler\-\_\-\-Bru\-Fab\-Joa}}
+\index{$\sim$\-Sampler\-\_\-\-Bru\-Fab\-Joa@{$\sim$\-Sampler\-\_\-\-Bru\-Fab\-Joa}!Sampler_BruFabJoa@{Sampler\-\_\-\-Bru\-Fab\-Joa}}
+\subsubsection[{$\sim$\-Sampler\-\_\-\-Bru\-Fab\-Joa}]{\setlength{\rightskip}{0pt plus 5cm}Sampler\-\_\-\-Bru\-Fab\-Joa\-::$\sim$\-Sampler\-\_\-\-Bru\-Fab\-Joa (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [default]}}}\label{class_sampler___bru_fab_joa_a1ce52dacb81a5175b217ec218941a77c}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_sampler___bru_fab_joa_ac0c836807825ae2b4e7de6fd07e6efa9}{\index{Sampler\-\_\-\-Bru\-Fab\-Joa@{Sampler\-\_\-\-Bru\-Fab\-Joa}!get\-R\-N\-Gparameters@{get\-R\-N\-Gparameters}}
+\index{get\-R\-N\-Gparameters@{get\-R\-N\-Gparameters}!Sampler_BruFabJoa@{Sampler\-\_\-\-Bru\-Fab\-Joa}}
+\subsubsection[{get\-R\-N\-Gparameters}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sampler\-\_\-\-Bru\-Fab\-Joa\-::\-R\-N\-G\-\_\-\-Parameters} $\ast$ Sampler\-\_\-\-Bru\-Fab\-Joa\-::get\-R\-N\-Gparameters (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_sampler___bru_fab_joa_ac0c836807825ae2b4e7de6fd07e6efa9}
+
+
+Implements \hyperlink{class_sampler__if_adb21edf9170ad5d9b27f4788db74bafa}{Sampler\-\_\-if}.
+
+
+
+Definition at line 254 of file Sampler\-\_\-\-Bru\-Fab\-Joa.\-cpp.
+
+\hypertarget{class_sampler___bru_fab_joa_a0345255356e072f0a1b938227d272ac8}{\index{Sampler\-\_\-\-Bru\-Fab\-Joa@{Sampler\-\_\-\-Bru\-Fab\-Joa}!random@{random}}
+\index{random@{random}!Sampler_BruFabJoa@{Sampler\-\_\-\-Bru\-Fab\-Joa}}
+\subsubsection[{random}]{\setlength{\rightskip}{0pt plus 5cm}double Sampler\-\_\-\-Bru\-Fab\-Joa\-::random (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_sampler___bru_fab_joa_a0345255356e072f0a1b938227d272ac8}
+
+
+Implements \hyperlink{class_sampler__if_a8136ccd467ee5621813269fa23791423}{Sampler\-\_\-if}.
+
+
+
+Definition at line 16 of file Sampler\-\_\-\-Bru\-Fab\-Joa.\-cpp.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_sampler___bru_fab_joa_a0345255356e072f0a1b938227d272ac8_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_sampler___bru_fab_joa_ade1272ea2e4cf1011f3ad3449db90181}{\index{Sampler\-\_\-\-Bru\-Fab\-Joa@{Sampler\-\_\-\-Bru\-Fab\-Joa}!sample\-Beta@{sample\-Beta}}
+\index{sample\-Beta@{sample\-Beta}!Sampler_BruFabJoa@{Sampler\-\_\-\-Bru\-Fab\-Joa}}
+\subsubsection[{sample\-Beta}]{\setlength{\rightskip}{0pt plus 5cm}double Sampler\-\_\-\-Bru\-Fab\-Joa\-::sample\-Beta (
+\begin{DoxyParamCaption}
+\item[{double}]{alpha, }
+\item[{double}]{beta, }
+\item[{double}]{inf\-Limit, }
+\item[{double}]{sup\-Limit}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_sampler___bru_fab_joa_ade1272ea2e4cf1011f3ad3449db90181}
+
+
+Implements \hyperlink{class_sampler__if_a1081daf677b12de42f0abfcbe5ba9301}{Sampler\-\_\-if}.
+
+
+
+Definition at line 154 of file Sampler\-\_\-\-Bru\-Fab\-Joa.\-cpp.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_sampler___bru_fab_joa_ade1272ea2e4cf1011f3ad3449db90181_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_sampler___bru_fab_joa_a92b6f623bf14640d6a6aa61d0ccf0061}{\index{Sampler\-\_\-\-Bru\-Fab\-Joa@{Sampler\-\_\-\-Bru\-Fab\-Joa}!sample\-Discrete@{sample\-Discrete}}
+\index{sample\-Discrete@{sample\-Discrete}!Sampler_BruFabJoa@{Sampler\-\_\-\-Bru\-Fab\-Joa}}
+\subsubsection[{sample\-Discrete}]{\setlength{\rightskip}{0pt plus 5cm}double Sampler\-\_\-\-Bru\-Fab\-Joa\-::sample\-Discrete (
+\begin{DoxyParamCaption}
+\item[{double}]{value, }
+\item[{double}]{acum\-Prob, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_sampler___bru_fab_joa_a92b6f623bf14640d6a6aa61d0ccf0061}
+
+
+Implements \hyperlink{class_sampler__if_a2fcdf79225b5cdd023db7751655f1ceb}{Sampler\-\_\-if}.
+
+
+
+Definition at line 222 of file Sampler\-\_\-\-Bru\-Fab\-Joa.\-cpp.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{class_sampler___bru_fab_joa_a92b6f623bf14640d6a6aa61d0ccf0061_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_sampler___bru_fab_joa_a4d6967d5b31138b7e4d91eeb04ecb5d4}{\index{Sampler\-\_\-\-Bru\-Fab\-Joa@{Sampler\-\_\-\-Bru\-Fab\-Joa}!sample\-Erlang@{sample\-Erlang}}
+\index{sample\-Erlang@{sample\-Erlang}!Sampler_BruFabJoa@{Sampler\-\_\-\-Bru\-Fab\-Joa}}
+\subsubsection[{sample\-Erlang}]{\setlength{\rightskip}{0pt plus 5cm}double Sampler\-\_\-\-Bru\-Fab\-Joa\-::sample\-Erlang (
+\begin{DoxyParamCaption}
+\item[{double}]{mean, }
+\item[{int}]{M}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_sampler___bru_fab_joa_a4d6967d5b31138b7e4d91eeb04ecb5d4}
+
+
+Implements \hyperlink{class_sampler__if_acd16e61c373f5e051c5f4103848e5c8a}{Sampler\-\_\-if}.
+
+
+
+Definition at line 50 of file Sampler\-\_\-\-Bru\-Fab\-Joa.\-cpp.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{class_sampler___bru_fab_joa_a4d6967d5b31138b7e4d91eeb04ecb5d4_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_sampler___bru_fab_joa_a4335f6cabcaabb35e9819733e136633e}{\index{Sampler\-\_\-\-Bru\-Fab\-Joa@{Sampler\-\_\-\-Bru\-Fab\-Joa}!sample\-Exponential@{sample\-Exponential}}
+\index{sample\-Exponential@{sample\-Exponential}!Sampler_BruFabJoa@{Sampler\-\_\-\-Bru\-Fab\-Joa}}
+\subsubsection[{sample\-Exponential}]{\setlength{\rightskip}{0pt plus 5cm}double Sampler\-\_\-\-Bru\-Fab\-Joa\-::sample\-Exponential (
+\begin{DoxyParamCaption}
+\item[{double}]{mean}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_sampler___bru_fab_joa_a4335f6cabcaabb35e9819733e136633e}
+
+
+Implements \hyperlink{class_sampler__if_aeb17b9d84bc05c14f0be2ce0b60ed263}{Sampler\-\_\-if}.
+
+
+
+Definition at line 37 of file Sampler\-\_\-\-Bru\-Fab\-Joa.\-cpp.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{class_sampler___bru_fab_joa_a4335f6cabcaabb35e9819733e136633e_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_sampler___bru_fab_joa_a153a0271be4644e81ddce07a5516632d}{\index{Sampler\-\_\-\-Bru\-Fab\-Joa@{Sampler\-\_\-\-Bru\-Fab\-Joa}!sample\-Gamma@{sample\-Gamma}}
+\index{sample\-Gamma@{sample\-Gamma}!Sampler_BruFabJoa@{Sampler\-\_\-\-Bru\-Fab\-Joa}}
+\subsubsection[{sample\-Gamma}]{\setlength{\rightskip}{0pt plus 5cm}double Sampler\-\_\-\-Bru\-Fab\-Joa\-::sample\-Gamma (
+\begin{DoxyParamCaption}
+\item[{double}]{mean, }
+\item[{double}]{alpha}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_sampler___bru_fab_joa_a153a0271be4644e81ddce07a5516632d}
+
+
+Reference\-: \href{http://pdg.lbl.gov/2011/reviews/rpp2011-rev-monte-carlo-techniques.pdf}{\tt http\-://pdg.\-lbl.\-gov/2011/reviews/rpp2011-\/rev-\/monte-\/carlo-\/techniques.\-pdf}. 
+
+alpha $>$ 1 
+
+Implements \hyperlink{class_sampler__if_aafcceb6ad73790ddca45af1ea7f2088d}{Sampler\-\_\-if}.
+
+
+
+Definition at line 122 of file Sampler\-\_\-\-Bru\-Fab\-Joa.\-cpp.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{class_sampler___bru_fab_joa_a153a0271be4644e81ddce07a5516632d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{class_sampler___bru_fab_joa_a153a0271be4644e81ddce07a5516632d_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_sampler___bru_fab_joa_a7d67d644a3a8d2318f3efbe141209715}{\index{Sampler\-\_\-\-Bru\-Fab\-Joa@{Sampler\-\_\-\-Bru\-Fab\-Joa}!sample\-Log\-Normal@{sample\-Log\-Normal}}
+\index{sample\-Log\-Normal@{sample\-Log\-Normal}!Sampler_BruFabJoa@{Sampler\-\_\-\-Bru\-Fab\-Joa}}
+\subsubsection[{sample\-Log\-Normal}]{\setlength{\rightskip}{0pt plus 5cm}double Sampler\-\_\-\-Bru\-Fab\-Joa\-::sample\-Log\-Normal (
+\begin{DoxyParamCaption}
+\item[{double}]{mean, }
+\item[{double}]{stddev}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_sampler___bru_fab_joa_a7d67d644a3a8d2318f3efbe141209715}
+
+
+Implements \hyperlink{class_sampler__if_a031e1170c529e2cc67131d4da6ee683e}{Sampler\-\_\-if}.
+
+
+
+Definition at line 189 of file Sampler\-\_\-\-Bru\-Fab\-Joa.\-cpp.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_sampler___bru_fab_joa_a7d67d644a3a8d2318f3efbe141209715_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_sampler___bru_fab_joa_af2ceb8fb7083313d1fc11943c6e74cef}{\index{Sampler\-\_\-\-Bru\-Fab\-Joa@{Sampler\-\_\-\-Bru\-Fab\-Joa}!sample\-Normal@{sample\-Normal}}
+\index{sample\-Normal@{sample\-Normal}!Sampler_BruFabJoa@{Sampler\-\_\-\-Bru\-Fab\-Joa}}
+\subsubsection[{sample\-Normal}]{\setlength{\rightskip}{0pt plus 5cm}double Sampler\-\_\-\-Bru\-Fab\-Joa\-::sample\-Normal (
+\begin{DoxyParamCaption}
+\item[{double}]{mean, }
+\item[{double}]{stddev}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_sampler___bru_fab_joa_af2ceb8fb7083313d1fc11943c6e74cef}
+
+
+Implements \hyperlink{class_sampler__if_a559f1f29b5e4455c9e59cf00d622da47}{Sampler\-\_\-if}.
+
+
+
+Definition at line 62 of file Sampler\-\_\-\-Bru\-Fab\-Joa.\-cpp.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{class_sampler___bru_fab_joa_af2ceb8fb7083313d1fc11943c6e74cef_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{class_sampler___bru_fab_joa_af2ceb8fb7083313d1fc11943c6e74cef_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_sampler___bru_fab_joa_adf431f34befb1c34c92bf3b8b771115a}{\index{Sampler\-\_\-\-Bru\-Fab\-Joa@{Sampler\-\_\-\-Bru\-Fab\-Joa}!sample\-Triangular@{sample\-Triangular}}
+\index{sample\-Triangular@{sample\-Triangular}!Sampler_BruFabJoa@{Sampler\-\_\-\-Bru\-Fab\-Joa}}
+\subsubsection[{sample\-Triangular}]{\setlength{\rightskip}{0pt plus 5cm}double Sampler\-\_\-\-Bru\-Fab\-Joa\-::sample\-Triangular (
+\begin{DoxyParamCaption}
+\item[{double}]{min, }
+\item[{double}]{mode, }
+\item[{double}]{max}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_sampler___bru_fab_joa_adf431f34befb1c34c92bf3b8b771115a}
+
+
+Implements \hyperlink{class_sampler__if_a02d68c26089c6dd53b99882da79c88ca}{Sampler\-\_\-if}.
+
+
+
+Definition at line 206 of file Sampler\-\_\-\-Bru\-Fab\-Joa.\-cpp.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{class_sampler___bru_fab_joa_adf431f34befb1c34c92bf3b8b771115a_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_sampler___bru_fab_joa_a7f75268eabd66fad415e794a3eda6261}{\index{Sampler\-\_\-\-Bru\-Fab\-Joa@{Sampler\-\_\-\-Bru\-Fab\-Joa}!sample\-Uniform@{sample\-Uniform}}
+\index{sample\-Uniform@{sample\-Uniform}!Sampler_BruFabJoa@{Sampler\-\_\-\-Bru\-Fab\-Joa}}
+\subsubsection[{sample\-Uniform}]{\setlength{\rightskip}{0pt plus 5cm}double Sampler\-\_\-\-Bru\-Fab\-Joa\-::sample\-Uniform (
+\begin{DoxyParamCaption}
+\item[{double}]{min, }
+\item[{double}]{max}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_sampler___bru_fab_joa_a7f75268eabd66fad415e794a3eda6261}
+
+
+Implements \hyperlink{class_sampler__if_a0643f4ca1d770d01afefa956e9f78edf}{Sampler\-\_\-if}.
+
+
+
+Definition at line 25 of file Sampler\-\_\-\-Bru\-Fab\-Joa.\-cpp.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{class_sampler___bru_fab_joa_a7f75268eabd66fad415e794a3eda6261_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_sampler___bru_fab_joa_a164e1ee8bb1e2c3e8a36f8154623c068}{\index{Sampler\-\_\-\-Bru\-Fab\-Joa@{Sampler\-\_\-\-Bru\-Fab\-Joa}!sample\-Weibull@{sample\-Weibull}}
+\index{sample\-Weibull@{sample\-Weibull}!Sampler_BruFabJoa@{Sampler\-\_\-\-Bru\-Fab\-Joa}}
+\subsubsection[{sample\-Weibull}]{\setlength{\rightskip}{0pt plus 5cm}double Sampler\-\_\-\-Bru\-Fab\-Joa\-::sample\-Weibull (
+\begin{DoxyParamCaption}
+\item[{double}]{alpha, }
+\item[{double}]{scale}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_sampler___bru_fab_joa_a164e1ee8bb1e2c3e8a36f8154623c068}
+
+
+Implements \hyperlink{class_sampler__if_ac02b82a18e78c4bbaea1bc90c617857b}{Sampler\-\_\-if}.
+
+
+
+Definition at line 176 of file Sampler\-\_\-\-Bru\-Fab\-Joa.\-cpp.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{class_sampler___bru_fab_joa_a164e1ee8bb1e2c3e8a36f8154623c068_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_sampler___bru_fab_joa_aa0c97683d644b30d76754621d14cd303}{\index{Sampler\-\_\-\-Bru\-Fab\-Joa@{Sampler\-\_\-\-Bru\-Fab\-Joa}!set\-R\-N\-Gparameters@{set\-R\-N\-Gparameters}}
+\index{set\-R\-N\-Gparameters@{set\-R\-N\-Gparameters}!Sampler_BruFabJoa@{Sampler\-\_\-\-Bru\-Fab\-Joa}}
+\subsubsection[{set\-R\-N\-Gparameters}]{\setlength{\rightskip}{0pt plus 5cm}void Sampler\-\_\-\-Bru\-Fab\-Joa\-::set\-R\-N\-Gparameters (
+\begin{DoxyParamCaption}
+\item[{{\bf Sampler\-\_\-\-Bru\-Fab\-Joa\-::\-R\-N\-G\-\_\-\-Parameters} $\ast$}]{param}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_sampler___bru_fab_joa_aa0c97683d644b30d76754621d14cd303}
+
+
+Implements \hyperlink{class_sampler__if_a630a0cbbef6e49869063530b03d3bb35}{Sampler\-\_\-if}.
+
+
+
+Definition at line 249 of file Sampler\-\_\-\-Bru\-Fab\-Joa.\-cpp.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_sampler___bru_fab_joa_8h}{Sampler\-\_\-\-Bru\-Fab\-Joa.\-h}\item 
+\hyperlink{_sampler___bru_fab_joa_8cpp}{Sampler\-\_\-\-Bru\-Fab\-Joa.\-cpp}\end{DoxyCompactItemize}

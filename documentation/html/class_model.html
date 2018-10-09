@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>RebornedGenESyS: Model Class Reference</title>
+<title>GenESyS - Generic and Expansible System Simulator [REBORN]: Model Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="software_genesys.gif"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">RebornedGenESyS
-   &#160;<span id="projectnumber">Reborned 20182</span>
+   <div id="projectname">GenESyS - Generic and Expansible System Simulator [REBORN]
+   &#160;<span id="projectnumber">2018-2</span>
    </div>
-   <div id="projectbrief">Generic and Expansible System Simulator</div>
+   <div id="projectbrief">Generic System Simulator</div>
   </td>
  </tr>
  </tbody>
@@ -48,6 +48,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -96,7 +97,7 @@ $(document).ready(function(){initNavTree('class_model.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -256,9 +257,13 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ab460d8d215b5e4fb353f129c04493fa5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6711b51ea9feeacb59eaf70cc8faaed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_model_infrastructure.html">ModelInfrastructure</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#ad6711b51ea9feeacb59eaf70cc8faaed">getInfrastructure</a> (std::string infraTypename, std::string name)</td></tr>
 <tr class="separator:ad6711b51ea9feeacb59eaf70cc8faaed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1a47354f008dc27fcb7fc902bb8d664"><td class="memItemLeft" align="right" valign="top">std::list&lt; std::string &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#ac1a47354f008dc27fcb7fc902bb8d664">getInfrastructureTypenames</a> () const </td></tr>
+<tr class="separator:ac1a47354f008dc27fcb7fc902bb8d664"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_model.html">Model</a> is probably the most important class of Genesys kernel. It represents a discrete event-driven simulation model. Each model is responsible for controlling its own simulation, ie, for sequentially processing events and collecting statistical results. A model is mainly represented by a collection of components (<a class="el" href="class_model_component.html">ModelComponent</a>), adequately configurated and connected, and a collection of under layered infrastructure (<a class="el" href="class_model_infrastructure.html">ModelInfrastructure</a>). </p>
+
+<p>Definition at line <a class="el" href="_model_8h_source.html#l00033">33</a> of file <a class="el" href="_model_8h_source.html">Model.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ae86e1403523e8036ba6366d1967ecac0"></a>
 <div class="memitem">
@@ -274,8 +279,11 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Components are sorted by ID</p>
+<p>The future events list must be chronologicaly sorted</p>
 <p>Events are sorted chronologically</p>
 <p>Infrastructures are organized as a map from a string (key), the type of an infrastructure, and a list of infrastructures of that type </p>
+
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00028">28</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -302,6 +310,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00060">60</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ad6ebd2062a0b823db841a0b88baac4c0"></a>
@@ -325,6 +335,8 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00329">329</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -342,6 +354,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00451">451</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a144f16211e64bdc0ac4622cda5f5f4ae"></a>
@@ -357,6 +371,17 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00439">439</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_a144f16211e64bdc0ac4622cda5f5f4ae_icgraph.png" border="0" usemap="#class_model_a144f16211e64bdc0ac4622cda5f5f4ae_icgraph" alt=""/></div>
+<map name="class_model_a144f16211e64bdc0ac4622cda5f5f4ae_icgraph" id="class_model_a144f16211e64bdc0ac4622cda5f5f4ae_icgraph">
+<area shape="rect" id="node2" href="_build_simple_model1_8cpp.html#a22c3fce0bba99e34d617dafbf4f1f54e" title="buildModelWithAllImplemented\lComponents" alt="" coords="219,5,421,46"/><area shape="rect" id="node3" href="_build_simple_model1_8cpp.html#aeea741000e292b33dca181a0a8a6106f" title="buildModel" alt="" coords="470,12,554,39"/><area shape="rect" id="node4" href="_build_simple_model1_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="603,12,757,39"/><area shape="rect" id="node5" href="class_build_simple_model1.html#aa6e2b862963b2fb738c738bb20b4e913" title="BuildSimpleModel1::main" alt="" coords="806,12,975,39"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -374,6 +399,17 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00455">455</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_ad94736b0e6c53b3dedd112f21506092a_icgraph.png" border="0" usemap="#class_model_ad94736b0e6c53b3dedd112f21506092a_icgraph" alt=""/></div>
+<map name="class_model_ad94736b0e6c53b3dedd112f21506092a_icgraph" id="class_model_ad94736b0e6c53b3dedd112f21506092a_icgraph">
+<area shape="rect" id="node2" href="_build_simple_model1_8cpp.html#a22c3fce0bba99e34d617dafbf4f1f54e" title="buildModelWithAllImplemented\lComponents" alt="" coords="259,5,461,46"/><area shape="rect" id="node3" href="_build_simple_model1_8cpp.html#aeea741000e292b33dca181a0a8a6106f" title="buildModel" alt="" coords="510,12,594,39"/><area shape="rect" id="node4" href="_build_simple_model1_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="643,12,797,39"/><area shape="rect" id="node5" href="class_build_simple_model1.html#aa6e2b862963b2fb738c738bb20b4e913" title="BuildSimpleModel1::main" alt="" coords="846,12,1015,39"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a06f7035263e7ad33360651a9569ed2d6"></a>
@@ -390,6 +426,17 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00447">447</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_a06f7035263e7ad33360651a9569ed2d6_icgraph.png" border="0" usemap="#class_model_a06f7035263e7ad33360651a9569ed2d6_icgraph" alt=""/></div>
+<map name="class_model_a06f7035263e7ad33360651a9569ed2d6_icgraph" id="class_model_a06f7035263e7ad33360651a9569ed2d6_icgraph">
+<area shape="rect" id="node2" href="_build_simple_model1_8cpp.html#a22c3fce0bba99e34d617dafbf4f1f54e" title="buildModelWithAllImplemented\lComponents" alt="" coords="235,5,437,46"/><area shape="rect" id="node3" href="_build_simple_model1_8cpp.html#aeea741000e292b33dca181a0a8a6106f" title="buildModel" alt="" coords="486,12,570,39"/><area shape="rect" id="node4" href="_build_simple_model1_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="619,12,773,39"/><area shape="rect" id="node5" href="class_build_simple_model1.html#aa6e2b862963b2fb738c738bb20b4e913" title="BuildSimpleModel1::main" alt="" coords="822,12,991,39"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="ae3b293adffbef6fd254d661ceeb2e116"></a>
@@ -405,12 +452,23 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00257">257</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_model_ae3b293adffbef6fd254d661ceeb2e116_cgraph.png" border="0" usemap="#class_model_ae3b293adffbef6fd254d661ceeb2e116_cgraph" alt=""/></div>
 <map name="class_model_ae3b293adffbef6fd254d661ceeb2e116_cgraph" id="class_model_ae3b293adffbef6fd254d661ceeb2e116_cgraph">
 <area shape="rect" id="node2" href="class_model.html#a5de086b514742e84b61ac9a7b128ae8b" title="Model::trace" alt="" coords="231,5,326,32"/><area shape="rect" id="node3" href="class_model_checker__if.html#a83bc988696c49a17e0e7668e24743251" title="ModelChecker_if::checkAll" alt="" coords="189,56,368,83"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_ae3b293adffbef6fd254d661ceeb2e116_icgraph.png" border="0" usemap="#class_model_ae3b293adffbef6fd254d661ceeb2e116_icgraph" alt=""/></div>
+<map name="class_model_ae3b293adffbef6fd254d661ceeb2e116_icgraph" id="class_model_ae3b293adffbef6fd254d661ceeb2e116_icgraph">
+<area shape="rect" id="node2" href="_build_simple_model1_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="389,5,544,32"/><area shape="rect" id="node4" href="class_model.html#a6fd6613a5141552a6493eb3a840cde24" title="Model::startSimulation" alt="" coords="189,31,341,57"/><area shape="rect" id="node3" href="class_build_simple_model1.html#aa6e2b862963b2fb738c738bb20b4e913" title="BuildSimpleModel1::main" alt="" coords="593,5,762,32"/></map>
 </div>
 </p>
 
@@ -429,6 +487,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00344">344</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ae5773d78fc47cb35be7fbeb74b7d63e4"></a>
@@ -444,6 +504,17 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00583">583</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_ae5773d78fc47cb35be7fbeb74b7d63e4_icgraph.png" border="0" usemap="#class_model_ae5773d78fc47cb35be7fbeb74b7d63e4_icgraph" alt=""/></div>
+<map name="class_model_ae5773d78fc47cb35be7fbeb74b7d63e4_icgraph" id="class_model_ae5773d78fc47cb35be7fbeb74b7d63e4_icgraph">
+<area shape="rect" id="node2" href="_build_simple_model1_8cpp.html#a5981de61ae987a3694de07224dbca746" title="buildSimpleCreateDelayDispose\lModel" alt="" coords="211,5,421,46"/><area shape="rect" id="node3" href="_build_simple_model1_8cpp.html#a22c3fce0bba99e34d617dafbf4f1f54e" title="buildModelWithAllImplemented\lComponents" alt="" coords="215,70,417,111"/><area shape="rect" id="node7" href="class_model_checker_my_impl1.html#a37856818d6597563f079401bf6652cbb" title="ModelCheckerMyImpl1\l::checkSymbols" alt="" coords="238,135,394,177"/><area shape="rect" id="node9" href="class_model_persistence_my_impl1.html#a367b40dfac801508f75a3176f7b40c6a" title="ModelPersistenceMyImpl1\l::saveAsTXT" alt="" coords="228,201,404,242"/><area shape="rect" id="node4" href="_build_simple_model1_8cpp.html#aeea741000e292b33dca181a0a8a6106f" title="buildModel" alt="" coords="515,77,599,104"/><area shape="rect" id="node5" href="_build_simple_model1_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="693,77,848,104"/><area shape="rect" id="node6" href="class_build_simple_model1.html#aa6e2b862963b2fb738c738bb20b4e913" title="BuildSimpleModel1::main" alt="" coords="897,77,1066,104"/><area shape="rect" id="node8" href="class_model_checker_my_impl1.html#adbed52d807b882ee75f10372b8b379e1" title="ModelCheckerMyImpl1\l::checkAll" alt="" coords="479,135,635,177"/><area shape="rect" id="node10" href="class_model_persistence_my_impl1.html#ab24f2e3aea25d628748dd8b9e63d326a" title="ModelPersistenceMyImpl1\l::save" alt="" coords="469,201,645,242"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a40ad9af9a5cebe907d483fb51d0f4974"></a>
@@ -458,6 +529,8 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00352">352</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -475,12 +548,23 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p>The future events list chronologically sorted; Events are scheduled by components when processing other events, and a replication evolves over time by sequentially processing the very first event in this list. It's initialized with events first described by source components (SourceComponentModel) </p>
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00546">546</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_model_ae09e777b481981772818ea3fd2880c4c_cgraph.png" border="0" usemap="#class_model_ae09e777b481981772818ea3fd2880c4c_cgraph" alt=""/></div>
 <map name="class_model_ae09e777b481981772818ea3fd2880c4c_cgraph" id="class_model_ae09e777b481981772818ea3fd2880c4c_cgraph">
 <area shape="rect" id="node2" href="class_model.html#a43ca6ff93bd0b9fbc4c2792962e6b4ed" title="Model::getInfrastructures" alt="" coords="182,35,349,61"/><area shape="rect" id="node3" href="class_list.html#a31a37746c0d960f2f2bb4071b2735c5e" title="List::setSortFunc" alt="" coords="404,5,527,32"/><area shape="rect" id="node4" href="class_model_infrastructure.html#aa4d3fa8f302cc6dc4fccdd3187e6a168" title="ModelInfrastructure\l::getId" alt="" coords="398,57,533,98"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_ae09e777b481981772818ea3fd2880c4c_icgraph.png" border="0" usemap="#class_model_ae09e777b481981772818ea3fd2880c4c_icgraph" alt=""/></div>
+<map name="class_model_ae09e777b481981772818ea3fd2880c4c_icgraph" id="class_model_ae09e777b481981772818ea3fd2880c4c_icgraph">
+<area shape="rect" id="node2" href="class_create.html#acd3a4b8805561591e0c88d3fd689cf74" title="Create::_execute" alt="" coords="192,5,315,32"/><area shape="rect" id="node3" href="class_model.html#ae62bb3a21cd56fbf9d34195edf2fb9e0" title="Model::removeEntity" alt="" coords="182,56,325,83"/><area shape="rect" id="node4" href="class_dispose.html#a342eb428496534cdfd17524ad78b0c08" title="Dispose::_execute" alt="" coords="373,56,504,83"/></map>
 </div>
 </p>
 
@@ -499,6 +583,17 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00495">495</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_ae0d77f48384e180cfabb8fd8ed16e4db_icgraph.png" border="0" usemap="#class_model_ae0d77f48384e180cfabb8fd8ed16e4db_icgraph" alt=""/></div>
+<map name="class_model_ae0d77f48384e180cfabb8fd8ed16e4db_icgraph" id="class_model_ae0d77f48384e180cfabb8fd8ed16e4db_icgraph">
+<area shape="rect" id="node2" href="class_model_checker_my_impl1.html#af92c7b51b8207c1718b496df104b1f11" title="ModelCheckerMyImpl1\l::verifySymbol" alt="" coords="225,5,381,46"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a841c78bda0eb27c652c6921094dc5921"></a>
@@ -515,6 +610,17 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p>A list of components that compose this model </p>
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00499">499</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_a841c78bda0eb27c652c6921094dc5921_icgraph.png" border="0" usemap="#class_model_a841c78bda0eb27c652c6921094dc5921_icgraph" alt=""/></div>
+<map name="class_model_a841c78bda0eb27c652c6921094dc5921_icgraph" id="class_model_a841c78bda0eb27c652c6921094dc5921_icgraph">
+<area shape="rect" id="node2" href="class_create.html#acd3a4b8805561591e0c88d3fd689cf74" title="Create::_execute" alt="" coords="441,5,564,32"/><area shape="rect" id="node3" href="class_delay.html#a029d91a2cd736ff9c361c69336e6ab41" title="Delay::_execute" alt="" coords="225,56,343,83"/><area shape="rect" id="node4" href="class_model.html#a244dff6d6bef962b0d95fbe712954079" title="Model::sendEntityToComponent" alt="" coords="179,107,389,133"/><area shape="rect" id="node6" href="class_release.html#a63c3cd89082e7f6c1fb61646b93a5c32" title="Release::_execute" alt="" coords="437,157,568,184"/><area shape="rect" id="node5" href="class_assign.html#a5fabf69268b2e65d8b01ce247be87a40" title="Assign::_execute" alt="" coords="441,56,564,83"/><area shape="rect" id="node7" href="class_seize.html#a96f6517a40b3bfd0d5ea753d59cef797" title="Seize::_execute" alt="" coords="445,107,561,133"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="abfd7753d30de6abea64b3f0846e097eb"></a>
@@ -529,6 +635,8 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00579">579</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -556,12 +664,23 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00518">518</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_model_ab460d8d215b5e4fb353f129c04493fa5_cgraph.png" border="0" usemap="#class_model_ab460d8d215b5e4fb353f129c04493fa5_cgraph" alt=""/></div>
 <map name="class_model_ab460d8d215b5e4fb353f129c04493fa5_cgraph" id="class_model_ab460d8d215b5e4fb353f129c04493fa5_cgraph">
 <area shape="rect" id="node2" href="class_model.html#a43ca6ff93bd0b9fbc4c2792962e6b4ed" title="Model::getInfrastructures" alt="" coords="214,35,381,61"/><area shape="rect" id="node5" href="class_list.html#a570498345450f635b72d1ca2675145cc" title="List::getList" alt="" coords="252,85,343,112"/><area shape="rect" id="node3" href="class_list.html#a31a37746c0d960f2f2bb4071b2735c5e" title="List::setSortFunc" alt="" coords="436,5,559,32"/><area shape="rect" id="node4" href="class_model_infrastructure.html#aa4d3fa8f302cc6dc4fccdd3187e6a168" title="ModelInfrastructure\l::getId" alt="" coords="430,57,565,98"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_ab460d8d215b5e4fb353f129c04493fa5_icgraph.png" border="0" usemap="#class_model_ab460d8d215b5e4fb353f129c04493fa5_icgraph" alt=""/></div>
+<map name="class_model_ab460d8d215b5e4fb353f129c04493fa5_icgraph" id="class_model_ab460d8d215b5e4fb353f129c04493fa5_icgraph">
+<area shape="rect" id="node2" href="class_assign.html#a5fabf69268b2e65d8b01ce247be87a40" title="Assign::_execute" alt="" coords="245,5,368,32"/><area shape="rect" id="node3" href="class_create.html#ad445fd3bec94b4e66669089f10f96057" title="Create::_verifySymbols" alt="" coords="227,56,386,83"/><area shape="rect" id="node4" href="class_release.html#a4abb6616f9b6de8183558f0c380ccea3" title="Release::Release" alt="" coords="243,107,370,133"/><area shape="rect" id="node5" href="class_release.html#ae845be9db739fbb317bd05f0b0fe21c5" title="Release::setQueueName" alt="" coords="222,157,391,184"/><area shape="rect" id="node10" href="class_release.html#a26fda460abe6f9a92872027014c41d4a" title="Release::setResourceName" alt="" coords="213,208,400,235"/><area shape="rect" id="node11" href="class_seize.html#a28a360900407ddb26fe627fd147a93fe" title="Seize::Seize" alt="" coords="259,259,355,285"/><area shape="rect" id="node12" href="class_seize.html#a4d24a3326db05e92439379e1c4efa940" title="Seize::setQueueName" alt="" coords="229,309,384,336"/><area shape="rect" id="node13" href="class_seize.html#a2bdaa616c4fd499f754099eb59729547" title="Seize::setResourceName" alt="" coords="221,360,393,387"/><area shape="rect" id="node6" href="_build_simple_model1_8cpp.html#a22c3fce0bba99e34d617dafbf4f1f54e" title="buildModelWithAllImplemented\lComponents" alt="" coords="449,201,650,242"/><area shape="rect" id="node7" href="_build_simple_model1_8cpp.html#aeea741000e292b33dca181a0a8a6106f" title="buildModel" alt="" coords="699,208,783,235"/><area shape="rect" id="node8" href="_build_simple_model1_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="832,208,987,235"/><area shape="rect" id="node9" href="class_build_simple_model1.html#aa6e2b862963b2fb738c738bb20b4e913" title="BuildSimpleModel1::main" alt="" coords="1035,208,1205,235"/></map>
 </div>
 </p>
 
@@ -591,6 +710,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00536">536</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -616,12 +737,49 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00503">503</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_model_a43ca6ff93bd0b9fbc4c2792962e6b4ed_cgraph.png" border="0" usemap="#class_model_a43ca6ff93bd0b9fbc4c2792962e6b4ed_cgraph" alt=""/></div>
 <map name="class_model_a43ca6ff93bd0b9fbc4c2792962e6b4ed_cgraph" id="class_model_a43ca6ff93bd0b9fbc4c2792962e6b4ed_cgraph">
 <area shape="rect" id="node2" href="class_list.html#a31a37746c0d960f2f2bb4071b2735c5e" title="List::setSortFunc" alt="" coords="228,5,351,32"/><area shape="rect" id="node3" href="class_model_infrastructure.html#aa4d3fa8f302cc6dc4fccdd3187e6a168" title="ModelInfrastructure\l::getId" alt="" coords="222,57,357,98"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_a43ca6ff93bd0b9fbc4c2792962e6b4ed_icgraph.png" border="0" usemap="#class_model_a43ca6ff93bd0b9fbc4c2792962e6b4ed_icgraph" alt=""/></div>
+<map name="class_model_a43ca6ff93bd0b9fbc4c2792962e6b4ed_icgraph" id="class_model_a43ca6ff93bd0b9fbc4c2792962e6b4ed_icgraph">
+<area shape="rect" id="node2" href="class_create.html#ad445fd3bec94b4e66669089f10f96057" title="Create::_verifySymbols" alt="" coords="459,5,618,32"/><area shape="rect" id="node3" href="class_entity_type.html#a76c09c732793a586dc3b474485e9824f" title="EntityType::EntityType" alt="" coords="231,411,387,437"/><area shape="rect" id="node4" href="class_model.html#ab460d8d215b5e4fb353f129c04493fa5" title="Model::getInfrastructure" alt="" coords="229,157,389,184"/><area shape="rect" id="node6" href="class_release.html#a4abb6616f9b6de8183558f0c380ccea3" title="Release::Release" alt="" coords="475,56,602,83"/><area shape="rect" id="node7" href="class_release.html#ae845be9db739fbb317bd05f0b0fe21c5" title="Release::setQueueName" alt="" coords="454,107,623,133"/><area shape="rect" id="node12" href="class_release.html#a26fda460abe6f9a92872027014c41d4a" title="Release::setResourceName" alt="" coords="445,208,632,235"/><area shape="rect" id="node13" href="class_seize.html#a28a360900407ddb26fe627fd147a93fe" title="Seize::Seize" alt="" coords="491,309,587,336"/><area shape="rect" id="node14" href="class_seize.html#a4d24a3326db05e92439379e1c4efa940" title="Seize::setQueueName" alt="" coords="461,360,616,387"/><area shape="rect" id="node15" href="class_seize.html#a2bdaa616c4fd499f754099eb59729547" title="Seize::setResourceName" alt="" coords="453,259,625,285"/><area shape="rect" id="node16" href="class_model.html#ae09e777b481981772818ea3fd2880c4c" title="Model::getEntities" alt="" coords="246,461,373,488"/><area shape="rect" id="node20" href="class_model_persistence_my_impl1.html#a367b40dfac801508f75a3176f7b40c6a" title="ModelPersistenceMyImpl1\l::saveAsTXT" alt="" coords="221,513,397,554"/><area shape="rect" id="node22" href="class_resource.html#a1a8ae095067797fa47b0241ee278536c" title="Resource::Resource" alt="" coords="238,579,381,605"/><area shape="rect" id="node5" href="class_assign.html#a5fabf69268b2e65d8b01ce247be87a40" title="Assign::_execute" alt="" coords="477,157,600,184"/><area shape="rect" id="node8" href="_build_simple_model1_8cpp.html#a22c3fce0bba99e34d617dafbf4f1f54e" title="buildModelWithAllImplemented\lComponents" alt="" coords="681,201,882,242"/><area shape="rect" id="node9" href="_build_simple_model1_8cpp.html#aeea741000e292b33dca181a0a8a6106f" title="buildModel" alt="" coords="931,208,1015,235"/><area shape="rect" id="node10" href="_build_simple_model1_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="1064,208,1219,235"/><area shape="rect" id="node11" href="class_build_simple_model1.html#aa6e2b862963b2fb738c738bb20b4e913" title="BuildSimpleModel1::main" alt="" coords="1267,208,1437,235"/><area shape="rect" id="node17" href="class_create.html#acd3a4b8805561591e0c88d3fd689cf74" title="Create::_execute" alt="" coords="477,461,600,488"/><area shape="rect" id="node18" href="class_model.html#ae62bb3a21cd56fbf9d34195edf2fb9e0" title="Model::removeEntity" alt="" coords="467,411,610,437"/><area shape="rect" id="node19" href="class_dispose.html#a342eb428496534cdfd17524ad78b0c08" title="Dispose::_execute" alt="" coords="716,411,847,437"/><area shape="rect" id="node21" href="class_model_persistence_my_impl1.html#ab24f2e3aea25d628748dd8b9e63d326a" title="ModelPersistenceMyImpl1\l::save" alt="" coords="451,513,627,554"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ac1a47354f008dc27fcb7fc902bb8d664"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::list&lt; std::string &gt; * Model::getInfrastructureTypenames </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00528">528</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_ac1a47354f008dc27fcb7fc902bb8d664_icgraph.png" border="0" usemap="#class_model_ac1a47354f008dc27fcb7fc902bb8d664_icgraph" alt=""/></div>
+<map name="class_model_ac1a47354f008dc27fcb7fc902bb8d664_icgraph" id="class_model_ac1a47354f008dc27fcb7fc902bb8d664_icgraph">
+<area shape="rect" id="node2" href="class_model_persistence_my_impl1.html#a367b40dfac801508f75a3176f7b40c6a" title="ModelPersistenceMyImpl1\l::saveAsTXT" alt="" coords="213,5,389,46"/><area shape="rect" id="node3" href="class_model_persistence_my_impl1.html#ab24f2e3aea25d628748dd8b9e63d326a" title="ModelPersistenceMyImpl1\l::save" alt="" coords="437,5,613,46"/></map>
 </div>
 </p>
 
@@ -640,6 +798,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00336">336</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="af2fe357b860298f4977f8f48cee7115a"></a>
@@ -654,6 +814,8 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00376">376</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -670,6 +832,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00360">360</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a6bb4d4fbf90f49c990a00385a9df18d9"></a>
@@ -684,6 +848,17 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00384">384</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_a6bb4d4fbf90f49c990a00385a9df18d9_icgraph.png" border="0" usemap="#class_model_a6bb4d4fbf90f49c990a00385a9df18d9_icgraph" alt=""/></div>
+<map name="class_model_a6bb4d4fbf90f49c990a00385a9df18d9_icgraph" id="class_model_a6bb4d4fbf90f49c990a00385a9df18d9_icgraph">
+<area shape="rect" id="node2" href="class_model.html#a6fd6613a5141552a6493eb3a840cde24" title="Model::startSimulation" alt="" coords="240,5,392,32"/><area shape="rect" id="node3" href="_build_simple_model1_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="440,5,595,32"/><area shape="rect" id="node4" href="class_build_simple_model1.html#aa6e2b862963b2fb738c738bb20b4e913" title="BuildSimpleModel1::main" alt="" coords="643,5,813,32"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -700,6 +875,17 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00392">392</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_aeaba7aa3fb5a75f469b7617910eee446_icgraph.png" border="0" usemap="#class_model_aeaba7aa3fb5a75f469b7617910eee446_icgraph" alt=""/></div>
+<map name="class_model_aeaba7aa3fb5a75f469b7617910eee446_icgraph" id="class_model_aeaba7aa3fb5a75f469b7617910eee446_icgraph">
+<area shape="rect" id="node2" href="class_create.html#acd3a4b8805561591e0c88d3fd689cf74" title="Create::_execute" alt="" coords="240,5,363,32"/><area shape="rect" id="node3" href="class_delay.html#a029d91a2cd736ff9c361c69336e6ab41" title="Delay::_execute" alt="" coords="243,56,360,83"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a74eb096b8229aa036d11adeeb8787599"></a>
@@ -714,6 +900,17 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00567">567</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_a74eb096b8229aa036d11adeeb8787599_icgraph.png" border="0" usemap="#class_model_a74eb096b8229aa036d11adeeb8787599_icgraph" alt=""/></div>
+<map name="class_model_a74eb096b8229aa036d11adeeb8787599_icgraph" id="class_model_a74eb096b8229aa036d11adeeb8787599_icgraph">
+<area shape="rect" id="node2" href="class_create.html#acd3a4b8805561591e0c88d3fd689cf74" title="Create::_execute" alt="" coords="228,5,351,32"/><area shape="rect" id="node3" href="class_delay.html#a029d91a2cd736ff9c361c69336e6ab41" title="Delay::_execute" alt="" coords="231,56,348,83"/><area shape="rect" id="node4" href="class_release.html#a63c3cd89082e7f6c1fb61646b93a5c32" title="Release::_execute" alt="" coords="224,107,355,133"/><area shape="rect" id="node5" href="class_seize.html#a96f6517a40b3bfd0d5ea753d59cef797" title="Seize::_execute" alt="" coords="231,157,347,184"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -730,6 +927,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00416">416</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a0fa341be1579f13861af2eda84d4f840"></a>
@@ -744,6 +943,8 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00424">424</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -760,6 +961,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00368">368</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="aa7b278f97a29269a18dbcbb6513f39da"></a>
@@ -774,6 +977,8 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00400">400</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -790,6 +995,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00408">408</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="aefe1365d9a032fe1ac62991f45446d6a"></a>
@@ -804,6 +1011,8 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00317">317</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -820,6 +1029,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00325">325</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a1dda07db7bddff456907067eeeb5c21a"></a>
@@ -835,6 +1046,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00309">309</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a269e5b3c45f3c7ce606205fec8f0b3b4"></a>
@@ -849,6 +1062,8 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00563">563</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -866,6 +1081,8 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p>The current time in the model being simulated, i.e., the instant when the current event was triggered </p>
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00571">571</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a8d47ce2750e22e14e5249b724cdf4fd3"></a>
@@ -880,6 +1097,8 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00575">575</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -896,6 +1115,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00555">555</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="aba57e8b62d4dcc3ac8e3037933fa6f04"></a>
@@ -911,6 +1132,8 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00082">82</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -938,12 +1161,23 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p>Used by components (<a class="el" href="class_model_component.html">ModelComponent</a>) to send entities to another specific component, usually the next one connected to it, or used by the model itself, when processing an event (<a class="el" href="class_event.html">Event</a>). </p>
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00086">86</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_model_a5ea283e339b50c0b77040bf908e25af3_cgraph.png" border="0" usemap="#class_model_a5ea283e339b50c0b77040bf908e25af3_cgraph" alt=""/></div>
 <map name="class_model_a5ea283e339b50c0b77040bf908e25af3_cgraph" id="class_model_a5ea283e339b50c0b77040bf908e25af3_cgraph">
 <area shape="rect" id="node2" href="class_parser__if.html#a4a5dacf0588b29e7eb6c639ae2701fa6" title="Parser_if::parse" alt="" coords="216,5,331,32"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_a5ea283e339b50c0b77040bf908e25af3_icgraph.png" border="0" usemap="#class_model_a5ea283e339b50c0b77040bf908e25af3_icgraph" alt=""/></div>
+<map name="class_model_a5ea283e339b50c0b77040bf908e25af3_icgraph" id="class_model_a5ea283e339b50c0b77040bf908e25af3_icgraph">
+<area shape="rect" id="node2" href="class_assign.html#a5fabf69268b2e65d8b01ce247be87a40" title="Assign::_execute" alt="" coords="220,5,343,32"/><area shape="rect" id="node3" href="class_create.html#acd3a4b8805561591e0c88d3fd689cf74" title="Create::_execute" alt="" coords="220,56,343,83"/><area shape="rect" id="node4" href="class_delay.html#a029d91a2cd736ff9c361c69336e6ab41" title="Delay::_execute" alt="" coords="223,107,340,133"/><area shape="rect" id="node5" href="class_release.html#a63c3cd89082e7f6c1fb61646b93a5c32" title="Release::_execute" alt="" coords="216,157,347,184"/><area shape="rect" id="node6" href="class_seize.html#a96f6517a40b3bfd0d5ea753d59cef797" title="Seize::_execute" alt="" coords="223,208,339,235"/></map>
 </div>
 </p>
 
@@ -962,6 +1196,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 <p>Starts a sequential execution of a simulation, ie, a set of repliations of this model </p>
+
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00281">281</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -990,12 +1226,23 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p>Verifies if a symbol defined in a component (<a class="el" href="class_model_component.html">ModelComponent</a>) or infrastructure is syntactically valid and addresses existing components or infrastructures. It's used only by and directed by the component that defines the symbol. </p>
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00271">271</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_model_ae62bb3a21cd56fbf9d34195edf2fb9e0_cgraph.png" border="0" usemap="#class_model_ae62bb3a21cd56fbf9d34195edf2fb9e0_cgraph" alt=""/></div>
 <map name="class_model_ae62bb3a21cd56fbf9d34195edf2fb9e0_cgraph" id="class_model_ae62bb3a21cd56fbf9d34195edf2fb9e0_cgraph">
 <area shape="rect" id="node2" href="class_model.html#ae09e777b481981772818ea3fd2880c4c" title="Model::getEntities" alt="" coords="198,13,325,40"/><area shape="rect" id="node5" href="class_model_infrastructure.html#aa4d3fa8f302cc6dc4fccdd3187e6a168" title="ModelInfrastructure\l::getId" alt="" coords="590,57,725,98"/><area shape="rect" id="node6" href="class_model.html#a5de086b514742e84b61ac9a7b128ae8b" title="Model::trace" alt="" coords="214,115,309,141"/><area shape="rect" id="node7" href="class_entity.html#adf6d3f7cb1b2ba029b6b048a395cc8ae" title="Entity::~Entity" alt="" coords="208,165,315,192"/><area shape="rect" id="node3" href="class_model.html#a43ca6ff93bd0b9fbc4c2792962e6b4ed" title="Model::getInfrastructures" alt="" coords="374,13,541,40"/><area shape="rect" id="node4" href="class_list.html#a31a37746c0d960f2f2bb4071b2735c5e" title="List::setSortFunc" alt="" coords="596,5,719,32"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_ae62bb3a21cd56fbf9d34195edf2fb9e0_icgraph.png" border="0" usemap="#class_model_ae62bb3a21cd56fbf9d34195edf2fb9e0_icgraph" alt=""/></div>
+<map name="class_model_ae62bb3a21cd56fbf9d34195edf2fb9e0_icgraph" id="class_model_ae62bb3a21cd56fbf9d34195edf2fb9e0_icgraph">
+<area shape="rect" id="node2" href="class_dispose.html#a342eb428496534cdfd17524ad78b0c08" title="Dispose::_execute" alt="" coords="197,5,328,32"/></map>
 </div>
 </p>
 
@@ -1014,6 +1261,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00302">302</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ae099910781f5267a51fb5d607246af4a"></a>
@@ -1030,12 +1279,23 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00078">78</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_model_ae099910781f5267a51fb5d607246af4a_cgraph.png" border="0" usemap="#class_model_ae099910781f5267a51fb5d607246af4a_cgraph" alt=""/></div>
 <map name="class_model_ae099910781f5267a51fb5d607246af4a_cgraph" id="class_model_ae099910781f5267a51fb5d607246af4a_cgraph">
 <area shape="rect" id="node2" href="class_model_persistence__if.html#a960acf977c56ed52a153524c6ed8d4c6" title="ModelPersistence_if\l::save" alt="" coords="182,5,322,46"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_ae099910781f5267a51fb5d607246af4a_icgraph.png" border="0" usemap="#class_model_ae099910781f5267a51fb5d607246af4a_icgraph" alt=""/></div>
+<map name="class_model_ae099910781f5267a51fb5d607246af4a_icgraph" id="class_model_ae099910781f5267a51fb5d607246af4a_icgraph">
+<area shape="rect" id="node2" href="_build_simple_model1_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="181,5,336,32"/><area shape="rect" id="node3" href="class_build_simple_model1.html#aa6e2b862963b2fb738c738bb20b4e913" title="BuildSimpleModel1::main" alt="" coords="385,5,554,32"/></map>
 </div>
 </p>
 
@@ -1071,12 +1331,23 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00063">63</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_model_a244dff6d6bef962b0d95fbe712954079_cgraph.png" border="0" usemap="#class_model_a244dff6d6bef962b0d95fbe712954079_cgraph" alt=""/></div>
 <map name="class_model_a244dff6d6bef962b0d95fbe712954079_cgraph" id="class_model_a244dff6d6bef962b0d95fbe712954079_cgraph">
 <area shape="rect" id="node2" href="class_model.html#a841c78bda0eb27c652c6921094dc5921" title="Model::getEvents" alt="" coords="293,21,417,48"/><area shape="rect" id="node3" href="class_list.html#a518d00fd77740525522949d4316e8826" title="List::insert" alt="" coords="313,72,396,99"/><area shape="rect" id="node4" href="class_model_component.html#a08c5312c2f94f6621577cc1836c2d3e0" title="ModelComponent::Execute" alt="" coords="265,123,445,149"/><area shape="rect" id="node5" href="class_model.html#a5de086b514742e84b61ac9a7b128ae8b" title="Model::trace" alt="" coords="539,5,634,32"/><area shape="rect" id="node6" href="class_model_infrastructure.html#aa4d3fa8f302cc6dc4fccdd3187e6a168" title="ModelInfrastructure\l::getId" alt="" coords="519,57,654,98"/><area shape="rect" id="node7" href="class_model_component.html#ae3fcf8bbdd8368c882438424aa73f714" title="ModelComponent::_execute" alt="" coords="494,123,679,149"/><area shape="rect" id="node8" href="class_model.html#a092b7062edcb59344f286d858ed10fac" title="Model::traceError" alt="" coords="525,173,648,200"/><area shape="rect" id="node9" href="class_model_component.html#ad8bc846e36b028eab7efb7da6c549eca" title="ModelComponent::show" alt="" coords="505,224,668,251"/><area shape="rect" id="node10" href="class_model_infrastructure.html#a649a5a89a0c9931783d3c51de2acf266" title="ModelInfrastructure\l::show" alt="" coords="729,217,863,258"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_a244dff6d6bef962b0d95fbe712954079_icgraph.png" border="0" usemap="#class_model_a244dff6d6bef962b0d95fbe712954079_icgraph" alt=""/></div>
+<map name="class_model_a244dff6d6bef962b0d95fbe712954079_icgraph" id="class_model_a244dff6d6bef962b0d95fbe712954079_icgraph">
+<area shape="rect" id="node2" href="class_assign.html#a5fabf69268b2e65d8b01ce247be87a40" title="Assign::_execute" alt="" coords="268,5,391,32"/><area shape="rect" id="node3" href="class_create.html#acd3a4b8805561591e0c88d3fd689cf74" title="Create::_execute" alt="" coords="268,56,391,83"/><area shape="rect" id="node4" href="class_release.html#a63c3cd89082e7f6c1fb61646b93a5c32" title="Release::_execute" alt="" coords="264,107,395,133"/><area shape="rect" id="node5" href="class_seize.html#a96f6517a40b3bfd0d5ea753d59cef797" title="Seize::_execute" alt="" coords="271,157,387,184"/></map>
 </div>
 </p>
 
@@ -1096,6 +1367,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00340">340</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a84eb0333d18ac7f8a684d1cd32c64dbd"></a>
@@ -1111,6 +1384,8 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00348">348</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1128,6 +1403,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00313">313</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ac1299b28921f4d246319b2624e4ad98f"></a>
@@ -1143,6 +1420,8 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00321">321</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1160,6 +1439,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00332">332</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a55d597e867b5c3e27cb2e1511414e7f3"></a>
@@ -1175,6 +1456,8 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00372">372</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1192,6 +1475,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00305">305</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ae1f205bd8b328b3785694567eaeb77ef"></a>
@@ -1207,6 +1492,8 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00559">559</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1224,6 +1511,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00356">356</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a5be13e4bb83891e8caed52b3eae1470f"></a>
@@ -1239,6 +1528,8 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00380">380</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1256,6 +1547,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00388">388</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a2b4b1bb4e9c082e8b0c893a35f5a8f53"></a>
@@ -1271,6 +1564,8 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00551">551</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1288,6 +1583,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00412">412</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a538fdc09de27b077b4e4c84fdc78a61e"></a>
@@ -1303,6 +1600,8 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00420">420</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1320,6 +1619,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00364">364</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ac6e4c4bd49b999b2f6ce5ad97d45bbae"></a>
@@ -1335,6 +1636,8 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00396">396</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1352,6 +1655,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00404">404</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a44c66f552308e7a6a5701801186a8637"></a>
@@ -1367,6 +1672,17 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00143">143</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_a44c66f552308e7a6a5701801186a8637_icgraph.png" border="0" usemap="#class_model_a44c66f552308e7a6a5701801186a8637_icgraph" alt=""/></div>
+<map name="class_model_a44c66f552308e7a6a5701801186a8637_icgraph" id="class_model_a44c66f552308e7a6a5701801186a8637_icgraph">
+<area shape="rect" id="node2" href="_build_simple_model1_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="197,5,352,32"/><area shape="rect" id="node3" href="class_build_simple_model1.html#aa6e2b862963b2fb738c738bb20b4e913" title="BuildSimpleModel1::main" alt="" coords="401,5,570,32"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a6fd6613a5141552a6493eb3a840cde24"></a>
@@ -1381,6 +1697,9 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Checks the model and if ok then initialize the simulation, execute repeatedly each replication and then show simulation statistics </p>
+
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00100">100</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1388,6 +1707,15 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="class_model_a6fd6613a5141552a6493eb3a840cde24_cgraph.png" border="0" usemap="#class_model_a6fd6613a5141552a6493eb3a840cde24_cgraph" alt=""/></div>
 <map name="class_model_a6fd6613a5141552a6493eb3a840cde24_cgraph" id="class_model_a6fd6613a5141552a6493eb3a840cde24_cgraph">
 <area shape="rect" id="node2" href="class_model.html#ae3b293adffbef6fd254d661ceeb2e116" title="Model::checkModel" alt="" coords="231,56,366,83"/><area shape="rect" id="node3" href="class_model.html#a5de086b514742e84b61ac9a7b128ae8b" title="Model::trace" alt="" coords="482,5,577,32"/><area shape="rect" id="node5" href="class_list.html#a3737ca60365287ce663393d8c07d1a41" title="List::empty" alt="" coords="255,107,342,133"/><area shape="rect" id="node6" href="class_model.html#a6bb4d4fbf90f49c990a00385a9df18d9" title="Model::getReplicationLength" alt="" coords="205,157,392,184"/><area shape="rect" id="node7" href="class_parser__if.html#a4a5dacf0588b29e7eb6c639ae2701fa6" title="Parser_if::parse" alt="" coords="241,208,356,235"/><area shape="rect" id="node4" href="class_model_checker__if.html#a83bc988696c49a17e0e7668e24743251" title="ModelChecker_if::checkAll" alt="" coords="440,56,619,83"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_a6fd6613a5141552a6493eb3a840cde24_icgraph.png" border="0" usemap="#class_model_a6fd6613a5141552a6493eb3a840cde24_icgraph" alt=""/></div>
+<map name="class_model_a6fd6613a5141552a6493eb3a840cde24_icgraph" id="class_model_a6fd6613a5141552a6493eb3a840cde24_icgraph">
+<area shape="rect" id="node2" href="_build_simple_model1_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="205,5,360,32"/><area shape="rect" id="node3" href="class_build_simple_model1.html#aa6e2b862963b2fb738c738bb20b4e913" title="BuildSimpleModel1::main" alt="" coords="409,5,578,32"/></map>
 </div>
 </p>
 
@@ -1405,6 +1733,8 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00284">284</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1430,6 +1760,8 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 <p>Executes the processing of a single event, the next one in the future events list </p>
+
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00299">299</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1457,6 +1789,17 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00459">459</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_a5de086b514742e84b61ac9a7b128ae8b_icgraph.png" border="0" usemap="#class_model_a5de086b514742e84b61ac9a7b128ae8b_icgraph" alt=""/></div>
+<map name="class_model_a5de086b514742e84b61ac9a7b128ae8b_icgraph" id="class_model_a5de086b514742e84b61ac9a7b128ae8b_icgraph">
+<area shape="rect" id="node2" href="class_assign.html#a5fabf69268b2e65d8b01ce247be87a40" title="Assign::_execute" alt="" coords="691,151,813,178"/><area shape="rect" id="node3" href="class_delay.html#a029d91a2cd736ff9c361c69336e6ab41" title="Delay::_execute" alt="" coords="200,50,317,76"/><area shape="rect" id="node4" href="class_model.html#a6fd6613a5141552a6493eb3a840cde24" title="Model::startSimulation" alt="" coords="445,50,597,76"/><area shape="rect" id="node7" href="class_model.html#ae3b293adffbef6fd254d661ceeb2e116" title="Model::checkModel" alt="" coords="191,100,326,127"/><area shape="rect" id="node8" href="class_model.html#ae62bb3a21cd56fbf9d34195edf2fb9e0" title="Model::removeEntity" alt="" coords="187,202,330,228"/><area shape="rect" id="node10" href="class_model_component.html#a08c5312c2f94f6621577cc1836c2d3e0" title="ModelComponent::Execute" alt="" coords="169,252,349,279"/><area shape="rect" id="node15" href="class_model_component.html#a45d3805f9b7051b7acc142e5d85cded6" title="ModelComponent::SaveInstance" alt="" coords="153,303,365,330"/><area shape="rect" id="node16" href="class_model_component.html#a0798a220cf903b34ce28c40e136d207d" title="ModelComponent::VerifySymbols" alt="" coords="150,354,367,380"/><area shape="rect" id="node17" href="class_model_persistence_my_impl1.html#a367b40dfac801508f75a3176f7b40c6a" title="ModelPersistenceMyImpl1\l::saveAsTXT" alt="" coords="171,405,347,446"/><area shape="rect" id="node5" href="_build_simple_model1_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="675,75,829,102"/><area shape="rect" id="node6" href="class_build_simple_model1.html#aa6e2b862963b2fb738c738bb20b4e913" title="BuildSimpleModel1::main" alt="" coords="878,75,1047,102"/><area shape="rect" id="node9" href="class_dispose.html#a342eb428496534cdfd17524ad78b0c08" title="Dispose::_execute" alt="" coords="456,202,587,228"/><area shape="rect" id="node11" href="class_model.html#a244dff6d6bef962b0d95fbe712954079" title="Model::sendEntityToComponent" alt="" coords="417,252,626,279"/><area shape="rect" id="node12" href="class_create.html#acd3a4b8805561591e0c88d3fd689cf74" title="Create::_execute" alt="" coords="691,303,813,330"/><area shape="rect" id="node13" href="class_release.html#a63c3cd89082e7f6c1fb61646b93a5c32" title="Release::_execute" alt="" coords="687,202,817,228"/><area shape="rect" id="node14" href="class_seize.html#a96f6517a40b3bfd0d5ea753d59cef797" title="Seize::_execute" alt="" coords="694,252,810,279"/><area shape="rect" id="node18" href="class_model_persistence_my_impl1.html#ab24f2e3aea25d628748dd8b9e63d326a" title="ModelPersistenceMyImpl1\l::save" alt="" coords="433,405,609,446"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a092b7062edcb59344f286d858ed10fac"></a>
@@ -1483,6 +1826,17 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00469">469</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_a092b7062edcb59344f286d858ed10fac_icgraph.png" border="0" usemap="#class_model_a092b7062edcb59344f286d858ed10fac_icgraph" alt=""/></div>
+<map name="class_model_a092b7062edcb59344f286d858ed10fac_icgraph" id="class_model_a092b7062edcb59344f286d858ed10fac_icgraph">
+<area shape="rect" id="node2" href="class_model.html#a025b6ab3112a1df6f7773389b096302c" title="Model::stepSimulation" alt="" coords="210,31,361,57"/><area shape="rect" id="node3" href="class_model_component.html#a08c5312c2f94f6621577cc1836c2d3e0" title="ModelComponent::Execute" alt="" coords="195,81,375,108"/><area shape="rect" id="node9" href="class_model_component.html#a45d3805f9b7051b7acc142e5d85cded6" title="ModelComponent::SaveInstance" alt="" coords="179,132,391,159"/><area shape="rect" id="node10" href="class_model_component.html#a0798a220cf903b34ce28c40e136d207d" title="ModelComponent::VerifySymbols" alt="" coords="177,183,394,209"/><area shape="rect" id="node4" href="class_model.html#a244dff6d6bef962b0d95fbe712954079" title="Model::sendEntityToComponent" alt="" coords="443,81,653,108"/><area shape="rect" id="node5" href="class_assign.html#a5fabf69268b2e65d8b01ce247be87a40" title="Assign::_execute" alt="" coords="705,5,828,32"/><area shape="rect" id="node6" href="class_create.html#acd3a4b8805561591e0c88d3fd689cf74" title="Create::_execute" alt="" coords="705,56,828,83"/><area shape="rect" id="node7" href="class_release.html#a63c3cd89082e7f6c1fb61646b93a5c32" title="Release::_execute" alt="" coords="701,107,832,133"/><area shape="rect" id="node8" href="class_seize.html#a96f6517a40b3bfd0d5ea753d59cef797" title="Seize::_execute" alt="" coords="709,157,825,184"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="ab601f70b29eed01e6a495924c852caf0"></a>
@@ -1508,6 +1862,8 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00486">486</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1552,6 +1908,17 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00477">477</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_a0d866e0ef942638d63c1d8c3eb98fa19_icgraph.png" border="0" usemap="#class_model_a0d866e0ef942638d63c1d8c3eb98fa19_icgraph" alt=""/></div>
+<map name="class_model_a0d866e0ef942638d63c1d8c3eb98fa19_icgraph" id="class_model_a0d866e0ef942638d63c1d8c3eb98fa19_icgraph">
+<area shape="rect" id="node2" href="class_create.html#acd3a4b8805561591e0c88d3fd689cf74" title="Create::_execute" alt="" coords="212,5,335,32"/><area shape="rect" id="node3" href="class_release.html#a63c3cd89082e7f6c1fb61646b93a5c32" title="Release::_execute" alt="" coords="208,56,339,83"/><area shape="rect" id="node4" href="class_seize.html#a96f6517a40b3bfd0d5ea753d59cef797" title="Seize::_execute" alt="" coords="215,107,331,133"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -1598,6 +1965,8 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p>Checks the integrity and consistency of the model, possibly corrects some inconsistencies, and returns if the model is in position to the simulated. </p>
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00267">267</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1607,11 +1976,20 @@ Here is the call graph for this function:</div>
 </div>
 </p>
 
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_ae2be8579f8519eec5da9e6f72c7ec361_icgraph.png" border="0" usemap="#class_model_ae2be8579f8519eec5da9e6f72c7ec361_icgraph" alt=""/></div>
+<map name="class_model_ae2be8579f8519eec5da9e6f72c7ec361_icgraph" id="class_model_ae2be8579f8519eec5da9e6f72c7ec361_icgraph">
+<area shape="rect" id="node2" href="class_create.html#ad445fd3bec94b4e66669089f10f96057" title="Create::_verifySymbols" alt="" coords="195,5,354,32"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_model_8h_source.html">Model.h</a></li>
-<li><a class="el" href="_model_8cpp.html">Model.cpp</a></li>
+<li><a class="el" href="_model_8cpp_source.html">Model.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -1619,7 +1997,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_model.html">Model</a></li>
-    <li class="footer">Generated on Tue Sep 4 2018 21:04:12 for RebornedGenESyS by
+    <li class="footer">Generated on Tue Oct 9 2018 13:18:23 for GenESyS - Generic and Expansible System Simulator [REBORN] by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

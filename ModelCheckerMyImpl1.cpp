@@ -26,11 +26,12 @@ ModelCheckerMyImpl1::~ModelCheckerMyImpl1() {
 }
 
 bool ModelCheckerMyImpl1::checkAll() {
-	bool res = checkConnected();
-	if (res) res = checkPathway();
-	if (res) res = checkSymbols();
-	if (res) res = checkAndAddInternalLiterals();
-	if (res) res = checkActivationCode();
+	bool res = true;
+	res &= checkConnected();
+	res &= checkPathway();
+	res &= checkSymbols();
+	res &= checkAndAddInternalLiterals();
+	res &= checkActivationCode();
 	return res;
 }
 

@@ -28,13 +28,31 @@ Collaboration diagram for Statistics\-Collector\-:\nopagebreak
 \item 
 \hyperlink{class_statistics_collector_a2129c2bd19f9d64814fbfe18974a6d2e}{Statistics\-Collector} ()
 \item 
+\hyperlink{class_statistics_collector_acbb20e7e94252ff7105de7b0cdecb7ee}{Statistics\-Collector} (std\-::string name)
+\item 
 \hyperlink{class_statistics_collector_a25e8def6d91decdf48d7c0fedb4382dc}{Statistics\-Collector} (const \hyperlink{class_statistics_collector}{Statistics\-Collector} \&orig)
 \item 
 virtual \hyperlink{class_statistics_collector_aef9244a0c9f715bc19136d283b759c6e}{$\sim$\-Statistics\-Collector} ()
 \item 
 virtual std\-::string \hyperlink{class_statistics_collector_a7ce8dad7e29d06c73a01d2ddee93fe00}{show} ()
 \end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_statistics_collector_aa13d2bc6d9deeffa9667388ae3e4f962}{\-\_\-load\-Instance} (std\-::list$<$ std\-::string $>$ words)
+\item 
+virtual std\-::list$<$ std\-::string $>$ $\ast$ \hyperlink{class_statistics_collector_a66eed8e1bd0316588575aa7310ac028b}{\-\_\-save\-Instance} ()
+\item 
+virtual bool \hyperlink{class_statistics_collector_a5aeefa5028a2b6a0157db55c0dfc7419}{\-\_\-verify\-Symbols} (std\-::string $\ast$error\-Message)
+\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 21 of file Statistics\-Collector.\-h.
+
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -45,6 +63,21 @@ virtual std\-::string \hyperlink{class_statistics_collector_a7ce8dad7e29d06c73a0
 {}
 \end{DoxyParamCaption}
 )}}\label{class_statistics_collector_a2129c2bd19f9d64814fbfe18974a6d2e}
+
+
+Definition at line 16 of file Statistics\-Collector.\-cpp.
+
+\hypertarget{class_statistics_collector_acbb20e7e94252ff7105de7b0cdecb7ee}{\index{Statistics\-Collector@{Statistics\-Collector}!Statistics\-Collector@{Statistics\-Collector}}
+\index{Statistics\-Collector@{Statistics\-Collector}!StatisticsCollector@{Statistics\-Collector}}
+\subsubsection[{Statistics\-Collector}]{\setlength{\rightskip}{0pt plus 5cm}Statistics\-Collector\-::\-Statistics\-Collector (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{name}
+\end{DoxyParamCaption}
+)}}\label{class_statistics_collector_acbb20e7e94252ff7105de7b0cdecb7ee}
+
+
+Definition at line 19 of file Statistics\-Collector.\-cpp.
+
 \hypertarget{class_statistics_collector_a25e8def6d91decdf48d7c0fedb4382dc}{\index{Statistics\-Collector@{Statistics\-Collector}!Statistics\-Collector@{Statistics\-Collector}}
 \index{Statistics\-Collector@{Statistics\-Collector}!StatisticsCollector@{Statistics\-Collector}}
 \subsubsection[{Statistics\-Collector}]{\setlength{\rightskip}{0pt plus 5cm}Statistics\-Collector\-::\-Statistics\-Collector (
@@ -52,6 +85,10 @@ virtual std\-::string \hyperlink{class_statistics_collector_a7ce8dad7e29d06c73a0
 \item[{const {\bf Statistics\-Collector} \&}]{orig}
 \end{DoxyParamCaption}
 )}}\label{class_statistics_collector_a25e8def6d91decdf48d7c0fedb4382dc}
+
+
+Definition at line 23 of file Statistics\-Collector.\-cpp.
+
 \hypertarget{class_statistics_collector_aef9244a0c9f715bc19136d283b759c6e}{\index{Statistics\-Collector@{Statistics\-Collector}!$\sim$\-Statistics\-Collector@{$\sim$\-Statistics\-Collector}}
 \index{$\sim$\-Statistics\-Collector@{$\sim$\-Statistics\-Collector}!StatisticsCollector@{Statistics\-Collector}}
 \subsubsection[{$\sim$\-Statistics\-Collector}]{\setlength{\rightskip}{0pt plus 5cm}Statistics\-Collector\-::$\sim$\-Statistics\-Collector (
@@ -61,7 +98,56 @@ virtual std\-::string \hyperlink{class_statistics_collector_a7ce8dad7e29d06c73a0
 )\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_statistics_collector_aef9244a0c9f715bc19136d283b759c6e}
 
 
+Definition at line 26 of file Statistics\-Collector.\-cpp.
+
+
+
 \subsection{Member Function Documentation}
+\hypertarget{class_statistics_collector_aa13d2bc6d9deeffa9667388ae3e4f962}{\index{Statistics\-Collector@{Statistics\-Collector}!\-\_\-load\-Instance@{\-\_\-load\-Instance}}
+\index{\-\_\-load\-Instance@{\-\_\-load\-Instance}!StatisticsCollector@{Statistics\-Collector}}
+\subsubsection[{\-\_\-load\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}void Statistics\-Collector\-::\-\_\-load\-Instance (
+\begin{DoxyParamCaption}
+\item[{std\-::list$<$ std\-::string $>$}]{words}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_statistics_collector_aa13d2bc6d9deeffa9667388ae3e4f962}
+
+
+Implements \hyperlink{class_model_infrastructure_ae118c8ad2ac9d4397c40d004af51b2dc}{Model\-Infrastructure}.
+
+
+
+Definition at line 33 of file Statistics\-Collector.\-cpp.
+
+\hypertarget{class_statistics_collector_a66eed8e1bd0316588575aa7310ac028b}{\index{Statistics\-Collector@{Statistics\-Collector}!\-\_\-save\-Instance@{\-\_\-save\-Instance}}
+\index{\-\_\-save\-Instance@{\-\_\-save\-Instance}!StatisticsCollector@{Statistics\-Collector}}
+\subsubsection[{\-\_\-save\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<$ std\-::string $>$ $\ast$ Statistics\-Collector\-::\-\_\-save\-Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_statistics_collector_a66eed8e1bd0316588575aa7310ac028b}
+
+
+Implements \hyperlink{class_model_infrastructure_a3da2fd381c44752598bc448b207e8287}{Model\-Infrastructure}.
+
+
+
+Definition at line 37 of file Statistics\-Collector.\-cpp.
+
+\hypertarget{class_statistics_collector_a5aeefa5028a2b6a0157db55c0dfc7419}{\index{Statistics\-Collector@{Statistics\-Collector}!\-\_\-verify\-Symbols@{\-\_\-verify\-Symbols}}
+\index{\-\_\-verify\-Symbols@{\-\_\-verify\-Symbols}!StatisticsCollector@{Statistics\-Collector}}
+\subsubsection[{\-\_\-verify\-Symbols}]{\setlength{\rightskip}{0pt plus 5cm}bool Statistics\-Collector\-::\-\_\-verify\-Symbols (
+\begin{DoxyParamCaption}
+\item[{std\-::string $\ast$}]{error\-Message}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_statistics_collector_a5aeefa5028a2b6a0157db55c0dfc7419}
+
+
+Implements \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a388}{Model\-Infrastructure}.
+
+
+
+Definition at line 42 of file Statistics\-Collector.\-cpp.
+
 \hypertarget{class_statistics_collector_a7ce8dad7e29d06c73a01d2ddee93fe00}{\index{Statistics\-Collector@{Statistics\-Collector}!show@{show}}
 \index{show@{show}!StatisticsCollector@{Statistics\-Collector}}
 \subsubsection[{show}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Statistics\-Collector\-::show (
@@ -72,6 +158,10 @@ virtual std\-::string \hyperlink{class_statistics_collector_a7ce8dad7e29d06c73a0
 
 
 Reimplemented from \hyperlink{class_model_infrastructure_a649a5a89a0c9931783d3c51de2acf266}{Model\-Infrastructure}.
+
+
+
+Definition at line 29 of file Statistics\-Collector.\-cpp.
 
 
 

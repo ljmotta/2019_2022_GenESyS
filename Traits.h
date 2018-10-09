@@ -54,7 +54,7 @@ struct Traits {
 
 template <> struct Traits<GenesysApplication_if> {
 	//typedef TestInputAnalyserTool Application;  
-	typedef BuildSimpleModel Application;  
+	typedef BuildSimpleModel1 Application;  
 };
 
 template <> struct Traits<Model> {

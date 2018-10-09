@@ -1,7 +1,10 @@
 var NAVTREE =
 [
-  [ "RebornedGenESyS", "index.html", [
+  [ "GenESyS - Generic and Expansible System Simulator [REBORN]", "index.html", [
     [ "GenESyS-Reborn", "md__r_e_a_d_m_e.html", null ],
+    [ "Namespaces", null, [
+      [ "Namespace List", "namespaces.html", "namespaces" ]
+    ] ],
     [ "Classes", null, [
       [ "Class List", "annotated.html", "annotated" ],
       [ "Class Index", "classes.html", null ],
@@ -29,9 +32,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_8dep_8inc.html",
-"class_event.html#a6890c776c6c2e13abbc0892fc7333102",
-"class_queue.html#a09f908d6edb810d86871bda50fdf4bac",
-"class_util.html#aadbd82055afeaa7d4fb4da513de628ffa7c189f7f3cfd7d611da081990ebd3971"
+"class_attribute.html#a28ab087bb886728670e4ae5791bc2ea8",
+"class_list.html#ad908ab5cf19370fcdf61cf1927e5e8f5",
+"class_sampler___bru_fab_joa.html#ac5c1b07d30e0bc71cbd649d7309bc8d5",
+"class_waiting.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

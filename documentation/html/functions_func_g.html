@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>RebornedGenESyS: Class Members - Functions</title>
+<title>GenESyS - Generic and Expansible System Simulator [REBORN]: Class Members - Functions</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="software_genesys.gif"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">RebornedGenESyS
-   &#160;<span id="projectnumber">Reborned 20182</span>
+   <div id="projectname">GenESyS - Generic and Expansible System Simulator [REBORN]
+   &#160;<span id="projectnumber">2018-2</span>
    </div>
-   <div id="projectbrief">Generic and Expansible System Simulator</div>
+   <div id="projectbrief">Generic System Simulator</div>
   </td>
  </tr>
  </tbody>
@@ -48,6 +48,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -132,7 +133,7 @@ $(document).ready(function(){initNavTree('functions_func_g.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -160,14 +161,18 @@ $(document).ready(function(){initNavTree('functions_func_g.html','');});
 <li>getAnalystName()
 : <a class="el" href="class_model.html#a9b539226cc78c36bfe911252e9ccd055">Model</a>
 </li>
-<li>getAttributeValues()
-: <a class="el" href="class_entity.html#a5990dbefc2f21a7e8e0f91f9bf434fb9">Entity</a>
+<li>getAssignments()
+: <a class="el" href="class_assign.html#aca4aaa2185cc8770e56e1b6928c33dc0">Assign</a>
+</li>
+<li>getAttributeValue()
+: <a class="el" href="class_entity.html#aed93eae1f252705e713dd7f8019ace35">Entity</a>
 </li>
 <li>getCapacity()
 : <a class="el" href="class_resource.html#a0aa3a9287571af52be298611580e661e">Resource</a>
 </li>
 <li>getCollector()
 : <a class="el" href="class_statistics__if.html#a49a730541ca9a3d8272f39f4000485c4">Statistics_if</a>
+, <a class="el" href="class_statistics_cancian_impl.html#ab255391ad55fada9f781933d2f791970">StatisticsCancianImpl</a>
 , <a class="el" href="class_statistics_my_impl1.html#a7c01fbd99fabf6edd4e039c125a6eb3d">StatisticsMyImpl1</a>
 </li>
 <li>getComponent()
@@ -188,28 +193,30 @@ $(document).ready(function(){initNavTree('functions_func_g.html','');});
 : <a class="el" href="class_resource.html#a93d303fba82b1ef9879cc75fbafef506">Resource</a>
 </li>
 <li>getCstatNVATime()
-: <a class="el" href="class_entity_type.html#acf55bd71e2f6bb30ea6a01a98afe7422">EntityType</a>
+: <a class="el" href="class_entity_type.html#a48e1dedd3e7d7b198ee4e7a61c6afb7e">EntityType</a>
 </li>
 <li>getCstatOtherTime()
-: <a class="el" href="class_entity_type.html#abe5f66a11ccc80a4138b1f44c1e8a9fe">EntityType</a>
+: <a class="el" href="class_entity_type.html#a8b6a8b11d428c9e23800d01701e7fbd1">EntityType</a>
 </li>
 <li>getCstatTimeInSystem()
-: <a class="el" href="class_entity_type.html#a03977d36fb845ba7366185fa1f5fffd9">EntityType</a>
+: <a class="el" href="class_entity_type.html#acdcb00168a8fc2e23cf8bf3302464ce3">EntityType</a>
 </li>
 <li>getCstatTransferTime()
-: <a class="el" href="class_entity_type.html#acc36d61158eb2f6ab72caca114023bc2">EntityType</a>
+: <a class="el" href="class_entity_type.html#a2604288226dd7fc0c6c322d415b891cc">EntityType</a>
 </li>
 <li>getCstatVATime()
-: <a class="el" href="class_entity_type.html#a846625383404c36329af057f674d825c">EntityType</a>
+: <a class="el" href="class_entity_type.html#aafb65d3cdceae776da454989b7b4a874">EntityType</a>
 </li>
 <li>getCstatWaitingTime()
-: <a class="el" href="class_entity_type.html#ac2682128310221efaaa81b3007ef8d50">EntityType</a>
+: <a class="el" href="class_entity_type.html#ae43feed54cd8661efb317ef4891bcfcf">EntityType</a>
 </li>
 <li>getDataFilename()
 : <a class="el" href="class_collector_datafile__if.html#a81d109f34c25f5295f76ba13f4234a3c">CollectorDatafile_if</a>
+, <a class="el" href="class_collector_datafile_cancian_impl.html#a216e46f526becc3dd4b4772e07256b81">CollectorDatafileCancianImpl</a>
 , <a class="el" href="class_collector_datafile_my_impl1.html#a5ebe8076b9eb9816a1b7d823943102cf">CollectorDatafileMyImpl1</a>
 , <a class="el" href="class_fitter__if.html#a3c6926020b1224a960890fe308abcc86">Fitter_if</a>
 , <a class="el" href="class_fitter_my_impl1.html#a7a9ea5c0a702ba2880dd3ed652f92030">FitterMyImpl1</a>
+, <a class="el" href="class_hypothesis_tester__ar.html#ae0a1ebf795bb6581a4a0d6afc2495779">HypothesisTester_ar</a>
 , <a class="el" href="class_hypothesis_tester__if.html#a37b02ea209d8f6b566af9e2fff6511cc">HypothesisTester_if</a>
 , <a class="el" href="class_hypothesis_tester_my_impl1.html#a78fc8e7ab09108a7c7698cc3a182b9d7">HypothesisTesterMyImpl1</a>
 </li>
@@ -221,6 +228,12 @@ $(document).ready(function(){initNavTree('functions_func_g.html','');});
 </li>
 <li>getDescription()
 : <a class="el" href="class_model.html#a40ad9af9a5cebe907d483fb51d0f4974">Model</a>
+</li>
+<li>getDestination()
+: <a class="el" href="class_assign_1_1_assignment.html#a6cf7ecd2950dfc709985a1ede3773be8">Assign::Assignment</a>
+</li>
+<li>getDestinationType()
+: <a class="el" href="class_assign_1_1_assignment.html#a46493b98c1cd97ce4b015640bf34dd27">Assign::Assignment</a>
 </li>
 <li>getEntities()
 : <a class="el" href="class_model.html#ae09e777b481981772818ea3fd2880c4c">Model</a>
@@ -242,6 +255,10 @@ $(document).ready(function(){initNavTree('functions_func_g.html','');});
 <li>getEntityTypeName()
 : <a class="el" href="class_entity.html#a860a6385aa2af6b8d205a8e3ea912c38">Entity</a>
 </li>
+<li>getErrorMessage()
+: <a class="el" href="class_parser__if.html#ac5a1c10d89c4867750784308944d1521">Parser_if</a>
+, <a class="el" href="class_parser_my_impl1.html#a7eaf41f45375fd462a47aee51924e74f">ParserMyImpl1</a>
+</li>
 <li>getErrorMessages()
 : <a class="el" href="class_model.html#ae0d77f48384e180cfabb8fd8ed16e4db">Model</a>
 </li>
@@ -250,6 +267,9 @@ $(document).ready(function(){initNavTree('functions_func_g.html','');});
 </li>
 <li>getException()
 : <a class="el" href="class_trace_error_event.html#a914c08001f46f73cf5c73f711bd14701">TraceErrorEvent</a>
+</li>
+<li>getExpression()
+: <a class="el" href="class_assign_1_1_assignment.html#a724dc03a686c4d53d57ee45b7617ae2f">Assign::Assignment</a>
 </li>
 <li>getFirstCreation()
 : <a class="el" href="class_source_model_component.html#ab7688b78b8e069ebe245446dce9224f7">SourceModelComponent</a>
@@ -266,6 +286,9 @@ $(document).ready(function(){initNavTree('functions_func_g.html','');});
 </li>
 <li>getInfrastructures()
 : <a class="el" href="class_model.html#a43ca6ff93bd0b9fbc4c2792962e6b4ed">Model</a>
+</li>
+<li>getInfrastructureTypenames()
+: <a class="el" href="class_model.html#ac1a47354f008dc27fcb7fc902bb8d664">Model</a>
 </li>
 <li>getInitialNVACost()
 : <a class="el" href="class_entity_type.html#ae8b26deba82e687d5a07b863f750baf4">EntityType</a>
@@ -287,6 +310,7 @@ $(document).ready(function(){initNavTree('functions_func_g.html','');});
 </li>
 <li>getLastValue()
 : <a class="el" href="class_collector__if.html#aa14f7e1065af8fd38ab592e224fb7e43">Collector_if</a>
+, <a class="el" href="class_collector_datafile_cancian_impl.html#a24b93dedb5f56e710e810c05e89dc36f">CollectorDatafileCancianImpl</a>
 , <a class="el" href="class_collector_datafile_my_impl1.html#a5a29b2f71a4630c658fb83c047fb1054">CollectorDatafileMyImpl1</a>
 , <a class="el" href="class_collector_my_impl1.html#a56e754ba3175e2f335290e2a737e7104">CollectorMyImpl1</a>
 </li>
@@ -324,7 +348,9 @@ $(document).ready(function(){initNavTree('functions_func_g.html','');});
 </li>
 <li>getPrecision()
 : <a class="el" href="class_integrator__if.html#af3ab4e8ffa96c8970b2e3c980f84e89d">Integrator_if</a>
+, <a class="el" href="class_integrator_diogo_impl.html#acf41eec88194f5608b5944f146f82485">IntegratorDiogoImpl</a>
 , <a class="el" href="class_integrator_my_impl1.html#aea9d2dd973771048d4468af0ff8ec0d7">IntegratorMyImpl1</a>
+, <a class="el" href="classstd_1_1_integrator__ar.html#ad8d6b4d05cfba786880e3b27712ec2a8">std::Integrator_ar</a>
 </li>
 <li>getPriority()
 : <a class="el" href="class_release.html#acada98c95b08a9070630cde5bd922aaf">Release</a>
@@ -360,7 +386,8 @@ $(document).ready(function(){initNavTree('functions_func_g.html','');});
 , <a class="el" href="class_seize.html#a2b10c5172c67b6fa033dc5ef8a002af6">Seize</a>
 </li>
 <li>getRNGparameters()
-: <a class="el" href="class_sampler__if.html#adb21edf9170ad5d9b27f4788db74bafa">Sampler_if</a>
+: <a class="el" href="class_sampler___bru_fab_joa.html#ac0c836807825ae2b4e7de6fd07e6efa9">Sampler_BruFabJoa</a>
+, <a class="el" href="class_sampler__if.html#adb21edf9170ad5d9b27f4788db74bafa">Sampler_if</a>
 , <a class="el" href="class_sampler_my_impl1.html#aca9bb2c81e9e7aa64f16ce0219da3265">SamplerMyImpl1</a>
 </li>
 <li>getRule()
@@ -403,9 +430,10 @@ $(document).ready(function(){initNavTree('functions_func_g.html','');});
 : <a class="el" href="class_trace_event.html#a807c41f98545db38343e77059825606d">TraceEvent</a>
 </li>
 <li>getValue()
-: <a class="el" href="class_attribute_value.html#a3516a35dd1c503eb73d73082c5c4d36c">AttributeValue</a>
-, <a class="el" href="class_collector_datafile__if.html#aa790efe68dfa16cebd66b481bbda8411">CollectorDatafile_if</a>
+: <a class="el" href="class_collector_datafile__if.html#aa790efe68dfa16cebd66b481bbda8411">CollectorDatafile_if</a>
+, <a class="el" href="class_collector_datafile_cancian_impl.html#af06ad080b3b03269da8feff74a101670">CollectorDatafileCancianImpl</a>
 , <a class="el" href="class_collector_datafile_my_impl1.html#a55a505d56f9b95a55473bdf1ab24cffe">CollectorDatafileMyImpl1</a>
+, <a class="el" href="class_variable.html#a010d43b1092dbc6c3a1c2e0e3e4fc611">Variable</a>
 </li>
 <li>getVersion()
 : <a class="el" href="class_model.html#a073ecbf56dfd06e46af31bbd67a0402d">Model</a>
@@ -423,7 +451,7 @@ $(document).ready(function(){initNavTree('functions_func_g.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Sep 4 2018 21:04:13 for RebornedGenESyS by
+    <li class="footer">Generated on Tue Oct 9 2018 13:18:24 for GenESyS - Generic and Expansible System Simulator [REBORN] by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>RebornedGenESyS: Event.cpp File Reference</title>
+<title>GenESyS - Generic and Expansible System Simulator [REBORN]: Event.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="software_genesys.gif"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">RebornedGenESyS
-   &#160;<span id="projectnumber">Reborned 20182</span>
+   <div id="projectname">GenESyS - Generic and Expansible System Simulator [REBORN]
+   &#160;<span id="projectnumber">2018-2</span>
    </div>
-   <div id="projectbrief">Generic and Expansible System Simulator</div>
+   <div id="projectbrief">Generic System Simulator</div>
   </td>
  </tr>
  </tbody>
@@ -48,6 +48,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -94,7 +95,7 @@ $(document).ready(function(){initNavTree('_event_8cpp.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -114,15 +115,17 @@ Include dependency graph for Event.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="_event_8cpp__incl.png" border="0" usemap="#_event_8cpp" alt=""/></div>
 <map name="_event_8cpp" id="_event_8cpp">
-<area shape="rect" id="node2" href="_event_8h.html" title="Event.h" alt="" coords="341,80,408,107"/><area shape="rect" id="node3" href="_model_infrastructure_8h.html" title="ModelInfrastructure.h" alt="" coords="230,304,375,331"/><area shape="rect" id="node9" href="_entity_8h.html" title="Entity.h" alt="" coords="159,229,225,256"/><area shape="rect" id="node11" href="_model_component_8h.html" title="ModelComponent.h" alt="" coords="367,155,501,181"/><area shape="rect" id="node5" href="_util_8h.html" title="Util.h" alt="" coords="101,379,155,405"/><area shape="rect" id="node10" href="_attribute_value_8h.html" title="AttributeValue.h" alt="" coords="40,304,155,331"/><area shape="rect" id="node13" href="_plugin_8h.html" title="Plugin.h" alt="" coords="400,304,469,331"/><area shape="rect" id="node14" href="_list_8h.html" title="List.h" alt="" coords="494,304,548,331"/></map>
+<area shape="rect" id="node2" href="_event_8h.html" title="Event.h" alt="" coords="128,80,195,107"/><area shape="rect" id="node3" href="_model_infrastructure_8h.html" title="ModelInfrastructure.h" alt="" coords="194,304,339,331"/><area shape="rect" id="node10" href="_entity_8h.html" title="Entity.h" alt="" coords="381,229,448,256"/><area shape="rect" id="node15" href="_model_component_8h.html" title="ModelComponent.h" alt="" coords="175,155,309,181"/><area shape="rect" id="node5" href="_util_8h.html" title="Util.h" alt="" coords="649,379,703,405"/><area shape="rect" id="node11" href="_list_8h.html" title="List.h" alt="" coords="363,304,417,331"/><area shape="rect" id="node16" href="_plugin_8h.html" title="Plugin.h" alt="" coords="505,304,575,331"/></map>
 </div>
-</div></div><!-- contents -->
+</div>
+<p><a href="_event_8cpp_source.html">Go to the source code of this file.</a></p>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="_event_8cpp.html">Event.cpp</a></li>
-    <li class="footer">Generated on Tue Sep 4 2018 21:04:12 for RebornedGenESyS by
+    <li class="footer">Generated on Tue Oct 9 2018 13:18:23 for GenESyS - Generic and Expansible System Simulator [REBORN] by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
