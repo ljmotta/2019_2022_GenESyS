@@ -139,12 +139,13 @@ Public Types</h2></td></tr>
 <tr class="memitem:a604561d00f5999b5ca280401140e58d9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_util.html#a604561d00f5999b5ca280401140e58d9">TraceLevel</a> { <br/>
 &#160;&#160;<a class="el" href="class_util.html#a604561d00f5999b5ca280401140e58d9ae16cd2d59f52612b89b7a094bf6ed758">TL_noTraces</a> = 0, 
 <a class="el" href="class_util.html#a604561d00f5999b5ca280401140e58d9a301dc2838784fa24261650a639c11cf1">TL_errors</a> = 10, 
-<a class="el" href="class_util.html#a604561d00f5999b5ca280401140e58d9a4b58bddec93bc38da370802e995c3e60">TL_simulation</a> = 20, 
-<a class="el" href="class_util.html#a604561d00f5999b5ca280401140e58d9a8b8962b6e41245523e7d7b967f582272">TL_transferOnly</a> = 30, 
+<a class="el" href="class_util.html#a604561d00f5999b5ca280401140e58d9a5db79a751ceac892c087e3acb5069e22">TL_report</a> = 20, 
+<a class="el" href="class_util.html#a604561d00f5999b5ca280401140e58d9a4b58bddec93bc38da370802e995c3e60">TL_simulation</a> = 30, 
 <br/>
-&#160;&#160;<a class="el" href="class_util.html#a604561d00f5999b5ca280401140e58d9a3a33606fc3e2b432131173eeed280d9a">TL_blockArrival</a> = 40, 
-<a class="el" href="class_util.html#a604561d00f5999b5ca280401140e58d9a3bf34b905a3128734e417619af900d0e">TL_blockInternal</a> = 50, 
-<a class="el" href="class_util.html#a604561d00f5999b5ca280401140e58d9a64fd55e7b2e7fa00956ebc5185cef8b0">TL_mostDetailed</a> = 60
+&#160;&#160;<a class="el" href="class_util.html#a604561d00f5999b5ca280401140e58d9a8b8962b6e41245523e7d7b967f582272">TL_transferOnly</a> = 40, 
+<a class="el" href="class_util.html#a604561d00f5999b5ca280401140e58d9a3a33606fc3e2b432131173eeed280d9a">TL_blockArrival</a> = 50, 
+<a class="el" href="class_util.html#a604561d00f5999b5ca280401140e58d9a3bf34b905a3128734e417619af900d0e">TL_blockInternal</a> = 60, 
+<a class="el" href="class_util.html#a604561d00f5999b5ca280401140e58d9a64fd55e7b2e7fa00956ebc5185cef8b0">TL_mostDetailed</a> = 70
 <br/>
  }</td></tr>
 <tr class="separator:a604561d00f5999b5ca280401140e58d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -257,6 +258,8 @@ Static Public Attributes</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a604561d00f5999b5ca280401140e58d9a301dc2838784fa24261650a639c11cf1"></a>TL_errors</em>&#160;</td><td class="fielddoc">
 </td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a604561d00f5999b5ca280401140e58d9a5db79a751ceac892c087e3acb5069e22"></a>TL_report</em>&#160;</td><td class="fielddoc">
+</td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a604561d00f5999b5ca280401140e58d9a4b58bddec93bc38da370802e995c3e60"></a>TL_simulation</em>&#160;</td><td class="fielddoc">
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a604561d00f5999b5ca280401140e58d9a8b8962b6e41245523e7d7b967f582272"></a>TL_transferOnly</em>&#160;</td><td class="fielddoc">
@@ -348,7 +351,7 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_util_8h_source.html#l00066">66</a> of file <a class="el" href="_util_8h_source.html">Util.h</a>.</p>
+<p>Definition at line <a class="el" href="_util_8h_source.html#l00067">67</a> of file <a class="el" href="_util_8h_source.html">Util.h</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -429,7 +432,7 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_util_8h_source.html#l00058">58</a> of file <a class="el" href="_util_8h_source.html">Util.h</a>.</p>
+<p>Definition at line <a class="el" href="_util_8h_source.html#l00059">59</a> of file <a class="el" href="_util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -452,7 +455,7 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_util_8h_source.html#l00049">49</a> of file <a class="el" href="_util_8h_source.html">Util.h</a>.</p>
+<p>Definition at line <a class="el" href="_util_8h_source.html#l00050">50</a> of file <a class="el" href="_util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -474,7 +477,7 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_util_8h_source.html#l00050">50</a> of file <a class="el" href="_util_8h_source.html">Util.h</a>.</p>
+<p>Definition at line <a class="el" href="_util_8h_source.html#l00051">51</a> of file <a class="el" href="_util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -488,7 +491,7 @@ template&lt;class T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_util.html">Util</a></li>
-    <li class="footer">Generated on Tue Oct 9 2018 13:18:24 for GenESyS - Generic and Expansible System Simulator [REBORN] by
+    <li class="footer">Generated on Wed Oct 10 2018 20:34:03 for GenESyS - Generic and Expansible System Simulator [REBORN] by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

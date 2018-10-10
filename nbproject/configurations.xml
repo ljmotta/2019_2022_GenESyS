@@ -139,7 +139,11 @@
       <logicalFolder name="f3" displayName="Output Analyser" projectFiles="true">
       </logicalFolder>
       <logicalFolder name="f4" displayName="Process Analyser" projectFiles="true">
+        <itemPath>ExperimentDesignMyImpl1.cpp</itemPath>
+        <itemPath>ExperimentDesignMyImpl1.h</itemPath>
         <itemPath>ExperimentDesign_if.h</itemPath>
+        <itemPath>FactorOrInteractionContribution.cpp</itemPath>
+        <itemPath>FactorOrInteractionContribution.h</itemPath>
         <itemPath>ProcessAnalyserMyImpl1.cpp</itemPath>
         <itemPath>ProcessAnalyserMyImpl1.h</itemPath>
         <itemPath>ProcessAnalyser_if.h</itemPath>
@@ -243,7 +247,18 @@
       </item>
       <item path="Event.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="ExperimentDesignMyImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ExperimentDesignMyImpl1.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="ExperimentDesign_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="FactorOrInteractionContribution.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="FactorOrInteractionContribution.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="FitterMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -494,7 +509,18 @@
       </item>
       <item path="Event.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="ExperimentDesignMyImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ExperimentDesignMyImpl1.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="ExperimentDesign_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="FactorOrInteractionContribution.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="FactorOrInteractionContribution.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="FitterMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>

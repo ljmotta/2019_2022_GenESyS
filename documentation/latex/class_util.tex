@@ -25,12 +25,13 @@ enum \hyperlink{class_util_aadbd82055afeaa7d4fb4da513de628ff}{Time\-Unit} \{ \\*
 enum \hyperlink{class_util_a604561d00f5999b5ca280401140e58d9}{Trace\-Level} \{ \\*
 \hyperlink{class_util_a604561d00f5999b5ca280401140e58d9ae16cd2d59f52612b89b7a094bf6ed758}{T\-L\-\_\-no\-Traces} = 0, 
 \hyperlink{class_util_a604561d00f5999b5ca280401140e58d9a301dc2838784fa24261650a639c11cf1}{T\-L\-\_\-errors} = 10, 
-\hyperlink{class_util_a604561d00f5999b5ca280401140e58d9a4b58bddec93bc38da370802e995c3e60}{T\-L\-\_\-simulation} = 20, 
-\hyperlink{class_util_a604561d00f5999b5ca280401140e58d9a8b8962b6e41245523e7d7b967f582272}{T\-L\-\_\-transfer\-Only} = 30, 
+\hyperlink{class_util_a604561d00f5999b5ca280401140e58d9a5db79a751ceac892c087e3acb5069e22}{T\-L\-\_\-report} = 20, 
+\hyperlink{class_util_a604561d00f5999b5ca280401140e58d9a4b58bddec93bc38da370802e995c3e60}{T\-L\-\_\-simulation} = 30, 
 \\*
-\hyperlink{class_util_a604561d00f5999b5ca280401140e58d9a3a33606fc3e2b432131173eeed280d9a}{T\-L\-\_\-block\-Arrival} = 40, 
-\hyperlink{class_util_a604561d00f5999b5ca280401140e58d9a3bf34b905a3128734e417619af900d0e}{T\-L\-\_\-block\-Internal} = 50, 
-\hyperlink{class_util_a604561d00f5999b5ca280401140e58d9a64fd55e7b2e7fa00956ebc5185cef8b0}{T\-L\-\_\-most\-Detailed} = 60
+\hyperlink{class_util_a604561d00f5999b5ca280401140e58d9a8b8962b6e41245523e7d7b967f582272}{T\-L\-\_\-transfer\-Only} = 40, 
+\hyperlink{class_util_a604561d00f5999b5ca280401140e58d9a3a33606fc3e2b432131173eeed280d9a}{T\-L\-\_\-block\-Arrival} = 50, 
+\hyperlink{class_util_a604561d00f5999b5ca280401140e58d9a3bf34b905a3128734e417619af900d0e}{T\-L\-\_\-block\-Internal} = 60, 
+\hyperlink{class_util_a604561d00f5999b5ca280401140e58d9a64fd55e7b2e7fa00956ebc5185cef8b0}{T\-L\-\_\-most\-Detailed} = 70
  \}
 \item 
 typedef unsigned long \hyperlink{class_util_ad17d458d9344b10bba64347e514d6d71}{identitifcation}
@@ -125,6 +126,8 @@ Definition at line 27 of file Util.\-h.
 \hypertarget{class_util_a604561d00f5999b5ca280401140e58d9ae16cd2d59f52612b89b7a094bf6ed758}{T\-L\-\_\-no\-Traces}\label{class_util_a604561d00f5999b5ca280401140e58d9ae16cd2d59f52612b89b7a094bf6ed758}
 }]\index{T\-L\-\_\-errors@{T\-L\-\_\-errors}!Util@{Util}}\index{Util@{Util}!T\-L\-\_\-errors@{T\-L\-\_\-errors}}\item[{\em 
 \hypertarget{class_util_a604561d00f5999b5ca280401140e58d9a301dc2838784fa24261650a639c11cf1}{T\-L\-\_\-errors}\label{class_util_a604561d00f5999b5ca280401140e58d9a301dc2838784fa24261650a639c11cf1}
+}]\index{T\-L\-\_\-report@{T\-L\-\_\-report}!Util@{Util}}\index{Util@{Util}!T\-L\-\_\-report@{T\-L\-\_\-report}}\item[{\em 
+\hypertarget{class_util_a604561d00f5999b5ca280401140e58d9a5db79a751ceac892c087e3acb5069e22}{T\-L\-\_\-report}\label{class_util_a604561d00f5999b5ca280401140e58d9a5db79a751ceac892c087e3acb5069e22}
 }]\index{T\-L\-\_\-simulation@{T\-L\-\_\-simulation}!Util@{Util}}\index{Util@{Util}!T\-L\-\_\-simulation@{T\-L\-\_\-simulation}}\item[{\em 
 \hypertarget{class_util_a604561d00f5999b5ca280401140e58d9a4b58bddec93bc38da370802e995c3e60}{T\-L\-\_\-simulation}\label{class_util_a604561d00f5999b5ca280401140e58d9a4b58bddec93bc38da370802e995c3e60}
 }]\index{T\-L\-\_\-transfer\-Only@{T\-L\-\_\-transfer\-Only}!Util@{Util}}\index{Util@{Util}!T\-L\-\_\-transfer\-Only@{T\-L\-\_\-transfer\-Only}}\item[{\em 
@@ -175,12 +178,11 @@ Definition at line 28 of file Util.\-cpp.
 )\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{class_util_aec5f31f4f467113c25a6aef7bb5f4a40}
 
 
-Definition at line 66 of file Util.\-h.
+Definition at line 67 of file Util.\-h.
 
 
 
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -203,8 +205,7 @@ Definition at line 42 of file Util.\-cpp.
 
 
 
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -222,7 +223,7 @@ Here is the caller graph for this function\-:
 )\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{class_util_a1010d1207367e48e1d417381f32abf1f}
 
 
-Definition at line 58 of file Util.\-h.
+Definition at line 59 of file Util.\-h.
 
 
 
@@ -232,14 +233,14 @@ Definition at line 58 of file Util.\-h.
 \subsubsection[{\-\_\-\-S\-\_\-last\-Id}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Util\-::identitifcation} Util\-::\-\_\-\-S\-\_\-last\-Id = 0\hspace{0.3cm}{\ttfamily [static]}}}\label{class_util_afe2f6d8c09ef1108299a4dc8ec59b133}
 
 
-Definition at line 49 of file Util.\-h.
+Definition at line 50 of file Util.\-h.
 
 \hypertarget{class_util_a06a8897362f4bd17c68d59557083fc56}{\index{Util@{Util}!\-\_\-\-S\-\_\-last\-Id\-Of\-Type@{\-\_\-\-S\-\_\-last\-Id\-Of\-Type}}
 \index{\-\_\-\-S\-\_\-last\-Id\-Of\-Type@{\-\_\-\-S\-\_\-last\-Id\-Of\-Type}!Util@{Util}}
 \subsubsection[{\-\_\-\-S\-\_\-last\-Id\-Of\-Type}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$ std\-::string, {\bf Util\-::identitifcation} $>$ Util\-::\-\_\-\-S\-\_\-last\-Id\-Of\-Type = std\-::map$<$std\-::string,{\bf Util\-::identitifcation}$>$()\hspace{0.3cm}{\ttfamily [static]}}}\label{class_util_a06a8897362f4bd17c68d59557083fc56}
 
 
-Definition at line 50 of file Util.\-h.
+Definition at line 51 of file Util.\-h.
 
 
 

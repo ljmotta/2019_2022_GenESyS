@@ -1,10 +1,9 @@
 <map id="BuildSimpleModel1.h" name="BuildSimpleModel1.h">
 <area shape="rect" id="node2" href="$_build_simple_model1_8cpp.html" title="BuildSimpleModel1.cpp" alt="" coords="5,229,163,256"/>
-<area shape="rect" id="node3" href="$_traits_8h.html" title="Traits.h" alt="" coords="196,80,263,107"/>
-<area shape="rect" id="node4" href="$_simulator_8h.html" title="Simulator.h" alt="" coords="185,155,273,181"/>
-<area shape="rect" id="node7" href="$_test_input_analyser_tools_8h.html" title="TestInputAnalyserTools.h" alt="" coords="423,229,593,256"/>
-<area shape="rect" id="node9" href="$main_8cpp.html" title="main.cpp" alt="" coords="348,155,421,181"/>
+<area shape="rect" id="node3" href="$_traits_8h.html" title="Traits.h" alt="" coords="157,80,224,107"/>
+<area shape="rect" id="node4" href="$_simulator_8h.html" title="Simulator.h" alt="" coords="183,155,271,181"/>
+<area shape="rect" id="node8" href="$main_8cpp.html" title="main.cpp" alt="" coords="295,155,368,181"/>
 <area shape="rect" id="node5" href="$_model_8cpp.html" title="Model.cpp" alt="" coords="188,229,269,256"/>
 <area shape="rect" id="node6" href="$_simulator_8cpp.html" title="Simulator.cpp" alt="" coords="295,229,397,256"/>
-<area shape="rect" id="node8" href="$_test_input_analyser_tools_8cpp.html" title="TestInputAnalyserTools.cpp" alt="" coords="415,304,600,331"/>
+<area shape="rect" id="node7" href="$_test_input_analyser_tools_8cpp.html" title="TestInputAnalyserTools.cpp" alt="" coords="422,229,607,256"/>
 </map>

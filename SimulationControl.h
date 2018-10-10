@@ -16,6 +16,9 @@
 
 #include "SimulationResponse.h"
 
+/*!
+ * Represents any possible parameter or control for a simulation. Any infrastructure or event the model can declare one of its own attribute as a simulation control. It just have to create a SimulationControl object, passing the access to the methods that gets and sets the control value and including this SimulationControl in the corresponding list of the model
+ */
 class SimulationControl: public SimulationResponse {
 public:
 	SimulationControl(std::string type, std::string name, memberFunctionGetDoubleVarHandler getHandler, memberFunctionSetDoubleVarHandler setHandler);

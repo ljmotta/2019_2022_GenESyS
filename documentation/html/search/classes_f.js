@@ -4,8 +4,10 @@ var searchData=
   ['traceerrorevent',['TraceErrorEvent',['../class_trace_error_event.html',1,'']]],
   ['traceevent',['TraceEvent',['../class_trace_event.html',1,'']]],
   ['tracesimulationevent',['TraceSimulationEvent',['../class_trace_simulation_event.html',1,'']]],
+  ['tracesimulationprocess',['TraceSimulationProcess',['../class_trace_simulation_process.html',1,'']]],
   ['traits',['Traits',['../struct_traits.html',1,'']]],
   ['traits_3c_20collector_5fif_20_3e',['Traits&lt; Collector_if &gt;',['../struct_traits_3_01_collector__if_01_4.html',1,'']]],
+  ['traits_3c_20experimentdesign_5fif_20_3e',['Traits&lt; ExperimentDesign_if &gt;',['../struct_traits_3_01_experiment_design__if_01_4.html',1,'']]],
   ['traits_3c_20fitter_5fif_20_3e',['Traits&lt; Fitter_if &gt;',['../struct_traits_3_01_fitter__if_01_4.html',1,'']]],
   ['traits_3c_20genesysapplication_5fif_20_3e',['Traits&lt; GenesysApplication_if &gt;',['../struct_traits_3_01_genesys_application__if_01_4.html',1,'']]],
   ['traits_3c_20hypothesistester_5fif_20_3e',['Traits&lt; HypothesisTester_if &gt;',['../struct_traits_3_01_hypothesis_tester__if_01_4.html',1,'']]],
@@ -15,6 +17,7 @@ var searchData=
   ['traits_3c_20modelcomponent_20_3e',['Traits&lt; ModelComponent &gt;',['../struct_traits_3_01_model_component_01_4.html',1,'']]],
   ['traits_3c_20modelpersistence_5fif_20_3e',['Traits&lt; ModelPersistence_if &gt;',['../struct_traits_3_01_model_persistence__if_01_4.html',1,'']]],
   ['traits_3c_20parser_5fif_20_3e',['Traits&lt; Parser_if &gt;',['../struct_traits_3_01_parser__if_01_4.html',1,'']]],
+  ['traits_3c_20processanalyser_5fif_20_3e',['Traits&lt; ProcessAnalyser_if &gt;',['../struct_traits_3_01_process_analyser__if_01_4.html',1,'']]],
   ['traits_3c_20sampler_5fif_20_3e',['Traits&lt; Sampler_if &gt;',['../struct_traits_3_01_sampler__if_01_4.html',1,'']]],
   ['traits_3c_20statistics_5fif_20_3e',['Traits&lt; Statistics_if &gt;',['../struct_traits_3_01_statistics__if_01_4.html',1,'']]]
 ];

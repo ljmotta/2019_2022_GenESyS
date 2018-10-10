@@ -16,6 +16,7 @@ var class_util =
     [ "TraceLevel", "class_util.html#a604561d00f5999b5ca280401140e58d9", [
       [ "TL_noTraces", "class_util.html#a604561d00f5999b5ca280401140e58d9ae16cd2d59f52612b89b7a094bf6ed758", null ],
       [ "TL_errors", "class_util.html#a604561d00f5999b5ca280401140e58d9a301dc2838784fa24261650a639c11cf1", null ],
+      [ "TL_report", "class_util.html#a604561d00f5999b5ca280401140e58d9a5db79a751ceac892c087e3acb5069e22", null ],
       [ "TL_simulation", "class_util.html#a604561d00f5999b5ca280401140e58d9a4b58bddec93bc38da370802e995c3e60", null ],
       [ "TL_transferOnly", "class_util.html#a604561d00f5999b5ca280401140e58d9a8b8962b6e41245523e7d7b967f582272", null ],
       [ "TL_blockArrival", "class_util.html#a604561d00f5999b5ca280401140e58d9a3a33606fc3e2b432131173eeed280d9a", null ],

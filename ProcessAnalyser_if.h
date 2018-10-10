@@ -20,6 +20,9 @@
 #include "SimulationResponse.h"
 #include "Listener.h"
 
+/*!
+ * The process analyser allows to extract controls and responses from a model, incluse some of then as controls and responses for a set of scenarios to be simulated
+ */
 class ProcessAnalyser_if {
 public:
 	virtual List<SimulationScenario*>* getScenarios() const = 0;

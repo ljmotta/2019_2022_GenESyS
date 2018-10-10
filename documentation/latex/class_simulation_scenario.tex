@@ -13,13 +13,31 @@
 \hyperlink{class_simulation_scenario_a1eb84bad959ba23ee92a10e8d5d47cbc}{Simulation\-Scenario} (const \hyperlink{class_simulation_scenario}{Simulation\-Scenario} \&orig)
 \item 
 virtual \hyperlink{class_simulation_scenario_a4926deb52c192cd994cd57c753b985a6}{$\sim$\-Simulation\-Scenario} ()
+\item 
+void \hyperlink{class_simulation_scenario_a26d4cb5d3b9b9fbc5d23a70ef8a6f132}{set\-Name} (std\-::string \-\_\-name)
+\item 
+std\-::string \hyperlink{class_simulation_scenario_af724f4ff5cbdba527ee60c8cbaba0da0}{get\-Name} () const 
+\item 
+std\-::list$<$ double $>$ $\ast$ \hyperlink{class_simulation_scenario_a344580e94b9bbab4f89398cff8362620}{get\-Response\-Values} () const 
+\item 
+std\-::list$<$ double $>$ $\ast$ \hyperlink{class_simulation_scenario_adc766594ca8fe040cd4a0824d72ab69d}{get\-Control\-Values} () const 
+\item 
+void \hyperlink{class_simulation_scenario_ac9ac9d8dbec7e76c8c47e8f0d15d8406}{set\-Model\-Filename} (std\-::string \-\_\-model\-Filename)
+\item 
+std\-::string \hyperlink{class_simulation_scenario_a7c2e05a2502e9bb601305c1df4d92fd3}{get\-Model\-Filename} () const 
+\item 
+double \hyperlink{class_simulation_scenario_a771892cb0d3361006694713c1013cfbe}{get\-Response\-Value} (\hyperlink{class_simulation_response}{Simulation\-Response} $\ast$value)
+\item 
+double \hyperlink{class_simulation_scenario_aa12e1c77a7933773585f8683f36ca629}{get\-Control\-Value} (\hyperlink{class_simulation_control}{Simulation\-Control} $\ast$control)
+\item 
+void \hyperlink{class_simulation_scenario_a673e153baadc970e1cd4d97aa46b1af0}{set\-Control\-Value} (\hyperlink{class_simulation_control}{Simulation\-Control} $\ast$control, double value)
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+Represents a scenario where a specific model (defined my Model\-Filename) will be simulated. To each scenario will be associated a set of \hyperlink{class_simulation_control}{Simulation\-Control} and \hyperlink{class_simulation_response}{Simulation\-Response}, and their values are set to the scenario by the Process\-Analyser. 
 
-
-Definition at line 17 of file Simulation\-Scenario.\-h.
+Definition at line 25 of file Simulation\-Scenario.\-h.
 
 
 
@@ -56,6 +74,97 @@ Definition at line 19 of file Simulation\-Scenario.\-cpp.
 
 
 Definition at line 22 of file Simulation\-Scenario.\-cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_simulation_scenario_aa12e1c77a7933773585f8683f36ca629}{\index{Simulation\-Scenario@{Simulation\-Scenario}!get\-Control\-Value@{get\-Control\-Value}}
+\index{get\-Control\-Value@{get\-Control\-Value}!SimulationScenario@{Simulation\-Scenario}}
+\subsubsection[{get\-Control\-Value}]{\setlength{\rightskip}{0pt plus 5cm}double Simulation\-Scenario\-::get\-Control\-Value (
+\begin{DoxyParamCaption}
+\item[{{\bf Simulation\-Control} $\ast$}]{control}
+\end{DoxyParamCaption}
+)}}\label{class_simulation_scenario_aa12e1c77a7933773585f8683f36ca629}
+\hypertarget{class_simulation_scenario_adc766594ca8fe040cd4a0824d72ab69d}{\index{Simulation\-Scenario@{Simulation\-Scenario}!get\-Control\-Values@{get\-Control\-Values}}
+\index{get\-Control\-Values@{get\-Control\-Values}!SimulationScenario@{Simulation\-Scenario}}
+\subsubsection[{get\-Control\-Values}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<$ double $>$ $\ast$ Simulation\-Scenario\-::get\-Control\-Values (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_simulation_scenario_adc766594ca8fe040cd4a0824d72ab69d}
+
+
+Definition at line 37 of file Simulation\-Scenario.\-cpp.
+
+\hypertarget{class_simulation_scenario_a7c2e05a2502e9bb601305c1df4d92fd3}{\index{Simulation\-Scenario@{Simulation\-Scenario}!get\-Model\-Filename@{get\-Model\-Filename}}
+\index{get\-Model\-Filename@{get\-Model\-Filename}!SimulationScenario@{Simulation\-Scenario}}
+\subsubsection[{get\-Model\-Filename}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Simulation\-Scenario\-::get\-Model\-Filename (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_simulation_scenario_a7c2e05a2502e9bb601305c1df4d92fd3}
+
+
+Definition at line 45 of file Simulation\-Scenario.\-cpp.
+
+\hypertarget{class_simulation_scenario_af724f4ff5cbdba527ee60c8cbaba0da0}{\index{Simulation\-Scenario@{Simulation\-Scenario}!get\-Name@{get\-Name}}
+\index{get\-Name@{get\-Name}!SimulationScenario@{Simulation\-Scenario}}
+\subsubsection[{get\-Name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Simulation\-Scenario\-::get\-Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_simulation_scenario_af724f4ff5cbdba527ee60c8cbaba0da0}
+
+
+Definition at line 29 of file Simulation\-Scenario.\-cpp.
+
+\hypertarget{class_simulation_scenario_a771892cb0d3361006694713c1013cfbe}{\index{Simulation\-Scenario@{Simulation\-Scenario}!get\-Response\-Value@{get\-Response\-Value}}
+\index{get\-Response\-Value@{get\-Response\-Value}!SimulationScenario@{Simulation\-Scenario}}
+\subsubsection[{get\-Response\-Value}]{\setlength{\rightskip}{0pt plus 5cm}double Simulation\-Scenario\-::get\-Response\-Value (
+\begin{DoxyParamCaption}
+\item[{{\bf Simulation\-Response} $\ast$}]{value}
+\end{DoxyParamCaption}
+)}}\label{class_simulation_scenario_a771892cb0d3361006694713c1013cfbe}
+\hypertarget{class_simulation_scenario_a344580e94b9bbab4f89398cff8362620}{\index{Simulation\-Scenario@{Simulation\-Scenario}!get\-Response\-Values@{get\-Response\-Values}}
+\index{get\-Response\-Values@{get\-Response\-Values}!SimulationScenario@{Simulation\-Scenario}}
+\subsubsection[{get\-Response\-Values}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<$ double $>$ $\ast$ Simulation\-Scenario\-::get\-Response\-Values (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_simulation_scenario_a344580e94b9bbab4f89398cff8362620}
+
+
+Definition at line 33 of file Simulation\-Scenario.\-cpp.
+
+\hypertarget{class_simulation_scenario_a673e153baadc970e1cd4d97aa46b1af0}{\index{Simulation\-Scenario@{Simulation\-Scenario}!set\-Control\-Value@{set\-Control\-Value}}
+\index{set\-Control\-Value@{set\-Control\-Value}!SimulationScenario@{Simulation\-Scenario}}
+\subsubsection[{set\-Control\-Value}]{\setlength{\rightskip}{0pt plus 5cm}void Simulation\-Scenario\-::set\-Control\-Value (
+\begin{DoxyParamCaption}
+\item[{{\bf Simulation\-Control} $\ast$}]{control, }
+\item[{double}]{value}
+\end{DoxyParamCaption}
+)}}\label{class_simulation_scenario_a673e153baadc970e1cd4d97aa46b1af0}
+\hypertarget{class_simulation_scenario_ac9ac9d8dbec7e76c8c47e8f0d15d8406}{\index{Simulation\-Scenario@{Simulation\-Scenario}!set\-Model\-Filename@{set\-Model\-Filename}}
+\index{set\-Model\-Filename@{set\-Model\-Filename}!SimulationScenario@{Simulation\-Scenario}}
+\subsubsection[{set\-Model\-Filename}]{\setlength{\rightskip}{0pt plus 5cm}void Simulation\-Scenario\-::set\-Model\-Filename (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{\-\_\-model\-Filename}
+\end{DoxyParamCaption}
+)}}\label{class_simulation_scenario_ac9ac9d8dbec7e76c8c47e8f0d15d8406}
+
+
+Definition at line 41 of file Simulation\-Scenario.\-cpp.
+
+\hypertarget{class_simulation_scenario_a26d4cb5d3b9b9fbc5d23a70ef8a6f132}{\index{Simulation\-Scenario@{Simulation\-Scenario}!set\-Name@{set\-Name}}
+\index{set\-Name@{set\-Name}!SimulationScenario@{Simulation\-Scenario}}
+\subsubsection[{set\-Name}]{\setlength{\rightskip}{0pt plus 5cm}void Simulation\-Scenario\-::set\-Name (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{\-\_\-name}
+\end{DoxyParamCaption}
+)}}\label{class_simulation_scenario_a26d4cb5d3b9b9fbc5d23a70ef8a6f132}
+
+
+Definition at line 25 of file Simulation\-Scenario.\-cpp.
 
 
 
