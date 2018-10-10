@@ -63,6 +63,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/ParserMyImpl1.o \
 	${OBJECTDIR}/Plugin.o \
 	${OBJECTDIR}/ProbDistrib.o \
+	${OBJECTDIR}/ProcessAnalyserMyImpl1.o \
 	${OBJECTDIR}/Queue.o \
 	${OBJECTDIR}/Release.o \
 	${OBJECTDIR}/Resource.o \
@@ -71,6 +72,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Seize.o \
 	${OBJECTDIR}/SimulationControl.o \
 	${OBJECTDIR}/SimulationResponse.o \
+	${OBJECTDIR}/SimulationScenario.o \
 	${OBJECTDIR}/Simulator.o \
 	${OBJECTDIR}/SinkModelComponent.o \
 	${OBJECTDIR}/SourceModelComponent.o \
@@ -249,6 +251,11 @@ ${OBJECTDIR}/ProbDistrib.o: ProbDistrib.cpp nbproject/Makefile-${CND_CONF}.mk
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ProbDistrib.o ProbDistrib.cpp
 
+${OBJECTDIR}/ProcessAnalyserMyImpl1.o: ProcessAnalyserMyImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ProcessAnalyserMyImpl1.o ProcessAnalyserMyImpl1.cpp
+
 ${OBJECTDIR}/Queue.o: Queue.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -288,6 +295,11 @@ ${OBJECTDIR}/SimulationResponse.o: SimulationResponse.cpp nbproject/Makefile-${C
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SimulationResponse.o SimulationResponse.cpp
+
+${OBJECTDIR}/SimulationScenario.o: SimulationScenario.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SimulationScenario.o SimulationScenario.cpp
 
 ${OBJECTDIR}/Simulator.o: Simulator.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
