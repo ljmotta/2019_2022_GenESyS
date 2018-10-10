@@ -11,17 +11,12 @@
  * Created on 2 de Outubro de 2018, 22:47
  */
 
-#ifndef EXPERIMENTDESIGN_H
-#define EXPERIMENTDESIGN_H
+#ifndef EXPERIMENTDESIGN_IF_H
+#define EXPERIMENTDESIGN_IF_H
 
-class ExperimentDesign {
+class ExperimentDesign_if {
 public:
-	ExperimentDesign();
-	ExperimentDesign(const ExperimentDesign& orig);
-	virtual ~ExperimentDesign();
-private:
-
 };
 
-#endif /* EXPERIMENTDESIGN_H */
+#endif /* EXPERIMENTDESIGN_IF_H */
 

@@ -73,9 +73,25 @@ private:
 	ModelComponent* _component;
 };
 
+/*!
+ * Events related to simulation "process" (usually process analyser), associated to entire replication or simulation events (begin/end/pause of replication/simulation) 
+ * TODO: CLASS NOT COMPLETE
+ */
+class TraceSimulationProcess : public TraceEvent {
+public:
+	TraceSimulationProcess(Util::TraceLevel tracelevel, std::string text):TraceEvent(tracelevel, text) {
+	}
+};
+
 typedef void (*traceListener)(TraceEvent);
 typedef void (*traceErrorListener)(TraceErrorEvent);
 typedef void (*traceSimulationListener)(TraceSimulationEvent);
+typedef void (*traceSimulationProcessListener)(TraceSimulationProcess);
+
+// used to get and set values no matter the class (for process analyser)
+//typedef double (*getDoubleVarHandler)(); //(*getDoubleVarHandler)();
+//typedef void (*setDoubleVarHandler)(double); //(*setDoubleVarHandler)(double);
+
 
 //class Listener {
 //public:

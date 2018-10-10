@@ -24,6 +24,9 @@
 #include "ModelChecker_if.h"
 #include "Parser_if.h"
 #include "ModelPersistence_if.h"
+//for PAN
+#include "SimulationResponse.h"
+//#include "SimulationControl.h"
 
 class Simulator;
 
@@ -110,6 +113,8 @@ public: // only gets
 	ModelInfrastructure* getInfrastructure(std::string infraTypename, Util::identitifcation id);
 	ModelInfrastructure* getInfrastructure(std::string infraTypename, std::string name);
 	std::list<std::string>* getInfrastructureTypenames() const;
+    //List<SimulationControl*>* getControls() const;
+    List<SimulationResponse*>* getResponses() const;
 /*
  
  */	
@@ -169,7 +174,10 @@ private: // read only public access (gets)
 	List<Event*>* _events;
 	// infrastructures
 	std::map<std::string, List<ModelInfrastructure*>*>* _infrastructures;
-
+	// for process analyser
+	List<SimulationResponse*>* _responses;
+	//List<SimulationControl*>* _controls;
+	
 private: // no public access (no gets / sets)	
 	Simulator* _simulator;
 	bool _pauseRequested = false;

@@ -56,6 +56,11 @@ Model::Model(Simulator* simulator) {
 		return a->getId() < b->getId();
 	});
 	 */
+	// PAN
+	//SimulationResponse* control = new SimulationResponse(Util::TypeOf<Model>(), "Replication Lenght", &Model::getReplicationLength);
+	
+	//auto funct = std::bind(function, this, );
+//	SimulationControl* control = new SimulationControl(Util::TypeOf<Model>(), "Replication Lenght", &Model::getReplicationLength, &Model::setReplicationLength);
 }
 
 Model::Model(const Model& orig) {
@@ -256,7 +261,8 @@ void Model::_showInfrastructures() {
 void Model::_showReplicationStatistics() {
 	traceReport(Util::TraceLevel::TL_report, "\nReport for replication " + std::to_string(_currentReplicationNumber) + " of " + std::to_string(_numberOfReplications));
 
-	/*TODO: + To implement */
+	/*TODO: + To implement -- each infrastructure should know how to show its own statistics */
+
 
 	// show statistics
 	traceReport(Util::TraceLevel::TL_report, "Statistics:");
@@ -552,6 +558,14 @@ std::list<std::string>* Model::getInfrastructureTypenames() const {
 		keys->insert(keys->end(), (*it).first);
 	}
 	return keys;
+}
+
+//List<SimulationControl*>* Model::getControls() const {
+//	return _controls;
+//}
+
+List<SimulationResponse*>* Model::getResponses() const {
+	return _responses;
 }
 
 ModelInfrastructure* Model::getInfrastructure(std::string infraTypename, std::string name) {

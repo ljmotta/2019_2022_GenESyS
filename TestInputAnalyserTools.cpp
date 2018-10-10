@@ -5,6 +5,9 @@
  */
 
 #include "TestInputAnalyserTools.h"
+#include "Simulator.h"
+#include "Sampler_if.h"
+#include "ProbDistrib.h"
 
 void testStudentSoftwareDevelopments() {
 	Simulator* simulator = new Simulator();

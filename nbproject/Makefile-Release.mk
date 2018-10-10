@@ -47,7 +47,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/Entity.o \
 	${OBJECTDIR}/EntityType.o \
 	${OBJECTDIR}/Event.o \
-	${OBJECTDIR}/ExperimentDesign.o \
 	${OBJECTDIR}/FitterMyImpl1.o \
 	${OBJECTDIR}/HypothesisTesterMyImpl1.o \
 	${OBJECTDIR}/HypothesisTester_ar.o \
@@ -70,7 +69,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/SamplerMyImpl1.o \
 	${OBJECTDIR}/Sampler_BruFabJoa.o \
 	${OBJECTDIR}/Seize.o \
-	${OBJECTDIR}/SimulationScenario.o \
+	${OBJECTDIR}/SimulationResponse.o \
 	${OBJECTDIR}/Simulator.o \
 	${OBJECTDIR}/SinkModelComponent.o \
 	${OBJECTDIR}/SourceModelComponent.o \
@@ -168,11 +167,6 @@ ${OBJECTDIR}/Event.o: Event.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Event.o Event.cpp
-
-${OBJECTDIR}/ExperimentDesign.o: ExperimentDesign.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ExperimentDesign.o ExperimentDesign.cpp
 
 ${OBJECTDIR}/FitterMyImpl1.o: FitterMyImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -284,10 +278,10 @@ ${OBJECTDIR}/Seize.o: Seize.cpp nbproject/Makefile-${CND_CONF}.mk
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Seize.o Seize.cpp
 
-${OBJECTDIR}/SimulationScenario.o: SimulationScenario.cpp nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/SimulationResponse.o: SimulationResponse.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SimulationScenario.o SimulationScenario.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SimulationResponse.o SimulationResponse.cpp
 
 ${OBJECTDIR}/Simulator.o: Simulator.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

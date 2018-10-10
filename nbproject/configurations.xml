@@ -99,6 +99,8 @@
       <itemPath>ModelPersistence_if.h</itemPath>
       <itemPath>Plugin.cpp</itemPath>
       <itemPath>Plugin.h</itemPath>
+      <itemPath>SimulationResponse.cpp</itemPath>
+      <itemPath>SimulationResponse.h</itemPath>
       <itemPath>Simulator.cpp</itemPath>
       <itemPath>Simulator.h</itemPath>
       <itemPath>SinkModelComponent.cpp</itemPath>
@@ -135,10 +137,10 @@
       <logicalFolder name="f3" displayName="Output Analyser" projectFiles="true">
       </logicalFolder>
       <logicalFolder name="f4" displayName="Process Analyser" projectFiles="true">
-        <itemPath>ExperimentDesign.cpp</itemPath>
-        <itemPath>ExperimentDesign.h</itemPath>
-        <itemPath>SimulationScenario.cpp</itemPath>
-        <itemPath>SimulationScenario.h</itemPath>
+        <itemPath>ExperimentDesign_if.h</itemPath>
+        <itemPath>ProcessAnalyser_if.h</itemPath>
+        <itemPath>ScenarioExperiment_if.h</itemPath>
+        <itemPath>SimulationScenario_if.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f5" displayName="System Optimization" projectFiles="true">
       </logicalFolder>
@@ -236,9 +238,7 @@
       </item>
       <item path="Event.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="ExperimentDesign.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ExperimentDesign.h" ex="false" tool="3" flavor2="0">
+      <item path="ExperimentDesign_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="FitterMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -320,6 +320,8 @@
       </item>
       <item path="ProbDistrib.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="ProcessAnalyser_if.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Queue.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Queue.h" ex="false" tool="3" flavor2="0">
@@ -342,13 +344,17 @@
       </item>
       <item path="Sampler_if.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="ScenarioExperiment_if.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Seize.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Seize.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="SimulationScenario.cpp" ex="false" tool="1" flavor2="0">
+      <item path="SimulationResponse.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="SimulationScenario.h" ex="false" tool="3" flavor2="0">
+      <item path="SimulationResponse.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SimulationScenario_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Simulator.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -473,9 +479,7 @@
       </item>
       <item path="Event.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="ExperimentDesign.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ExperimentDesign.h" ex="false" tool="3" flavor2="0">
+      <item path="ExperimentDesign_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="FitterMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -557,6 +561,8 @@
       </item>
       <item path="ProbDistrib.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="ProcessAnalyser_if.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Queue.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Queue.h" ex="false" tool="3" flavor2="0">
@@ -579,13 +585,17 @@
       </item>
       <item path="Sampler_if.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="ScenarioExperiment_if.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Seize.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Seize.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="SimulationScenario.cpp" ex="false" tool="1" flavor2="0">
+      <item path="SimulationResponse.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="SimulationScenario.h" ex="false" tool="3" flavor2="0">
+      <item path="SimulationResponse.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SimulationScenario_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Simulator.cpp" ex="false" tool="1" flavor2="0">
       </item>
