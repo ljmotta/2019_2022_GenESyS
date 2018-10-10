@@ -26,6 +26,10 @@ bool EventCompare(const Event* a, const Event * b) {
 	return a->getTime() < b->getTime();
 }
 
+double getReplicationLengthNotMemberFunction() { // REMOVE IT. JUST AN EXAMPLE FOR PAN TEAM DS3 THEME (1)
+	return 10;
+}
+
 Model::Model(Simulator* simulator) {
 	_simulator = simulator;
 	_name = "Model " + std::to_string(Util::GenerateNewIdOfType<Model>()); // (reinterpret_cast<unsigned long> (this));
@@ -56,11 +60,10 @@ Model::Model(Simulator* simulator) {
 		return a->getId() < b->getId();
 	});
 	 */
-	// PAN
-	//SimulationResponse* control = new SimulationResponse(Util::TypeOf<Model>(), "Replication Lenght", &Model::getReplicationLength);
 	
-	//auto funct = std::bind(function, this, );
-//	SimulationControl* control = new SimulationControl(Util::TypeOf<Model>(), "Replication Lenght", &Model::getReplicationLength, &Model::setReplicationLength);
+	// DS1 Theme (1)
+	// PAN
+	SimulationResponse* control = new SimulationResponse(Util::TypeOf<Model>(), "Replication Lenght", &getReplicationLengthNotMemberFunction); // getReplicationLength shoud the the Model member function with the same name
 }
 
 Model::Model(const Model& orig) {
@@ -560,9 +563,9 @@ std::list<std::string>* Model::getInfrastructureTypenames() const {
 	return keys;
 }
 
-//List<SimulationControl*>* Model::getControls() const {
-//	return _controls;
-//}
+List<SimulationControl*>* Model::getControls() const {
+	return _controls;
+}
 
 List<SimulationResponse*>* Model::getResponses() const {
 	return _responses;

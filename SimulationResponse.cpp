@@ -13,13 +13,16 @@
 
 #include "SimulationResponse.h"
 
-SimulationResponse::SimulationResponse(std::string type, std::string name, void* getHandler) {
+SimulationResponse::SimulationResponse(std::string type, std::string name, memberFunctionGetDoubleVarHandler getHandler) {
 	_type = type;
 	_name = name;
-	_getHandler = getHandler;
+	_memberFunctionGetDoubleHandler = getHandler;
 }
 
 SimulationResponse::SimulationResponse(const SimulationResponse& orig) {
+}
+
+SimulationResponse::~SimulationResponse() {
 }
 
 std::string SimulationResponse::getName() const {
@@ -30,6 +33,7 @@ std::string SimulationResponse::getType() const {
 	return _type;
 }
 
-SimulationResponse::~SimulationResponse() {
-}
 
+double SimulationResponse::getValue() {
+	return this->_memberFunctionGetDoubleHandler();
+}

@@ -88,9 +88,12 @@ typedef void (*traceErrorListener)(TraceErrorEvent);
 typedef void (*traceSimulationListener)(TraceSimulationEvent);
 typedef void (*traceSimulationProcessListener)(TraceSimulationProcess);
 
-// used to get and set values no matter the class (for process analyser)
-//typedef double (*getDoubleVarHandler)(); //(*getDoubleVarHandler)();
-//typedef void (*setDoubleVarHandler)(double); //(*setDoubleVarHandler)(double);
+/* TODO: To implement as item (1) for DS3
+ * used to get and set values no matter the class (for process analyser)
+ * should be a wait to invoke a getter or setter no matter the class (a pointer to a member function without specifying the class 
+ */
+typedef double (*memberFunctionGetDoubleVarHandler)(); //template ... typedef double (T::*getDoubleVarHandler)() or something like that
+typedef void (*memberFunctionSetDoubleVarHandler)(double); 
 
 
 //class Listener {

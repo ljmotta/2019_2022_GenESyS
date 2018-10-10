@@ -19,18 +19,17 @@
 
 class SimulationResponse {
 public:
-	SimulationResponse(std::string type, std::string name, void* getHandler);
+	SimulationResponse(std::string type, std::string name, memberFunctionGetDoubleVarHandler getHandler); // setDoubleVarHandler will have to change to be a member function
 	SimulationResponse(const SimulationResponse& orig);
 	virtual ~SimulationResponse();
 public:
 	double getValue();
     std::string getName() const;
     std::string getType() const;
-private:
+protected:
 	std::string _type;
 	std::string _name;
-	void* _getHandler;
-	//setDoubleVarHandler _setHandler;
+	memberFunctionGetDoubleVarHandler _memberFunctionGetDoubleHandler; // a pointer to a member function that gets a double
 };
 
 #endif /* SIMULATIONRESPONSE_H */

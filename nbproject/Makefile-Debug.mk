@@ -69,6 +69,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/SamplerMyImpl1.o \
 	${OBJECTDIR}/Sampler_BruFabJoa.o \
 	${OBJECTDIR}/Seize.o \
+	${OBJECTDIR}/SimulationControl.o \
 	${OBJECTDIR}/SimulationResponse.o \
 	${OBJECTDIR}/Simulator.o \
 	${OBJECTDIR}/SinkModelComponent.o \
@@ -277,6 +278,11 @@ ${OBJECTDIR}/Seize.o: Seize.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Seize.o Seize.cpp
+
+${OBJECTDIR}/SimulationControl.o: SimulationControl.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SimulationControl.o SimulationControl.cpp
 
 ${OBJECTDIR}/SimulationResponse.o: SimulationResponse.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
