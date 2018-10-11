@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_list.html" title="List\&lt; Plugin * \&gt;" alt="" coords="5,5,117,32"/>
+<area shape="rect" id="node1" href="$class_integrator__if.html" title="Integrator_if" alt="" coords="5,31,96,57"/>
+<area shape="rect" id="node2" href="$class_integrator_diogo_impl.html" title="IntegratorDiogoImpl" alt="" coords="144,5,280,32"/>
+<area shape="rect" id="node3" href="$class_integrator_my_impl1.html" title="IntegratorMyImpl1" alt="" coords="149,56,275,83"/>
 </map>

@@ -1,0 +1,7 @@
+<map id="ModelComponent::SaveInstance" name="ModelComponent::SaveInstance">
+<area shape="rect" id="node2" href="$class_model.html#a5de086b514742e84b61ac9a7b128ae8b" title="Model::trace" alt="" coords="301,5,395,32"/>
+<area shape="rect" id="node3" href="$class_model_infrastructure.html#a3da2fd381c44752598bc448b207e8287" title="ModelInfrastructure\l::_saveInstance" alt="" coords="281,57,415,98"/>
+<area shape="rect" id="node4" href="$class_model.html#a092b7062edcb59344f286d858ed10fac" title="Model::traceError" alt="" coords="287,123,409,149"/>
+<area shape="rect" id="node5" href="$class_model_component.html#ad8bc846e36b028eab7efb7da6c549eca" title="ModelComponent::show" alt="" coords="267,173,429,200"/>
+<area shape="rect" id="node6" href="$class_model_infrastructure.html#a649a5a89a0c9931783d3c51de2acf266" title="ModelInfrastructure\l::show" alt="" coords="478,166,613,207"/>
+</map>

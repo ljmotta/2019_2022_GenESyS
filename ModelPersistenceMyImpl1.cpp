@@ -44,6 +44,7 @@ bool ModelPersistenceMyImpl1::saveAsTXT(std::string filename) {
 	for (std::list<std::string>::iterator itTypenames=infraTypenames->begin(); itTypenames!=infraTypenames->end(); itTypenames++) {
 		List<ModelInfrastructure*>* infras = _model->getInfrastructures((*itTypenames));
 		for (std::list<ModelInfrastructure*>::iterator it=infras->getList()->begin(); it!=infras->getList()->end(); it++) {
+			_model->trace(Util::TraceLevel::TL_blockArrival, "Writing infrastructure \"" + (*it)->getName() + "\""); 
 			words = (*it)->SaveInstance((*it));
 			_saveLine(words);
 		}

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>RebornedGenESyS: main.cpp File Reference</title>
+<title>GenESyS - Generic and Expansible System Simulator [REBORN]: main.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="software_genesys.gif"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">RebornedGenESyS
-   &#160;<span id="projectnumber">Reborned 20182</span>
+   <div id="projectname">GenESyS - Generic and Expansible System Simulator [REBORN]
+   &#160;<span id="projectnumber">2018-2</span>
    </div>
-   <div id="projectbrief">Generic and Expansible System Simulator</div>
+   <div id="projectbrief">Generic System Simulator</div>
   </td>
  </tr>
  </tbody>
@@ -48,6 +48,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -94,7 +95,7 @@ $(document).ready(function(){initNavTree('main_8cpp.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -112,150 +113,23 @@ $(document).ready(function(){initNavTree('main_8cpp.html','');});
 <div class="contents">
 <div class="textblock"><code>#include &lt;cstdlib&gt;</code><br/>
 <code>#include &lt;iostream&gt;</code><br/>
-<code>#include &quot;<a class="el" href="_simulator_8h_source.html">Simulator.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="_listener_8h_source.html">Listener.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="_traits_8h_source.html">Traits.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="_sampler__if_8h_source.html">Sampler_if.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="_fitter__if_8h_source.html">Fitter_if.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="_collector__if_8h_source.html">Collector_if.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="_collector_datafile__if_8h_source.html">CollectorDatafile_if.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="_statistics__if_8h_source.html">Statistics_if.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="_integrator__if_8h_source.html">Integrator_if.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="_hypothesis_tester__if_8h_source.html">HypothesisTester_if.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="_prob_distrib_8h_source.html">ProbDistrib.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="_create_8h_source.html">Create.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="_delay_8h_source.html">Delay.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="_dispose_8h_source.html">Dispose.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="_seize_8h_source.html">Seize.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="_release_8h_source.html">Release.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="_assign_8h_source.html">Assign.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for main.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8cpp__incl.png" border="0" usemap="#main_8cpp" alt=""/></div>
 <map name="main_8cpp" id="main_8cpp">
-<area shape="rect" id="node4" href="_simulator_8h.html" title="Simulator.h" alt="" coords="2247,80,2335,107"/><area shape="rect" id="node6" href="_traits_8h.html" title="Traits.h" alt="" coords="1575,155,1641,181"/><area shape="rect" id="node18" href="_listener_8h.html" title="Listener.h" alt="" coords="2431,528,2509,555"/><area shape="rect" id="node22" href="_collector__if_8h.html" title="Collector_if.h" alt="" coords="455,379,553,405"/><area shape="rect" id="node23" href="_sampler__if_8h.html" title="Sampler_if.h" alt="" coords="1121,304,1215,331"/><area shape="rect" id="node24" href="_fitter__if_8h.html" title="Fitter_if.h" alt="" coords="837,304,913,331"/><area shape="rect" id="node25" href="_statistics__if_8h.html" title="Statistics_if.h" alt="" coords="498,304,600,331"/><area shape="rect" id="node26" href="_integrator__if_8h.html" title="Integrator_if.h" alt="" coords="1790,304,1892,331"/><area shape="rect" id="node27" href="_hypothesis_tester__if_8h.html" title="HypothesisTester_if.h" alt="" coords="1377,304,1527,331"/><area shape="rect" id="node30" href="_collector_datafile__if_8h.html" title="CollectorDatafile_if.h" alt="" coords="209,304,353,331"/><area shape="rect" id="node39" href="_prob_distrib_8h.html" title="ProbDistrib.h" alt="" coords="2687,80,2785,107"/><area shape="rect" id="node40" href="_create_8h.html" title="Create.h" alt="" coords="3448,304,3520,331"/><area shape="rect" id="node43" href="_delay_8h.html" title="Delay.h" alt="" coords="2793,379,2860,405"/><area shape="rect" id="node44" href="_dispose_8h.html" title="Dispose.h" alt="" coords="2961,80,3041,107"/><area shape="rect" id="node46" href="_seize_8h.html" title="Seize.h" alt="" coords="3119,229,3185,256"/><area shape="rect" id="node49" href="_release_8h.html" title="Release.h" alt="" coords="3189,379,3269,405"/><area shape="rect" id="node50" href="_assign_8h.html" title="Assign.h" alt="" coords="2861,155,2933,181"/><area shape="rect" id="node7" href="_model_8h.html" title="Model.h" alt="" coords="2469,304,2536,331"/><area shape="rect" id="node10" href="_list_8h.html" title="List.h" alt="" coords="2802,528,2856,555"/><area shape="rect" id="node15" href="_plugin_8h.html" title="Plugin.h" alt="" coords="2660,528,2729,555"/><area shape="rect" id="node19" href="_model_checker__if_8h.html" title="ModelChecker_if.h" alt="" coords="2163,379,2292,405"/><area shape="rect" id="node20" href="_parser__if_8h.html" title="Parser_if.h" alt="" coords="1668,379,1753,405"/><area shape="rect" id="node21" href="_model_persistence__if_8h.html" title="ModelPersistence_if.h" alt="" coords="1981,379,2131,405"/><area shape="rect" id="node28" href="_collector_my_impl1_8h.html" title="CollectorMyImpl1.h" alt="" coords="951,304,1085,331"/><area shape="rect" id="node29" href="_collector_datafile_my_impl1_8h.html" title="CollectorDatafileMyImpl1.h" alt="" coords="191,229,371,256"/><area shape="rect" id="node31" href="_sampler_my_impl1_8h.html" title="SamplerMyImpl1.h" alt="" coords="1103,229,1232,256"/><area shape="rect" id="node32" href="_fitter_my_impl1_8h.html" title="FitterMyImpl1.h" alt="" coords="914,229,1027,256"/><area shape="rect" id="node33" href="_model_checker_my_impl1_8h.html" title="ModelCheckerMyImpl1.h" alt="" coords="2298,229,2464,256"/><area shape="rect" id="node34" href="_parser_my_impl1_8h.html" title="ParserMyImpl1.h" alt="" coords="1551,304,1672,331"/><area shape="rect" id="node35" href="_integrator_my_impl1_8h.html" title="IntegratorMyImpl1.h" alt="" coords="1772,229,1911,256"/><area shape="rect" id="node36" href="_hypothesis_tester_my_impl1_8h.html" title="HypothesisTesterMyImpl1.h" alt="" coords="1359,229,1545,256"/><area shape="rect" id="node37" href="_model_persistence_my_impl1_8h.html" title="ModelPersistenceMyImpl1.h" alt="" coords="2087,229,2273,256"/><area shape="rect" id="node38" href="_statistics_my_impl1_8h.html" title="StatisticsMyImpl1.h" alt="" coords="649,229,788,256"/><area shape="rect" id="node8" href="_util_8h.html" title="Util.h" alt="" coords="2672,603,2725,629"/><area shape="rect" id="node14" href="_model_component_8h.html" title="ModelComponent.h" alt="" coords="2851,453,2985,480"/><area shape="rect" id="node16" href="_model_infrastructure_8h.html" title="ModelInfrastructure.h" alt="" coords="3046,528,3191,555"/><area shape="rect" id="node17" href="_event_8h.html" title="Event.h" alt="" coords="2652,379,2719,405"/><area shape="rect" id="node42" href="_source_model_component_8h.html" title="SourceModelComponent.h" alt="" coords="3447,379,3623,405"/><area shape="rect" id="node45" href="_sink_model_component_8h.html" title="SinkModelComponent.h" alt="" coords="2958,155,3119,181"/><area shape="rect" id="node47" href="_resource_8h.html" title="Resource.h" alt="" coords="3181,453,3269,480"/><area shape="rect" id="node48" href="_queue_8h.html" title="Queue.h" alt="" coords="3085,453,3155,480"/></map>
+<area shape="rect" id="node4" href="_traits_8h.html" title="Traits.h" alt="" coords="1485,80,1552,107"/><area shape="rect" id="node5" href="_model_8h.html" title="Model.h" alt="" coords="833,395,900,421"/><area shape="rect" id="node14" href="_model_checker__if_8h.html" title="ModelChecker_if.h" alt="" coords="1096,469,1225,496"/><area shape="rect" id="node15" href="_parser__if_8h.html" title="Parser_if.h" alt="" coords="1427,469,1512,496"/><area shape="rect" id="node16" href="_model_persistence__if_8h.html" title="ModelPersistence_if.h" alt="" coords="1251,469,1401,496"/><area shape="rect" id="node19" href="_collector__if_8h.html" title="Collector_if.h" alt="" coords="1704,320,1803,347"/><area shape="rect" id="node20" href="_sampler__if_8h.html" title="Sampler_if.h" alt="" coords="1226,245,1320,272"/><area shape="rect" id="node21" href="_fitter__if_8h.html" title="Fitter_if.h" alt="" coords="2319,245,2395,272"/><area shape="rect" id="node22" href="_statistics__if_8h.html" title="Statistics_if.h" alt="" coords="1549,245,1651,272"/><area shape="rect" id="node23" href="_integrator__if_8h.html" title="Integrator_if.h" alt="" coords="2602,245,2704,272"/><area shape="rect" id="node24" href="_hypothesis_tester__if_8h.html" title="HypothesisTester_if.h" alt="" coords="3269,245,3419,272"/><area shape="rect" id="node25" href="_genesys_application__if_8h.html" title="GenesysApplication_if.h" alt="" coords="2959,245,3121,272"/><area shape="rect" id="node26" href="_process_analyser__if_8h.html" title="ProcessAnalyser_if.h" alt="" coords="111,320,257,347"/><area shape="rect" id="node28" href="_experiment_design__if_8h.html" title="ExperimentDesign_if.h" alt="" coords="260,245,413,272"/><area shape="rect" id="node30" href="_collector_my_impl1_8h.html" title="CollectorMyImpl1.h" alt="" coords="1686,245,1820,272"/><area shape="rect" id="node31" href="_collector_datafile_my_impl1_8h.html" title="CollectorDatafileMyImpl1.h" alt="" coords="1949,163,2128,189"/><area shape="rect" id="node33" href="_collector_datafile_cancian_impl_8h.html" title="CollectorDatafileCancian\lImpl.h" alt="" coords="2153,155,2319,197"/><area shape="rect" id="node34" href="_sampler_my_impl1_8h.html" title="SamplerMyImpl1.h" alt="" coords="1191,163,1320,189"/><area shape="rect" id="node35" href="_sampler___bru_fab_joa_8h.html" title="Sampler_BruFabJoa.h" alt="" coords="965,163,1115,189"/><area shape="rect" id="node38" href="_fitter_my_impl1_8h.html" title="FitterMyImpl1.h" alt="" coords="2395,163,2508,189"/><area shape="rect" id="node39" href="_model_checker_my_impl1_8h.html" title="ModelCheckerMyImpl1.h" alt="" coords="746,320,912,347"/><area shape="rect" id="node40" href="_parser_my_impl1_8h.html" title="ParserMyImpl1.h" alt="" coords="1409,395,1529,421"/><area shape="rect" id="node41" href="_integrator_my_impl1_8h.html" title="IntegratorMyImpl1.h" alt="" coords="2584,163,2723,189"/><area shape="rect" id="node42" href="_integrator_diogo_impl_8h.html" title="IntegratorDiogoImpl.h" alt="" coords="2747,163,2893,189"/><area shape="rect" id="node43" href="_hypothesis_tester_my_impl1_8h.html" title="HypothesisTesterMyImpl1.h" alt="" coords="3381,163,3568,189"/><area shape="rect" id="node44" href="_model_persistence_my_impl1_8h.html" title="ModelPersistenceMyImpl1.h" alt="" coords="937,320,1124,347"/><area shape="rect" id="node45" href="_statistics_my_impl1_8h.html" title="StatisticsMyImpl1.h" alt="" coords="1684,163,1823,189"/><area shape="rect" id="node46" href="_statistics_cancian_impl_8h.html" title="StatisticsCancianImpl.h" alt="" coords="1498,163,1659,189"/><area shape="rect" id="node47" href="_build_simple_model1_8h.html" title="BuildSimpleModel1.h" alt="" coords="2968,163,3112,189"/><area shape="rect" id="node48" href="_test_input_analyser_tools_8h.html" title="TestInputAnalyserTools.h" alt="" coords="3136,163,3307,189"/><area shape="rect" id="node49" href="_process_analyser_my_impl1_8h.html" title="ProcessAnalyserMyImpl1.h" alt="" coords="471,245,653,272"/><area shape="rect" id="node50" href="_experiment_design_my_impl1_8h.html" title="ExperimentDesignMyImpl1.h" alt="" coords="267,163,457,189"/><area shape="rect" id="node6" href="_util_8h.html" title="Util.h" alt="" coords="765,693,819,720"/><area shape="rect" id="node9" href="_list_8h.html" title="List.h" alt="" coords="803,619,857,645"/><area shape="rect" id="node10" href="_model_component_8h.html" title="ModelComponent.h" alt="" coords="854,544,988,571"/><area shape="rect" id="node11" href="_model_infrastructure_8h.html" title="ModelInfrastructure.h" alt="" coords="945,619,1089,645"/><area shape="rect" id="node12" href="_event_8h.html" title="Event.h" alt="" coords="955,469,1021,496"/><area shape="rect" id="node13" href="_listener_8h.html" title="Listener.h" alt="" coords="539,619,617,645"/><area shape="rect" id="node17" href="_simulation_response_8h.html" title="SimulationResponse.h" alt="" coords="435,544,588,571"/><area shape="rect" id="node18" href="_simulation_control_8h.html" title="SimulationControl.h" alt="" coords="339,469,473,496"/><area shape="rect" id="node27" href="_simulation_scenario_8h.html" title="SimulationScenario.h" alt="" coords="490,395,635,421"/><area shape="rect" id="node29" href="_factor_or_interaction_contribution_8h.html" title="FactorOrInteractionContribution.h" alt="" coords="199,395,413,421"/><area shape="rect" id="node32" href="_collector_datafile__if_8h.html" title="CollectorDatafile_if.h" alt="" coords="1967,245,2111,272"/></map>
 </div>
-</div><table class="memberdecls">
+</div>
+<p><a href="main_8cpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a49c2cff373ab55daf6bd94173ed21575"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a49c2cff373ab55daf6bd94173ed21575">traceHandler</a> (<a class="el" href="class_trace_event.html">TraceEvent</a> e)</td></tr>
-<tr class="separator:a49c2cff373ab55daf6bd94173ed21575"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68baabbb892a3a6f875ef4c1c764dbcc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a68baabbb892a3a6f875ef4c1c764dbcc">traceSimulationHandler</a> (<a class="el" href="class_trace_simulation_event.html">TraceSimulationEvent</a> e)</td></tr>
-<tr class="separator:a68baabbb892a3a6f875ef4c1c764dbcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5981de61ae987a3694de07224dbca746"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a5981de61ae987a3694de07224dbca746">buildSimpleCreateDelayDisposeModel</a> (<a class="el" href="class_model.html">Model</a> *model)</td></tr>
-<tr class="separator:a5981de61ae987a3694de07224dbca746"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22c3fce0bba99e34d617dafbf4f1f54e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a22c3fce0bba99e34d617dafbf4f1f54e">buildModelWithAllImplementedComponents</a> (<a class="el" href="class_model.html">Model</a> *model)</td></tr>
-<tr class="separator:a22c3fce0bba99e34d617dafbf4f1f54e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeea741000e292b33dca181a0a8a6106f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#aeea741000e292b33dca181a0a8a6106f">buildModel</a> (<a class="el" href="class_model.html">Model</a> *model)</td></tr>
-<tr class="separator:aeea741000e292b33dca181a0a8a6106f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5168010deba14b290a849f0507e974eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a5168010deba14b290a849f0507e974eb">buildSimulationSystem</a> ()</td></tr>
-<tr class="separator:a5168010deba14b290a849f0507e974eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7011a62619acc9f81bcb4c5a5fafbe8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#af7011a62619acc9f81bcb4c5a5fafbe8">testStudentSoftwareDevelopments</a> ()</td></tr>
-<tr class="separator:af7011a62619acc9f81bcb4c5a5fafbe8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">main</a> (int argc, char **argv)</td></tr>
 <tr class="separator:a3c04138a5bfe5d72780bb7e82a18e627"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="aeea741000e292b33dca181a0a8a6106f"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void buildModel </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_model.html">Model</a> *&#160;</td>
-          <td class="paramname"><em>model</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="main_8cpp_aeea741000e292b33dca181a0a8a6106f_cgraph.png" border="0" usemap="#main_8cpp_aeea741000e292b33dca181a0a8a6106f_cgraph" alt=""/></div>
-<map name="main_8cpp_aeea741000e292b33dca181a0a8a6106f_cgraph" id="main_8cpp_aeea741000e292b33dca181a0a8a6106f_cgraph">
-<area shape="rect" id="node2" href="main_8cpp.html#a22c3fce0bba99e34d617dafbf4f1f54e" title="buildModelWithAllImplemented\lComponents" alt="" coords="139,398,341,439"/><area shape="rect" id="node3" href="class_model.html#a144f16211e64bdc0ac4622cda5f5f4ae" title="Model::addTraceListener" alt="" coords="433,5,599,32"/><area shape="rect" id="node4" href="main_8cpp.html#a49c2cff373ab55daf6bd94173ed21575" title="traceHandler" alt="" coords="468,107,564,133"/><area shape="rect" id="node6" href="class_model.html#ad94736b0e6c53b3dedd112f21506092a" title="Model::addTraceReportListener" alt="" coords="414,157,618,184"/><area shape="rect" id="node7" href="class_model.html#a06f7035263e7ad33360651a9569ed2d6" title="Model::addTraceSimulation\lListener" alt="" coords="426,209,606,250"/><area shape="rect" id="node8" href="main_8cpp.html#a68baabbb892a3a6f875ef4c1c764dbcc" title="traceSimulationHandler" alt="" coords="437,56,595,83"/><area shape="rect" id="node9" href="class_source_model_component.html#ab1c513f6c32f4bccbca41ce87c415e00" title="SourceModelComponent\l::setTimeBetweenCreationsExpression" alt="" coords="391,274,641,315"/><area shape="rect" id="node10" href="class_source_model_component.html#a970939206ab664141633f75e42abfc8e" title="SourceModelComponent\l::setTimeUnit" alt="" coords="433,339,599,381"/><area shape="rect" id="node11" href="class_seize.html#a2bdaa616c4fd499f754099eb59729547" title="Seize::setResourceName" alt="" coords="430,507,602,533"/><area shape="rect" id="node23" href="class_delay.html#a683b53af607a424477acb946eb3afdfc" title="Delay::setDelayExpression" alt="" coords="425,608,607,635"/><area shape="rect" id="node24" href="class_release.html#a26fda460abe6f9a92872027014c41d4a" title="Release::setResourceName" alt="" coords="423,456,609,483"/><area shape="rect" id="node25" href="class_release.html#ae845be9db739fbb317bd05f0b0fe21c5" title="Release::setQueueName" alt="" coords="431,557,601,584"/><area shape="rect" id="node27" href="class_seize.html#a37f2b1a10e1ae390d5186a87bdebe30a" title="Seize::getQueueName" alt="" coords="439,405,593,432"/><area shape="rect" id="node28" href="class_model.html#ae5773d78fc47cb35be7fbeb74b7d63e4" title="Model::getComponents" alt="" coords="437,659,595,685"/><area shape="rect" id="node29" href="class_list.html#a518d00fd77740525522949d4316e8826" title="List::insert" alt="" coords="475,709,557,736"/><area shape="rect" id="node30" href="class_model_component.html#a89fe8e3fb064c68aebbecd36eeed7d43" title="ModelComponent::getNextComponents" alt="" coords="390,760,642,787"/><area shape="rect" id="node5" href="class_trace_event.html#a7d38a69ad31f86e77a10b9e7a88a6d9c" title="TraceEvent::getText" alt="" coords="700,81,841,108"/><area shape="rect" id="node12" href="class_model_infrastructure.html#ac06ca99d36c8d1a957697ef003e979b1" title="ModelInfrastructure\l::getName" alt="" coords="703,331,838,373"/><area shape="rect" id="node13" href="class_model.html#ab460d8d215b5e4fb353f129c04493fa5" title="Model::getInfrastructure" alt="" coords="691,499,851,525"/><area shape="rect" id="node14" href="class_model.html#a43ca6ff93bd0b9fbc4c2792962e6b4ed" title="Model::getInfrastructures" alt="" coords="899,633,1066,660"/><area shape="rect" id="node18" href="class_linked_by.html#a5f1cd64ec1f6eb15f06d3332071d82b7" title="LinkedBy::isLinked" alt="" coords="705,448,837,475"/><area shape="rect" id="node19" href="class_model_infrastructure.html#a8ebb1f9b4475e732d31b6c8980ddccc0" title="ModelInfrastructure\l::setName" alt="" coords="703,550,838,591"/><area shape="rect" id="node20" href="class_resource.html#a0e5ec475e2601bdb33644468e86f6f10" title="Resource::~Resource" alt="" coords="695,397,846,424"/><area shape="rect" id="node21" href="class_linked_by.html#a2cd33b134ec4bf9043d0bf7e7d4d8f25" title="LinkedBy::removeLink" alt="" coords="695,616,846,643"/><area shape="rect" id="node22" href="class_linked_by.html#afbfa186e0511d6ce2efdb58c89d834c9" title="LinkedBy::addLink" alt="" coords="706,667,835,693"/><area shape="rect" id="node17" href="class_list.html#a570498345450f635b72d1ca2675145cc" title="List::getList" alt="" coords="937,499,1028,525"/><area shape="rect" id="node15" href="class_list.html#a31a37746c0d960f2f2bb4071b2735c5e" title="List::setSortFunc" alt="" coords="1121,604,1244,631"/><area shape="rect" id="node16" href="class_model_infrastructure.html#aa4d3fa8f302cc6dc4fccdd3187e6a168" title="ModelInfrastructure\l::getId" alt="" coords="1115,655,1250,697"/><area shape="rect" id="node26" href="class_queue.html#a00d119db8fa3050da37746e82cbcf94f" title="Queue::~Queue" alt="" coords="713,819,828,845"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a22c3fce0bba99e34d617dafbf4f1f54e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void buildModelWithAllImplementedComponents </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_model.html">Model</a> *&#160;</td>
-          <td class="paramname"><em>model</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="main_8cpp_a22c3fce0bba99e34d617dafbf4f1f54e_cgraph.png" border="0" usemap="#main_8cpp_a22c3fce0bba99e34d617dafbf4f1f54e_cgraph" alt=""/></div>
-<map name="main_8cpp_a22c3fce0bba99e34d617dafbf4f1f54e_cgraph" id="main_8cpp_a22c3fce0bba99e34d617dafbf4f1f54e_cgraph">
-<area shape="rect" id="node2" href="class_model.html#a144f16211e64bdc0ac4622cda5f5f4ae" title="Model::addTraceListener" alt="" coords="300,5,465,32"/><area shape="rect" id="node3" href="main_8cpp.html#a49c2cff373ab55daf6bd94173ed21575" title="traceHandler" alt="" coords="335,107,431,133"/><area shape="rect" id="node5" href="class_model.html#ad94736b0e6c53b3dedd112f21506092a" title="Model::addTraceReportListener" alt="" coords="281,157,485,184"/><area shape="rect" id="node6" href="class_model.html#a06f7035263e7ad33360651a9569ed2d6" title="Model::addTraceSimulation\lListener" alt="" coords="293,209,473,250"/><area shape="rect" id="node7" href="main_8cpp.html#a68baabbb892a3a6f875ef4c1c764dbcc" title="traceSimulationHandler" alt="" coords="304,56,461,83"/><area shape="rect" id="node8" href="class_source_model_component.html#ab1c513f6c32f4bccbca41ce87c415e00" title="SourceModelComponent\l::setTimeBetweenCreationsExpression" alt="" coords="258,274,507,315"/><area shape="rect" id="node9" href="class_source_model_component.html#a970939206ab664141633f75e42abfc8e" title="SourceModelComponent\l::setTimeUnit" alt="" coords="300,339,465,381"/><area shape="rect" id="node10" href="class_seize.html#a2bdaa616c4fd499f754099eb59729547" title="Seize::setResourceName" alt="" coords="297,507,469,533"/><area shape="rect" id="node22" href="class_delay.html#a683b53af607a424477acb946eb3afdfc" title="Delay::setDelayExpression" alt="" coords="292,608,473,635"/><area shape="rect" id="node23" href="class_release.html#a26fda460abe6f9a92872027014c41d4a" title="Release::setResourceName" alt="" coords="289,456,476,483"/><area shape="rect" id="node24" href="class_release.html#ae845be9db739fbb317bd05f0b0fe21c5" title="Release::setQueueName" alt="" coords="298,557,467,584"/><area shape="rect" id="node26" href="class_seize.html#a37f2b1a10e1ae390d5186a87bdebe30a" title="Seize::getQueueName" alt="" coords="305,405,460,432"/><area shape="rect" id="node27" href="class_model.html#ae5773d78fc47cb35be7fbeb74b7d63e4" title="Model::getComponents" alt="" coords="304,659,461,685"/><area shape="rect" id="node28" href="class_list.html#a518d00fd77740525522949d4316e8826" title="List::insert" alt="" coords="341,709,424,736"/><area shape="rect" id="node29" href="class_model_component.html#a89fe8e3fb064c68aebbecd36eeed7d43" title="ModelComponent::getNextComponents" alt="" coords="257,760,509,787"/><area shape="rect" id="node4" href="class_trace_event.html#a7d38a69ad31f86e77a10b9e7a88a6d9c" title="TraceEvent::getText" alt="" coords="567,81,708,108"/><area shape="rect" id="node11" href="class_model_infrastructure.html#ac06ca99d36c8d1a957697ef003e979b1" title="ModelInfrastructure\l::getName" alt="" coords="570,331,705,373"/><area shape="rect" id="node12" href="class_model.html#ab460d8d215b5e4fb353f129c04493fa5" title="Model::getInfrastructure" alt="" coords="557,499,717,525"/><area shape="rect" id="node13" href="class_model.html#a43ca6ff93bd0b9fbc4c2792962e6b4ed" title="Model::getInfrastructures" alt="" coords="766,633,933,660"/><area shape="rect" id="node17" href="class_linked_by.html#a5f1cd64ec1f6eb15f06d3332071d82b7" title="LinkedBy::isLinked" alt="" coords="571,448,703,475"/><area shape="rect" id="node18" href="class_model_infrastructure.html#a8ebb1f9b4475e732d31b6c8980ddccc0" title="ModelInfrastructure\l::setName" alt="" coords="570,550,705,591"/><area shape="rect" id="node19" href="class_resource.html#a0e5ec475e2601bdb33644468e86f6f10" title="Resource::~Resource" alt="" coords="562,397,713,424"/><area shape="rect" id="node20" href="class_linked_by.html#a2cd33b134ec4bf9043d0bf7e7d4d8f25" title="LinkedBy::removeLink" alt="" coords="562,616,713,643"/><area shape="rect" id="node21" href="class_linked_by.html#afbfa186e0511d6ce2efdb58c89d834c9" title="LinkedBy::addLink" alt="" coords="573,667,702,693"/><area shape="rect" id="node16" href="class_list.html#a570498345450f635b72d1ca2675145cc" title="List::getList" alt="" coords="804,499,895,525"/><area shape="rect" id="node14" href="class_list.html#a31a37746c0d960f2f2bb4071b2735c5e" title="List::setSortFunc" alt="" coords="988,604,1111,631"/><area shape="rect" id="node15" href="class_model_infrastructure.html#aa4d3fa8f302cc6dc4fccdd3187e6a168" title="ModelInfrastructure\l::getId" alt="" coords="982,655,1117,697"/><area shape="rect" id="node25" href="class_queue.html#a00d119db8fa3050da37746e82cbcf94f" title="Queue::~Queue" alt="" coords="580,819,695,845"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a5981de61ae987a3694de07224dbca746"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void buildSimpleCreateDelayDisposeModel </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_model.html">Model</a> *&#160;</td>
-          <td class="paramname"><em>model</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="main_8cpp_a5981de61ae987a3694de07224dbca746_cgraph.png" border="0" usemap="#main_8cpp_a5981de61ae987a3694de07224dbca746_cgraph" alt=""/></div>
-<map name="main_8cpp_a5981de61ae987a3694de07224dbca746_cgraph" id="main_8cpp_a5981de61ae987a3694de07224dbca746_cgraph">
-<area shape="rect" id="node2" href="class_model.html#a144f16211e64bdc0ac4622cda5f5f4ae" title="Model::addTraceListener" alt="" coords="308,5,473,32"/><area shape="rect" id="node3" href="main_8cpp.html#a49c2cff373ab55daf6bd94173ed21575" title="traceHandler" alt="" coords="343,56,439,83"/><area shape="rect" id="node5" href="class_model.html#ad94736b0e6c53b3dedd112f21506092a" title="Model::addTraceReportListener" alt="" coords="289,107,493,133"/><area shape="rect" id="node6" href="class_model.html#a06f7035263e7ad33360651a9569ed2d6" title="Model::addTraceSimulation\lListener" alt="" coords="301,158,481,199"/><area shape="rect" id="node7" href="main_8cpp.html#a68baabbb892a3a6f875ef4c1c764dbcc" title="traceSimulationHandler" alt="" coords="312,224,469,251"/><area shape="rect" id="node8" href="class_source_model_component.html#ab1c513f6c32f4bccbca41ce87c415e00" title="SourceModelComponent\l::setTimeBetweenCreationsExpression" alt="" coords="266,275,515,317"/><area shape="rect" id="node9" href="class_source_model_component.html#a970939206ab664141633f75e42abfc8e" title="SourceModelComponent\l::setTimeUnit" alt="" coords="308,341,473,382"/><area shape="rect" id="node10" href="class_delay.html#a683b53af607a424477acb946eb3afdfc" title="Delay::setDelayExpression" alt="" coords="300,407,481,433"/><area shape="rect" id="node11" href="class_model.html#ae5773d78fc47cb35be7fbeb74b7d63e4" title="Model::getComponents" alt="" coords="312,457,469,484"/><area shape="rect" id="node12" href="class_list.html#a518d00fd77740525522949d4316e8826" title="List::insert" alt="" coords="349,508,432,535"/><area shape="rect" id="node13" href="class_model_component.html#a89fe8e3fb064c68aebbecd36eeed7d43" title="ModelComponent::getNextComponents" alt="" coords="265,559,517,585"/><area shape="rect" id="node4" href="class_trace_event.html#a7d38a69ad31f86e77a10b9e7a88a6d9c" title="TraceEvent::getText" alt="" coords="565,140,707,167"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a5168010deba14b290a849f0507e974eb"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void buildSimulationSystem </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="main_8cpp_a5168010deba14b290a849f0507e974eb_cgraph.png" border="0" usemap="#main_8cpp_a5168010deba14b290a849f0507e974eb_cgraph" alt=""/></div>
-<map name="main_8cpp_a5168010deba14b290a849f0507e974eb_cgraph" id="main_8cpp_a5168010deba14b290a849f0507e974eb_cgraph">
-<area shape="rect" id="node2" href="main_8cpp.html#aeea741000e292b33dca181a0a8a6106f" title="buildModel" alt="" coords="242,612,326,638"/><area shape="rect" id="node30" href="class_list.html#a518d00fd77740525522949d4316e8826" title="List::insert" alt="" coords="744,789,827,816"/><area shape="rect" id="node32" href="class_simulator.html#adf2949b99c40c3c94c790786de1a038f" title="Simulator::getModels" alt="" coords="211,840,357,866"/><area shape="rect" id="node33" href="class_model.html#ae3b293adffbef6fd254d661ceeb2e116" title="Model::checkModel" alt="" coords="442,840,577,866"/><area shape="rect" id="node36" href="class_model.html#ae099910781f5267a51fb5d607246af4a" title="Model::saveModel" alt="" coords="220,992,348,1018"/><area shape="rect" id="node38" href="class_model.html#a6fd6613a5141552a6493eb3a840cde24" title="Model::startSimulation" alt="" coords="208,941,360,968"/><area shape="rect" id="node42" href="class_model.html#a44c66f552308e7a6a5701801186a8637" title="Model::showReports" alt="" coords="213,1042,355,1069"/><area shape="rect" id="node3" href="main_8cpp.html#a22c3fce0bba99e34d617dafbf4f1f54e" title="buildModelWithAllImplemented\lComponents" alt="" coords="409,452,610,494"/><area shape="rect" id="node4" href="class_model.html#a144f16211e64bdc0ac4622cda5f5f4ae" title="Model::addTraceListener" alt="" coords="703,688,868,714"/><area shape="rect" id="node5" href="main_8cpp.html#a49c2cff373ab55daf6bd94173ed21575" title="traceHandler" alt="" coords="737,485,833,512"/><area shape="rect" id="node7" href="class_model.html#ad94736b0e6c53b3dedd112f21506092a" title="Model::addTraceReportListener" alt="" coords="683,85,887,112"/><area shape="rect" id="node8" href="class_model.html#a06f7035263e7ad33360651a9569ed2d6" title="Model::addTraceSimulation\lListener" alt="" coords="695,136,875,178"/><area shape="rect" id="node9" href="main_8cpp.html#a68baabbb892a3a6f875ef4c1c764dbcc" title="traceSimulationHandler" alt="" coords="707,738,864,765"/><area shape="rect" id="node10" href="class_source_model_component.html#ab1c513f6c32f4bccbca41ce87c415e00" title="SourceModelComponent\l::setTimeBetweenCreationsExpression" alt="" coords="661,202,910,243"/><area shape="rect" id="node11" href="class_source_model_component.html#a970939206ab664141633f75e42abfc8e" title="SourceModelComponent\l::setTimeUnit" alt="" coords="703,267,868,308"/><area shape="rect" id="node12" href="class_seize.html#a2bdaa616c4fd499f754099eb59729547" title="Seize::setResourceName" alt="" coords="699,333,871,360"/><area shape="rect" id="node24" href="class_delay.html#a683b53af607a424477acb946eb3afdfc" title="Delay::setDelayExpression" alt="" coords="695,536,876,562"/><area shape="rect" id="node25" href="class_release.html#a26fda460abe6f9a92872027014c41d4a" title="Release::setResourceName" alt="" coords="692,34,879,61"/><area shape="rect" id="node26" href="class_release.html#ae845be9db739fbb317bd05f0b0fe21c5" title="Release::setQueueName" alt="" coords="701,384,870,410"/><area shape="rect" id="node28" href="class_seize.html#a37f2b1a10e1ae390d5186a87bdebe30a" title="Seize::getQueueName" alt="" coords="708,434,863,461"/><area shape="rect" id="node29" href="class_model.html#ae5773d78fc47cb35be7fbeb74b7d63e4" title="Model::getComponents" alt="" coords="707,586,864,613"/><area shape="rect" id="node31" href="class_model_component.html#a89fe8e3fb064c68aebbecd36eeed7d43" title="ModelComponent::getNextComponents" alt="" coords="659,637,911,664"/><area shape="rect" id="node6" href="class_trace_event.html#a7d38a69ad31f86e77a10b9e7a88a6d9c" title="TraceEvent::getText" alt="" coords="969,666,1111,693"/><area shape="rect" id="node13" href="class_model_infrastructure.html#ac06ca99d36c8d1a957697ef003e979b1" title="ModelInfrastructure\l::getName" alt="" coords="973,427,1107,468"/><area shape="rect" id="node14" href="class_model.html#ab460d8d215b5e4fb353f129c04493fa5" title="Model::getInfrastructure" alt="" coords="960,157,1120,184"/><area shape="rect" id="node15" href="class_model.html#a43ca6ff93bd0b9fbc4c2792962e6b4ed" title="Model::getInfrastructures" alt="" coords="1169,292,1335,318"/><area shape="rect" id="node19" href="class_linked_by.html#a5f1cd64ec1f6eb15f06d3332071d82b7" title="LinkedBy::isLinked" alt="" coords="974,258,1106,285"/><area shape="rect" id="node20" href="class_model_infrastructure.html#a8ebb1f9b4475e732d31b6c8980ddccc0" title="ModelInfrastructure\l::setName" alt="" coords="973,310,1107,351"/><area shape="rect" id="node21" href="class_resource.html#a0e5ec475e2601bdb33644468e86f6f10" title="Resource::~Resource" alt="" coords="965,56,1115,82"/><area shape="rect" id="node22" href="class_linked_by.html#a2cd33b134ec4bf9043d0bf7e7d4d8f25" title="LinkedBy::removeLink" alt="" coords="965,106,1115,133"/><area shape="rect" id="node23" href="class_linked_by.html#afbfa186e0511d6ce2efdb58c89d834c9" title="LinkedBy::addLink" alt="" coords="975,208,1105,234"/><area shape="rect" id="node18" href="class_list.html#a570498345450f635b72d1ca2675145cc" title="List::getList" alt="" coords="1207,157,1297,184"/><area shape="rect" id="node16" href="class_list.html#a31a37746c0d960f2f2bb4071b2735c5e" title="List::setSortFunc" alt="" coords="1391,262,1513,289"/><area shape="rect" id="node17" href="class_model_infrastructure.html#aa4d3fa8f302cc6dc4fccdd3187e6a168" title="ModelInfrastructure\l::getId" alt="" coords="1385,314,1519,355"/><area shape="rect" id="node27" href="class_queue.html#a00d119db8fa3050da37746e82cbcf94f" title="Queue::~Queue" alt="" coords="983,544,1097,570"/><area shape="rect" id="node34" href="class_model.html#a5de086b514742e84b61ac9a7b128ae8b" title="Model::trace" alt="" coords="738,890,833,917"/><area shape="rect" id="node35" href="class_model_checker__if.html#a83bc988696c49a17e0e7668e24743251" title="ModelChecker_if::checkAll" alt="" coords="696,840,875,866"/><area shape="rect" id="node37" href="class_model_persistence__if.html#a960acf977c56ed52a153524c6ed8d4c6" title="ModelPersistence_if\l::save" alt="" coords="439,1094,579,1135"/><area shape="rect" id="node39" href="class_list.html#a3737ca60365287ce663393d8c07d1a41" title="List::empty" alt="" coords="466,941,553,968"/><area shape="rect" id="node40" href="class_model.html#a6bb4d4fbf90f49c990a00385a9df18d9" title="Model::getReplicationLength" alt="" coords="416,992,603,1018"/><area shape="rect" id="node41" href="class_parser__if.html#a4a5dacf0588b29e7eb6c639ae2701fa6" title="Parser_if::parse" alt="" coords="452,1042,567,1069"/></map>
-</div>
-</p>
-
-</div>
-</div>
 <a class="anchor" id="a3c04138a5bfe5d72780bb7e82a18e627"></a>
 <div class="memitem">
 <div class="memproto">
@@ -280,86 +154,14 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="main_8cpp_source.html#l00022">22</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627_cgraph.png" border="0" usemap="#main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627_cgraph" alt=""/></div>
 <map name="main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627_cgraph" id="main_8cpp_a3c04138a5bfe5d72780bb7e82a18e627_cgraph">
-<area shape="rect" id="node2" href="main_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="104,890,259,917"/><area shape="rect" id="node3" href="main_8cpp.html#aeea741000e292b33dca181a0a8a6106f" title="buildModel" alt="" coords="341,612,425,638"/><area shape="rect" id="node31" href="class_list.html#a518d00fd77740525522949d4316e8826" title="List::insert" alt="" coords="843,789,925,816"/><area shape="rect" id="node33" href="class_simulator.html#adf2949b99c40c3c94c790786de1a038f" title="Simulator::getModels" alt="" coords="310,840,455,866"/><area shape="rect" id="node34" href="class_model.html#ae3b293adffbef6fd254d661ceeb2e116" title="Model::checkModel" alt="" coords="541,840,675,866"/><area shape="rect" id="node37" href="class_model.html#ae099910781f5267a51fb5d607246af4a" title="Model::saveModel" alt="" coords="319,992,447,1018"/><area shape="rect" id="node39" href="class_model.html#a6fd6613a5141552a6493eb3a840cde24" title="Model::startSimulation" alt="" coords="307,941,459,968"/><area shape="rect" id="node43" href="class_model.html#a44c66f552308e7a6a5701801186a8637" title="Model::showReports" alt="" coords="311,1042,454,1069"/><area shape="rect" id="node4" href="main_8cpp.html#a22c3fce0bba99e34d617dafbf4f1f54e" title="buildModelWithAllImplemented\lComponents" alt="" coords="507,452,709,494"/><area shape="rect" id="node5" href="class_model.html#a144f16211e64bdc0ac4622cda5f5f4ae" title="Model::addTraceListener" alt="" coords="801,688,967,714"/><area shape="rect" id="node6" href="main_8cpp.html#a49c2cff373ab55daf6bd94173ed21575" title="traceHandler" alt="" coords="836,485,932,512"/><area shape="rect" id="node8" href="class_model.html#ad94736b0e6c53b3dedd112f21506092a" title="Model::addTraceReportListener" alt="" coords="782,85,986,112"/><area shape="rect" id="node9" href="class_model.html#a06f7035263e7ad33360651a9569ed2d6" title="Model::addTraceSimulation\lListener" alt="" coords="794,136,974,178"/><area shape="rect" id="node10" href="main_8cpp.html#a68baabbb892a3a6f875ef4c1c764dbcc" title="traceSimulationHandler" alt="" coords="805,738,963,765"/><area shape="rect" id="node11" href="class_source_model_component.html#ab1c513f6c32f4bccbca41ce87c415e00" title="SourceModelComponent\l::setTimeBetweenCreationsExpression" alt="" coords="759,202,1009,243"/><area shape="rect" id="node12" href="class_source_model_component.html#a970939206ab664141633f75e42abfc8e" title="SourceModelComponent\l::setTimeUnit" alt="" coords="801,267,967,308"/><area shape="rect" id="node13" href="class_seize.html#a2bdaa616c4fd499f754099eb59729547" title="Seize::setResourceName" alt="" coords="798,333,970,360"/><area shape="rect" id="node25" href="class_delay.html#a683b53af607a424477acb946eb3afdfc" title="Delay::setDelayExpression" alt="" coords="793,536,975,562"/><area shape="rect" id="node26" href="class_release.html#a26fda460abe6f9a92872027014c41d4a" title="Release::setResourceName" alt="" coords="791,34,977,61"/><area shape="rect" id="node27" href="class_release.html#ae845be9db739fbb317bd05f0b0fe21c5" title="Release::setQueueName" alt="" coords="799,384,969,410"/><area shape="rect" id="node29" href="class_seize.html#a37f2b1a10e1ae390d5186a87bdebe30a" title="Seize::getQueueName" alt="" coords="807,434,961,461"/><area shape="rect" id="node30" href="class_model.html#ae5773d78fc47cb35be7fbeb74b7d63e4" title="Model::getComponents" alt="" coords="805,586,963,613"/><area shape="rect" id="node32" href="class_model_component.html#a89fe8e3fb064c68aebbecd36eeed7d43" title="ModelComponent::getNextComponents" alt="" coords="758,637,1010,664"/><area shape="rect" id="node7" href="class_trace_event.html#a7d38a69ad31f86e77a10b9e7a88a6d9c" title="TraceEvent::getText" alt="" coords="1068,666,1209,693"/><area shape="rect" id="node14" href="class_model_infrastructure.html#ac06ca99d36c8d1a957697ef003e979b1" title="ModelInfrastructure\l::getName" alt="" coords="1071,427,1206,468"/><area shape="rect" id="node15" href="class_model.html#ab460d8d215b5e4fb353f129c04493fa5" title="Model::getInfrastructure" alt="" coords="1059,157,1219,184"/><area shape="rect" id="node16" href="class_model.html#a43ca6ff93bd0b9fbc4c2792962e6b4ed" title="Model::getInfrastructures" alt="" coords="1267,292,1434,318"/><area shape="rect" id="node20" href="class_linked_by.html#a5f1cd64ec1f6eb15f06d3332071d82b7" title="LinkedBy::isLinked" alt="" coords="1073,258,1205,285"/><area shape="rect" id="node21" href="class_model_infrastructure.html#a8ebb1f9b4475e732d31b6c8980ddccc0" title="ModelInfrastructure\l::setName" alt="" coords="1071,310,1206,351"/><area shape="rect" id="node22" href="class_resource.html#a0e5ec475e2601bdb33644468e86f6f10" title="Resource::~Resource" alt="" coords="1063,56,1214,82"/><area shape="rect" id="node23" href="class_linked_by.html#a2cd33b134ec4bf9043d0bf7e7d4d8f25" title="LinkedBy::removeLink" alt="" coords="1063,106,1214,133"/><area shape="rect" id="node24" href="class_linked_by.html#afbfa186e0511d6ce2efdb58c89d834c9" title="LinkedBy::addLink" alt="" coords="1074,208,1203,234"/><area shape="rect" id="node19" href="class_list.html#a570498345450f635b72d1ca2675145cc" title="List::getList" alt="" coords="1305,157,1396,184"/><area shape="rect" id="node17" href="class_list.html#a31a37746c0d960f2f2bb4071b2735c5e" title="List::setSortFunc" alt="" coords="1489,262,1612,289"/><area shape="rect" id="node18" href="class_model_infrastructure.html#aa4d3fa8f302cc6dc4fccdd3187e6a168" title="ModelInfrastructure\l::getId" alt="" coords="1483,314,1618,355"/><area shape="rect" id="node28" href="class_queue.html#a00d119db8fa3050da37746e82cbcf94f" title="Queue::~Queue" alt="" coords="1081,544,1196,570"/><area shape="rect" id="node35" href="class_model.html#a5de086b514742e84b61ac9a7b128ae8b" title="Model::trace" alt="" coords="837,890,931,917"/><area shape="rect" id="node36" href="class_model_checker__if.html#a83bc988696c49a17e0e7668e24743251" title="ModelChecker_if::checkAll" alt="" coords="795,840,973,866"/><area shape="rect" id="node38" href="class_model_persistence__if.html#a960acf977c56ed52a153524c6ed8d4c6" title="ModelPersistence_if\l::save" alt="" coords="538,1094,678,1135"/><area shape="rect" id="node40" href="class_list.html#a3737ca60365287ce663393d8c07d1a41" title="List::empty" alt="" coords="565,941,651,968"/><area shape="rect" id="node41" href="class_model.html#a6bb4d4fbf90f49c990a00385a9df18d9" title="Model::getReplicationLength" alt="" coords="515,992,701,1018"/><area shape="rect" id="node42" href="class_parser__if.html#a4a5dacf0588b29e7eb6c639ae2701fa6" title="Parser_if::parse" alt="" coords="551,1042,665,1069"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="af7011a62619acc9f81bcb4c5a5fafbe8"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void testStudentSoftwareDevelopments </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="main_8cpp_af7011a62619acc9f81bcb4c5a5fafbe8_cgraph.png" border="0" usemap="#main_8cpp_af7011a62619acc9f81bcb4c5a5fafbe8_cgraph" alt=""/></div>
-<map name="main_8cpp_af7011a62619acc9f81bcb4c5a5fafbe8_cgraph" id="main_8cpp_af7011a62619acc9f81bcb4c5a5fafbe8_cgraph">
-<area shape="rect" id="node2" href="class_simulator.html#a7477e74d6751ea9e4b841178b0c42f34" title="Simulator::getSampler" alt="" coords="307,5,458,32"/><area shape="rect" id="node3" href="class_collector_datafile__if.html#ab826bbf5472a5cfdbf2f2c30273da8eb" title="CollectorDatafile_if\l::setDataFilename" alt="" coords="316,57,449,98"/><area shape="rect" id="node4" href="class_sampler__if.html#adb21edf9170ad5d9b27f4788db74bafa" title="Sampler_if::getRNGparameters" alt="" coords="280,123,485,149"/><area shape="rect" id="node5" href="class_sampler__if.html#a630a0cbbef6e49869063530b03d3bb35" title="Sampler_if::setRNGparameters" alt="" coords="280,173,485,200"/><area shape="rect" id="node6" href="class_sampler__if.html#a559f1f29b5e4455c9e59cf00d622da47" title="Sampler_if::sampleNormal" alt="" coords="295,224,471,251"/><area shape="rect" id="node7" href="class_collector__if.html#ac7b83bce8ddb4903d247c1eddd656171" title="Collector_if::addValue" alt="" coords="307,275,458,301"/><area shape="rect" id="node8" href="class_statistics__if.html#a203ffe8e5215e887b716b7810023adc6" title="Statistics_if::setCollector" alt="" coords="298,325,467,352"/><area shape="rect" id="node9" href="class_statistics__if.html#a1e76d98f8a61fe03df9e36194eaa5722" title="Statistics_if::numElements" alt="" coords="293,376,472,403"/><area shape="rect" id="node10" href="class_statistics__if.html#a791ab6bbd166254429a3131bdf6e8dd6" title="Statistics_if::average" alt="" coords="310,427,455,453"/><area shape="rect" id="node11" href="class_statistics__if.html#a88d2478c6dfd8de19436ab248080a509" title="Statistics_if::stddeviation" alt="" coords="298,477,467,504"/><area shape="rect" id="node12" href="class_statistics__if.html#a093e08a43aefa0738f94ea4f68eaa40d" title="Statistics_if::halfWidth\lConfidenceInterval" alt="" coords="305,529,460,570"/><area shape="rect" id="node13" href="class_statistics__if.html#af85daafcb428420ceeacdd4807c045eb" title="Statistics_if::quartil" alt="" coords="315,595,450,621"/><area shape="rect" id="node14" href="class_statistics__if.html#a0414c1df9272ca674cba6fc30f027684" title="Statistics_if::mediane" alt="" coords="309,645,457,672"/><area shape="rect" id="node15" href="class_statistics__if.html#ab86db530e84375431be9d13c88424de3" title="Statistics_if::histogram\lNumClasses" alt="" coords="305,697,461,738"/><area shape="rect" id="node16" href="class_statistics__if.html#a7b72e8473ff71da5f8b77e4f2c15a407" title="Statistics_if::histogram\lClassFrequency" alt="" coords="305,762,461,803"/><area shape="rect" id="node17" href="class_simulator.html#a7498ab51b3112e487f73eefb6d384b74" title="Simulator::getFitter" alt="" coords="316,828,449,855"/><area shape="rect" id="node18" href="class_fitter__if.html#aa2d2f13548a09a2f727a4190a6b9c2dd" title="Fitter_if::setDataFilename" alt="" coords="296,879,469,905"/><area shape="rect" id="node19" href="class_collector_datafile__if.html#a81d109f34c25f5295f76ba13f4234a3c" title="CollectorDatafile_if\l::getDataFilename" alt="" coords="316,930,449,971"/><area shape="rect" id="node20" href="class_fitter__if.html#a53e98635fcdee314e8ade8089f41ddad" title="Fitter_if::isNormalDistributed" alt="" coords="288,996,477,1023"/><area shape="rect" id="node21" href="class_fitter__if.html#adec53dfede4bdb31b175e57e6a2c2fc7" title="Fitter_if::fitUniform" alt="" coords="317,1047,448,1073"/><area shape="rect" id="node22" href="class_fitter__if.html#a2bfc41c6a8044520aeafb2c5c71fe570" title="Fitter_if::fitTriangular" alt="" coords="311,1097,454,1124"/><area shape="rect" id="node23" href="class_fitter__if.html#af95b4de00b7ed5d67b10d9ee458379bf" title="Fitter_if::fitNormal" alt="" coords="319,1148,446,1175"/><area shape="rect" id="node24" href="class_fitter__if.html#a819a5ca8715ba4be30d2c7a3957aa467" title="Fitter_if::fitAll" alt="" coords="333,1199,433,1225"/><area shape="rect" id="node25" href="class_prob_distrib.html#a4ff9f4d4faa1c29eb970c2629b332032" title="ProbDistrib::uniform" alt="" coords="313,1249,452,1276"/><area shape="rect" id="node26" href="class_prob_distrib.html#a5ca4ebda2818070339b707a880e3d1a4" title="ProbDistrib::normal" alt="" coords="315,1300,450,1327"/><area shape="rect" id="node27" href="class_integrator__if.html#a841c836fd72d4c428178d1e28a999ec9" title="Integrator_if::integrate" alt="" coords="308,1351,457,1377"/><area shape="rect" id="node28" href="class_hypothesis_tester__if.html#ae7cfc801a3c0206844e3bc73e0b4234a" title="HypothesisTester_if\l::setDataFilename" alt="" coords="313,1402,452,1443"/><area shape="rect" id="node29" href="class_hypothesis_tester__if.html#a00a01e530acaf3f4db644b439c1c162e" title="HypothesisTester_if\l::testAverage" alt="" coords="313,1467,452,1509"/><area shape="rect" id="node30" href="class_hypothesis_tester__if.html#a1734abfa4bd0c3e8fc67c96172aca728" title="HypothesisTester_if\l::testVariance" alt="" coords="313,1533,452,1574"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a49c2cff373ab55daf6bd94173ed21575"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void traceHandler </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_trace_event.html">TraceEvent</a>&#160;</td>
-          <td class="paramname"><em>e</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="main_8cpp_a49c2cff373ab55daf6bd94173ed21575_cgraph.png" border="0" usemap="#main_8cpp_a49c2cff373ab55daf6bd94173ed21575_cgraph" alt=""/></div>
-<map name="main_8cpp_a49c2cff373ab55daf6bd94173ed21575_cgraph" id="main_8cpp_a49c2cff373ab55daf6bd94173ed21575_cgraph">
-<area shape="rect" id="node2" href="class_trace_event.html#a7d38a69ad31f86e77a10b9e7a88a6d9c" title="TraceEvent::getText" alt="" coords="149,5,291,32"/></map>
-</div>
-</p>
-
-</div>
-</div>
-<a class="anchor" id="a68baabbb892a3a6f875ef4c1c764dbcc"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void traceSimulationHandler </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_trace_simulation_event.html">TraceSimulationEvent</a>&#160;</td>
-          <td class="paramname"><em>e</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="main_8cpp_a68baabbb892a3a6f875ef4c1c764dbcc_cgraph.png" border="0" usemap="#main_8cpp_a68baabbb892a3a6f875ef4c1c764dbcc_cgraph" alt=""/></div>
-<map name="main_8cpp_a68baabbb892a3a6f875ef4c1c764dbcc_cgraph" id="main_8cpp_a68baabbb892a3a6f875ef4c1c764dbcc_cgraph">
-<area shape="rect" id="node2" href="class_trace_event.html#a7d38a69ad31f86e77a10b9e7a88a6d9c" title="TraceEvent::getText" alt="" coords="211,5,352,32"/></map>
+<area shape="rect" id="node2" href="class_genesys_application__if.html#a2b07e7803b410a4a8d0f87422dabb004" title="GenesysApplication\l_if::main" alt="" coords="104,5,243,46"/></map>
 </div>
 </p>
 
@@ -371,7 +173,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="main_8cpp.html">main.cpp</a></li>
-    <li class="footer">Generated on Tue Sep 4 2018 21:04:12 for RebornedGenESyS by
+    <li class="footer">Generated on Wed Oct 10 2018 20:34:03 for GenESyS - Generic and Expansible System Simulator [REBORN] by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

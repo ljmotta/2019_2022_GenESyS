@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['hypothesistester_5fif',['HypothesisTester_if',['../class_hypothesis_tester__if.html',1,'']]],
-  ['hypothesistestermyimpl1',['HypothesisTesterMyImpl1',['../class_hypothesis_tester_my_impl1.html',1,'']]]
+  ['factororinteractioncontribution',['FactorOrInteractionContribution',['../class_factor_or_interaction_contribution.html',1,'']]],
+  ['fitter_5fif',['Fitter_if',['../class_fitter__if.html',1,'']]],
+  ['fittermyimpl1',['FitterMyImpl1',['../class_fitter_my_impl1.html',1,'']]]
 ];

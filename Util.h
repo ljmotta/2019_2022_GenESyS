@@ -39,11 +39,12 @@ public:
 	enum TraceLevel {
 		TL_noTraces = 0,
 		TL_errors = 10,
-		TL_simulation = 20,
-		TL_transferOnly = 30,
-		TL_blockArrival = 40,
-		TL_blockInternal = 50,
-		TL_mostDetailed = 60
+		TL_report = 20,
+		TL_simulation = 30,
+		TL_transferOnly = 40,
+		TL_blockArrival = 50,
+		TL_blockInternal = 60,
+		TL_mostDetailed = 70
 	};
 public:
 	static Util::identitifcation _S_lastId;
@@ -52,7 +53,7 @@ public:
 
 	static double TimeUnitConvert(Util::TimeUnit timeUnit1, Util::TimeUnit timeUnit2);
 	//private:
-	static Util::identitifcation _GenerateNewIdOfType(std::string objtyp);
+	static Util::identitifcation GenerateNewIdOfType(std::string objtyp);
 
 public: // template implementations
 	template<class T> static std::string TypeOf() {

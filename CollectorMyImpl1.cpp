@@ -35,6 +35,6 @@ double CollectorMyImpl1::getLastValue() {
 	return this->_lastValue;
 }
 
-unsigned int CollectorMyImpl1::numElements() {
+unsigned long CollectorMyImpl1::numElements() {
 	return this->_numElements;
 }

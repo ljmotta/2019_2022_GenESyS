@@ -20,7 +20,7 @@
 class Assign : public ModelComponent {
 public:
 
-	enum DestinationType {
+	enum DestinationType { /* TODO: +- an enun is not a good idea. Should be a list of possible classes, so TypeOf could be set */
 		Attribute, Variable
 	};
 

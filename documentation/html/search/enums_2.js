@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['timeunit',['TimeUnit',['../class_util.html#aadbd82055afeaa7d4fb4da513de628ff',1,'Util']]],
-  ['tracelevel',['TraceLevel',['../class_util.html#a604561d00f5999b5ca280401140e58d9',1,'Util']]]
+  ['resourcerule',['ResourceRule',['../class_resource.html#a8e67503c93766e1ecb47c6a9d744f86d',1,'Resource']]],
+  ['resourcestate',['ResourceState',['../class_resource.html#ad7a514f9a27e0010b59e147b8368970f',1,'Resource']]],
+  ['resourcetype',['ResourceType',['../class_resource.html#ae2554291a9f2c6b3fedb01d0ca41bfd8',1,'Resource']]]
 ];

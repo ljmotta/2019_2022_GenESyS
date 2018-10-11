@@ -61,7 +61,7 @@ void Create::_loadInstance(std::list<std::string> words) {
 	this->_entitiesPerCreation = std::stoi((*it++));
 	this->_firstCreation = std::stoi((*it++));
 	this->_timeBetweenCreationsExpression = (*it++);
-	this->_timeBetweenCreationsTimeUnit = std::stoi((*it++));
+	this->_timeBetweenCreationsTimeUnit = std::stoi((*it++)); // bad enum convertion!
 	this->_maxCreations = std::stoi((*it++));
 	this->_entityType = (*it++);
 	this->_collectStatistics = std::stoi(*it++);

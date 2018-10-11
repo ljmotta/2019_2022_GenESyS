@@ -16,7 +16,6 @@
 
 #include "ModelInfrastructure.h"
 
-
 class Variable : public ModelInfrastructure {
 public:
 	Variable();

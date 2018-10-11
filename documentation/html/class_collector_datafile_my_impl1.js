@@ -8,6 +8,6 @@ var class_collector_datafile_my_impl1 =
     [ "getDataFilename", "class_collector_datafile_my_impl1.html#a5ebe8076b9eb9816a1b7d823943102cf", null ],
     [ "getLastValue", "class_collector_datafile_my_impl1.html#a5a29b2f71a4630c658fb83c047fb1054", null ],
     [ "getValue", "class_collector_datafile_my_impl1.html#a55a505d56f9b95a55473bdf1ab24cffe", null ],
-    [ "numElements", "class_collector_datafile_my_impl1.html#a6e20d49a94f677a7483412b8d9689950", null ],
+    [ "numElements", "class_collector_datafile_my_impl1.html#ac8ad59a3b664d082c8ca4fca9887148a", null ],
     [ "setDataFilename", "class_collector_datafile_my_impl1.html#ac4c401ae3cf4ccc723b6b9efa614ccd1", null ]
 ];

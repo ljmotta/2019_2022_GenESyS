@@ -24,6 +24,9 @@
 #include "ModelChecker_if.h"
 #include "Parser_if.h"
 #include "ModelPersistence_if.h"
+//for PAN
+#include "SimulationResponse.h"
+#include "SimulationControl.h"
 
 class Simulator;
 
@@ -52,6 +55,7 @@ public: // model control
 	void removeEntity(Entity* entity, bool collectStatistics);
 	void sendEntityToComponent(Entity* entity, ModelComponent* component, double timeDelay); /*! Used by components (ModelComponent) to send entities to another specific component, usually the next one connected to it, or used by the model itself, when processing an event (Event). */
 	double parseExpression(const std::string expression);
+	double parseExpression(const std::string expression,  bool* success, std::string* errorMessage);
 public: // traces
 	void addTraceListener(traceListener traceListener);
 	void addTraceErrorListener(traceErrorListener traceErrorListener);
@@ -109,12 +113,14 @@ public: // only gets
 	ModelInfrastructure* getInfrastructure(std::string infraTypename, Util::identitifcation id);
 	ModelInfrastructure* getInfrastructure(std::string infraTypename, std::string name);
 	std::list<std::string>* getInfrastructureTypenames() const;
+    List<SimulationControl*>* getControls() const;
+    List<SimulationResponse*>* getResponses() const;
 /*
  
  */	
 private: // simulation control
 	void _initSimulation();
-	void _initReplication(unsigned int currentReplicationNumber);
+	void _initReplication();
 	void _stepSimulation();
 	void _processEvent(Event* event);
 	void _showReplicationStatistics();
@@ -168,7 +174,10 @@ private: // read only public access (gets)
 	List<Event*>* _events;
 	// infrastructures
 	std::map<std::string, List<ModelInfrastructure*>*>* _infrastructures;
-
+	// for process analyser
+	List<SimulationResponse*>* _responses;
+	List<SimulationControl*>* _controls;
+	
 private: // no public access (no gets / sets)	
 	Simulator* _simulator;
 	bool _pauseRequested = false;
@@ -179,9 +188,9 @@ private: // no public access (no gets / sets)
 	double _lastTimeTraceSimulation = -1.0;
 	Util::identitifcation _lastEntityTraceSimulation = 0;
 	Util::identitifcation _lastModuleTraceSimulation = 0;
-	// needed?
 	Entity* _currentEntity;
 	ModelComponent* _currentComponent;
+	unsigned int _currentReplicationNumber;
 	Parser_if* _parser;
 	ModelChecker_if* _modelChecker;
 	ModelPersistence_if* _modelPersistence;

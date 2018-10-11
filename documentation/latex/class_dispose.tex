@@ -43,13 +43,20 @@ bool \hyperlink{class_dispose_aff15fbea8737b30efe9b3521d12350bd}{is\-Collect\-St
 \item 
 virtual void \hyperlink{class_dispose_a342eb428496534cdfd17524ad78b0c08}{\-\_\-execute} (\hyperlink{class_entity}{Entity} $\ast$entity)
 \item 
-virtual void \hyperlink{class_dispose_a2016b0e90d850753181417648557e3ce}{\-\_\-read\-Component} (std\-::list$<$ std\-::string $>$ words)
+virtual void \hyperlink{class_dispose_a245f73bff07925e3efc1eeffd84c9ac6}{\-\_\-load\-Instance} (std\-::list$<$ std\-::string $>$ words)
 \item 
-virtual std\-::list$<$ std\-::string $>$ $\ast$ \hyperlink{class_dispose_a2483f126094c4f58a2873ec7083a1903}{\-\_\-write\-Component} ()
+virtual std\-::list$<$ std\-::string $>$ $\ast$ \hyperlink{class_dispose_ae12482052fb78fa534dda5d4c0a74e3e}{\-\_\-save\-Instance} ()
 \item 
 virtual bool \hyperlink{class_dispose_a5ad64b97bbb16662aa9d914eda2a7e38}{\-\_\-verify\-Symbols} (std\-::string $\ast$error\-Message)
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 19 of file Dispose.\-h.
+
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -60,6 +67,10 @@ virtual bool \hyperlink{class_dispose_a5ad64b97bbb16662aa9d914eda2a7e38}{\-\_\-v
 \item[{{\bf Model} $\ast$}]{model}
 \end{DoxyParamCaption}
 )}}\label{class_dispose_a9b5ccd61252e7f36d747fd832debdfaa}
+
+
+Definition at line 17 of file Dispose.\-cpp.
+
 \hypertarget{class_dispose_a8d4515962baf1fd7c01912cb654aa683}{\index{Dispose@{Dispose}!Dispose@{Dispose}}
 \index{Dispose@{Dispose}!Dispose@{Dispose}}
 \subsubsection[{Dispose}]{\setlength{\rightskip}{0pt plus 5cm}Dispose\-::\-Dispose (
@@ -67,6 +78,10 @@ virtual bool \hyperlink{class_dispose_a5ad64b97bbb16662aa9d914eda2a7e38}{\-\_\-v
 \item[{const {\bf Dispose} \&}]{orig}
 \end{DoxyParamCaption}
 )}}\label{class_dispose_a8d4515962baf1fd7c01912cb654aa683}
+
+
+Definition at line 21 of file Dispose.\-cpp.
+
 \hypertarget{class_dispose_a2a2af23e9cbca66b02a142252a99096d}{\index{Dispose@{Dispose}!$\sim$\-Dispose@{$\sim$\-Dispose}}
 \index{$\sim$\-Dispose@{$\sim$\-Dispose}!Dispose@{Dispose}}
 \subsubsection[{$\sim$\-Dispose}]{\setlength{\rightskip}{0pt plus 5cm}Dispose\-::$\sim$\-Dispose (
@@ -74,6 +89,10 @@ virtual bool \hyperlink{class_dispose_a5ad64b97bbb16662aa9d914eda2a7e38}{\-\_\-v
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_dispose_a2a2af23e9cbca66b02a142252a99096d}
+
+
+Definition at line 24 of file Dispose.\-cpp.
+
 
 
 \subsection{Member Function Documentation}
@@ -90,6 +109,10 @@ Implements \hyperlink{class_model_component_ae3fcf8bbdd8368c882438424aa73f714}{M
 
 
 
+Definition at line 40 of file Dispose.\-cpp.
+
+
+
 Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -99,16 +122,35 @@ Here is the call graph for this function\-:\nopagebreak
 \end{figure}
 
 
-\hypertarget{class_dispose_a2016b0e90d850753181417648557e3ce}{\index{Dispose@{Dispose}!\-\_\-read\-Component@{\-\_\-read\-Component}}
-\index{\-\_\-read\-Component@{\-\_\-read\-Component}!Dispose@{Dispose}}
-\subsubsection[{\-\_\-read\-Component}]{\setlength{\rightskip}{0pt plus 5cm}void Dispose\-::\-\_\-read\-Component (
+\hypertarget{class_dispose_a245f73bff07925e3efc1eeffd84c9ac6}{\index{Dispose@{Dispose}!\-\_\-load\-Instance@{\-\_\-load\-Instance}}
+\index{\-\_\-load\-Instance@{\-\_\-load\-Instance}!Dispose@{Dispose}}
+\subsubsection[{\-\_\-load\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}void Dispose\-::\-\_\-load\-Instance (
 \begin{DoxyParamCaption}
 \item[{std\-::list$<$ std\-::string $>$}]{words}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_dispose_a2016b0e90d850753181417648557e3ce}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_dispose_a245f73bff07925e3efc1eeffd84c9ac6}
 
 
-Implements \hyperlink{class_model_component_aa16546b209d8fda2c8fa951e88652973}{Model\-Component}.
+Implements \hyperlink{class_model_infrastructure_ae118c8ad2ac9d4397c40d004af51b2dc}{Model\-Infrastructure}.
+
+
+
+Definition at line 46 of file Dispose.\-cpp.
+
+\hypertarget{class_dispose_ae12482052fb78fa534dda5d4c0a74e3e}{\index{Dispose@{Dispose}!\-\_\-save\-Instance@{\-\_\-save\-Instance}}
+\index{\-\_\-save\-Instance@{\-\_\-save\-Instance}!Dispose@{Dispose}}
+\subsubsection[{\-\_\-save\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<$ std\-::string $>$ $\ast$ Dispose\-::\-\_\-save\-Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_dispose_ae12482052fb78fa534dda5d4c0a74e3e}
+
+
+Implements \hyperlink{class_model_infrastructure_a3da2fd381c44752598bc448b207e8287}{Model\-Infrastructure}.
+
+
+
+Definition at line 50 of file Dispose.\-cpp.
 
 \hypertarget{class_dispose_a5ad64b97bbb16662aa9d914eda2a7e38}{\index{Dispose@{Dispose}!\-\_\-verify\-Symbols@{\-\_\-verify\-Symbols}}
 \index{\-\_\-verify\-Symbols@{\-\_\-verify\-Symbols}!Dispose@{Dispose}}
@@ -119,18 +161,11 @@ Implements \hyperlink{class_model_component_aa16546b209d8fda2c8fa951e88652973}{M
 )\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_dispose_a5ad64b97bbb16662aa9d914eda2a7e38}
 
 
-Implements \hyperlink{class_model_component_a183696468482133b2a09b761b7770521}{Model\-Component}.
-
-\hypertarget{class_dispose_a2483f126094c4f58a2873ec7083a1903}{\index{Dispose@{Dispose}!\-\_\-write\-Component@{\-\_\-write\-Component}}
-\index{\-\_\-write\-Component@{\-\_\-write\-Component}!Dispose@{Dispose}}
-\subsubsection[{\-\_\-write\-Component}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<$ std\-::string $>$ $\ast$ Dispose\-::\-\_\-write\-Component (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_dispose_a2483f126094c4f58a2873ec7083a1903}
+Implements \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a388}{Model\-Infrastructure}.
 
 
-Implements \hyperlink{class_model_component_a5847971e860713d9df3e41c603c772c0}{Model\-Component}.
+
+Definition at line 56 of file Dispose.\-cpp.
 
 \hypertarget{class_dispose_aff15fbea8737b30efe9b3521d12350bd}{\index{Dispose@{Dispose}!is\-Collect\-Statistics@{is\-Collect\-Statistics}}
 \index{is\-Collect\-Statistics@{is\-Collect\-Statistics}!Dispose@{Dispose}}
@@ -139,6 +174,21 @@ Implements \hyperlink{class_model_component_a5847971e860713d9df3e41c603c772c0}{M
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_dispose_aff15fbea8737b30efe9b3521d12350bd}
+
+
+Definition at line 36 of file Dispose.\-cpp.
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_dispose_aff15fbea8737b30efe9b3521d12350bd_icgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{class_dispose_a8dc978664e640bc4d58760770b84b84e}{\index{Dispose@{Dispose}!set\-Collect\-Statistics@{set\-Collect\-Statistics}}
 \index{set\-Collect\-Statistics@{set\-Collect\-Statistics}!Dispose@{Dispose}}
 \subsubsection[{set\-Collect\-Statistics}]{\setlength{\rightskip}{0pt plus 5cm}void Dispose\-::set\-Collect\-Statistics (
@@ -146,6 +196,10 @@ Implements \hyperlink{class_model_component_a5847971e860713d9df3e41c603c772c0}{M
 \item[{bool}]{\-\_\-collect\-Statistics}
 \end{DoxyParamCaption}
 )}}\label{class_dispose_a8dc978664e640bc4d58760770b84b84e}
+
+
+Definition at line 32 of file Dispose.\-cpp.
+
 \hypertarget{class_dispose_aee8ef98d5ca22eb18a97b258ed059865}{\index{Dispose@{Dispose}!show@{show}}
 \index{show@{show}!Dispose@{Dispose}}
 \subsubsection[{show}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Dispose\-::show (
@@ -156,6 +210,10 @@ Implements \hyperlink{class_model_component_a5847971e860713d9df3e41c603c772c0}{M
 
 
 Reimplemented from \hyperlink{class_model_component_ad8bc846e36b028eab7efb7da6c549eca}{Model\-Component}.
+
+
+
+Definition at line 27 of file Dispose.\-cpp.
 
 
 

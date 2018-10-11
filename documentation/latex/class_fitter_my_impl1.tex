@@ -42,11 +42,11 @@ void \hyperlink{class_fitter_my_impl1_a42ad0944837a2921674289c2ac264176}{fit\-No
 \item 
 void \hyperlink{class_fitter_my_impl1_aba4920314b8dcf17ee9d4f6d19ea48b2}{fit\-Expo} (double $\ast$sqrerror, double $\ast$avg1)
 \item 
-void \hyperlink{class_fitter_my_impl1_af5e7d08e466ae2154a97356939447f3c}{fit\-Erlang} (double $\ast$sqrerror, double $\ast$a, double $\ast$b, double $\ast$offset, double $\ast$mult)
+void \hyperlink{class_fitter_my_impl1_aa64e8edaebe913f32b69ca5566702ce4}{fit\-Erlang} (double $\ast$sqrerror, double $\ast$avg, int $\ast$m)
 \item 
-void \hyperlink{class_fitter_my_impl1_acc9bcdffd5336751b197ed495c5826ca}{fit\-Beta} (double $\ast$sqrerror, double $\ast$a, double $\ast$b, double $\ast$offset, double $\ast$mult)
+void \hyperlink{class_fitter_my_impl1_a8422a27621e54042f3f9b59af889307a}{fit\-Beta} (double $\ast$sqrerror, double $\ast$alpha, double $\ast$beta, double $\ast$inf\-Limit, double $\ast$sup\-Limit)
 \item 
-void \hyperlink{class_fitter_my_impl1_a28bc8f7f558e4328bede20c941b6c32b}{fit\-Weibull} (double $\ast$sqrerror, double $\ast$a, double $\ast$b, double $\ast$offset, double $\ast$mult)
+void \hyperlink{class_fitter_my_impl1_a3b44b3b510c446f44b74b810e262c531}{fit\-Weibull} (double $\ast$sqrerror, double $\ast$alpha, double $\ast$scale)
 \item 
 void \hyperlink{class_fitter_my_impl1_ad10f9269396cb86f2230edf652242f23}{fit\-All} (double $\ast$sqrerror, std\-::string $\ast$name)
 \item 
@@ -54,6 +54,13 @@ void \hyperlink{class_fitter_my_impl1_a02c8f65838daa1f086586561aea6e4da}{set\-Da
 \item 
 std\-::string \hyperlink{class_fitter_my_impl1_a7a9ea5c0a702ba2880dd3ed652f92030}{get\-Data\-Filename} ()
 \end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 19 of file Fitter\-My\-Impl1.\-h.
+
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -64,6 +71,10 @@ std\-::string \hyperlink{class_fitter_my_impl1_a7a9ea5c0a702ba2880dd3ed652f92030
 {}
 \end{DoxyParamCaption}
 )}}\label{class_fitter_my_impl1_a9047919931ab66d267e9c91a378e7413}
+
+
+Definition at line 16 of file Fitter\-My\-Impl1.\-cpp.
+
 \hypertarget{class_fitter_my_impl1_a240ccdcb7aef045f1a31b554b990593a}{\index{Fitter\-My\-Impl1@{Fitter\-My\-Impl1}!Fitter\-My\-Impl1@{Fitter\-My\-Impl1}}
 \index{Fitter\-My\-Impl1@{Fitter\-My\-Impl1}!FitterMyImpl1@{Fitter\-My\-Impl1}}
 \subsubsection[{Fitter\-My\-Impl1}]{\setlength{\rightskip}{0pt plus 5cm}Fitter\-My\-Impl1\-::\-Fitter\-My\-Impl1 (
@@ -71,6 +82,10 @@ std\-::string \hyperlink{class_fitter_my_impl1_a7a9ea5c0a702ba2880dd3ed652f92030
 \item[{const {\bf Fitter\-My\-Impl1} \&}]{orig}
 \end{DoxyParamCaption}
 )}}\label{class_fitter_my_impl1_a240ccdcb7aef045f1a31b554b990593a}
+
+
+Definition at line 19 of file Fitter\-My\-Impl1.\-cpp.
+
 \hypertarget{class_fitter_my_impl1_a7097d3bca5ecc73393b54ef07973b841}{\index{Fitter\-My\-Impl1@{Fitter\-My\-Impl1}!$\sim$\-Fitter\-My\-Impl1@{$\sim$\-Fitter\-My\-Impl1}}
 \index{$\sim$\-Fitter\-My\-Impl1@{$\sim$\-Fitter\-My\-Impl1}!FitterMyImpl1@{Fitter\-My\-Impl1}}
 \subsubsection[{$\sim$\-Fitter\-My\-Impl1}]{\setlength{\rightskip}{0pt plus 5cm}Fitter\-My\-Impl1\-::$\sim$\-Fitter\-My\-Impl1 (
@@ -78,6 +93,10 @@ std\-::string \hyperlink{class_fitter_my_impl1_a7a9ea5c0a702ba2880dd3ed652f92030
 {}
 \end{DoxyParamCaption}
 )}}\label{class_fitter_my_impl1_a7097d3bca5ecc73393b54ef07973b841}
+
+
+Definition at line 22 of file Fitter\-My\-Impl1.\-cpp.
+
 
 
 \subsection{Member Function Documentation}
@@ -93,35 +112,45 @@ std\-::string \hyperlink{class_fitter_my_impl1_a7a9ea5c0a702ba2880dd3ed652f92030
 
 Implements \hyperlink{class_fitter__if_a819a5ca8715ba4be30d2c7a3957aa467}{Fitter\-\_\-if}.
 
-\hypertarget{class_fitter_my_impl1_acc9bcdffd5336751b197ed495c5826ca}{\index{Fitter\-My\-Impl1@{Fitter\-My\-Impl1}!fit\-Beta@{fit\-Beta}}
+
+
+Definition at line 56 of file Fitter\-My\-Impl1.\-cpp.
+
+\hypertarget{class_fitter_my_impl1_a8422a27621e54042f3f9b59af889307a}{\index{Fitter\-My\-Impl1@{Fitter\-My\-Impl1}!fit\-Beta@{fit\-Beta}}
 \index{fit\-Beta@{fit\-Beta}!FitterMyImpl1@{Fitter\-My\-Impl1}}
 \subsubsection[{fit\-Beta}]{\setlength{\rightskip}{0pt plus 5cm}void Fitter\-My\-Impl1\-::fit\-Beta (
 \begin{DoxyParamCaption}
 \item[{double $\ast$}]{sqrerror, }
-\item[{double $\ast$}]{a, }
-\item[{double $\ast$}]{b, }
-\item[{double $\ast$}]{offset, }
-\item[{double $\ast$}]{mult}
+\item[{double $\ast$}]{alpha, }
+\item[{double $\ast$}]{beta, }
+\item[{double $\ast$}]{inf\-Limit, }
+\item[{double $\ast$}]{sup\-Limit}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_fitter_my_impl1_acc9bcdffd5336751b197ed495c5826ca}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_fitter_my_impl1_a8422a27621e54042f3f9b59af889307a}
 
 
-Implements \hyperlink{class_fitter__if_a686a7d540919b2e604df93b3049562d1}{Fitter\-\_\-if}.
+Implements \hyperlink{class_fitter__if_a8ea1e6520f191368274fec5ab8e5f182}{Fitter\-\_\-if}.
 
-\hypertarget{class_fitter_my_impl1_af5e7d08e466ae2154a97356939447f3c}{\index{Fitter\-My\-Impl1@{Fitter\-My\-Impl1}!fit\-Erlang@{fit\-Erlang}}
+
+
+Definition at line 48 of file Fitter\-My\-Impl1.\-cpp.
+
+\hypertarget{class_fitter_my_impl1_aa64e8edaebe913f32b69ca5566702ce4}{\index{Fitter\-My\-Impl1@{Fitter\-My\-Impl1}!fit\-Erlang@{fit\-Erlang}}
 \index{fit\-Erlang@{fit\-Erlang}!FitterMyImpl1@{Fitter\-My\-Impl1}}
 \subsubsection[{fit\-Erlang}]{\setlength{\rightskip}{0pt plus 5cm}void Fitter\-My\-Impl1\-::fit\-Erlang (
 \begin{DoxyParamCaption}
 \item[{double $\ast$}]{sqrerror, }
-\item[{double $\ast$}]{a, }
-\item[{double $\ast$}]{b, }
-\item[{double $\ast$}]{offset, }
-\item[{double $\ast$}]{mult}
+\item[{double $\ast$}]{avg, }
+\item[{int $\ast$}]{m}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_fitter_my_impl1_af5e7d08e466ae2154a97356939447f3c}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_fitter_my_impl1_aa64e8edaebe913f32b69ca5566702ce4}
 
 
-Implements \hyperlink{class_fitter__if_aa46a5cd2d50d3cab34a719099e1058a1}{Fitter\-\_\-if}.
+Implements \hyperlink{class_fitter__if_aead0c465573cdd42e63e2b175c0bc929}{Fitter\-\_\-if}.
+
+
+
+Definition at line 44 of file Fitter\-My\-Impl1.\-cpp.
 
 \hypertarget{class_fitter_my_impl1_aba4920314b8dcf17ee9d4f6d19ea48b2}{\index{Fitter\-My\-Impl1@{Fitter\-My\-Impl1}!fit\-Expo@{fit\-Expo}}
 \index{fit\-Expo@{fit\-Expo}!FitterMyImpl1@{Fitter\-My\-Impl1}}
@@ -135,6 +164,10 @@ Implements \hyperlink{class_fitter__if_aa46a5cd2d50d3cab34a719099e1058a1}{Fitter
 
 Implements \hyperlink{class_fitter__if_a5ab5ac575b736bb720e6a40b334de5a3}{Fitter\-\_\-if}.
 
+
+
+Definition at line 41 of file Fitter\-My\-Impl1.\-cpp.
+
 \hypertarget{class_fitter_my_impl1_a42ad0944837a2921674289c2ac264176}{\index{Fitter\-My\-Impl1@{Fitter\-My\-Impl1}!fit\-Normal@{fit\-Normal}}
 \index{fit\-Normal@{fit\-Normal}!FitterMyImpl1@{Fitter\-My\-Impl1}}
 \subsubsection[{fit\-Normal}]{\setlength{\rightskip}{0pt plus 5cm}void Fitter\-My\-Impl1\-::fit\-Normal (
@@ -147,6 +180,10 @@ Implements \hyperlink{class_fitter__if_a5ab5ac575b736bb720e6a40b334de5a3}{Fitter
 
 
 Implements \hyperlink{class_fitter__if_af95b4de00b7ed5d67b10d9ee458379bf}{Fitter\-\_\-if}.
+
+
+
+Definition at line 37 of file Fitter\-My\-Impl1.\-cpp.
 
 \hypertarget{class_fitter_my_impl1_a41a9b0e578a67a5bb33bb248388f5cb4}{\index{Fitter\-My\-Impl1@{Fitter\-My\-Impl1}!fit\-Triangular@{fit\-Triangular}}
 \index{fit\-Triangular@{fit\-Triangular}!FitterMyImpl1@{Fitter\-My\-Impl1}}
@@ -162,6 +199,10 @@ Implements \hyperlink{class_fitter__if_af95b4de00b7ed5d67b10d9ee458379bf}{Fitter
 
 Implements \hyperlink{class_fitter__if_a2bfc41c6a8044520aeafb2c5c71fe570}{Fitter\-\_\-if}.
 
+
+
+Definition at line 33 of file Fitter\-My\-Impl1.\-cpp.
+
 \hypertarget{class_fitter_my_impl1_adde8080641759eaea1d247d3c7436b1d}{\index{Fitter\-My\-Impl1@{Fitter\-My\-Impl1}!fit\-Uniform@{fit\-Uniform}}
 \index{fit\-Uniform@{fit\-Uniform}!FitterMyImpl1@{Fitter\-My\-Impl1}}
 \subsubsection[{fit\-Uniform}]{\setlength{\rightskip}{0pt plus 5cm}void Fitter\-My\-Impl1\-::fit\-Uniform (
@@ -175,20 +216,26 @@ Implements \hyperlink{class_fitter__if_a2bfc41c6a8044520aeafb2c5c71fe570}{Fitter
 
 Implements \hyperlink{class_fitter__if_adec53dfede4bdb31b175e57e6a2c2fc7}{Fitter\-\_\-if}.
 
-\hypertarget{class_fitter_my_impl1_a28bc8f7f558e4328bede20c941b6c32b}{\index{Fitter\-My\-Impl1@{Fitter\-My\-Impl1}!fit\-Weibull@{fit\-Weibull}}
+
+
+Definition at line 29 of file Fitter\-My\-Impl1.\-cpp.
+
+\hypertarget{class_fitter_my_impl1_a3b44b3b510c446f44b74b810e262c531}{\index{Fitter\-My\-Impl1@{Fitter\-My\-Impl1}!fit\-Weibull@{fit\-Weibull}}
 \index{fit\-Weibull@{fit\-Weibull}!FitterMyImpl1@{Fitter\-My\-Impl1}}
 \subsubsection[{fit\-Weibull}]{\setlength{\rightskip}{0pt plus 5cm}void Fitter\-My\-Impl1\-::fit\-Weibull (
 \begin{DoxyParamCaption}
 \item[{double $\ast$}]{sqrerror, }
-\item[{double $\ast$}]{a, }
-\item[{double $\ast$}]{b, }
-\item[{double $\ast$}]{offset, }
-\item[{double $\ast$}]{mult}
+\item[{double $\ast$}]{alpha, }
+\item[{double $\ast$}]{scale}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_fitter_my_impl1_a28bc8f7f558e4328bede20c941b6c32b}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_fitter_my_impl1_a3b44b3b510c446f44b74b810e262c531}
 
 
-Implements \hyperlink{class_fitter__if_ae46e4cbb4354d6d06167aa498855d7ea}{Fitter\-\_\-if}.
+Implements \hyperlink{class_fitter__if_a40c5bc2e953e683751743cf06df077c6}{Fitter\-\_\-if}.
+
+
+
+Definition at line 52 of file Fitter\-My\-Impl1.\-cpp.
 
 \hypertarget{class_fitter_my_impl1_a7a9ea5c0a702ba2880dd3ed652f92030}{\index{Fitter\-My\-Impl1@{Fitter\-My\-Impl1}!get\-Data\-Filename@{get\-Data\-Filename}}
 \index{get\-Data\-Filename@{get\-Data\-Filename}!FitterMyImpl1@{Fitter\-My\-Impl1}}
@@ -201,6 +248,10 @@ Implements \hyperlink{class_fitter__if_ae46e4cbb4354d6d06167aa498855d7ea}{Fitter
 
 Implements \hyperlink{class_fitter__if_a3c6926020b1224a960890fe308abcc86}{Fitter\-\_\-if}.
 
+
+
+Definition at line 64 of file Fitter\-My\-Impl1.\-cpp.
+
 \hypertarget{class_fitter_my_impl1_abcb39383a71603a570d1e2c396c6b7ca}{\index{Fitter\-My\-Impl1@{Fitter\-My\-Impl1}!is\-Normal\-Distributed@{is\-Normal\-Distributed}}
 \index{is\-Normal\-Distributed@{is\-Normal\-Distributed}!FitterMyImpl1@{Fitter\-My\-Impl1}}
 \subsubsection[{is\-Normal\-Distributed}]{\setlength{\rightskip}{0pt plus 5cm}bool Fitter\-My\-Impl1\-::is\-Normal\-Distributed (
@@ -212,6 +263,10 @@ Implements \hyperlink{class_fitter__if_a3c6926020b1224a960890fe308abcc86}{Fitter
 
 Implements \hyperlink{class_fitter__if_a53e98635fcdee314e8ade8089f41ddad}{Fitter\-\_\-if}.
 
+
+
+Definition at line 25 of file Fitter\-My\-Impl1.\-cpp.
+
 \hypertarget{class_fitter_my_impl1_a02c8f65838daa1f086586561aea6e4da}{\index{Fitter\-My\-Impl1@{Fitter\-My\-Impl1}!set\-Data\-Filename@{set\-Data\-Filename}}
 \index{set\-Data\-Filename@{set\-Data\-Filename}!FitterMyImpl1@{Fitter\-My\-Impl1}}
 \subsubsection[{set\-Data\-Filename}]{\setlength{\rightskip}{0pt plus 5cm}void Fitter\-My\-Impl1\-::set\-Data\-Filename (
@@ -222,6 +277,10 @@ Implements \hyperlink{class_fitter__if_a53e98635fcdee314e8ade8089f41ddad}{Fitter
 
 
 Implements \hyperlink{class_fitter__if_aa2d2f13548a09a2f727a4190a6b9c2dd}{Fitter\-\_\-if}.
+
+
+
+Definition at line 60 of file Fitter\-My\-Impl1.\-cpp.
 
 
 

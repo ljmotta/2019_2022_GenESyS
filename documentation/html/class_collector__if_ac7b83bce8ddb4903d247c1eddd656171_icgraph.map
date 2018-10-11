@@ -1,0 +1,9 @@
+<map id="Collector_if::addValue" name="Collector_if::addValue">
+<area shape="rect" id="node2" href="$class_queue.html#a961b5b7ca80317aa69f958612fb988ad" title="Queue::insertElement" alt="" coords="245,5,393,32"/>
+<area shape="rect" id="node4" href="$class_queue.html#a114d5144b3026b57cca9cf481b1f0d65" title="Queue::removeElement" alt="" coords="239,56,398,83"/>
+<area shape="rect" id="node6" href="$class_resource.html#ad5da4dca5dd48a4818827e6273c20c2d" title="Resource::release" alt="" coords="255,107,383,133"/>
+<area shape="rect" id="node7" href="$_test_input_analyser_tools_8cpp.html#af7011a62619acc9f81bcb4c5a5fafbe8" title="testStudentSoftwareDevelopments" alt="" coords="206,157,431,184"/>
+<area shape="rect" id="node3" href="$class_seize.html#a96f6517a40b3bfd0d5ea753d59cef797" title="Seize::_execute" alt="" coords="502,5,618,32"/>
+<area shape="rect" id="node5" href="$class_release.html#a63c3cd89082e7f6c1fb61646b93a5c32" title="Release::_execute" alt="" coords="495,77,625,104"/>
+<area shape="rect" id="node8" href="$class_test_input_analyser_tools.html#a8015a3024f29bddc865cb0b419214cd7" title="TestInputAnalyserTools\l::main" alt="" coords="480,150,640,191"/>
+</map>

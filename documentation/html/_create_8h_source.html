@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>RebornedGenESyS: Create.h Source File</title>
+<title>GenESyS - Generic and Expansible System Simulator [REBORN]: Create.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="software_genesys.gif"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">RebornedGenESyS
-   &#160;<span id="projectnumber">Reborned 20182</span>
+   <div id="projectname">GenESyS - Generic and Expansible System Simulator [REBORN]
+   &#160;<span id="projectnumber">2018-2</span>
    </div>
-   <div id="projectbrief">Generic and Expansible System Simulator</div>
+   <div id="projectbrief">Generic System Simulator</div>
   </td>
  </tr>
  </tbody>
@@ -48,6 +48,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -94,7 +95,7 @@ $(document).ready(function(){initNavTree('_create_8h_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -137,32 +138,32 @@ $(document).ready(function(){initNavTree('_create_8h_source.html','');});
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> std::string <a class="code" href="class_create.html#a8d1832d2165bbeea4a5a88aded883f86">show</a>();</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">protected</span>:</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_create.html#acd3a4b8805561591e0c88d3fd689cf74">_execute</a>(<a class="code" href="class_entity.html">Entity</a>* entity);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_create.html#afccd427ad3821a95308498892dfe58f3">_readComponent</a>(std::list&lt;std::string&gt; words);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">virtual</span> std::list&lt;std::string&gt;* <a class="code" href="class_create.html#ab0fd0c7afa14e91a82ecd151d22ce20b">_writeComponent</a>();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_create.html#aaa3cb1a4359586b0b8df817f57916286">_loadInstance</a>(std::list&lt;std::string&gt; words);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">virtual</span> std::list&lt;std::string&gt;* <a class="code" href="class_create.html#ae1fd0c281cec35dcf91881acba8d7041">_saveInstance</a>();</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_create.html#ad445fd3bec94b4e66669089f10f96057">_verifySymbols</a>(std::string* errorMessage);</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* CREATE_H */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor"></span></div>
-<div class="ttc" id="class_model_html"><div class="ttname"><a href="class_model.html">Model</a></div><div class="ttdef"><b>Definition:</b> Model.h:33</div></div>
-<div class="ttc" id="class_create_html_a81bd7a50b926660c264ebe29e2095170"><div class="ttname"><a href="class_create.html#a81bd7a50b926660c264ebe29e2095170">Create::Create</a></div><div class="ttdeci">Create(Model *model)</div><div class="ttdef"><b>Definition:</b> Create.cpp:18</div></div>
-<div class="ttc" id="class_create_html_ab0fd0c7afa14e91a82ecd151d22ce20b"><div class="ttname"><a href="class_create.html#ab0fd0c7afa14e91a82ecd151d22ce20b">Create::_writeComponent</a></div><div class="ttdeci">virtual std::list&lt; std::string &gt; * _writeComponent()</div><div class="ttdef"><b>Definition:</b> Create.cpp:61</div></div>
-<div class="ttc" id="class_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdef"><b>Definition:</b> Entity.h:24</div></div>
-<div class="ttc" id="class_create_html_ad445fd3bec94b4e66669089f10f96057"><div class="ttname"><a href="class_create.html#ad445fd3bec94b4e66669089f10f96057">Create::_verifySymbols</a></div><div class="ttdeci">virtual bool _verifySymbols(std::string *errorMessage)</div><div class="ttdef"><b>Definition:</b> Create.cpp:74</div></div>
-<div class="ttc" id="class_create_html"><div class="ttname"><a href="class_create.html">Create</a></div><div class="ttdef"><b>Definition:</b> Create.h:24</div></div>
-<div class="ttc" id="class_create_html_a6060fda2b105228446ddddb09f63d127"><div class="ttname"><a href="class_create.html#a6060fda2b105228446ddddb09f63d127">Create::~Create</a></div><div class="ttdeci">virtual ~Create()</div><div class="ttdef"><b>Definition:</b> Create.cpp:25</div></div>
+<div class="ttc" id="class_model_html"><div class="ttname"><a href="class_model.html">Model</a></div><div class="ttdef"><b>Definition:</b> <a href="_model_8h_source.html#l00036">Model.h:36</a></div></div>
+<div class="ttc" id="class_create_html_a81bd7a50b926660c264ebe29e2095170"><div class="ttname"><a href="class_create.html#a81bd7a50b926660c264ebe29e2095170">Create::Create</a></div><div class="ttdeci">Create(Model *model)</div><div class="ttdef"><b>Definition:</b> <a href="_create_8cpp_source.html#l00019">Create.cpp:19</a></div></div>
+<div class="ttc" id="class_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdef"><b>Definition:</b> <a href="_entity_8h_source.html#l00024">Entity.h:24</a></div></div>
+<div class="ttc" id="class_create_html_ad445fd3bec94b4e66669089f10f96057"><div class="ttname"><a href="class_create.html#ad445fd3bec94b4e66669089f10f96057">Create::_verifySymbols</a></div><div class="ttdeci">virtual bool _verifySymbols(std::string *errorMessage)</div><div class="ttdef"><b>Definition:</b> <a href="_create_8cpp_source.html#l00083">Create.cpp:83</a></div></div>
+<div class="ttc" id="class_create_html_aaa3cb1a4359586b0b8df817f57916286"><div class="ttname"><a href="class_create.html#aaa3cb1a4359586b0b8df817f57916286">Create::_loadInstance</a></div><div class="ttdeci">virtual void _loadInstance(std::list&lt; std::string &gt; words)</div><div class="ttdef"><b>Definition:</b> <a href="_create_8cpp_source.html#l00058">Create.cpp:58</a></div></div>
+<div class="ttc" id="class_create_html"><div class="ttname"><a href="class_create.html">Create</a></div><div class="ttdef"><b>Definition:</b> <a href="_create_8h_source.html#l00024">Create.h:24</a></div></div>
+<div class="ttc" id="class_create_html_a6060fda2b105228446ddddb09f63d127"><div class="ttname"><a href="class_create.html#a6060fda2b105228446ddddb09f63d127">Create::~Create</a></div><div class="ttdeci">virtual ~Create()</div><div class="ttdef"><b>Definition:</b> <a href="_create_8cpp_source.html#l00026">Create.cpp:26</a></div></div>
+<div class="ttc" id="class_create_html_ae1fd0c281cec35dcf91881acba8d7041"><div class="ttname"><a href="class_create.html#ae1fd0c281cec35dcf91881acba8d7041">Create::_saveInstance</a></div><div class="ttdeci">virtual std::list&lt; std::string &gt; * _saveInstance()</div><div class="ttdef"><b>Definition:</b> <a href="_create_8cpp_source.html#l00070">Create.cpp:70</a></div></div>
 <div class="ttc" id="_source_model_component_8h_html"><div class="ttname"><a href="_source_model_component_8h.html">SourceModelComponent.h</a></div></div>
-<div class="ttc" id="class_create_html_afccd427ad3821a95308498892dfe58f3"><div class="ttname"><a href="class_create.html#afccd427ad3821a95308498892dfe58f3">Create::_readComponent</a></div><div class="ttdeci">virtual void _readComponent(std::list&lt; std::string &gt; words)</div><div class="ttdef"><b>Definition:</b> Create.cpp:57</div></div>
-<div class="ttc" id="class_source_model_component_html"><div class="ttname"><a href="class_source_model_component.html">SourceModelComponent</a></div><div class="ttdef"><b>Definition:</b> SourceModelComponent.h:22</div></div>
-<div class="ttc" id="class_create_html_a8d1832d2165bbeea4a5a88aded883f86"><div class="ttname"><a href="class_create.html#a8d1832d2165bbeea4a5a88aded883f86">Create::show</a></div><div class="ttdeci">virtual std::string show()</div><div class="ttdef"><b>Definition:</b> Create.cpp:28</div></div>
-<div class="ttc" id="class_create_html_acd3a4b8805561591e0c88d3fd689cf74"><div class="ttname"><a href="class_create.html#acd3a4b8805561591e0c88d3fd689cf74">Create::_execute</a></div><div class="ttdeci">virtual void _execute(Entity *entity)</div><div class="ttdef"><b>Definition:</b> Create.cpp:32</div></div>
+<div class="ttc" id="class_source_model_component_html"><div class="ttname"><a href="class_source_model_component.html">SourceModelComponent</a></div><div class="ttdef"><b>Definition:</b> <a href="_source_model_component_8h_source.html#l00025">SourceModelComponent.h:25</a></div></div>
+<div class="ttc" id="class_create_html_a8d1832d2165bbeea4a5a88aded883f86"><div class="ttname"><a href="class_create.html#a8d1832d2165bbeea4a5a88aded883f86">Create::show</a></div><div class="ttdeci">virtual std::string show()</div><div class="ttdef"><b>Definition:</b> <a href="_create_8cpp_source.html#l00029">Create.cpp:29</a></div></div>
+<div class="ttc" id="class_create_html_acd3a4b8805561591e0c88d3fd689cf74"><div class="ttname"><a href="class_create.html#acd3a4b8805561591e0c88d3fd689cf74">Create::_execute</a></div><div class="ttdeci">virtual void _execute(Entity *entity)</div><div class="ttdef"><b>Definition:</b> <a href="_create_8cpp_source.html#l00033">Create.cpp:33</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="_create_8h.html">Create.h</a></li>
-    <li class="footer">Generated on Tue Sep 4 2018 21:04:12 for RebornedGenESyS by
+    <li class="footer">Generated on Wed Oct 10 2018 20:34:03 for GenESyS - Generic and Expansible System Simulator [REBORN] by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

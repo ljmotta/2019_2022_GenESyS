@@ -1,10 +1,9 @@
 <map id="WaitingResource.h" name="WaitingResource.h">
-<area shape="rect" id="node2" href="$_waiting_8h.html" title="Waiting.h" alt="" coords="323,80,399,107"/>
-<area shape="rect" id="node3" href="$_entity_8h.html" title="Entity.h" alt="" coords="311,229,378,256"/>
-<area shape="rect" id="node11" href="$_model_component_8h.html" title="ModelComponent.h" alt="" coords="348,155,482,181"/>
-<area shape="rect" id="node6" href="$_util_8h.html" title="Util.h" alt="" coords="358,379,411,405"/>
-<area shape="rect" id="node9" href="$_model_infrastructure_8h.html" title="ModelInfrastructure.h" alt="" coords="312,304,456,331"/>
-<area shape="rect" id="node10" href="$_attribute_value_8h.html" title="AttributeValue.h" alt="" coords="122,304,236,331"/>
-<area shape="rect" id="node13" href="$_plugin_8h.html" title="Plugin.h" alt="" coords="28,304,98,331"/>
-<area shape="rect" id="node14" href="$_list_8h.html" title="List.h" alt="" coords="533,304,587,331"/>
+<area shape="rect" id="node2" href="$_waiting_8h.html" title="Waiting.h" alt="" coords="369,80,445,107"/>
+<area shape="rect" id="node3" href="$_entity_8h.html" title="Entity.h" alt="" coords="311,229,377,256"/>
+<area shape="rect" id="node15" href="$_model_component_8h.html" title="ModelComponent.h" alt="" coords="398,155,532,181"/>
+<area shape="rect" id="node6" href="$_util_8h.html" title="Util.h" alt="" coords="457,379,511,405"/>
+<area shape="rect" id="node9" href="$_model_infrastructure_8h.html" title="ModelInfrastructure.h" alt="" coords="505,304,649,331"/>
+<area shape="rect" id="node11" href="$_list_8h.html" title="List.h" alt="" coords="281,304,335,331"/>
+<area shape="rect" id="node16" href="$_plugin_8h.html" title="Plugin.h" alt="" coords="411,304,480,331"/>
 </map>

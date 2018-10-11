@@ -1,5 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_trace_event.html" title="TraceEvent" alt="" coords="6,31,95,57"/>
-<area shape="rect" id="node2" href="$class_trace_error_event.html" title="TraceErrorEvent" alt="" coords="161,5,279,32"/>
-<area shape="rect" id="node3" href="$class_trace_simulation_event.html" title="TraceSimulationEvent" alt="" coords="145,56,295,83"/>
+<area shape="rect" id="node1" href="$class_model_persistence__if.html" title="ModelPersistence_if" alt="" coords="6,5,146,32"/>
+<area shape="rect" id="node2" href="$class_model_persistence_my_impl1.html" title="ModelPersistenceMyImpl1" alt="" coords="195,5,371,32"/>
 </map>

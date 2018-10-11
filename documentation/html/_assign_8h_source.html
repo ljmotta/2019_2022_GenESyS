@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>RebornedGenESyS: Assign.h Source File</title>
+<title>GenESyS - Generic and Expansible System Simulator [REBORN]: Assign.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="software_genesys.gif"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">RebornedGenESyS
-   &#160;<span id="projectnumber">Reborned 20182</span>
+   <div id="projectname">GenESyS - Generic and Expansible System Simulator [REBORN]
+   &#160;<span id="projectnumber">2018-2</span>
    </div>
-   <div id="projectbrief">Generic and Expansible System Simulator</div>
+   <div id="projectbrief">Generic System Simulator</div>
   </td>
  </tr>
  </tbody>
@@ -48,6 +48,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -94,7 +95,7 @@ $(document).ready(function(){initNavTree('_assign_8h_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -126,45 +127,98 @@ $(document).ready(function(){initNavTree('_assign_8h_source.html','');});
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_model_component_8h.html">ModelComponent.h</a>&quot;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_assign.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_assign.html">Assign</a>: <span class="keyword">public</span> <a class="code" href="class_model_component.html">ModelComponent</a> {</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_assign.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_assign.html">Assign</a> : <span class="keyword">public</span> <a class="code" href="class_model_component.html">ModelComponent</a> {</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="class_assign.html#afaa746a0ce157d4606823ad508dc6281">Assign</a>(<a class="code" href="class_model.html">Model</a>* model);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="class_assign.html#afaa746a0ce157d4606823ad508dc6281">Assign</a>(<span class="keyword">const</span> <a class="code" href="class_assign.html">Assign</a>&amp; orig);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_assign.html#aa005626af06022d9101c5e38e794dc47">~Assign</a>();</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">virtual</span> std::string <a class="code" href="class_assign.html#af5022b92204adcd9ee3e444b7e316d07">show</a>();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_assign.html#a5fabf69268b2e65d8b01ce247be87a40">_execute</a>(<a class="code" href="class_entity.html">Entity</a>* entity);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_assign.html#a47728ac75ef40025f00cca46e04dd012">_readComponent</a>(std::list&lt;std::string&gt; words);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> std::list&lt;std::string&gt;* <a class="code" href="class_assign.html#a6231f1e819d6baab3c9af142fd5b566a">_writeComponent</a>();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_assign.html#a5f3a7d8a7214574fea926cae1b1acb94">_verifySymbols</a>(std::string* errorMessage);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;};</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* ASSIGN_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor"></span></div>
-<div class="ttc" id="class_assign_html_aa005626af06022d9101c5e38e794dc47"><div class="ttname"><a href="class_assign.html#aa005626af06022d9101c5e38e794dc47">Assign::~Assign</a></div><div class="ttdeci">virtual ~Assign()</div><div class="ttdef"><b>Definition:</b> Assign.cpp:24</div></div>
-<div class="ttc" id="class_model_html"><div class="ttname"><a href="class_model.html">Model</a></div><div class="ttdef"><b>Definition:</b> Model.h:33</div></div>
-<div class="ttc" id="class_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdef"><b>Definition:</b> Entity.h:24</div></div>
-<div class="ttc" id="class_assign_html"><div class="ttname"><a href="class_assign.html">Assign</a></div><div class="ttdef"><b>Definition:</b> Assign.h:19</div></div>
-<div class="ttc" id="class_assign_html_a5fabf69268b2e65d8b01ce247be87a40"><div class="ttname"><a href="class_assign.html#a5fabf69268b2e65d8b01ce247be87a40">Assign::_execute</a></div><div class="ttdeci">virtual void _execute(Entity *entity)</div><div class="ttdef"><b>Definition:</b> Assign.cpp:32</div></div>
-<div class="ttc" id="class_assign_html_a5f3a7d8a7214574fea926cae1b1acb94"><div class="ttname"><a href="class_assign.html#a5f3a7d8a7214574fea926cae1b1acb94">Assign::_verifySymbols</a></div><div class="ttdeci">virtual bool _verifySymbols(std::string *errorMessage)</div><div class="ttdef"><b>Definition:</b> Assign.cpp:45</div></div>
-<div class="ttc" id="class_assign_html_af5022b92204adcd9ee3e444b7e316d07"><div class="ttname"><a href="class_assign.html#af5022b92204adcd9ee3e444b7e316d07">Assign::show</a></div><div class="ttdeci">virtual std::string show()</div><div class="ttdef"><b>Definition:</b> Assign.cpp:27</div></div>
-<div class="ttc" id="class_assign_html_afaa746a0ce157d4606823ad508dc6281"><div class="ttname"><a href="class_assign.html#afaa746a0ce157d4606823ad508dc6281">Assign::Assign</a></div><div class="ttdeci">Assign(Model *model)</div><div class="ttdef"><b>Definition:</b> Assign.cpp:17</div></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_assign.html#ae0f42117c12a8d0bc2bf0b7574070694">   22</a></span>&#160;    <span class="keyword">enum</span> <a class="code" href="class_assign.html#ae0f42117c12a8d0bc2bf0b7574070694">DestinationType</a> { <span class="comment">/* TODO: +- an enun is not a good idea. Should be a list of possible classes, so TypeOf could be set */</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_assign.html#ae0f42117c12a8d0bc2bf0b7574070694a4977ebf07df3d5858a48313de98b4692">   23</a></span>&#160;        <a class="code" href="class_assign.html#ae0f42117c12a8d0bc2bf0b7574070694ada06eaebb0fa138e88ff06aa3ec421a0">Attribute</a>, <a class="code" href="class_variable.html">Variable</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    };</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_assign_1_1_assignment.html">   26</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_assign_1_1_assignment.html">Assignment</a> {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="class_assign_1_1_assignment.html#a41583f4bbce99b1d95f4ef067c236f7a">   28</a></span>&#160;        <a class="code" href="class_assign_1_1_assignment.html#a41583f4bbce99b1d95f4ef067c236f7a">Assignment</a>(<a class="code" href="class_assign.html#ae0f42117c12a8d0bc2bf0b7574070694">DestinationType</a> destinationType, std::string destination, std::string expression) {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            this-&gt;_destinationType = destinationType;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            this-&gt;_destination = destination;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            this-&gt;_expression = expression;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        };</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_assign_1_1_assignment.html#a8d0c9b18c0b1258bba905b4e47a2659b">   34</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_assign_1_1_assignment.html#a8d0c9b18c0b1258bba905b4e47a2659b">setDestination</a>(std::string _destination) {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            this-&gt;_destination = _destination;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        }</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="class_assign_1_1_assignment.html#a6cf7ecd2950dfc709985a1ede3773be8">   37</a></span>&#160;        std::string <a class="code" href="class_assign_1_1_assignment.html#a6cf7ecd2950dfc709985a1ede3773be8">getDestination</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keywordflow">return</span> _destination;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        }</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="class_assign_1_1_assignment.html#a9688ea3171c85ccbcdf0ed9d87ad9cc7">   40</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_assign_1_1_assignment.html#a9688ea3171c85ccbcdf0ed9d87ad9cc7">setDestinationType</a>(<a class="code" href="class_assign.html#ae0f42117c12a8d0bc2bf0b7574070694">DestinationType</a> _destinationType) {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            this-&gt;_destinationType = _destinationType;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_assign_1_1_assignment.html#a46493b98c1cd97ce4b015640bf34dd27">   43</a></span>&#160;        <a class="code" href="class_assign.html#ae0f42117c12a8d0bc2bf0b7574070694">DestinationType</a> <a class="code" href="class_assign_1_1_assignment.html#a46493b98c1cd97ce4b015640bf34dd27">getDestinationType</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordflow">return</span> _destinationType;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_assign_1_1_assignment.html#aa36ca609362d3deedffbefd9cceb12e6">   46</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_assign_1_1_assignment.html#aa36ca609362d3deedffbefd9cceb12e6">setExpression</a>(std::string _expression) {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;            this-&gt;_expression = _expression;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        }</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="class_assign_1_1_assignment.html#a724dc03a686c4d53d57ee45b7617ae2f">   49</a></span>&#160;        std::string <a class="code" href="class_assign_1_1_assignment.html#a724dc03a686c4d53d57ee45b7617ae2f">getExpression</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            <span class="keywordflow">return</span> _expression;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <a class="code" href="class_assign.html#ae0f42117c12a8d0bc2bf0b7574070694">DestinationType</a> _destinationType = <a class="code" href="class_assign.html#ae0f42117c12a8d0bc2bf0b7574070694ada06eaebb0fa138e88ff06aa3ec421a0">Attribute</a>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        std::string _destination = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        std::string _expression = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    };</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <a class="code" href="class_assign.html#afaa746a0ce157d4606823ad508dc6281">Assign</a>(<a class="code" href="class_model.html">Model</a>* model);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="class_assign.html#afaa746a0ce157d4606823ad508dc6281">Assign</a>(<span class="keyword">const</span> <a class="code" href="class_assign.html">Assign</a>&amp; orig);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_assign.html#aa005626af06022d9101c5e38e794dc47">~Assign</a>();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">virtual</span> std::string <a class="code" href="class_assign.html#af5022b92204adcd9ee3e444b7e316d07">show</a>();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="class_list.html">List&lt;Assignment*&gt;</a>* <a class="code" href="class_assign.html#aca4aaa2185cc8770e56e1b6928c33dc0">getAssignments</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_assign.html#a5fabf69268b2e65d8b01ce247be87a40">_execute</a>(<a class="code" href="class_entity.html">Entity</a>* entity);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_assign.html#a95e3169a6ae13ef3dc6dd9f0dde16c30">_loadInstance</a>(std::list&lt;std::string&gt; words);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keyword">virtual</span> std::list&lt;std::string&gt;* <a class="code" href="class_assign.html#a8b38a0a1bec283f5d2f44f67be5a4a6b">_saveInstance</a>();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_assign.html#a5f3a7d8a7214574fea926cae1b1acb94">_verifySymbols</a>(std::string* errorMessage);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <a class="code" href="class_list.html">List&lt;Assignment*&gt;</a>* _assignments = <span class="keyword">new</span> <a class="code" href="class_list.html">List&lt;Assignment*&gt;</a>();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;};</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* ASSIGN_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor"></span></div>
+<div class="ttc" id="class_assign_html_aa005626af06022d9101c5e38e794dc47"><div class="ttname"><a href="class_assign.html#aa005626af06022d9101c5e38e794dc47">Assign::~Assign</a></div><div class="ttdeci">virtual ~Assign()</div><div class="ttdef"><b>Definition:</b> <a href="_assign_8cpp_source.html#l00027">Assign.cpp:27</a></div></div>
+<div class="ttc" id="class_assign_1_1_assignment_html_a46493b98c1cd97ce4b015640bf34dd27"><div class="ttname"><a href="class_assign_1_1_assignment.html#a46493b98c1cd97ce4b015640bf34dd27">Assign::Assignment::getDestinationType</a></div><div class="ttdeci">DestinationType getDestinationType() const </div><div class="ttdef"><b>Definition:</b> <a href="_assign_8h_source.html#l00043">Assign.h:43</a></div></div>
+<div class="ttc" id="class_assign_html_ae0f42117c12a8d0bc2bf0b7574070694ada06eaebb0fa138e88ff06aa3ec421a0"><div class="ttname"><a href="class_assign.html#ae0f42117c12a8d0bc2bf0b7574070694ada06eaebb0fa138e88ff06aa3ec421a0">Assign::Attribute</a></div><div class="ttdef"><b>Definition:</b> <a href="_assign_8h_source.html#l00023">Assign.h:23</a></div></div>
+<div class="ttc" id="class_model_html"><div class="ttname"><a href="class_model.html">Model</a></div><div class="ttdef"><b>Definition:</b> <a href="_model_8h_source.html#l00036">Model.h:36</a></div></div>
+<div class="ttc" id="class_assign_1_1_assignment_html_a6cf7ecd2950dfc709985a1ede3773be8"><div class="ttname"><a href="class_assign_1_1_assignment.html#a6cf7ecd2950dfc709985a1ede3773be8">Assign::Assignment::getDestination</a></div><div class="ttdeci">std::string getDestination() const </div><div class="ttdef"><b>Definition:</b> <a href="_assign_8h_source.html#l00037">Assign.h:37</a></div></div>
+<div class="ttc" id="class_assign_1_1_assignment_html_a8d0c9b18c0b1258bba905b4e47a2659b"><div class="ttname"><a href="class_assign_1_1_assignment.html#a8d0c9b18c0b1258bba905b4e47a2659b">Assign::Assignment::setDestination</a></div><div class="ttdeci">void setDestination(std::string _destination)</div><div class="ttdef"><b>Definition:</b> <a href="_assign_8h_source.html#l00034">Assign.h:34</a></div></div>
+<div class="ttc" id="class_assign_1_1_assignment_html_a41583f4bbce99b1d95f4ef067c236f7a"><div class="ttname"><a href="class_assign_1_1_assignment.html#a41583f4bbce99b1d95f4ef067c236f7a">Assign::Assignment::Assignment</a></div><div class="ttdeci">Assignment(DestinationType destinationType, std::string destination, std::string expression)</div><div class="ttdef"><b>Definition:</b> <a href="_assign_8h_source.html#l00028">Assign.h:28</a></div></div>
+<div class="ttc" id="class_assign_html_a8b38a0a1bec283f5d2f44f67be5a4a6b"><div class="ttname"><a href="class_assign.html#a8b38a0a1bec283f5d2f44f67be5a4a6b">Assign::_saveInstance</a></div><div class="ttdeci">virtual std::list&lt; std::string &gt; * _saveInstance()</div><div class="ttdef"><b>Definition:</b> <a href="_assign_8cpp_source.html#l00062">Assign.cpp:62</a></div></div>
+<div class="ttc" id="class_assign_1_1_assignment_html_a724dc03a686c4d53d57ee45b7617ae2f"><div class="ttname"><a href="class_assign_1_1_assignment.html#a724dc03a686c4d53d57ee45b7617ae2f">Assign::Assignment::getExpression</a></div><div class="ttdeci">std::string getExpression() const </div><div class="ttdef"><b>Definition:</b> <a href="_assign_8h_source.html#l00049">Assign.h:49</a></div></div>
+<div class="ttc" id="class_assign_1_1_assignment_html_a9688ea3171c85ccbcdf0ed9d87ad9cc7"><div class="ttname"><a href="class_assign_1_1_assignment.html#a9688ea3171c85ccbcdf0ed9d87ad9cc7">Assign::Assignment::setDestinationType</a></div><div class="ttdeci">void setDestinationType(DestinationType _destinationType)</div><div class="ttdef"><b>Definition:</b> <a href="_assign_8h_source.html#l00040">Assign.h:40</a></div></div>
+<div class="ttc" id="class_list_html"><div class="ttname"><a href="class_list.html">List</a></div><div class="ttdef"><b>Definition:</b> <a href="_list_8h_source.html#l00028">List.h:28</a></div></div>
+<div class="ttc" id="class_entity_html"><div class="ttname"><a href="class_entity.html">Entity</a></div><div class="ttdef"><b>Definition:</b> <a href="_entity_8h_source.html#l00024">Entity.h:24</a></div></div>
+<div class="ttc" id="class_assign_html"><div class="ttname"><a href="class_assign.html">Assign</a></div><div class="ttdef"><b>Definition:</b> <a href="_assign_8h_source.html#l00019">Assign.h:19</a></div></div>
+<div class="ttc" id="class_assign_html_ae0f42117c12a8d0bc2bf0b7574070694"><div class="ttname"><a href="class_assign.html#ae0f42117c12a8d0bc2bf0b7574070694">Assign::DestinationType</a></div><div class="ttdeci">DestinationType</div><div class="ttdef"><b>Definition:</b> <a href="_assign_8h_source.html#l00022">Assign.h:22</a></div></div>
+<div class="ttc" id="class_assign_html_a5fabf69268b2e65d8b01ce247be87a40"><div class="ttname"><a href="class_assign.html#a5fabf69268b2e65d8b01ce247be87a40">Assign::_execute</a></div><div class="ttdeci">virtual void _execute(Entity *entity)</div><div class="ttdef"><b>Definition:</b> <a href="_assign_8cpp_source.html#l00039">Assign.cpp:39</a></div></div>
+<div class="ttc" id="class_assign_html_a95e3169a6ae13ef3dc6dd9f0dde16c30"><div class="ttname"><a href="class_assign.html#a95e3169a6ae13ef3dc6dd9f0dde16c30">Assign::_loadInstance</a></div><div class="ttdeci">virtual void _loadInstance(std::list&lt; std::string &gt; words)</div><div class="ttdef"><b>Definition:</b> <a href="_assign_8cpp_source.html#l00059">Assign.cpp:59</a></div></div>
+<div class="ttc" id="class_assign_1_1_assignment_html_aa36ca609362d3deedffbefd9cceb12e6"><div class="ttname"><a href="class_assign_1_1_assignment.html#aa36ca609362d3deedffbefd9cceb12e6">Assign::Assignment::setExpression</a></div><div class="ttdeci">void setExpression(std::string _expression)</div><div class="ttdef"><b>Definition:</b> <a href="_assign_8h_source.html#l00046">Assign.h:46</a></div></div>
+<div class="ttc" id="class_assign_1_1_assignment_html"><div class="ttname"><a href="class_assign_1_1_assignment.html">Assign::Assignment</a></div><div class="ttdef"><b>Definition:</b> <a href="_assign_8h_source.html#l00026">Assign.h:26</a></div></div>
+<div class="ttc" id="class_assign_html_a5f3a7d8a7214574fea926cae1b1acb94"><div class="ttname"><a href="class_assign.html#a5f3a7d8a7214574fea926cae1b1acb94">Assign::_verifySymbols</a></div><div class="ttdeci">virtual bool _verifySymbols(std::string *errorMessage)</div><div class="ttdef"><b>Definition:</b> <a href="_assign_8cpp_source.html#l00067">Assign.cpp:67</a></div></div>
+<div class="ttc" id="class_assign_html_af5022b92204adcd9ee3e444b7e316d07"><div class="ttname"><a href="class_assign.html#af5022b92204adcd9ee3e444b7e316d07">Assign::show</a></div><div class="ttdeci">virtual std::string show()</div><div class="ttdef"><b>Definition:</b> <a href="_assign_8cpp_source.html#l00030">Assign.cpp:30</a></div></div>
+<div class="ttc" id="class_assign_html_afaa746a0ce157d4606823ad508dc6281"><div class="ttname"><a href="class_assign.html#afaa746a0ce157d4606823ad508dc6281">Assign::Assign</a></div><div class="ttdeci">Assign(Model *model)</div><div class="ttdef"><b>Definition:</b> <a href="_assign_8cpp_source.html#l00020">Assign.cpp:20</a></div></div>
 <div class="ttc" id="_model_component_8h_html"><div class="ttname"><a href="_model_component_8h.html">ModelComponent.h</a></div></div>
-<div class="ttc" id="class_assign_html_a47728ac75ef40025f00cca46e04dd012"><div class="ttname"><a href="class_assign.html#a47728ac75ef40025f00cca46e04dd012">Assign::_readComponent</a></div><div class="ttdeci">virtual void _readComponent(std::list&lt; std::string &gt; words)</div><div class="ttdef"><b>Definition:</b> Assign.cpp:37</div></div>
-<div class="ttc" id="class_assign_html_a6231f1e819d6baab3c9af142fd5b566a"><div class="ttname"><a href="class_assign.html#a6231f1e819d6baab3c9af142fd5b566a">Assign::_writeComponent</a></div><div class="ttdeci">virtual std::list&lt; std::string &gt; * _writeComponent()</div><div class="ttdef"><b>Definition:</b> Assign.cpp:40</div></div>
-<div class="ttc" id="class_model_component_html"><div class="ttname"><a href="class_model_component.html">ModelComponent</a></div><div class="ttdef"><b>Definition:</b> ModelComponent.h:27</div></div>
+<div class="ttc" id="class_assign_html_aca4aaa2185cc8770e56e1b6928c33dc0"><div class="ttname"><a href="class_assign.html#aca4aaa2185cc8770e56e1b6928c33dc0">Assign::getAssignments</a></div><div class="ttdeci">List&lt; Assignment * &gt; * getAssignments() const </div><div class="ttdef"><b>Definition:</b> <a href="_assign_8cpp_source.html#l00035">Assign.cpp:35</a></div></div>
+<div class="ttc" id="class_variable_html"><div class="ttname"><a href="class_variable.html">Variable</a></div><div class="ttdef"><b>Definition:</b> <a href="_variable_8h_source.html#l00019">Variable.h:19</a></div></div>
+<div class="ttc" id="class_model_component_html"><div class="ttname"><a href="class_model_component.html">ModelComponent</a></div><div class="ttdef"><b>Definition:</b> <a href="_model_component_8h_source.html#l00027">ModelComponent.h:27</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="_assign_8h.html">Assign.h</a></li>
-    <li class="footer">Generated on Tue Sep 4 2018 21:04:12 for RebornedGenESyS by
+    <li class="footer">Generated on Wed Oct 10 2018 20:34:03 for GenESyS - Generic and Expansible System Simulator [REBORN] by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

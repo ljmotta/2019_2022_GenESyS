@@ -7,8 +7,7 @@
 
 
 
-Inheritance diagram for Model\-Infrastructure\-:
-\nopagebreak
+Inheritance diagram for Model\-Infrastructure\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -32,6 +31,24 @@ void \hyperlink{class_model_infrastructure_a8ebb1f9b4475e732d31b6c8980ddccc0}{se
 \item 
 std\-::string \hyperlink{class_model_infrastructure_ac06ca99d36c8d1a957697ef003e979b1}{get\-Name} () const 
 \end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{class_model_infrastructure_a3e309d346ecc1a96c67a13f5f5f18bf4}{Load\-Instance} (std\-::list$<$ std\-::string $>$ words)
+\item 
+static std\-::list$<$ std\-::string $>$ $\ast$ \hyperlink{class_model_infrastructure_a4da62e3f3b294abc9e266d1dcfb830cc}{Save\-Instance} (\hyperlink{class_model_infrastructure}{Model\-Infrastructure} $\ast$infrastructure)
+\item 
+static bool \hyperlink{class_model_infrastructure_a8ac134e84f885300a188fcc0904f1848}{Verify\-Symbols} (\hyperlink{class_model_infrastructure}{Model\-Infrastructure} $\ast$infrastructure, std\-::string $\ast$error\-Message)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_model_infrastructure_ae118c8ad2ac9d4397c40d004af51b2dc}{\-\_\-load\-Instance} (std\-::list$<$ std\-::string $>$ words)=0
+\item 
+virtual std\-::list$<$ std\-::string $>$ $\ast$ \hyperlink{class_model_infrastructure_a3da2fd381c44752598bc448b207e8287}{\-\_\-save\-Instance} ()=0
+\item 
+virtual bool \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a388}{\-\_\-verify\-Symbols} (std\-::string $\ast$error\-Message)=0
+\end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -39,6 +56,13 @@ std\-::string \hyperlink{class_model_infrastructure_ac06ca99d36c8d1a957697ef003e
 \item 
 std\-::string \hyperlink{class_model_infrastructure_aa73c0444ba8e3515e2aec3154eaad85d}{\-\_\-name}
 \end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 21 of file Model\-Infrastructure.\-h.
+
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -49,6 +73,10 @@ std\-::string \hyperlink{class_model_infrastructure_aa73c0444ba8e3515e2aec3154ea
 \item[{std\-::string}]{infrastructure\-Typename}
 \end{DoxyParamCaption}
 )}}\label{class_model_infrastructure_aa7e7206a487b4e3ac89df8a23546a187}
+
+
+Definition at line 19 of file Model\-Infrastructure.\-cpp.
+
 
 
 Here is the call graph for this function\-:\nopagebreak
@@ -67,6 +95,10 @@ Here is the call graph for this function\-:\nopagebreak
 \item[{const {\bf Model\-Infrastructure} \&}]{orig}
 \end{DoxyParamCaption}
 )}}\label{class_model_infrastructure_a530efed59a4cd02b607849dc0538eddf}
+
+
+Definition at line 24 of file Model\-Infrastructure.\-cpp.
+
 \hypertarget{class_model_infrastructure_aeedd4148c2b9c97600789f884c2ef549}{\index{Model\-Infrastructure@{Model\-Infrastructure}!$\sim$\-Model\-Infrastructure@{$\sim$\-Model\-Infrastructure}}
 \index{$\sim$\-Model\-Infrastructure@{$\sim$\-Model\-Infrastructure}!ModelInfrastructure@{Model\-Infrastructure}}
 \subsubsection[{$\sim$\-Model\-Infrastructure}]{\setlength{\rightskip}{0pt plus 5cm}Model\-Infrastructure\-::$\sim$\-Model\-Infrastructure (
@@ -76,7 +108,66 @@ Here is the call graph for this function\-:\nopagebreak
 )\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_model_infrastructure_aeedd4148c2b9c97600789f884c2ef549}
 
 
+Definition at line 27 of file Model\-Infrastructure.\-cpp.
+
+
+
 \subsection{Member Function Documentation}
+\hypertarget{class_model_infrastructure_ae118c8ad2ac9d4397c40d004af51b2dc}{\index{Model\-Infrastructure@{Model\-Infrastructure}!\-\_\-load\-Instance@{\-\_\-load\-Instance}}
+\index{\-\_\-load\-Instance@{\-\_\-load\-Instance}!ModelInfrastructure@{Model\-Infrastructure}}
+\subsubsection[{\-\_\-load\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Model\-Infrastructure\-::\-\_\-load\-Instance (
+\begin{DoxyParamCaption}
+\item[{std\-::list$<$ std\-::string $>$}]{words}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}}\label{class_model_infrastructure_ae118c8ad2ac9d4397c40d004af51b2dc}
+
+
+Implemented in \hyperlink{class_assign_a95e3169a6ae13ef3dc6dd9f0dde16c30}{Assign}, \hyperlink{class_resource_a5c4aedea65e6800cf44fb3620d559148}{Resource}, \hyperlink{class_seize_a421a0ec6382cb30f6a0342f8dea050db}{Seize}, \hyperlink{class_entity_type_af88c3d67f9eb8b92b4e32e04bed6730f}{Entity\-Type}, \hyperlink{class_release_a1c3820675ad6a119a8cc6a75b870bd49}{Release}, \hyperlink{class_queue_ac722922c7cac47ed74502c2d7206c074}{Queue}, \hyperlink{class_entity_a51972e626aef5f92a10d5f800e323237}{Entity}, \hyperlink{class_create_aaa3cb1a4359586b0b8df817f57916286}{Create}, \hyperlink{class_delay_acd33d05fc1c8d6d66a6f674e49ee7c61}{Delay}, \hyperlink{class_variable_a37db5791f858048daf0549d2ea3f3a62}{Variable}, \hyperlink{class_dispose_a245f73bff07925e3efc1eeffd84c9ac6}{Dispose}, and \hyperlink{class_statistics_collector_aa13d2bc6d9deeffa9667388ae3e4f962}{Statistics\-Collector}.
+
+\hypertarget{class_model_infrastructure_a3da2fd381c44752598bc448b207e8287}{\index{Model\-Infrastructure@{Model\-Infrastructure}!\-\_\-save\-Instance@{\-\_\-save\-Instance}}
+\index{\-\_\-save\-Instance@{\-\_\-save\-Instance}!ModelInfrastructure@{Model\-Infrastructure}}
+\subsubsection[{\-\_\-save\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\-::list$<$std\-::string$>$$\ast$ Model\-Infrastructure\-::\-\_\-save\-Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}}\label{class_model_infrastructure_a3da2fd381c44752598bc448b207e8287}
+
+
+Implemented in \hyperlink{class_assign_a8b38a0a1bec283f5d2f44f67be5a4a6b}{Assign}, \hyperlink{class_resource_a546f61a6f5f57f0c41c722b9b9dc7478}{Resource}, \hyperlink{class_seize_a38a8af6942b51ce11d191469d277661d}{Seize}, \hyperlink{class_entity_type_a4f6179d5043e750d9555d6eeef8de4cd}{Entity\-Type}, \hyperlink{class_release_a2e15540e86b8d0ce62c553f3e9b095c3}{Release}, \hyperlink{class_queue_a9245790264a9d68030ae8bd884c85bcf}{Queue}, \hyperlink{class_entity_a1569ba1b09e70e4769c5f02f611a8c61}{Entity}, \hyperlink{class_create_ae1fd0c281cec35dcf91881acba8d7041}{Create}, \hyperlink{class_delay_a73676f11cddd31439a407b5dabcea43a}{Delay}, \hyperlink{class_variable_a67373d2c7210dd0cab25b4c4df1b5c0e}{Variable}, \hyperlink{class_dispose_ae12482052fb78fa534dda5d4c0a74e3e}{Dispose}, and \hyperlink{class_statistics_collector_a66eed8e1bd0316588575aa7310ac028b}{Statistics\-Collector}.
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_infrastructure_a3da2fd381c44752598bc448b207e8287_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a388}{\index{Model\-Infrastructure@{Model\-Infrastructure}!\-\_\-verify\-Symbols@{\-\_\-verify\-Symbols}}
+\index{\-\_\-verify\-Symbols@{\-\_\-verify\-Symbols}!ModelInfrastructure@{Model\-Infrastructure}}
+\subsubsection[{\-\_\-verify\-Symbols}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Model\-Infrastructure\-::\-\_\-verify\-Symbols (
+\begin{DoxyParamCaption}
+\item[{std\-::string $\ast$}]{error\-Message}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}}\label{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a388}
+
+
+Implemented in \hyperlink{class_assign_a5f3a7d8a7214574fea926cae1b1acb94}{Assign}, \hyperlink{class_resource_a3b282a34c4c706ca63716cb74e7f8183}{Resource}, \hyperlink{class_seize_a51dc9257dc692083006f676546ddfff8}{Seize}, \hyperlink{class_entity_type_a50e21c4807823132e777529c70bf7cef}{Entity\-Type}, \hyperlink{class_release_a81a30c1357d00e830bdc044418865e31}{Release}, \hyperlink{class_queue_a81f6676597a7974af394ddd3f67c7926}{Queue}, \hyperlink{class_entity_a5a5fc79267b3671839597c99f8630a87}{Entity}, \hyperlink{class_create_ad445fd3bec94b4e66669089f10f96057}{Create}, \hyperlink{class_delay_af1690df9ba58e9972f5721f5bdc2b520}{Delay}, \hyperlink{class_variable_ad29a567d28d673450fb1ecd193bd8d90}{Variable}, \hyperlink{class_dispose_a5ad64b97bbb16662aa9d914eda2a7e38}{Dispose}, and \hyperlink{class_statistics_collector_a5aeefa5028a2b6a0157db55c0dfc7419}{Statistics\-Collector}.
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a388_icgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{class_model_infrastructure_aa4d3fa8f302cc6dc4fccdd3187e6a168}{\index{Model\-Infrastructure@{Model\-Infrastructure}!get\-Id@{get\-Id}}
 \index{get\-Id@{get\-Id}!ModelInfrastructure@{Model\-Infrastructure}}
 \subsubsection[{get\-Id}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Util\-::identitifcation} Model\-Infrastructure\-::get\-Id (
@@ -84,6 +175,21 @@ Here is the call graph for this function\-:\nopagebreak
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_model_infrastructure_aa4d3fa8f302cc6dc4fccdd3187e6a168}
+
+
+Definition at line 34 of file Model\-Infrastructure.\-cpp.
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_infrastructure_aa4d3fa8f302cc6dc4fccdd3187e6a168_icgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{class_model_infrastructure_ac06ca99d36c8d1a957697ef003e979b1}{\index{Model\-Infrastructure@{Model\-Infrastructure}!get\-Name@{get\-Name}}
 \index{get\-Name@{get\-Name}!ModelInfrastructure@{Model\-Infrastructure}}
 \subsubsection[{get\-Name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Model\-Infrastructure\-::get\-Name (
@@ -91,6 +197,50 @@ Here is the call graph for this function\-:\nopagebreak
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_model_infrastructure_ac06ca99d36c8d1a957697ef003e979b1}
+
+
+Definition at line 42 of file Model\-Infrastructure.\-cpp.
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_infrastructure_ac06ca99d36c8d1a957697ef003e979b1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_model_infrastructure_a3e309d346ecc1a96c67a13f5f5f18bf4}{\index{Model\-Infrastructure@{Model\-Infrastructure}!Load\-Instance@{Load\-Instance}}
+\index{Load\-Instance@{Load\-Instance}!ModelInfrastructure@{Model\-Infrastructure}}
+\subsubsection[{Load\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}static void Model\-Infrastructure\-::\-Load\-Instance (
+\begin{DoxyParamCaption}
+\item[{std\-::list$<$ std\-::string $>$}]{words}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_model_infrastructure_a3e309d346ecc1a96c67a13f5f5f18bf4}
+\hypertarget{class_model_infrastructure_a4da62e3f3b294abc9e266d1dcfb830cc}{\index{Model\-Infrastructure@{Model\-Infrastructure}!Save\-Instance@{Save\-Instance}}
+\index{Save\-Instance@{Save\-Instance}!ModelInfrastructure@{Model\-Infrastructure}}
+\subsubsection[{Save\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<$ std\-::string $>$ $\ast$ Model\-Infrastructure\-::\-Save\-Instance (
+\begin{DoxyParamCaption}
+\item[{{\bf Model\-Infrastructure} $\ast$}]{infrastructure}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_model_infrastructure_a4da62e3f3b294abc9e266d1dcfb830cc}
+
+
+Definition at line 46 of file Model\-Infrastructure.\-cpp.
+
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{class_model_infrastructure_a4da62e3f3b294abc9e266d1dcfb830cc_cgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{class_model_infrastructure_a8ebb1f9b4475e732d31b6c8980ddccc0}{\index{Model\-Infrastructure@{Model\-Infrastructure}!set\-Name@{set\-Name}}
 \index{set\-Name@{set\-Name}!ModelInfrastructure@{Model\-Infrastructure}}
 \subsubsection[{set\-Name}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-Infrastructure\-::set\-Name (
@@ -98,6 +248,21 @@ Here is the call graph for this function\-:\nopagebreak
 \item[{std\-::string}]{\-\_\-name}
 \end{DoxyParamCaption}
 )}}\label{class_model_infrastructure_a8ebb1f9b4475e732d31b6c8980ddccc0}
+
+
+Definition at line 38 of file Model\-Infrastructure.\-cpp.
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_infrastructure_a8ebb1f9b4475e732d31b6c8980ddccc0_icgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{class_model_infrastructure_a649a5a89a0c9931783d3c51de2acf266}{\index{Model\-Infrastructure@{Model\-Infrastructure}!show@{show}}
 \index{show@{show}!ModelInfrastructure@{Model\-Infrastructure}}
 \subsubsection[{show}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Model\-Infrastructure\-::show (
@@ -107,17 +272,48 @@ Here is the call graph for this function\-:\nopagebreak
 )\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_model_infrastructure_a649a5a89a0c9931783d3c51de2acf266}
 
 
-Reimplemented in \hyperlink{class_model_component_ad8bc846e36b028eab7efb7da6c549eca}{Model\-Component}, \hyperlink{class_source_model_component_a4011597b5780fcc0495e8e22ab8158f6}{Source\-Model\-Component}, \hyperlink{class_resource_a593cf83404dc90706943b4e60213fd01}{Resource}, \hyperlink{class_queue_ac78cc84cd91539c7f38d95dc17dabac5}{Queue}, \hyperlink{class_create_a8d1832d2165bbeea4a5a88aded883f86}{Create}, \hyperlink{class_delay_af8187e4515417b547dc22b5ee0a1f95d}{Delay}, \hyperlink{class_entity_a86cc324050b451b31b134943e7978e36}{Entity}, \hyperlink{class_seize_a495ace3a156680b5816c8b285135322c}{Seize}, \hyperlink{class_release_a1ec7b35553820f0f228f31be1df468c3}{Release}, \hyperlink{class_entity_type_ab5a696912b12a9f51decded90f368dea}{Entity\-Type}, \hyperlink{class_statistics_collector_a7ce8dad7e29d06c73a01d2ddee93fe00}{Statistics\-Collector}, \hyperlink{class_assign_af5022b92204adcd9ee3e444b7e316d07}{Assign}, \hyperlink{class_dispose_aee8ef98d5ca22eb18a97b258ed059865}{Dispose}, and \hyperlink{class_variable_a8bd0a772bb32fd630e252306306cd154}{Variable}.
+Reimplemented in \hyperlink{class_assign_af5022b92204adcd9ee3e444b7e316d07}{Assign}, \hyperlink{class_source_model_component_a4011597b5780fcc0495e8e22ab8158f6}{Source\-Model\-Component}, \hyperlink{class_model_component_ad8bc846e36b028eab7efb7da6c549eca}{Model\-Component}, \hyperlink{class_resource_a593cf83404dc90706943b4e60213fd01}{Resource}, \hyperlink{class_seize_a495ace3a156680b5816c8b285135322c}{Seize}, \hyperlink{class_queue_ac78cc84cd91539c7f38d95dc17dabac5}{Queue}, \hyperlink{class_create_a8d1832d2165bbeea4a5a88aded883f86}{Create}, \hyperlink{class_delay_af8187e4515417b547dc22b5ee0a1f95d}{Delay}, \hyperlink{class_entity_a86cc324050b451b31b134943e7978e36}{Entity}, \hyperlink{class_release_a1ec7b35553820f0f228f31be1df468c3}{Release}, \hyperlink{class_entity_type_ab5a696912b12a9f51decded90f368dea}{Entity\-Type}, \hyperlink{class_statistics_collector_a7ce8dad7e29d06c73a01d2ddee93fe00}{Statistics\-Collector}, \hyperlink{class_dispose_aee8ef98d5ca22eb18a97b258ed059865}{Dispose}, and \hyperlink{class_variable_a8bd0a772bb32fd630e252306306cd154}{Variable}.
 
+
+
+Definition at line 30 of file Model\-Infrastructure.\-cpp.
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_infrastructure_a649a5a89a0c9931783d3c51de2acf266_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_model_infrastructure_a8ac134e84f885300a188fcc0904f1848}{\index{Model\-Infrastructure@{Model\-Infrastructure}!Verify\-Symbols@{Verify\-Symbols}}
+\index{Verify\-Symbols@{Verify\-Symbols}!ModelInfrastructure@{Model\-Infrastructure}}
+\subsubsection[{Verify\-Symbols}]{\setlength{\rightskip}{0pt plus 5cm}static bool Model\-Infrastructure\-::\-Verify\-Symbols (
+\begin{DoxyParamCaption}
+\item[{{\bf Model\-Infrastructure} $\ast$}]{infrastructure, }
+\item[{std\-::string $\ast$}]{error\-Message}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_model_infrastructure_a8ac134e84f885300a188fcc0904f1848}
 
 
 \subsection{Member Data Documentation}
 \hypertarget{class_model_infrastructure_af6fe00f683f5e29cbcd667e4d3bd24d0}{\index{Model\-Infrastructure@{Model\-Infrastructure}!\-\_\-id@{\-\_\-id}}
 \index{\-\_\-id@{\-\_\-id}!ModelInfrastructure@{Model\-Infrastructure}}
 \subsubsection[{\-\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Util\-::identitifcation} Model\-Infrastructure\-::\-\_\-id\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_model_infrastructure_af6fe00f683f5e29cbcd667e4d3bd24d0}
+
+
+Definition at line 44 of file Model\-Infrastructure.\-h.
+
 \hypertarget{class_model_infrastructure_aa73c0444ba8e3515e2aec3154eaad85d}{\index{Model\-Infrastructure@{Model\-Infrastructure}!\-\_\-name@{\-\_\-name}}
 \index{\-\_\-name@{\-\_\-name}!ModelInfrastructure@{Model\-Infrastructure}}
 \subsubsection[{\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Model\-Infrastructure\-::\-\_\-name\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_model_infrastructure_aa73c0444ba8e3515e2aec3154eaad85d}
+
+
+Definition at line 45 of file Model\-Infrastructure.\-h.
+
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}

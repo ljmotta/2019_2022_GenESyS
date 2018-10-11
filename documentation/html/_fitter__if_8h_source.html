@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>RebornedGenESyS: Fitter_if.h Source File</title>
+<title>GenESyS - Generic and Expansible System Simulator [REBORN]: Fitter_if.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="software_genesys.gif"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">RebornedGenESyS
-   &#160;<span id="projectnumber">Reborned 20182</span>
+   <div id="projectname">GenESyS - Generic and Expansible System Simulator [REBORN]
+   &#160;<span id="projectnumber">2018-2</span>
    </div>
-   <div id="projectbrief">Generic and Expansible System Simulator</div>
+   <div id="projectbrief">Generic System Simulator</div>
   </td>
  </tr>
  </tbody>
@@ -48,6 +48,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -94,7 +95,7 @@ $(document).ready(function(){initNavTree('_fitter__if_8h_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -128,15 +129,15 @@ $(document).ready(function(){initNavTree('_fitter__if_8h_source.html','');});
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
 <div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_fitter__if.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_fitter__if.html">Fitter_if</a> {</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_fitter__if.html#a53e98635fcdee314e8ade8089f41ddad">isNormalDistributed</a>(<span class="keywordtype">double</span> confidencelevel) = 0; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_fitter__if.html#adec53dfede4bdb31b175e57e6a2c2fc7">fitUniform</a> (<span class="keywordtype">double</span> *sqrerror, <span class="keywordtype">double</span> *min, <span class="keywordtype">double</span> *max) = 0;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_fitter__if.html#a2bfc41c6a8044520aeafb2c5c71fe570">fitTriangular</a> (<span class="keywordtype">double</span> *sqrerror, <span class="keywordtype">double</span> *min, <span class="keywordtype">double</span> *mo, <span class="keywordtype">double</span> *max) = 0;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_fitter__if.html#af95b4de00b7ed5d67b10d9ee458379bf">fitNormal</a> (<span class="keywordtype">double</span> *sqrerror, <span class="keywordtype">double</span> *avg, <span class="keywordtype">double</span> *stddev) = 0;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_fitter__if.html#a5ab5ac575b736bb720e6a40b334de5a3">fitExpo</a> (<span class="keywordtype">double</span> *sqrerror, <span class="keywordtype">double</span> *avg1) = 0;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_fitter__if.html#aa46a5cd2d50d3cab34a719099e1058a1">fitErlang</a> (<span class="keywordtype">double</span> *sqrerror, <span class="keywordtype">double</span> *a, <span class="keywordtype">double</span> *b, <span class="keywordtype">double</span> *offset,<span class="keywordtype">double</span> *mult) = 0;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_fitter__if.html#a686a7d540919b2e604df93b3049562d1">fitBeta</a> (<span class="keywordtype">double</span> *sqrerror, <span class="keywordtype">double</span> *a, <span class="keywordtype">double</span> *b, <span class="keywordtype">double</span> *offset,<span class="keywordtype">double</span> *mult) = 0;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_fitter__if.html#ae46e4cbb4354d6d06167aa498855d7ea">fitWeibull</a> (<span class="keywordtype">double</span> *sqrerror, <span class="keywordtype">double</span> *a, <span class="keywordtype">double</span> *b, <span class="keywordtype">double</span> *offset, <span class="keywordtype">double</span> *mult) = 0;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_fitter__if.html#a819a5ca8715ba4be30d2c7a3957aa467">fitAll</a> (<span class="keywordtype">double</span> *sqrerror, std::string *name) = 0;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_fitter__if.html#a53e98635fcdee314e8ade8089f41ddad">isNormalDistributed</a>(<span class="keywordtype">double</span> confidencelevel) = 0;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_fitter__if.html#adec53dfede4bdb31b175e57e6a2c2fc7">fitUniform</a>(<span class="keywordtype">double</span> *sqrerror, <span class="keywordtype">double</span> *min, <span class="keywordtype">double</span> *max) = 0;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_fitter__if.html#a2bfc41c6a8044520aeafb2c5c71fe570">fitTriangular</a>(<span class="keywordtype">double</span> *sqrerror, <span class="keywordtype">double</span> *min, <span class="keywordtype">double</span> *mo, <span class="keywordtype">double</span> *max) = 0;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_fitter__if.html#af95b4de00b7ed5d67b10d9ee458379bf">fitNormal</a>(<span class="keywordtype">double</span> *sqrerror, <span class="keywordtype">double</span> *avg, <span class="keywordtype">double</span> *stddev) = 0;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_fitter__if.html#a5ab5ac575b736bb720e6a40b334de5a3">fitExpo</a>(<span class="keywordtype">double</span> *sqrerror, <span class="keywordtype">double</span> *avg1) = 0;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_fitter__if.html#aead0c465573cdd42e63e2b175c0bc929">fitErlang</a>(<span class="keywordtype">double</span> *sqrerror, <span class="keywordtype">double</span> *avg, <span class="keywordtype">int</span> *m) = 0;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_fitter__if.html#a8ea1e6520f191368274fec5ab8e5f182">fitBeta</a>(<span class="keywordtype">double</span> *sqrerror, <span class="keywordtype">double</span> *alpha, <span class="keywordtype">double</span> *beta, <span class="keywordtype">double</span> *infLimit, <span class="keywordtype">double</span> *supLimit) = 0;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_fitter__if.html#a40c5bc2e953e683751743cf06df077c6">fitWeibull</a> (<span class="keywordtype">double</span> *sqrerror, <span class="keywordtype">double</span> *alpha, <span class="keywordtype">double</span> *scale)  = 0;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_fitter__if.html#a819a5ca8715ba4be30d2c7a3957aa467">fitAll</a>(<span class="keywordtype">double</span> *sqrerror, std::string *name) = 0;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_fitter__if.html#aa2d2f13548a09a2f727a4190a6b9c2dd">setDataFilename</a>(std::string dataFilename) = 0;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> std::string <a class="code" href="class_fitter__if.html#a3c6926020b1224a960890fe308abcc86">getDataFilename</a>() = 0;</div>
@@ -145,24 +146,24 @@ $(document).ready(function(){initNavTree('_fitter__if_8h_source.html','');});
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* FITTER_IF_H */</span><span class="preprocessor"></span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor"></span></div>
 <div class="ttc" id="class_fitter__if_html_a2bfc41c6a8044520aeafb2c5c71fe570"><div class="ttname"><a href="class_fitter__if.html#a2bfc41c6a8044520aeafb2c5c71fe570">Fitter_if::fitTriangular</a></div><div class="ttdeci">virtual void fitTriangular(double *sqrerror, double *min, double *mo, double *max)=0</div></div>
-<div class="ttc" id="class_fitter__if_html_aa46a5cd2d50d3cab34a719099e1058a1"><div class="ttname"><a href="class_fitter__if.html#aa46a5cd2d50d3cab34a719099e1058a1">Fitter_if::fitErlang</a></div><div class="ttdeci">virtual void fitErlang(double *sqrerror, double *a, double *b, double *offset, double *mult)=0</div></div>
+<div class="ttc" id="class_fitter__if_html_aead0c465573cdd42e63e2b175c0bc929"><div class="ttname"><a href="class_fitter__if.html#aead0c465573cdd42e63e2b175c0bc929">Fitter_if::fitErlang</a></div><div class="ttdeci">virtual void fitErlang(double *sqrerror, double *avg, int *m)=0</div></div>
+<div class="ttc" id="class_fitter__if_html_a8ea1e6520f191368274fec5ab8e5f182"><div class="ttname"><a href="class_fitter__if.html#a8ea1e6520f191368274fec5ab8e5f182">Fitter_if::fitBeta</a></div><div class="ttdeci">virtual void fitBeta(double *sqrerror, double *alpha, double *beta, double *infLimit, double *supLimit)=0</div></div>
+<div class="ttc" id="class_fitter__if_html_a40c5bc2e953e683751743cf06df077c6"><div class="ttname"><a href="class_fitter__if.html#a40c5bc2e953e683751743cf06df077c6">Fitter_if::fitWeibull</a></div><div class="ttdeci">virtual void fitWeibull(double *sqrerror, double *alpha, double *scale)=0</div></div>
 <div class="ttc" id="class_fitter__if_html_a53e98635fcdee314e8ade8089f41ddad"><div class="ttname"><a href="class_fitter__if.html#a53e98635fcdee314e8ade8089f41ddad">Fitter_if::isNormalDistributed</a></div><div class="ttdeci">virtual bool isNormalDistributed(double confidencelevel)=0</div></div>
 <div class="ttc" id="class_fitter__if_html_a5ab5ac575b736bb720e6a40b334de5a3"><div class="ttname"><a href="class_fitter__if.html#a5ab5ac575b736bb720e6a40b334de5a3">Fitter_if::fitExpo</a></div><div class="ttdeci">virtual void fitExpo(double *sqrerror, double *avg1)=0</div></div>
-<div class="ttc" id="class_fitter__if_html_a686a7d540919b2e604df93b3049562d1"><div class="ttname"><a href="class_fitter__if.html#a686a7d540919b2e604df93b3049562d1">Fitter_if::fitBeta</a></div><div class="ttdeci">virtual void fitBeta(double *sqrerror, double *a, double *b, double *offset, double *mult)=0</div></div>
-<div class="ttc" id="class_fitter__if_html"><div class="ttname"><a href="class_fitter__if.html">Fitter_if</a></div><div class="ttdef"><b>Definition:</b> Fitter_if.h:19</div></div>
+<div class="ttc" id="class_fitter__if_html"><div class="ttname"><a href="class_fitter__if.html">Fitter_if</a></div><div class="ttdef"><b>Definition:</b> <a href="_fitter__if_8h_source.html#l00019">Fitter_if.h:19</a></div></div>
 <div class="ttc" id="class_fitter__if_html_a3c6926020b1224a960890fe308abcc86"><div class="ttname"><a href="class_fitter__if.html#a3c6926020b1224a960890fe308abcc86">Fitter_if::getDataFilename</a></div><div class="ttdeci">virtual std::string getDataFilename()=0</div></div>
 <div class="ttc" id="class_fitter__if_html_adec53dfede4bdb31b175e57e6a2c2fc7"><div class="ttname"><a href="class_fitter__if.html#adec53dfede4bdb31b175e57e6a2c2fc7">Fitter_if::fitUniform</a></div><div class="ttdeci">virtual void fitUniform(double *sqrerror, double *min, double *max)=0</div></div>
 <div class="ttc" id="class_fitter__if_html_a819a5ca8715ba4be30d2c7a3957aa467"><div class="ttname"><a href="class_fitter__if.html#a819a5ca8715ba4be30d2c7a3957aa467">Fitter_if::fitAll</a></div><div class="ttdeci">virtual void fitAll(double *sqrerror, std::string *name)=0</div></div>
 <div class="ttc" id="class_fitter__if_html_af95b4de00b7ed5d67b10d9ee458379bf"><div class="ttname"><a href="class_fitter__if.html#af95b4de00b7ed5d67b10d9ee458379bf">Fitter_if::fitNormal</a></div><div class="ttdeci">virtual void fitNormal(double *sqrerror, double *avg, double *stddev)=0</div></div>
 <div class="ttc" id="class_fitter__if_html_aa2d2f13548a09a2f727a4190a6b9c2dd"><div class="ttname"><a href="class_fitter__if.html#aa2d2f13548a09a2f727a4190a6b9c2dd">Fitter_if::setDataFilename</a></div><div class="ttdeci">virtual void setDataFilename(std::string dataFilename)=0</div></div>
-<div class="ttc" id="class_fitter__if_html_ae46e4cbb4354d6d06167aa498855d7ea"><div class="ttname"><a href="class_fitter__if.html#ae46e4cbb4354d6d06167aa498855d7ea">Fitter_if::fitWeibull</a></div><div class="ttdeci">virtual void fitWeibull(double *sqrerror, double *a, double *b, double *offset, double *mult)=0</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="_fitter__if_8h.html">Fitter_if.h</a></li>
-    <li class="footer">Generated on Tue Sep 4 2018 21:04:12 for RebornedGenESyS by
+    <li class="footer">Generated on Wed Oct 10 2018 20:34:03 for GenESyS - Generic and Expansible System Simulator [REBORN] by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

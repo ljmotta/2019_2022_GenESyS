@@ -1,0 +1,427 @@
+\hypertarget{class_statistics_cancian_impl}{\section{Statistics\-Cancian\-Impl Class Reference}
+\label{class_statistics_cancian_impl}\index{Statistics\-Cancian\-Impl@{Statistics\-Cancian\-Impl}}
+}
+
+
+{\ttfamily \#include $<$Statistics\-Cancian\-Impl.\-h$>$}
+
+
+
+Inheritance diagram for Statistics\-Cancian\-Impl\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{class_statistics_cancian_impl__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Statistics\-Cancian\-Impl\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{class_statistics_cancian_impl__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_statistics_cancian_impl_ad74dacaf522864b611472ab63ea001e8}{Statistics\-Cancian\-Impl} ()
+\item 
+\hyperlink{class_statistics_cancian_impl_a8fb61a145dabd401b99bc5e2c19a42b6}{Statistics\-Cancian\-Impl} (const \hyperlink{class_statistics_cancian_impl}{Statistics\-Cancian\-Impl} \&orig)
+\item 
+virtual \hyperlink{class_statistics_cancian_impl_ade6e0ebf0e8b76c3ffc00da584a2d64d}{$\sim$\-Statistics\-Cancian\-Impl} ()
+\item 
+\hyperlink{class_collector__if}{Collector\-\_\-if} $\ast$ \hyperlink{class_statistics_cancian_impl_ab255391ad55fada9f781933d2f791970}{get\-Collector} ()
+\item 
+void \hyperlink{class_statistics_cancian_impl_adbbf4036ba04976819af9bb104988b11}{set\-Collector} (\hyperlink{class_collector__if}{Collector\-\_\-if} $\ast$collector)
+\item 
+unsigned int \hyperlink{class_statistics_cancian_impl_a1d2fe0fe83fc07eb0521b76fbfd7c49b}{num\-Elements} ()
+\item 
+double \hyperlink{class_statistics_cancian_impl_a3ab4844399b479aa3cb18dfe41b8e776}{min} ()
+\item 
+double \hyperlink{class_statistics_cancian_impl_a3bfd053fdffa3fd7cbb4246b40503a8a}{max} ()
+\item 
+double \hyperlink{class_statistics_cancian_impl_ac1fd3ea442b571b7399e2b24106f66d2}{average} ()
+\item 
+double \hyperlink{class_statistics_cancian_impl_a8255541bdf60880cad08fecfb2e51349}{mode} ()
+\item 
+double \hyperlink{class_statistics_cancian_impl_aa57086cacb75c3a85cebd6d3d5c47053}{mediane} ()
+\item 
+double \hyperlink{class_statistics_cancian_impl_a8c4044fab2d60ab1855a73e43bae84a5}{variance} ()
+\item 
+double \hyperlink{class_statistics_cancian_impl_a2caa83257f21643b5fb8ccf4255c9f32}{stddeviation} ()
+\item 
+double \hyperlink{class_statistics_cancian_impl_a6e3a2bdd9a19d464a97d5bfb2f38cc6e}{variation\-Coef} ()
+\item 
+double \hyperlink{class_statistics_cancian_impl_a79b4ef1179bf3211ad65db76d6bbb514}{half\-Width\-Confidence\-Interval} (double confidencelevel)
+\item 
+unsigned int \hyperlink{class_statistics_cancian_impl_aca7e7bbc2ef8611129874cc4e3cfbc15}{new\-Sample\-Size} (double confidencelevel, double half\-Width)
+\item 
+double \hyperlink{class_statistics_cancian_impl_ad8085939d9ee9d6fba32ace19290d7ec}{quartil} (unsigned short num)
+\item 
+double \hyperlink{class_statistics_cancian_impl_a77873cb356ffab21ad8f1d7c6ab11d88}{decil} (unsigned short num)
+\item 
+double \hyperlink{class_statistics_cancian_impl_a0c6f2c98edd270d9da9ac654a4be1221}{centil} (unsigned short num)
+\item 
+void \hyperlink{class_statistics_cancian_impl_a7c5e76c04e9800cb20cd07a9a7de0ea1}{set\-Histogram\-Num\-Classes} (unsigned short num)
+\item 
+unsigned short \hyperlink{class_statistics_cancian_impl_a64174a2a3f3e58301fca192e4a093da4}{histogram\-Num\-Classes} ()
+\item 
+double \hyperlink{class_statistics_cancian_impl_a0c1fc73df7e35ec2460952536fa2ddf9}{histogram\-Class\-Lower\-Limit} (unsigned short class\-Num)
+\item 
+unsigned int \hyperlink{class_statistics_cancian_impl_abaffc9e18eadfefacdeab4ddf6f97f02}{histogram\-Class\-Frequency} (unsigned short class\-Num)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 19 of file Statistics\-Cancian\-Impl.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_statistics_cancian_impl_ad74dacaf522864b611472ab63ea001e8}{\index{Statistics\-Cancian\-Impl@{Statistics\-Cancian\-Impl}!Statistics\-Cancian\-Impl@{Statistics\-Cancian\-Impl}}
+\index{Statistics\-Cancian\-Impl@{Statistics\-Cancian\-Impl}!StatisticsCancianImpl@{Statistics\-Cancian\-Impl}}
+\subsubsection[{Statistics\-Cancian\-Impl}]{\setlength{\rightskip}{0pt plus 5cm}Statistics\-Cancian\-Impl\-::\-Statistics\-Cancian\-Impl (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_statistics_cancian_impl_ad74dacaf522864b611472ab63ea001e8}
+
+
+Definition at line 16 of file Statistics\-Cancian\-Impl.\-cpp.
+
+\hypertarget{class_statistics_cancian_impl_a8fb61a145dabd401b99bc5e2c19a42b6}{\index{Statistics\-Cancian\-Impl@{Statistics\-Cancian\-Impl}!Statistics\-Cancian\-Impl@{Statistics\-Cancian\-Impl}}
+\index{Statistics\-Cancian\-Impl@{Statistics\-Cancian\-Impl}!StatisticsCancianImpl@{Statistics\-Cancian\-Impl}}
+\subsubsection[{Statistics\-Cancian\-Impl}]{\setlength{\rightskip}{0pt plus 5cm}Statistics\-Cancian\-Impl\-::\-Statistics\-Cancian\-Impl (
+\begin{DoxyParamCaption}
+\item[{const {\bf Statistics\-Cancian\-Impl} \&}]{orig}
+\end{DoxyParamCaption}
+)}}\label{class_statistics_cancian_impl_a8fb61a145dabd401b99bc5e2c19a42b6}
+
+
+Definition at line 19 of file Statistics\-Cancian\-Impl.\-cpp.
+
+\hypertarget{class_statistics_cancian_impl_ade6e0ebf0e8b76c3ffc00da584a2d64d}{\index{Statistics\-Cancian\-Impl@{Statistics\-Cancian\-Impl}!$\sim$\-Statistics\-Cancian\-Impl@{$\sim$\-Statistics\-Cancian\-Impl}}
+\index{$\sim$\-Statistics\-Cancian\-Impl@{$\sim$\-Statistics\-Cancian\-Impl}!StatisticsCancianImpl@{Statistics\-Cancian\-Impl}}
+\subsubsection[{$\sim$\-Statistics\-Cancian\-Impl}]{\setlength{\rightskip}{0pt plus 5cm}Statistics\-Cancian\-Impl\-::$\sim$\-Statistics\-Cancian\-Impl (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_statistics_cancian_impl_ade6e0ebf0e8b76c3ffc00da584a2d64d}
+
+
+Definition at line 22 of file Statistics\-Cancian\-Impl.\-cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_statistics_cancian_impl_ac1fd3ea442b571b7399e2b24106f66d2}{\index{Statistics\-Cancian\-Impl@{Statistics\-Cancian\-Impl}!average@{average}}
+\index{average@{average}!StatisticsCancianImpl@{Statistics\-Cancian\-Impl}}
+\subsubsection[{average}]{\setlength{\rightskip}{0pt plus 5cm}double Statistics\-Cancian\-Impl\-::average (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_statistics_cancian_impl_ac1fd3ea442b571b7399e2b24106f66d2}
+
+
+Implements \hyperlink{class_statistics__if_a791ab6bbd166254429a3131bdf6e8dd6}{Statistics\-\_\-if}.
+
+
+
+Definition at line 41 of file Statistics\-Cancian\-Impl.\-cpp.
+
+\hypertarget{class_statistics_cancian_impl_a0c6f2c98edd270d9da9ac654a4be1221}{\index{Statistics\-Cancian\-Impl@{Statistics\-Cancian\-Impl}!centil@{centil}}
+\index{centil@{centil}!StatisticsCancianImpl@{Statistics\-Cancian\-Impl}}
+\subsubsection[{centil}]{\setlength{\rightskip}{0pt plus 5cm}double Statistics\-Cancian\-Impl\-::centil (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{num}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_statistics_cancian_impl_a0c6f2c98edd270d9da9ac654a4be1221}
+
+
+Implements \hyperlink{class_statistics__if_a906e7f2428e5e6482daf5dd1b2d54bfc}{Statistics\-\_\-if}.
+
+
+
+Definition at line 71 of file Statistics\-Cancian\-Impl.\-cpp.
+
+\hypertarget{class_statistics_cancian_impl_a77873cb356ffab21ad8f1d7c6ab11d88}{\index{Statistics\-Cancian\-Impl@{Statistics\-Cancian\-Impl}!decil@{decil}}
+\index{decil@{decil}!StatisticsCancianImpl@{Statistics\-Cancian\-Impl}}
+\subsubsection[{decil}]{\setlength{\rightskip}{0pt plus 5cm}double Statistics\-Cancian\-Impl\-::decil (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{num}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_statistics_cancian_impl_a77873cb356ffab21ad8f1d7c6ab11d88}
+
+
+Implements \hyperlink{class_statistics__if_a562230cad7a31c8af403217743b156f3}{Statistics\-\_\-if}.
+
+
+
+Definition at line 68 of file Statistics\-Cancian\-Impl.\-cpp.
+
+\hypertarget{class_statistics_cancian_impl_ab255391ad55fada9f781933d2f791970}{\index{Statistics\-Cancian\-Impl@{Statistics\-Cancian\-Impl}!get\-Collector@{get\-Collector}}
+\index{get\-Collector@{get\-Collector}!StatisticsCancianImpl@{Statistics\-Cancian\-Impl}}
+\subsubsection[{get\-Collector}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Collector\-\_\-if} $\ast$ Statistics\-Cancian\-Impl\-::get\-Collector (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_statistics_cancian_impl_ab255391ad55fada9f781933d2f791970}
+
+
+Implements \hyperlink{class_statistics__if_a49a730541ca9a3d8272f39f4000485c4}{Statistics\-\_\-if}.
+
+
+
+Definition at line 25 of file Statistics\-Cancian\-Impl.\-cpp.
+
+\hypertarget{class_statistics_cancian_impl_a79b4ef1179bf3211ad65db76d6bbb514}{\index{Statistics\-Cancian\-Impl@{Statistics\-Cancian\-Impl}!half\-Width\-Confidence\-Interval@{half\-Width\-Confidence\-Interval}}
+\index{half\-Width\-Confidence\-Interval@{half\-Width\-Confidence\-Interval}!StatisticsCancianImpl@{Statistics\-Cancian\-Impl}}
+\subsubsection[{half\-Width\-Confidence\-Interval}]{\setlength{\rightskip}{0pt plus 5cm}double Statistics\-Cancian\-Impl\-::half\-Width\-Confidence\-Interval (
+\begin{DoxyParamCaption}
+\item[{double}]{confidencelevel}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_statistics_cancian_impl_a79b4ef1179bf3211ad65db76d6bbb514}
+
+
+Implements \hyperlink{class_statistics__if_a093e08a43aefa0738f94ea4f68eaa40d}{Statistics\-\_\-if}.
+
+
+
+Definition at line 59 of file Statistics\-Cancian\-Impl.\-cpp.
+
+\hypertarget{class_statistics_cancian_impl_abaffc9e18eadfefacdeab4ddf6f97f02}{\index{Statistics\-Cancian\-Impl@{Statistics\-Cancian\-Impl}!histogram\-Class\-Frequency@{histogram\-Class\-Frequency}}
+\index{histogram\-Class\-Frequency@{histogram\-Class\-Frequency}!StatisticsCancianImpl@{Statistics\-Cancian\-Impl}}
+\subsubsection[{histogram\-Class\-Frequency}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Statistics\-Cancian\-Impl\-::histogram\-Class\-Frequency (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{class\-Num}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_statistics_cancian_impl_abaffc9e18eadfefacdeab4ddf6f97f02}
+
+
+Implements \hyperlink{class_statistics__if_a7b72e8473ff71da5f8b77e4f2c15a407}{Statistics\-\_\-if}.
+
+
+
+Definition at line 84 of file Statistics\-Cancian\-Impl.\-cpp.
+
+\hypertarget{class_statistics_cancian_impl_a0c1fc73df7e35ec2460952536fa2ddf9}{\index{Statistics\-Cancian\-Impl@{Statistics\-Cancian\-Impl}!histogram\-Class\-Lower\-Limit@{histogram\-Class\-Lower\-Limit}}
+\index{histogram\-Class\-Lower\-Limit@{histogram\-Class\-Lower\-Limit}!StatisticsCancianImpl@{Statistics\-Cancian\-Impl}}
+\subsubsection[{histogram\-Class\-Lower\-Limit}]{\setlength{\rightskip}{0pt plus 5cm}double Statistics\-Cancian\-Impl\-::histogram\-Class\-Lower\-Limit (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{class\-Num}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_statistics_cancian_impl_a0c1fc73df7e35ec2460952536fa2ddf9}
+
+
+Implements \hyperlink{class_statistics__if_abedad81a78b2c04ade10994e5503825c}{Statistics\-\_\-if}.
+
+
+
+Definition at line 81 of file Statistics\-Cancian\-Impl.\-cpp.
+
+\hypertarget{class_statistics_cancian_impl_a64174a2a3f3e58301fca192e4a093da4}{\index{Statistics\-Cancian\-Impl@{Statistics\-Cancian\-Impl}!histogram\-Num\-Classes@{histogram\-Num\-Classes}}
+\index{histogram\-Num\-Classes@{histogram\-Num\-Classes}!StatisticsCancianImpl@{Statistics\-Cancian\-Impl}}
+\subsubsection[{histogram\-Num\-Classes}]{\setlength{\rightskip}{0pt plus 5cm}unsigned short Statistics\-Cancian\-Impl\-::histogram\-Num\-Classes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_statistics_cancian_impl_a64174a2a3f3e58301fca192e4a093da4}
+
+
+Implements \hyperlink{class_statistics__if_ab86db530e84375431be9d13c88424de3}{Statistics\-\_\-if}.
+
+
+
+Definition at line 77 of file Statistics\-Cancian\-Impl.\-cpp.
+
+\hypertarget{class_statistics_cancian_impl_a3bfd053fdffa3fd7cbb4246b40503a8a}{\index{Statistics\-Cancian\-Impl@{Statistics\-Cancian\-Impl}!max@{max}}
+\index{max@{max}!StatisticsCancianImpl@{Statistics\-Cancian\-Impl}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}double Statistics\-Cancian\-Impl\-::max (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_statistics_cancian_impl_a3bfd053fdffa3fd7cbb4246b40503a8a}
+
+
+Implements \hyperlink{class_statistics__if_a24e3652122f2ec649b4c7d3accc43da0}{Statistics\-\_\-if}.
+
+
+
+Definition at line 38 of file Statistics\-Cancian\-Impl.\-cpp.
+
+\hypertarget{class_statistics_cancian_impl_aa57086cacb75c3a85cebd6d3d5c47053}{\index{Statistics\-Cancian\-Impl@{Statistics\-Cancian\-Impl}!mediane@{mediane}}
+\index{mediane@{mediane}!StatisticsCancianImpl@{Statistics\-Cancian\-Impl}}
+\subsubsection[{mediane}]{\setlength{\rightskip}{0pt plus 5cm}double Statistics\-Cancian\-Impl\-::mediane (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_statistics_cancian_impl_aa57086cacb75c3a85cebd6d3d5c47053}
+
+
+Implements \hyperlink{class_statistics__if_a0414c1df9272ca674cba6fc30f027684}{Statistics\-\_\-if}.
+
+
+
+Definition at line 47 of file Statistics\-Cancian\-Impl.\-cpp.
+
+\hypertarget{class_statistics_cancian_impl_a3ab4844399b479aa3cb18dfe41b8e776}{\index{Statistics\-Cancian\-Impl@{Statistics\-Cancian\-Impl}!min@{min}}
+\index{min@{min}!StatisticsCancianImpl@{Statistics\-Cancian\-Impl}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}double Statistics\-Cancian\-Impl\-::min (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_statistics_cancian_impl_a3ab4844399b479aa3cb18dfe41b8e776}
+
+
+Implements \hyperlink{class_statistics__if_acdeb9880a7362e9105871c7fb3f65db6}{Statistics\-\_\-if}.
+
+
+
+Definition at line 35 of file Statistics\-Cancian\-Impl.\-cpp.
+
+\hypertarget{class_statistics_cancian_impl_a8255541bdf60880cad08fecfb2e51349}{\index{Statistics\-Cancian\-Impl@{Statistics\-Cancian\-Impl}!mode@{mode}}
+\index{mode@{mode}!StatisticsCancianImpl@{Statistics\-Cancian\-Impl}}
+\subsubsection[{mode}]{\setlength{\rightskip}{0pt plus 5cm}double Statistics\-Cancian\-Impl\-::mode (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_statistics_cancian_impl_a8255541bdf60880cad08fecfb2e51349}
+
+
+Implements \hyperlink{class_statistics__if_a43b850db407a9a64ab3e2f4d06eab350}{Statistics\-\_\-if}.
+
+
+
+Definition at line 44 of file Statistics\-Cancian\-Impl.\-cpp.
+
+\hypertarget{class_statistics_cancian_impl_aca7e7bbc2ef8611129874cc4e3cfbc15}{\index{Statistics\-Cancian\-Impl@{Statistics\-Cancian\-Impl}!new\-Sample\-Size@{new\-Sample\-Size}}
+\index{new\-Sample\-Size@{new\-Sample\-Size}!StatisticsCancianImpl@{Statistics\-Cancian\-Impl}}
+\subsubsection[{new\-Sample\-Size}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Statistics\-Cancian\-Impl\-::new\-Sample\-Size (
+\begin{DoxyParamCaption}
+\item[{double}]{confidencelevel, }
+\item[{double}]{half\-Width}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_statistics_cancian_impl_aca7e7bbc2ef8611129874cc4e3cfbc15}
+
+
+Implements \hyperlink{class_statistics__if_a041cafef3eb831901296987871f707f0}{Statistics\-\_\-if}.
+
+
+
+Definition at line 62 of file Statistics\-Cancian\-Impl.\-cpp.
+
+\hypertarget{class_statistics_cancian_impl_a1d2fe0fe83fc07eb0521b76fbfd7c49b}{\index{Statistics\-Cancian\-Impl@{Statistics\-Cancian\-Impl}!num\-Elements@{num\-Elements}}
+\index{num\-Elements@{num\-Elements}!StatisticsCancianImpl@{Statistics\-Cancian\-Impl}}
+\subsubsection[{num\-Elements}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Statistics\-Cancian\-Impl\-::num\-Elements (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_statistics_cancian_impl_a1d2fe0fe83fc07eb0521b76fbfd7c49b}
+
+
+Implements \hyperlink{class_statistics__if_a1e76d98f8a61fe03df9e36194eaa5722}{Statistics\-\_\-if}.
+
+
+
+Definition at line 32 of file Statistics\-Cancian\-Impl.\-cpp.
+
+\hypertarget{class_statistics_cancian_impl_ad8085939d9ee9d6fba32ace19290d7ec}{\index{Statistics\-Cancian\-Impl@{Statistics\-Cancian\-Impl}!quartil@{quartil}}
+\index{quartil@{quartil}!StatisticsCancianImpl@{Statistics\-Cancian\-Impl}}
+\subsubsection[{quartil}]{\setlength{\rightskip}{0pt plus 5cm}double Statistics\-Cancian\-Impl\-::quartil (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{num}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_statistics_cancian_impl_ad8085939d9ee9d6fba32ace19290d7ec}
+
+
+Implements \hyperlink{class_statistics__if_af85daafcb428420ceeacdd4807c045eb}{Statistics\-\_\-if}.
+
+
+
+Definition at line 65 of file Statistics\-Cancian\-Impl.\-cpp.
+
+\hypertarget{class_statistics_cancian_impl_adbbf4036ba04976819af9bb104988b11}{\index{Statistics\-Cancian\-Impl@{Statistics\-Cancian\-Impl}!set\-Collector@{set\-Collector}}
+\index{set\-Collector@{set\-Collector}!StatisticsCancianImpl@{Statistics\-Cancian\-Impl}}
+\subsubsection[{set\-Collector}]{\setlength{\rightskip}{0pt plus 5cm}void Statistics\-Cancian\-Impl\-::set\-Collector (
+\begin{DoxyParamCaption}
+\item[{{\bf Collector\-\_\-if} $\ast$}]{collector}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_statistics_cancian_impl_adbbf4036ba04976819af9bb104988b11}
+
+
+Implements \hyperlink{class_statistics__if_a203ffe8e5215e887b716b7810023adc6}{Statistics\-\_\-if}.
+
+
+
+Definition at line 28 of file Statistics\-Cancian\-Impl.\-cpp.
+
+\hypertarget{class_statistics_cancian_impl_a7c5e76c04e9800cb20cd07a9a7de0ea1}{\index{Statistics\-Cancian\-Impl@{Statistics\-Cancian\-Impl}!set\-Histogram\-Num\-Classes@{set\-Histogram\-Num\-Classes}}
+\index{set\-Histogram\-Num\-Classes@{set\-Histogram\-Num\-Classes}!StatisticsCancianImpl@{Statistics\-Cancian\-Impl}}
+\subsubsection[{set\-Histogram\-Num\-Classes}]{\setlength{\rightskip}{0pt plus 5cm}void Statistics\-Cancian\-Impl\-::set\-Histogram\-Num\-Classes (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{num}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_statistics_cancian_impl_a7c5e76c04e9800cb20cd07a9a7de0ea1}
+
+
+Implements \hyperlink{class_statistics__if_a82349cd351436591c909d39f580c2f63}{Statistics\-\_\-if}.
+
+
+
+Definition at line 74 of file Statistics\-Cancian\-Impl.\-cpp.
+
+\hypertarget{class_statistics_cancian_impl_a2caa83257f21643b5fb8ccf4255c9f32}{\index{Statistics\-Cancian\-Impl@{Statistics\-Cancian\-Impl}!stddeviation@{stddeviation}}
+\index{stddeviation@{stddeviation}!StatisticsCancianImpl@{Statistics\-Cancian\-Impl}}
+\subsubsection[{stddeviation}]{\setlength{\rightskip}{0pt plus 5cm}double Statistics\-Cancian\-Impl\-::stddeviation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_statistics_cancian_impl_a2caa83257f21643b5fb8ccf4255c9f32}
+
+
+Implements \hyperlink{class_statistics__if_a88d2478c6dfd8de19436ab248080a509}{Statistics\-\_\-if}.
+
+
+
+Definition at line 53 of file Statistics\-Cancian\-Impl.\-cpp.
+
+\hypertarget{class_statistics_cancian_impl_a8c4044fab2d60ab1855a73e43bae84a5}{\index{Statistics\-Cancian\-Impl@{Statistics\-Cancian\-Impl}!variance@{variance}}
+\index{variance@{variance}!StatisticsCancianImpl@{Statistics\-Cancian\-Impl}}
+\subsubsection[{variance}]{\setlength{\rightskip}{0pt plus 5cm}double Statistics\-Cancian\-Impl\-::variance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_statistics_cancian_impl_a8c4044fab2d60ab1855a73e43bae84a5}
+
+
+Implements \hyperlink{class_statistics__if_a1b563f7e92eda3cf3a8f47f07824b96b}{Statistics\-\_\-if}.
+
+
+
+Definition at line 50 of file Statistics\-Cancian\-Impl.\-cpp.
+
+\hypertarget{class_statistics_cancian_impl_a6e3a2bdd9a19d464a97d5bfb2f38cc6e}{\index{Statistics\-Cancian\-Impl@{Statistics\-Cancian\-Impl}!variation\-Coef@{variation\-Coef}}
+\index{variation\-Coef@{variation\-Coef}!StatisticsCancianImpl@{Statistics\-Cancian\-Impl}}
+\subsubsection[{variation\-Coef}]{\setlength{\rightskip}{0pt plus 5cm}double Statistics\-Cancian\-Impl\-::variation\-Coef (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_statistics_cancian_impl_a6e3a2bdd9a19d464a97d5bfb2f38cc6e}
+
+
+Implements \hyperlink{class_statistics__if_ae0ad6bf18f8263003b0ac7552318be57}{Statistics\-\_\-if}.
+
+
+
+Definition at line 56 of file Statistics\-Cancian\-Impl.\-cpp.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_statistics_cancian_impl_8h}{Statistics\-Cancian\-Impl.\-h}\item 
+\hyperlink{_statistics_cancian_impl_8cpp}{Statistics\-Cancian\-Impl.\-cpp}\end{DoxyCompactItemize}

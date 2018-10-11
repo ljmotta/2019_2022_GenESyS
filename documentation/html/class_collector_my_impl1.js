@@ -6,5 +6,5 @@ var class_collector_my_impl1 =
     [ "addValue", "class_collector_my_impl1.html#acc5d658a3429af8b7d4265cbc37485b5", null ],
     [ "clear", "class_collector_my_impl1.html#a9b570931955cafde878d6734aa914039", null ],
     [ "getLastValue", "class_collector_my_impl1.html#a56e754ba3175e2f335290e2a737e7104", null ],
-    [ "numElements", "class_collector_my_impl1.html#ac71aac361d3c9a5d0c9cc76c1c75e47e", null ]
+    [ "numElements", "class_collector_my_impl1.html#a25427d84682943e0f588d494c54f79d8", null ]
 ];

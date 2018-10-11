@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['different',['DIFFERENT',['../class_hypothesis_tester__if.html#a89153ff990252f9f79856a2f2532c349acf8c0147414ce2a7cfdc8b26854464f8',1,'HypothesisTester_if']]]
+  ['attribute',['Attribute',['../class_assign.html#ae0f42117c12a8d0bc2bf0b7574070694ada06eaebb0fa138e88ff06aa3ec421a0',1,'Assign']]]
 ];

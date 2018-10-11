@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>RebornedGenESyS: Util Class Reference</title>
+<title>GenESyS - Generic and Expansible System Simulator [REBORN]: Util Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="software_genesys.gif"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">RebornedGenESyS
-   &#160;<span id="projectnumber">Reborned 20182</span>
+   <div id="projectname">GenESyS - Generic and Expansible System Simulator [REBORN]
+   &#160;<span id="projectnumber">2018-2</span>
    </div>
-   <div id="projectbrief">Generic and Expansible System Simulator</div>
+   <div id="projectbrief">Generic System Simulator</div>
   </td>
  </tr>
  </tbody>
@@ -48,6 +48,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -96,7 +97,7 @@ $(document).ready(function(){initNavTree('class_util.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -138,12 +139,13 @@ Public Types</h2></td></tr>
 <tr class="memitem:a604561d00f5999b5ca280401140e58d9"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_util.html#a604561d00f5999b5ca280401140e58d9">TraceLevel</a> { <br/>
 &#160;&#160;<a class="el" href="class_util.html#a604561d00f5999b5ca280401140e58d9ae16cd2d59f52612b89b7a094bf6ed758">TL_noTraces</a> = 0, 
 <a class="el" href="class_util.html#a604561d00f5999b5ca280401140e58d9a301dc2838784fa24261650a639c11cf1">TL_errors</a> = 10, 
-<a class="el" href="class_util.html#a604561d00f5999b5ca280401140e58d9a4b58bddec93bc38da370802e995c3e60">TL_simulation</a> = 20, 
-<a class="el" href="class_util.html#a604561d00f5999b5ca280401140e58d9a8b8962b6e41245523e7d7b967f582272">TL_transferOnly</a> = 30, 
+<a class="el" href="class_util.html#a604561d00f5999b5ca280401140e58d9a5db79a751ceac892c087e3acb5069e22">TL_report</a> = 20, 
+<a class="el" href="class_util.html#a604561d00f5999b5ca280401140e58d9a4b58bddec93bc38da370802e995c3e60">TL_simulation</a> = 30, 
 <br/>
-&#160;&#160;<a class="el" href="class_util.html#a604561d00f5999b5ca280401140e58d9a3a33606fc3e2b432131173eeed280d9a">TL_blockArrival</a> = 40, 
-<a class="el" href="class_util.html#a604561d00f5999b5ca280401140e58d9a3bf34b905a3128734e417619af900d0e">TL_blockInternal</a> = 50, 
-<a class="el" href="class_util.html#a604561d00f5999b5ca280401140e58d9a64fd55e7b2e7fa00956ebc5185cef8b0">TL_mostDetailed</a> = 60
+&#160;&#160;<a class="el" href="class_util.html#a604561d00f5999b5ca280401140e58d9a8b8962b6e41245523e7d7b967f582272">TL_transferOnly</a> = 40, 
+<a class="el" href="class_util.html#a604561d00f5999b5ca280401140e58d9a3a33606fc3e2b432131173eeed280d9a">TL_blockArrival</a> = 50, 
+<a class="el" href="class_util.html#a604561d00f5999b5ca280401140e58d9a3bf34b905a3128734e417619af900d0e">TL_blockInternal</a> = 60, 
+<a class="el" href="class_util.html#a604561d00f5999b5ca280401140e58d9a64fd55e7b2e7fa00956ebc5185cef8b0">TL_mostDetailed</a> = 70
 <br/>
  }</td></tr>
 <tr class="separator:a604561d00f5999b5ca280401140e58d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -158,8 +160,8 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a59ecba8027c38a9d0a3a0e9e9dc94ad7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f537febaa83db4721745a4730657bab"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_util.html#a5f537febaa83db4721745a4730657bab">TimeUnitConvert</a> (<a class="el" href="class_util.html#aadbd82055afeaa7d4fb4da513de628ff">Util::TimeUnit</a> timeUnit1, <a class="el" href="class_util.html#aadbd82055afeaa7d4fb4da513de628ff">Util::TimeUnit</a> timeUnit2)</td></tr>
 <tr class="separator:a5f537febaa83db4721745a4730657bab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab92bcba2a33782b6228d575da4aae0ad"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_util.html#ad17d458d9344b10bba64347e514d6d71">Util::identitifcation</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_util.html#ab92bcba2a33782b6228d575da4aae0ad">_GenerateNewIdOfType</a> (std::string objtyp)</td></tr>
-<tr class="separator:ab92bcba2a33782b6228d575da4aae0ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96dd76236d7f5888b8dac562e93f9278"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_util.html#ad17d458d9344b10bba64347e514d6d71">Util::identitifcation</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_util.html#a96dd76236d7f5888b8dac562e93f9278">GenerateNewIdOfType</a> (std::string objtyp)</td></tr>
+<tr class="separator:a96dd76236d7f5888b8dac562e93f9278"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1010d1207367e48e1d417381f32abf1f"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:a1010d1207367e48e1d417381f32abf1f"><td class="memTemplItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_util.html#a1010d1207367e48e1d417381f32abf1f">TypeOf</a> ()</td></tr>
 <tr class="separator:a1010d1207367e48e1d417381f32abf1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -175,7 +177,10 @@ Static Public Attributes</h2></td></tr>
 <a class="el" href="class_util.html#ad17d458d9344b10bba64347e514d6d71">Util::identitifcation</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_util.html#a06a8897362f4bd17c68d59557083fc56">_S_lastIdOfType</a> = std::map&lt;std::string,<a class="el" href="class_util.html#ad17d458d9344b10bba64347e514d6d71">Util::identitifcation</a>&gt;()</td></tr>
 <tr class="separator:a06a8897362f4bd17c68d59557083fc56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p>Definition at line <a class="el" href="_util_8h_source.html#l00022">22</a> of file <a class="el" href="_util_8h_source.html">Util.h</a>.</p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a class="anchor" id="ad17d458d9344b10bba64347e514d6d71"></a>
 <div class="memitem">
 <div class="memproto">
@@ -185,6 +190,8 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_util_8h_source.html#l00024">24</a> of file <a class="el" href="_util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -197,6 +204,8 @@ Static Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_util_8h_source.html#l00025">25</a> of file <a class="el" href="_util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
@@ -231,6 +240,8 @@ Static Public Attributes</h2></td></tr>
 </td></tr>
 </table>
 
+<p>Definition at line <a class="el" href="_util_8h_source.html#l00027">27</a> of file <a class="el" href="_util_8h_source.html">Util.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a604561d00f5999b5ca280401140e58d9"></a>
@@ -247,6 +258,8 @@ Static Public Attributes</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a604561d00f5999b5ca280401140e58d9a301dc2838784fa24261650a639c11cf1"></a>TL_errors</em>&#160;</td><td class="fielddoc">
 </td></tr>
+<tr><td class="fieldname"><em><a class="anchor" id="a604561d00f5999b5ca280401140e58d9a5db79a751ceac892c087e3acb5069e22"></a>TL_report</em>&#160;</td><td class="fielddoc">
+</td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a604561d00f5999b5ca280401140e58d9a4b58bddec93bc38da370802e995c3e60"></a>TL_simulation</em>&#160;</td><td class="fielddoc">
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a604561d00f5999b5ca280401140e58d9a8b8962b6e41245523e7d7b967f582272"></a>TL_transferOnly</em>&#160;</td><td class="fielddoc">
@@ -259,33 +272,11 @@ Static Public Attributes</h2></td></tr>
 </td></tr>
 </table>
 
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="ab92bcba2a33782b6228d575da4aae0ad"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_util.html#ad17d458d9344b10bba64347e514d6d71">Util::identitifcation</a> Util::_GenerateNewIdOfType </td>
-          <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>objtyp</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Definition at line <a class="el" href="_util_8h_source.html#l00039">39</a> of file <a class="el" href="_util_8h_source.html">Util.h</a>.</p>
 
 </div>
 </div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a59ecba8027c38a9d0a3a0e9e9dc94ad7"></a>
 <div class="memitem">
 <div class="memproto">
@@ -306,6 +297,34 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_util_8cpp_source.html#l00022">22</a> of file <a class="el" href="_util_8cpp_source.html">Util.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a96dd76236d7f5888b8dac562e93f9278"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_util.html#ad17d458d9344b10bba64347e514d6d71">Util::identitifcation</a> Util::GenerateNewIdOfType </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>objtyp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_util_8cpp_source.html#l00028">28</a> of file <a class="el" href="_util_8cpp_source.html">Util.cpp</a>.</p>
 
 </div>
 </div>
@@ -331,6 +350,17 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_util_8h_source.html#l00067">67</a> of file <a class="el" href="_util_8h_source.html">Util.h</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_util_aec5f31f4f467113c25a6aef7bb5f4a40_icgraph.png" border="0" usemap="#class_util_aec5f31f4f467113c25a6aef7bb5f4a40_icgraph" alt=""/></div>
+<map name="class_util_aec5f31f4f467113c25a6aef7bb5f4a40_icgraph" id="class_util_aec5f31f4f467113c25a6aef7bb5f4a40_icgraph">
+<area shape="rect" id="node2" href="class_model_infrastructure.html#aa7e7206a487b4e3ac89df8a23546a187" title="ModelInfrastructure\l::ModelInfrastructure" alt="" coords="238,5,381,46"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -366,6 +396,17 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_util_8cpp_source.html#l00042">42</a> of file <a class="el" href="_util_8cpp_source.html">Util.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_util_a5f537febaa83db4721745a4730657bab_icgraph.png" border="0" usemap="#class_util_a5f537febaa83db4721745a4730657bab_icgraph" alt=""/></div>
+<map name="class_util_a5f537febaa83db4721745a4730657bab_icgraph" id="class_util_a5f537febaa83db4721745a4730657bab_icgraph">
+<area shape="rect" id="node2" href="class_create.html#acd3a4b8805561591e0c88d3fd689cf74" title="Create::_execute" alt="" coords="203,5,325,32"/><area shape="rect" id="node3" href="class_delay.html#a029d91a2cd736ff9c361c69336e6ab41" title="Delay::_execute" alt="" coords="205,56,323,83"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a1010d1207367e48e1d417381f32abf1f"></a>
@@ -391,6 +432,8 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_util_8h_source.html#l00059">59</a> of file <a class="el" href="_util_8h_source.html">Util.h</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -412,6 +455,8 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_util_8h_source.html#l00050">50</a> of file <a class="el" href="_util_8h_source.html">Util.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a06a8897362f4bd17c68d59557083fc56"></a>
@@ -432,11 +477,13 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_util_8h_source.html#l00051">51</a> of file <a class="el" href="_util_8h_source.html">Util.h</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_util_8h_source.html">Util.h</a></li>
-<li><a class="el" href="_util_8cpp.html">Util.cpp</a></li>
+<li><a class="el" href="_util_8cpp_source.html">Util.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -444,7 +491,7 @@ template&lt;class T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_util.html">Util</a></li>
-    <li class="footer">Generated on Tue Sep 4 2018 21:04:13 for RebornedGenESyS by
+    <li class="footer">Generated on Wed Oct 10 2018 20:34:03 for GenESyS - Generic and Expansible System Simulator [REBORN] by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

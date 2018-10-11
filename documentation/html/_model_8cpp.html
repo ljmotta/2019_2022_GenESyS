@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>RebornedGenESyS: Model.cpp File Reference</title>
+<title>GenESyS - Generic and Expansible System Simulator [REBORN]: Model.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="software_genesys.gif"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">RebornedGenESyS
-   &#160;<span id="projectnumber">Reborned 20182</span>
+   <div id="projectname">GenESyS - Generic and Expansible System Simulator [REBORN]
+   &#160;<span id="projectnumber">2018-2</span>
    </div>
-   <div id="projectbrief">Generic and Expansible System Simulator</div>
+   <div id="projectbrief">Generic System Simulator</div>
   </td>
  </tr>
  </tbody>
@@ -48,6 +48,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -94,7 +95,7 @@ $(document).ready(function(){initNavTree('_model_8cpp.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -111,24 +112,29 @@ $(document).ready(function(){initNavTree('_model_8cpp.html','');});
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;typeinfo&gt;</code><br/>
+<code>#include &lt;iostream&gt;</code><br/>
+<code>#include &lt;algorithm&gt;</code><br/>
+<code>#include &lt;string&gt;</code><br/>
 <code>#include &quot;<a class="el" href="_model_8h_source.html">Model.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="_source_model_component_8h_source.html">SourceModelComponent.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="_simulator_8h_source.html">Simulator.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="_parser_my_impl1_8h_source.html">ParserMyImpl1.h</a>&quot;</code><br/>
-<code>#include &lt;iostream&gt;</code><br/>
-<code>#include &lt;algorithm&gt;</code><br/>
+<code>#include &quot;<a class="el" href="_statistics_collector_8h_source.html">StatisticsCollector.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Model.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="_model_8cpp__incl.png" border="0" usemap="#_model_8cpp" alt=""/></div>
 <map name="_model_8cpp" id="_model_8cpp">
-<area shape="rect" id="node3" href="_model_8h.html" title="Model.h" alt="" coords="870,304,937,331"/><area shape="rect" id="node23" href="_source_model_component_8h.html" title="SourceModelComponent.h" alt="" coords="93,379,269,405"/><area shape="rect" id="node25" href="_simulator_8h.html" title="Simulator.h" alt="" coords="991,80,1079,107"/><area shape="rect" id="node40" href="_parser_my_impl1_8h.html" title="ParserMyImpl1.h" alt="" coords="2523,304,2644,331"/><area shape="rect" id="node4" href="_util_8h.html" title="Util.h" alt="" coords="640,677,693,704"/><area shape="rect" id="node8" href="_list_8h.html" title="List.h" alt="" coords="665,528,719,555"/><area shape="rect" id="node13" href="_model_component_8h.html" title="ModelComponent.h" alt="" coords="837,453,971,480"/><area shape="rect" id="node16" href="_model_infrastructure_8h.html" title="ModelInfrastructure.h" alt="" coords="981,603,1125,629"/><area shape="rect" id="node18" href="_event_8h.html" title="Event.h" alt="" coords="1081,379,1148,405"/><area shape="rect" id="node19" href="_listener_8h.html" title="Listener.h" alt="" coords="1493,603,1571,629"/><area shape="rect" id="node20" href="_model_checker__if_8h.html" title="ModelChecker_if.h" alt="" coords="395,379,524,405"/><area shape="rect" id="node21" href="_parser__if_8h.html" title="Parser_if.h" alt="" coords="2056,379,2141,405"/><area shape="rect" id="node22" href="_model_persistence__if_8h.html" title="ModelPersistence_if.h" alt="" coords="1522,379,1672,405"/><area shape="rect" id="node14" href="_plugin_8h.html" title="Plugin.h" alt="" coords="397,528,467,555"/><area shape="rect" id="node15" href="_entity_8h.html" title="Entity.h" alt="" coords="1132,528,1199,555"/><area shape="rect" id="node17" href="_attribute_value_8h.html" title="AttributeValue.h" alt="" coords="1303,603,1417,629"/><area shape="rect" id="node27" href="_traits_8h.html" title="Traits.h" alt="" coords="1545,155,1612,181"/><area shape="rect" id="node30" href="_fitter__if_8h.html" title="Fitter_if.h" alt="" coords="2189,304,2265,331"/><area shape="rect" id="node28" href="_collector__if_8h.html" title="Collector_if.h" alt="" coords="1799,379,1897,405"/><area shape="rect" id="node29" href="_sampler__if_8h.html" title="Sampler_if.h" alt="" coords="2399,304,2493,331"/><area shape="rect" id="node31" href="_statistics__if_8h.html" title="Statistics_if.h" alt="" coords="1945,304,2047,331"/><area shape="rect" id="node32" href="_integrator__if_8h.html" title="Integrator_if.h" alt="" coords="1111,304,1213,331"/><area shape="rect" id="node33" href="_hypothesis_tester__if_8h.html" title="HypothesisTester_if.h" alt="" coords="1322,304,1472,331"/><area shape="rect" id="node34" href="_collector_my_impl1_8h.html" title="CollectorMyImpl1.h" alt="" coords="1566,304,1700,331"/><area shape="rect" id="node35" href="_collector_datafile_my_impl1_8h.html" title="CollectorDatafileMyImpl1.h" alt="" coords="1830,229,2009,256"/><area shape="rect" id="node37" href="_sampler_my_impl1_8h.html" title="SamplerMyImpl1.h" alt="" coords="2376,229,2505,256"/><area shape="rect" id="node38" href="_fitter_my_impl1_8h.html" title="FitterMyImpl1.h" alt="" coords="2187,229,2300,256"/><area shape="rect" id="node39" href="_model_checker_my_impl1_8h.html" title="ModelCheckerMyImpl1.h" alt="" coords="587,229,753,256"/><area shape="rect" id="node41" href="_integrator_my_impl1_8h.html" title="IntegratorMyImpl1.h" alt="" coords="1040,229,1179,256"/><area shape="rect" id="node42" href="_hypothesis_tester_my_impl1_8h.html" title="HypothesisTesterMyImpl1.h" alt="" coords="1304,229,1491,256"/><area shape="rect" id="node43" href="_model_persistence_my_impl1_8h.html" title="ModelPersistenceMyImpl1.h" alt="" coords="829,229,1016,256"/><area shape="rect" id="node44" href="_statistics_my_impl1_8h.html" title="StatisticsMyImpl1.h" alt="" coords="1667,229,1805,256"/><area shape="rect" id="node36" href="_collector_datafile__if_8h.html" title="CollectorDatafile_if.h" alt="" coords="1776,304,1920,331"/></map>
+<area shape="rect" id="node6" href="_model_8h.html" title="Model.h" alt="" coords="567,304,635,331"/><area shape="rect" id="node25" href="_source_model_component_8h.html" title="SourceModelComponent.h" alt="" coords="3103,379,3279,405"/><area shape="rect" id="node27" href="_simulator_8h.html" title="Simulator.h" alt="" coords="491,80,579,107"/><area shape="rect" id="node50" href="_statistics_collector_8h.html" title="StatisticsCollector.h" alt="" coords="2890,155,3029,181"/><area shape="rect" id="node7" href="_util_8h.html" title="Util.h" alt="" coords="517,693,571,720"/><area shape="rect" id="node10" href="_list_8h.html" title="List.h" alt="" coords="279,619,333,645"/><area shape="rect" id="node14" href="_model_component_8h.html" title="ModelComponent.h" alt="" coords="489,453,623,480"/><area shape="rect" id="node17" href="_model_infrastructure_8h.html" title="ModelInfrastructure.h" alt="" coords="655,619,800,645"/><area shape="rect" id="node18" href="_event_8h.html" title="Event.h" alt="" coords="585,379,652,405"/><area shape="rect" id="node19" href="_listener_8h.html" title="Listener.h" alt="" coords="965,536,1043,563"/><area shape="rect" id="node20" href="_model_checker__if_8h.html" title="ModelChecker_if.h" alt="" coords="228,379,357,405"/><area shape="rect" id="node21" href="_parser__if_8h.html" title="Parser_if.h" alt="" coords="1249,379,1335,405"/><area shape="rect" id="node22" href="_model_persistence__if_8h.html" title="ModelPersistence_if.h" alt="" coords="1359,379,1509,405"/><area shape="rect" id="node23" href="_simulation_response_8h.html" title="SimulationResponse.h" alt="" coords="902,453,1055,480"/><area shape="rect" id="node24" href="_simulation_control_8h.html" title="SimulationControl.h" alt="" coords="836,379,971,405"/><area shape="rect" id="node15" href="_plugin_8h.html" title="Plugin.h" alt="" coords="511,619,580,645"/><area shape="rect" id="node16" href="_entity_8h.html" title="Entity.h" alt="" coords="417,536,484,563"/><area shape="rect" id="node28" href="_traits_8h.html" title="Traits.h" alt="" coords="1513,155,1580,181"/><area shape="rect" id="node30" href="_sampler__if_8h.html" title="Sampler_if.h" alt="" coords="1986,304,2080,331"/><area shape="rect" id="node31" href="_fitter__if_8h.html" title="Fitter_if.h" alt="" coords="2547,304,2623,331"/><area shape="rect" id="node29" href="_collector__if_8h.html" title="Collector_if.h" alt="" coords="2812,379,2911,405"/><area shape="rect" id="node32" href="_statistics__if_8h.html" title="Statistics_if.h" alt="" coords="2706,304,2808,331"/><area shape="rect" id="node33" href="_integrator__if_8h.html" title="Integrator_if.h" alt="" coords="921,304,1023,331"/><area shape="rect" id="node34" href="_hypothesis_tester__if_8h.html" title="HypothesisTester_if.h" alt="" coords="1473,304,1623,331"/><area shape="rect" id="node35" href="_genesys_application__if_8h.html" title="GenesysApplication_if.h" alt="" coords="1927,229,2089,256"/><area shape="rect" id="node36" href="_process_analyser__if_8h.html" title="ProcessAnalyser_if.h" alt="" coords="713,304,860,331"/><area shape="rect" id="node37" href="_experiment_design__if_8h.html" title="ExperimentDesign_if.h" alt="" coords="673,229,827,256"/><area shape="rect" id="node38" href="_collector_my_impl1_8h.html" title="CollectorMyImpl1.h" alt="" coords="2917,304,3051,331"/><area shape="rect" id="node39" href="_collector_datafile_my_impl1_8h.html" title="CollectorDatafileMyImpl1.h" alt="" coords="2269,229,2448,256"/><area shape="rect" id="node40" href="_collector_datafile_cancian_impl_8h.html" title="CollectorDatafileCancian\lImpl.h" alt="" coords="1586,529,1752,570"/><area shape="rect" id="node41" href="_sampler_my_impl1_8h.html" title="SamplerMyImpl1.h" alt="" coords="2113,229,2243,256"/><area shape="rect" id="node42" href="_sampler___bru_fab_joa_8h.html" title="Sampler_BruFabJoa.h" alt="" coords="1701,229,1851,256"/><area shape="rect" id="node43" href="_fitter_my_impl1_8h.html" title="FitterMyImpl1.h" alt="" coords="2473,229,2585,256"/><area shape="rect" id="node44" href="_model_checker_my_impl1_8h.html" title="ModelCheckerMyImpl1.h" alt="" coords="330,229,496,256"/><area shape="rect" id="node45" href="_parser_my_impl1_8h.html" title="ParserMyImpl1.h" alt="" coords="1189,304,1309,331"/><area shape="rect" id="node46" href="_integrator_my_impl1_8h.html" title="IntegratorMyImpl1.h" alt="" coords="903,229,1041,256"/><area shape="rect" id="node47" href="_integrator_diogo_impl_8h.html" title="IntegratorDiogoImpl.h" alt="" coords="1065,229,1212,256"/><area shape="rect" id="node48" href="_hypothesis_tester_my_impl1_8h.html" title="HypothesisTesterMyImpl1.h" alt="" coords="1388,229,1575,256"/><area shape="rect" id="node49" href="_statistics_my_impl1_8h.html" title="StatisticsMyImpl1.h" alt="" coords="2915,229,3053,256"/></map>
 </div>
-</div><table class="memberdecls">
+</div>
+<p><a href="_model_8cpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ad9efbe6c59a02d856f1751d0c971aa88"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_model_8cpp.html#ad9efbe6c59a02d856f1751d0c971aa88">EventCompare</a> (const <a class="el" href="class_event.html">Event</a> *a, const <a class="el" href="class_event.html">Event</a> *b)</td></tr>
 <tr class="separator:ad9efbe6c59a02d856f1751d0c971aa88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55f631a4c74eeddfc5a15cc3b7e1e201"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_model_8cpp.html#a55f631a4c74eeddfc5a15cc3b7e1e201">getReplicationLengthNotMemberFunction</a> ()</td></tr>
+<tr class="separator:a55f631a4c74eeddfc5a15cc3b7e1e201"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="ad9efbe6c59a02d856f1751d0c971aa88"></a>
@@ -155,6 +161,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00025">25</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -166,13 +174,39 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a class="anchor" id="a55f631a4c74eeddfc5a15cc3b7e1e201"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double getReplicationLengthNotMemberFunction </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00029">29</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_model_8cpp_a55f631a4c74eeddfc5a15cc3b7e1e201_icgraph.png" border="0" usemap="#_model_8cpp_a55f631a4c74eeddfc5a15cc3b7e1e201_icgraph" alt=""/></div>
+<map name="_model_8cpp_a55f631a4c74eeddfc5a15cc3b7e1e201_icgraph" id="_model_8cpp_a55f631a4c74eeddfc5a15cc3b7e1e201_icgraph">
+<area shape="rect" id="node2" href="class_model.html#ae86e1403523e8036ba6366d1967ecac0" title="Model::Model" alt="" coords="267,12,367,39"/></map>
+</div>
+</p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="_model_8cpp.html">Model.cpp</a></li>
-    <li class="footer">Generated on Tue Sep 4 2018 21:04:12 for RebornedGenESyS by
+    <li class="footer">Generated on Wed Oct 10 2018 20:34:03 for GenESyS - Generic and Expansible System Simulator [REBORN] by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

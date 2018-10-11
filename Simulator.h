@@ -21,6 +21,7 @@
 #include "Plugin.h"
 #include "List.h"
 #include "Fitter_if.h"
+#include "Sampler_if.h"
 
 /*!
  * The main class of the Genesys KERNEL simulation. It gives access to simulation models and tools.

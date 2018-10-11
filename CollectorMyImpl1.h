@@ -26,11 +26,11 @@ public:
 	void clear();
 	void addValue(double value);
 	double getLastValue();
-	unsigned int numElements();
+	unsigned long numElements();
 
 private:
 	double _lastValue;
-	unsigned int _numElements = 0;
+	unsigned long _numElements = 0;
 };
 
 #endif /* COLLECTORMYIMPL1_H */

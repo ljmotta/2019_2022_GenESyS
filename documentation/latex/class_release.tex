@@ -67,13 +67,20 @@ std\-::string \hyperlink{class_release_aa8571b1bd8a9880d316a2556df1a07f3}{get\-Q
 \item 
 virtual void \hyperlink{class_release_a63c3cd89082e7f6c1fb61646b93a5c32}{\-\_\-execute} (\hyperlink{class_entity}{Entity} $\ast$entity)
 \item 
-virtual void \hyperlink{class_release_a1854b0152f9c2d935afdfdb007a85b4e}{\-\_\-read\-Component} (std\-::list$<$ std\-::string $>$ words)
+virtual void \hyperlink{class_release_a1c3820675ad6a119a8cc6a75b870bd49}{\-\_\-load\-Instance} (std\-::list$<$ std\-::string $>$ words)
 \item 
-virtual std\-::list$<$ std\-::string $>$ $\ast$ \hyperlink{class_release_a8404da29344d4a662de80736792639ea}{\-\_\-write\-Component} ()
+virtual std\-::list$<$ std\-::string $>$ $\ast$ \hyperlink{class_release_a2e15540e86b8d0ce62c553f3e9b095c3}{\-\_\-save\-Instance} ()
 \item 
 virtual bool \hyperlink{class_release_a81a30c1357d00e830bdc044418865e31}{\-\_\-verify\-Symbols} (std\-::string $\ast$error\-Message)
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 23 of file Release.\-h.
+
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -84,6 +91,10 @@ virtual bool \hyperlink{class_release_a81a30c1357d00e830bdc044418865e31}{\-\_\-v
 \item[{{\bf Model} $\ast$}]{model}
 \end{DoxyParamCaption}
 )}}\label{class_release_a4abb6616f9b6de8183558f0c380ccea3}
+
+
+Definition at line 20 of file Release.\-cpp.
+
 
 
 Here is the call graph for this function\-:\nopagebreak
@@ -102,6 +113,10 @@ Here is the call graph for this function\-:\nopagebreak
 \item[{const {\bf Release} \&}]{orig}
 \end{DoxyParamCaption}
 )}}\label{class_release_a25a9193717393a31a696cfcaf87f8a8b}
+
+
+Definition at line 38 of file Release.\-cpp.
+
 \hypertarget{class_release_ab1a1b4ee65816a9e64076851013197cd}{\index{Release@{Release}!$\sim$\-Release@{$\sim$\-Release}}
 \index{$\sim$\-Release@{$\sim$\-Release}!Release@{Release}}
 \subsubsection[{$\sim$\-Release}]{\setlength{\rightskip}{0pt plus 5cm}Release\-::$\sim$\-Release (
@@ -109,6 +124,10 @@ Here is the call graph for this function\-:\nopagebreak
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_release_ab1a1b4ee65816a9e64076851013197cd}
+
+
+Definition at line 41 of file Release.\-cpp.
+
 
 
 \subsection{Member Function Documentation}
@@ -125,6 +144,10 @@ Implements \hyperlink{class_model_component_ae3fcf8bbdd8368c882438424aa73f714}{M
 
 
 
+Definition at line 91 of file Release.\-cpp.
+
+
+
 Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -134,16 +157,35 @@ Here is the call graph for this function\-:\nopagebreak
 \end{figure}
 
 
-\hypertarget{class_release_a1854b0152f9c2d935afdfdb007a85b4e}{\index{Release@{Release}!\-\_\-read\-Component@{\-\_\-read\-Component}}
-\index{\-\_\-read\-Component@{\-\_\-read\-Component}!Release@{Release}}
-\subsubsection[{\-\_\-read\-Component}]{\setlength{\rightskip}{0pt plus 5cm}void Release\-::\-\_\-read\-Component (
+\hypertarget{class_release_a1c3820675ad6a119a8cc6a75b870bd49}{\index{Release@{Release}!\-\_\-load\-Instance@{\-\_\-load\-Instance}}
+\index{\-\_\-load\-Instance@{\-\_\-load\-Instance}!Release@{Release}}
+\subsubsection[{\-\_\-load\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}void Release\-::\-\_\-load\-Instance (
 \begin{DoxyParamCaption}
 \item[{std\-::list$<$ std\-::string $>$}]{words}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_release_a1854b0152f9c2d935afdfdb007a85b4e}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_release_a1c3820675ad6a119a8cc6a75b870bd49}
 
 
-Implements \hyperlink{class_model_component_aa16546b209d8fda2c8fa951e88652973}{Model\-Component}.
+Implements \hyperlink{class_model_infrastructure_ae118c8ad2ac9d4397c40d004af51b2dc}{Model\-Infrastructure}.
+
+
+
+Definition at line 122 of file Release.\-cpp.
+
+\hypertarget{class_release_a2e15540e86b8d0ce62c553f3e9b095c3}{\index{Release@{Release}!\-\_\-save\-Instance@{\-\_\-save\-Instance}}
+\index{\-\_\-save\-Instance@{\-\_\-save\-Instance}!Release@{Release}}
+\subsubsection[{\-\_\-save\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<$ std\-::string $>$ $\ast$ Release\-::\-\_\-save\-Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_release_a2e15540e86b8d0ce62c553f3e9b095c3}
+
+
+Implements \hyperlink{class_model_infrastructure_a3da2fd381c44752598bc448b207e8287}{Model\-Infrastructure}.
+
+
+
+Definition at line 126 of file Release.\-cpp.
 
 \hypertarget{class_release_a81a30c1357d00e830bdc044418865e31}{\index{Release@{Release}!\-\_\-verify\-Symbols@{\-\_\-verify\-Symbols}}
 \index{\-\_\-verify\-Symbols@{\-\_\-verify\-Symbols}!Release@{Release}}
@@ -154,18 +196,11 @@ Implements \hyperlink{class_model_component_aa16546b209d8fda2c8fa951e88652973}{M
 )\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_release_a81a30c1357d00e830bdc044418865e31}
 
 
-Implements \hyperlink{class_model_component_a183696468482133b2a09b761b7770521}{Model\-Component}.
-
-\hypertarget{class_release_a8404da29344d4a662de80736792639ea}{\index{Release@{Release}!\-\_\-write\-Component@{\-\_\-write\-Component}}
-\index{\-\_\-write\-Component@{\-\_\-write\-Component}!Release@{Release}}
-\subsubsection[{\-\_\-write\-Component}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<$ std\-::string $>$ $\ast$ Release\-::\-\_\-write\-Component (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_release_a8404da29344d4a662de80736792639ea}
+Implements \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a388}{Model\-Infrastructure}.
 
 
-Implements \hyperlink{class_model_component_a5847971e860713d9df3e41c603c772c0}{Model\-Component}.
+
+Definition at line 132 of file Release.\-cpp.
 
 \hypertarget{class_release_acada98c95b08a9070630cde5bd922aaf}{\index{Release@{Release}!get\-Priority@{get\-Priority}}
 \index{get\-Priority@{get\-Priority}!Release@{Release}}
@@ -174,6 +209,10 @@ Implements \hyperlink{class_model_component_a5847971e860713d9df3e41c603c772c0}{M
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_release_acada98c95b08a9070630cde5bd922aaf}
+
+
+Definition at line 55 of file Release.\-cpp.
+
 \hypertarget{class_release_ab71d29f1a502f6b0a1d65d34ff999efc}{\index{Release@{Release}!get\-Quantity@{get\-Quantity}}
 \index{get\-Quantity@{get\-Quantity}!Release@{Release}}
 \subsubsection[{get\-Quantity}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Release\-::get\-Quantity (
@@ -181,6 +220,10 @@ Implements \hyperlink{class_model_component_a5847971e860713d9df3e41c603c772c0}{M
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_release_ab71d29f1a502f6b0a1d65d34ff999efc}
+
+
+Definition at line 71 of file Release.\-cpp.
+
 \hypertarget{class_release_aa8571b1bd8a9880d316a2556df1a07f3}{\index{Release@{Release}!get\-Queue\-Name@{get\-Queue\-Name}}
 \index{get\-Queue\-Name@{get\-Queue\-Name}!Release@{Release}}
 \subsubsection[{get\-Queue\-Name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Release\-::get\-Queue\-Name (
@@ -188,6 +231,10 @@ Implements \hyperlink{class_model_component_a5847971e860713d9df3e41c603c772c0}{M
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_release_aa8571b1bd8a9880d316a2556df1a07f3}
+
+
+Definition at line 186 of file Release.\-cpp.
+
 
 
 Here is the call graph for this function\-:\nopagebreak
@@ -208,6 +255,10 @@ Here is the call graph for this function\-:\nopagebreak
 ) const}}\label{class_release_a75e54be899af04450feb2d8a1c32cfe7}
 
 
+Definition at line 182 of file Release.\-cpp.
+
+
+
 Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -224,6 +275,10 @@ Here is the call graph for this function\-:\nopagebreak
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_release_a8dd7c5b8c0135c223bef50c9e463d980}
+
+
+Definition at line 63 of file Release.\-cpp.
+
 \hypertarget{class_release_ad2a09b00d0be4bf0234ad054675b6fe1}{\index{Release@{Release}!get\-Rule@{get\-Rule}}
 \index{get\-Rule@{get\-Rule}!Release@{Release}}
 \subsubsection[{get\-Rule}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Resource\-::\-Resource\-Rule} Release\-::get\-Rule (
@@ -231,6 +286,10 @@ Here is the call graph for this function\-:\nopagebreak
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_release_ad2a09b00d0be4bf0234ad054675b6fe1}
+
+
+Definition at line 79 of file Release.\-cpp.
+
 \hypertarget{class_release_a525e021be268daa004f06559d83081c3}{\index{Release@{Release}!get\-Save\-Attribute@{get\-Save\-Attribute}}
 \index{get\-Save\-Attribute@{get\-Save\-Attribute}!Release@{Release}}
 \subsubsection[{get\-Save\-Attribute}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Release\-::get\-Save\-Attribute (
@@ -238,6 +297,10 @@ Here is the call graph for this function\-:\nopagebreak
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_release_a525e021be268daa004f06559d83081c3}
+
+
+Definition at line 87 of file Release.\-cpp.
+
 \hypertarget{class_release_a2ae04a23e51878dd38ef863e81b68e3c}{\index{Release@{Release}!set\-Priority@{set\-Priority}}
 \index{set\-Priority@{set\-Priority}!Release@{Release}}
 \subsubsection[{set\-Priority}]{\setlength{\rightskip}{0pt plus 5cm}void Release\-::set\-Priority (
@@ -245,6 +308,10 @@ Here is the call graph for this function\-:\nopagebreak
 \item[{unsigned short}]{\-\_\-priority}
 \end{DoxyParamCaption}
 )}}\label{class_release_a2ae04a23e51878dd38ef863e81b68e3c}
+
+
+Definition at line 51 of file Release.\-cpp.
+
 \hypertarget{class_release_a79c838d313189712919ca132d3e4102a}{\index{Release@{Release}!set\-Quantity@{set\-Quantity}}
 \index{set\-Quantity@{set\-Quantity}!Release@{Release}}
 \subsubsection[{set\-Quantity}]{\setlength{\rightskip}{0pt plus 5cm}void Release\-::set\-Quantity (
@@ -252,6 +319,10 @@ Here is the call graph for this function\-:\nopagebreak
 \item[{std\-::string}]{\-\_\-quantity}
 \end{DoxyParamCaption}
 )}}\label{class_release_a79c838d313189712919ca132d3e4102a}
+
+
+Definition at line 67 of file Release.\-cpp.
+
 \hypertarget{class_release_ae845be9db739fbb317bd05f0b0fe21c5}{\index{Release@{Release}!set\-Queue\-Name@{set\-Queue\-Name}}
 \index{set\-Queue\-Name@{set\-Queue\-Name}!Release@{Release}}
 \subsubsection[{set\-Queue\-Name}]{\setlength{\rightskip}{0pt plus 5cm}void Release\-::set\-Queue\-Name (
@@ -261,11 +332,26 @@ Here is the call graph for this function\-:\nopagebreak
 )}}\label{class_release_ae845be9db739fbb317bd05f0b0fe21c5}
 
 
+Definition at line 136 of file Release.\-cpp.
+
+
+
 Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{class_release_ae845be9db739fbb317bd05f0b0fe21c5_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_release_ae845be9db739fbb317bd05f0b0fe21c5_icgraph}
 \end{center}
 \end{figure}
 
@@ -279,11 +365,26 @@ Here is the call graph for this function\-:\nopagebreak
 )}}\label{class_release_a26fda460abe6f9a92872027014c41d4a}
 
 
+Definition at line 159 of file Release.\-cpp.
+
+
+
 Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{class_release_a26fda460abe6f9a92872027014c41d4a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_release_a26fda460abe6f9a92872027014c41d4a_icgraph}
 \end{center}
 \end{figure}
 
@@ -295,6 +396,10 @@ Here is the call graph for this function\-:\nopagebreak
 \item[{{\bf Resource\-::\-Resource\-Type}}]{\-\_\-resource\-Type}
 \end{DoxyParamCaption}
 )}}\label{class_release_a07cc476fd514c72640bdef6e8cb2b512}
+
+
+Definition at line 59 of file Release.\-cpp.
+
 \hypertarget{class_release_a13fb0d59da84d24db8718e8ffc339594}{\index{Release@{Release}!set\-Rule@{set\-Rule}}
 \index{set\-Rule@{set\-Rule}!Release@{Release}}
 \subsubsection[{set\-Rule}]{\setlength{\rightskip}{0pt plus 5cm}void Release\-::set\-Rule (
@@ -302,6 +407,10 @@ Here is the call graph for this function\-:\nopagebreak
 \item[{{\bf Resource\-::\-Resource\-Rule}}]{\-\_\-rule}
 \end{DoxyParamCaption}
 )}}\label{class_release_a13fb0d59da84d24db8718e8ffc339594}
+
+
+Definition at line 75 of file Release.\-cpp.
+
 \hypertarget{class_release_a6f9e951b23189c70d3b323be8a76a102}{\index{Release@{Release}!set\-Save\-Attribute@{set\-Save\-Attribute}}
 \index{set\-Save\-Attribute@{set\-Save\-Attribute}!Release@{Release}}
 \subsubsection[{set\-Save\-Attribute}]{\setlength{\rightskip}{0pt plus 5cm}void Release\-::set\-Save\-Attribute (
@@ -309,6 +418,10 @@ Here is the call graph for this function\-:\nopagebreak
 \item[{std\-::string}]{\-\_\-save\-Attribute}
 \end{DoxyParamCaption}
 )}}\label{class_release_a6f9e951b23189c70d3b323be8a76a102}
+
+
+Definition at line 83 of file Release.\-cpp.
+
 \hypertarget{class_release_a1ec7b35553820f0f228f31be1df468c3}{\index{Release@{Release}!show@{show}}
 \index{show@{show}!Release@{Release}}
 \subsubsection[{show}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Release\-::show (
@@ -319,6 +432,10 @@ Here is the call graph for this function\-:\nopagebreak
 
 
 Reimplemented from \hyperlink{class_model_component_ad8bc846e36b028eab7efb7da6c549eca}{Model\-Component}.
+
+
+
+Definition at line 44 of file Release.\-cpp.
 
 
 

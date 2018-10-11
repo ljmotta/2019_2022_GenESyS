@@ -19,7 +19,7 @@ double ProbDistrib::uniform(double x, double min, double max) {
 double ProbDistrib::exponential(double x, double mean) {
 }
 
-double ProbDistrib::erlang(double x, double mean, int M) {
+double ProbDistrib::erlang(double x, double mean, double M) { //
 }
 
 double ProbDistrib::normal(double x, double mean, double stddev) {

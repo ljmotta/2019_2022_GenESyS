@@ -35,34 +35,33 @@ virtual \hyperlink{class_model_component_a6d490d6a2fdf66ad13ed8adcc39ec611}{$\si
 virtual std\-::string \hyperlink{class_model_component_ad8bc846e36b028eab7efb7da6c549eca}{show} ()
 \item 
 \hyperlink{class_list}{List}$<$ \hyperlink{class_model_component}{Model\-Component} $\ast$ $>$ $\ast$ \hyperlink{class_model_component_a89fe8e3fb064c68aebbecd36eeed7d43}{get\-Next\-Components} () const 
-\item 
-std\-::list$<$ std\-::string $>$ $\ast$ \hyperlink{class_model_component_a3bdf3706c49706e674ab13fd9d1d83ed}{Write\-Component} (\hyperlink{class_model_component}{Model\-Component} $\ast$component)
 \end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static void \hyperlink{class_model_component_a08c5312c2f94f6621577cc1836c2d3e0}{Execute} (\hyperlink{class_entity}{Entity} $\ast$entity, \hyperlink{class_model_component}{Model\-Component} $\ast$component)
 \item 
-static void \hyperlink{class_model_component_a1629e990c010688878b8d378058e8eeb}{Read\-Component} (std\-::list$<$ std\-::string $>$ words)
-\item 
 static bool \hyperlink{class_model_component_a0798a220cf903b34ce28c40e136d207d}{Verify\-Symbols} (\hyperlink{class_model_component}{Model\-Component} $\ast$component, std\-::string $\ast$error\-Message)
+\item 
+static std\-::list$<$ std\-::string $>$ $\ast$ \hyperlink{class_model_component_a45d3805f9b7051b7acc142e5d85cded6}{Save\-Instance} (\hyperlink{class_model_component}{Model\-Component} $\ast$component)
 \end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 virtual void \hyperlink{class_model_component_ae3fcf8bbdd8368c882438424aa73f714}{\-\_\-execute} (\hyperlink{class_entity}{Entity} $\ast$entity)=0
-\item 
-virtual void \hyperlink{class_model_component_aa16546b209d8fda2c8fa951e88652973}{\-\_\-read\-Component} (std\-::list$<$ std\-::string $>$ words)=0
-\item 
-virtual std\-::list$<$ std\-::string $>$ $\ast$ \hyperlink{class_model_component_a5847971e860713d9df3e41c603c772c0}{\-\_\-write\-Component} ()=0
-\item 
-virtual bool \hyperlink{class_model_component_a183696468482133b2a09b761b7770521}{\-\_\-verify\-Symbols} (std\-::string $\ast$error\-Message)=0
 \end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{class_model}{Model} $\ast$ \hyperlink{class_model_component_a9d9e835755618a794c9759882641bc3c}{\-\_\-model}
 \end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 27 of file Model\-Component.\-h.
+
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -73,6 +72,10 @@ virtual bool \hyperlink{class_model_component_a183696468482133b2a09b761b7770521}
 \item[{{\bf Model} $\ast$}]{model}
 \end{DoxyParamCaption}
 )}}\label{class_model_component_a1e2b24c3592711a9bd3f131706b7f0c7}
+
+
+Definition at line 17 of file Model\-Component.\-cpp.
+
 \hypertarget{class_model_component_a5b95933e7a265039eb01f6ec88d92675}{\index{Model\-Component@{Model\-Component}!Model\-Component@{Model\-Component}}
 \index{Model\-Component@{Model\-Component}!ModelComponent@{Model\-Component}}
 \subsubsection[{Model\-Component}]{\setlength{\rightskip}{0pt plus 5cm}Model\-Component\-::\-Model\-Component (
@@ -80,6 +83,10 @@ virtual bool \hyperlink{class_model_component_a183696468482133b2a09b761b7770521}
 \item[{const {\bf Model\-Component} \&}]{orig}
 \end{DoxyParamCaption}
 )}}\label{class_model_component_a5b95933e7a265039eb01f6ec88d92675}
+
+
+Definition at line 22 of file Model\-Component.\-cpp.
+
 \hypertarget{class_model_component_a6d490d6a2fdf66ad13ed8adcc39ec611}{\index{Model\-Component@{Model\-Component}!$\sim$\-Model\-Component@{$\sim$\-Model\-Component}}
 \index{$\sim$\-Model\-Component@{$\sim$\-Model\-Component}!ModelComponent@{Model\-Component}}
 \subsubsection[{$\sim$\-Model\-Component}]{\setlength{\rightskip}{0pt plus 5cm}Model\-Component\-::$\sim$\-Model\-Component (
@@ -87,6 +94,10 @@ virtual bool \hyperlink{class_model_component_a183696468482133b2a09b761b7770521}
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_model_component_a6d490d6a2fdf66ad13ed8adcc39ec611}
+
+
+Definition at line 25 of file Model\-Component.\-cpp.
+
 
 
 \subsection{Member Function Documentation}
@@ -99,40 +110,18 @@ virtual bool \hyperlink{class_model_component_a183696468482133b2a09b761b7770521}
 )\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}}\label{class_model_component_ae3fcf8bbdd8368c882438424aa73f714}
 
 
-Implemented in \hyperlink{class_seize_a96f6517a40b3bfd0d5ea753d59cef797}{Seize}, \hyperlink{class_release_a63c3cd89082e7f6c1fb61646b93a5c32}{Release}, \hyperlink{class_create_acd3a4b8805561591e0c88d3fd689cf74}{Create}, \hyperlink{class_delay_a029d91a2cd736ff9c361c69336e6ab41}{Delay}, \hyperlink{class_dispose_a342eb428496534cdfd17524ad78b0c08}{Dispose}, and \hyperlink{class_assign_a5fabf69268b2e65d8b01ce247be87a40}{Assign}.
-
-\hypertarget{class_model_component_aa16546b209d8fda2c8fa951e88652973}{\index{Model\-Component@{Model\-Component}!\-\_\-read\-Component@{\-\_\-read\-Component}}
-\index{\-\_\-read\-Component@{\-\_\-read\-Component}!ModelComponent@{Model\-Component}}
-\subsubsection[{\-\_\-read\-Component}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Model\-Component\-::\-\_\-read\-Component (
-\begin{DoxyParamCaption}
-\item[{std\-::list$<$ std\-::string $>$}]{words}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}}\label{class_model_component_aa16546b209d8fda2c8fa951e88652973}
+Implemented in \hyperlink{class_assign_a5fabf69268b2e65d8b01ce247be87a40}{Assign}, \hyperlink{class_seize_a96f6517a40b3bfd0d5ea753d59cef797}{Seize}, \hyperlink{class_release_a63c3cd89082e7f6c1fb61646b93a5c32}{Release}, \hyperlink{class_create_acd3a4b8805561591e0c88d3fd689cf74}{Create}, \hyperlink{class_delay_a029d91a2cd736ff9c361c69336e6ab41}{Delay}, and \hyperlink{class_dispose_a342eb428496534cdfd17524ad78b0c08}{Dispose}.
 
 
-Implemented in \hyperlink{class_seize_a69fe928579655a1bdd550ff368965419}{Seize}, \hyperlink{class_release_a1854b0152f9c2d935afdfdb007a85b4e}{Release}, \hyperlink{class_create_afccd427ad3821a95308498892dfe58f3}{Create}, \hyperlink{class_delay_a9d199bd226f9e504b6f6b6619d8f14dc}{Delay}, \hyperlink{class_dispose_a2016b0e90d850753181417648557e3ce}{Dispose}, and \hyperlink{class_assign_a47728ac75ef40025f00cca46e04dd012}{Assign}.
 
-\hypertarget{class_model_component_a183696468482133b2a09b761b7770521}{\index{Model\-Component@{Model\-Component}!\-\_\-verify\-Symbols@{\-\_\-verify\-Symbols}}
-\index{\-\_\-verify\-Symbols@{\-\_\-verify\-Symbols}!ModelComponent@{Model\-Component}}
-\subsubsection[{\-\_\-verify\-Symbols}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Model\-Component\-::\-\_\-verify\-Symbols (
-\begin{DoxyParamCaption}
-\item[{std\-::string $\ast$}]{error\-Message}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}}\label{class_model_component_a183696468482133b2a09b761b7770521}
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_component_ae3fcf8bbdd8368c882438424aa73f714_icgraph}
+\end{center}
+\end{figure}
 
-
-Implemented in \hyperlink{class_seize_a51dc9257dc692083006f676546ddfff8}{Seize}, \hyperlink{class_release_a81a30c1357d00e830bdc044418865e31}{Release}, \hyperlink{class_create_ad445fd3bec94b4e66669089f10f96057}{Create}, \hyperlink{class_delay_af1690df9ba58e9972f5721f5bdc2b520}{Delay}, \hyperlink{class_dispose_a5ad64b97bbb16662aa9d914eda2a7e38}{Dispose}, and \hyperlink{class_assign_a5f3a7d8a7214574fea926cae1b1acb94}{Assign}.
-
-\hypertarget{class_model_component_a5847971e860713d9df3e41c603c772c0}{\index{Model\-Component@{Model\-Component}!\-\_\-write\-Component@{\-\_\-write\-Component}}
-\index{\-\_\-write\-Component@{\-\_\-write\-Component}!ModelComponent@{Model\-Component}}
-\subsubsection[{\-\_\-write\-Component}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\-::list$<$std\-::string$>$$\ast$ Model\-Component\-::\-\_\-write\-Component (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}}\label{class_model_component_a5847971e860713d9df3e41c603c772c0}
-
-
-Implemented in \hyperlink{class_seize_a870a593f82847bce26272e27a66bbc69}{Seize}, \hyperlink{class_release_a8404da29344d4a662de80736792639ea}{Release}, \hyperlink{class_create_ab0fd0c7afa14e91a82ecd151d22ce20b}{Create}, \hyperlink{class_delay_aeb8506fddf709ad5e55fc67170e875b0}{Delay}, \hyperlink{class_dispose_a2483f126094c4f58a2873ec7083a1903}{Dispose}, and \hyperlink{class_assign_a6231f1e819d6baab3c9af142fd5b566a}{Assign}.
 
 \hypertarget{class_model_component_a08c5312c2f94f6621577cc1836c2d3e0}{\index{Model\-Component@{Model\-Component}!Execute@{Execute}}
 \index{Execute@{Execute}!ModelComponent@{Model\-Component}}
@@ -144,11 +133,26 @@ Implemented in \hyperlink{class_seize_a870a593f82847bce26272e27a66bbc69}{Seize},
 )\hspace{0.3cm}{\ttfamily [static]}}}\label{class_model_component_a08c5312c2f94f6621577cc1836c2d3e0}
 
 
+Definition at line 28 of file Model\-Component.\-cpp.
+
+
+
 Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{class_model_component_a08c5312c2f94f6621577cc1836c2d3e0_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_component_a08c5312c2f94f6621577cc1836c2d3e0_icgraph}
 \end{center}
 \end{figure}
 
@@ -160,13 +164,43 @@ Here is the call graph for this function\-:\nopagebreak
 {}
 \end{DoxyParamCaption}
 ) const}}\label{class_model_component_a89fe8e3fb064c68aebbecd36eeed7d43}
-\hypertarget{class_model_component_a1629e990c010688878b8d378058e8eeb}{\index{Model\-Component@{Model\-Component}!Read\-Component@{Read\-Component}}
-\index{Read\-Component@{Read\-Component}!ModelComponent@{Model\-Component}}
-\subsubsection[{Read\-Component}]{\setlength{\rightskip}{0pt plus 5cm}static void Model\-Component\-::\-Read\-Component (
+
+
+Definition at line 62 of file Model\-Component.\-cpp.
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_component_a89fe8e3fb064c68aebbecd36eeed7d43_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_model_component_a45d3805f9b7051b7acc142e5d85cded6}{\index{Model\-Component@{Model\-Component}!Save\-Instance@{Save\-Instance}}
+\index{Save\-Instance@{Save\-Instance}!ModelComponent@{Model\-Component}}
+\subsubsection[{Save\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<$ std\-::string $>$ $\ast$ Model\-Component\-::\-Save\-Instance (
 \begin{DoxyParamCaption}
-\item[{std\-::list$<$ std\-::string $>$}]{words}
+\item[{{\bf Model\-Component} $\ast$}]{component}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_model_component_a1629e990c010688878b8d378058e8eeb}
+)\hspace{0.3cm}{\ttfamily [static]}}}\label{class_model_component_a45d3805f9b7051b7acc142e5d85cded6}
+
+
+Definition at line 37 of file Model\-Component.\-cpp.
+
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_component_a45d3805f9b7051b7acc142e5d85cded6_cgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{class_model_component_ad8bc846e36b028eab7efb7da6c549eca}{\index{Model\-Component@{Model\-Component}!show@{show}}
 \index{show@{show}!ModelComponent@{Model\-Component}}
 \subsubsection[{show}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Model\-Component\-::show (
@@ -180,7 +214,11 @@ Reimplemented from \hyperlink{class_model_infrastructure_a649a5a89a0c9931783d3c5
 
 
 
-Reimplemented in \hyperlink{class_source_model_component_a4011597b5780fcc0495e8e22ab8158f6}{Source\-Model\-Component}, \hyperlink{class_create_a8d1832d2165bbeea4a5a88aded883f86}{Create}, \hyperlink{class_delay_af8187e4515417b547dc22b5ee0a1f95d}{Delay}, \hyperlink{class_seize_a495ace3a156680b5816c8b285135322c}{Seize}, \hyperlink{class_release_a1ec7b35553820f0f228f31be1df468c3}{Release}, \hyperlink{class_assign_af5022b92204adcd9ee3e444b7e316d07}{Assign}, and \hyperlink{class_dispose_aee8ef98d5ca22eb18a97b258ed059865}{Dispose}.
+Reimplemented in \hyperlink{class_assign_af5022b92204adcd9ee3e444b7e316d07}{Assign}, \hyperlink{class_source_model_component_a4011597b5780fcc0495e8e22ab8158f6}{Source\-Model\-Component}, \hyperlink{class_seize_a495ace3a156680b5816c8b285135322c}{Seize}, \hyperlink{class_create_a8d1832d2165bbeea4a5a88aded883f86}{Create}, \hyperlink{class_delay_af8187e4515417b547dc22b5ee0a1f95d}{Delay}, \hyperlink{class_release_a1ec7b35553820f0f228f31be1df468c3}{Release}, and \hyperlink{class_dispose_aee8ef98d5ca22eb18a97b258ed059865}{Dispose}.
+
+
+
+Definition at line 66 of file Model\-Component.\-cpp.
 
 
 
@@ -189,6 +227,17 @@ Here is the call graph for this function\-:\nopagebreak
 \begin{center}
 \leavevmode
 \includegraphics[width=340pt]{class_model_component_ad8bc846e36b028eab7efb7da6c549eca_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_component_ad8bc846e36b028eab7efb7da6c549eca_icgraph}
 \end{center}
 \end{figure}
 
@@ -203,29 +252,15 @@ Here is the call graph for this function\-:\nopagebreak
 )\hspace{0.3cm}{\ttfamily [static]}}}\label{class_model_component_a0798a220cf903b34ce28c40e136d207d}
 
 
+Definition at line 48 of file Model\-Component.\-cpp.
+
+
+
 Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{class_model_component_a0798a220cf903b34ce28c40e136d207d_cgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_model_component_a3bdf3706c49706e674ab13fd9d1d83ed}{\index{Model\-Component@{Model\-Component}!Write\-Component@{Write\-Component}}
-\index{Write\-Component@{Write\-Component}!ModelComponent@{Model\-Component}}
-\subsubsection[{Write\-Component}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<$ std\-::string $>$ $\ast$ Model\-Component\-::\-Write\-Component (
-\begin{DoxyParamCaption}
-\item[{{\bf Model\-Component} $\ast$}]{component}
-\end{DoxyParamCaption}
-)}}\label{class_model_component_a3bdf3706c49706e674ab13fd9d1d83ed}
-
-
-Here is the call graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_model_component_a3bdf3706c49706e674ab13fd9d1d83ed_cgraph}
 \end{center}
 \end{figure}
 
@@ -236,6 +271,10 @@ Here is the call graph for this function\-:\nopagebreak
 \hypertarget{class_model_component_a9d9e835755618a794c9759882641bc3c}{\index{Model\-Component@{Model\-Component}!\-\_\-model@{\-\_\-model}}
 \index{\-\_\-model@{\-\_\-model}!ModelComponent@{Model\-Component}}
 \subsubsection[{\-\_\-model}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Model}$\ast$ Model\-Component\-::\-\_\-model\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_model_component_a9d9e835755618a794c9759882641bc3c}
+
+
+Definition at line 57 of file Model\-Component.\-h.
+
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}

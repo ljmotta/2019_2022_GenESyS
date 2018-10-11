@@ -1,0 +1,26 @@
+var class_statistics_cancian_impl =
+[
+    [ "StatisticsCancianImpl", "class_statistics_cancian_impl.html#ad74dacaf522864b611472ab63ea001e8", null ],
+    [ "StatisticsCancianImpl", "class_statistics_cancian_impl.html#a8fb61a145dabd401b99bc5e2c19a42b6", null ],
+    [ "~StatisticsCancianImpl", "class_statistics_cancian_impl.html#ade6e0ebf0e8b76c3ffc00da584a2d64d", null ],
+    [ "average", "class_statistics_cancian_impl.html#ac1fd3ea442b571b7399e2b24106f66d2", null ],
+    [ "centil", "class_statistics_cancian_impl.html#a0c6f2c98edd270d9da9ac654a4be1221", null ],
+    [ "decil", "class_statistics_cancian_impl.html#a77873cb356ffab21ad8f1d7c6ab11d88", null ],
+    [ "getCollector", "class_statistics_cancian_impl.html#ab255391ad55fada9f781933d2f791970", null ],
+    [ "halfWidthConfidenceInterval", "class_statistics_cancian_impl.html#a79b4ef1179bf3211ad65db76d6bbb514", null ],
+    [ "histogramClassFrequency", "class_statistics_cancian_impl.html#abaffc9e18eadfefacdeab4ddf6f97f02", null ],
+    [ "histogramClassLowerLimit", "class_statistics_cancian_impl.html#a0c1fc73df7e35ec2460952536fa2ddf9", null ],
+    [ "histogramNumClasses", "class_statistics_cancian_impl.html#a64174a2a3f3e58301fca192e4a093da4", null ],
+    [ "max", "class_statistics_cancian_impl.html#a3bfd053fdffa3fd7cbb4246b40503a8a", null ],
+    [ "mediane", "class_statistics_cancian_impl.html#aa57086cacb75c3a85cebd6d3d5c47053", null ],
+    [ "min", "class_statistics_cancian_impl.html#a3ab4844399b479aa3cb18dfe41b8e776", null ],
+    [ "mode", "class_statistics_cancian_impl.html#a8255541bdf60880cad08fecfb2e51349", null ],
+    [ "newSampleSize", "class_statistics_cancian_impl.html#aca7e7bbc2ef8611129874cc4e3cfbc15", null ],
+    [ "numElements", "class_statistics_cancian_impl.html#a1d2fe0fe83fc07eb0521b76fbfd7c49b", null ],
+    [ "quartil", "class_statistics_cancian_impl.html#ad8085939d9ee9d6fba32ace19290d7ec", null ],
+    [ "setCollector", "class_statistics_cancian_impl.html#adbbf4036ba04976819af9bb104988b11", null ],
+    [ "setHistogramNumClasses", "class_statistics_cancian_impl.html#a7c5e76c04e9800cb20cd07a9a7de0ea1", null ],
+    [ "stddeviation", "class_statistics_cancian_impl.html#a2caa83257f21643b5fb8ccf4255c9f32", null ],
+    [ "variance", "class_statistics_cancian_impl.html#a8c4044fab2d60ab1855a73e43bae84a5", null ],
+    [ "variationCoef", "class_statistics_cancian_impl.html#a6e3a2bdd9a19d464a97d5bfb2f38cc6e", null ]
+];

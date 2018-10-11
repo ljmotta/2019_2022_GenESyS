@@ -1,0 +1,11 @@
+<map id="Model::getComponents" name="Model::getComponents">
+<area shape="rect" id="node2" href="$_build_simple_model1_8cpp.html#a5981de61ae987a3694de07224dbca746" title="buildSimpleCreateDelayDispose\lModel" alt="" coords="211,5,421,46"/>
+<area shape="rect" id="node3" href="$_build_simple_model1_8cpp.html#a22c3fce0bba99e34d617dafbf4f1f54e" title="buildModelWithAllImplemented\lComponents" alt="" coords="215,70,417,111"/>
+<area shape="rect" id="node7" href="$class_model_checker_my_impl1.html#a37856818d6597563f079401bf6652cbb" title="ModelCheckerMyImpl1\l::checkSymbols" alt="" coords="238,135,394,177"/>
+<area shape="rect" id="node9" href="$class_model_persistence_my_impl1.html#a367b40dfac801508f75a3176f7b40c6a" title="ModelPersistenceMyImpl1\l::saveAsTXT" alt="" coords="228,201,404,242"/>
+<area shape="rect" id="node4" href="$_build_simple_model1_8cpp.html#aeea741000e292b33dca181a0a8a6106f" title="buildModel" alt="" coords="515,77,599,104"/>
+<area shape="rect" id="node5" href="$_build_simple_model1_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="693,77,848,104"/>
+<area shape="rect" id="node6" href="$class_build_simple_model1.html#aa6e2b862963b2fb738c738bb20b4e913" title="BuildSimpleModel1::main" alt="" coords="897,77,1066,104"/>
+<area shape="rect" id="node8" href="$class_model_checker_my_impl1.html#adbed52d807b882ee75f10372b8b379e1" title="ModelCheckerMyImpl1\l::checkAll" alt="" coords="479,135,635,177"/>
+<area shape="rect" id="node10" href="$class_model_persistence_my_impl1.html#ab24f2e3aea25d628748dd8b9e63d326a" title="ModelPersistenceMyImpl1\l::save" alt="" coords="469,201,645,242"/>
+</map>

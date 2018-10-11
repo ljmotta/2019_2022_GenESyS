@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>RebornedGenESyS: Sampler_if.h Source File</title>
+<title>GenESyS - Generic and Expansible System Simulator [REBORN]: Sampler_if.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,10 +30,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="software_genesys.gif"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">RebornedGenESyS
-   &#160;<span id="projectnumber">Reborned 20182</span>
+   <div id="projectname">GenESyS - Generic and Expansible System Simulator [REBORN]
+   &#160;<span id="projectnumber">2018-2</span>
    </div>
-   <div id="projectbrief">Generic and Expansible System Simulator</div>
+   <div id="projectbrief">Generic System Simulator</div>
   </td>
  </tr>
  </tbody>
@@ -48,6 +48,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -94,7 +95,7 @@ $(document).ready(function(){initNavTree('_sampler__if_8h_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -126,39 +127,35 @@ $(document).ready(function(){initNavTree('_sampler__if_8h_source.html','');});
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">/*   SAMPLER REPLACES MMC    */</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">/* Example of Sampler instantiation:</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"> Sampler_if* sampler = new Traits&lt;Sampler_if&gt;::Implementation();</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_sampler__if.html">   23</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_sampler__if.html">Sampler_if</a> {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_sampler__if_1_1_r_n_g___parameters.html">   25</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_sampler__if_1_1_r_n_g___parameters.html">RNG_Parameters</a>{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    };</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">public</span>: <span class="comment">// probability distributions</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="class_sampler__if.html#a8136ccd467ee5621813269fa23791423">random</a>() = 0;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="class_sampler__if.html#a0643f4ca1d770d01afefa956e9f78edf">sampleUniform</a>(<span class="keywordtype">double</span> min, <span class="keywordtype">double</span> max) = 0;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="class_sampler__if.html#aeb17b9d84bc05c14f0be2ce0b60ed263">sampleExponential</a>(<span class="keywordtype">double</span> mean) = 0;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="class_sampler__if.html#acd16e61c373f5e051c5f4103848e5c8a">sampleErlang</a>(<span class="keywordtype">double</span> mean, <span class="keywordtype">int</span> M) = 0;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="class_sampler__if.html#a559f1f29b5e4455c9e59cf00d622da47">sampleNormal</a>(<span class="keywordtype">double</span> mean, <span class="keywordtype">double</span> stddev) = 0;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="class_sampler__if.html#aafcceb6ad73790ddca45af1ea7f2088d">sampleGamma</a>(<span class="keywordtype">double</span> mean, <span class="keywordtype">double</span> alpha) = 0;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="class_sampler__if.html#a1081daf677b12de42f0abfcbe5ba9301">sampleBeta</a>(<span class="keywordtype">double</span> alpha, <span class="keywordtype">double</span> beta, <span class="keywordtype">double</span> infLimit, <span class="keywordtype">double</span> supLimit) = 0;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="class_sampler__if.html#ac02b82a18e78c4bbaea1bc90c617857b">sampleWeibull</a>(<span class="keywordtype">double</span> alpha, <span class="keywordtype">double</span> scale) = 0;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="class_sampler__if.html#a031e1170c529e2cc67131d4da6ee683e">sampleLogNormal</a>(<span class="keywordtype">double</span> mean, <span class="keywordtype">double</span> stddev) = 0;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="class_sampler__if.html#a02d68c26089c6dd53b99882da79c88ca">sampleTriangular</a>(<span class="keywordtype">double</span> min, <span class="keywordtype">double</span> mode, <span class="keywordtype">double</span> max) = 0;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="class_sampler__if.html#a2fcdf79225b5cdd023db7751655f1ceb">sampleDiscrete</a>(<span class="keywordtype">double</span> value, <span class="keywordtype">double</span> acumProb, ...) = 0;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_sampler__if.html#a630a0cbbef6e49869063530b03d3bb35">setRNGparameters</a>(<a class="code" href="class_sampler__if_1_1_r_n_g___parameters.html">RNG_Parameters</a>* param) = 0;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_sampler__if_1_1_r_n_g___parameters.html">RNG_Parameters</a>* <a class="code" href="class_sampler__if.html#adb21edf9170ad5d9b27f4788db74bafa">getRNGparameters</a>() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* Sampler_IF_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_sampler__if.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_sampler__if.html">Sampler_if</a> {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_sampler__if_1_1_r_n_g___parameters.html">   21</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_sampler__if_1_1_r_n_g___parameters.html">RNG_Parameters</a>{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    };</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>: <span class="comment">// probability distributions</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="class_sampler__if.html#a8136ccd467ee5621813269fa23791423">random</a>() = 0;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="class_sampler__if.html#a0643f4ca1d770d01afefa956e9f78edf">sampleUniform</a>(<span class="keywordtype">double</span> min, <span class="keywordtype">double</span> max) = 0;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="class_sampler__if.html#aeb17b9d84bc05c14f0be2ce0b60ed263">sampleExponential</a>(<span class="keywordtype">double</span> mean) = 0;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="class_sampler__if.html#acd16e61c373f5e051c5f4103848e5c8a">sampleErlang</a>(<span class="keywordtype">double</span> mean, <span class="keywordtype">int</span> M) = 0;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="class_sampler__if.html#a559f1f29b5e4455c9e59cf00d622da47">sampleNormal</a>(<span class="keywordtype">double</span> mean, <span class="keywordtype">double</span> stddev) = 0;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="class_sampler__if.html#aafcceb6ad73790ddca45af1ea7f2088d">sampleGamma</a>(<span class="keywordtype">double</span> mean, <span class="keywordtype">double</span> alpha) = 0;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="class_sampler__if.html#a1081daf677b12de42f0abfcbe5ba9301">sampleBeta</a>(<span class="keywordtype">double</span> alpha, <span class="keywordtype">double</span> beta, <span class="keywordtype">double</span> infLimit, <span class="keywordtype">double</span> supLimit) = 0;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="class_sampler__if.html#ac02b82a18e78c4bbaea1bc90c617857b">sampleWeibull</a>(<span class="keywordtype">double</span> alpha, <span class="keywordtype">double</span> scale) = 0;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="class_sampler__if.html#a031e1170c529e2cc67131d4da6ee683e">sampleLogNormal</a>(<span class="keywordtype">double</span> mean, <span class="keywordtype">double</span> stddev) = 0;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="class_sampler__if.html#a02d68c26089c6dd53b99882da79c88ca">sampleTriangular</a>(<span class="keywordtype">double</span> min, <span class="keywordtype">double</span> mode, <span class="keywordtype">double</span> max) = 0;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code" href="class_sampler__if.html#a2fcdf79225b5cdd023db7751655f1ceb">sampleDiscrete</a>(<span class="keywordtype">double</span> value, <span class="keywordtype">double</span> acumProb, ...) = 0;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_sampler__if.html#a630a0cbbef6e49869063530b03d3bb35">setRNGparameters</a>(<a class="code" href="class_sampler__if_1_1_r_n_g___parameters.html">RNG_Parameters</a>* param) = 0;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_sampler__if_1_1_r_n_g___parameters.html">RNG_Parameters</a>* <a class="code" href="class_sampler__if.html#adb21edf9170ad5d9b27f4788db74bafa">getRNGparameters</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;};</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* Sampler_IF_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor"></span></div>
 <div class="ttc" id="class_sampler__if_html_adb21edf9170ad5d9b27f4788db74bafa"><div class="ttname"><a href="class_sampler__if.html#adb21edf9170ad5d9b27f4788db74bafa">Sampler_if::getRNGparameters</a></div><div class="ttdeci">virtual RNG_Parameters * getRNGparameters() const =0</div></div>
 <div class="ttc" id="class_sampler__if_html_acd16e61c373f5e051c5f4103848e5c8a"><div class="ttname"><a href="class_sampler__if.html#acd16e61c373f5e051c5f4103848e5c8a">Sampler_if::sampleErlang</a></div><div class="ttdeci">virtual double sampleErlang(double mean, int M)=0</div></div>
 <div class="ttc" id="class_sampler__if_html_a1081daf677b12de42f0abfcbe5ba9301"><div class="ttname"><a href="class_sampler__if.html#a1081daf677b12de42f0abfcbe5ba9301">Sampler_if::sampleBeta</a></div><div class="ttdeci">virtual double sampleBeta(double alpha, double beta, double infLimit, double supLimit)=0</div></div>
-<div class="ttc" id="class_sampler__if_html"><div class="ttname"><a href="class_sampler__if.html">Sampler_if</a></div><div class="ttdef"><b>Definition:</b> Sampler_if.h:23</div></div>
+<div class="ttc" id="class_sampler__if_html"><div class="ttname"><a href="class_sampler__if.html">Sampler_if</a></div><div class="ttdef"><b>Definition:</b> <a href="_sampler__if_8h_source.html#l00019">Sampler_if.h:19</a></div></div>
 <div class="ttc" id="class_sampler__if_html_a0643f4ca1d770d01afefa956e9f78edf"><div class="ttname"><a href="class_sampler__if.html#a0643f4ca1d770d01afefa956e9f78edf">Sampler_if::sampleUniform</a></div><div class="ttdeci">virtual double sampleUniform(double min, double max)=0</div></div>
-<div class="ttc" id="class_sampler__if_1_1_r_n_g___parameters_html"><div class="ttname"><a href="class_sampler__if_1_1_r_n_g___parameters.html">Sampler_if::RNG_Parameters</a></div><div class="ttdef"><b>Definition:</b> Sampler_if.h:25</div></div>
+<div class="ttc" id="class_sampler__if_1_1_r_n_g___parameters_html"><div class="ttname"><a href="class_sampler__if_1_1_r_n_g___parameters.html">Sampler_if::RNG_Parameters</a></div><div class="ttdef"><b>Definition:</b> <a href="_sampler__if_8h_source.html#l00021">Sampler_if.h:21</a></div></div>
 <div class="ttc" id="class_sampler__if_html_a02d68c26089c6dd53b99882da79c88ca"><div class="ttname"><a href="class_sampler__if.html#a02d68c26089c6dd53b99882da79c88ca">Sampler_if::sampleTriangular</a></div><div class="ttdeci">virtual double sampleTriangular(double min, double mode, double max)=0</div></div>
 <div class="ttc" id="class_sampler__if_html_a559f1f29b5e4455c9e59cf00d622da47"><div class="ttname"><a href="class_sampler__if.html#a559f1f29b5e4455c9e59cf00d622da47">Sampler_if::sampleNormal</a></div><div class="ttdeci">virtual double sampleNormal(double mean, double stddev)=0</div></div>
 <div class="ttc" id="class_sampler__if_html_ac02b82a18e78c4bbaea1bc90c617857b"><div class="ttname"><a href="class_sampler__if.html#ac02b82a18e78c4bbaea1bc90c617857b">Sampler_if::sampleWeibull</a></div><div class="ttdeci">virtual double sampleWeibull(double alpha, double scale)=0</div></div>
@@ -174,7 +171,7 @@ $(document).ready(function(){initNavTree('_sampler__if_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="_sampler__if_8h.html">Sampler_if.h</a></li>
-    <li class="footer">Generated on Tue Sep 4 2018 21:04:12 for RebornedGenESyS by
+    <li class="footer">Generated on Wed Oct 10 2018 20:34:03 for GenESyS - Generic and Expansible System Simulator [REBORN] by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

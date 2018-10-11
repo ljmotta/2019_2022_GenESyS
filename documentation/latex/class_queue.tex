@@ -42,7 +42,23 @@ unsigned int \hyperlink{class_queue_a4cd92f99b7abc9ec4df32690dc5a037d}{size} ()
 \item 
 \hyperlink{class_waiting}{Waiting} $\ast$ \hyperlink{class_queue_a39a1f5a1733f61634339ecee7aac7907}{first} ()
 \end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{class_queue_ac722922c7cac47ed74502c2d7206c074}{\-\_\-load\-Instance} (std\-::list$<$ std\-::string $>$ words)
+\item 
+virtual std\-::list$<$ std\-::string $>$ $\ast$ \hyperlink{class_queue_a9245790264a9d68030ae8bd884c85bcf}{\-\_\-save\-Instance} ()
+\item 
+virtual bool \hyperlink{class_queue_a81f6676597a7974af394ddd3f67c7926}{\-\_\-verify\-Symbols} (std\-::string $\ast$error\-Message)
+\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 26 of file Queue.\-h.
+
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -53,6 +69,10 @@ unsigned int \hyperlink{class_queue_a4cd92f99b7abc9ec4df32690dc5a037d}{size} ()
 {}
 \end{DoxyParamCaption}
 )}}\label{class_queue_a7cfca3637d57c4a9e37351b3426ffd40}
+
+
+Definition at line 16 of file Queue.\-cpp.
+
 \hypertarget{class_queue_a09f908d6edb810d86871bda50fdf4bac}{\index{Queue@{Queue}!Queue@{Queue}}
 \index{Queue@{Queue}!Queue@{Queue}}
 \subsubsection[{Queue}]{\setlength{\rightskip}{0pt plus 5cm}Queue\-::\-Queue (
@@ -60,6 +80,10 @@ unsigned int \hyperlink{class_queue_a4cd92f99b7abc9ec4df32690dc5a037d}{size} ()
 \item[{const {\bf Queue} \&}]{orig}
 \end{DoxyParamCaption}
 )}}\label{class_queue_a09f908d6edb810d86871bda50fdf4bac}
+
+
+Definition at line 19 of file Queue.\-cpp.
+
 \hypertarget{class_queue_a00d119db8fa3050da37746e82cbcf94f}{\index{Queue@{Queue}!$\sim$\-Queue@{$\sim$\-Queue}}
 \index{$\sim$\-Queue@{$\sim$\-Queue}!Queue@{Queue}}
 \subsubsection[{$\sim$\-Queue}]{\setlength{\rightskip}{0pt plus 5cm}Queue\-::$\sim$\-Queue (
@@ -69,7 +93,67 @@ unsigned int \hyperlink{class_queue_a4cd92f99b7abc9ec4df32690dc5a037d}{size} ()
 )\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_queue_a00d119db8fa3050da37746e82cbcf94f}
 
 
+Definition at line 22 of file Queue.\-cpp.
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_queue_a00d119db8fa3050da37746e82cbcf94f_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
 \subsection{Member Function Documentation}
+\hypertarget{class_queue_ac722922c7cac47ed74502c2d7206c074}{\index{Queue@{Queue}!\-\_\-load\-Instance@{\-\_\-load\-Instance}}
+\index{\-\_\-load\-Instance@{\-\_\-load\-Instance}!Queue@{Queue}}
+\subsubsection[{\-\_\-load\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}void Queue\-::\-\_\-load\-Instance (
+\begin{DoxyParamCaption}
+\item[{std\-::list$<$ std\-::string $>$}]{words}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_queue_ac722922c7cac47ed74502c2d7206c074}
+
+
+Implements \hyperlink{class_model_infrastructure_ae118c8ad2ac9d4397c40d004af51b2dc}{Model\-Infrastructure}.
+
+
+
+Definition at line 59 of file Queue.\-cpp.
+
+\hypertarget{class_queue_a9245790264a9d68030ae8bd884c85bcf}{\index{Queue@{Queue}!\-\_\-save\-Instance@{\-\_\-save\-Instance}}
+\index{\-\_\-save\-Instance@{\-\_\-save\-Instance}!Queue@{Queue}}
+\subsubsection[{\-\_\-save\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<$ std\-::string $>$ $\ast$ Queue\-::\-\_\-save\-Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_queue_a9245790264a9d68030ae8bd884c85bcf}
+
+
+Implements \hyperlink{class_model_infrastructure_a3da2fd381c44752598bc448b207e8287}{Model\-Infrastructure}.
+
+
+
+Definition at line 63 of file Queue.\-cpp.
+
+\hypertarget{class_queue_a81f6676597a7974af394ddd3f67c7926}{\index{Queue@{Queue}!\-\_\-verify\-Symbols@{\-\_\-verify\-Symbols}}
+\index{\-\_\-verify\-Symbols@{\-\_\-verify\-Symbols}!Queue@{Queue}}
+\subsubsection[{\-\_\-verify\-Symbols}]{\setlength{\rightskip}{0pt plus 5cm}bool Queue\-::\-\_\-verify\-Symbols (
+\begin{DoxyParamCaption}
+\item[{std\-::string $\ast$}]{error\-Message}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_queue_a81f6676597a7974af394ddd3f67c7926}
+
+
+Implements \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a388}{Model\-Infrastructure}.
+
+
+
+Definition at line 68 of file Queue.\-cpp.
+
 \hypertarget{class_queue_a39a1f5a1733f61634339ecee7aac7907}{\index{Queue@{Queue}!first@{first}}
 \index{first@{first}!Queue@{Queue}}
 \subsubsection[{first}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Waiting} $\ast$ Queue\-::first (
@@ -79,11 +163,26 @@ unsigned int \hyperlink{class_queue_a4cd92f99b7abc9ec4df32690dc5a037d}{size} ()
 )}}\label{class_queue_a39a1f5a1733f61634339ecee7aac7907}
 
 
+Definition at line 47 of file Queue.\-cpp.
+
+
+
 Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=240pt]{class_queue_a39a1f5a1733f61634339ecee7aac7907_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{class_queue_a39a1f5a1733f61634339ecee7aac7907_icgraph}
 \end{center}
 \end{figure}
 
@@ -97,11 +196,26 @@ Here is the call graph for this function\-:\nopagebreak
 )}}\label{class_queue_a961b5b7ca80317aa69f958612fb988ad}
 
 
+Definition at line 30 of file Queue.\-cpp.
+
+
+
 Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=342pt]{class_queue_a961b5b7ca80317aa69f958612fb988ad_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{class_queue_a961b5b7ca80317aa69f958612fb988ad_icgraph}
 \end{center}
 \end{figure}
 
@@ -116,11 +230,26 @@ Here is the call graph for this function\-:\nopagebreak
 )}}\label{class_queue_a114d5144b3026b57cca9cf481b1f0d65}
 
 
+Definition at line 35 of file Queue.\-cpp.
+
+
+
 Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{class_queue_a114d5144b3026b57cca9cf481b1f0d65_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{class_queue_a114d5144b3026b57cca9cf481b1f0d65_icgraph}
 \end{center}
 \end{figure}
 
@@ -135,6 +264,10 @@ Here is the call graph for this function\-:\nopagebreak
 
 
 Reimplemented from \hyperlink{class_model_infrastructure_a649a5a89a0c9931783d3c51de2acf266}{Model\-Infrastructure}.
+
+
+
+Definition at line 25 of file Queue.\-cpp.
 
 
 
@@ -156,11 +289,26 @@ Here is the call graph for this function\-:\nopagebreak
 )}}\label{class_queue_a4cd92f99b7abc9ec4df32690dc5a037d}
 
 
+Definition at line 43 of file Queue.\-cpp.
+
+
+
 Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=242pt]{class_queue_a4cd92f99b7abc9ec4df32690dc5a037d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=284pt]{class_queue_a4cd92f99b7abc9ec4df32690dc5a037d_icgraph}
 \end{center}
 \end{figure}
 

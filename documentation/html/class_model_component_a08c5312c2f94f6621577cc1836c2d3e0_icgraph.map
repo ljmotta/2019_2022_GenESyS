@@ -1,0 +1,7 @@
+<map id="ModelComponent::Execute" name="ModelComponent::Execute">
+<area shape="rect" id="node2" href="$class_model.html#a244dff6d6bef962b0d95fbe712954079" title="Model::sendEntityToComponent" alt="" coords="235,81,445,108"/>
+<area shape="rect" id="node3" href="$class_assign.html#a5fabf69268b2e65d8b01ce247be87a40" title="Assign::_execute" alt="" coords="497,5,620,32"/>
+<area shape="rect" id="node4" href="$class_create.html#acd3a4b8805561591e0c88d3fd689cf74" title="Create::_execute" alt="" coords="497,56,620,83"/>
+<area shape="rect" id="node5" href="$class_release.html#a63c3cd89082e7f6c1fb61646b93a5c32" title="Release::_execute" alt="" coords="493,107,624,133"/>
+<area shape="rect" id="node6" href="$class_seize.html#a96f6517a40b3bfd0d5ea753d59cef797" title="Seize::_execute" alt="" coords="501,157,617,184"/>
+</map>
