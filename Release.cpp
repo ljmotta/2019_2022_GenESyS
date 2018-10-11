@@ -187,14 +187,9 @@ bool Release::_verifySymbols(std::string* errorMessage) {
         }
         
         /*Checking Quantity*/
-        double temp;
-        temp = this->_model->parseExpression(getQuantity());
-        /*NOT ABLE TO DO: 
-         * bool result;
-         * this->_model->parseExpression(getQuantity(), &result, errorMessage);
-         * return result;*/
-        
-        return true;
+        bool result;
+        this->_model->parseExpression(getQuantity(), &result, errorMessage);
+        return result;
     }
     catch (int e)
     {

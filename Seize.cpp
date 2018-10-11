@@ -290,13 +290,10 @@ bool Seize::_verifySymbols(std::string* errorMessage) {
         }
         
         /*Checking Quantity*/
-        this->_model->parseExpression(getQuantity());
-        /*NOT ABLE TO DO: 
-         * bool temp;
-         * this->_model->parseExpression(getQuantity(), &temp, errorMessage);
-         */
+        bool result;
+        this->_model->parseExpression(getQuantity(), &result, errorMessage);
         
-        return true;
+        return result;
         
     }
     catch (int e)

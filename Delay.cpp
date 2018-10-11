@@ -68,14 +68,9 @@ std::list<std::string>* Delay::_saveInstance() {
 bool Delay::_verifySymbols(std::string* errorMessage) {
     try
     {
-        double temp;
-        temp = this->_model->parseExpression(getDelayExpression());
-        return true;
-        
-        /*NOT ABLE TO DO: 
-         * bool result;
-         * this->_model->parseExpression(getDelayExpression(), &result, errorMessage);
-         * return result;*/
+        bool result;
+        this->_model->parseExpression(getDelayExpression(), &result, errorMessage);
+        return result;
     }
     catch (int e)
     {

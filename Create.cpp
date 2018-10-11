@@ -88,11 +88,9 @@ bool Create::_verifySymbols(std::string* errorMessage) {
     try{
         
         /*Checking Time Between Creations*/
-        this->_model->parseExpression(this->_timeBetweenCreationsExpression);
-        /*NOT ABLE TO DO: 
-         * bool result;
-         * this->_model->parseExpression(this->_timeBetweenCreationsExpression, &result, errorMessage);
-         * return result;*/
+        bool result;
+        this->_model->parseExpression(this->_timeBetweenCreationsExpression, &result, errorMessage);
+        
         
         /*Checking Entity*/
         // get the list of all EntityType from model infrastrucure and check if it exists
@@ -103,7 +101,8 @@ bool Create::_verifySymbols(std::string* errorMessage) {
 		// insert the new EntittyType into the infrastructure list
 		_model->getInfrastructures(Util::TypeOf<EntityType>())->insert(newEntityType);
 	}
-	return true;
+        
+	return result;
     }
     catch(int e)
     {
