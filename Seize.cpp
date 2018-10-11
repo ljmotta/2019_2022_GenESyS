@@ -271,36 +271,25 @@ std::list<std::string>* Seize::_saveInstance() {
 }
 
 bool Seize::_verifySymbols(std::string* errorMessage) {
-    
-    //bool result = true;
-    try
-    {
-        /* Checking Resource */
-        //Quando Seize tiver mais de um Resource: fazer a chamada a seguir dentro de um loop para cada resource.
-        _verifySymbolsResource(_resource->getName());
-        
-        /* Checking Queue */
-        _verifySymbolsQueue(_queue->getName());
-        
-        /* Checking Attribute */
-        if (((Attribute*) _model->getInfrastructure(Util::TypeOf<Attribute>(), _saveAttribute)) == nullptr) { // there is no Attribute with the  name
-            Attribute* newAttribute = new Attribute();
-            newAttribute->setName(_saveAttribute);
-            _model->getInfrastructures(Util::TypeOf<Attribute>())->insert(newAttribute);
-        }
-        
-        /*Checking Quantity*/
-        bool result;
-        this->_model->parseExpression(getQuantity(), &result, errorMessage);
-        
-        return result;
-        
+    /* Checking Resource */
+    //Quando Seize tiver mais de um Resource: fazer a chamada a seguir dentro de um loop para cada resource.
+    _verifySymbolsResource(_resource->getName());
+
+    /* Checking Queue */
+    _verifySymbolsQueue(_queue->getName());
+
+    /* Checking Attribute */
+    if (((Attribute*) _model->getInfrastructure(Util::TypeOf<Attribute>(), _saveAttribute)) == nullptr) { // there is no Attribute with the  name
+        Attribute* newAttribute = new Attribute();
+        newAttribute->setName(_saveAttribute);
+        _model->getInfrastructures(Util::TypeOf<Attribute>())->insert(newAttribute);
     }
-    catch (int e)
-    {
-        *errorMessage = e;
-        return false;
-    }
+
+    /*Checking Quantity*/
+    bool result = true;
+    this->_model->parseExpression(getQuantity(), &result, errorMessage);
+
+    return result;
 }
 
 Resource* Seize::_verifySymbolsResource(std::string _resourceName) {

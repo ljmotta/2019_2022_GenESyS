@@ -67,38 +67,31 @@ std::list<std::string>* Assign::_saveInstance() {
 }
 
 bool Assign::_verifySymbols(std::string* errorMessage) {
-    try
-    {
-        bool result;
-        
-        for (Assignment* it = this->getAssignments()->first(); it!=this->getAssignments()->last(); it++) {
-            bool temp;
-            this->_model->parseExpression(it->getExpression(), &temp, errorMessage);
-            result &= temp;
-            
-            /*Checking Destination*/
-            if(it->getDestinationType() == DestinationType::Attribute){
-                if ((::Attribute*) this->_model->getInfrastructure(Util::TypeOf<::Attribute>(), it->getDestination()) == nullptr) { // there is no Attribute with the  name
-                    ::Attribute* newAttribute = new  ::Attribute();
-                    newAttribute->setName(it->getDestination());
-                    _model->getInfrastructures(Util::TypeOf<::Attribute>())->insert(newAttribute);
-                }
-                
-            }else{ //(it->getDestinationType() == DestinationType.Variable)
-                if ((::Variable*) this->_model->getInfrastructure(Util::TypeOf<::Variable>(), it->getDestination()) == nullptr) { // there is no Variable with the  name
-                    ::Variable* newVariable = new  ::Variable();
-                    newVariable->setName(it->getDestination());
-                    _model->getInfrastructures(Util::TypeOf<::Variable>())->insert(newVariable);
-                }
+    
+    bool result = true;
+
+    for (Assignment* it = this->getAssignments()->first(); it!=this->getAssignments()->last(); it++) {
+        bool temp = true;
+        this->_model->parseExpression(it->getExpression(), &temp, errorMessage);
+        result &= temp;
+
+        /*Checking Destination*/
+        if(it->getDestinationType() == DestinationType::Attribute){
+            if ((::Attribute*) this->_model->getInfrastructure(Util::TypeOf<::Attribute>(), it->getDestination()) == nullptr) { // there is no Attribute with the  name
+                ::Attribute* newAttribute = new  ::Attribute();
+                newAttribute->setName(it->getDestination());
+                _model->getInfrastructures(Util::TypeOf<::Attribute>())->insert(newAttribute);
             }
-            
+
+        }else{ //(it->getDestinationType() == DestinationType.Variable)
+            if ((::Variable*) this->_model->getInfrastructure(Util::TypeOf<::Variable>(), it->getDestination()) == nullptr) { // there is no Variable with the  name
+                ::Variable* newVariable = new  ::Variable();
+                newVariable->setName(it->getDestination());
+                _model->getInfrastructures(Util::TypeOf<::Variable>())->insert(newVariable);
+            }
         }
-        
-        return result;
+
     }
-    catch (int e)
-    {
-        *errorMessage = e;
-        return false;
-    }
+
+    return result;
 }

@@ -85,29 +85,21 @@ bool Create::_verifySymbols(std::string* errorMessage) {
 	
         // bool res = _model->verifySymbol(this->_name, "Time Between Creations", this->_timeBetweenCreationsExpression, "EXPRESSION", true); // Todo: typeid(Expression)
 	
-    try{
         
-        /*Checking Time Between Creations*/
-        bool result;
-        this->_model->parseExpression(this->_timeBetweenCreationsExpression, &result, errorMessage);
-        
-        
-        /*Checking Entity*/
-        // get the list of all EntityType from model infrastrucure and check if it exists
-	if (_model->getInfrastructure(Util::TypeOf<EntityType>(), this->_entityType) == nullptr) {
-		// the _entityType does not exists yet, so create it
-		EntityType* newEntityType = new EntityType(_model);
-		newEntityType->setName(this->_entityType);
-		// insert the new EntittyType into the infrastructure list
-		_model->getInfrastructures(Util::TypeOf<EntityType>())->insert(newEntityType);
-	}
-        
-	return result;
-    }
-    catch(int e)
-    {
-        *errorMessage = e;
-        return false;
+    /*Checking Time Between Creations*/
+    bool result = true;
+    this->_model->parseExpression(this->_timeBetweenCreationsExpression, &result, errorMessage);
+
+
+    /*Checking Entity*/
+    // get the list of all EntityType from model infrastrucure and check if it exists
+    if (_model->getInfrastructure(Util::TypeOf<EntityType>(), this->_entityType) == nullptr) {
+            // the _entityType does not exists yet, so create it
+            EntityType* newEntityType = new EntityType(_model);
+            newEntityType->setName(this->_entityType);
+            // insert the new EntittyType into the infrastructure list
+            _model->getInfrastructures(Util::TypeOf<EntityType>())->insert(newEntityType);
     }
 
+    return result;
 }
