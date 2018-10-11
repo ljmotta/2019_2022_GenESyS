@@ -46,7 +46,7 @@ void Assign::_execute(Entity* entity) {
 		_model->trace(Util::TraceLevel::TL_blockInternal, "Let \"" + let->getDestination() + "\" = " + std::to_string(value));
 		/* TODO: this is NOT the best way to do it (enum comparision) */
 		if (let->getDestinationType() == DestinationType::Variable) {
-			::Variable* myvar = (::Variable*) this->_model->getInfrastructure(Util::TypeOf<::Variable>(), let->getDestination());
+			Variable* myvar = (Variable*) this->_model->getInfrastructure(Util::TypeOf<Variable>(), let->getDestination());
 			myvar->setValue(value);
 		} else if (let->getDestinationType() == DestinationType::Attribute) {
 			entity->setAttributeValue(let->getDestination(), value);
