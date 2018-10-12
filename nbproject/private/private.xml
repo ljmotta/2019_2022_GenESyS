@@ -54,13 +54,12 @@
         </group>
         <group>
             <file>file:/media/karla/Dados/Ciencia%20da%20Computação/INE5425%20-%20Modelagem%20e%20Simulação/DS2/GenESyS-Reborn/Assign.cpp</file>
-            <file>file:/media/karla/Dados/Ciencia%20da%20Computação/INE5425%20-%20Modelagem%20e%20Simulação/DS2/GenESyS-Reborn/Assign.h</file>
-            <file>file:/media/karla/Dados/Ciencia%20da%20Computação/INE5425%20-%20Modelagem%20e%20Simulação/DS2/GenESyS-Reborn/Util.cpp</file>
-            <file>file:/media/karla/Dados/Ciencia%20da%20Computação/INE5425%20-%20Modelagem%20e%20Simulação/DS2/GenESyS-Reborn/Parser_if.h</file>
+            <file>file:/media/karla/Dados/Ciencia%20da%20Computação/INE5425%20-%20Modelagem%20e%20Simulação/DS2/GenESyS-Reborn/Create.cpp</file>
+            <file>file:/media/karla/Dados/Ciencia%20da%20Computação/INE5425%20-%20Modelagem%20e%20Simulação/DS2/GenESyS-Reborn/BuildSimpleModel1.cpp</file>
+            <file>file:/media/karla/Dados/Ciencia%20da%20Computação/INE5425%20-%20Modelagem%20e%20Simulação/DS2/GenESyS-Reborn/Release.cpp</file>
             <file>file:/media/karla/Dados/Ciencia%20da%20Computação/INE5425%20-%20Modelagem%20e%20Simulação/DS2/GenESyS-Reborn/Seize.cpp</file>
-            <file>file:/media/karla/Dados/Ciencia%20da%20Computação/INE5425%20-%20Modelagem%20e%20Simulação/DS2/GenESyS-Reborn/Util.h</file>
-            <file>file:/media/karla/Dados/Ciencia%20da%20Computação/INE5425%20-%20Modelagem%20e%20Simulação/DS2/GenESyS-Reborn/Seize.h</file>
-            <file>file:/media/karla/Dados/Ciencia%20da%20Computação/INE5425%20-%20Modelagem%20e%20Simulação/DS2/GenESyS-Reborn/Variable.h</file>
+            <file>file:/media/karla/Dados/Ciencia%20da%20Computação/INE5425%20-%20Modelagem%20e%20Simulação/DS2/GenESyS-Reborn/Delay.cpp</file>
+            <file>file:/media/karla/Dados/Ciencia%20da%20Computação/INE5425%20-%20Modelagem%20e%20Simulação/DS2/GenESyS-Reborn/Model.cpp</file>
         </group>
     </open-files>
 </project-private>

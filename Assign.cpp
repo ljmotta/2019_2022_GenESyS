@@ -69,9 +69,9 @@ std::list<std::string>* Assign::_saveInstance() {
 bool Assign::_verifySymbols(std::string* errorMessage) {
     
     bool result = true;
-
+    bool temp = true;
+    
     for (Assignment* it = this->getAssignments()->first(); it!=this->getAssignments()->last(); it++) {
-        bool temp = true;
         this->_model->parseExpression(it->getExpression(), &temp, errorMessage);
         result &= temp;
 
