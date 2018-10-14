@@ -47,6 +47,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Entity.o \
 	${OBJECTDIR}/EntityType.o \
 	${OBJECTDIR}/Event.o \
+	${OBJECTDIR}/FitterJoaoSouto.o \
 	${OBJECTDIR}/FitterMyImpl1.o \
 	${OBJECTDIR}/HypothesisTesterMyImpl1.o \
 	${OBJECTDIR}/HypothesisTester_ar.o \
@@ -168,6 +169,11 @@ ${OBJECTDIR}/Event.o: Event.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Event.o Event.cpp
+
+${OBJECTDIR}/FitterJoaoSouto.o: FitterJoaoSouto.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FitterJoaoSouto.o FitterJoaoSouto.cpp
 
 ${OBJECTDIR}/FitterMyImpl1.o: FitterMyImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

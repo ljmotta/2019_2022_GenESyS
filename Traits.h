@@ -71,8 +71,12 @@ template <> struct Traits<Sampler_if> {
 	typedef Sampler_BruFabJoa::MyRNG_Parameters Parameters;
 };
 
+//! Forward definition
+class FitterJoaoSouto;
+
 template <> struct Traits<Fitter_if> {
-	typedef FitterMyImpl1 Implementation;
+	//typedef FitterMyImpl1 Implementation;
+    typedef FitterJoaoSouto Implementation;
 };
 
 template <> struct Traits<Collector_if> {
@@ -107,6 +111,12 @@ template <> struct Traits<HypothesisTester_if> {
 template <> struct Traits<ModelPersistence_if> {
 	typedef ModelPersistenceMyImpl1 Implementation;
 };
+
+/*!
+ * Class FitterJoaoSouto uses some traits, so it's being included here,
+ * avoiding circular inclusions.
+ */
+#include "FitterJoaoSouto.h"
 
 #endif /* TRAITS_H */
 
