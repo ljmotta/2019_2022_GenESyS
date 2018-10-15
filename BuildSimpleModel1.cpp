@@ -105,8 +105,8 @@ void buildModelWithAllImplementedComponents(Model* model) {
 
 void buildModel(Model* model) {
 	// change next command to build different models
-	//buildSimpleCreateDelayDisposeModel(model);
-	buildModelWithAllImplementedComponents(model);
+	buildSimpleCreateDelayDisposeModel(model);
+	//buildModelWithAllImplementedComponents(model);
 }
 
 void buildSimulationSystem() {

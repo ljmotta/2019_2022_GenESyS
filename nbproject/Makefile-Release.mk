@@ -59,6 +59,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Listener.o \
 	${OBJECTDIR}/Model.o \
 	${OBJECTDIR}/ModelCheckerMyImpl1.o \
+	${OBJECTDIR}/ModelChecker_DS2Karla.o \
 	${OBJECTDIR}/ModelComponent.o \
 	${OBJECTDIR}/ModelInfrastructure.o \
 	${OBJECTDIR}/ModelPersistenceMyImpl1.o \
@@ -107,11 +108,11 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/rebornedgenesys
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/genesys-reborn
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/rebornedgenesys: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/genesys-reborn: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/rebornedgenesys ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/genesys-reborn ${OBJECTFILES} ${LDLIBSOPTIONS}
 
 ${OBJECTDIR}/Assign.o: Assign.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -232,6 +233,11 @@ ${OBJECTDIR}/ModelCheckerMyImpl1.o: ModelCheckerMyImpl1.cpp nbproject/Makefile-$
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelCheckerMyImpl1.o ModelCheckerMyImpl1.cpp
+
+${OBJECTDIR}/ModelChecker_DS2Karla.o: ModelChecker_DS2Karla.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelChecker_DS2Karla.o ModelChecker_DS2Karla.cpp
 
 ${OBJECTDIR}/ModelComponent.o: ModelComponent.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

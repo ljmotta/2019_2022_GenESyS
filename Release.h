@@ -56,6 +56,8 @@ private:
 	std::string _quantity = "1";
 	Resource::ResourceRule _rule = Resource::ResourceRule::rrSMALLESTBUSY;
 	std::string _saveAttribute = "";
+        Resource* _verifySymbolsResource(std::string _resourceName);
+        Queue* _verifySymbolsQueue(std::string _queueName);
 	
 private: // no g&s
 	Resource* _resource;

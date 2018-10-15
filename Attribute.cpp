@@ -13,10 +13,10 @@
 
 #include "Attribute.h"
 
-Attribute::Attribute() {
+Attribute::Attribute() : ModelInfrastructure(Util::TypeOf<Attribute>()) {
 }
 
-Attribute::Attribute(const Attribute& orig) {
+Attribute::Attribute(const Attribute& orig) : ModelInfrastructure(orig) {
 }
 
 Attribute::~Attribute() {

@@ -15,6 +15,7 @@
 #define ASSIGN_H
 
 #include "ModelComponent.h"
+#include "Model.h"
 
 class Assign : public ModelComponent {
 public:

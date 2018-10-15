@@ -82,16 +82,24 @@ std::list<std::string>* Create::_saveInstance() {
 
 bool Create::_verifySymbols(std::string* errorMessage) {
 	//Genesys.AuxFunctions.VerifySymbol(thismodule.Name, 'Time Between Creations', thisModule.aTimeBetweenCreations, cEXPRESSION, true);
-	bool res = _model->verifySymbol(this->_name, "Time Between Creations", this->_timeBetweenCreationsExpression, "EXPRESSION", true); // Todo: typeid(Expression)
-	// get the list of all EntityType from model infrastrucure and check if it exists
-	if (_model->getInfrastructure(Util::TypeOf<EntityType>(), this->_entityType) == nullptr) {
-		// the _entityType does not exists yet, so create it
-		EntityType* newEntityType = new EntityType(_model);
-		newEntityType->setName(this->_entityType);
-		// insert the new EntittyType into the infrastructure list
-		_model->getInfrastructures(Util::TypeOf<EntityType>())->insert(newEntityType);
-	}
-	//this->_entityType
+	
+        // bool res = _model->verifySymbol(this->_name, "Time Between Creations", this->_timeBetweenCreationsExpression, "EXPRESSION", true); // Todo: typeid(Expression)
+	
+        
+    /*Checking Time Between Creations*/
+    bool result = true;
+    this->_model->parseExpression(this->_timeBetweenCreationsExpression, &result, errorMessage);
 
-	return res;
+
+    /*Checking Entity*/
+    // get the list of all EntityType from model infrastrucure and check if it exists
+    if (_model->getInfrastructure(Util::TypeOf<EntityType>(), this->_entityType) == nullptr) {
+            // the _entityType does not exists yet, so create it
+            EntityType* newEntityType = new EntityType(_model);
+            newEntityType->setName(this->_entityType);
+            // insert the new EntittyType into the infrastructure list
+            _model->getInfrastructures(Util::TypeOf<EntityType>())->insert(newEntityType);
+    }
+
+    return result;
 }

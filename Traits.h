@@ -44,6 +44,7 @@
 //#include "HypothesisTesterDiogo.h"
 #include "ModelPersistenceMyImpl1.h"
 #include "StatisticsMyImpl1.h"
+#include "ModelChecker_DS2Karla.h"
 #include "StatisticsCancianImpl.h"
 #include "BuildSimpleModel1.h"
 #include "TestInputAnalyserTools.h"
@@ -57,8 +58,8 @@ struct Traits {
 };
 
 template <> struct Traits<GenesysApplication_if> {
-	typedef TestInputAnalyserTools Application;  
-	//typedef BuildSimpleModel1 Application;  
+	//typedef TestInputAnalyserTools Application;  
+	typedef BuildSimpleModel1 Application;  
 };
 
 template <> struct Traits<Model> {
@@ -86,7 +87,7 @@ template <> struct Traits<Collector_if> {
 };
 
 template <> struct Traits<ModelChecker_if> {
-	typedef ModelCheckerMyImpl1 Implementation;
+	typedef ModelChecker_DS2Karla Implementation;
 };
 
 template <> struct Traits<Parser_if> {

@@ -65,7 +65,9 @@ private:
 	std::string _saveAttribute = "";
 	//std::string _resourceName = "Resource 1";  // trying to access resource and queue indirectly
 	//std::string _queueName;
-
+        Resource* _verifySymbolsResource(std::string _resourceName);
+        Queue* _verifySymbolsQueue(std::string _queueName);
+        
 private: // not gets or sets
 	Queue* _queue;         // usually has a queue, but not always (it could be a hold) /* Todo: Evaluate if is better to associate queue to seize or to the resource */
 	Resource* _resource;   // usually has a resource, but not always (it could be a set)
