@@ -19,7 +19,7 @@
 class Assign : public ModelComponent {
 public:
 
-	enum DestinationType { /* TODO: +- an enun is not a good idea. Should be a list of possible classes, so TypeOf could be set */
+	enum class DestinationType { /* TODO: +- an enun is not a good idea. Should be a list of possible classes, so TypeOf could be set */
 		Attribute, Variable
 	};
 
@@ -50,7 +50,7 @@ public:
 			return _expression;
 		}
 	private:
-		DestinationType _destinationType = Attribute;
+		DestinationType _destinationType = DestinationType::Attribute;
 		std::string _destination = "";
 		std::string _expression = "";
 
