@@ -42,8 +42,12 @@ bool FitterJoaoSouto::isNormalDistributed(double confidencelevel)
     Traits<HypothesisTester_if>::Implementation tester;
     tester.setDataFilename("./NormalDistributionSample.txt");
 
-    return tester.testAverage(confidencelevel, _dataFilename, HypothesisTester_if::EQUAL)
-        && tester.testVariance(confidencelevel, _dataFilename, HypothesisTester_if::EQUAL);
+    bool result = tester.testAverage(confidencelevel, _dataFilename, HypothesisTester_if::EQUAL)
+      && tester.testVariance(confidencelevel, _dataFilename, HypothesisTester_if::EQUAL);
+
+    std::remove("./NormalDistributionSample.txt");
+
+    return result;
 }
 
 void FitterJoaoSouto::fitUniform(double *sqrerror, double *min, double *max)

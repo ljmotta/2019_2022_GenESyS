@@ -33,14 +33,14 @@ public:
 	~FitterJoaoSouto() = default;
 public:
 	bool isNormalDistributed(double confidencelevel);
-	void fitUniform (double *sqrerror, double *min, double *max);
-	void fitTriangular (double *sqrerror, double *min, double *mo, double *max);
-	void fitNormal (double *sqrerror, double *avg, double *stddev);
-	void fitExpo (double *sqrerror, double *avg1);
-	void fitErlang (double *sqrerror, double *avg, int *m);
-	void fitBeta (double *sqrerror, double *alpha, double *beta, double *infLimit, double *supLimit);
-	void fitWeibull (double *sqrerror, double *alpha, double *scale);
-	void fitAll (double *sqrerror, std::string *name);
+	void fitUniform(double *sqrerror, double *min, double *max);
+	void fitTriangular(double *sqrerror, double *min, double *mo, double *max);
+	void fitNormal(double *sqrerror, double *avg, double *stddev);
+	void fitExpo(double *sqrerror, double *avg1);
+	void fitErlang(double *sqrerror, double *avg, int *m);
+	void fitBeta(double *sqrerror, double *alpha, double *beta, double *infLimit, double *supLimit);
+	void fitWeibull(double *sqrerror, double *alpha, double *scale);
+	void fitAll(double *sqrerror, std::string *name);
 public:
 	void setDataFilename(std::string dataFilename);
 	std::string getDataFilename();
@@ -54,7 +54,7 @@ private:
 private:
 	std::string _dataFilename{""};
 	Traits<Statistics_if>::Implementation * _stats{nullptr};
-        Traits<Collector_if>::Implementation * _collector{nullptr};
+    Traits<Collector_if>::Implementation * _collector{nullptr};
 };
 
 template<typename F, typename ... Args>

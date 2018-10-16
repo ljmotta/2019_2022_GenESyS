@@ -257,7 +257,6 @@
       </item>
       <item path="ExperimentDesign_if.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="FitterJoaoSouto.h" ex="false" tool="3" flavor2="0">
       <item path="FactorOrInteractionContribution.cpp"
             ex="false"
             tool="1"
@@ -266,6 +265,8 @@
       <item path="FactorOrInteractionContribution.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="FitterJoaoSouto.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="FitterJoaoSouto.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="FitterMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -536,6 +537,7 @@
       <item path="FitterJoaoSouto.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="FitterJoaoSouto.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="FitterMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="FitterMyImpl1.h" ex="false" tool="3" flavor2="0">
