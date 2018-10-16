@@ -149,12 +149,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a42ad0944837a2921674289c2ac264176"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba4920314b8dcf17ee9d4f6d19ea48b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fitter_my_impl1.html#aba4920314b8dcf17ee9d4f6d19ea48b2">fitExpo</a> (double *sqrerror, double *avg1)</td></tr>
 <tr class="separator:aba4920314b8dcf17ee9d4f6d19ea48b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5e7d08e466ae2154a97356939447f3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fitter_my_impl1.html#af5e7d08e466ae2154a97356939447f3c">fitErlang</a> (double *sqrerror, double *a, double *b, double *offset, double *mult)</td></tr>
-<tr class="separator:af5e7d08e466ae2154a97356939447f3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc9bcdffd5336751b197ed495c5826ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fitter_my_impl1.html#acc9bcdffd5336751b197ed495c5826ca">fitBeta</a> (double *sqrerror, double *a, double *b, double *offset, double *mult)</td></tr>
-<tr class="separator:acc9bcdffd5336751b197ed495c5826ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28bc8f7f558e4328bede20c941b6c32b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fitter_my_impl1.html#a28bc8f7f558e4328bede20c941b6c32b">fitWeibull</a> (double *sqrerror, double *a, double *b, double *offset, double *mult)</td></tr>
-<tr class="separator:a28bc8f7f558e4328bede20c941b6c32b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa64e8edaebe913f32b69ca5566702ce4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fitter_my_impl1.html#aa64e8edaebe913f32b69ca5566702ce4">fitErlang</a> (double *sqrerror, double *avg, int *m)</td></tr>
+<tr class="separator:aa64e8edaebe913f32b69ca5566702ce4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8422a27621e54042f3f9b59af889307a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fitter_my_impl1.html#a8422a27621e54042f3f9b59af889307a">fitBeta</a> (double *sqrerror, double *alpha, double *beta, double *infLimit, double *supLimit)</td></tr>
+<tr class="separator:a8422a27621e54042f3f9b59af889307a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b44b3b510c446f44b74b810e262c531"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fitter_my_impl1.html#a3b44b3b510c446f44b74b810e262c531">fitWeibull</a> (double *sqrerror, double *alpha, double *scale)</td></tr>
+<tr class="separator:a3b44b3b510c446f44b74b810e262c531"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad10f9269396cb86f2230edf652242f23"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fitter_my_impl1.html#ad10f9269396cb86f2230edf652242f23">fitAll</a> (double *sqrerror, std::string *name)</td></tr>
 <tr class="separator:ad10f9269396cb86f2230edf652242f23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02c8f65838daa1f086586561aea6e4da"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fitter_my_impl1.html#a02c8f65838daa1f086586561aea6e4da">setDataFilename</a> (std::string dataFilename)</td></tr>
@@ -257,7 +257,7 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="acc9bcdffd5336751b197ed495c5826ca"></a>
+<a class="anchor" id="a8422a27621e54042f3f9b59af889307a"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -274,25 +274,25 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
+          <td class="paramname"><em>alpha</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
+          <td class="paramname"><em>beta</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>offset</em>, </td>
+          <td class="paramname"><em>infLimit</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>mult</em>&#160;</td>
+          <td class="paramname"><em>supLimit</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -307,13 +307,13 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_fitter__if.html#a686a7d540919b2e604df93b3049562d1">Fitter_if</a>.</p>
+<p>Implements <a class="el" href="class_fitter__if.html#a8ea1e6520f191368274fec5ab8e5f182">Fitter_if</a>.</p>
 
 <p>Definition at line <a class="el" href="_fitter_my_impl1_8cpp_source.html#l00048">48</a> of file <a class="el" href="_fitter_my_impl1_8cpp_source.html">FitterMyImpl1.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="af5e7d08e466ae2154a97356939447f3c"></a>
+<a class="anchor" id="aa64e8edaebe913f32b69ca5566702ce4"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -330,25 +330,13 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
+          <td class="paramname"><em>avg</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>offset</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>mult</em>&#160;</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>m</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -363,7 +351,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_fitter__if.html#aa46a5cd2d50d3cab34a719099e1058a1">Fitter_if</a>.</p>
+<p>Implements <a class="el" href="class_fitter__if.html#aead0c465573cdd42e63e2b175c0bc929">Fitter_if</a>.</p>
 
 <p>Definition at line <a class="el" href="_fitter_my_impl1_8cpp_source.html#l00044">44</a> of file <a class="el" href="_fitter_my_impl1_8cpp_source.html">FitterMyImpl1.cpp</a>.</p>
 
@@ -545,7 +533,7 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a28bc8f7f558e4328bede20c941b6c32b"></a>
+<a class="anchor" id="a3b44b3b510c446f44b74b810e262c531"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -562,25 +550,13 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
+          <td class="paramname"><em>alpha</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>offset</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>mult</em>&#160;</td>
+          <td class="paramname"><em>scale</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -595,7 +571,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_fitter__if.html#ae46e4cbb4354d6d06167aa498855d7ea">Fitter_if</a>.</p>
+<p>Implements <a class="el" href="class_fitter__if.html#a40c5bc2e953e683751743cf06df077c6">Fitter_if</a>.</p>
 
 <p>Definition at line <a class="el" href="_fitter_my_impl1_8cpp_source.html#l00052">52</a> of file <a class="el" href="_fitter_my_impl1_8cpp_source.html">FitterMyImpl1.cpp</a>.</p>
 
@@ -694,7 +670,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_fitter_my_impl1.html">FitterMyImpl1</a></li>
-    <li class="footer">Generated on Tue Oct 9 2018 13:18:23 for GenESyS - Generic and Expansible System Simulator [REBORN] by
+    <li class="footer">Generated on Wed Oct 10 2018 20:34:03 for GenESyS - Generic and Expansible System Simulator [REBORN] by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

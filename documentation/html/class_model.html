@@ -155,6 +155,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a244dff6d6bef962b0d95fbe712954079"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ea283e339b50c0b77040bf908e25af3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a5ea283e339b50c0b77040bf908e25af3">parseExpression</a> (const std::string expression)</td></tr>
 <tr class="separator:a5ea283e339b50c0b77040bf908e25af3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a408ddfa761fcd04ec1211ae6c1526ab3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a408ddfa761fcd04ec1211ae6c1526ab3">parseExpression</a> (const std::string expression, bool *success, std::string *errorMessage)</td></tr>
+<tr class="separator:a408ddfa761fcd04ec1211ae6c1526ab3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a144f16211e64bdc0ac4622cda5f5f4ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a144f16211e64bdc0ac4622cda5f5f4ae">addTraceListener</a> (<a class="el" href="_listener_8h.html#a5ce1a9a31f5f0fa77de45c6e6622c435">traceListener</a> <a class="el" href="_listener_8h.html#a5ce1a9a31f5f0fa77de45c6e6622c435">traceListener</a>)</td></tr>
 <tr class="separator:a144f16211e64bdc0ac4622cda5f5f4ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0b632c73e85b352d7ea914b30bb455f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a0b632c73e85b352d7ea914b30bb455f9">addTraceErrorListener</a> (<a class="el" href="_listener_8h.html#afad9be20bdf6a8241ae57bc2fcb678c7">traceErrorListener</a> <a class="el" href="_listener_8h.html#afad9be20bdf6a8241ae57bc2fcb678c7">traceErrorListener</a>)</td></tr>
@@ -259,11 +261,15 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad6711b51ea9feeacb59eaf70cc8faaed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac1a47354f008dc27fcb7fc902bb8d664"><td class="memItemLeft" align="right" valign="top">std::list&lt; std::string &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#ac1a47354f008dc27fcb7fc902bb8d664">getInfrastructureTypenames</a> () const </td></tr>
 <tr class="separator:ac1a47354f008dc27fcb7fc902bb8d664"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20c078a714fe7fba0f02ea1d50a19589"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_simulation_control.html">SimulationControl</a> * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#a20c078a714fe7fba0f02ea1d50a19589">getControls</a> () const </td></tr>
+<tr class="separator:a20c078a714fe7fba0f02ea1d50a19589"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4caeecd30fd5eb67b46c232cfbea14b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_simulation_response.html">SimulationResponse</a> * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model.html#ad4caeecd30fd5eb67b46c232cfbea14b">getResponses</a> () const </td></tr>
+<tr class="separator:ad4caeecd30fd5eb67b46c232cfbea14b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="class_model.html">Model</a> is probably the most important class of Genesys kernel. It represents a discrete event-driven simulation model. Each model is responsible for controlling its own simulation, ie, for sequentially processing events and collecting statistical results. A model is mainly represented by a collection of components (<a class="el" href="class_model_component.html">ModelComponent</a>), adequately configurated and connected, and a collection of under layered infrastructure (<a class="el" href="class_model_infrastructure.html">ModelInfrastructure</a>). </p>
 
-<p>Definition at line <a class="el" href="_model_8h_source.html#l00033">33</a> of file <a class="el" href="_model_8h_source.html">Model.h</a>.</p>
+<p>Definition at line <a class="el" href="_model_8h_source.html#l00036">36</a> of file <a class="el" href="_model_8h_source.html">Model.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ae86e1403523e8036ba6366d1967ecac0"></a>
 <div class="memitem">
@@ -283,14 +289,14 @@ Public Member Functions</h2></td></tr>
 <p>Events are sorted chronologically</p>
 <p>Infrastructures are organized as a map from a string (key), the type of an infrastructure, and a list of infrastructures of that type </p>
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00028">28</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00033">33</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_model_ae86e1403523e8036ba6366d1967ecac0_cgraph.png" border="0" usemap="#class_model_ae86e1403523e8036ba6366d1967ecac0_cgraph" alt=""/></div>
 <map name="class_model_ae86e1403523e8036ba6366d1967ecac0_cgraph" id="class_model_ae86e1403523e8036ba6366d1967ecac0_cgraph">
-<area shape="rect" id="node2" href="class_list.html#a31a37746c0d960f2f2bb4071b2735c5e" title="List::setSortFunc" alt="" coords="161,5,284,32"/><area shape="rect" id="node3" href="class_model_infrastructure.html#aa4d3fa8f302cc6dc4fccdd3187e6a168" title="ModelInfrastructure\l::getId" alt="" coords="155,57,290,98"/><area shape="rect" id="node4" href="class_event.html#a008a7989d0849a45613917cedc27f27e" title="Event::getTime" alt="" coords="167,123,278,149"/></map>
+<area shape="rect" id="node2" href="class_list.html#a31a37746c0d960f2f2bb4071b2735c5e" title="List::setSortFunc" alt="" coords="200,5,323,32"/><area shape="rect" id="node3" href="class_model_infrastructure.html#aa4d3fa8f302cc6dc4fccdd3187e6a168" title="ModelInfrastructure\l::getId" alt="" coords="194,57,329,98"/><area shape="rect" id="node4" href="class_event.html#a008a7989d0849a45613917cedc27f27e" title="Event::getTime" alt="" coords="206,123,317,149"/><area shape="rect" id="node5" href="_model_8cpp.html#a55f631a4c74eeddfc5a15cc3b7e1e201" title="getReplicationLengthNotMember\lFunction" alt="" coords="155,174,367,215"/></map>
 </div>
 </p>
 
@@ -310,7 +316,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00060">60</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00069">69</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -335,7 +341,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00329">329</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00359">359</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -354,7 +360,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00451">451</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00481">481</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -372,7 +378,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00439">439</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00469">469</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -399,7 +405,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00455">455</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00485">485</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -426,7 +432,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00447">447</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00477">477</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -452,7 +458,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00257">257</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00287">287</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -487,7 +493,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00344">344</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00374">374</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -504,7 +510,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00583">583</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00621">621</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -514,6 +520,23 @@ Here is the caller graph for this function:</div>
 <area shape="rect" id="node2" href="_build_simple_model1_8cpp.html#a5981de61ae987a3694de07224dbca746" title="buildSimpleCreateDelayDispose\lModel" alt="" coords="211,5,421,46"/><area shape="rect" id="node3" href="_build_simple_model1_8cpp.html#a22c3fce0bba99e34d617dafbf4f1f54e" title="buildModelWithAllImplemented\lComponents" alt="" coords="215,70,417,111"/><area shape="rect" id="node7" href="class_model_checker_my_impl1.html#a37856818d6597563f079401bf6652cbb" title="ModelCheckerMyImpl1\l::checkSymbols" alt="" coords="238,135,394,177"/><area shape="rect" id="node9" href="class_model_persistence_my_impl1.html#a367b40dfac801508f75a3176f7b40c6a" title="ModelPersistenceMyImpl1\l::saveAsTXT" alt="" coords="228,201,404,242"/><area shape="rect" id="node4" href="_build_simple_model1_8cpp.html#aeea741000e292b33dca181a0a8a6106f" title="buildModel" alt="" coords="515,77,599,104"/><area shape="rect" id="node5" href="_build_simple_model1_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="693,77,848,104"/><area shape="rect" id="node6" href="class_build_simple_model1.html#aa6e2b862963b2fb738c738bb20b4e913" title="BuildSimpleModel1::main" alt="" coords="897,77,1066,104"/><area shape="rect" id="node8" href="class_model_checker_my_impl1.html#adbed52d807b882ee75f10372b8b379e1" title="ModelCheckerMyImpl1\l::checkAll" alt="" coords="479,135,635,177"/><area shape="rect" id="node10" href="class_model_persistence_my_impl1.html#ab24f2e3aea25d628748dd8b9e63d326a" title="ModelPersistenceMyImpl1\l::save" alt="" coords="469,201,645,242"/></map>
 </div>
 </p>
+
+</div>
+</div>
+<a class="anchor" id="a20c078a714fe7fba0f02ea1d50a19589"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_simulation_control.html">SimulationControl</a> * &gt; * Model::getControls </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00566">566</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -530,7 +553,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00352">352</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00382">382</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -548,7 +571,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>The future events list chronologically sorted; Events are scheduled by components when processing other events, and a replication evolves over time by sequentially processing the very first event in this list. It's initialized with events first described by source components (SourceComponentModel) </p>
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00546">546</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00584">584</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -583,7 +606,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00495">495</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00525">525</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -610,7 +633,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>A list of components that compose this model </p>
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00499">499</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00529">529</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -636,7 +659,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00579">579</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00617">617</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -664,7 +687,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00518">518</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00548">548</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -710,7 +733,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00536">536</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00574">574</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -737,7 +760,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00503">503</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00533">533</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -772,7 +795,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00528">528</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00558">558</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -798,7 +821,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00336">336</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00366">366</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -815,7 +838,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00376">376</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00406">406</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -832,7 +855,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00360">360</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00390">390</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -849,7 +872,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00384">384</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00414">414</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -875,7 +898,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00392">392</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00422">422</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -885,6 +908,23 @@ Here is the caller graph for this function:</div>
 <area shape="rect" id="node2" href="class_create.html#acd3a4b8805561591e0c88d3fd689cf74" title="Create::_execute" alt="" coords="240,5,363,32"/><area shape="rect" id="node3" href="class_delay.html#a029d91a2cd736ff9c361c69336e6ab41" title="Delay::_execute" alt="" coords="243,56,360,83"/></map>
 </div>
 </p>
+
+</div>
+</div>
+<a class="anchor" id="ad4caeecd30fd5eb67b46c232cfbea14b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_simulation_response.html">SimulationResponse</a> * &gt; * Model::getResponses </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00570">570</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -901,7 +941,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00567">567</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00605">605</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -927,7 +967,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00416">416</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00446">446</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -944,7 +984,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00424">424</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00454">454</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -961,7 +1001,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00368">368</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00398">398</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -978,7 +1018,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00400">400</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00430">430</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -995,7 +1035,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00408">408</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00438">438</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1012,7 +1052,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00317">317</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00347">347</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1029,7 +1069,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00325">325</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00355">355</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1046,7 +1086,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00309">309</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00339">339</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1063,7 +1103,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00563">563</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00601">601</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1081,7 +1121,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>The current time in the model being simulated, i.e., the instant when the current event was triggered </p>
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00571">571</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00609">609</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1098,7 +1138,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00575">575</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00613">613</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1115,7 +1155,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00555">555</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00593">593</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1133,7 +1173,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00082">82</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00091">91</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1161,7 +1201,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p>Used by components (<a class="el" href="class_model_component.html">ModelComponent</a>) to send entities to another specific component, usually the next one connected to it, or used by the model itself, when processing an event (<a class="el" href="class_event.html">Event</a>). </p>
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00086">86</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00095">95</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1183,6 +1223,49 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a class="anchor" id="a408ddfa761fcd04ec1211ae6c1526ab3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Model::parseExpression </td>
+          <td>(</td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>expression</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool *&#160;</td>
+          <td class="paramname"><em>success</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string *&#160;</td>
+          <td class="paramname"><em>errorMessage</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00100">100</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_a408ddfa761fcd04ec1211ae6c1526ab3_cgraph.png" border="0" usemap="#class_model_a408ddfa761fcd04ec1211ae6c1526ab3_cgraph" alt=""/></div>
+<map name="class_model_a408ddfa761fcd04ec1211ae6c1526ab3_cgraph" id="class_model_a408ddfa761fcd04ec1211ae6c1526ab3_cgraph">
+<area shape="rect" id="node2" href="class_parser__if.html#a4a5dacf0588b29e7eb6c639ae2701fa6" title="Parser_if::parse" alt="" coords="216,5,331,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
 <a class="anchor" id="ab10d4bdc433d11bf4bb7117675091d8c"></a>
 <div class="memitem">
 <div class="memproto">
@@ -1197,7 +1280,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>Starts a sequential execution of a simulation, ie, a set of repliations of this model </p>
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00281">281</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00311">311</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1226,7 +1309,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>Verifies if a symbol defined in a component (<a class="el" href="class_model_component.html">ModelComponent</a>) or infrastructure is syntactically valid and addresses existing components or infrastructures. It's used only by and directed by the component that defines the symbol. </p>
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00271">271</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00301">301</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1261,7 +1344,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00302">302</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00332">332</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1279,7 +1362,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00078">78</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00087">87</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1331,7 +1414,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00063">63</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00072">72</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1367,7 +1450,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00340">340</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00370">370</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1385,7 +1468,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00348">348</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00378">378</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1403,7 +1486,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00313">313</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00343">343</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1421,7 +1504,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00321">321</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00351">351</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1439,7 +1522,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00332">332</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00362">362</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1457,7 +1540,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00372">372</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00402">402</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1475,7 +1558,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00305">305</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00335">335</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1493,7 +1576,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00559">559</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00597">597</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1511,7 +1594,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00356">356</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00386">386</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1529,7 +1612,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00380">380</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00410">410</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1547,7 +1630,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00388">388</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00418">418</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1565,7 +1648,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00551">551</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00589">589</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1583,7 +1666,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00412">412</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00442">442</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1601,7 +1684,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00420">420</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00450">450</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1619,7 +1702,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00364">364</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00394">394</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1637,7 +1720,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00396">396</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00426">426</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1655,7 +1738,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00404">404</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00434">434</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1672,7 +1755,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00143">143</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00156">156</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1699,7 +1782,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>Checks the model and if ok then initialize the simulation, execute repeatedly each replication and then show simulation statistics </p>
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00100">100</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00113">113</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1734,7 +1817,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00284">284</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00314">314</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1761,7 +1844,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p>Executes the processing of a single event, the next one in the future events list </p>
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00299">299</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00329">329</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1789,7 +1872,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00459">459</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00489">489</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1826,7 +1909,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00469">469</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00499">499</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1863,7 +1946,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00486">486</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00516">516</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 </div>
 </div>
@@ -1909,7 +1992,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00477">477</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00507">507</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1965,7 +2048,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p>Checks the integrity and consistency of the model, possibly corrects some inconsistencies, and returns if the model is in position to the simulated. </p>
 
-<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00267">267</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_8cpp_source.html#l00297">297</a> of file <a class="el" href="_model_8cpp_source.html">Model.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -1997,7 +2080,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_model.html">Model</a></li>
-    <li class="footer">Generated on Tue Oct 9 2018 13:18:23 for GenESyS - Generic and Expansible System Simulator [REBORN] by
+    <li class="footer">Generated on Wed Oct 10 2018 20:34:03 for GenESyS - Generic and Expansible System Simulator [REBORN] by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -56,9 +56,16 @@ var files =
     [ "Event.h", "_event_8h.html", [
       [ "Event", "class_event.html", "class_event" ]
     ] ],
-    [ "ExperimentDesign.cpp", "_experiment_design_8cpp.html", null ],
-    [ "ExperimentDesign.h", "_experiment_design_8h.html", [
-      [ "ExperimentDesign", "class_experiment_design.html", "class_experiment_design" ]
+    [ "ExperimentDesign_if.h", "_experiment_design__if_8h.html", [
+      [ "ExperimentDesign_if", "class_experiment_design__if.html", "class_experiment_design__if" ]
+    ] ],
+    [ "ExperimentDesignMyImpl1.cpp", "_experiment_design_my_impl1_8cpp.html", null ],
+    [ "ExperimentDesignMyImpl1.h", "_experiment_design_my_impl1_8h.html", [
+      [ "ExperimentDesignMyImpl1", "class_experiment_design_my_impl1.html", "class_experiment_design_my_impl1" ]
+    ] ],
+    [ "FactorOrInteractionContribution.cpp", "_factor_or_interaction_contribution_8cpp.html", null ],
+    [ "FactorOrInteractionContribution.h", "_factor_or_interaction_contribution_8h.html", [
+      [ "FactorOrInteractionContribution", "class_factor_or_interaction_contribution.html", "class_factor_or_interaction_contribution" ]
     ] ],
     [ "Fitter_if.h", "_fitter__if_8h.html", [
       [ "Fitter_if", "class_fitter__if.html", "class_fitter__if" ]
@@ -147,6 +154,13 @@ var files =
     [ "ProbDistrib.h", "_prob_distrib_8h.html", [
       [ "ProbDistrib", "class_prob_distrib.html", "class_prob_distrib" ]
     ] ],
+    [ "ProcessAnalyser_if.h", "_process_analyser__if_8h.html", [
+      [ "ProcessAnalyser_if", "class_process_analyser__if.html", "class_process_analyser__if" ]
+    ] ],
+    [ "ProcessAnalyserMyImpl1.cpp", "_process_analyser_my_impl1_8cpp.html", null ],
+    [ "ProcessAnalyserMyImpl1.h", "_process_analyser_my_impl1_8h.html", [
+      [ "ProcessAnalyserMyImpl1", "class_process_analyser_my_impl1.html", "class_process_analyser_my_impl1" ]
+    ] ],
     [ "Queue.cpp", "_queue_8cpp.html", null ],
     [ "Queue.h", "_queue_8h.html", [
       [ "Queue", "class_queue.html", "class_queue" ]
@@ -173,9 +187,20 @@ var files =
       [ "SamplerMyImpl1", "class_sampler_my_impl1.html", "class_sampler_my_impl1" ],
       [ "MyRNG_Parameters", "class_sampler_my_impl1_1_1_my_r_n_g___parameters.html", "class_sampler_my_impl1_1_1_my_r_n_g___parameters" ]
     ] ],
+    [ "ScenarioExperiment_if.h", "_scenario_experiment__if_8h.html", [
+      [ "ScenarioExperiment_if", "class_scenario_experiment__if.html", null ]
+    ] ],
     [ "Seize.cpp", "_seize_8cpp.html", null ],
     [ "Seize.h", "_seize_8h.html", [
       [ "Seize", "class_seize.html", "class_seize" ]
+    ] ],
+    [ "SimulationControl.cpp", "_simulation_control_8cpp.html", null ],
+    [ "SimulationControl.h", "_simulation_control_8h.html", [
+      [ "SimulationControl", "class_simulation_control.html", "class_simulation_control" ]
+    ] ],
+    [ "SimulationResponse.cpp", "_simulation_response_8cpp.html", null ],
+    [ "SimulationResponse.h", "_simulation_response_8h.html", [
+      [ "SimulationResponse", "class_simulation_response.html", "class_simulation_response" ]
     ] ],
     [ "SimulationScenario.cpp", "_simulation_scenario_8cpp.html", null ],
     [ "SimulationScenario.h", "_simulation_scenario_8h.html", [
@@ -225,7 +250,9 @@ var files =
       [ "Traits< Statistics_if >", "struct_traits_3_01_statistics__if_01_4.html", "struct_traits_3_01_statistics__if_01_4" ],
       [ "Traits< Integrator_if >", "struct_traits_3_01_integrator__if_01_4.html", "struct_traits_3_01_integrator__if_01_4" ],
       [ "Traits< HypothesisTester_if >", "struct_traits_3_01_hypothesis_tester__if_01_4.html", "struct_traits_3_01_hypothesis_tester__if_01_4" ],
-      [ "Traits< ModelPersistence_if >", "struct_traits_3_01_model_persistence__if_01_4.html", "struct_traits_3_01_model_persistence__if_01_4" ]
+      [ "Traits< ModelPersistence_if >", "struct_traits_3_01_model_persistence__if_01_4.html", "struct_traits_3_01_model_persistence__if_01_4" ],
+      [ "Traits< ExperimentDesign_if >", "struct_traits_3_01_experiment_design__if_01_4.html", "struct_traits_3_01_experiment_design__if_01_4" ],
+      [ "Traits< ProcessAnalyser_if >", "struct_traits_3_01_process_analyser__if_01_4.html", "struct_traits_3_01_process_analyser__if_01_4" ]
     ] ],
     [ "Util.cpp", "_util_8cpp.html", null ],
     [ "Util.h", "_util_8h.html", [

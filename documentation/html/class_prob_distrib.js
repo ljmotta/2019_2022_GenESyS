@@ -1,7 +1,7 @@
 var class_prob_distrib =
 [
     [ "beta", "class_prob_distrib.html#af74e5c70a59727220d52a7f445992b28", null ],
-    [ "erlang", "class_prob_distrib.html#a479f7cbaef301482e924d57627675796", null ],
+    [ "erlang", "class_prob_distrib.html#abeca85f25317ff97d9ca14d6a4abbb2d", null ],
     [ "exponential", "class_prob_distrib.html#ad638ee57a1ad9ffe4a81e6f7607736a2", null ],
     [ "gamma", "class_prob_distrib.html#a2a5a2f10a9ba6475591597643b555ab9", null ],
     [ "logNormal", "class_prob_distrib.html#ad6e3ae223763aae5c2fe7d347523adbb", null ],

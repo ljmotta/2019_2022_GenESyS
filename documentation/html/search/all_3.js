@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['calculatecontributionandcoefficients',['calculateContributionAndCoefficients',['../class_experiment_design__if.html#a5e8a8698eaf74121671dd007d7a000e9',1,'ExperimentDesign_if::calculateContributionAndCoefficients()'],['../class_experiment_design_my_impl1.html#ad6da633ae27de1e860b012f53f1b4c7a',1,'ExperimentDesignMyImpl1::calculateContributionAndCoefficients()']]],
   ['centil',['centil',['../class_statistics__if.html#a906e7f2428e5e6482daf5dd1b2d54bfc',1,'Statistics_if::centil()'],['../class_statistics_cancian_impl.html#a0c6f2c98edd270d9da9ac654a4be1221',1,'StatisticsCancianImpl::centil()'],['../class_statistics_my_impl1.html#acdadfa7b651ae6dcbe5c43d77b0cb084',1,'StatisticsMyImpl1::centil()']]],
   ['checkactivationcode',['checkActivationCode',['../class_model_checker__if.html#af5be5d01ea1c549eee6b94907f5ccb74',1,'ModelChecker_if::checkActivationCode()'],['../class_model_checker_my_impl1.html#a1139d516075b03d96eaa0db01e108c2c',1,'ModelCheckerMyImpl1::checkActivationCode()']]],
   ['checkall',['checkAll',['../class_model_checker__if.html#a83bc988696c49a17e0e7668e24743251',1,'ModelChecker_if::checkAll()'],['../class_model_checker_my_impl1.html#adbed52d807b882ee75f10372b8b379e1',1,'ModelCheckerMyImpl1::checkAll()']]],

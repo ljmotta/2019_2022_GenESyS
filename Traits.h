@@ -26,6 +26,8 @@
 #include "HypothesisTester_if.h"
 #include "ModelPersistence_if.h"
 #include "GenesysApplication_if.h"
+#include "ProcessAnalyser_if.h"
+#include "ExperimentDesign_if.h"
 
 // possible implementations
 #include "CollectorMyImpl1.h"
@@ -42,9 +44,12 @@
 //#include "HypothesisTesterDiogo.h"
 #include "ModelPersistenceMyImpl1.h"
 #include "StatisticsMyImpl1.h"
+#include "ModelChecker_DS2Karla.h"
 #include "StatisticsCancianImpl.h"
 #include "BuildSimpleModel1.h"
 #include "TestInputAnalyserTools.h"
+#include "ProcessAnalyserMyImpl1.h"
+#include "ExperimentDesignMyImpl1.h"
 
 template <typename T>
 struct Traits {
@@ -53,8 +58,8 @@ struct Traits {
 };
 
 template <> struct Traits<GenesysApplication_if> {
-	typedef TestInputAnalyserTools Application;  
-	//typedef BuildSimpleModel1 Application;  
+	//typedef TestInputAnalyserTools Application;  
+	typedef BuildSimpleModel1 Application;  
 };
 
 template <> struct Traits<Model> {
@@ -86,7 +91,7 @@ template <> struct Traits<Collector_if> {
 };
 
 template <> struct Traits<ModelChecker_if> {
-	typedef ModelCheckerMyImpl1 Implementation;
+	typedef ModelChecker_DS2Karla Implementation;
 };
 
 template <> struct Traits<Parser_if> {
@@ -110,6 +115,15 @@ template <> struct Traits<HypothesisTester_if> {
 
 template <> struct Traits<ModelPersistence_if> {
 	typedef ModelPersistenceMyImpl1 Implementation;
+};
+
+template <> struct Traits<ExperimentDesign_if> {
+	typedef ExperimentDesignMyImpl1 Implementation;
+	//typedef ProcessAnalyserMyImpl1 ProcessAnalyserImplementation;
+};
+
+template <> struct Traits<ProcessAnalyser_if> {
+	typedef ProcessAnalyserMyImpl1 Implementation;
 };
 
 /*!

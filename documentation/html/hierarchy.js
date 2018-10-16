@@ -10,7 +10,10 @@ var hierarchy =
       [ "CollectorMyImpl1", "class_collector_my_impl1.html", null ]
     ] ],
     [ "Event", "class_event.html", null ],
-    [ "ExperimentDesign", "class_experiment_design.html", null ],
+    [ "ExperimentDesign_if", "class_experiment_design__if.html", [
+      [ "ExperimentDesignMyImpl1", "class_experiment_design_my_impl1.html", null ]
+    ] ],
+    [ "FactorOrInteractionContribution", "class_factor_or_interaction_contribution.html", null ],
     [ "Fitter_if", "class_fitter__if.html", [
       [ "FitterMyImpl1", "class_fitter_my_impl1.html", null ]
     ] ],
@@ -38,6 +41,8 @@ var hierarchy =
     [ "List< Model * >", "class_list.html", null ],
     [ "List< ModelComponent * >", "class_list.html", null ],
     [ "List< Plugin * >", "class_list.html", null ],
+    [ "List< SimulationControl * >", "class_list.html", null ],
+    [ "List< SimulationResponse * >", "class_list.html", null ],
     [ "List< std::string >", "class_list.html", null ],
     [ "List< Waiting * >", "class_list.html", null ],
     [ "Model", "class_model.html", null ],
@@ -72,6 +77,9 @@ var hierarchy =
     ] ],
     [ "Plugin", "class_plugin.html", null ],
     [ "ProbDistrib", "class_prob_distrib.html", null ],
+    [ "ProcessAnalyser_if", "class_process_analyser__if.html", [
+      [ "ProcessAnalyserMyImpl1", "class_process_analyser_my_impl1.html", null ]
+    ] ],
     [ "RNG_Parameters", null, [
       [ "Sampler_BruFabJoa::MyRNG_Parameters", "struct_sampler___bru_fab_joa_1_1_my_r_n_g___parameters.html", null ]
     ] ],
@@ -81,6 +89,10 @@ var hierarchy =
     [ "Sampler_if", "class_sampler__if.html", [
       [ "Sampler_BruFabJoa", "class_sampler___bru_fab_joa.html", null ],
       [ "SamplerMyImpl1", "class_sampler_my_impl1.html", null ]
+    ] ],
+    [ "ScenarioExperiment_if", "class_scenario_experiment__if.html", null ],
+    [ "SimulationResponse", "class_simulation_response.html", [
+      [ "SimulationControl", "class_simulation_control.html", null ]
     ] ],
     [ "SimulationScenario", "class_simulation_scenario.html", null ],
     [ "Simulator", "class_simulator.html", null ],
@@ -92,10 +104,12 @@ var hierarchy =
     ] ],
     [ "TraceEvent", "class_trace_event.html", [
       [ "TraceErrorEvent", "class_trace_error_event.html", null ],
-      [ "TraceSimulationEvent", "class_trace_simulation_event.html", null ]
+      [ "TraceSimulationEvent", "class_trace_simulation_event.html", null ],
+      [ "TraceSimulationProcess", "class_trace_simulation_process.html", null ]
     ] ],
     [ "Traits< T >", "struct_traits.html", null ],
     [ "Traits< Collector_if >", "struct_traits_3_01_collector__if_01_4.html", null ],
+    [ "Traits< ExperimentDesign_if >", "struct_traits_3_01_experiment_design__if_01_4.html", null ],
     [ "Traits< Fitter_if >", "struct_traits_3_01_fitter__if_01_4.html", null ],
     [ "Traits< GenesysApplication_if >", "struct_traits_3_01_genesys_application__if_01_4.html", null ],
     [ "Traits< HypothesisTester_if >", "struct_traits_3_01_hypothesis_tester__if_01_4.html", null ],
@@ -105,6 +119,7 @@ var hierarchy =
     [ "Traits< ModelComponent >", "struct_traits_3_01_model_component_01_4.html", null ],
     [ "Traits< ModelPersistence_if >", "struct_traits_3_01_model_persistence__if_01_4.html", null ],
     [ "Traits< Parser_if >", "struct_traits_3_01_parser__if_01_4.html", null ],
+    [ "Traits< ProcessAnalyser_if >", "struct_traits_3_01_process_analyser__if_01_4.html", null ],
     [ "Traits< Sampler_if >", "struct_traits_3_01_sampler__if_01_4.html", null ],
     [ "Traits< Statistics_if >", "struct_traits_3_01_statistics__if_01_4.html", null ],
     [ "Util", "class_util.html", null ],

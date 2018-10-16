@@ -16,10 +16,6 @@
 
 /*   SAMPLER REPLACES MMC    */
 
-/* Example of Sampler instantiation:
- Sampler_if* sampler = new Traits<Sampler_if>::Implementation();
- */
-
 class Sampler_if {
 public:
 	class RNG_Parameters{

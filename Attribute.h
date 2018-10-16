@@ -18,7 +18,10 @@
 #include <list>
 #include "List.h"
 
-class Attribute {
+
+#include "ModelInfrastructure.h"
+
+class Attribute : public ModelInfrastructure  {
 public:
 	Attribute();
 	Attribute(const Attribute& orig);

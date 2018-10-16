@@ -136,12 +136,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af95b4de00b7ed5d67b10d9ee458379bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ab5ac575b736bb720e6a40b334de5a3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fitter__if.html#a5ab5ac575b736bb720e6a40b334de5a3">fitExpo</a> (double *sqrerror, double *avg1)=0</td></tr>
 <tr class="separator:a5ab5ac575b736bb720e6a40b334de5a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa46a5cd2d50d3cab34a719099e1058a1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fitter__if.html#aa46a5cd2d50d3cab34a719099e1058a1">fitErlang</a> (double *sqrerror, double *a, double *b, double *offset, double *mult)=0</td></tr>
-<tr class="separator:aa46a5cd2d50d3cab34a719099e1058a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a686a7d540919b2e604df93b3049562d1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fitter__if.html#a686a7d540919b2e604df93b3049562d1">fitBeta</a> (double *sqrerror, double *a, double *b, double *offset, double *mult)=0</td></tr>
-<tr class="separator:a686a7d540919b2e604df93b3049562d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae46e4cbb4354d6d06167aa498855d7ea"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fitter__if.html#ae46e4cbb4354d6d06167aa498855d7ea">fitWeibull</a> (double *sqrerror, double *a, double *b, double *offset, double *mult)=0</td></tr>
-<tr class="separator:ae46e4cbb4354d6d06167aa498855d7ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aead0c465573cdd42e63e2b175c0bc929"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fitter__if.html#aead0c465573cdd42e63e2b175c0bc929">fitErlang</a> (double *sqrerror, double *avg, int *m)=0</td></tr>
+<tr class="separator:aead0c465573cdd42e63e2b175c0bc929"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ea1e6520f191368274fec5ab8e5f182"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fitter__if.html#a8ea1e6520f191368274fec5ab8e5f182">fitBeta</a> (double *sqrerror, double *alpha, double *beta, double *infLimit, double *supLimit)=0</td></tr>
+<tr class="separator:a8ea1e6520f191368274fec5ab8e5f182"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40c5bc2e953e683751743cf06df077c6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fitter__if.html#a40c5bc2e953e683751743cf06df077c6">fitWeibull</a> (double *sqrerror, double *alpha, double *scale)=0</td></tr>
+<tr class="separator:a40c5bc2e953e683751743cf06df077c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a819a5ca8715ba4be30d2c7a3957aa467"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fitter__if.html#a819a5ca8715ba4be30d2c7a3957aa467">fitAll</a> (double *sqrerror, std::string *name)=0</td></tr>
 <tr class="separator:a819a5ca8715ba4be30d2c7a3957aa467"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2d2f13548a09a2f727a4190a6b9c2dd"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fitter__if.html#aa2d2f13548a09a2f727a4190a6b9c2dd">setDataFilename</a> (std::string dataFilename)=0</td></tr>
@@ -198,7 +198,7 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a686a7d540919b2e604df93b3049562d1"></a>
+<a class="anchor" id="a8ea1e6520f191368274fec5ab8e5f182"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -215,25 +215,25 @@ Here is the caller graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
+          <td class="paramname"><em>alpha</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
+          <td class="paramname"><em>beta</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>offset</em>, </td>
+          <td class="paramname"><em>infLimit</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>mult</em>&#160;</td>
+          <td class="paramname"><em>supLimit</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -248,11 +248,11 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_fitter_my_impl1.html#acc9bcdffd5336751b197ed495c5826ca">FitterMyImpl1</a>.</p>
+<p>Implemented in <a class="el" href="class_fitter_my_impl1.html#a8422a27621e54042f3f9b59af889307a">FitterMyImpl1</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aa46a5cd2d50d3cab34a719099e1058a1"></a>
+<a class="anchor" id="aead0c465573cdd42e63e2b175c0bc929"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -269,25 +269,13 @@ Here is the caller graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
+          <td class="paramname"><em>avg</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>offset</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>mult</em>&#160;</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>m</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -302,7 +290,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_fitter_my_impl1.html#af5e7d08e466ae2154a97356939447f3c">FitterMyImpl1</a>.</p>
+<p>Implemented in <a class="el" href="class_fitter_my_impl1.html#aa64e8edaebe913f32b69ca5566702ce4">FitterMyImpl1</a>.</p>
 
 </div>
 </div>
@@ -501,7 +489,7 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="ae46e4cbb4354d6d06167aa498855d7ea"></a>
+<a class="anchor" id="a40c5bc2e953e683751743cf06df077c6"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -518,25 +506,13 @@ Here is the caller graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
+          <td class="paramname"><em>alpha</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>offset</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>mult</em>&#160;</td>
+          <td class="paramname"><em>scale</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -551,7 +527,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_fitter_my_impl1.html#a28bc8f7f558e4328bede20c941b6c32b">FitterMyImpl1</a>.</p>
+<p>Implemented in <a class="el" href="class_fitter_my_impl1.html#a3b44b3b510c446f44b74b810e262c531">FitterMyImpl1</a>.</p>
 
 </div>
 </div>
@@ -659,7 +635,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_fitter__if.html">Fitter_if</a></li>
-    <li class="footer">Generated on Tue Oct 9 2018 13:18:23 for GenESyS - Generic and Expansible System Simulator [REBORN] by
+    <li class="footer">Generated on Wed Oct 10 2018 20:34:03 for GenESyS - Generic and Expansible System Simulator [REBORN] by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

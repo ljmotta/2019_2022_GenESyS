@@ -44,12 +44,15 @@ public:
 public:
 	virtual std::string show();
 	List<ModelComponent*>* getNextComponents() const;
+        bool getCheckedConnection() ;
+        void setCheckedConnection(bool _checkedConnection);
 public:
 	static void Execute(Entity* entity, ModelComponent* component);
 	static bool VerifySymbols(ModelComponent* component, std::string* errorMessage);
 	static std::list<std::string>* SaveInstance(ModelComponent* component);
 private:
 	List<ModelComponent*>* _nextComponents;
+        bool _checkedConnection;
 protected:
 	virtual void _execute(Entity* entity) = 0;
 

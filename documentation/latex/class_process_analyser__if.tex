@@ -1,0 +1,157 @@
+\hypertarget{class_process_analyser__if}{\section{Process\-Analyser\-\_\-if Class Reference}
+\label{class_process_analyser__if}\index{Process\-Analyser\-\_\-if@{Process\-Analyser\-\_\-if}}
+}
+
+
+{\ttfamily \#include $<$Process\-Analyser\-\_\-if.\-h$>$}
+
+
+
+Inheritance diagram for Process\-Analyser\-\_\-if\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{class_process_analyser__if__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \hyperlink{class_list}{List}\\*
+$<$ \hyperlink{class_simulation_scenario}{Simulation\-Scenario} $\ast$ $>$ $\ast$ \hyperlink{class_process_analyser__if_a4cec163a7fc994f7d2cc5d642d3f9b84}{get\-Scenarios} () const =0
+\item 
+virtual \hyperlink{class_list}{List}\\*
+$<$ \hyperlink{class_simulation_control}{Simulation\-Control} $\ast$ $>$ $\ast$ \hyperlink{class_process_analyser__if_a639a16af5f2ad52e63fce4dc751c9fd4}{get\-Controls} () const =0
+\item 
+virtual \hyperlink{class_list}{List}\\*
+$<$ \hyperlink{class_simulation_response}{Simulation\-Response} $\ast$ $>$ $\ast$ \hyperlink{class_process_analyser__if_ab434ec8f01acb7730557f3ff9a460798}{get\-Responses} () const =0
+\item 
+virtual \hyperlink{class_list}{List}\\*
+$<$ \hyperlink{class_simulation_control}{Simulation\-Control} $\ast$ $>$ $\ast$ \hyperlink{class_process_analyser__if_a27b1e534ff72b8faecc28ae7419dd588}{extract\-Controls\-From\-Model} (std\-::string model\-Filename) const =0
+\item 
+virtual \hyperlink{class_list}{List}\\*
+$<$ \hyperlink{class_simulation_response}{Simulation\-Response} $\ast$ $>$ $\ast$ \hyperlink{class_process_analyser__if_a0a13770b90d56f44fe89e4a2e940800e}{extract\-Responses\-From\-Model} (std\-::string model\-Filename) const =0
+\item 
+virtual void \hyperlink{class_process_analyser__if_a55396a5eb2eebc928eb7681d1f8f87ea}{start\-Simulation\-Of\-Scenario} (\hyperlink{class_simulation_scenario}{Simulation\-Scenario} $\ast$scenario)=0
+\item 
+virtual void \hyperlink{class_process_analyser__if_ad0949759ce49af24bba3e8875b164675}{start\-Simulation} ()=0
+\item 
+virtual void \hyperlink{class_process_analyser__if_aeb292cf1587fda460b9d551bfc65c6e4}{stop\-Simulation} ()=0
+\item 
+virtual void \hyperlink{class_process_analyser__if_abdbb0685841e8366507f77a6884451c3}{add\-Trace\-Simulation\-Listener} (\hyperlink{_listener_8h_a8f5a30615774c5ee0b5c5f86741e4b6f}{trace\-Simulation\-Process\-Listener} \hyperlink{_listener_8h_a8f5a30615774c5ee0b5c5f86741e4b6f}{trace\-Simulation\-Process\-Listener})=0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The process analyser allows to extract controls and responses from a model, incluse some of then as controls and responses for a set of scenarios to be simulated 
+
+Definition at line 26 of file Process\-Analyser\-\_\-if.\-h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_process_analyser__if_abdbb0685841e8366507f77a6884451c3}{\index{Process\-Analyser\-\_\-if@{Process\-Analyser\-\_\-if}!add\-Trace\-Simulation\-Listener@{add\-Trace\-Simulation\-Listener}}
+\index{add\-Trace\-Simulation\-Listener@{add\-Trace\-Simulation\-Listener}!ProcessAnalyser_if@{Process\-Analyser\-\_\-if}}
+\subsubsection[{add\-Trace\-Simulation\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Process\-Analyser\-\_\-if\-::add\-Trace\-Simulation\-Listener (
+\begin{DoxyParamCaption}
+\item[{{\bf trace\-Simulation\-Process\-Listener}}]{trace\-Simulation\-Process\-Listener}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_process_analyser__if_abdbb0685841e8366507f77a6884451c3}
+
+
+Implemented in \hyperlink{class_process_analyser_my_impl1_a6089c0772184c64d9fec52e9a46dd0ee}{Process\-Analyser\-My\-Impl1}.
+
+\hypertarget{class_process_analyser__if_a27b1e534ff72b8faecc28ae7419dd588}{\index{Process\-Analyser\-\_\-if@{Process\-Analyser\-\_\-if}!extract\-Controls\-From\-Model@{extract\-Controls\-From\-Model}}
+\index{extract\-Controls\-From\-Model@{extract\-Controls\-From\-Model}!ProcessAnalyser_if@{Process\-Analyser\-\_\-if}}
+\subsubsection[{extract\-Controls\-From\-Model}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf List}$<${\bf Simulation\-Control}$\ast$$>$$\ast$ Process\-Analyser\-\_\-if\-::extract\-Controls\-From\-Model (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{model\-Filename}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_process_analyser__if_a27b1e534ff72b8faecc28ae7419dd588}
+
+
+Implemented in \hyperlink{class_process_analyser_my_impl1_a21cca0a0cc9831aa674f783968534a4c}{Process\-Analyser\-My\-Impl1}.
+
+\hypertarget{class_process_analyser__if_a0a13770b90d56f44fe89e4a2e940800e}{\index{Process\-Analyser\-\_\-if@{Process\-Analyser\-\_\-if}!extract\-Responses\-From\-Model@{extract\-Responses\-From\-Model}}
+\index{extract\-Responses\-From\-Model@{extract\-Responses\-From\-Model}!ProcessAnalyser_if@{Process\-Analyser\-\_\-if}}
+\subsubsection[{extract\-Responses\-From\-Model}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf List}$<${\bf Simulation\-Response}$\ast$$>$$\ast$ Process\-Analyser\-\_\-if\-::extract\-Responses\-From\-Model (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{model\-Filename}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_process_analyser__if_a0a13770b90d56f44fe89e4a2e940800e}
+
+
+Implemented in \hyperlink{class_process_analyser_my_impl1_adf4f53b5a01d17ca04159dae6f6e2c88}{Process\-Analyser\-My\-Impl1}.
+
+\hypertarget{class_process_analyser__if_a639a16af5f2ad52e63fce4dc751c9fd4}{\index{Process\-Analyser\-\_\-if@{Process\-Analyser\-\_\-if}!get\-Controls@{get\-Controls}}
+\index{get\-Controls@{get\-Controls}!ProcessAnalyser_if@{Process\-Analyser\-\_\-if}}
+\subsubsection[{get\-Controls}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf List}$<${\bf Simulation\-Control}$\ast$$>$$\ast$ Process\-Analyser\-\_\-if\-::get\-Controls (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_process_analyser__if_a639a16af5f2ad52e63fce4dc751c9fd4}
+
+
+Implemented in \hyperlink{class_process_analyser_my_impl1_aece4a70c290157902dce0be02dd229ea}{Process\-Analyser\-My\-Impl1}.
+
+\hypertarget{class_process_analyser__if_ab434ec8f01acb7730557f3ff9a460798}{\index{Process\-Analyser\-\_\-if@{Process\-Analyser\-\_\-if}!get\-Responses@{get\-Responses}}
+\index{get\-Responses@{get\-Responses}!ProcessAnalyser_if@{Process\-Analyser\-\_\-if}}
+\subsubsection[{get\-Responses}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf List}$<${\bf Simulation\-Response}$\ast$$>$$\ast$ Process\-Analyser\-\_\-if\-::get\-Responses (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_process_analyser__if_ab434ec8f01acb7730557f3ff9a460798}
+
+
+Implemented in \hyperlink{class_process_analyser_my_impl1_a5ceddb133d3740afb7a7e0aeafec0b47}{Process\-Analyser\-My\-Impl1}.
+
+\hypertarget{class_process_analyser__if_a4cec163a7fc994f7d2cc5d642d3f9b84}{\index{Process\-Analyser\-\_\-if@{Process\-Analyser\-\_\-if}!get\-Scenarios@{get\-Scenarios}}
+\index{get\-Scenarios@{get\-Scenarios}!ProcessAnalyser_if@{Process\-Analyser\-\_\-if}}
+\subsubsection[{get\-Scenarios}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf List}$<${\bf Simulation\-Scenario}$\ast$$>$$\ast$ Process\-Analyser\-\_\-if\-::get\-Scenarios (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_process_analyser__if_a4cec163a7fc994f7d2cc5d642d3f9b84}
+
+
+Implemented in \hyperlink{class_process_analyser_my_impl1_a17c3b2c84926e051d8152f257480debd}{Process\-Analyser\-My\-Impl1}.
+
+\hypertarget{class_process_analyser__if_ad0949759ce49af24bba3e8875b164675}{\index{Process\-Analyser\-\_\-if@{Process\-Analyser\-\_\-if}!start\-Simulation@{start\-Simulation}}
+\index{start\-Simulation@{start\-Simulation}!ProcessAnalyser_if@{Process\-Analyser\-\_\-if}}
+\subsubsection[{start\-Simulation}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Process\-Analyser\-\_\-if\-::start\-Simulation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_process_analyser__if_ad0949759ce49af24bba3e8875b164675}
+
+
+Implemented in \hyperlink{class_process_analyser_my_impl1_a3b3092c3814aa31efc2c544d821812a2}{Process\-Analyser\-My\-Impl1}.
+
+\hypertarget{class_process_analyser__if_a55396a5eb2eebc928eb7681d1f8f87ea}{\index{Process\-Analyser\-\_\-if@{Process\-Analyser\-\_\-if}!start\-Simulation\-Of\-Scenario@{start\-Simulation\-Of\-Scenario}}
+\index{start\-Simulation\-Of\-Scenario@{start\-Simulation\-Of\-Scenario}!ProcessAnalyser_if@{Process\-Analyser\-\_\-if}}
+\subsubsection[{start\-Simulation\-Of\-Scenario}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Process\-Analyser\-\_\-if\-::start\-Simulation\-Of\-Scenario (
+\begin{DoxyParamCaption}
+\item[{{\bf Simulation\-Scenario} $\ast$}]{scenario}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_process_analyser__if_a55396a5eb2eebc928eb7681d1f8f87ea}
+
+
+Implemented in \hyperlink{class_process_analyser_my_impl1_a597543c7676c46c7c47046205d3903f3}{Process\-Analyser\-My\-Impl1}.
+
+\hypertarget{class_process_analyser__if_aeb292cf1587fda460b9d551bfc65c6e4}{\index{Process\-Analyser\-\_\-if@{Process\-Analyser\-\_\-if}!stop\-Simulation@{stop\-Simulation}}
+\index{stop\-Simulation@{stop\-Simulation}!ProcessAnalyser_if@{Process\-Analyser\-\_\-if}}
+\subsubsection[{stop\-Simulation}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Process\-Analyser\-\_\-if\-::stop\-Simulation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_process_analyser__if_aeb292cf1587fda460b9d551bfc65c6e4}
+
+
+Implemented in \hyperlink{class_process_analyser_my_impl1_a4db69ac95212f475cf014d68d1154a47}{Process\-Analyser\-My\-Impl1}.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_process_analyser__if_8h}{Process\-Analyser\-\_\-if.\-h}\end{DoxyCompactItemize}

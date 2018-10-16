@@ -32,10 +32,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_8dep_8inc.html",
-"class_attribute.html#a28ab087bb886728670e4ae5791bc2ea8",
-"class_list.html#ad908ab5cf19370fcdf61cf1927e5e8f5",
-"class_sampler___bru_fab_joa.html#ac5c1b07d30e0bc71cbd649d7309bc8d5",
-"class_waiting.html"
+"_waiting_resource_8cpp_source.html",
+"class_integrator_diogo_impl.html#ab1923d54c4e14989a50d35a284275d7e",
+"class_release.html#a25a9193717393a31a696cfcaf87f8a8b",
+"class_statistics_cancian_impl.html#aca7e7bbc2ef8611129874cc4e3cfbc15"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

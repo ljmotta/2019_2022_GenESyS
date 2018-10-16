@@ -15,19 +15,22 @@
 #define PROCESSANALYSER_IF_H
 
 #include "List.h"
-#include "SimulationScenario_if.h"
+#include "SimulationScenario.h"
 #include "SimulationControl.h"
 #include "SimulationResponse.h"
 #include "Listener.h"
 
+/*!
+ * The process analyser allows to extract controls and responses from a model, incluse some of then as controls and responses for a set of scenarios to be simulated
+ */
 class ProcessAnalyser_if {
 public:
-	virtual List<SimulationScenario_if*>* getScenarios() const = 0;
-	virtual List<SimulationControl_if*>* getControls() const = 0;
+	virtual List<SimulationScenario*>* getScenarios() const = 0;
+	virtual List<SimulationControl*>* getControls() const = 0;
 	virtual List<SimulationResponse*>* getResponses() const = 0;
-	virtual List<SimulationControl_if*>* extractControlsFromModel(std::string modelFilename) const = 0;
+	virtual List<SimulationControl*>* extractControlsFromModel(std::string modelFilename) const = 0;
 	virtual List<SimulationResponse*>* extractResponsesFromModel(std::string modelFilename) const = 0;
-	virtual bool attachTogether(SimulationScenario_if* scenario, SimulationControl_if* control, SimulationResponse* response);
+	virtual void startSimulationOfScenario(SimulationScenario* scenario) = 0;
 	virtual void startSimulation() = 0;
 	virtual void stopSimulation() = 0;
 	virtual void addTraceSimulationListener(traceSimulationProcessListener traceSimulationProcessListener) = 0;
