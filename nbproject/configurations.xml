@@ -129,6 +129,8 @@
                      projectFiles="true">
       </logicalFolder>
       <logicalFolder name="f1" displayName="Input Analyser" projectFiles="true">
+        <itemPath>FitterJoaoSouto.cpp</itemPath>
+        <itemPath>FitterJoaoSouto.h</itemPath>
         <itemPath>FitterMyImpl1.cpp</itemPath>
         <itemPath>FitterMyImpl1.h</itemPath>
         <itemPath>Fitter_if.h</itemPath>
@@ -261,6 +263,10 @@
             flavor2="0">
       </item>
       <item path="FactorOrInteractionContribution.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="FitterJoaoSouto.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="FitterJoaoSouto.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="FitterMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -527,6 +533,10 @@
             flavor2="0">
       </item>
       <item path="FactorOrInteractionContribution.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="FitterJoaoSouto.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="FitterJoaoSouto.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="FitterMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
