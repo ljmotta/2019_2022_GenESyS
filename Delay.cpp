@@ -27,7 +27,7 @@ Delay::~Delay() {
 std::string Delay::show() {
 	return ModelComponent::show() + 
 			",delayExpression=" + this->_delayExpression +
-			",timeUnit=" + std::to_string(this->_delayTimeUnit);
+			",timeUnit=" + std::to_string(static_cast<int>(this->_delayTimeUnit));
 }
 
 void Delay::setDelayExpression(std::string _delayExpression) {
@@ -50,7 +50,7 @@ void Delay::_execute(Entity* entity) {
 	double delayEndTime = _model->getSimulatedTime() + _model->parseExpression(_delayExpression) * Util::TimeUnitConvert(_delayTimeUnit, _model->getReplicationLengthTimeUnit());
 	Event* newEvent = new Event(delayEndTime, entity, this->getNextComponents()->first());
 	_model->getEvents()->insert(newEvent);
-	_model->trace(Util::TraceLevel::TL_blockInternal, "End of delay of entity " + std::to_string(entity->getId()) + " scheduled to time " + std::to_string(delayEndTime));
+	_model->trace(Util::TraceLevel::blockInternal, "End of delay of entity " + std::to_string(entity->getId()) + " scheduled to time " + std::to_string(delayEndTime));
 }
 
 

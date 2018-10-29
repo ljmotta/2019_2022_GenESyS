@@ -35,7 +35,7 @@ protected:
 	virtual bool _verifySymbols(std::string* errorMessage);
 private:
 	std::string _delayExpression = "1.0";
-	Util::TimeUnit _delayTimeUnit = Util::TimeUnit::TU_second;
+	Util::TimeUnit _delayTimeUnit = Util::TimeUnit::second;
 };
 
 #endif /* DELAY_H */

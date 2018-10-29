@@ -25,7 +25,7 @@
 
 class Queue : public ModelInfrastructure, public LinkedBy {
 public:
-	Queue();
+	Queue(Model* model);
 	Queue(const Queue& orig);
 	virtual ~Queue();
 public:
@@ -48,8 +48,8 @@ protected:
 private: //1::n
 	List<Waiting*>* _list = new List<Waiting*>();
 private: //1::1
-	StatisticsCollector* _cstatNumberInQueue = new StatisticsCollector("Number In Queue");
-	StatisticsCollector* _cstatTimeInQueue = new StatisticsCollector("Time In Queue ");
+	StatisticsCollector* _cstatNumberInQueue; // = new StatisticsCollector("Number In Queue");
+	StatisticsCollector* _cstatTimeInQueue; // = new StatisticsCollector("Time In Queue ");
 };
 
 #endif /* QUEUE_H */

@@ -79,7 +79,7 @@ private: // not gets nor sets
 	double _lastTimeSeized = 0.0; // to check
 	double _whenSeized; // same as last? check
 private:
-	StatisticsCollector* _cstatTimeSeized = new StatisticsCollector("Time Seized");
+	StatisticsCollector* _cstatTimeSeized; // = new StatisticsCollector("Time Seized");
 	// aCSTATTimeSeizedID:	word;
 	//aFailures:	TStringList;
 	//std::list<Failure*>* _failures;

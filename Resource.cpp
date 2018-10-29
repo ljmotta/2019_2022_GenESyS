@@ -14,7 +14,9 @@
 #include "Resource.h"
 
 Resource::Resource(Model* model) : ModelInfrastructure(Util::TypeOf<Resource>()) {
-	model->getInfrastructures(Util::TypeOf<StatisticsCollector>())->insert(this->_cstatTimeSeized);
+	_cstatTimeSeized = new StatisticsCollector("Time Seized", this);
+	List<ModelInfrastructure*>* infras = model->getInfrastructures(Util::TypeOf<StatisticsCollector>());
+	infras->insert(this->_cstatTimeSeized);
 }
 
 Resource::Resource(const Resource& orig) : ModelInfrastructure(orig) {

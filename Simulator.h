@@ -53,8 +53,8 @@ private: // attributes 1:1 objects
 	Sampler_if* _sampler = new Traits<Sampler_if>::Implementation();
 private: // attributes 1:1 native
 	const std::string _name = "GenESyS - Generic and Expansible System Simulator [REBORN]";
-	const std::string _license = "Academic Mode. In academic mode this software has full functionality and executing training-size simulation models. This software may be duplicated and used for educational purposes only; any commercial application is a violation of the license agreement.";
-	const std::string _version = "2018.2.9";
+	const std::string _license	= "Academic Mode. In academic mode this software has full functionality and executing training-size simulation models. This software may be duplicated and used for educational purposes only; any commercial application is a violation of the license agreement.";
+	const std::string _version = "2018.10.1";	
 };
 
 #endif /* GENESYS_H */

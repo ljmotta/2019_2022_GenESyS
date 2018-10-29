@@ -40,7 +40,7 @@ private:
 
 class TraceErrorEvent: public TraceEvent {
 public:
-	TraceErrorEvent(std::string text,std::exception e): TraceEvent(Util::TL_errors, text) {
+	TraceErrorEvent(std::string text,std::exception e): TraceEvent(Util::TraceLevel::errors, text) {
 		_e = e;
 	}
 
@@ -92,50 +92,20 @@ typedef void (*traceSimulationProcessListener)(TraceSimulationProcess);
  * used to get and set values no matter the class (for process analyser)
  * should be a wait to invoke a getter or setter no matter the class (a pointer to a member function without specifying the class 
  */
-typedef double (*memberFunctionGetDoubleVarHandler)(); //template ... typedef double (T::*getDoubleVarHandler)() or something like that
+typedef double (*memberFunctionGetDoubleVarHandler)(); //template<> ... typedef double (T::*getDoubleVarHandler)() or something like that
 typedef void (*memberFunctionSetDoubleVarHandler)(double); 
 
 
-//class Listener {
-//public:
-//	Listener();
-//	Listener(const Listener& orig);
-//	virtual ~Listener();
-//private:
-//
-//};
-//
-//class TraceEvent {
-//public:
-//	TraceEvent(std::string text) {
-//		_text = text;
-//	}
-//	std::string getText() const {
-//		return _text;
-//	}
-//public:
-//private:
-//	std::string _text;
-//};
-//
-//class TraceListener : public Listener {
-//public:
-//	TraceListener() {}
-//	virtual void trace(TraceEvent e)=0;
-//};
-//
-//class ReplicationEvent {
-//public:
-//	ReplicationEvent() {}
-//private:
-//};
-//
-//class ReplicationListener : public Listener {
-//	ReplicationListener() {}
-//	virtual void replicationStart(ReplicationEvent e) = 0;
-//	virtual void replicationEnd(ReplicationEvent e) = 0;
-//	virtual void replicationStep(ReplicationEvent e) = 0;
-//};
+class ReplicationEvent {
+public:
+unsigned int getReplicationNumber() const {
+	return _replicationNumber;
+	}
+private:
+	unsigned int _replicationNumber;
+};
+
+typedef void (*replicationEventListener)(ReplicationEvent*);
 
 #endif /* LISTENER_H */
 

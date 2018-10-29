@@ -20,7 +20,7 @@
 
 Assign::Assign(Model* model) : ModelComponent(model) {
 	_name = "Assign " + std::to_string(Util::GenerateNewIdOfType<Assign>());
-        _model = model;
+	_model = model;
 }
 
 Assign::Assign(const Assign& orig) : ModelComponent(orig) {
@@ -45,7 +45,7 @@ void Assign::_execute(Entity* entity) {
 	for (std::list<Assignment*>::iterator it = lets->begin(); it != lets->end(); it++) {
 		let = (*it);
 		double value = _model->parseExpression(let->getExpression());
-		_model->trace(Util::TraceLevel::TL_blockInternal, "Let \"" + let->getDestination() + "\" = " + std::to_string(value));
+		_model->trace(Util::TraceLevel::blockInternal, "Let \"" + let->getDestination() + "\" = " + std::to_string(value));
 		/* TODO: this is NOT the best way to do it (enum comparision) */
 		if (let->getDestinationType() == DestinationType::Variable) {
 			Variable* myvar = (Variable*) this->_model->getInfrastructure(Util::TypeOf<Variable>(), let->getDestination());
@@ -67,31 +67,24 @@ std::list<std::string>* Assign::_saveInstance() {
 }
 
 bool Assign::_verifySymbols(std::string* errorMessage) {
-    
-    bool result = true;
-    bool temp = true;
-    
-    for (Assignment* it = this->getAssignments()->first(); it!=this->getAssignments()->last(); it++) {
-        this->_model->parseExpression(it->getExpression(), &temp, errorMessage);
-        result &= temp;
-
-        /*Checking Destination*/
-        if(it->getDestinationType() == DestinationType::Attribute){
-            if ((::Attribute*) this->_model->getInfrastructure(Util::TypeOf<::Attribute>(), it->getDestination()) == nullptr) { // there is no Attribute with the  name
-                ::Attribute* newAttribute = new  ::Attribute();
-                newAttribute->setName(it->getDestination());
-                _model->getInfrastructures(Util::TypeOf<::Attribute>())->insert(newAttribute);
-            }
-
-        }else{ //(it->getDestinationType() == DestinationType.Variable)
-            if ((::Variable*) this->_model->getInfrastructure(Util::TypeOf<::Variable>(), it->getDestination()) == nullptr) { // there is no Variable with the  name
-                ::Variable* newVariable = new  ::Variable();
-                newVariable->setName(it->getDestination());
-                _model->getInfrastructures(Util::TypeOf<::Variable>())->insert(newVariable);
-            }
-        }
-
-    }
-
-    return result;
+	Assignment* let;
+	ModelInfrastructure* infra;
+	for (std::list<Assignment*>::iterator it = _assignments->getList()->begin(); it != _assignments->getList()->end(); it++) {
+		let = (*it);
+		if (let->getDestinationType() == DestinationType::Attribute) {
+			infra = _model->getInfrastructure(Util::TypeOf<Attribute>(), let->getDestination());	
+			if (infra==nullptr) {
+				Attribute* newAttribute = new Attribute();
+				newAttribute->setName(let->getDestination());
+				_model->getInfrastructures(Util::TypeOf<Attribute>())->insert(newAttribute);
+			}
+		} else if (let->getDestinationType() == DestinationType::Variable) {
+			infra = _model->getInfrastructure(Util::TypeOf<Variable>(), let->getDestination());	
+			if (infra==nullptr) {
+				Variable* newVariable = new Variable();
+				newVariable->setName(let->getDestination());
+				_model->getInfrastructures(Util::TypeOf<Variable>())->insert(newVariable);
+			}
+		}
+	}
 }

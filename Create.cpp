@@ -49,8 +49,8 @@ void Create::_execute(Entity* entity) {
 		newArrivalTime = tnow + timeBetweenCreations*timeScale;
 		Event* newEvent = new Event(newArrivalTime, newEntity, this);
 		_model->getEvents()->insert(newEvent);
-		_model->traceSimulation(Util::TraceLevel::TL_blockInternal, tnow, entity, this, "Arrival of entity " + std::to_string(newEntity->getId()) + " schedule for time " + std::to_string(newArrivalTime));
-		//_model->trace(Util::TraceLevel::TL_blockInternal, "Arrival of entity "+std::to_string(entity->getId()) + " schedule for time " +std::to_string(newArrivalTime));
+		_model->traceSimulation(Util::TraceLevel::blockInternal, tnow, entity, this, "Arrival of entity " + std::to_string(newEntity->getId()) + " schedule for time " + std::to_string(newArrivalTime));
+		//_model->trace(Util::TraceLevel::blockInternal, "Arrival of entity "+std::to_string(entity->getId()) + " schedule for time " +std::to_string(newArrivalTime));
 	}
 	_model->sendEntityToComponent(entity, this->getNextComponents()->first(), 0.0);
 }
@@ -61,7 +61,7 @@ void Create::_loadInstance(std::list<std::string> words) {
 	this->_entitiesPerCreation = std::stoi((*it++));
 	this->_firstCreation = std::stoi((*it++));
 	this->_timeBetweenCreationsExpression = (*it++);
-	this->_timeBetweenCreationsTimeUnit = std::stoi((*it++)); // bad enum convertion!
+	this->_timeBetweenCreationsTimeUnit = static_cast<Util::TimeUnit>(std::stoi((*it++))); /*TODO: + how to set a enum class based on a string? */  //std::stoi((*it++)); // bad enum convertion!
 	this->_maxCreations = std::stoi((*it++));
 	this->_entityType = (*it++);
 	this->_collectStatistics = std::stoi(*it++);
@@ -73,7 +73,7 @@ std::list<std::string>* Create::_saveInstance() {
 	words->insert(words->end(), std::to_string(this->_entitiesPerCreation));
 	words->insert(words->end(), std::to_string(this->_firstCreation));
 	words->insert(words->end(), (this->_timeBetweenCreationsExpression));
-	words->insert(words->end(), std::to_string(this->_timeBetweenCreationsTimeUnit));
+	words->insert(words->end(), std::to_string(static_cast<int>(this->_timeBetweenCreationsTimeUnit)));
 	words->insert(words->end(), std::to_string(this->_maxCreations));
 	words->insert(words->end(), (this->_entityType));
 	words->insert(words->end(), std::to_string(this->_collectStatistics));

@@ -58,12 +58,12 @@ private:
 	double _initialOtherCost = 0.0;
 	double _initialWaitingCost = 0.0;
 private:
-	StatisticsCollector* _cstatWaitingTime = new StatisticsCollector("Waiting Time");
-	StatisticsCollector* _cstatTransferTime = new StatisticsCollector("Transfer Time");
-	StatisticsCollector* _cstatOtherTime = new StatisticsCollector("Other Time");
-	StatisticsCollector* _cstatVATime = new StatisticsCollector("Value Added Time");
-	StatisticsCollector* _cstatNVATime = new StatisticsCollector("Non Value Added Time");
-	StatisticsCollector* _cstatTimeInSystem = new StatisticsCollector("Time In System");
+	StatisticsCollector* _cstatWaitingTime; // = new StatisticsCollector("Waiting Time");
+	StatisticsCollector* _cstatTransferTime; // = new StatisticsCollector("Transfer Time");
+	StatisticsCollector* _cstatOtherTime; // = new StatisticsCollector("Other Time");
+	StatisticsCollector* _cstatVATime; // = new StatisticsCollector("Value Added Time");
+	StatisticsCollector* _cstatNVATime; // = new StatisticsCollector("Non Value Added Time");
+	StatisticsCollector* _cstatTimeInSystem; // = new StatisticsCollector("Time In System");
 };
 
 #endif /* ENTITYTYPE_H */

@@ -17,7 +17,7 @@ Simulator::Simulator() {
 	// instanciate 1:n attributes 
 	_plugins = new List<Plugin*>();
 	_models = new List<Model*>();
-	std::cout << _name << "\t" << std::endl << _license << std::endl << std::endl;
+	std::cout << _name << std::endl << _license << std::endl << std::endl; // The ONLY cout allowed "inside" the simulator (including model and other classes, pls
 }
 
 Simulator::Simulator(const Simulator& orig) {

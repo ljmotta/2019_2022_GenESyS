@@ -28,7 +28,7 @@ ModelComponent::~ModelComponent() {
 }
 
 void ModelComponent::Execute(Entity* entity, ModelComponent* component) {
-	component->_model->trace(Util::TraceLevel::TL_blockArrival, "Entity " + std::to_string(entity->getId()) + " has arrived at component \"" + component->_name + "\""); //std::to_string(component->_id));
+	component->_model->trace(Util::TraceLevel::blockArrival, "Entity " + std::to_string(entity->getId()) + " has arrived at component \"" + component->_name + "\""); //std::to_string(component->_id));
 	try {
 		component->_execute(entity);
 	} catch (const std::exception& e) {
@@ -37,7 +37,7 @@ void ModelComponent::Execute(Entity* entity, ModelComponent* component) {
 }
 
 std::list<std::string>* ModelComponent::SaveInstance(ModelComponent* component) {
-	component->_model->trace(Util::TraceLevel::TL_blockArrival, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));
+	component->_model->trace(Util::TraceLevel::blockArrival, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));
 	std::list<std::string>* words = new std::list<std::string>();
 	try {
 		words = component->_saveInstance();
@@ -48,12 +48,12 @@ std::list<std::string>* ModelComponent::SaveInstance(ModelComponent* component) 
 }
 
 bool ModelComponent::VerifySymbols(ModelComponent* component, std::string* errorMessage) {
-	component->_model->trace(Util::TraceLevel::TL_mostDetailed, "Verifying symbols of component " + component->_name); //std::to_string(component->_id));
+	component->_model->trace(Util::TraceLevel::mostDetailed, "Verifying symbols of component " + component->_name); //std::to_string(component->_id));
 	bool res = false;
 	try {
 		res = component->_verifySymbols(errorMessage);
 		if (!res) {
-			component->_model->trace(Util::TraceLevel::TL_mostDetailed, "Verification of symbols of component \"" + component->_name + "\" has failed with message " + *errorMessage);
+			component->_model->trace(Util::TraceLevel::mostDetailed, "Verification of symbols of component \"" + component->_name + "\" has failed with message " + *errorMessage);
 		}
 	} catch (const std::exception& e) {
 		component->_model->traceError(e, "Error executing component " + component->show());

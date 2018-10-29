@@ -52,15 +52,11 @@ OBJECTFILES= \
 	${OBJECTDIR}/FitterJoaoSouto.o \
 	${OBJECTDIR}/FitterMyImpl1.o \
 	${OBJECTDIR}/HypothesisTesterMyImpl1.o \
-	${OBJECTDIR}/HypothesisTester_ar.o \
 	${OBJECTDIR}/IntegratorDiogoImpl.o \
 	${OBJECTDIR}/IntegratorMyImpl1.o \
-	${OBJECTDIR}/Integrator_ar.o \
 	${OBJECTDIR}/LinkedBy.o \
-	${OBJECTDIR}/Listener.o \
 	${OBJECTDIR}/Model.o \
 	${OBJECTDIR}/ModelCheckerMyImpl1.o \
-	${OBJECTDIR}/ModelChecker_DS2Karla.o \
 	${OBJECTDIR}/ModelComponent.o \
 	${OBJECTDIR}/ModelInfrastructure.o \
 	${OBJECTDIR}/ModelPersistenceMyImpl1.o \
@@ -200,11 +196,6 @@ ${OBJECTDIR}/HypothesisTesterMyImpl1.o: HypothesisTesterMyImpl1.cpp nbproject/Ma
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/HypothesisTesterMyImpl1.o HypothesisTesterMyImpl1.cpp
 
-${OBJECTDIR}/HypothesisTester_ar.o: HypothesisTester_ar.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/HypothesisTester_ar.o HypothesisTester_ar.cpp
-
 ${OBJECTDIR}/IntegratorDiogoImpl.o: IntegratorDiogoImpl.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -215,20 +206,10 @@ ${OBJECTDIR}/IntegratorMyImpl1.o: IntegratorMyImpl1.cpp nbproject/Makefile-${CND
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/IntegratorMyImpl1.o IntegratorMyImpl1.cpp
 
-${OBJECTDIR}/Integrator_ar.o: Integrator_ar.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Integrator_ar.o Integrator_ar.cpp
-
 ${OBJECTDIR}/LinkedBy.o: LinkedBy.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/LinkedBy.o LinkedBy.cpp
-
-${OBJECTDIR}/Listener.o: Listener.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Listener.o Listener.cpp
 
 ${OBJECTDIR}/Model.o: Model.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -239,11 +220,6 @@ ${OBJECTDIR}/ModelCheckerMyImpl1.o: ModelCheckerMyImpl1.cpp nbproject/Makefile-$
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelCheckerMyImpl1.o ModelCheckerMyImpl1.cpp
-
-${OBJECTDIR}/ModelChecker_DS2Karla.o: ModelChecker_DS2Karla.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelChecker_DS2Karla.o ModelChecker_DS2Karla.cpp
 
 ${OBJECTDIR}/ModelComponent.o: ModelComponent.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

@@ -13,16 +13,24 @@
 
 #include "Seize.h"
 #include "WaitingResource.h"
-#include "Attribute.h"
 
 Seize::Seize(Model* model) : ModelComponent(model) {
 	_name = "Seize " + std::to_string(Util::GenerateNewIdOfType<Seize>());
 	// look for a resource with a default new name
 	std::string defaultResourceName = "Resource " + std::to_string(Util::GenerateNewIdOfType<Resource>());
-	_verifySymbolsResource(defaultResourceName);
-        
+	_resource = (Resource*) _model->getInfrastructure(Util::TypeOf<Resource>(), defaultResourceName);
+	if (_resource == nullptr) { // it does not exist. Simply creates a new resource infra
+		_resource = new Resource(_model);
+		_resource->setName(defaultResourceName);
+		_model->getInfrastructures(Util::TypeOf<Resource>())->insert(_resource); // inserts the new resource as infrastructure
+	}
 	std::string queueName = _resource->getName() + "_Queue"; // resourceName + "_Queue";
-	_verifySymbolsQueue(queueName);
+	_queue = (Queue*) _model->getInfrastructure(Util::TypeOf<Queue>(), queueName);
+	if (_queue == nullptr) {
+		_queue = new Queue(model);
+		_queue->setName(_name + "_Queue");
+		_model->getInfrastructures(Util::TypeOf<Queue>())->insert(_queue);
+	}
 }
 
 Seize::Seize(const Seize& orig) : ModelComponent(orig) {
@@ -93,37 +101,48 @@ unsigned int Seize::getAllocationType() const {
 
 void Seize::setQueueName(std::string _queueName) {
 	if (_queue->getName() != _queueName) {
-            Queue* queueNewName = _verifySymbolsQueue(_queueName);
-            if(queueNewName != nullptr){ // there is another queue with the same name
-                if (!_queue->isLinked()) { // no one else uses it. It can be removed
-                    _model->getInfrastructures(Util::TypeOf<Queue>())->remove(_queue);
-                    _queue->~Queue();
-                } else { // there is another one using the queue with old name. Let it there
-                    _queue->removeLink();
-                }
-                    _queue = queueNewName;
-                    _queue->addLink();
+		Queue* queueNewName = (Queue*) _model->getInfrastructure(Util::TypeOf<Queue>(), _queueName);
+		if (queueNewName == nullptr) { // there is no queue with the new name
+			if (!_queue->isLinked()) { // no one else uses it. Only change the name
+				_queue->setName(_queueName);
+			} else { // it is linked. Create a new one
+				_queue = new Queue(_model);
+				_queue->setName(_queueName);
+			}
+		} else { // there is another queue with the same name
+			if (!_queue->isLinked()) { // no one else uses it. It can be removed
+				_model->getInfrastructures(Util::TypeOf<Queue>())->remove(_queue);
+				_queue->~Queue();
+			} else { // there is another one using the queue with old name. Let it there
+				_queue->removeLink();
+			}
+			_queue = queueNewName;
+			_queue->addLink();
 		}
 	}
-        //else: there is no queue with the new name and _verifySymbolsQueue(_queueName) created;
 }
 
 void Seize::setResourceName(std::string _resourceName) {
-    if (_resource->getName() != _resourceName) {
-        Resource* resourceWithTheNewName = _verifySymbolsResource(_resourceName);
-        if (resourceWithTheNewName != nullptr){ // there is another resource with the same name
-            if (!_resource->isLinked()) { // no one else uses it. It can be removed   
-                _model->getInfrastructures(Util::TypeOf<Resource>())->remove(_resource);
-                _resource->~Resource();
-            } else { // there is another one using the resource with old name. Let it there
-                _resource->removeLink();
-            }
-            _resource = resourceWithTheNewName;
-            _resource->addLink();
-
-        }
-        //else: there is no resource with the new name and _verifySymbolsResource(_resourceName) created;
-    }
+	if (_resource->getName() != _resourceName) {
+		Resource* resourceWithTheNewName = (Resource*) _model->getInfrastructure(Util::TypeOf<Resource>(), _resourceName);
+		if (resourceWithTheNewName == nullptr) { // there is no resource with the new name
+			if (!_resource->isLinked()) { // no one else uses it. Only change the name
+				_resource->setName(_resourceName);
+			} else { // it is linked. Create a new one
+				_resource = new Resource(_model);
+				_resource->setName(_resourceName);
+			}
+		} else { // there is another resource with the same name
+			if (!_resource->isLinked()) { // no one else uses it. It can be removed
+				_model->getInfrastructures(Util::TypeOf<Resource>())->remove(_resource);
+				_resource->~Resource();
+			} else { // there is another one using the resource with old name. Let it there
+				_resource->removeLink();
+			}
+			_resource = resourceWithTheNewName;
+			_resource->addLink();
+		}
+	}
 }
 
 std::string Seize::getResourceName() const {
@@ -251,11 +270,11 @@ void Seize::_execute(Entity* entity) {
 	unsigned int quantity = _model->parseExpression(this->_quantity);
 	if (resource->getCapacity() - resource->getNumberBusy() < quantity) { // not enought free quantity to allocate. Entity goes to the queue
 		WaitingResource* waitingRec = new WaitingResource(entity, this, _model->getSimulatedTime(), quantity);
-		_model->traceSimulation(Util::TraceLevel::TL_blockInternal, _model->getSimulatedTime(), entity, this, "Entity starts to wait for resource");
+		_model->traceSimulation(Util::TraceLevel::blockInternal, _model->getSimulatedTime(), entity, this, "Entity starts to wait for resource");
 		this->_queue->insertElement(waitingRec); // ->getList()->insert(waitingRec);
 
 	} else { // alocate the resource
-		_model->traceSimulation(Util::TraceLevel::TL_blockInternal, _model->getSimulatedTime(), entity, this, "Entity seizes " + std::to_string(quantity) + " elements of resource \"" + resource->getName() + "\"");
+		_model->traceSimulation(Util::TraceLevel::blockInternal, _model->getSimulatedTime(), entity, this, "Entity seizes " + std::to_string(quantity) + " elements of resource \"" + resource->getName() + "\"");
 		resource->seize(quantity, _model->getSimulatedTime());
 		_model->sendEntityToComponent(entity, this->getNextComponents()->first(), 0.0);
 	}
@@ -271,52 +290,5 @@ std::list<std::string>* Seize::_saveInstance() {
 }
 
 bool Seize::_verifySymbols(std::string* errorMessage) {
-    /* Checking Resource */
-    //Quando Seize tiver mais de um Resource: fazer a chamada a seguir dentro de um loop para cada resource.
-    _verifySymbolsResource(_resource->getName());
-
-    /* Checking Queue */
-    _verifySymbolsQueue(_queue->getName());
-
-    /* Checking Attribute */
-    if (((Attribute*) _model->getInfrastructure(Util::TypeOf<Attribute>(), _saveAttribute)) == nullptr) { // there is no Attribute with the  name
-        Attribute* newAttribute = new Attribute();
-        newAttribute->setName(_saveAttribute);
-        _model->getInfrastructures(Util::TypeOf<Attribute>())->insert(newAttribute);
-    }
-
-    /*Checking Quantity*/
-    bool result = true;
-    this->_model->parseExpression(getQuantity(), &result, errorMessage);
-
-    return result;
-}
-
-Resource* Seize::_verifySymbolsResource(std::string _resourceName) {
-    Resource* resourceBeenChecked = (Resource*) _model->getInfrastructure(Util::TypeOf<Resource>(), _resourceName);
-    if (resourceBeenChecked == nullptr) { // there is no resource with the  name
-        if (!_resource->isLinked()) { // no one else uses it. Only change the name
-                _resource->setName(_resourceName);
-        } else { // it is linked. Create a new one
-                _resource = new Resource(_model);
-                _resource->setName(_resourceName);
-        }
-        _model->getInfrastructures(Util::TypeOf<Resource>())->insert(_resource);
-    } 
-    return resourceBeenChecked;
-}
-
-
-Queue* Seize::_verifySymbolsQueue(std::string _queueName){
-    Queue* queueBeenChecked = (Queue*) _model->getInfrastructure(Util::TypeOf<Queue>(), _queueName);
-    if (queueBeenChecked == nullptr) { // there is no queue with the new name
-        if (!_queue->isLinked()) { // no one else uses it. Only change the name
-                _queue->setName(_queueName);
-        } else { // it is linked. Create a new one
-                _queue = new Queue();
-                _queue->setName(_queueName);
-        }
-        _model->getInfrastructures(Util::TypeOf<Queue>())->insert(_queue);
-    } 
-    return queueBeenChecked;
+	return true;
 }

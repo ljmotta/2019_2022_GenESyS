@@ -32,16 +32,25 @@ void traceSimulationHandler(TraceSimulationEvent e) {
 	std::cout << e.getText() << std::endl;
 }
 
+void onReplicationStartHandler(ReplicationEvent* re) {
+	std::cout << "Replication " << re->getReplicationNumber() << " starting.";
+}
+
+void onReplicationEndHandler(ReplicationEvent* re) {
+	std::cout << "Replication " << re->getReplicationNumber() << " ending.";
+}
+
+/*
 void buildSimpleCreateDelayDisposeModel(Model* model) {
 	// traces handle simulation events to output them
-	//model->addTraceListener(&traceHandler);
-	//model->addTraceReportListener(&traceHandler);
-	//model->addTraceSimulationListener(&traceSimulationHandler);
-	// create and insert model components to the model
+	model->addTraceListener(&traceHandler);
+	model->addTraceReportListener(&traceHandler);
+	model->addTraceSimulationListener(&traceSimulationHandler);
 
+	// create and insert model components to the model
 	Create* create1 = new Create(model);
 	create1->setTimeBetweenCreationsExpression("1.5");
-	create1->setTimeUnit(Util::TimeUnit::TU_minute);
+	create1->setTimeUnit(Util::TimeUnit::minute);
 	Delay* delay1 = new Delay(model);
 	delay1->setDelayExpression("30");
 	Dispose* dispose1 = new Dispose(model);
@@ -54,24 +63,26 @@ void buildSimpleCreateDelayDisposeModel(Model* model) {
 	create1->getNextComponents()->insert(delay1);
 	delay1->getNextComponents()->insert(dispose1);
 }
+ */
 
-void buildModelWithAllImplementedComponents(Model* model) {
+void buildModel(Model* model) { // buildModelWithAllImplementedComponents
 	// traces handle simulation events to output them
 	model->addTraceListener(&traceHandler);
 	model->addTraceReportListener(&traceHandler);
 	model->addTraceSimulationListener(&traceSimulationHandler);
 
+	model->addOnReplicationStartListener(&onReplicationStartHandler);
+	model->addOnReplicationEndListener(&onReplicationEndHandler);
+
 	// create and insert model components to the model
 	Create* create1 = new Create(model);
 	create1->setTimeBetweenCreationsExpression("1.5");
-	create1->setTimeUnit(Util::TimeUnit::TU_minute);
+	create1->setTimeUnit(Util::TimeUnit::minute);
 
 	Assign* assign1 = new Assign(model);
-	//Assign::Assignment* var1Assignment = new Assign::Assignment(Assign::DestinationType::Variable, "Variable 1", "Norm(20,5) + Unif(-5,5)");
-	//assign1->getAssignments()->insert(var1Assignment);
 	Assign::Assignment* attrib1Assignment = new Assign::Assignment(Assign::DestinationType::Attribute, "Attribute 1", "Variable 1");
 	assign1->getAssignments()->insert(attrib1Assignment);
-	Assign::Assignment* attrib2Assignment = new Assign::Assignment(Assign::DestinationType::Attribute, "Variable 1", "Variable 1 + 1");
+	Assign::Assignment* attrib2Assignment = new Assign::Assignment(Assign::DestinationType::Variable, "Variable 1", "Variable 1 + 1");
 	assign1->getAssignments()->insert(attrib2Assignment);
 
 	Seize* seize1 = new Seize(model);
@@ -103,11 +114,6 @@ void buildModelWithAllImplementedComponents(Model* model) {
 	release1->getNextComponents()->insert(dispose1);
 }
 
-void buildModel(Model* model) {
-	// change next command to build different models
-	buildSimpleCreateDelayDisposeModel(model);
-	//buildModelWithAllImplementedComponents(model);
-}
 
 void buildSimulationSystem() {
 	Simulator* simulator = new Simulator();
@@ -117,7 +123,6 @@ void buildSimulationSystem() {
 	if (model->checkModel()) {
 		model->saveModel("./genesysmodel.txt");
 		model->startSimulation();
-		model->showReports();
 	}
 }
 

@@ -30,14 +30,20 @@ double getReplicationLengthNotMemberFunction() { // REMOVE IT. JUST AN EXAMPLE F
 	return 10;
 }
 
+void setReplicationLengthNotMemberFunction(double value) { // REMOVE IT. JUST AN EXAMPLE FOR PAN TEAM DS3 THEME (1)
+
+}
+
 Model::Model(Simulator* simulator) {
-	_simulator = simulator;
-	_name = "Model " + std::to_string(Util::GenerateNewIdOfType<Model>()); // (reinterpret_cast<unsigned long> (this));
-	// 1:1
+	_simulator = simulator; // a simulator is the "parent" of a model 
+	_name = "Model " + std::to_string(Util::GenerateNewIdOfType<Model>()); 
+	// 1:1 associations
 	_parser = new Traits<Parser_if>::Implementation(this);
 	_modelChecker = new Traits<ModelChecker_if>::Implementation(this);
 	_modelPersistence = new Traits<ModelPersistence_if>::Implementation(this);
-	// 1:n attributes
+	_debugged = Traits<Model>::debugged;
+	_traceLevel = Traits<Model>::traceLevel; 
+	// 1:n associations
 	_components = new List<ModelComponent*>();
 	_components->setSortFunc([](const ModelComponent* a, const ModelComponent * b) {
 		return a->getId() < b->getId(); /// Components are sorted by ID
@@ -48,22 +54,20 @@ Model::Model(Simulator* simulator) {
 		return a->getTime() < b->getTime(); /// Events are sorted chronologically
 	});
 
-	_infrastructures = new std::map<std::string, List<ModelInfrastructure*>*>(); /// Infrastructures are organized as a map from a string (key), the type of an infrastructure, and a list of infrastructures of that type 
 	/* TODO: -- Sort methods for infrastructures should be a decorator */
-	/*
-	_infrastructures = new List<ModelInfrastructure*>();
-	_infrastructures->setSortFunc([](const ModelInfrastructure* a, const ModelInfrastructure * b) {
-		return a->getId() < b->getId();
-	});
-	_entities = new List<Entity*>();
-	_entities->setSortFunc([](const Entity* a, const Entity * b) {
-		return a->getId() < b->getId();
-	});
-	 */
+	_infrastructures = new std::map<std::string, List<ModelInfrastructure*>*>(); /// Infrastructures are organized as a map from a string (key), the type of an infrastructure, and a list of infrastructures of that type 
+	//_infrastructures->setSortFunc([](const ModelInfrastructure* a, const ModelInfrastructure * b) {
+	//	return a->getId() < b->getId();
+	//});
 	
-	// DS1 Theme (1)
 	// PAN
-	SimulationResponse* control = new SimulationResponse(Util::TypeOf<Model>(), "Replication Lenght", &getReplicationLengthNotMemberFunction); // getReplicationLength shoud the the Model member function with the same name
+	_responses = new List<SimulationResponse*>();
+	_controls = new List<SimulationControl*>();
+	// DS1 Theme (1)
+	// Model includes its own simulation controls
+	// SimulationControl* control = new SimulationResponse(Util::TypeOf<Model>(), "Number of Replications", &getNumberOfReplicationsNotMemberFunction, &setNumberOfReplicationsNotMemberFunction);
+	//_controls->insert(control);
+
 }
 
 Model::Model(const Model& orig) {
@@ -112,7 +116,7 @@ bool Model::_finishReplicationCondition() {
  */
 void Model::startSimulation() {
 	if (!this->checkModel()) {
-		trace(Util::TraceLevel::TL_errors, "Model check failed. Cannot start simulation.");
+		trace(Util::TraceLevel::errors, "Model check failed. Cannot start simulation.");
 		return;
 	}
 	_initSimulation();
@@ -153,15 +157,11 @@ void Model::startSimulation() {
 
 }
 
-void Model::showReports() {
-	/*TODO +-: not implemented. NEEDED? Probably not. It is included in showReplicationStatistics() and _showSimulationStatistics(). */
-}
-
 /*!
  * Initialize once for all replications
  */
 void Model::_initSimulation() {
-	trace(Util::TL_simulation, "\nSimulation of model \"" + _name + "\" is starting.\n");
+	trace(Util::TraceLevel::simulation, "\nSimulation of model \"" + _name + "\" is starting.\n");
 	/*TODO +-: not implemented*/
 }
 
@@ -169,13 +169,13 @@ void Model::_initSimulation() {
  Clear the event list, restarts simulated time, initialize event list and statistics
  */
 void Model::_initReplication() {
-	traceReport(Util::TL_simulation, "-----------------------------------------------------");
-	traceReport(Util::TL_simulation, _simulator->getName());
-	traceReport(Util::TL_simulation, _simulator->getLicense());
-	traceReport(Util::TL_simulation, "Projet Title: " + this->_projectTitle);
-	traceReport(Util::TL_simulation, "Analysit Name: " + this->_analystName);
-	traceReport(Util::TL_simulation, "");
-	traceReport(Util::TL_simulation, "Replication " + std::to_string(_currentReplicationNumber) + " of " + std::to_string(_numberOfReplications) + " is starting.\n");
+	traceReport(Util::TraceLevel::simulation, "-----------------------------------------------------");
+	traceReport(Util::TraceLevel::simulation, _simulator->getName());
+	traceReport(Util::TraceLevel::simulation, _simulator->getLicense());
+	traceReport(Util::TraceLevel::simulation, "Projet Title: " + this->_projectTitle);
+	traceReport(Util::TraceLevel::simulation, "Analysit Name: " + this->_analystName);
+	traceReport(Util::TraceLevel::simulation, "");
+	traceReport(Util::TraceLevel::simulation, "Replication " + std::to_string(_currentReplicationNumber) + " of " + std::to_string(_numberOfReplications) + " is starting.\n");
 
 	_events->clear();
 	_simulatedTime = 0.0;
@@ -203,7 +203,7 @@ void Model::_initReplication() {
 		StatisticsCollector* cstat;
 		List<ModelInfrastructure*>* list = getInfrastructures(Util::TypeOf<StatisticsCollector>());
 		for (std::list<ModelInfrastructure*>::iterator it = list->getList()->begin(); it != list->getList()->end(); it++) {
-			cstat = (StatisticsCollector*)(*it);
+			cstat = (StatisticsCollector*) (*it);
 			cstat->getCollector()->clear();
 		}
 	}
@@ -211,8 +211,8 @@ void Model::_initReplication() {
 
 void Model::_stepSimulation() {
 	// process one single event
-	trace(Util::TraceLevel::TL_simulation, ""); // just a new line?
-	//trace(Util::TraceLevel::TL_mostDetailed, "\ntime=" + std::to_string(this->_simulatedTime) + ",events=" + _events->show()); // + ",entities=" + _entities->show());
+	trace(Util::TraceLevel::simulation, ""); // just a new line?
+	//trace(Util::TraceLevel::mostDetailed, "\ntime=" + std::to_string(this->_simulatedTime) + ",events=" + _events->show()); // + ",entities=" + _entities->show());
 	/* TODO -: event onSimulationStep */
 
 	Event* nextEvent;
@@ -226,7 +226,7 @@ void Model::_stepSimulation() {
 }
 
 void Model::_processEvent(Event* event) {
-	this->trace(Util::TraceLevel::TL_simulation, "Processing event=(" + event->show() + ")");
+	this->trace(Util::TraceLevel::simulation, "Processing event=(" + event->show() + ")");
 	this->_currentEntity = event->getEntity();
 	this->_currentComponent = event->getComponent();
 	_simulatedTime = event->getTime();
@@ -238,57 +238,61 @@ void Model::_processEvent(Event* event) {
 	}
 }
 
-void Model::_showModel() {
-	trace(Util::TraceLevel::TL_mostDetailed, "Simulation Model:");
+bool Model::_traceConditionPassed(Util::TraceLevel level) {
+	return this->_debugged && static_cast<int>(this->_traceLevel) >=  static_cast<int>(level);
+}
+
+void Model::_showComponents() {
+	trace(Util::TraceLevel::mostDetailed, "Simulation Model:");
 	std::list<ModelComponent*>* list = getComponents()->getList();
 	for (std::list<ModelComponent*>::iterator it = list->begin(); it != list->end(); it++) {
-		trace(Util::TraceLevel::TL_mostDetailed, "   " + (*it)->show()); ////
+		trace(Util::TraceLevel::mostDetailed, "   " + (*it)->show()); ////
 	}
 }
 
 void Model::_showInfrastructures() {
-	trace(Util::TraceLevel::TL_mostDetailed, "Model Infrastructures:");
+	trace(Util::TraceLevel::mostDetailed, "Model Infrastructures:");
 	//std::map<std::string, List<ModelInfrastructure*>*>* _infrastructures;
 	std::string key;
 	List<ModelInfrastructure*>* list;
 	for (std::map<std::string, List<ModelInfrastructure*>*>::iterator infraIt = _infrastructures->begin(); infraIt != _infrastructures->end(); infraIt++) {
 		key = (*infraIt).first;
-		trace(Util::TraceLevel::TL_mostDetailed, "   " + key + ":");
 		list = (*infraIt).second;
+		trace(Util::TraceLevel::mostDetailed, "   " + key + ": ("+std::to_string(list->size())+")");
 		for (std::list<ModelInfrastructure*>::iterator it = list->getList()->begin(); it != list->getList()->end(); it++) {
-			trace(Util::TraceLevel::TL_mostDetailed, "      " + (*it)->show());
+			trace(Util::TraceLevel::mostDetailed, "      " + (*it)->show());
 		}
 	}
 }
 
 void Model::_showReplicationStatistics() {
-	traceReport(Util::TraceLevel::TL_report, "\nReport for replication " + std::to_string(_currentReplicationNumber) + " of " + std::to_string(_numberOfReplications));
+	traceReport(Util::TraceLevel::report, "\nReport for replication " + std::to_string(_currentReplicationNumber) + " of " + std::to_string(_numberOfReplications));
 
 	/*TODO: + To implement -- each infrastructure should know how to show its own statistics */
 
 
 	// show statistics
-	traceReport(Util::TraceLevel::TL_report, "Statistics:");
+	traceReport(Util::TraceLevel::report, "Statistics:");
 	StatisticsCollector* cstat;
 	List<ModelInfrastructure*>* list = getInfrastructures(Util::TypeOf<StatisticsCollector>());
 	for (std::list<ModelInfrastructure*>::iterator it = list->getList()->begin(); it != list->getList()->end(); it++) {
-		cstat = (StatisticsCollector*)(*it);
-		std::string message = cstat->getName()+"\t N="+ std::to_string(cstat->numElements())+", avg="+ std::to_string(cstat->average())+", stddev="+ std::to_string(cstat->stddeviation())+", varCoef="+ std::to_string(cstat->variationCoef())+", min="+ std::to_string(cstat->min())+", max="+ std::to_string(cstat->max())+", e0_95%="+ std::to_string(cstat->halfWidthConfidenceInterval(0.95));
-		traceReport(Util::TraceLevel::TL_report, "     "+message);
+		cstat = (StatisticsCollector*) (*it);
+		std::string message = cstat->getName() + "\t N=" + std::to_string(cstat->numElements()) + ", avg=" + std::to_string(cstat->average()) + ", stddev=" + std::to_string(cstat->stddeviation()) + ", varCoef=" + std::to_string(cstat->variationCoef()) + ", min=" + std::to_string(cstat->min()) + ", max=" + std::to_string(cstat->max()) + ", e0_95%=" + std::to_string(cstat->halfWidthConfidenceInterval(0.95));
+		traceReport(Util::TraceLevel::report, "     " + message);
 	}
 
 }
 
 void Model::_showSimulationStatistics() {
-	traceReport(Util::TraceLevel::TL_report, "\nReport for simulation\n");
+	traceReport(Util::TraceLevel::report, "\nReport for simulation\n");
 	/* TODO */
 }
 
 bool Model::checkModel() {
-	trace(Util::TraceLevel::TL_blockInternal, "Checking model consistency");
+	trace(Util::TraceLevel::blockInternal, "Checking model consistency");
 	bool res = this->_modelChecker->checkAll();
 	/* todo: remove show model and infra from here*/
-	this->_showModel();
+	this->_showComponents();
 	this->_showInfrastructures();
 	//
 	return res;
@@ -303,7 +307,7 @@ void Model::removeEntity(Entity* entity, bool collectStatistics) {
 	/* TODO -: event onEntityRemove */
 	// destroy 
 	this->getEntities()->remove(entity);
-	trace(Util::TraceLevel::TL_blockInternal, "Entity " + std::to_string(entity->getId()) + " was removed from the system");
+	trace(Util::TraceLevel::blockInternal, "Entity " + std::to_string(entity->getId()) + " was removed from the system");
 	//_entities->remove(entity);
 	entity->~Entity();
 }
@@ -457,7 +461,7 @@ Util::TraceLevel Model::getTraceLevel() const {
 
 /*
  void Model::traceSimulation(Util::TraceLevel tracelevel, std::string text) {
-	if (this->_traceLevel >= tracelevel) {
+	if (_traceConditionPassed(tracelevel)) {
 		TraceSimulationEvent e = TraceEvent(tracelevel, text);
 		for (std::list<traceSimulationListener>::iterator it = this->_traceSimulationListeners->begin(); it != _traceSimulationListeners->end(); it++) {
 			(*it)(e);
@@ -487,7 +491,7 @@ void Model::addTraceReportListener(traceListener traceReportListener) {
 }
 
 void Model::trace(Util::TraceLevel tracelevel, std::string text) {
-	if (this->_traceLevel >= tracelevel) {
+	if (_traceConditionPassed(tracelevel)) {
 		TraceEvent e = TraceEvent(tracelevel, text);
 		/* TODO--: somewhere in future it should be interesting to use "auto" and c++17 at least */
 		for (std::list<traceListener>::iterator it = this->_traceListeners->begin(); it != _traceListeners->end(); it++) {
@@ -505,7 +509,7 @@ void Model::traceError(std::exception e, std::string text) {
 }
 
 void Model::traceSimulation(Util::TraceLevel tracelevel, double time, Entity* entity, ModelComponent* component, std::string text) {
-	if (this->_traceLevel >= tracelevel) {
+	if (_traceConditionPassed(tracelevel)) {
 		TraceSimulationEvent e = TraceSimulationEvent(tracelevel, time, entity, component, text);
 		for (std::list<traceSimulationListener>::iterator it = this->_traceSimulationListeners->begin(); it != _traceSimulationListeners->end(); it++) {
 			(*it)(e);
@@ -514,7 +518,7 @@ void Model::traceSimulation(Util::TraceLevel tracelevel, double time, Entity* en
 }
 
 void Model::traceReport(Util::TraceLevel tracelevel, std::string text) {
-	if (this->_traceLevel >= tracelevel) {
+	if (_traceConditionPassed(tracelevel)) {
 		TraceEvent e = TraceEvent(tracelevel, text);
 		for (std::list<traceListener>::iterator it = this->_traceReportListeners->begin(); it != _traceReportListeners->end(); it++) {
 			(*it)(e);
@@ -524,6 +528,14 @@ void Model::traceReport(Util::TraceLevel tracelevel, std::string text) {
 
 List<std::string>* Model::getErrorMessages() const {
 	return _errorMessages;
+}
+
+void Model::addOnReplicationStartListener(replicationEventListener eventListener) {
+	this->_onReplicationStartListeners->insert(this->_onReplicationStartListeners->end(), eventListener);
+}
+
+void Model::addOnReplicationEndListener(replicationEventListener eventListener) {
+	this->_onReplicationEndListeners->insert(this->_onReplicationEndListeners->end(), eventListener);
 }
 
 List<Event*>* Model::getEvents() const {

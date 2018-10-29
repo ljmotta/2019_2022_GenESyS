@@ -14,8 +14,9 @@
 #ifndef SIMULATIONMODEL_H
 #define SIMULATIONMODEL_H
 
-#include "Util.h"
 #include <string>
+
+#include "Util.h"
 #include "List.h"
 #include "ModelComponent.h"
 #include "ModelInfrastructure.h"
@@ -68,6 +69,9 @@ public: // traces
 	void traceSimulation(Util::TraceLevel tracelevel, double time, Entity* entity, ModelComponent* component, std::string text);
 	void traceReport(Util::TraceLevel tracelevel, std::string text);
 	List<std::string>* getErrorMessages() const;
+public: // event listeners (handlers)
+	void addOnReplicationStartListener(replicationEventListener eventListener);
+	void addOnReplicationEndListener(replicationEventListener eventListener);
 public: // gets and sets
 	void setName(std::string _name);
 	std::string getName() const;
@@ -127,13 +131,17 @@ private: // simulation control
 	void _showSimulationStatistics();
 private:
 	bool _finishReplicationCondition();
-	void _showModel();
+	void _showComponents();
 	void _showInfrastructures();
-private:
+	bool _traceConditionPassed(Util::TraceLevel level);
+private: // trace listener
 	std::list<traceListener>* _traceListeners = new std::list<traceListener>();
 	std::list<traceErrorListener>* _traceErrorListeners = new std::list<traceErrorListener>();
 	std::list<traceListener>* _traceReportListeners = new std::list<traceListener>();
 	std::list<traceSimulationListener>* _traceSimulationListeners = new std::list<traceSimulationListener>();
+private: // events listener
+	std::list<replicationEventListener>* _onReplicationStartListeners = new std::list<replicationEventListener>();
+	std::list<replicationEventListener>* _onReplicationEndListeners = new std::list<replicationEventListener>();
 private: // with public access (get & set)
 	// model general information
 	std::string _name;
@@ -145,13 +153,14 @@ private: // with public access (get & set)
 	// replication and warmup duration
 	unsigned int _numberOfReplications = 1;
 	double _replicationLength = 3600.0; // by default, 3600 s
-	Util::TimeUnit _replicationLengthTimeUnit = Util::TimeUnit::TU_second;
+	Util::TimeUnit _replicationLengthTimeUnit = Util::TimeUnit::second;
 	double _warmUpPeriod = 0.0;
-	Util::TimeUnit _warmUpPeriodTimeUnit = Util::TimeUnit::TU_second;
+	Util::TimeUnit _warmUpPeriodTimeUnit = Util::TimeUnit::second;
 	std::string _terminatingCondition = "";
 
 	// debug and statistics
-	Util::TraceLevel _traceLevel = Util::TraceLevel::TL_mostDetailed;
+	Util::TraceLevel _traceLevel;// = Util::TraceLevel::mostDetailed;
+	bool _debugged;
 	// list of double double _breakOnTimes;
 	// list of modules _breakOnModules;
 	bool _stepByStep = false;

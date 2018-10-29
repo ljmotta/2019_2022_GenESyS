@@ -24,27 +24,27 @@ public:
 	typedef unsigned long identitifcation;
 	typedef unsigned int rank;
 
-	enum TimeUnit {
-		TU_picosecond = 1,
-		TU_nanosecond = 2,
-		TU_microsecond = 3,
-		TU_milisecond = 4,
-		TU_second = 5,
-		TU_minute = 6,
-		TU_hour = 7,
-		TU_day = 8,
-		TU_week = 9
+	enum class TimeUnit: int {
+		picosecond = 1,
+		nanosecond = 2,
+		microsecond = 3,
+		milisecond = 4,
+		second = 5,
+		minute = 6,
+		hour = 7,
+		day = 8,
+		week = 9
 	};
 
-	enum TraceLevel {
-		TL_noTraces = 0,
-		TL_errors = 10,
-		TL_report = 20,
-		TL_simulation = 30,
-		TL_transferOnly = 40,
-		TL_blockArrival = 50,
-		TL_blockInternal = 60,
-		TL_mostDetailed = 70
+	enum class TraceLevel: int {
+		noTraces = 0,
+		errors = 10,
+		report = 20,
+		simulation = 30,
+		transferOnly = 40,
+		blockArrival = 50,
+		blockInternal = 60,
+		mostDetailed = 70
 	};
 public:
 	static Util::identitifcation _S_lastId;
@@ -56,6 +56,9 @@ public:
 	static Util::identitifcation GenerateNewIdOfType(std::string objtyp);
 
 public: // template implementations
+	/*!
+	 * Return the name of the class used as T.
+	 */
 	template<class T> static std::string TypeOf() {
 		std::string name = typeid (T).name();
 		/* TODO -: corret (remove) first chars (numbers) of the name */
@@ -64,6 +67,9 @@ public: // template implementations
 		}
 		return name;
 	}
+	/*!
+	 * Every component or infrastructure has a unique ID for its class, but not unique for other classes. IDs are generated sequentially for each class.
+	 */
 	template<class T> static Util::identitifcation GenerateNewIdOfType() {
 		std::string objtype = Util::TypeOf<T>();
 		std::map<std::string, Util::identitifcation>::iterator it = Util::_S_lastIdOfType.find(objtype);

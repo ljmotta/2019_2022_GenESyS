@@ -36,12 +36,12 @@ std::string* ParserMyImpl1::getErrorMessage() {
 double ParserMyImpl1::parse(const std::string expression, bool* success, std::string* errorMessage) {
 	try {
 		double result = this->parse(expression);
-                std::string temp("");
+        std::string temp("");
 		errorMessage= &temp;
 		*success = true;
 		return result;
 	} catch (...) {
-                std::string temp("Error parsing...");
+        std::string temp("Error parsing...");
 		errorMessage= &temp;
 		*success = false;
 		return 0.0;

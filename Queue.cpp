@@ -12,14 +12,22 @@
  */
 
 #include "Queue.h"
+#include "Model.h"
 
-Queue::Queue() : ModelInfrastructure(Util::TypeOf<Queue>()) {
+Queue::Queue(Model* model) : ModelInfrastructure(Util::TypeOf<Queue>()) {
+	_cstatNumberInQueue = new StatisticsCollector("Number In Queue", this);
+	_cstatTimeInQueue = new StatisticsCollector("Time In Queue",this);
+	List<ModelInfrastructure*>* infras = model->getInfrastructures(Util::TypeOf<StatisticsCollector>());
+	infras->insert(_cstatNumberInQueue);
+	infras->insert(_cstatTimeInQueue);
 }
 
 Queue::Queue(const Queue& orig) : ModelInfrastructure(orig) {
 }
 
 Queue::~Queue() {
+	_cstatNumberInQueue->~StatisticsCollector();
+	_cstatTimeInQueue->~StatisticsCollector();
 }
 
 std::string Queue::show() {

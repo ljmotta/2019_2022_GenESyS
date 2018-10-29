@@ -17,6 +17,12 @@
 
 EntityType::EntityType(Model* model) : ModelInfrastructure(typeid (EntityType).name()) {
 	// add cstats as infrastructures
+	_cstatWaitingTime = new StatisticsCollector("Waiting Time", this);
+	_cstatTransferTime = new StatisticsCollector("Transfer Time", this);
+	_cstatOtherTime = new StatisticsCollector("Other Time", this);
+	_cstatVATime = new StatisticsCollector("Value Added Time", this);
+	_cstatNVATime = new StatisticsCollector("Non Value Added Time", this);
+	_cstatTimeInSystem = new StatisticsCollector("Time In System", this);
 	List<ModelInfrastructure*>* infras = model->getInfrastructures(Util::TypeOf<StatisticsCollector>());
 	infras->insert(this->_cstatNVATime);
 	infras->insert(this->_cstatOtherTime);

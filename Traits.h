@@ -36,6 +36,7 @@
 #include "SamplerMyImpl1.h"
 #include "Sampler_BruFabJoa.h"
 #include "FitterMyImpl1.h"
+//#include "FitterJoaoSouto.h"
 #include "ModelCheckerMyImpl1.h"
 #include "ParserMyImpl1.h"
 #include "IntegratorMyImpl1.h"
@@ -44,7 +45,6 @@
 //#include "HypothesisTesterDiogo.h"
 #include "ModelPersistenceMyImpl1.h"
 #include "StatisticsMyImpl1.h"
-#include "ModelChecker_DS2Karla.h"
 #include "StatisticsCancianImpl.h"
 #include "BuildSimpleModel1.h"
 #include "TestInputAnalyserTools.h"
@@ -53,8 +53,6 @@
 
 template <typename T>
 struct Traits {
-	static const bool debugged = true;
-	static const Util::TraceLevel traceLevel = Util::TraceLevel::TL_mostDetailed; 
 };
 
 template <> struct Traits<GenesysApplication_if> {
@@ -63,6 +61,8 @@ template <> struct Traits<GenesysApplication_if> {
 };
 
 template <> struct Traits<Model> {
+	static const bool debugged = true;
+	static const Util::TraceLevel traceLevel = Util::TraceLevel::mostDetailed; 
 };
 
 template <> struct Traits<ModelComponent> {
@@ -76,12 +76,9 @@ template <> struct Traits<Sampler_if> {
 	typedef Sampler_BruFabJoa::MyRNG_Parameters Parameters;
 };
 
-//! Forward definition
-class FitterJoaoSouto;
-
 template <> struct Traits<Fitter_if> {
-	//typedef FitterMyImpl1 Implementation;
-    typedef FitterJoaoSouto Implementation;
+	typedef FitterMyImpl1 Implementation;
+    //typedef FitterJoaoSouto Implementation;
 };
 
 template <> struct Traits<Collector_if> {
@@ -91,7 +88,8 @@ template <> struct Traits<Collector_if> {
 };
 
 template <> struct Traits<ModelChecker_if> {
-	typedef ModelChecker_DS2Karla Implementation;
+	typedef ModelCheckerMyImpl1 Implementation;
+	//typedef ModelChecker_DS2Karla Implementation;
 };
 
 template <> struct Traits<Parser_if> {
@@ -125,12 +123,6 @@ template <> struct Traits<ExperimentDesign_if> {
 template <> struct Traits<ProcessAnalyser_if> {
 	typedef ProcessAnalyserMyImpl1 Implementation;
 };
-
-/*!
- * Class FitterJoaoSouto uses some traits, so it's being included here,
- * avoiding circular inclusions.
- */
-#include "FitterJoaoSouto.h"
 
 #endif /* TRAITS_H */
 

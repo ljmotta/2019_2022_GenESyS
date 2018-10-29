@@ -23,6 +23,7 @@ Attribute::~Attribute() {
 }
 
 std::string Attribute::show() {
+	return ModelInfrastructure::show(); 
 }
 
 void Attribute::_loadInstance(std::list<std::string> words) {

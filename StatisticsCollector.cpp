@@ -13,11 +13,16 @@
 
 #include "StatisticsCollector.h"
 
-StatisticsCollector::StatisticsCollector() : ModelInfrastructure(typeid (this).name()) {
+StatisticsCollector::StatisticsCollector() : ModelInfrastructure(Util::TypeOf<StatisticsCollector>()) {
 }
 
-StatisticsCollector::StatisticsCollector(std::string name) : ModelInfrastructure(typeid (this).name()) {
+StatisticsCollector::StatisticsCollector(std::string name) : ModelInfrastructure(Util::TypeOf<StatisticsCollector>()) {
 	_name = name;
+}
+
+StatisticsCollector::StatisticsCollector(std::string name, ModelInfrastructure* parent) : ModelInfrastructure(Util::TypeOf<StatisticsCollector>()) {
+	_name = name;
+	_parent = parent;
 }
 
 StatisticsCollector::StatisticsCollector(const StatisticsCollector& orig) : ModelInfrastructure(orig) {
@@ -27,7 +32,16 @@ StatisticsCollector::~StatisticsCollector() {
 }
 
 std::string StatisticsCollector::show() {
-	return ModelInfrastructure::show();
+	std::string parentStr = "";
+	if (_parent != nullptr) {
+		try {
+			parentStr = " (" + _parent->getName() + ")";
+		} catch (...) { // if parent changed or deleted, can cause seg fault
+			parentStr = "<<INCONSISTENT>>"; /*TODO ++*/
+			//std::cout << "WHAT TO DO?\n";
+		}
+	}
+	return ModelInfrastructure::show()+ parentStr;
 }
 
 void StatisticsCollector::_loadInstance(std::list<std::string> words) {
