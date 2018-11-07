@@ -88,6 +88,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/StatisticsCollector.o \
 	${OBJECTDIR}/StatisticsMyImpl1.o \
 	${OBJECTDIR}/TestInputAnalyserTools.o \
+	${OBJECTDIR}/TestParser.o \
 	${OBJECTDIR}/TraceManager.o \
 	${OBJECTDIR}/Util.o \
 	${OBJECTDIR}/Variable.o \
@@ -385,6 +386,11 @@ ${OBJECTDIR}/TestInputAnalyserTools.o: TestInputAnalyserTools.cpp nbproject/Make
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestInputAnalyserTools.o TestInputAnalyserTools.cpp
+
+${OBJECTDIR}/TestParser.o: TestParser.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestParser.o TestParser.cpp
 
 ${OBJECTDIR}/TraceManager.o: TraceManager.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

@@ -50,6 +50,8 @@
 #include "TestInputAnalyserTools.h"
 #include "ProcessAnalyserMyImpl1.h"
 #include "ExperimentDesignMyImpl1.h"
+#include "TestParser.h"
+#include "ParserFlexBisonImpl.h"
 
 template <typename T>
 struct Traits {
@@ -57,7 +59,8 @@ struct Traits {
 
 template <> struct Traits<GenesysApplication_if> {
 	//typedef TestInputAnalyserTools Application;  
-	typedef BuildSimulationModel Application;  
+	//typedef BuildSimulationModel Application;  
+	typedef TestParser Application;  
 };
 
 template <> struct Traits<Model> {
@@ -93,7 +96,8 @@ template <> struct Traits<ModelChecker_if> {
 };
 
 template <> struct Traits<Parser_if> {
-	typedef ParserMyImpl1 Implementation;
+	//typedef ParserMyImpl1 Implementation;
+	typedef ParserFlexBisonImpl Implementation;
 };
 
 template <> struct Traits<Statistics_if> {

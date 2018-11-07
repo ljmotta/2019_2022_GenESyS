@@ -184,6 +184,8 @@
       <itemPath>GenesysApplication_if.h</itemPath>
       <itemPath>TestInputAnalyserTools.cpp</itemPath>
       <itemPath>TestInputAnalyserTools.h</itemPath>
+      <itemPath>TestParser.cpp</itemPath>
+      <itemPath>TestParser.h</itemPath>
     </logicalFolder>
     <logicalFolder name="f6" displayName="Util" projectFiles="true">
       <itemPath>LinkedBy.cpp</itemPath>
@@ -459,6 +461,10 @@
       <item path="TestInputAnalyserTools.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="TestInputAnalyserTools.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="TestParser.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="TestParser.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="TraceManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -757,6 +763,10 @@
       <item path="TestInputAnalyserTools.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="TestInputAnalyserTools.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="TestParser.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="TestParser.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="TraceManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
