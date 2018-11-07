@@ -43,12 +43,18 @@ std::string ModelInfrastructure::getName() const {
 	return _name;
 }
 
+//std::list<std::string>* ModelInfrastructure::_saveInstance() { /* TODO: REMOVE - IS PURE VIRTUAL  TEMP */
+//	std::list<std::string>* words = new std::list<std::string>();
+//	return words;
+//}
+
 std::list<std::string>* ModelInfrastructure::SaveInstance(ModelInfrastructure* infrastructure) {
 	std::list<std::string>* words;// = new std::list<std::string>();
 	try {
+		std::string name = infrastructure->_name;
 		words = infrastructure->_saveInstance();
 	} catch (const std::exception& e) {
-		//infrastructure->_model->traceError(e, "Error saving infra " + infrastructure->show());
+		//infrastructure->_model->getTrace()->traceError(e, "Error saving infra " + infrastructure->show());
 	}
 	return words;
 }

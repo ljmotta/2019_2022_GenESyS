@@ -31,29 +31,57 @@
     <logicalFolder name="f9" displayName="Configuration" projectFiles="true">
       <itemPath>Traits.h</itemPath>
     </logicalFolder>
-    <logicalFolder name="f4" displayName="Infrastructure" projectFiles="true">
-      <logicalFolder name="f1" displayName="Element" projectFiles="true">
-        <itemPath>Waiting.cpp</itemPath>
-        <itemPath>Waiting.h</itemPath>
-        <itemPath>WaitingResource.cpp</itemPath>
-        <itemPath>WaitingResource.h</itemPath>
-      </logicalFolder>
-      <itemPath>Attribute.cpp</itemPath>
-      <itemPath>Attribute.h</itemPath>
-      <itemPath>Entity.cpp</itemPath>
-      <itemPath>Entity.h</itemPath>
-      <itemPath>EntityType.cpp</itemPath>
-      <itemPath>EntityType.h</itemPath>
-      <itemPath>Queue.cpp</itemPath>
-      <itemPath>Queue.h</itemPath>
-      <itemPath>Resource.cpp</itemPath>
-      <itemPath>Resource.h</itemPath>
-      <itemPath>StatisticsCollector.cpp</itemPath>
-      <itemPath>StatisticsCollector.h</itemPath>
-      <itemPath>Variable.cpp</itemPath>
-      <itemPath>Variable.h</itemPath>
-    </logicalFolder>
     <logicalFolder name="f1" displayName="Kernel" projectFiles="true">
+      <logicalFolder name="f3" displayName="ModelElements" projectFiles="true">
+        <logicalFolder name="f1" displayName="Components" projectFiles="true">
+          <logicalFolder name="f4" displayName="Infrastructure" projectFiles="true">
+            <logicalFolder name="f1" displayName="Element" projectFiles="true">
+              <itemPath>Waiting.cpp</itemPath>
+              <itemPath>Waiting.h</itemPath>
+              <itemPath>WaitingResource.cpp</itemPath>
+              <itemPath>WaitingResource.h</itemPath>
+            </logicalFolder>
+            <itemPath>Attribute.cpp</itemPath>
+            <itemPath>Attribute.h</itemPath>
+            <itemPath>Entity.cpp</itemPath>
+            <itemPath>Entity.h</itemPath>
+            <itemPath>EntityType.cpp</itemPath>
+            <itemPath>EntityType.h</itemPath>
+            <itemPath>Queue.cpp</itemPath>
+            <itemPath>Queue.h</itemPath>
+            <itemPath>Resource.cpp</itemPath>
+            <itemPath>Resource.h</itemPath>
+            <itemPath>StatisticsCollector.cpp</itemPath>
+            <itemPath>StatisticsCollector.h</itemPath>
+            <itemPath>Variable.cpp</itemPath>
+            <itemPath>Variable.h</itemPath>
+          </logicalFolder>
+          <itemPath>ModelComponent.cpp</itemPath>
+          <itemPath>ModelComponent.h</itemPath>
+          <itemPath>ModelInfrastructure.cpp</itemPath>
+          <itemPath>ModelInfrastructure.h</itemPath>
+          <itemPath>SinkModelComponent.cpp</itemPath>
+          <itemPath>SinkModelComponent.h</itemPath>
+          <itemPath>SourceModelComponent.cpp</itemPath>
+          <itemPath>SourceModelComponent.h</itemPath>
+        </logicalFolder>
+        <itemPath>InfrastructureManager.cpp</itemPath>
+        <itemPath>InfrastructureManager.h</itemPath>
+        <itemPath>ModelCheckerMyImpl1.cpp</itemPath>
+        <itemPath>ModelCheckerMyImpl1.h</itemPath>
+        <itemPath>ModelChecker_if.h</itemPath>
+        <itemPath>ModelInfo.cpp</itemPath>
+        <itemPath>ModelInfo.h</itemPath>
+        <itemPath>ModelPersistenceMyImpl1.cpp</itemPath>
+        <itemPath>ModelPersistenceMyImpl1.h</itemPath>
+        <itemPath>ModelPersistence_if.h</itemPath>
+        <itemPath>ModelSimulation.cpp</itemPath>
+        <itemPath>ModelSimulation.h</itemPath>
+        <itemPath>OnEventManager.cpp</itemPath>
+        <itemPath>OnEventManager.h</itemPath>
+        <itemPath>TraceManager.cpp</itemPath>
+        <itemPath>TraceManager.h</itemPath>
+      </logicalFolder>
       <logicalFolder name="f2" displayName="Statistics" projectFiles="true">
         <itemPath>CollectorDatafileCancianImpl.cpp</itemPath>
         <itemPath>CollectorDatafileCancianImpl.h</itemPath>
@@ -83,16 +111,6 @@
       <itemPath>Event.h</itemPath>
       <itemPath>Model.cpp</itemPath>
       <itemPath>Model.h</itemPath>
-      <itemPath>ModelCheckerMyImpl1.cpp</itemPath>
-      <itemPath>ModelCheckerMyImpl1.h</itemPath>
-      <itemPath>ModelChecker_if.h</itemPath>
-      <itemPath>ModelComponent.cpp</itemPath>
-      <itemPath>ModelComponent.h</itemPath>
-      <itemPath>ModelInfrastructure.cpp</itemPath>
-      <itemPath>ModelInfrastructure.h</itemPath>
-      <itemPath>ModelPersistenceMyImpl1.cpp</itemPath>
-      <itemPath>ModelPersistenceMyImpl1.h</itemPath>
-      <itemPath>ModelPersistence_if.h</itemPath>
       <itemPath>Plugin.cpp</itemPath>
       <itemPath>Plugin.h</itemPath>
       <itemPath>SimulationControl.cpp</itemPath>
@@ -101,10 +119,6 @@
       <itemPath>SimulationResponse.h</itemPath>
       <itemPath>Simulator.cpp</itemPath>
       <itemPath>Simulator.h</itemPath>
-      <itemPath>SinkModelComponent.cpp</itemPath>
-      <itemPath>SinkModelComponent.h</itemPath>
-      <itemPath>SourceModelComponent.cpp</itemPath>
-      <itemPath>SourceModelComponent.h</itemPath>
     </logicalFolder>
     <logicalFolder name="f3" displayName="Parser" projectFiles="true">
       <itemPath>ParserMyImpl1.cpp</itemPath>
@@ -161,7 +175,6 @@
       <itemPath>LinkedBy.cpp</itemPath>
       <itemPath>LinkedBy.h</itemPath>
       <itemPath>List.h</itemPath>
-      <itemPath>Listener.h</itemPath>
       <itemPath>Util.cpp</itemPath>
       <itemPath>Util.h</itemPath>
     </logicalFolder>
@@ -273,6 +286,10 @@
       </item>
       <item path="HypothesisTester_if.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="InfrastructureManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="InfrastructureManager.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="IntegratorDiogoImpl.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="IntegratorDiogoImpl.h" ex="false" tool="3" flavor2="0">
@@ -289,8 +306,6 @@
       </item>
       <item path="List.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Listener.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="Model.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Model.h" ex="false" tool="3" flavor2="0">
@@ -305,6 +320,10 @@
       </item>
       <item path="ModelComponent.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="ModelInfo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ModelInfo.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="ModelInfrastructure.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ModelInfrastructure.h" ex="false" tool="3" flavor2="0">
@@ -314,6 +333,14 @@
       <item path="ModelPersistenceMyImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ModelPersistence_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ModelSimulation.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ModelSimulation.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="OnEventManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="OnEventManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ParserMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -404,6 +431,10 @@
       <item path="TestInputAnalyserTools.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="TestInputAnalyserTools.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="TraceManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="TraceManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Traits.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -529,6 +560,10 @@
       </item>
       <item path="HypothesisTester_if.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="InfrastructureManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="InfrastructureManager.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="IntegratorDiogoImpl.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="IntegratorDiogoImpl.h" ex="false" tool="3" flavor2="0">
@@ -545,8 +580,6 @@
       </item>
       <item path="List.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Listener.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="Model.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Model.h" ex="false" tool="3" flavor2="0">
@@ -561,6 +594,10 @@
       </item>
       <item path="ModelComponent.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="ModelInfo.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ModelInfo.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="ModelInfrastructure.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ModelInfrastructure.h" ex="false" tool="3" flavor2="0">
@@ -570,6 +607,14 @@
       <item path="ModelPersistenceMyImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ModelPersistence_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ModelSimulation.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ModelSimulation.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="OnEventManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="OnEventManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ParserMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -660,6 +705,10 @@
       <item path="TestInputAnalyserTools.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="TestInputAnalyserTools.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="TraceManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="TraceManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Traits.h" ex="false" tool="3" flavor2="0">
       </item>

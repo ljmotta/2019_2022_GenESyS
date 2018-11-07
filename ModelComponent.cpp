@@ -17,8 +17,7 @@
 ModelComponent::ModelComponent(Model* model) : ModelInfrastructure(typeid (this).name()) {
 	_model = model;
 	_nextComponents = new List<ModelComponent*>();
-        _checkedConnection = false;
-        
+    //_checkedConnection = false; // ????????????????
 }
 
 ModelComponent::ModelComponent(const ModelComponent& orig) : ModelInfrastructure(orig) {
@@ -28,35 +27,35 @@ ModelComponent::~ModelComponent() {
 }
 
 void ModelComponent::Execute(Entity* entity, ModelComponent* component) {
-	component->_model->trace(Util::TraceLevel::blockArrival, "Entity " + std::to_string(entity->getId()) + " has arrived at component \"" + component->_name + "\""); //std::to_string(component->_id));
+	component->_model->getTracer()->trace(Util::TraceLevel::blockArrival, "Entity " + std::to_string(entity->getId()) + " has arrived at component \"" + component->_name + "\""); //std::to_string(component->_id));
 	try {
 		component->_execute(entity);
 	} catch (const std::exception& e) {
-		component->_model->traceError(e, "Error executing component " + component->show());
+		component->_model->getTracer()->traceError(e, "Error executing component " + component->show());
 	}
 }
 
 std::list<std::string>* ModelComponent::SaveInstance(ModelComponent* component) {
-	component->_model->trace(Util::TraceLevel::blockArrival, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));
+	component->_model->getTracer()->trace(Util::TraceLevel::blockArrival, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));
 	std::list<std::string>* words = new std::list<std::string>();
 	try {
 		words = component->_saveInstance();
 	} catch (const std::exception& e) {
-		component->_model->traceError(e, "Error executing component " + component->show());
+		component->_model->getTracer()->traceError(e, "Error executing component " + component->show());
 	}
 	return words;
 }
 
 bool ModelComponent::VerifySymbols(ModelComponent* component, std::string* errorMessage) {
-	component->_model->trace(Util::TraceLevel::mostDetailed, "Verifying symbols of component " + component->_name); //std::to_string(component->_id));
+	component->_model->getTracer()->trace(Util::TraceLevel::mostDetailed, "Verifying symbols of component " + component->_name); //std::to_string(component->_id));
 	bool res = false;
 	try {
 		res = component->_verifySymbols(errorMessage);
 		if (!res) {
-			component->_model->trace(Util::TraceLevel::mostDetailed, "Verification of symbols of component \"" + component->_name + "\" has failed with message " + *errorMessage);
+			component->_model->getTracer()->trace(Util::TraceLevel::mostDetailed, "Verification of symbols of component \"" + component->_name + "\" has failed with message " + *errorMessage);
 		}
 	} catch (const std::exception& e) {
-		component->_model->traceError(e, "Error executing component " + component->show());
+		component->_model->getTracer()->traceError(e, "Error executing component " + component->show());
 	}
 	return res;
 }

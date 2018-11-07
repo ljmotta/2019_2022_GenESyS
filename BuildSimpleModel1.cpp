@@ -23,6 +23,7 @@ using namespace std;
 #include "Seize.h"
 #include "Release.h"
 #include "Assign.h"
+#include "ModelSimulation.h"
 
 void traceHandler(TraceEvent e) {
 	std::cout << e.getText() << std::endl;
@@ -40,40 +41,24 @@ void onReplicationEndHandler(ReplicationEvent* re) {
 	std::cout << "Replication " << re->getReplicationNumber() << " ending.";
 }
 
-/*
-void buildSimpleCreateDelayDisposeModel(Model* model) {
-	// traces handle simulation events to output them
-	model->addTraceListener(&traceHandler);
-	model->addTraceReportListener(&traceHandler);
-	model->addTraceSimulationListener(&traceSimulationHandler);
-
-	// create and insert model components to the model
-	Create* create1 = new Create(model);
-	create1->setTimeBetweenCreationsExpression("1.5");
-	create1->setTimeUnit(Util::TimeUnit::minute);
-	Delay* delay1 = new Delay(model);
-	delay1->setDelayExpression("30");
-	Dispose* dispose1 = new Dispose(model);
-	List<ModelComponent*>* components = model->getComponents();
-	components->insert(create1);
-	components->insert(delay1);
-	components->insert(dispose1);
-	// connect model components to create a "workflow"
-	// should always start from a SourceModelComponent and end at a SinkModelComponent (it will be checked)
-	create1->getNextComponents()->insert(delay1);
-	delay1->getNextComponents()->insert(dispose1);
-}
- */
-
 void buildModel(Model* model) { // buildModelWithAllImplementedComponents
-	// traces handle simulation events to output them
-	model->addTraceListener(&traceHandler);
-	model->addTraceReportListener(&traceHandler);
-	model->addTraceSimulationListener(&traceSimulationHandler);
+	// traces handle and simulation events to output them
+	TraceManager* tm = model->getTracer(); 
+	tm->addTraceListener(&traceHandler);
+	tm->addTraceReportListener(&traceHandler);
+	tm->addTraceSimulationListener(&traceSimulationHandler);
 
-	model->addOnReplicationStartListener(&onReplicationStartHandler);
-	model->addOnReplicationEndListener(&onReplicationEndHandler);
+	OnEventManager* ev = model->getOnEventManager();
+	ev->addOnReplicationStartListener(&onReplicationStartHandler);
+	ev->addOnReplicationEndListener(&onReplicationEndHandler);
 
+	ModelInfo* infos = model->getInfos();
+	infos->setAnalystName("Meu nome");
+	infos->setDescription("Esse é um modelo de teste dos componentes já implementados");
+	infos->setNumberOfReplications(1);
+	infos->setReplicationLength(10);
+	infos->setReplicationLengthTimeUnit(Util::TimeUnit::minute);
+	
 	// create and insert model components to the model
 	Create* create1 = new Create(model);
 	create1->setTimeBetweenCreationsExpression("1.5");
@@ -122,7 +107,7 @@ void buildSimulationSystem() {
 	simulator->getModels()->insert(model);
 	if (model->checkModel()) {
 		model->saveModel("./genesysmodel.txt");
-		model->startSimulation();
+		model->getSimulation()->startSimulation();
 	}
 }
 

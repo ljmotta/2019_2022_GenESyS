@@ -18,18 +18,18 @@ Seize::Seize(Model* model) : ModelComponent(model) {
 	_name = "Seize " + std::to_string(Util::GenerateNewIdOfType<Seize>());
 	// look for a resource with a default new name
 	std::string defaultResourceName = "Resource " + std::to_string(Util::GenerateNewIdOfType<Resource>());
-	_resource = (Resource*) _model->getInfrastructure(Util::TypeOf<Resource>(), defaultResourceName);
+	_resource = (Resource*) _model->getInfraManager()->getInfrastructure(Util::TypeOf<Resource>(), defaultResourceName);
 	if (_resource == nullptr) { // it does not exist. Simply creates a new resource infra
 		_resource = new Resource(_model);
 		_resource->setName(defaultResourceName);
-		_model->getInfrastructures(Util::TypeOf<Resource>())->insert(_resource); // inserts the new resource as infrastructure
+		_model->getInfraManager()->getInfrastructures(Util::TypeOf<Resource>())->insert(_resource); // inserts the new resource as infrastructure
 	}
 	std::string queueName = _resource->getName() + "_Queue"; // resourceName + "_Queue";
-	_queue = (Queue*) _model->getInfrastructure(Util::TypeOf<Queue>(), queueName);
+	_queue = (Queue*) _model->getInfraManager()->getInfrastructure(Util::TypeOf<Queue>(), queueName);
 	if (_queue == nullptr) {
 		_queue = new Queue(model);
 		_queue->setName(_name + "_Queue");
-		_model->getInfrastructures(Util::TypeOf<Queue>())->insert(_queue);
+		_model->getInfraManager()->getInfrastructures(Util::TypeOf<Queue>())->insert(_queue);
 	}
 }
 
@@ -101,7 +101,7 @@ unsigned int Seize::getAllocationType() const {
 
 void Seize::setQueueName(std::string _queueName) {
 	if (_queue->getName() != _queueName) {
-		Queue* queueNewName = (Queue*) _model->getInfrastructure(Util::TypeOf<Queue>(), _queueName);
+		Queue* queueNewName = (Queue*) _model->getInfraManager()->getInfrastructure(Util::TypeOf<Queue>(), _queueName);
 		if (queueNewName == nullptr) { // there is no queue with the new name
 			if (!_queue->isLinked()) { // no one else uses it. Only change the name
 				_queue->setName(_queueName);
@@ -111,7 +111,7 @@ void Seize::setQueueName(std::string _queueName) {
 			}
 		} else { // there is another queue with the same name
 			if (!_queue->isLinked()) { // no one else uses it. It can be removed
-				_model->getInfrastructures(Util::TypeOf<Queue>())->remove(_queue);
+				_model->getInfraManager()->getInfrastructures(Util::TypeOf<Queue>())->remove(_queue);
 				_queue->~Queue();
 			} else { // there is another one using the queue with old name. Let it there
 				_queue->removeLink();
@@ -124,7 +124,7 @@ void Seize::setQueueName(std::string _queueName) {
 
 void Seize::setResourceName(std::string _resourceName) {
 	if (_resource->getName() != _resourceName) {
-		Resource* resourceWithTheNewName = (Resource*) _model->getInfrastructure(Util::TypeOf<Resource>(), _resourceName);
+		Resource* resourceWithTheNewName = (Resource*) _model->getInfraManager()->getInfrastructure(Util::TypeOf<Resource>(), _resourceName);
 		if (resourceWithTheNewName == nullptr) { // there is no resource with the new name
 			if (!_resource->isLinked()) { // no one else uses it. Only change the name
 				_resource->setName(_resourceName);
@@ -134,7 +134,7 @@ void Seize::setResourceName(std::string _resourceName) {
 			}
 		} else { // there is another resource with the same name
 			if (!_resource->isLinked()) { // no one else uses it. It can be removed
-				_model->getInfrastructures(Util::TypeOf<Resource>())->remove(_resource);
+				_model->getInfraManager()->getInfrastructures(Util::TypeOf<Resource>())->remove(_resource);
 				_resource->~Resource();
 			} else { // there is another one using the resource with old name. Let it there
 				_resource->removeLink();
@@ -269,13 +269,13 @@ void Seize::_execute(Entity* entity) {
 	}
 	unsigned int quantity = _model->parseExpression(this->_quantity);
 	if (resource->getCapacity() - resource->getNumberBusy() < quantity) { // not enought free quantity to allocate. Entity goes to the queue
-		WaitingResource* waitingRec = new WaitingResource(entity, this, _model->getSimulatedTime(), quantity);
-		_model->traceSimulation(Util::TraceLevel::blockInternal, _model->getSimulatedTime(), entity, this, "Entity starts to wait for resource");
+		WaitingResource* waitingRec = new WaitingResource(entity, this, _model->getSimulation()->getSimulatedTime(), quantity);
+		_model->getTracer()->traceSimulation(Util::TraceLevel::blockInternal, _model->getSimulation()->getSimulatedTime(), entity, this, "Entity starts to wait for resource");
 		this->_queue->insertElement(waitingRec); // ->getList()->insert(waitingRec);
 
 	} else { // alocate the resource
-		_model->traceSimulation(Util::TraceLevel::blockInternal, _model->getSimulatedTime(), entity, this, "Entity seizes " + std::to_string(quantity) + " elements of resource \"" + resource->getName() + "\"");
-		resource->seize(quantity, _model->getSimulatedTime());
+		_model->getTracer()->traceSimulation(Util::TraceLevel::blockInternal, _model->getSimulation()->getSimulatedTime(), entity, this, "Entity seizes " + std::to_string(quantity) + " elements of resource \"" + resource->getName() + "\"");
+		resource->seize(quantity, _model->getSimulation()->getSimulatedTime());
 		_model->sendEntityToComponent(entity, this->getNextComponents()->first(), 0.0);
 	}
 }

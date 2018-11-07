@@ -18,7 +18,7 @@
 #include "SimulationScenario.h"
 #include "SimulationControl.h"
 #include "SimulationResponse.h"
-#include "Listener.h"
+#include "TraceManager.h"
 
 /*!
  * The process analyser allows to extract controls and responses from a model, incluse some of then as controls and responses for a set of scenarios to be simulated

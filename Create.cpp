@@ -37,7 +37,7 @@ void Create::_execute(Entity* entity) {
 		(*it)->second->setValue(this->_model->getSimulationTime());
 	}
 	 */
-	double tnow = _model->getSimulatedTime();
+	double tnow = _model->getSimulation()->getSimulatedTime();
 	entity->setAttributeValue("Entity.ArrivalTime", tnow); // ->find("Entity.ArrivalTime")->second->setValue(tnow);
 	double timeBetweenCreations, timeScale, newArrivalTime;
 	for (unsigned int i = 0; i<this->_entitiesPerCreation; i++) {
@@ -45,12 +45,12 @@ void Create::_execute(Entity* entity) {
 		Entity* newEntity = new Entity();
 		_model->getEntities()->insert(newEntity);
 		timeBetweenCreations = _model->parseExpression(this->_timeBetweenCreationsExpression);
-		timeScale = Util::TimeUnitConvert(this->_timeBetweenCreationsTimeUnit, _model->getReplicationLengthTimeUnit());
+		timeScale = Util::TimeUnitConvert(this->_timeBetweenCreationsTimeUnit, _model->getInfos()->getReplicationLengthTimeUnit());
 		newArrivalTime = tnow + timeBetweenCreations*timeScale;
 		Event* newEvent = new Event(newArrivalTime, newEntity, this);
 		_model->getEvents()->insert(newEvent);
-		_model->traceSimulation(Util::TraceLevel::blockInternal, tnow, entity, this, "Arrival of entity " + std::to_string(newEntity->getId()) + " schedule for time " + std::to_string(newArrivalTime));
-		//_model->trace(Util::TraceLevel::blockInternal, "Arrival of entity "+std::to_string(entity->getId()) + " schedule for time " +std::to_string(newArrivalTime));
+		_model->getTracer()->traceSimulation(Util::TraceLevel::blockInternal, tnow, entity, this, "Arrival of entity " + std::to_string(newEntity->getId()) + " schedule for time " + std::to_string(newArrivalTime));
+		//_model->getTrace()->trace(Util::TraceLevel::blockInternal, "Arrival of entity "+std::to_string(entity->getId()) + " schedule for time " +std::to_string(newArrivalTime));
 	}
 	_model->sendEntityToComponent(entity, this->getNextComponents()->first(), 0.0);
 }
@@ -93,12 +93,12 @@ bool Create::_verifySymbols(std::string* errorMessage) {
 
     /*Checking Entity*/
     // get the list of all EntityType from model infrastrucure and check if it exists
-    if (_model->getInfrastructure(Util::TypeOf<EntityType>(), this->_entityType) == nullptr) {
+    if (_model->getInfraManager()->getInfrastructure(Util::TypeOf<EntityType>(), this->_entityType) == nullptr) {
             // the _entityType does not exists yet, so create it
             EntityType* newEntityType = new EntityType(_model);
             newEntityType->setName(this->_entityType);
             // insert the new EntittyType into the infrastructure list
-            _model->getInfrastructures(Util::TypeOf<EntityType>())->insert(newEntityType);
+            _model->getInfraManager()->getInfrastructures(Util::TypeOf<EntityType>())->insert(newEntityType);
     }
 
     return result;

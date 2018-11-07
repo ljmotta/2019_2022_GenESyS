@@ -15,9 +15,9 @@
 #include "Model.h"
 
 Queue::Queue(Model* model) : ModelInfrastructure(Util::TypeOf<Queue>()) {
-	_cstatNumberInQueue = new StatisticsCollector("Number In Queue", this);
-	_cstatTimeInQueue = new StatisticsCollector("Time In Queue",this);
-	List<ModelInfrastructure*>* infras = model->getInfrastructures(Util::TypeOf<StatisticsCollector>());
+	_cstatNumberInQueue = new StatisticsCollector("Number In Queue", this); /* TODO: ++ WHY THIS INSERT "DISPOSE" AND "10ENTITYTYPE" STATCOLL ?? */
+	_cstatTimeInQueue = new StatisticsCollector("Time In Queue", this);
+	List<ModelInfrastructure*>* infras = model->getInfraManager()->getInfrastructures(Util::TypeOf<StatisticsCollector>());
 	infras->insert(_cstatNumberInQueue);
 	infras->insert(_cstatTimeInQueue);
 }
@@ -31,22 +31,21 @@ Queue::~Queue() {
 }
 
 std::string Queue::show() {
-	return ModelInfrastructure::show()+
-			",waiting="+this->_list->show();
+	return ModelInfrastructure::show() +
+			",waiting=" + this->_list->show();
 }
 
 void Queue::insertElement(Waiting* element) {
 	_list->insert(element);
 	this->_cstatNumberInQueue->getCollector()->addValue(_list->size());
 }
-	
+
 void Queue::removeElement(Waiting* element, double tnow) {
 	_list->remove(element);
 	this->_cstatNumberInQueue->getCollector()->addValue(_list->size());
 	double timeInQueue = tnow - element->getTimeStartedWaiting();
 	this->_cstatTimeInQueue->getCollector()->addValue(timeInQueue);
 }
-
 
 unsigned int Queue::size() {
 	return _list->size();
@@ -56,13 +55,11 @@ Waiting* Queue::first() {
 	return _list->first();
 }
 
-		
-		
+
+
 //List<Waiting*>* Queue::getList() const {
 //	return _list;
 //}
-
-
 
 void Queue::_loadInstance(std::list<std::string> words) {
 

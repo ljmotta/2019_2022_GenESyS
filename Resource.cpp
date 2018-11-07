@@ -15,14 +15,15 @@
 
 Resource::Resource(Model* model) : ModelInfrastructure(Util::TypeOf<Resource>()) {
 	_cstatTimeSeized = new StatisticsCollector("Time Seized", this);
-	List<ModelInfrastructure*>* infras = model->getInfrastructures(Util::TypeOf<StatisticsCollector>());
-	infras->insert(this->_cstatTimeSeized);
+	List<ModelInfrastructure*>* infras = model->getInfraManager()->getInfrastructures(Util::TypeOf<StatisticsCollector>());
+	infras->insert(_cstatTimeSeized);
 }
 
 Resource::Resource(const Resource& orig) : ModelInfrastructure(orig) {
 }
 
 Resource::~Resource() {
+	_cstatTimeSeized->~StatisticsCollector();
 }
 
 std::string Resource::show() {

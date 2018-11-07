@@ -45,10 +45,10 @@ void Assign::_execute(Entity* entity) {
 	for (std::list<Assignment*>::iterator it = lets->begin(); it != lets->end(); it++) {
 		let = (*it);
 		double value = _model->parseExpression(let->getExpression());
-		_model->trace(Util::TraceLevel::blockInternal, "Let \"" + let->getDestination() + "\" = " + std::to_string(value));
+		_model->getTracer()->trace(Util::TraceLevel::blockInternal, "Let \"" + let->getDestination() + "\" = " + std::to_string(value));
 		/* TODO: this is NOT the best way to do it (enum comparision) */
 		if (let->getDestinationType() == DestinationType::Variable) {
-			Variable* myvar = (Variable*) this->_model->getInfrastructure(Util::TypeOf<Variable>(), let->getDestination());
+			Variable* myvar = (Variable*) this->_model->getInfraManager()->getInfrastructure(Util::TypeOf<Variable>(), let->getDestination());
 			myvar->setValue(value);
 		} else if (let->getDestinationType() == DestinationType::Attribute) {
 			entity->setAttributeValue(let->getDestination(), value);
@@ -69,22 +69,27 @@ std::list<std::string>* Assign::_saveInstance() {
 bool Assign::_verifySymbols(std::string* errorMessage) {
 	Assignment* let;
 	ModelInfrastructure* infra;
+	bool result = true; 
 	for (std::list<Assignment*>::iterator it = _assignments->getList()->begin(); it != _assignments->getList()->end(); it++) {
 		let = (*it);
+		/*TODO: + PARSE EXPRESSION AND DESTINY SYNTAX, ETC*/
+		
+		// create infrastrucuture it it does not exists yet
 		if (let->getDestinationType() == DestinationType::Attribute) {
-			infra = _model->getInfrastructure(Util::TypeOf<Attribute>(), let->getDestination());	
+			infra = _model->getInfraManager()->getInfrastructure(Util::TypeOf<Attribute>(), let->getDestination());	
 			if (infra==nullptr) {
 				Attribute* newAttribute = new Attribute();
 				newAttribute->setName(let->getDestination());
-				_model->getInfrastructures(Util::TypeOf<Attribute>())->insert(newAttribute);
+				_model->getInfraManager()->getInfrastructures(Util::TypeOf<Attribute>())->insert(newAttribute);
 			}
 		} else if (let->getDestinationType() == DestinationType::Variable) {
-			infra = _model->getInfrastructure(Util::TypeOf<Variable>(), let->getDestination());	
+			infra = _model->getInfraManager()->getInfrastructure(Util::TypeOf<Variable>(), let->getDestination());	
 			if (infra==nullptr) {
 				Variable* newVariable = new Variable();
 				newVariable->setName(let->getDestination());
-				_model->getInfrastructures(Util::TypeOf<Variable>())->insert(newVariable);
+				_model->getInfraManager()->getInfrastructures(Util::TypeOf<Variable>())->insert(newVariable);
 			}
 		}
 	}
+	return result;
 }

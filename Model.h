@@ -19,12 +19,15 @@
 #include "Util.h"
 #include "List.h"
 #include "ModelComponent.h"
-#include "ModelInfrastructure.h"
 #include "Event.h"
-#include "Listener.h"
 #include "ModelChecker_if.h"
 #include "Parser_if.h"
 #include "ModelPersistence_if.h"
+#include "InfrastructureManager.h"
+#include "TraceManager.h"
+#include "OnEventManager.h"
+#include "ModelInfo.h"
+#include "ModelSimulation.h"
 //for PAN
 #include "SimulationResponse.h"
 #include "SimulationControl.h"
@@ -39,16 +42,8 @@ public:
 	Model(Simulator* simulator);
 	Model(const Model& orig);
 	virtual ~Model();
-public: // simulation control
-	void startSimulation(); /*! Starts a sequential execution of a simulation, ie, a set of repliations of this model*/
-	void pauseSimulation();
-	void stepSimulation(); /*! Executes the processing of a single event, the next one in the future events list */
-	void stopSimulation();
-	void restartSimulation();
-	void showReports();
-	void setPauseOnEvent(bool _pauseOnEvent);
-	bool isPauseOnEvent() const;
 public: // model control
+	void showReports();
 	bool saveModel(std::string filename); /*!  */
 	bool loadModel(std::string filename);
 	bool checkModel(); /*! Checks the integrity and consistency of the model, possibly corrects some inconsistencies, and returns if the model is in position to the simulated. */
@@ -56,151 +51,52 @@ public: // model control
 	void removeEntity(Entity* entity, bool collectStatistics);
 	void sendEntityToComponent(Entity* entity, ModelComponent* component, double timeDelay); /*! Used by components (ModelComponent) to send entities to another specific component, usually the next one connected to it, or used by the model itself, when processing an event (Event). */
 	double parseExpression(const std::string expression);
-	double parseExpression(const std::string expression,  bool* success, std::string* errorMessage);
-public: // traces
-	void addTraceListener(traceListener traceListener);
-	void addTraceErrorListener(traceErrorListener traceErrorListener);
-	void addTraceReportListener(traceListener traceReportListener);
-	//void addTraceSimulationListener(traceListener traceListener);
-	void addTraceSimulationListener(traceSimulationListener traceSimulationListener);
-	void trace(Util::TraceLevel tracelevel, std::string text);
-	void traceError(std::exception e, std::string text);
-	//void traceSimulation(Util::TraceLevel tracelevel, std::string text);
-	void traceSimulation(Util::TraceLevel tracelevel, double time, Entity* entity, ModelComponent* component, std::string text);
-	void traceReport(Util::TraceLevel tracelevel, std::string text);
-	List<std::string>* getErrorMessages() const;
-public: // event listeners (handlers)
-	void addOnReplicationStartListener(replicationEventListener eventListener);
-	void addOnReplicationEndListener(replicationEventListener eventListener);
-public: // gets and sets
-	void setName(std::string _name);
-	std::string getName() const;
-	void setAnalystName(std::string _analystName);
-	std::string getAnalystName() const;
-	void setDescription(std::string _description);
-	std::string getDescription() const;
-	void setProjectTitle(std::string _projectTitle);
-	std::string getProjectTitle() const;
-	void setVersion(std::string _version);
-	std::string getVersion() const;
-	void setNumberOfReplications(unsigned int _numberOfReplications);
-	unsigned int getNumberOfReplications() const;
-	void setReplicationLength(double _replicationLength);
-	double getReplicationLength() const;
-	void setReplicationLengthTimeUnit(Util::TimeUnit _replicationLengthTimeUnit);
-	Util::TimeUnit getReplicationLengthTimeUnit() const;
-	void setWarmUpPeriod(double _warmUpPeriod);
-	double getWarmUpPeriod() const;
-	void setWarmUpPeriodTimeUnit(Util::TimeUnit _warmUpPeriodTimeUnit);
-	Util::TimeUnit getWarmUpPeriodTimeUnit() const;
-	void setTerminatingCondition(std::string _terminatingCondition);
-	std::string getTerminatingCondition() const;
-	void setTraceLevel(Util::TraceLevel _traceLevel);
-	Util::TraceLevel getTraceLevel() const;
-	void setStepByStep(bool _stepByStep);
-	bool isStepByStep() const;
-	void setInitializeStatistics(bool _initializeStatistics);
-	bool isInitializeStatistics() const;
-	void setInitializeSystem(bool _initializeSystem);
-	bool isInitializeSystem() const;
-	void setPauseOnReplication(bool _pauseBetweenReplications);
-	bool isPauseOnReplication() const;
+	double parseExpression(const std::string expression, bool* success, std::string* errorMessage);
+
 public: // only gets	
-	double getSimulatedTime() const; /*! The current time in the model being simulated, i.e., the instant when the current event was triggered */
-	bool isRunning() const;
 	bool isSaved() const;
 	Util::identitifcation getId() const;
 	List<ModelComponent*>* getComponents() const; /*! A list of components that compose this model */
-	List<Event*>* getEvents() const;  /*! The future events list chronologically sorted; Events are scheduled by components when processing other events, and a replication evolves over time by sequentially processing the very first event in this list. It's initialized with events first described by source components (SourceComponentModel) */
+	List<Event*>* getEvents() const; /*! The future events list chronologically sorted; Events are scheduled by components when processing other events, and a replication evolves over time by sequentially processing the very first event in this list. It's initialized with events first described by source components (SourceComponentModel) */
 	List<Entity*>* getEntities() const;
-	List<ModelInfrastructure*>* getInfrastructures(std::string infraTypename) const;
-	ModelInfrastructure* getInfrastructure(std::string infraTypename, Util::identitifcation id);
-	ModelInfrastructure* getInfrastructure(std::string infraTypename, std::string name);
-	std::list<std::string>* getInfrastructureTypenames() const;
-    List<SimulationControl*>* getControls() const;
-    List<SimulationResponse*>* getResponses() const;
-/*
+	List<SimulationControl*>* getControls() const;
+	List<SimulationResponse*>* getResponses() const;
+	TraceManager* getTracer() const;
+	OnEventManager* getOnEventManager() const;
+	InfrastructureManager* getInfraManager() const;
+	ModelInfo* getInfos() const;
+	Simulator* getParent() const;
+	ModelSimulation* getSimulation() const;
+    Parser_if* getParser() const;
+
+	/*
  
- */	
-private: // simulation control
-	void _initSimulation();
-	void _initReplication();
-	void _stepSimulation();
-	void _processEvent(Event* event);
-	void _showReplicationStatistics();
-	void _showSimulationStatistics();
+	 */
 private:
-	bool _finishReplicationCondition();
 	void _showComponents();
-	void _showInfrastructures();
-	bool _traceConditionPassed(Util::TraceLevel level);
-private: // trace listener
-	std::list<traceListener>* _traceListeners = new std::list<traceListener>();
-	std::list<traceErrorListener>* _traceErrorListeners = new std::list<traceErrorListener>();
-	std::list<traceListener>* _traceReportListeners = new std::list<traceListener>();
-	std::list<traceSimulationListener>* _traceSimulationListeners = new std::list<traceSimulationListener>();
-private: // events listener
-	std::list<replicationEventListener>* _onReplicationStartListeners = new std::list<replicationEventListener>();
-	std::list<replicationEventListener>* _onReplicationEndListeners = new std::list<replicationEventListener>();
-private: // with public access (get & set)
-	// model general information
-	std::string _name;
-	std::string _analystName = "";
-	std::string _description = "";
-	std::string _projectTitle = "";
-	std::string _version = "1.0";
-
-	// replication and warmup duration
-	unsigned int _numberOfReplications = 1;
-	double _replicationLength = 3600.0; // by default, 3600 s
-	Util::TimeUnit _replicationLengthTimeUnit = Util::TimeUnit::second;
-	double _warmUpPeriod = 0.0;
-	Util::TimeUnit _warmUpPeriodTimeUnit = Util::TimeUnit::second;
-	std::string _terminatingCondition = "";
-
-	// debug and statistics
-	Util::TraceLevel _traceLevel;// = Util::TraceLevel::mostDetailed;
-	bool _debugged;
-	// list of double double _breakOnTimes;
-	// list of modules _breakOnModules;
-	bool _stepByStep = false;
-	bool _pauseOnReplication = false;
-	bool _pauseOnEvent = false;
-	bool _initializeStatisticsBetweenReplications = true;
-	bool _initializeSystem = true;
-
-	// 
-	bool _checked = false;
 
 private: // read only public access (gets)
 	Util::identitifcation _id;
-	double _simulatedTime = 1.0;
-	bool _running = false;
 	bool _saved = false;
+	// 1:1
+	Simulator* _simulator;
+	// 1:1
+	TraceManager* _trace;
+	OnEventManager* _eventHandler;
+	InfrastructureManager* _infrastructureManager;
+	ModelInfo* _infos;
+	ModelSimulation* _simulation;
+	Parser_if* _parser;
+
 	// 1:n
-	List<std::string>* _errorMessages; /* todo: 18/08/24 this is a new one. several methods should use it */
 	List<ModelComponent*>* _components;
 	List<Event*>* _events;
-	// infrastructures
-	std::map<std::string, List<ModelInfrastructure*>*>* _infrastructures;
 	// for process analyser
 	List<SimulationResponse*>* _responses;
 	List<SimulationControl*>* _controls;
-	
+
 private: // no public access (no gets / sets)	
-	Simulator* _simulator;
-	bool _pauseRequested = false;
-	bool _stopRequested = false;
-	bool _simulationIsInitiated = false;
-	bool _replicationIsInitiaded = false;
 	std::exception* _excepcionHandled = nullptr;
-	double _lastTimeTraceSimulation = -1.0;
-	Util::identitifcation _lastEntityTraceSimulation = 0;
-	Util::identitifcation _lastModuleTraceSimulation = 0;
-	Entity* _currentEntity;
-	ModelComponent* _currentComponent;
-	unsigned int _currentReplicationNumber;
-	Parser_if* _parser;
 	ModelChecker_if* _modelChecker;
 	ModelPersistence_if* _modelPersistence;
 };

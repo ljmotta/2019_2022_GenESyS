@@ -30,6 +30,8 @@ void Attribute::_loadInstance(std::list<std::string> words) {
 }
 
 std::list<std::string>* Attribute::_saveInstance() {
+	std::list<std::string>* words = new std::list<std::string>();
+	return words;
 }
 
 bool Attribute::_verifySymbols(std::string* errorMessage) {

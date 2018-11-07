@@ -66,7 +66,7 @@ bool ModelCheckerMyImpl1::checkActivationCode() {
 bool ModelCheckerMyImpl1::verifySymbol(std::string componentName, std::string expressionName, std::string expression, std::string expressionResult, bool mandatory) {
 	bool res = true;
 	if (mandatory && expression=="") {
-		_model->getErrorMessages()->insert("Error verifying symbol \""+expressionName+"\" of component \""+componentName+"\n: Mandatory symbol is empty");
+		_model->getTracer()->getErrorMessages()->insert("Error verifying symbol \""+expressionName+"\" of component \""+componentName+"\n: Mandatory symbol is empty");
 		res = false;
 	}
 	/* TODO: Not implemented yet */

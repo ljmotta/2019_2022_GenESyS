@@ -23,7 +23,7 @@ EntityType::EntityType(Model* model) : ModelInfrastructure(typeid (EntityType).n
 	_cstatVATime = new StatisticsCollector("Value Added Time", this);
 	_cstatNVATime = new StatisticsCollector("Non Value Added Time", this);
 	_cstatTimeInSystem = new StatisticsCollector("Time In System", this);
-	List<ModelInfrastructure*>* infras = model->getInfrastructures(Util::TypeOf<StatisticsCollector>());
+	List<ModelInfrastructure*>* infras = model->getInfraManager()->getInfrastructures(Util::TypeOf<StatisticsCollector>());
 	infras->insert(this->_cstatNVATime);
 	infras->insert(this->_cstatOtherTime);
 	infras->insert(this->_cstatTimeInSystem);
@@ -36,6 +36,16 @@ EntityType::EntityType(const EntityType& orig) : ModelInfrastructure(orig) {
 }
 
 EntityType::~EntityType() {
+	/*
+	List<ModelInfrastructure*>* infras = model->getInfrastructure()->getInfrastructures(Util::TypeOf<StatisticsCollector>());
+	infras->remove(); ///// TODOS OS ACESSOS A LISTAS DEVERIAM SER MEDIADOS. AO EXCLUIR UM CSTAT, ELE DEVERIA SER EXCLUÍDO DA LISTA
+	_cstatWaitingTime->~StatisticsCollector();
+	_cstatTransferTime->~StatisticsCollector();
+	_cstatOtherTime->~StatisticsCollector();
+	_cstatVATime->~StatisticsCollector();
+	_cstatNVATime ->~StatisticsCollector();
+	_cstatTimeInSystem->~StatisticsCollector();
+	 */
 }
 
 std::string EntityType::show() {

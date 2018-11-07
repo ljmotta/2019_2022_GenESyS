@@ -52,14 +52,18 @@ OBJECTFILES= \
 	${OBJECTDIR}/FitterJoaoSouto.o \
 	${OBJECTDIR}/FitterMyImpl1.o \
 	${OBJECTDIR}/HypothesisTesterMyImpl1.o \
+	${OBJECTDIR}/InfrastructureManager.o \
 	${OBJECTDIR}/IntegratorDiogoImpl.o \
 	${OBJECTDIR}/IntegratorMyImpl1.o \
 	${OBJECTDIR}/LinkedBy.o \
 	${OBJECTDIR}/Model.o \
 	${OBJECTDIR}/ModelCheckerMyImpl1.o \
 	${OBJECTDIR}/ModelComponent.o \
+	${OBJECTDIR}/ModelInfo.o \
 	${OBJECTDIR}/ModelInfrastructure.o \
 	${OBJECTDIR}/ModelPersistenceMyImpl1.o \
+	${OBJECTDIR}/ModelSimulation.o \
+	${OBJECTDIR}/OnEventManager.o \
 	${OBJECTDIR}/ParserMyImpl1.o \
 	${OBJECTDIR}/Plugin.o \
 	${OBJECTDIR}/ProbDistrib.o \
@@ -80,6 +84,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/StatisticsCollector.o \
 	${OBJECTDIR}/StatisticsMyImpl1.o \
 	${OBJECTDIR}/TestInputAnalyserTools.o \
+	${OBJECTDIR}/TraceManager.o \
 	${OBJECTDIR}/Util.o \
 	${OBJECTDIR}/Variable.o \
 	${OBJECTDIR}/Waiting.o \
@@ -196,6 +201,11 @@ ${OBJECTDIR}/HypothesisTesterMyImpl1.o: HypothesisTesterMyImpl1.cpp nbproject/Ma
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/HypothesisTesterMyImpl1.o HypothesisTesterMyImpl1.cpp
 
+${OBJECTDIR}/InfrastructureManager.o: InfrastructureManager.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/InfrastructureManager.o InfrastructureManager.cpp
+
 ${OBJECTDIR}/IntegratorDiogoImpl.o: IntegratorDiogoImpl.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -226,6 +236,11 @@ ${OBJECTDIR}/ModelComponent.o: ModelComponent.cpp nbproject/Makefile-${CND_CONF}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelComponent.o ModelComponent.cpp
 
+${OBJECTDIR}/ModelInfo.o: ModelInfo.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelInfo.o ModelInfo.cpp
+
 ${OBJECTDIR}/ModelInfrastructure.o: ModelInfrastructure.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -235,6 +250,16 @@ ${OBJECTDIR}/ModelPersistenceMyImpl1.o: ModelPersistenceMyImpl1.cpp nbproject/Ma
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelPersistenceMyImpl1.o ModelPersistenceMyImpl1.cpp
+
+${OBJECTDIR}/ModelSimulation.o: ModelSimulation.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelSimulation.o ModelSimulation.cpp
+
+${OBJECTDIR}/OnEventManager.o: OnEventManager.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/OnEventManager.o OnEventManager.cpp
 
 ${OBJECTDIR}/ParserMyImpl1.o: ParserMyImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -335,6 +360,11 @@ ${OBJECTDIR}/TestInputAnalyserTools.o: TestInputAnalyserTools.cpp nbproject/Make
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestInputAnalyserTools.o TestInputAnalyserTools.cpp
+
+${OBJECTDIR}/TraceManager.o: TraceManager.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TraceManager.o TraceManager.cpp
 
 ${OBJECTDIR}/Util.o: Util.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

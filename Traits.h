@@ -102,8 +102,10 @@ template <> struct Traits<Statistics_if> {
 };
 
 template <> struct Traits<Integrator_if> {
-	//typedef IntegratorMyImpl1 Implementation;
-	typedef IntegratorDiogoImpl Implementation;
+	typedef IntegratorMyImpl1 Implementation;
+	//typedef IntegratorDiogoImpl Implementation;
+	unsigned int MaxIterations = 1000;
+	double MaxError = 1e-9;
 };
 
 template <> struct Traits<HypothesisTester_if> {
