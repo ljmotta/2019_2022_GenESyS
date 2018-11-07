@@ -19,7 +19,6 @@ TraceManager::TraceManager(Model* model) {
 	_model = model;
 	_debugged = Traits<Model>::debugged;
 	_traceLevel = Traits<Model>::traceLevel;
-
 }
 
 TraceManager::TraceManager(const TraceManager& orig) {

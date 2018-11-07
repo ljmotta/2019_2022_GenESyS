@@ -23,16 +23,18 @@ public:
 	ModelPersistenceMyImpl1(const ModelPersistenceMyImpl1& orig);
 	~ModelPersistenceMyImpl1();
 public:
-	bool saveAsTXT(std::string filename);
-	bool loadAsTXT(std::string filename);
-	bool saveAsXML(std::string filename);
-	bool loadAsXML(std::string filename);
-	bool save(std::string filename);
-	bool load(std::string filename);		
+	virtual bool saveAsTXT(std::string filename);
+	virtual bool loadAsTXT(std::string filename);
+	virtual bool saveAsXML(std::string filename);
+	virtual bool loadAsXML(std::string filename);
+	virtual bool save(std::string filename);
+	virtual bool load(std::string filename);
+	virtual bool isSaved();	
 private:
 	void _saveLine(std::list<std::string>* words);
 private:
 	Model* _model = nullptr;
+	bool _isSaved = false;
 };
 
 #endif /* MODELPERSISTENCEMYIMPL1_H */

@@ -68,7 +68,7 @@ void ModelSimulation::startSimulation() {
 			causeTerminated = "user requested to stop";
 		} else if (!(this->_simulatedTime < _info->getReplicationLength())) {
 			causeTerminated = "replication length " + std::to_string(_info->getReplicationLength()) + " was achieved";
-		} else if (_model->getParser()->parse(_info->getTerminatingCondition())) {
+		} else if (_model->parseExpression(_info->getTerminatingCondition())) {
 			causeTerminated = "termination condition was achieved";
 		} else causeTerminated = "unknown";
 		std::string message = "Replication " + std::to_string(_currentReplicationNumber) +" of " + std::to_string(_info->getNumberOfReplications())+ " has finished at time " + std::to_string(_simulatedTime)+ " because " + causeTerminated;

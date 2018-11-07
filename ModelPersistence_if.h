@@ -28,6 +28,7 @@ public:
 	virtual bool loadAsXML(std::string filename) = 0;
 	virtual bool save(std::string filename) = 0;
 	virtual bool load(std::string filename) = 0;
+	virtual bool isSaved() = 0;	
 private:
 
 };

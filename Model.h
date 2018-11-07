@@ -54,11 +54,8 @@ public: // model control
 	double parseExpression(const std::string expression, bool* success, std::string* errorMessage);
 
 public: // only gets	
-	bool isSaved() const;
 	Util::identitifcation getId() const;
-	List<ModelComponent*>* getComponents() const; /*! A list of components that compose this model */
-	List<Event*>* getEvents() const; /*! The future events list chronologically sorted; Events are scheduled by components when processing other events, and a replication evolves over time by sequentially processing the very first event in this list. It's initialized with events first described by source components (SourceComponentModel) */
-	List<Entity*>* getEntities() const;
+	// 1:1
 	List<SimulationControl*>* getControls() const;
 	List<SimulationResponse*>* getResponses() const;
 	TraceManager* getTracer() const;
@@ -67,7 +64,10 @@ public: // only gets
 	ModelInfo* getInfos() const;
 	Simulator* getParent() const;
 	ModelSimulation* getSimulation() const;
-    Parser_if* getParser() const;
+	// 1:n
+	List<ModelComponent*>* getComponents() const; /*! A list of components that compose this model */
+	List<Event*>* getEvents() const; /*! The future events list chronologically sorted; Events are scheduled by components when processing other events, and a replication evolves over time by sequentially processing the very first event in this list. It's initialized with events first described by source components (SourceComponentModel) */
+	List<Entity*>* getEntities() const;
 
 	/*
  
@@ -77,8 +77,6 @@ private:
 
 private: // read only public access (gets)
 	Util::identitifcation _id;
-	bool _saved = false;
-	// 1:1
 	Simulator* _simulator;
 	// 1:1
 	TraceManager* _trace;
@@ -86,8 +84,6 @@ private: // read only public access (gets)
 	InfrastructureManager* _infrastructureManager;
 	ModelInfo* _infos;
 	ModelSimulation* _simulation;
-	Parser_if* _parser;
-
 	// 1:n
 	List<ModelComponent*>* _components;
 	List<Event*>* _events;
@@ -99,6 +95,7 @@ private: // no public access (no gets / sets)
 	std::exception* _excepcionHandled = nullptr;
 	ModelChecker_if* _modelChecker;
 	ModelPersistence_if* _modelPersistence;
+	Parser_if* _parser;
 };
 
 #endif /* SIMULATIONMODEL_H */

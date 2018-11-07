@@ -77,3 +77,7 @@ bool ModelPersistenceMyImpl1::save(std::string filename) {
 bool ModelPersistenceMyImpl1::load(std::string filename) {
 	return this->loadAsTXT(filename);
 }
+
+bool ModelPersistenceMyImpl1::isSaved() {
+	return _isSaved;
+}

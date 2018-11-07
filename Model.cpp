@@ -185,9 +185,6 @@ ModelSimulation* Model::getSimulation() const {
 	return _simulation;
 }
 
-Parser_if* Model::getParser() const {
-	return _parser;
-}
 
 
 List<Entity*>* Model::getEntities() const {
@@ -195,9 +192,6 @@ List<Entity*>* Model::getEntities() const {
 	return ents;
 }
 
-bool Model::isSaved() const {
-	return _saved;
-}
 
 Util::identitifcation Model::getId() const {
 	return _id;

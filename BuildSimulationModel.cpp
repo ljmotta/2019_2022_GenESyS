@@ -7,7 +7,7 @@
 using namespace std;
 
 
-#include "BuildSimpleModel1.h"
+#include "BuildSimulationModel.h"
 
 // GEnSyS Simulator
 #include "Simulator.h"
@@ -56,8 +56,8 @@ void buildModel(Model* model) { // buildModelWithAllImplementedComponents
 	infos->setAnalystName("Meu nome");
 	infos->setDescription("Esse é um modelo de teste dos componentes já implementados");
 	infos->setNumberOfReplications(1);
-	infos->setReplicationLength(10);
-	infos->setReplicationLengthTimeUnit(Util::TimeUnit::minute);
+	infos->setReplicationLength(1);
+	infos->setReplicationLengthTimeUnit(Util::TimeUnit::hour);
 	
 	// create and insert model components to the model
 	Create* create1 = new Create(model);
@@ -99,6 +99,9 @@ void buildModel(Model* model) { // buildModelWithAllImplementedComponents
 	release1->getNextComponents()->insert(dispose1);
 }
 
+BuildSimulationModel::BuildSimulationModel() {
+
+}
 
 void buildSimulationSystem() {
 	Simulator* simulator = new Simulator();
@@ -111,10 +114,6 @@ void buildSimulationSystem() {
 	}
 }
 
-BuildSimpleModel1::BuildSimpleModel1() {
-
-}
-
-int BuildSimpleModel1::main(int argc, char** argv) {
+int BuildSimulationModel::main(int argc, char** argv) {
 	buildSimulationSystem();
 };
