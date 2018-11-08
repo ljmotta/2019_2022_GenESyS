@@ -1,0 +1,595 @@
+\hypertarget{classgenesyspp__driver}{\section{genesyspp\-\_\-driver Class Reference}
+\label{classgenesyspp__driver}\index{genesyspp\-\_\-driver@{genesyspp\-\_\-driver}}
+}
+
+
+{\ttfamily \#include $<$Genesys++-\/driver.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classgenesyspp__driver_a983981a57103af3b45f84c1341812b97}{genesyspp\-\_\-driver} ()
+\item 
+\hyperlink{classgenesyspp__driver_a84483fcf1a1c5fa027080f42606445a3}{genesyspp\-\_\-driver} (\hyperlink{class_model}{Model} $\ast$model, bool throws)
+\item 
+virtual \hyperlink{classgenesyspp__driver_a65273b95ecd409a5d3b9d69db01b0a22}{$\sim$genesyspp\-\_\-driver} ()
+\item 
+void \hyperlink{classgenesyspp__driver_a5eea881839774961325ae71d8ef66f73}{scan\-\_\-begin\-\_\-file} ()
+\item 
+void \hyperlink{classgenesyspp__driver_aa060aec7c6cd20f6f2dcc0b9585ee08e}{scan\-\_\-end\-\_\-file} ()
+\item 
+void \hyperlink{classgenesyspp__driver_a40341e19c618eadfd15fe7333cd9bf48}{scan\-\_\-begin\-\_\-str} ()
+\item 
+void \hyperlink{classgenesyspp__driver_a3d922efe7cbc54b75574ee1060b05503}{scan\-\_\-end\-\_\-str} ()
+\item 
+int \hyperlink{classgenesyspp__driver_a2f58e23b084877eee330915c2f4fc71f}{parse\-\_\-file} (const std\-::string \&f)
+\item 
+int \hyperlink{classgenesyspp__driver_a5e63bd1621e53aa24cf2dee47d53ebdc}{parse\-\_\-str} (const std\-::string \&str)
+\item 
+void \hyperlink{classgenesyspp__driver_aa5ff905a2ee7b4b432ef589617e5d772}{error} (const \hyperlink{classyy_1_1location}{yy\-::location} \&l, const std\-::string \&m)
+\item 
+void \hyperlink{classgenesyspp__driver_a6090fae657d27d1825221564411a7dc1}{error} (const std\-::string \&m)
+\item 
+double \hyperlink{classgenesyspp__driver_a10d4649f733221a892e0d6f5fe3659d3}{get\-Result} ()
+\item 
+void \hyperlink{classgenesyspp__driver_a3563e052d453a4297ac6b2a3c7f52359}{set\-Result} (double value)
+\item 
+bool \hyperlink{classgenesyspp__driver_a5399165bbc4939caa37c0def36fc7bd0}{get\-Throws\-Exception} ()
+\item 
+void \hyperlink{classgenesyspp__driver_a00187b9d00b9db5c5ce6ac34fe3d76f0}{set\-Throws\-Exception} (bool throws)
+\item 
+void \hyperlink{classgenesyspp__driver_acd8c6c282d66b33085714f51b9c9a663}{set\-Error\-Message} (std\-::string message)
+\item 
+std\-::string \hyperlink{classgenesyspp__driver_aa7498e1f29e32ce86bb74aa1e4967bb3}{get\-Error\-Message} ()
+\item 
+\hyperlink{class_model}{Model} $\ast$ \hyperlink{classgenesyspp__driver_a405d93fa806bb21e1a9711dc6bb34957}{get\-Model} ()
+\item 
+\hyperlink{class_prob_distrib}{Prob\-Distrib} \hyperlink{classgenesyspp__driver_aa472e7863e26b977531c2e04d58ea27f}{get\-Probs} ()
+\item 
+std\-::string \hyperlink{classgenesyspp__driver_a9edaab76f72429d4c2c24478e6db94dd}{get\-File} ()
+\item 
+void \hyperlink{classgenesyspp__driver_a300147a53838ef57f65ab86c75e35aa9}{set\-File} (std\-::string f)
+\item 
+std\-::string \hyperlink{classgenesyspp__driver_a584da6b8e120a13da594408b2633986b}{get\-Str\-To\-Parse} ()
+\item 
+void \hyperlink{classgenesyspp__driver_a23a4a62ee46f8455e57f6dad60542491}{set\-Str\-To\-Parse} (std\-::string str)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 20 of file Genesys++-\/driver.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classgenesyspp__driver_a983981a57103af3b45f84c1341812b97}{\index{genesyspp\-\_\-driver@{genesyspp\-\_\-driver}!genesyspp\-\_\-driver@{genesyspp\-\_\-driver}}
+\index{genesyspp\-\_\-driver@{genesyspp\-\_\-driver}!genesyspp_driver@{genesyspp\-\_\-driver}}
+\subsubsection[{genesyspp\-\_\-driver}]{\setlength{\rightskip}{0pt plus 5cm}genesyspp\-\_\-driver\-::genesyspp\-\_\-driver (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classgenesyspp__driver_a983981a57103af3b45f84c1341812b97}
+
+
+Definition at line 5 of file Genesys++-\/driver.\-cpp.
+
+\hypertarget{classgenesyspp__driver_a84483fcf1a1c5fa027080f42606445a3}{\index{genesyspp\-\_\-driver@{genesyspp\-\_\-driver}!genesyspp\-\_\-driver@{genesyspp\-\_\-driver}}
+\index{genesyspp\-\_\-driver@{genesyspp\-\_\-driver}!genesyspp_driver@{genesyspp\-\_\-driver}}
+\subsubsection[{genesyspp\-\_\-driver}]{\setlength{\rightskip}{0pt plus 5cm}genesyspp\-\_\-driver\-::genesyspp\-\_\-driver (
+\begin{DoxyParamCaption}
+\item[{{\bf Model} $\ast$}]{model, }
+\item[{bool}]{throws}
+\end{DoxyParamCaption}
+)}}\label{classgenesyspp__driver_a84483fcf1a1c5fa027080f42606445a3}
+
+
+Definition at line 9 of file Genesys++-\/driver.\-cpp.
+
+\hypertarget{classgenesyspp__driver_a65273b95ecd409a5d3b9d69db01b0a22}{\index{genesyspp\-\_\-driver@{genesyspp\-\_\-driver}!$\sim$genesyspp\-\_\-driver@{$\sim$genesyspp\-\_\-driver}}
+\index{$\sim$genesyspp\-\_\-driver@{$\sim$genesyspp\-\_\-driver}!genesyspp_driver@{genesyspp\-\_\-driver}}
+\subsubsection[{$\sim$genesyspp\-\_\-driver}]{\setlength{\rightskip}{0pt plus 5cm}genesyspp\-\_\-driver\-::$\sim$genesyspp\-\_\-driver (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classgenesyspp__driver_a65273b95ecd409a5d3b9d69db01b0a22}
+
+
+Definition at line 16 of file Genesys++-\/driver.\-cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classgenesyspp__driver_aa5ff905a2ee7b4b432ef589617e5d772}{\index{genesyspp\-\_\-driver@{genesyspp\-\_\-driver}!error@{error}}
+\index{error@{error}!genesyspp_driver@{genesyspp\-\_\-driver}}
+\subsubsection[{error}]{\setlength{\rightskip}{0pt plus 5cm}void genesyspp\-\_\-driver\-::error (
+\begin{DoxyParamCaption}
+\item[{const {\bf yy\-::location} \&}]{l, }
+\item[{const std\-::string \&}]{m}
+\end{DoxyParamCaption}
+)}}\label{classgenesyspp__driver_aa5ff905a2ee7b4b432ef589617e5d772}
+
+
+Definition at line 95 of file Genesys++-\/driver.\-cpp.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{classgenesyspp__driver_aa5ff905a2ee7b4b432ef589617e5d772_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgenesyspp__driver_aa5ff905a2ee7b4b432ef589617e5d772_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classgenesyspp__driver_a6090fae657d27d1825221564411a7dc1}{\index{genesyspp\-\_\-driver@{genesyspp\-\_\-driver}!error@{error}}
+\index{error@{error}!genesyspp_driver@{genesyspp\-\_\-driver}}
+\subsubsection[{error}]{\setlength{\rightskip}{0pt plus 5cm}void genesyspp\-\_\-driver\-::error (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{m}
+\end{DoxyParamCaption}
+)}}\label{classgenesyspp__driver_a6090fae657d27d1825221564411a7dc1}
+
+
+Definition at line 106 of file Genesys++-\/driver.\-cpp.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{classgenesyspp__driver_a6090fae657d27d1825221564411a7dc1_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classgenesyspp__driver_aa7498e1f29e32ce86bb74aa1e4967bb3}{\index{genesyspp\-\_\-driver@{genesyspp\-\_\-driver}!get\-Error\-Message@{get\-Error\-Message}}
+\index{get\-Error\-Message@{get\-Error\-Message}!genesyspp_driver@{genesyspp\-\_\-driver}}
+\subsubsection[{get\-Error\-Message}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string genesyspp\-\_\-driver\-::get\-Error\-Message (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classgenesyspp__driver_aa7498e1f29e32ce86bb74aa1e4967bb3}
+
+
+Definition at line 65 of file Genesys++-\/driver.\-cpp.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgenesyspp__driver_aa7498e1f29e32ce86bb74aa1e4967bb3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classgenesyspp__driver_a9edaab76f72429d4c2c24478e6db94dd}{\index{genesyspp\-\_\-driver@{genesyspp\-\_\-driver}!get\-File@{get\-File}}
+\index{get\-File@{get\-File}!genesyspp_driver@{genesyspp\-\_\-driver}}
+\subsubsection[{get\-File}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string genesyspp\-\_\-driver\-::get\-File (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classgenesyspp__driver_a9edaab76f72429d4c2c24478e6db94dd}
+
+
+Definition at line 77 of file Genesys++-\/driver.\-cpp.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgenesyspp__driver_a9edaab76f72429d4c2c24478e6db94dd_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classgenesyspp__driver_a405d93fa806bb21e1a9711dc6bb34957}{\index{genesyspp\-\_\-driver@{genesyspp\-\_\-driver}!get\-Model@{get\-Model}}
+\index{get\-Model@{get\-Model}!genesyspp_driver@{genesyspp\-\_\-driver}}
+\subsubsection[{get\-Model}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Model} $\ast$ genesyspp\-\_\-driver\-::get\-Model (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classgenesyspp__driver_a405d93fa806bb21e1a9711dc6bb34957}
+
+
+Definition at line 69 of file Genesys++-\/driver.\-cpp.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgenesyspp__driver_a405d93fa806bb21e1a9711dc6bb34957_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classgenesyspp__driver_aa472e7863e26b977531c2e04d58ea27f}{\index{genesyspp\-\_\-driver@{genesyspp\-\_\-driver}!get\-Probs@{get\-Probs}}
+\index{get\-Probs@{get\-Probs}!genesyspp_driver@{genesyspp\-\_\-driver}}
+\subsubsection[{get\-Probs}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Prob\-Distrib} genesyspp\-\_\-driver\-::get\-Probs (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classgenesyspp__driver_aa472e7863e26b977531c2e04d58ea27f}
+
+
+Definition at line 73 of file Genesys++-\/driver.\-cpp.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgenesyspp__driver_aa472e7863e26b977531c2e04d58ea27f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classgenesyspp__driver_a10d4649f733221a892e0d6f5fe3659d3}{\index{genesyspp\-\_\-driver@{genesyspp\-\_\-driver}!get\-Result@{get\-Result}}
+\index{get\-Result@{get\-Result}!genesyspp_driver@{genesyspp\-\_\-driver}}
+\subsubsection[{get\-Result}]{\setlength{\rightskip}{0pt plus 5cm}double genesyspp\-\_\-driver\-::get\-Result (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classgenesyspp__driver_a10d4649f733221a892e0d6f5fe3659d3}
+
+
+Definition at line 49 of file Genesys++-\/driver.\-cpp.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgenesyspp__driver_a10d4649f733221a892e0d6f5fe3659d3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classgenesyspp__driver_a584da6b8e120a13da594408b2633986b}{\index{genesyspp\-\_\-driver@{genesyspp\-\_\-driver}!get\-Str\-To\-Parse@{get\-Str\-To\-Parse}}
+\index{get\-Str\-To\-Parse@{get\-Str\-To\-Parse}!genesyspp_driver@{genesyspp\-\_\-driver}}
+\subsubsection[{get\-Str\-To\-Parse}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string genesyspp\-\_\-driver\-::get\-Str\-To\-Parse (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classgenesyspp__driver_a584da6b8e120a13da594408b2633986b}
+
+
+Definition at line 85 of file Genesys++-\/driver.\-cpp.
+
+\hypertarget{classgenesyspp__driver_a5399165bbc4939caa37c0def36fc7bd0}{\index{genesyspp\-\_\-driver@{genesyspp\-\_\-driver}!get\-Throws\-Exception@{get\-Throws\-Exception}}
+\index{get\-Throws\-Exception@{get\-Throws\-Exception}!genesyspp_driver@{genesyspp\-\_\-driver}}
+\subsubsection[{get\-Throws\-Exception}]{\setlength{\rightskip}{0pt plus 5cm}bool genesyspp\-\_\-driver\-::get\-Throws\-Exception (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classgenesyspp__driver_a5399165bbc4939caa37c0def36fc7bd0}
+
+
+Definition at line 53 of file Genesys++-\/driver.\-cpp.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgenesyspp__driver_a5399165bbc4939caa37c0def36fc7bd0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classgenesyspp__driver_a2f58e23b084877eee330915c2f4fc71f}{\index{genesyspp\-\_\-driver@{genesyspp\-\_\-driver}!parse\-\_\-file@{parse\-\_\-file}}
+\index{parse\-\_\-file@{parse\-\_\-file}!genesyspp_driver@{genesyspp\-\_\-driver}}
+\subsubsection[{parse\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}int genesyspp\-\_\-driver\-::parse\-\_\-file (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{f}
+\end{DoxyParamCaption}
+)}}\label{classgenesyspp__driver_a2f58e23b084877eee330915c2f4fc71f}
+
+
+Definition at line 21 of file Genesys++-\/driver.\-cpp.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgenesyspp__driver_a2f58e23b084877eee330915c2f4fc71f_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classgenesyspp__driver_a5e63bd1621e53aa24cf2dee47d53ebdc}{\index{genesyspp\-\_\-driver@{genesyspp\-\_\-driver}!parse\-\_\-str@{parse\-\_\-str}}
+\index{parse\-\_\-str@{parse\-\_\-str}!genesyspp_driver@{genesyspp\-\_\-driver}}
+\subsubsection[{parse\-\_\-str}]{\setlength{\rightskip}{0pt plus 5cm}int genesyspp\-\_\-driver\-::parse\-\_\-str (
+\begin{DoxyParamCaption}
+\item[{const std\-::string \&}]{str}
+\end{DoxyParamCaption}
+)}}\label{classgenesyspp__driver_a5e63bd1621e53aa24cf2dee47d53ebdc}
+
+
+Definition at line 33 of file Genesys++-\/driver.\-cpp.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgenesyspp__driver_a5e63bd1621e53aa24cf2dee47d53ebdc_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgenesyspp__driver_a5e63bd1621e53aa24cf2dee47d53ebdc_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classgenesyspp__driver_a5eea881839774961325ae71d8ef66f73}{\index{genesyspp\-\_\-driver@{genesyspp\-\_\-driver}!scan\-\_\-begin\-\_\-file@{scan\-\_\-begin\-\_\-file}}
+\index{scan\-\_\-begin\-\_\-file@{scan\-\_\-begin\-\_\-file}!genesyspp_driver@{genesyspp\-\_\-driver}}
+\subsubsection[{scan\-\_\-begin\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}void genesyspp\-\_\-driver\-::scan\-\_\-begin\-\_\-file (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classgenesyspp__driver_a5eea881839774961325ae71d8ef66f73}
+
+
+Definition at line 2247 of file Genesys++-\/scanner.\-cpp.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgenesyspp__driver_a5eea881839774961325ae71d8ef66f73_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgenesyspp__driver_a5eea881839774961325ae71d8ef66f73_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classgenesyspp__driver_a40341e19c618eadfd15fe7333cd9bf48}{\index{genesyspp\-\_\-driver@{genesyspp\-\_\-driver}!scan\-\_\-begin\-\_\-str@{scan\-\_\-begin\-\_\-str}}
+\index{scan\-\_\-begin\-\_\-str@{scan\-\_\-begin\-\_\-str}!genesyspp_driver@{genesyspp\-\_\-driver}}
+\subsubsection[{scan\-\_\-begin\-\_\-str}]{\setlength{\rightskip}{0pt plus 5cm}void genesyspp\-\_\-driver\-::scan\-\_\-begin\-\_\-str (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classgenesyspp__driver_a40341e19c618eadfd15fe7333cd9bf48}
+
+
+Definition at line 2259 of file Genesys++-\/scanner.\-cpp.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgenesyspp__driver_a40341e19c618eadfd15fe7333cd9bf48_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgenesyspp__driver_a40341e19c618eadfd15fe7333cd9bf48_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classgenesyspp__driver_aa060aec7c6cd20f6f2dcc0b9585ee08e}{\index{genesyspp\-\_\-driver@{genesyspp\-\_\-driver}!scan\-\_\-end\-\_\-file@{scan\-\_\-end\-\_\-file}}
+\index{scan\-\_\-end\-\_\-file@{scan\-\_\-end\-\_\-file}!genesyspp_driver@{genesyspp\-\_\-driver}}
+\subsubsection[{scan\-\_\-end\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}void genesyspp\-\_\-driver\-::scan\-\_\-end\-\_\-file (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classgenesyspp__driver_aa060aec7c6cd20f6f2dcc0b9585ee08e}
+
+
+Definition at line 2275 of file Genesys++-\/scanner.\-cpp.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgenesyspp__driver_aa060aec7c6cd20f6f2dcc0b9585ee08e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classgenesyspp__driver_a3d922efe7cbc54b75574ee1060b05503}{\index{genesyspp\-\_\-driver@{genesyspp\-\_\-driver}!scan\-\_\-end\-\_\-str@{scan\-\_\-end\-\_\-str}}
+\index{scan\-\_\-end\-\_\-str@{scan\-\_\-end\-\_\-str}!genesyspp_driver@{genesyspp\-\_\-driver}}
+\subsubsection[{scan\-\_\-end\-\_\-str}]{\setlength{\rightskip}{0pt plus 5cm}void genesyspp\-\_\-driver\-::scan\-\_\-end\-\_\-str (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classgenesyspp__driver_a3d922efe7cbc54b75574ee1060b05503}
+
+
+Definition at line 2281 of file Genesys++-\/scanner.\-cpp.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgenesyspp__driver_a3d922efe7cbc54b75574ee1060b05503_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgenesyspp__driver_a3d922efe7cbc54b75574ee1060b05503_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classgenesyspp__driver_acd8c6c282d66b33085714f51b9c9a663}{\index{genesyspp\-\_\-driver@{genesyspp\-\_\-driver}!set\-Error\-Message@{set\-Error\-Message}}
+\index{set\-Error\-Message@{set\-Error\-Message}!genesyspp_driver@{genesyspp\-\_\-driver}}
+\subsubsection[{set\-Error\-Message}]{\setlength{\rightskip}{0pt plus 5cm}void genesyspp\-\_\-driver\-::set\-Error\-Message (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{message}
+\end{DoxyParamCaption}
+)}}\label{classgenesyspp__driver_acd8c6c282d66b33085714f51b9c9a663}
+
+
+Definition at line 61 of file Genesys++-\/driver.\-cpp.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgenesyspp__driver_acd8c6c282d66b33085714f51b9c9a663_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classgenesyspp__driver_a300147a53838ef57f65ab86c75e35aa9}{\index{genesyspp\-\_\-driver@{genesyspp\-\_\-driver}!set\-File@{set\-File}}
+\index{set\-File@{set\-File}!genesyspp_driver@{genesyspp\-\_\-driver}}
+\subsubsection[{set\-File}]{\setlength{\rightskip}{0pt plus 5cm}void genesyspp\-\_\-driver\-::set\-File (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{f}
+\end{DoxyParamCaption}
+)}}\label{classgenesyspp__driver_a300147a53838ef57f65ab86c75e35aa9}
+
+
+Definition at line 81 of file Genesys++-\/driver.\-cpp.
+
+\hypertarget{classgenesyspp__driver_a3563e052d453a4297ac6b2a3c7f52359}{\index{genesyspp\-\_\-driver@{genesyspp\-\_\-driver}!set\-Result@{set\-Result}}
+\index{set\-Result@{set\-Result}!genesyspp_driver@{genesyspp\-\_\-driver}}
+\subsubsection[{set\-Result}]{\setlength{\rightskip}{0pt plus 5cm}void genesyspp\-\_\-driver\-::set\-Result (
+\begin{DoxyParamCaption}
+\item[{double}]{value}
+\end{DoxyParamCaption}
+)}}\label{classgenesyspp__driver_a3563e052d453a4297ac6b2a3c7f52359}
+
+
+Definition at line 44 of file Genesys++-\/driver.\-cpp.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgenesyspp__driver_a3563e052d453a4297ac6b2a3c7f52359_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classgenesyspp__driver_a23a4a62ee46f8455e57f6dad60542491}{\index{genesyspp\-\_\-driver@{genesyspp\-\_\-driver}!set\-Str\-To\-Parse@{set\-Str\-To\-Parse}}
+\index{set\-Str\-To\-Parse@{set\-Str\-To\-Parse}!genesyspp_driver@{genesyspp\-\_\-driver}}
+\subsubsection[{set\-Str\-To\-Parse}]{\setlength{\rightskip}{0pt plus 5cm}void genesyspp\-\_\-driver\-::set\-Str\-To\-Parse (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{str}
+\end{DoxyParamCaption}
+)}}\label{classgenesyspp__driver_a23a4a62ee46f8455e57f6dad60542491}
+
+
+Definition at line 89 of file Genesys++-\/driver.\-cpp.
+
+\hypertarget{classgenesyspp__driver_a00187b9d00b9db5c5ce6ac34fe3d76f0}{\index{genesyspp\-\_\-driver@{genesyspp\-\_\-driver}!set\-Throws\-Exception@{set\-Throws\-Exception}}
+\index{set\-Throws\-Exception@{set\-Throws\-Exception}!genesyspp_driver@{genesyspp\-\_\-driver}}
+\subsubsection[{set\-Throws\-Exception}]{\setlength{\rightskip}{0pt plus 5cm}void genesyspp\-\_\-driver\-::set\-Throws\-Exception (
+\begin{DoxyParamCaption}
+\item[{bool}]{throws}
+\end{DoxyParamCaption}
+)}}\label{classgenesyspp__driver_a00187b9d00b9db5c5ce6ac34fe3d76f0}
+
+
+Definition at line 57 of file Genesys++-\/driver.\-cpp.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classgenesyspp__driver_a00187b9d00b9db5c5ce6ac34fe3d76f0_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_genesys_09_09-driver_8h}{Genesys++-\/driver.\-h}\item 
+\hyperlink{_genesys_09_09-driver_8cpp}{Genesys++-\/driver.\-cpp}\item 
+\hyperlink{_genesys_09_09-scanner_8cpp}{Genesys++-\/scanner.\-cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,11 @@
+<map id="Assign::_verifySymbols" name="Assign::_verifySymbols">
+<area shape="rect" id="node2" href="$class_assign_1_1_assignment.html#a46493b98c1cd97ce4b015640bf34dd27" title="Assign::Assignment\l::getDestinationType" alt="" coords="222,5,365,46"/>
+<area shape="rect" id="node3" href="$class_model.html#a944c2b2dffd691d4aafc2d4028c02e6b" title="Model::getInfraManager" alt="" coords="214,71,373,97"/>
+<area shape="rect" id="node4" href="$class_infrastructure_manager.html#a2c957eee5107d521e8292cb6f8e9ea5b" title="InfrastructureManager\l::getInfrastructure" alt="" coords="219,173,368,214"/>
+<area shape="rect" id="node5" href="$class_infrastructure_manager.html#a1d013b55994e27cac0c45c1ad08f74e0" title="InfrastructureManager\l::getInfrastructures" alt="" coords="421,114,571,155"/>
+<area shape="rect" id="node9" href="$class_assign_1_1_assignment.html#a6cf7ecd2950dfc709985a1ede3773be8" title="Assign::Assignment\l::getDestination" alt="" coords="224,238,363,279"/>
+<area shape="rect" id="node10" href="$class_model_infrastructure.html#a8ebb1f9b4475e732d31b6c8980ddccc0" title="ModelInfrastructure\l::setName" alt="" coords="226,303,361,345"/>
+<area shape="rect" id="node8" href="$class_list.html#a570498345450f635b72d1ca2675145cc" title="List::getList" alt="" coords="451,180,541,207"/>
+<area shape="rect" id="node6" href="$class_list.html#a31a37746c0d960f2f2bb4071b2735c5e" title="List::setSortFunc" alt="" coords="625,92,748,119"/>
+<area shape="rect" id="node7" href="$class_model_infrastructure.html#aa4d3fa8f302cc6dc4fccdd3187e6a168" title="ModelInfrastructure\l::getId" alt="" coords="619,143,754,185"/>
+</map>

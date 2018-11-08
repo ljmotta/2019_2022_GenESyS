@@ -1,0 +1,338 @@
+\hypertarget{namespaceyy}{\section{yy Namespace Reference}
+\label{namespaceyy}\index{yy@{yy}}
+}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structyy_1_1variant}{variant}
+\item 
+class \hyperlink{classyy_1_1genesyspp__parser}{genesyspp\-\_\-parser}
+\begin{DoxyCompactList}\small\item\em A Bison parser. \end{DoxyCompactList}\item 
+class \hyperlink{classyy_1_1location}{location}
+\begin{DoxyCompactList}\small\item\em Abstract a location. \end{DoxyCompactList}\item 
+class \hyperlink{classyy_1_1position}{position}
+\begin{DoxyCompactList}\small\item\em Abstract a position. \end{DoxyCompactList}\item 
+class \hyperlink{classyy_1_1stack}{stack}
+\begin{DoxyCompactList}\small\item\em A stack with random access from its top. \end{DoxyCompactList}\item 
+class \hyperlink{classyy_1_1slice}{slice}
+\begin{DoxyCompactList}\small\item\em Present a slice of the top of a stack. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classyy_1_1location}{location} \& \hyperlink{namespaceyy_ac14111e26538c547c68b89899951b6b7}{operator+=} (\hyperlink{classyy_1_1location}{location} \&res, const \hyperlink{classyy_1_1location}{location} \&end)
+\begin{DoxyCompactList}\small\item\em Join two locations, in place. \end{DoxyCompactList}\item 
+\hyperlink{classyy_1_1location}{location} \hyperlink{namespaceyy_ad82fe89bde177a8060bad10aca431c79}{operator+} (\hyperlink{classyy_1_1location}{location} res, const \hyperlink{classyy_1_1location}{location} \&end)
+\begin{DoxyCompactList}\small\item\em Join two locations. \end{DoxyCompactList}\item 
+\hyperlink{classyy_1_1location}{location} \& \hyperlink{namespaceyy_ab13826f998b111c25c9bf8132c4d63b8}{operator+=} (\hyperlink{classyy_1_1location}{location} \&res, int width)
+\begin{DoxyCompactList}\small\item\em Add {\itshape width} columns to the end position, in place. \end{DoxyCompactList}\item 
+\hyperlink{classyy_1_1location}{location} \hyperlink{namespaceyy_a79201bfa5eaeb04bf279a05ff13281df}{operator+} (\hyperlink{classyy_1_1location}{location} res, int width)
+\begin{DoxyCompactList}\small\item\em Add {\itshape width} columns to the end position. \end{DoxyCompactList}\item 
+\hyperlink{classyy_1_1location}{location} \& \hyperlink{namespaceyy_adf13d2c8b51d1b5c23eb84fce25d202c}{operator-\/=} (\hyperlink{classyy_1_1location}{location} \&res, int width)
+\begin{DoxyCompactList}\small\item\em Subtract {\itshape width} columns to the end position, in place. \end{DoxyCompactList}\item 
+\hyperlink{classyy_1_1location}{location} \hyperlink{namespaceyy_a9b8304a3c3584980893db5d974c08d01}{operator-\/} (\hyperlink{classyy_1_1location}{location} res, int width)
+\begin{DoxyCompactList}\small\item\em Subtract {\itshape width} columns to the end position. \end{DoxyCompactList}\item 
+bool \hyperlink{namespaceyy_a466b6e3dcf6a743bb058bf4989b38047}{operator==} (const \hyperlink{classyy_1_1location}{location} \&loc1, const \hyperlink{classyy_1_1location}{location} \&loc2)
+\begin{DoxyCompactList}\small\item\em Compare two location objects. \end{DoxyCompactList}\item 
+bool \hyperlink{namespaceyy_aa3a5c205bc084696bb894634ae9cce80}{operator!=} (const \hyperlink{classyy_1_1location}{location} \&loc1, const \hyperlink{classyy_1_1location}{location} \&loc2)
+\begin{DoxyCompactList}\small\item\em Compare two location objects. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Y\-Y\-Char $>$ }\\std\-::basic\-\_\-ostream$<$ Y\-Y\-Char $>$ \& \hyperlink{namespaceyy_a0406f2358d6ba6b06648ff66f3508aad}{operator$<$$<$} (std\-::basic\-\_\-ostream$<$ Y\-Y\-Char $>$ \&ostr, const \hyperlink{classyy_1_1location}{location} \&\hyperlink{_genesys_09_09-scanner_8cpp_abaf70dc7df8e78acc6505d164cb2276b}{loc})
+\begin{DoxyCompactList}\small\item\em Intercept output stream redirection. \end{DoxyCompactList}\item 
+\hyperlink{classyy_1_1position}{position} \& \hyperlink{namespaceyy_a211eb024d7e9666b07140040b079fccc}{operator+=} (\hyperlink{classyy_1_1position}{position} \&res, int width)
+\begin{DoxyCompactList}\small\item\em Add {\itshape width} columns, in place. \end{DoxyCompactList}\item 
+\hyperlink{classyy_1_1position}{position} \hyperlink{namespaceyy_a23f0f414cfca1fd11ff2b779ba018038}{operator+} (\hyperlink{classyy_1_1position}{position} res, int width)
+\begin{DoxyCompactList}\small\item\em Add {\itshape width} columns. \end{DoxyCompactList}\item 
+\hyperlink{classyy_1_1position}{position} \& \hyperlink{namespaceyy_a4cad44f80947f872e1bbf32fec9b7973}{operator-\/=} (\hyperlink{classyy_1_1position}{position} \&res, int width)
+\begin{DoxyCompactList}\small\item\em Subtract {\itshape width} columns, in place. \end{DoxyCompactList}\item 
+\hyperlink{classyy_1_1position}{position} \hyperlink{namespaceyy_af6d37eb09001871194885eb8d31fef92}{operator-\/} (\hyperlink{classyy_1_1position}{position} res, int width)
+\begin{DoxyCompactList}\small\item\em Subtract {\itshape width} columns. \end{DoxyCompactList}\item 
+bool \hyperlink{namespaceyy_a30a61b0569cd2c9ea4ae16eb4994c7b3}{operator==} (const \hyperlink{classyy_1_1position}{position} \&pos1, const \hyperlink{classyy_1_1position}{position} \&pos2)
+\begin{DoxyCompactList}\small\item\em Compare two position objects. \end{DoxyCompactList}\item 
+bool \hyperlink{namespaceyy_abf91f5a379cf9f8c8be94f650c48c06c}{operator!=} (const \hyperlink{classyy_1_1position}{position} \&pos1, const \hyperlink{classyy_1_1position}{position} \&pos2)
+\begin{DoxyCompactList}\small\item\em Compare two position objects. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Y\-Y\-Char $>$ }\\std\-::basic\-\_\-ostream$<$ Y\-Y\-Char $>$ \& \hyperlink{namespaceyy_ac0f65a84b37cc3e7731a310eb240b952}{operator$<$$<$} (std\-::basic\-\_\-ostream$<$ Y\-Y\-Char $>$ \&ostr, const \hyperlink{classyy_1_1position}{position} \&pos)
+\begin{DoxyCompactList}\small\item\em Intercept output stream redirection. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespaceyy_abf91f5a379cf9f8c8be94f650c48c06c}{\index{yy@{yy}!operator!=@{operator!=}}
+\index{operator!=@{operator!=}!yy@{yy}}
+\subsubsection[{operator!=}]{\setlength{\rightskip}{0pt plus 5cm}bool yy\-::operator!= (
+\begin{DoxyParamCaption}
+\item[{const position \&}]{pos1, }
+\item[{const position \&}]{pos2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespaceyy_abf91f5a379cf9f8c8be94f650c48c06c}
+
+
+Compare two position objects. 
+
+
+
+Definition at line 156 of file position.\-hh.
+
+\hypertarget{namespaceyy_aa3a5c205bc084696bb894634ae9cce80}{\index{yy@{yy}!operator!=@{operator!=}}
+\index{operator!=@{operator!=}!yy@{yy}}
+\subsubsection[{operator!=}]{\setlength{\rightskip}{0pt plus 5cm}bool yy\-::operator!= (
+\begin{DoxyParamCaption}
+\item[{const location \&}]{loc1, }
+\item[{const location \&}]{loc2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespaceyy_aa3a5c205bc084696bb894634ae9cce80}
+
+
+Compare two location objects. 
+
+
+
+Definition at line 158 of file location.\-hh.
+
+\hypertarget{namespaceyy_ad82fe89bde177a8060bad10aca431c79}{\index{yy@{yy}!operator+@{operator+}}
+\index{operator+@{operator+}!yy@{yy}}
+\subsubsection[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf location} yy\-::operator+ (
+\begin{DoxyParamCaption}
+\item[{location}]{res, }
+\item[{const location \&}]{end}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespaceyy_ad82fe89bde177a8060bad10aca431c79}
+
+
+Join two locations. 
+
+
+
+Definition at line 119 of file location.\-hh.
+
+\hypertarget{namespaceyy_a23f0f414cfca1fd11ff2b779ba018038}{\index{yy@{yy}!operator+@{operator+}}
+\index{operator+@{operator+}!yy@{yy}}
+\subsubsection[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf position} yy\-::operator+ (
+\begin{DoxyParamCaption}
+\item[{position}]{res, }
+\item[{int}]{width}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespaceyy_a23f0f414cfca1fd11ff2b779ba018038}
+
+
+Add {\itshape width} columns. 
+
+
+
+Definition at line 124 of file position.\-hh.
+
+\hypertarget{namespaceyy_a79201bfa5eaeb04bf279a05ff13281df}{\index{yy@{yy}!operator+@{operator+}}
+\index{operator+@{operator+}!yy@{yy}}
+\subsubsection[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}{\bf location} yy\-::operator+ (
+\begin{DoxyParamCaption}
+\item[{location}]{res, }
+\item[{int}]{width}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespaceyy_a79201bfa5eaeb04bf279a05ff13281df}
+
+
+Add {\itshape width} columns to the end position. 
+
+
+
+Definition at line 132 of file location.\-hh.
+
+\hypertarget{namespaceyy_ac14111e26538c547c68b89899951b6b7}{\index{yy@{yy}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!yy@{yy}}
+\subsubsection[{operator+=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf location}\& yy\-::operator+= (
+\begin{DoxyParamCaption}
+\item[{location \&}]{res, }
+\item[{const location \&}]{end}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespaceyy_ac14111e26538c547c68b89899951b6b7}
+
+
+Join two locations, in place. 
+
+
+
+Definition at line 112 of file location.\-hh.
+
+\hypertarget{namespaceyy_a211eb024d7e9666b07140040b079fccc}{\index{yy@{yy}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!yy@{yy}}
+\subsubsection[{operator+=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf position}\& yy\-::operator+= (
+\begin{DoxyParamCaption}
+\item[{position \&}]{res, }
+\item[{int}]{width}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespaceyy_a211eb024d7e9666b07140040b079fccc}
+
+
+Add {\itshape width} columns, in place. 
+
+
+
+Definition at line 116 of file position.\-hh.
+
+\hypertarget{namespaceyy_ab13826f998b111c25c9bf8132c4d63b8}{\index{yy@{yy}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!yy@{yy}}
+\subsubsection[{operator+=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf location}\& yy\-::operator+= (
+\begin{DoxyParamCaption}
+\item[{location \&}]{res, }
+\item[{int}]{width}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespaceyy_ab13826f998b111c25c9bf8132c4d63b8}
+
+
+Add {\itshape width} columns to the end position, in place. 
+
+
+
+Definition at line 125 of file location.\-hh.
+
+\hypertarget{namespaceyy_af6d37eb09001871194885eb8d31fef92}{\index{yy@{yy}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!yy@{yy}}
+\subsubsection[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf position} yy\-::operator-\/ (
+\begin{DoxyParamCaption}
+\item[{position}]{res, }
+\item[{int}]{width}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespaceyy_af6d37eb09001871194885eb8d31fef92}
+
+
+Subtract {\itshape width} columns. 
+
+
+
+Definition at line 138 of file position.\-hh.
+
+\hypertarget{namespaceyy_a9b8304a3c3584980893db5d974c08d01}{\index{yy@{yy}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!yy@{yy}}
+\subsubsection[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}{\bf location} yy\-::operator-\/ (
+\begin{DoxyParamCaption}
+\item[{location}]{res, }
+\item[{int}]{width}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespaceyy_a9b8304a3c3584980893db5d974c08d01}
+
+
+Subtract {\itshape width} columns to the end position. 
+
+
+
+Definition at line 144 of file location.\-hh.
+
+\hypertarget{namespaceyy_a4cad44f80947f872e1bbf32fec9b7973}{\index{yy@{yy}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!yy@{yy}}
+\subsubsection[{operator-\/=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf position}\& yy\-::operator-\/= (
+\begin{DoxyParamCaption}
+\item[{position \&}]{res, }
+\item[{int}]{width}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespaceyy_a4cad44f80947f872e1bbf32fec9b7973}
+
+
+Subtract {\itshape width} columns, in place. 
+
+
+
+Definition at line 131 of file position.\-hh.
+
+\hypertarget{namespaceyy_adf13d2c8b51d1b5c23eb84fce25d202c}{\index{yy@{yy}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!yy@{yy}}
+\subsubsection[{operator-\/=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf location}\& yy\-::operator-\/= (
+\begin{DoxyParamCaption}
+\item[{location \&}]{res, }
+\item[{int}]{width}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespaceyy_adf13d2c8b51d1b5c23eb84fce25d202c}
+
+
+Subtract {\itshape width} columns to the end position, in place. 
+
+
+
+Definition at line 138 of file location.\-hh.
+
+\hypertarget{namespaceyy_ac0f65a84b37cc3e7731a310eb240b952}{\index{yy@{yy}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!yy@{yy}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Y\-Y\-Char $>$ std\-::basic\-\_\-ostream$<$Y\-Y\-Char$>$\& yy\-::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::basic\-\_\-ostream$<$ Y\-Y\-Char $>$ \&}]{ostr, }
+\item[{const position \&}]{pos}
+\end{DoxyParamCaption}
+)}}\label{namespaceyy_ac0f65a84b37cc3e7731a310eb240b952}
+
+
+Intercept output stream redirection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ostr} & the destination output stream \\
+\hline
+{\em pos} & a reference to the position to redirect \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 167 of file position.\-hh.
+
+\hypertarget{namespaceyy_a0406f2358d6ba6b06648ff66f3508aad}{\index{yy@{yy}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!yy@{yy}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Y\-Y\-Char $>$ std\-::basic\-\_\-ostream$<$Y\-Y\-Char$>$\& yy\-::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\-::basic\-\_\-ostream$<$ Y\-Y\-Char $>$ \&}]{ostr, }
+\item[{const location \&}]{loc}
+\end{DoxyParamCaption}
+)}}\label{namespaceyy_a0406f2358d6ba6b06648ff66f3508aad}
+
+
+Intercept output stream redirection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ostr} & the destination output stream \\
+\hline
+{\em loc} & a reference to the location to redirect\\
+\hline
+\end{DoxyParams}
+Avoid duplicate information. 
+
+Definition at line 171 of file location.\-hh.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{namespaceyy_a0406f2358d6ba6b06648ff66f3508aad_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{namespaceyy_a30a61b0569cd2c9ea4ae16eb4994c7b3}{\index{yy@{yy}!operator==@{operator==}}
+\index{operator==@{operator==}!yy@{yy}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool yy\-::operator== (
+\begin{DoxyParamCaption}
+\item[{const position \&}]{pos1, }
+\item[{const position \&}]{pos2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespaceyy_a30a61b0569cd2c9ea4ae16eb4994c7b3}
+
+
+Compare two position objects. 
+
+
+
+Definition at line 145 of file position.\-hh.
+
+\hypertarget{namespaceyy_a466b6e3dcf6a743bb058bf4989b38047}{\index{yy@{yy}!operator==@{operator==}}
+\index{operator==@{operator==}!yy@{yy}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool yy\-::operator== (
+\begin{DoxyParamCaption}
+\item[{const location \&}]{loc1, }
+\item[{const location \&}]{loc2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{namespaceyy_a466b6e3dcf6a743bb058bf4989b38047}
+
+
+Compare two location objects. 
+
+
+
+Definition at line 151 of file location.\-hh.
+

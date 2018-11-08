@@ -1,9 +1,11 @@
 <map id="ModelPersistenceMyImpl1::saveAsTXT" name="ModelPersistenceMyImpl1::saveAsTXT">
-<area shape="rect" id="node2" href="$class_model.html#ae5773d78fc47cb35be7fbeb74b7d63e4" title="Model::getComponents" alt="" coords="235,5,392,32"/>
-<area shape="rect" id="node3" href="$class_list.html#a570498345450f635b72d1ca2675145cc" title="List::getList" alt="" coords="268,56,359,83"/>
-<area shape="rect" id="node4" href="$class_model.html#ac1a47354f008dc27fcb7fc902bb8d664" title="Model::getInfrastructure\lTypenames" alt="" coords="233,107,393,149"/>
-<area shape="rect" id="node5" href="$class_model.html#a43ca6ff93bd0b9fbc4c2792962e6b4ed" title="Model::getInfrastructures" alt="" coords="230,173,397,200"/>
-<area shape="rect" id="node8" href="$class_model.html#a5de086b514742e84b61ac9a7b128ae8b" title="Model::trace" alt="" coords="266,224,361,251"/>
-<area shape="rect" id="node6" href="$class_list.html#a31a37746c0d960f2f2bb4071b2735c5e" title="List::setSortFunc" alt="" coords="452,144,575,171"/>
-<area shape="rect" id="node7" href="$class_model_infrastructure.html#aa4d3fa8f302cc6dc4fccdd3187e6a168" title="ModelInfrastructure\l::getId" alt="" coords="446,195,581,237"/>
+<area shape="rect" id="node2" href="$class_model.html#ae5773d78fc47cb35be7fbeb74b7d63e4" title="Model::getComponents" alt="" coords="248,5,405,32"/>
+<area shape="rect" id="node3" href="$class_list.html#a570498345450f635b72d1ca2675145cc" title="List::getList" alt="" coords="281,56,372,83"/>
+<area shape="rect" id="node4" href="$class_model.html#a944c2b2dffd691d4aafc2d4028c02e6b" title="Model::getInfraManager" alt="" coords="247,107,406,133"/>
+<area shape="rect" id="node5" href="$class_infrastructure_manager.html#aaf3ff8d9288b333d21a202caae797bc7" title="InfrastructureManager\l::getInfrastructureTypenames" alt="" coords="230,158,423,199"/>
+<area shape="rect" id="node6" href="$class_infrastructure_manager.html#a1d013b55994e27cac0c45c1ad08f74e0" title="InfrastructureManager\l::getInfrastructures" alt="" coords="252,223,401,265"/>
+<area shape="rect" id="node9" href="$class_model.html#adc0de22631d77864b7956591c39ebc60" title="Model::getTracer" alt="" coords="267,289,387,316"/>
+<area shape="rect" id="node10" href="$class_trace_manager.html#a242d77829b85a436fd2aab2092bfa50c" title="TraceManager::trace" alt="" coords="255,340,398,367"/>
+<area shape="rect" id="node7" href="$class_list.html#a31a37746c0d960f2f2bb4071b2735c5e" title="List::setSortFunc" alt="" coords="479,201,601,228"/>
+<area shape="rect" id="node8" href="$class_model_infrastructure.html#aa4d3fa8f302cc6dc4fccdd3187e6a168" title="ModelInfrastructure\l::getId" alt="" coords="473,253,607,294"/>
 </map>

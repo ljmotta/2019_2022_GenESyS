@@ -1,3 +1,4 @@
 <map id="Assign::Assignment::getDestination" name="Assign::Assignment::getDestination">
-<area shape="rect" id="node2" href="$class_assign.html#a5fabf69268b2e65d8b01ce247be87a40" title="Assign::_execute" alt="" coords="192,12,315,39"/>
+<area shape="rect" id="node2" href="$class_assign.html#a5fabf69268b2e65d8b01ce247be87a40" title="Assign::_execute" alt="" coords="211,5,333,32"/>
+<area shape="rect" id="node3" href="$class_assign.html#a5f3a7d8a7214574fea926cae1b1acb94" title="Assign::_verifySymbols" alt="" coords="192,56,352,83"/>
 </map>

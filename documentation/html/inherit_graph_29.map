@@ -1,5 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_sampler__if.html" title="Sampler_if" alt="" coords="6,31,90,57"/>
-<area shape="rect" id="node2" href="$class_sampler___bru_fab_joa.html" title="Sampler_BruFabJoa" alt="" coords="139,5,279,32"/>
-<area shape="rect" id="node3" href="$class_sampler_my_impl1.html" title="SamplerMyImpl1" alt="" coords="149,56,269,83"/>
+<area shape="rect" id="node1" href="$class_parser__if.html" title="Parser_if" alt="" coords="5,31,80,57"/>
+<area shape="rect" id="node2" href="$class_parser_flex_bison_impl.html" title="ParserFlexBisonImpl" alt="" coords="129,5,271,32"/>
+<area shape="rect" id="node3" href="$class_parser_my_impl1.html" title="ParserMyImpl1" alt="" coords="145,56,255,83"/>
 </map>

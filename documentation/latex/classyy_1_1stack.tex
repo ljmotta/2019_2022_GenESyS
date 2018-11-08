@@ -1,0 +1,240 @@
+\hypertarget{classyy_1_1stack}{\section{yy\-:\-:stack$<$ T, S $>$ Class Template Reference}
+\label{classyy_1_1stack}\index{yy\-::stack$<$ T, S $>$@{yy\-::stack$<$ T, S $>$}}
+}
+
+
+A stack with random access from its top.  
+
+
+
+
+{\ttfamily \#include $<$stack.\-hh$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef S\-::reverse\-\_\-iterator \hyperlink{classyy_1_1stack_a959921144f243952520a2178121cbe6f}{iterator}
+\item 
+typedef S\-::const\-\_\-reverse\-\_\-iterator \hyperlink{classyy_1_1stack_a0cab3a74b0947ce6de68c3520b9229ab}{const\-\_\-iterator}
+\item 
+typedef S\-::size\-\_\-type \hyperlink{classyy_1_1stack_a691214fce87b366b08f7ceb4217d6f27}{size\-\_\-type}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classyy_1_1stack_a40ce1d12c5c83edbae23a0a52aaa6d97}{stack} ()
+\item 
+\hyperlink{classyy_1_1stack_ab800bf742c78bdab971c56b3610e59bd}{stack} (\hyperlink{classyy_1_1stack_a691214fce87b366b08f7ceb4217d6f27}{size\-\_\-type} n)
+\item 
+T \& \hyperlink{classyy_1_1stack_a7ba7094e58db1a3ea0e0c0446abfb1fa}{operator\mbox{[}$\,$\mbox{]}} (\hyperlink{classyy_1_1stack_a691214fce87b366b08f7ceb4217d6f27}{size\-\_\-type} i)
+\item 
+const T \& \hyperlink{classyy_1_1stack_ad6ff3ddf67a8d49f9259853152ff8d06}{operator\mbox{[}$\,$\mbox{]}} (\hyperlink{classyy_1_1stack_a691214fce87b366b08f7ceb4217d6f27}{size\-\_\-type} i) const 
+\item 
+void \hyperlink{classyy_1_1stack_acf2b971ffb94c77b56fc0249b55250fa}{push} (T \&t)
+\item 
+void \hyperlink{classyy_1_1stack_ad5b362aa2e2809043de625efbd77c9fb}{pop} (\hyperlink{classyy_1_1stack_a691214fce87b366b08f7ceb4217d6f27}{size\-\_\-type} n=1)
+\item 
+void \hyperlink{classyy_1_1stack_ae8b2c8309dcdef98210205b1c96b2238}{clear} ()
+\item 
+\hyperlink{classyy_1_1stack_a691214fce87b366b08f7ceb4217d6f27}{size\-\_\-type} \hyperlink{classyy_1_1stack_a5894306917b11057b00e44fbb760839e}{size} () const 
+\item 
+\hyperlink{classyy_1_1stack_a0cab3a74b0947ce6de68c3520b9229ab}{const\-\_\-iterator} \hyperlink{classyy_1_1stack_a3939df081955a4ad78e14eeb9b2b5dbf}{begin} () const 
+\item 
+\hyperlink{classyy_1_1stack_a0cab3a74b0947ce6de68c3520b9229ab}{const\-\_\-iterator} \hyperlink{classyy_1_1stack_a27ade5b933a4dc8a27960c88addda2a0}{end} () const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T, class S = std\-::vector$<$\-T$>$$>$class yy\-::stack$<$ T, S $>$}
+
+A stack with random access from its top. 
+
+Definition at line 48 of file stack.\-hh.
+
+
+
+\subsection{Member Typedef Documentation}
+\hypertarget{classyy_1_1stack_a0cab3a74b0947ce6de68c3520b9229ab}{\index{yy\-::stack@{yy\-::stack}!const\-\_\-iterator@{const\-\_\-iterator}}
+\index{const\-\_\-iterator@{const\-\_\-iterator}!yy::stack@{yy\-::stack}}
+\subsubsection[{const\-\_\-iterator}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T, class S = std\-::vector$<$\-T$>$$>$ typedef S\-::const\-\_\-reverse\-\_\-iterator {\bf yy\-::stack}$<$ T, S $>$\-::{\bf const\-\_\-iterator}}}\label{classyy_1_1stack_a0cab3a74b0947ce6de68c3520b9229ab}
+
+
+Definition at line 53 of file stack.\-hh.
+
+\hypertarget{classyy_1_1stack_a959921144f243952520a2178121cbe6f}{\index{yy\-::stack@{yy\-::stack}!iterator@{iterator}}
+\index{iterator@{iterator}!yy::stack@{yy\-::stack}}
+\subsubsection[{iterator}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T, class S = std\-::vector$<$\-T$>$$>$ typedef S\-::reverse\-\_\-iterator {\bf yy\-::stack}$<$ T, S $>$\-::{\bf iterator}}}\label{classyy_1_1stack_a959921144f243952520a2178121cbe6f}
+
+
+Definition at line 52 of file stack.\-hh.
+
+\hypertarget{classyy_1_1stack_a691214fce87b366b08f7ceb4217d6f27}{\index{yy\-::stack@{yy\-::stack}!size\-\_\-type@{size\-\_\-type}}
+\index{size\-\_\-type@{size\-\_\-type}!yy::stack@{yy\-::stack}}
+\subsubsection[{size\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T, class S = std\-::vector$<$\-T$>$$>$ typedef S\-::size\-\_\-type {\bf yy\-::stack}$<$ T, S $>$\-::{\bf size\-\_\-type}}}\label{classyy_1_1stack_a691214fce87b366b08f7ceb4217d6f27}
+
+
+Definition at line 54 of file stack.\-hh.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classyy_1_1stack_a40ce1d12c5c83edbae23a0a52aaa6d97}{\index{yy\-::stack@{yy\-::stack}!stack@{stack}}
+\index{stack@{stack}!yy::stack@{yy\-::stack}}
+\subsubsection[{stack}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T, class S = std\-::vector$<$\-T$>$$>$ {\bf yy\-::stack}$<$ T, S $>$\-::{\bf stack} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classyy_1_1stack_a40ce1d12c5c83edbae23a0a52aaa6d97}
+
+
+Definition at line 56 of file stack.\-hh.
+
+\hypertarget{classyy_1_1stack_ab800bf742c78bdab971c56b3610e59bd}{\index{yy\-::stack@{yy\-::stack}!stack@{stack}}
+\index{stack@{stack}!yy::stack@{yy\-::stack}}
+\subsubsection[{stack}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T, class S = std\-::vector$<$\-T$>$$>$ {\bf yy\-::stack}$<$ T, S $>$\-::{\bf stack} (
+\begin{DoxyParamCaption}
+\item[{{\bf size\-\_\-type}}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classyy_1_1stack_ab800bf742c78bdab971c56b3610e59bd}
+
+
+Definition at line 61 of file stack.\-hh.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classyy_1_1stack_a3939df081955a4ad78e14eeb9b2b5dbf}{\index{yy\-::stack@{yy\-::stack}!begin@{begin}}
+\index{begin@{begin}!yy::stack@{yy\-::stack}}
+\subsubsection[{begin}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T, class S = std\-::vector$<$\-T$>$$>$ {\bf const\-\_\-iterator} {\bf yy\-::stack}$<$ T, S $>$\-::begin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classyy_1_1stack_a3939df081955a4ad78e14eeb9b2b5dbf}
+
+
+Definition at line 113 of file stack.\-hh.
+
+\hypertarget{classyy_1_1stack_ae8b2c8309dcdef98210205b1c96b2238}{\index{yy\-::stack@{yy\-::stack}!clear@{clear}}
+\index{clear@{clear}!yy::stack@{yy\-::stack}}
+\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T, class S = std\-::vector$<$\-T$>$$>$ void {\bf yy\-::stack}$<$ T, S $>$\-::clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classyy_1_1stack_ae8b2c8309dcdef98210205b1c96b2238}
+
+
+Definition at line 101 of file stack.\-hh.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classyy_1_1stack_ae8b2c8309dcdef98210205b1c96b2238_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classyy_1_1stack_a27ade5b933a4dc8a27960c88addda2a0}{\index{yy\-::stack@{yy\-::stack}!end@{end}}
+\index{end@{end}!yy::stack@{yy\-::stack}}
+\subsubsection[{end}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T, class S = std\-::vector$<$\-T$>$$>$ {\bf const\-\_\-iterator} {\bf yy\-::stack}$<$ T, S $>$\-::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classyy_1_1stack_a27ade5b933a4dc8a27960c88addda2a0}
+
+
+Definition at line 119 of file stack.\-hh.
+
+\hypertarget{classyy_1_1stack_a7ba7094e58db1a3ea0e0c0446abfb1fa}{\index{yy\-::stack@{yy\-::stack}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!yy::stack@{yy\-::stack}}
+\subsubsection[{operator[]}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T, class S = std\-::vector$<$\-T$>$$>$ T\& {\bf yy\-::stack}$<$ T, S $>$\-::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{{\bf size\-\_\-type}}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classyy_1_1stack_a7ba7094e58db1a3ea0e0c0446abfb1fa}
+Random access.
+
+Index 0 returns the topmost element. 
+
+Definition at line 69 of file stack.\-hh.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{classyy_1_1stack_a7ba7094e58db1a3ea0e0c0446abfb1fa_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classyy_1_1stack_ad6ff3ddf67a8d49f9259853152ff8d06}{\index{yy\-::stack@{yy\-::stack}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!yy::stack@{yy\-::stack}}
+\subsubsection[{operator[]}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T, class S = std\-::vector$<$\-T$>$$>$ const T\& {\bf yy\-::stack}$<$ T, S $>$\-::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{{\bf size\-\_\-type}}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classyy_1_1stack_ad6ff3ddf67a8d49f9259853152ff8d06}
+Random access.
+
+Index 0 returns the topmost element. 
+
+Definition at line 78 of file stack.\-hh.
+
+\hypertarget{classyy_1_1stack_ad5b362aa2e2809043de625efbd77c9fb}{\index{yy\-::stack@{yy\-::stack}!pop@{pop}}
+\index{pop@{pop}!yy::stack@{yy\-::stack}}
+\subsubsection[{pop}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T, class S = std\-::vector$<$\-T$>$$>$ void {\bf yy\-::stack}$<$ T, S $>$\-::pop (
+\begin{DoxyParamCaption}
+\item[{{\bf size\-\_\-type}}]{n = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classyy_1_1stack_ad5b362aa2e2809043de625efbd77c9fb}
+
+
+Definition at line 94 of file stack.\-hh.
+
+\hypertarget{classyy_1_1stack_acf2b971ffb94c77b56fc0249b55250fa}{\index{yy\-::stack@{yy\-::stack}!push@{push}}
+\index{push@{push}!yy::stack@{yy\-::stack}}
+\subsubsection[{push}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T, class S = std\-::vector$<$\-T$>$$>$ void {\bf yy\-::stack}$<$ T, S $>$\-::push (
+\begin{DoxyParamCaption}
+\item[{T \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classyy_1_1stack_acf2b971ffb94c77b56fc0249b55250fa}
+Steal the contents of {\itshape t}.
+
+Close to move-\/semantics. 
+
+Definition at line 87 of file stack.\-hh.
+
+\hypertarget{classyy_1_1stack_a5894306917b11057b00e44fbb760839e}{\index{yy\-::stack@{yy\-::stack}!size@{size}}
+\index{size@{size}!yy::stack@{yy\-::stack}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T, class S = std\-::vector$<$\-T$>$$>$ {\bf size\-\_\-type} {\bf yy\-::stack}$<$ T, S $>$\-::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classyy_1_1stack_a5894306917b11057b00e44fbb760839e}
+
+
+Definition at line 107 of file stack.\-hh.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classyy_1_1stack_a5894306917b11057b00e44fbb760839e_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{stack_8hh}{stack.\-hh}\end{DoxyCompactItemize}

@@ -1,0 +1,227 @@
+\hypertarget{classyy_1_1location}{\section{yy\-:\-:location Class Reference}
+\label{classyy_1_1location}\index{yy\-::location@{yy\-::location}}
+}
+
+
+Abstract a location.  
+
+
+
+
+{\ttfamily \#include $<$location.\-hh$>$}
+
+
+
+Collaboration diagram for yy\-:\-:location\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=146pt]{classyy_1_1location__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classyy_1_1location_a0d659c37bcd57075c7bb25e600d3f526}{location} (const \hyperlink{classyy_1_1position}{position} \&b, const \hyperlink{classyy_1_1position}{position} \&e)
+\begin{DoxyCompactList}\small\item\em Construct a location from {\itshape b} to {\itshape e}. \end{DoxyCompactList}\item 
+\hyperlink{classyy_1_1location_a378c53e8dc67416748f0b12844919e51}{location} (const \hyperlink{classyy_1_1position}{position} \&p=\hyperlink{classyy_1_1position}{position}())
+\begin{DoxyCompactList}\small\item\em Construct a 0-\/width location in {\itshape p}. \end{DoxyCompactList}\item 
+\hyperlink{classyy_1_1location_a5b27444bd50fbd3648de9bb33e0a28be}{location} (std\-::string $\ast$f, unsigned l=1u, unsigned c=1u)
+\begin{DoxyCompactList}\small\item\em Construct a 0-\/width location in {\itshape f}, {\itshape l}, {\itshape c}. \end{DoxyCompactList}\item 
+void \hyperlink{classyy_1_1location_a601b0971a35d02545733de0007587e75}{initialize} (std\-::string $\ast$f=\hyperlink{position_8hh_a5a6c82f7ce4ad9cc8c6c08b7a2de5b84}{Y\-Y\-\_\-\-N\-U\-L\-L\-P\-T\-R}, unsigned l=1u, unsigned c=1u)
+\begin{DoxyCompactList}\small\item\em Initialization. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}{\bf Line and Column related manipulators}\par
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classyy_1_1location_a96620cec8dd8ebfc96c60a03c10154d0}{step} ()
+\begin{DoxyCompactList}\small\item\em Reset initial location to final location. \end{DoxyCompactList}\item 
+void \hyperlink{classyy_1_1location_ae232b2eb7ad3aed7f5c2b080d64d931d}{columns} (int count=1)
+\begin{DoxyCompactList}\small\item\em Extend the current location to the C\-O\-U\-N\-T next columns. \end{DoxyCompactList}\item 
+void \hyperlink{classyy_1_1location_aca7f94cd71a67d27f1c90e54d8cd4ff6}{lines} (int count=1)
+\begin{DoxyCompactList}\small\item\em Extend the current location to the C\-O\-U\-N\-T next lines. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classyy_1_1position}{position} \hyperlink{classyy_1_1location_a70540e90479a85db4112b552d7e032cf}{begin}
+\begin{DoxyCompactList}\small\item\em Beginning of the located region. \end{DoxyCompactList}\item 
+\hyperlink{classyy_1_1position}{position} \hyperlink{classyy_1_1location_aa9be2a89fdb63da08167ebd4b819addd}{end}
+\begin{DoxyCompactList}\small\item\em End of the located region. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Abstract a location. 
+
+Definition at line 47 of file location.\-hh.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classyy_1_1location_a0d659c37bcd57075c7bb25e600d3f526}{\index{yy\-::location@{yy\-::location}!location@{location}}
+\index{location@{location}!yy::location@{yy\-::location}}
+\subsubsection[{location}]{\setlength{\rightskip}{0pt plus 5cm}yy\-::location\-::location (
+\begin{DoxyParamCaption}
+\item[{const {\bf position} \&}]{b, }
+\item[{const {\bf position} \&}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classyy_1_1location_a0d659c37bcd57075c7bb25e600d3f526}
+
+
+Construct a location from {\itshape b} to {\itshape e}. 
+
+
+
+Definition at line 52 of file location.\-hh.
+
+\hypertarget{classyy_1_1location_a378c53e8dc67416748f0b12844919e51}{\index{yy\-::location@{yy\-::location}!location@{location}}
+\index{location@{location}!yy::location@{yy\-::location}}
+\subsubsection[{location}]{\setlength{\rightskip}{0pt plus 5cm}yy\-::location\-::location (
+\begin{DoxyParamCaption}
+\item[{const {\bf position} \&}]{p = {\ttfamily {\bf position}~()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}}\label{classyy_1_1location_a378c53e8dc67416748f0b12844919e51}
+
+
+Construct a 0-\/width location in {\itshape p}. 
+
+
+
+Definition at line 58 of file location.\-hh.
+
+\hypertarget{classyy_1_1location_a5b27444bd50fbd3648de9bb33e0a28be}{\index{yy\-::location@{yy\-::location}!location@{location}}
+\index{location@{location}!yy::location@{yy\-::location}}
+\subsubsection[{location}]{\setlength{\rightskip}{0pt plus 5cm}yy\-::location\-::location (
+\begin{DoxyParamCaption}
+\item[{std\-::string $\ast$}]{f, }
+\item[{unsigned}]{l = {\ttfamily 1u}, }
+\item[{unsigned}]{c = {\ttfamily 1u}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}}\label{classyy_1_1location_a5b27444bd50fbd3648de9bb33e0a28be}
+
+
+Construct a 0-\/width location in {\itshape f}, {\itshape l}, {\itshape c}. 
+
+
+
+Definition at line 64 of file location.\-hh.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classyy_1_1location_ae232b2eb7ad3aed7f5c2b080d64d931d}{\index{yy\-::location@{yy\-::location}!columns@{columns}}
+\index{columns@{columns}!yy::location@{yy\-::location}}
+\subsubsection[{columns}]{\setlength{\rightskip}{0pt plus 5cm}void yy\-::location\-::columns (
+\begin{DoxyParamCaption}
+\item[{int}]{count = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classyy_1_1location_ae232b2eb7ad3aed7f5c2b080d64d931d}
+
+
+Extend the current location to the C\-O\-U\-N\-T next columns. 
+
+
+
+Definition at line 91 of file location.\-hh.
+
+\hypertarget{classyy_1_1location_a601b0971a35d02545733de0007587e75}{\index{yy\-::location@{yy\-::location}!initialize@{initialize}}
+\index{initialize@{initialize}!yy::location@{yy\-::location}}
+\subsubsection[{initialize}]{\setlength{\rightskip}{0pt plus 5cm}void yy\-::location\-::initialize (
+\begin{DoxyParamCaption}
+\item[{std\-::string $\ast$}]{f = {\ttfamily {\bf Y\-Y\-\_\-\-N\-U\-L\-L\-P\-T\-R}}, }
+\item[{unsigned}]{l = {\ttfamily 1u}, }
+\item[{unsigned}]{c = {\ttfamily 1u}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classyy_1_1location_a601b0971a35d02545733de0007587e75}
+
+
+Initialization. 
+
+
+
+Definition at line 73 of file location.\-hh.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{classyy_1_1location_a601b0971a35d02545733de0007587e75_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classyy_1_1location_aca7f94cd71a67d27f1c90e54d8cd4ff6}{\index{yy\-::location@{yy\-::location}!lines@{lines}}
+\index{lines@{lines}!yy::location@{yy\-::location}}
+\subsubsection[{lines}]{\setlength{\rightskip}{0pt plus 5cm}void yy\-::location\-::lines (
+\begin{DoxyParamCaption}
+\item[{int}]{count = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classyy_1_1location_aca7f94cd71a67d27f1c90e54d8cd4ff6}
+
+
+Extend the current location to the C\-O\-U\-N\-T next lines. 
+
+
+
+Definition at line 97 of file location.\-hh.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{classyy_1_1location_aca7f94cd71a67d27f1c90e54d8cd4ff6_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classyy_1_1location_a96620cec8dd8ebfc96c60a03c10154d0}{\index{yy\-::location@{yy\-::location}!step@{step}}
+\index{step@{step}!yy::location@{yy\-::location}}
+\subsubsection[{step}]{\setlength{\rightskip}{0pt plus 5cm}void yy\-::location\-::step (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classyy_1_1location_a96620cec8dd8ebfc96c60a03c10154d0}
+
+
+Reset initial location to final location. 
+
+
+
+Definition at line 85 of file location.\-hh.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classyy_1_1location_a70540e90479a85db4112b552d7e032cf}{\index{yy\-::location@{yy\-::location}!begin@{begin}}
+\index{begin@{begin}!yy::location@{yy\-::location}}
+\subsubsection[{begin}]{\setlength{\rightskip}{0pt plus 5cm}{\bf position} yy\-::location\-::begin}}\label{classyy_1_1location_a70540e90479a85db4112b552d7e032cf}
+
+
+Beginning of the located region. 
+
+
+
+Definition at line 106 of file location.\-hh.
+
+\hypertarget{classyy_1_1location_aa9be2a89fdb63da08167ebd4b819addd}{\index{yy\-::location@{yy\-::location}!end@{end}}
+\index{end@{end}!yy::location@{yy\-::location}}
+\subsubsection[{end}]{\setlength{\rightskip}{0pt plus 5cm}{\bf position} yy\-::location\-::end}}\label{classyy_1_1location_aa9be2a89fdb63da08167ebd4b819addd}
+
+
+End of the located region. 
+
+
+
+Definition at line 108 of file location.\-hh.
+
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{location_8hh}{location.\-hh}\end{DoxyCompactItemize}

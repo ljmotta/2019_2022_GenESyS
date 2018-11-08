@@ -34,6 +34,23 @@
             <file>file:/media/karla/Dados/Ciencia%20da%20Computação/INE5425%20-%20Modelagem%20e%20Simulação/DS2/GenESyS-Reborn/Delay.cpp</file>
             <file>file:/media/karla/Dados/Ciencia%20da%20Computação/INE5425%20-%20Modelagem%20e%20Simulação/DS2/GenESyS-Reborn/Model.cpp</file>
         </group>
-        <group name="Classes"/>
+        <group name="Classes">
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/GenesysApplication_if.h</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/Genesys++-driver.cpp</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/Genesys++-driver.h</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/main.cpp</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/stack.hh</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/ParserFlexBisonImpl.cpp</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/List.h</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/TestParser.cpp</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/Traits.h</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/TestParser.h</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/Genesys++-scanner.cpp</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/BuildSimulationModel.cpp</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/Genesys++-parser.cpp</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/Model.cpp</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/ParserMyImpl1.cpp</file>
+            <file>file:/home/cancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/Genesys++-parser.h</file>
+        </group>
     </open-files>
 </project-private>

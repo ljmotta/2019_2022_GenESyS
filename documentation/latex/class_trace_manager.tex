@@ -1,0 +1,302 @@
+\hypertarget{class_trace_manager}{\section{Trace\-Manager Class Reference}
+\label{class_trace_manager}\index{Trace\-Manager@{Trace\-Manager}}
+}
+
+
+{\ttfamily \#include $<$Trace\-Manager.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_trace_manager_ae3cb94c21a56691462d818ae8acd30cf}{Trace\-Manager} (\hyperlink{class_model}{Model} $\ast$model)
+\item 
+\hyperlink{class_trace_manager_af3564e61b170274e281ff6265c36e31a}{Trace\-Manager} (const \hyperlink{class_trace_manager}{Trace\-Manager} \&orig)
+\item 
+virtual \hyperlink{class_trace_manager_a0f0988540948118357e571343d8fc48f}{$\sim$\-Trace\-Manager} ()
+\item 
+void \hyperlink{class_trace_manager_a73ff0914b70780d4a7ef6336a7cf75d8}{add\-Trace\-Listener} (\hyperlink{_trace_manager_8h_a5ce1a9a31f5f0fa77de45c6e6622c435}{trace\-Listener} \hyperlink{_trace_manager_8h_a5ce1a9a31f5f0fa77de45c6e6622c435}{trace\-Listener})
+\item 
+void \hyperlink{class_trace_manager_a55c6d2c1ba87272b81a6384e3b39ddba}{add\-Trace\-Error\-Listener} (\hyperlink{_trace_manager_8h_afad9be20bdf6a8241ae57bc2fcb678c7}{trace\-Error\-Listener} \hyperlink{_trace_manager_8h_afad9be20bdf6a8241ae57bc2fcb678c7}{trace\-Error\-Listener})
+\item 
+void \hyperlink{class_trace_manager_a5479d4665fdf4f11d54c718d4ce84ffe}{add\-Trace\-Report\-Listener} (\hyperlink{_trace_manager_8h_a5ce1a9a31f5f0fa77de45c6e6622c435}{trace\-Listener} trace\-Report\-Listener)
+\item 
+void \hyperlink{class_trace_manager_a75f2f2e8aaf4f69767a51c0b5d261233}{add\-Trace\-Simulation\-Listener} (\hyperlink{_trace_manager_8h_a615775a0e20f41866ee44014f198fa59}{trace\-Simulation\-Listener} \hyperlink{_trace_manager_8h_a615775a0e20f41866ee44014f198fa59}{trace\-Simulation\-Listener})
+\item 
+void \hyperlink{class_trace_manager_a242d77829b85a436fd2aab2092bfa50c}{trace} (\hyperlink{class_util_a0a3482cfa2d915e261c0cf528fdc7afc}{Util\-::\-Trace\-Level} tracelevel, std\-::string text)
+\item 
+void \hyperlink{class_trace_manager_a774a8549d24361fa2a8f8722de0084ef}{trace\-Error} (std\-::exception e, std\-::string text)
+\item 
+void \hyperlink{class_trace_manager_a5ee0bbb874cc0ad40ff5b1a130a0699f}{trace\-Simulation} (\hyperlink{class_util_a0a3482cfa2d915e261c0cf528fdc7afc}{Util\-::\-Trace\-Level} tracelevel, double time, \hyperlink{class_entity}{Entity} $\ast$entity, \hyperlink{class_model_component}{Model\-Component} $\ast$component, std\-::string text)
+\item 
+void \hyperlink{class_trace_manager_a2f6882a0c61b991a85b54162573c93be}{trace\-Report} (\hyperlink{class_util_a0a3482cfa2d915e261c0cf528fdc7afc}{Util\-::\-Trace\-Level} tracelevel, std\-::string text)
+\item 
+\hyperlink{class_list}{List}$<$ std\-::string $>$ $\ast$ \hyperlink{class_trace_manager_aa7f2b721c237326d999357d00b1674c4}{get\-Error\-Messages} () const 
+\item 
+void \hyperlink{class_trace_manager_ab416f7b2acf9f771e61b43119125d292}{set\-Trace\-Level} (\hyperlink{class_util_a0a3482cfa2d915e261c0cf528fdc7afc}{Util\-::\-Trace\-Level} \-\_\-trace\-Level)
+\item 
+\hyperlink{class_util_a0a3482cfa2d915e261c0cf528fdc7afc}{Util\-::\-Trace\-Level} \hyperlink{class_trace_manager_a6194f059cc65ff1bef827f4ee81814d1}{get\-Trace\-Level} () const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 92 of file Trace\-Manager.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_trace_manager_ae3cb94c21a56691462d818ae8acd30cf}{\index{Trace\-Manager@{Trace\-Manager}!Trace\-Manager@{Trace\-Manager}}
+\index{Trace\-Manager@{Trace\-Manager}!TraceManager@{Trace\-Manager}}
+\subsubsection[{Trace\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Trace\-Manager\-::\-Trace\-Manager (
+\begin{DoxyParamCaption}
+\item[{{\bf Model} $\ast$}]{model}
+\end{DoxyParamCaption}
+)}}\label{class_trace_manager_ae3cb94c21a56691462d818ae8acd30cf}
+
+
+Definition at line 18 of file Trace\-Manager.\-cpp.
+
+\hypertarget{class_trace_manager_af3564e61b170274e281ff6265c36e31a}{\index{Trace\-Manager@{Trace\-Manager}!Trace\-Manager@{Trace\-Manager}}
+\index{Trace\-Manager@{Trace\-Manager}!TraceManager@{Trace\-Manager}}
+\subsubsection[{Trace\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Trace\-Manager\-::\-Trace\-Manager (
+\begin{DoxyParamCaption}
+\item[{const {\bf Trace\-Manager} \&}]{orig}
+\end{DoxyParamCaption}
+)}}\label{class_trace_manager_af3564e61b170274e281ff6265c36e31a}
+
+
+Definition at line 24 of file Trace\-Manager.\-cpp.
+
+\hypertarget{class_trace_manager_a0f0988540948118357e571343d8fc48f}{\index{Trace\-Manager@{Trace\-Manager}!$\sim$\-Trace\-Manager@{$\sim$\-Trace\-Manager}}
+\index{$\sim$\-Trace\-Manager@{$\sim$\-Trace\-Manager}!TraceManager@{Trace\-Manager}}
+\subsubsection[{$\sim$\-Trace\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Trace\-Manager\-::$\sim$\-Trace\-Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_trace_manager_a0f0988540948118357e571343d8fc48f}
+
+
+Definition at line 27 of file Trace\-Manager.\-cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_trace_manager_a55c6d2c1ba87272b81a6384e3b39ddba}{\index{Trace\-Manager@{Trace\-Manager}!add\-Trace\-Error\-Listener@{add\-Trace\-Error\-Listener}}
+\index{add\-Trace\-Error\-Listener@{add\-Trace\-Error\-Listener}!TraceManager@{Trace\-Manager}}
+\subsubsection[{add\-Trace\-Error\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}void Trace\-Manager\-::add\-Trace\-Error\-Listener (
+\begin{DoxyParamCaption}
+\item[{{\bf trace\-Error\-Listener}}]{trace\-Error\-Listener}
+\end{DoxyParamCaption}
+)}}\label{class_trace_manager_a55c6d2c1ba87272b81a6384e3b39ddba}
+
+
+Definition at line 62 of file Trace\-Manager.\-cpp.
+
+\hypertarget{class_trace_manager_a73ff0914b70780d4a7ef6336a7cf75d8}{\index{Trace\-Manager@{Trace\-Manager}!add\-Trace\-Listener@{add\-Trace\-Listener}}
+\index{add\-Trace\-Listener@{add\-Trace\-Listener}!TraceManager@{Trace\-Manager}}
+\subsubsection[{add\-Trace\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}void Trace\-Manager\-::add\-Trace\-Listener (
+\begin{DoxyParamCaption}
+\item[{{\bf trace\-Listener}}]{trace\-Listener}
+\end{DoxyParamCaption}
+)}}\label{class_trace_manager_a73ff0914b70780d4a7ef6336a7cf75d8}
+
+
+Definition at line 50 of file Trace\-Manager.\-cpp.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_trace_manager_a73ff0914b70780d4a7ef6336a7cf75d8_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_trace_manager_a5479d4665fdf4f11d54c718d4ce84ffe}{\index{Trace\-Manager@{Trace\-Manager}!add\-Trace\-Report\-Listener@{add\-Trace\-Report\-Listener}}
+\index{add\-Trace\-Report\-Listener@{add\-Trace\-Report\-Listener}!TraceManager@{Trace\-Manager}}
+\subsubsection[{add\-Trace\-Report\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}void Trace\-Manager\-::add\-Trace\-Report\-Listener (
+\begin{DoxyParamCaption}
+\item[{{\bf trace\-Listener}}]{trace\-Report\-Listener}
+\end{DoxyParamCaption}
+)}}\label{class_trace_manager_a5479d4665fdf4f11d54c718d4ce84ffe}
+
+
+Definition at line 66 of file Trace\-Manager.\-cpp.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_trace_manager_a5479d4665fdf4f11d54c718d4ce84ffe_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_trace_manager_a75f2f2e8aaf4f69767a51c0b5d261233}{\index{Trace\-Manager@{Trace\-Manager}!add\-Trace\-Simulation\-Listener@{add\-Trace\-Simulation\-Listener}}
+\index{add\-Trace\-Simulation\-Listener@{add\-Trace\-Simulation\-Listener}!TraceManager@{Trace\-Manager}}
+\subsubsection[{add\-Trace\-Simulation\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}void Trace\-Manager\-::add\-Trace\-Simulation\-Listener (
+\begin{DoxyParamCaption}
+\item[{{\bf trace\-Simulation\-Listener}}]{trace\-Simulation\-Listener}
+\end{DoxyParamCaption}
+)}}\label{class_trace_manager_a75f2f2e8aaf4f69767a51c0b5d261233}
+
+
+Definition at line 58 of file Trace\-Manager.\-cpp.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_trace_manager_a75f2f2e8aaf4f69767a51c0b5d261233_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_trace_manager_aa7f2b721c237326d999357d00b1674c4}{\index{Trace\-Manager@{Trace\-Manager}!get\-Error\-Messages@{get\-Error\-Messages}}
+\index{get\-Error\-Messages@{get\-Error\-Messages}!TraceManager@{Trace\-Manager}}
+\subsubsection[{get\-Error\-Messages}]{\setlength{\rightskip}{0pt plus 5cm}{\bf List}$<$ std\-::string $>$ $\ast$ Trace\-Manager\-::get\-Error\-Messages (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_trace_manager_aa7f2b721c237326d999357d00b1674c4}
+
+
+Definition at line 106 of file Trace\-Manager.\-cpp.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_trace_manager_aa7f2b721c237326d999357d00b1674c4_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_trace_manager_a6194f059cc65ff1bef827f4ee81814d1}{\index{Trace\-Manager@{Trace\-Manager}!get\-Trace\-Level@{get\-Trace\-Level}}
+\index{get\-Trace\-Level@{get\-Trace\-Level}!TraceManager@{Trace\-Manager}}
+\subsubsection[{get\-Trace\-Level}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Util\-::\-Trace\-Level} Trace\-Manager\-::get\-Trace\-Level (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_trace_manager_a6194f059cc65ff1bef827f4ee81814d1}
+
+
+Definition at line 35 of file Trace\-Manager.\-cpp.
+
+\hypertarget{class_trace_manager_ab416f7b2acf9f771e61b43119125d292}{\index{Trace\-Manager@{Trace\-Manager}!set\-Trace\-Level@{set\-Trace\-Level}}
+\index{set\-Trace\-Level@{set\-Trace\-Level}!TraceManager@{Trace\-Manager}}
+\subsubsection[{set\-Trace\-Level}]{\setlength{\rightskip}{0pt plus 5cm}void Trace\-Manager\-::set\-Trace\-Level (
+\begin{DoxyParamCaption}
+\item[{{\bf Util\-::\-Trace\-Level}}]{\-\_\-trace\-Level}
+\end{DoxyParamCaption}
+)}}\label{class_trace_manager_ab416f7b2acf9f771e61b43119125d292}
+
+
+Definition at line 31 of file Trace\-Manager.\-cpp.
+
+\hypertarget{class_trace_manager_a242d77829b85a436fd2aab2092bfa50c}{\index{Trace\-Manager@{Trace\-Manager}!trace@{trace}}
+\index{trace@{trace}!TraceManager@{Trace\-Manager}}
+\subsubsection[{trace}]{\setlength{\rightskip}{0pt plus 5cm}void Trace\-Manager\-::trace (
+\begin{DoxyParamCaption}
+\item[{{\bf Util\-::\-Trace\-Level}}]{tracelevel, }
+\item[{std\-::string}]{text}
+\end{DoxyParamCaption}
+)}}\label{class_trace_manager_a242d77829b85a436fd2aab2092bfa50c}
+
+
+Definition at line 70 of file Trace\-Manager.\-cpp.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_trace_manager_a242d77829b85a436fd2aab2092bfa50c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_trace_manager_a774a8549d24361fa2a8f8722de0084ef}{\index{Trace\-Manager@{Trace\-Manager}!trace\-Error@{trace\-Error}}
+\index{trace\-Error@{trace\-Error}!TraceManager@{Trace\-Manager}}
+\subsubsection[{trace\-Error}]{\setlength{\rightskip}{0pt plus 5cm}void Trace\-Manager\-::trace\-Error (
+\begin{DoxyParamCaption}
+\item[{std\-::exception}]{e, }
+\item[{std\-::string}]{text}
+\end{DoxyParamCaption}
+)}}\label{class_trace_manager_a774a8549d24361fa2a8f8722de0084ef}
+
+
+Definition at line 80 of file Trace\-Manager.\-cpp.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_trace_manager_a774a8549d24361fa2a8f8722de0084ef_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_trace_manager_a2f6882a0c61b991a85b54162573c93be}{\index{Trace\-Manager@{Trace\-Manager}!trace\-Report@{trace\-Report}}
+\index{trace\-Report@{trace\-Report}!TraceManager@{Trace\-Manager}}
+\subsubsection[{trace\-Report}]{\setlength{\rightskip}{0pt plus 5cm}void Trace\-Manager\-::trace\-Report (
+\begin{DoxyParamCaption}
+\item[{{\bf Util\-::\-Trace\-Level}}]{tracelevel, }
+\item[{std\-::string}]{text}
+\end{DoxyParamCaption}
+)}}\label{class_trace_manager_a2f6882a0c61b991a85b54162573c93be}
+
+
+Definition at line 97 of file Trace\-Manager.\-cpp.
+
+\hypertarget{class_trace_manager_a5ee0bbb874cc0ad40ff5b1a130a0699f}{\index{Trace\-Manager@{Trace\-Manager}!trace\-Simulation@{trace\-Simulation}}
+\index{trace\-Simulation@{trace\-Simulation}!TraceManager@{Trace\-Manager}}
+\subsubsection[{trace\-Simulation}]{\setlength{\rightskip}{0pt plus 5cm}void Trace\-Manager\-::trace\-Simulation (
+\begin{DoxyParamCaption}
+\item[{{\bf Util\-::\-Trace\-Level}}]{tracelevel, }
+\item[{double}]{time, }
+\item[{{\bf Entity} $\ast$}]{entity, }
+\item[{{\bf Model\-Component} $\ast$}]{component, }
+\item[{std\-::string}]{text}
+\end{DoxyParamCaption}
+)}}\label{class_trace_manager_a5ee0bbb874cc0ad40ff5b1a130a0699f}
+
+
+Definition at line 88 of file Trace\-Manager.\-cpp.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_trace_manager_a5ee0bbb874cc0ad40ff5b1a130a0699f_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_trace_manager_8h}{Trace\-Manager.\-h}\item 
+\hyperlink{_trace_manager_8cpp}{Trace\-Manager.\-cpp}\end{DoxyCompactItemize}

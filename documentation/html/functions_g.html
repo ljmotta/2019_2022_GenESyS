@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>GenESyS - Generic and Expansible System Simulator [REBORN]: Class Members</title>
+<title>ReGenESyS - Reborn Generic and Expansible System Simulator: Class Members</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -30,8 +30,8 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="software_genesys.gif"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">GenESyS - Generic and Expansible System Simulator [REBORN]
-   &#160;<span id="projectnumber">2018-2</span>
+   <div id="projectname">ReGenESyS - Reborn Generic and Expansible System Simulator
+   &#160;<span id="projectnumber">20182.3</span>
    </div>
    <div id="projectbrief">Generic System Simulator</div>
   </td>
@@ -99,9 +99,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li class="current"><a href="functions_g.html#index_g"><span>g</span></a></li>
       <li><a href="functions_h.html#index_h"><span>h</span></a></li>
       <li><a href="functions_i.html#index_i"><span>i</span></a></li>
+      <li><a href="functions_k.html#index_k"><span>k</span></a></li>
       <li><a href="functions_l.html#index_l"><span>l</span></a></li>
       <li><a href="functions_m.html#index_m"><span>m</span></a></li>
       <li><a href="functions_n.html#index_n"><span>n</span></a></li>
+      <li><a href="functions_o.html#index_o"><span>o</span></a></li>
       <li><a href="functions_p.html#index_p"><span>p</span></a></li>
       <li><a href="functions_q.html#index_q"><span>q</span></a></li>
       <li><a href="functions_r.html#index_r"><span>r</span></a></li>
@@ -110,6 +112,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions_u.html#index_u"><span>u</span></a></li>
       <li><a href="functions_v.html#index_v"><span>v</span></a></li>
       <li><a href="functions_w.html#index_w"><span>w</span></a></li>
+      <li><a href="functions_y.html#index_y"><span>y</span></a></li>
       <li><a href="functions_~.html#index_~"><span>~</span></a></li>
     </ul>
   </div>
@@ -133,7 +136,7 @@ $(document).ready(function(){initNavTree('functions_g.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(10)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -159,11 +162,17 @@ $(document).ready(function(){initNavTree('functions_g.html','');});
 <li>GenerateNewIdOfType()
 : <a class="el" href="class_util.html#a96dd76236d7f5888b8dac562e93f9278">Util</a>
 </li>
+<li>genesyspp_driver()
+: <a class="el" href="classgenesyspp__driver.html#a84483fcf1a1c5fa027080f42606445a3">genesyspp_driver</a>
+</li>
+<li>genesyspp_parser()
+: <a class="el" href="classyy_1_1genesyspp__parser.html#a49ace3543d937b9db0b6a95d82cc7697">yy::genesyspp_parser</a>
+</li>
 <li>getAllocationType()
 : <a class="el" href="class_seize.html#ac40f22e56d4448c5d5bae40b64ef4deb">Seize</a>
 </li>
 <li>getAnalystName()
-: <a class="el" href="class_model.html#a9b539226cc78c36bfe911252e9ccd055">Model</a>
+: <a class="el" href="class_model_info.html#a9cdad4bf93758de01d5e913f62f1640c">ModelInfo</a>
 </li>
 <li>getAssignments()
 : <a class="el" href="class_assign.html#aca4aaa2185cc8770e56e1b6928c33dc0">Assign</a>
@@ -173,6 +182,9 @@ $(document).ready(function(){initNavTree('functions_g.html','');});
 </li>
 <li>getCapacity()
 : <a class="el" href="class_resource.html#a0aa3a9287571af52be298611580e661e">Resource</a>
+</li>
+<li>getCheckedConnection()
+: <a class="el" href="class_model_component.html#a142b21a42547af06ceba81678eeccabc">ModelComponent</a>
 </li>
 <li>getCollector()
 : <a class="el" href="class_statistics__if.html#a49a730541ca9a3d8272f39f4000485c4">Statistics_if</a>
@@ -238,8 +250,8 @@ $(document).ready(function(){initNavTree('functions_g.html','');});
 , <a class="el" href="class_collector_datafile_cancian_impl.html#a216e46f526becc3dd4b4772e07256b81">CollectorDatafileCancianImpl</a>
 , <a class="el" href="class_collector_datafile_my_impl1.html#a5ebe8076b9eb9816a1b7d823943102cf">CollectorDatafileMyImpl1</a>
 , <a class="el" href="class_fitter__if.html#a3c6926020b1224a960890fe308abcc86">Fitter_if</a>
+, <a class="el" href="class_fitter_joao_souto.html#a38d3a9322091a1ecacb0c520bf178797">FitterJoaoSouto</a>
 , <a class="el" href="class_fitter_my_impl1.html#a7a9ea5c0a702ba2880dd3ed652f92030">FitterMyImpl1</a>
-, <a class="el" href="class_hypothesis_tester__ar.html#ae0a1ebf795bb6581a4a0d6afc2495779">HypothesisTester_ar</a>
 , <a class="el" href="class_hypothesis_tester__if.html#a37b02ea209d8f6b566af9e2fff6511cc">HypothesisTester_if</a>
 , <a class="el" href="class_hypothesis_tester_my_impl1.html#a78fc8e7ab09108a7c7698cc3a182b9d7">HypothesisTesterMyImpl1</a>
 </li>
@@ -250,7 +262,7 @@ $(document).ready(function(){initNavTree('functions_g.html','');});
 : <a class="el" href="class_delay.html#a0561a6fdb4dd317952b5bb8d87b0c15f">Delay</a>
 </li>
 <li>getDescription()
-: <a class="el" href="class_model.html#a40ad9af9a5cebe907d483fb51d0f4974">Model</a>
+: <a class="el" href="class_model_info.html#ad98a56d449f906db347e50bead1f1610">ModelInfo</a>
 </li>
 <li>getDestination()
 : <a class="el" href="class_assign_1_1_assignment.html#a6cf7ecd2950dfc709985a1ede3773be8">Assign::Assignment</a>
@@ -279,11 +291,13 @@ $(document).ready(function(){initNavTree('functions_g.html','');});
 : <a class="el" href="class_entity.html#a860a6385aa2af6b8d205a8e3ea912c38">Entity</a>
 </li>
 <li>getErrorMessage()
-: <a class="el" href="class_parser__if.html#ac5a1c10d89c4867750784308944d1521">Parser_if</a>
+: <a class="el" href="classgenesyspp__driver.html#aa7498e1f29e32ce86bb74aa1e4967bb3">genesyspp_driver</a>
+, <a class="el" href="class_parser__if.html#ac5a1c10d89c4867750784308944d1521">Parser_if</a>
+, <a class="el" href="class_parser_flex_bison_impl.html#a76f69104a38e541ee28bae08dc0eb972">ParserFlexBisonImpl</a>
 , <a class="el" href="class_parser_my_impl1.html#a7eaf41f45375fd462a47aee51924e74f">ParserMyImpl1</a>
 </li>
 <li>getErrorMessages()
-: <a class="el" href="class_model.html#ae0d77f48384e180cfabb8fd8ed16e4db">Model</a>
+: <a class="el" href="class_trace_manager.html#aa7f2b721c237326d999357d00b1674c4">TraceManager</a>
 </li>
 <li>getEvents()
 : <a class="el" href="class_model.html#a841c78bda0eb27c652c6921094dc5921">Model</a>
@@ -293,6 +307,9 @@ $(document).ready(function(){initNavTree('functions_g.html','');});
 </li>
 <li>getExpression()
 : <a class="el" href="class_assign_1_1_assignment.html#a724dc03a686c4d53d57ee45b7617ae2f">Assign::Assignment</a>
+</li>
+<li>getFile()
+: <a class="el" href="classgenesyspp__driver.html#a9edaab76f72429d4c2c24478e6db94dd">genesyspp_driver</a>
 </li>
 <li>getFirstCreation()
 : <a class="el" href="class_source_model_component.html#ab7688b78b8e069ebe245446dce9224f7">SourceModelComponent</a>
@@ -304,14 +321,20 @@ $(document).ready(function(){initNavTree('functions_g.html','');});
 : <a class="el" href="class_model.html#abfd7753d30de6abea64b3f0846e097eb">Model</a>
 , <a class="el" href="class_model_infrastructure.html#aa4d3fa8f302cc6dc4fccdd3187e6a168">ModelInfrastructure</a>
 </li>
+<li>getInfos()
+: <a class="el" href="class_model.html#ac0f1ea5fbbeba7a2992ee13516e7522f">Model</a>
+</li>
+<li>getInfraManager()
+: <a class="el" href="class_model.html#a944c2b2dffd691d4aafc2d4028c02e6b">Model</a>
+</li>
 <li>getInfrastructure()
-: <a class="el" href="class_model.html#ab460d8d215b5e4fb353f129c04493fa5">Model</a>
+: <a class="el" href="class_infrastructure_manager.html#a2c957eee5107d521e8292cb6f8e9ea5b">InfrastructureManager</a>
 </li>
 <li>getInfrastructures()
-: <a class="el" href="class_model.html#a43ca6ff93bd0b9fbc4c2792962e6b4ed">Model</a>
+: <a class="el" href="class_infrastructure_manager.html#a1d013b55994e27cac0c45c1ad08f74e0">InfrastructureManager</a>
 </li>
 <li>getInfrastructureTypenames()
-: <a class="el" href="class_model.html#ac1a47354f008dc27fcb7fc902bb8d664">Model</a>
+: <a class="el" href="class_infrastructure_manager.html#aaf3ff8d9288b333d21a202caae797bc7">InfrastructureManager</a>
 </li>
 <li>getInitialNVACost()
 : <a class="el" href="class_entity_type.html#ae8b26deba82e687d5a07b863f750baf4">EntityType</a>
@@ -346,6 +369,9 @@ $(document).ready(function(){initNavTree('functions_g.html','');});
 <li>getMaxCreations()
 : <a class="el" href="class_source_model_component.html#a52795a6abee5baacaad70b86c7434cbd">SourceModelComponent</a>
 </li>
+<li>getModel()
+: <a class="el" href="classgenesyspp__driver.html#a405d93fa806bb21e1a9711dc6bb34957">genesyspp_driver</a>
+</li>
 <li>getModelCoefficient()
 : <a class="el" href="class_factor_or_interaction_contribution.html#af1d9b3083c6176a1ac96f6abfa476c3c">FactorOrInteractionContribution</a>
 </li>
@@ -356,7 +382,7 @@ $(document).ready(function(){initNavTree('functions_g.html','');});
 : <a class="el" href="class_simulator.html#adf2949b99c40c3c94c790786de1a038f">Simulator</a>
 </li>
 <li>getName()
-: <a class="el" href="class_model.html#a1a1c7e795ee409d8e61c942db5f94d17">Model</a>
+: <a class="el" href="class_model_info.html#a562466f43f7995be34d74dc6dfd22985">ModelInfo</a>
 , <a class="el" href="class_model_infrastructure.html#ac06ca99d36c8d1a957697ef003e979b1">ModelInfrastructure</a>
 , <a class="el" href="class_simulation_response.html#a2f1db747e9dfd4d641d761b6cf23af9b">SimulationResponse</a>
 , <a class="el" href="class_simulation_scenario.html#af724f4ff5cbdba527ee60c8cbaba0da0">SimulationScenario</a>
@@ -369,10 +395,16 @@ $(document).ready(function(){initNavTree('functions_g.html','');});
 : <a class="el" href="class_resource.html#a6fafa0b8da75c9596ca52932482a5568">Resource</a>
 </li>
 <li>getNumberOfReplications()
-: <a class="el" href="class_model.html#af2fe357b860298f4977f8f48cee7115a">Model</a>
+: <a class="el" href="class_model_info.html#a66d8ae9376d62d74ea770d9e88e1bd89">ModelInfo</a>
 </li>
 <li>getNumberOut()
 : <a class="el" href="class_resource.html#a1aedd0bf239010a6b7e2a6c15a324481">Resource</a>
+</li>
+<li>getOnEventManager()
+: <a class="el" href="class_model.html#afc9de1c6025e8332830b29958ede63a2">Model</a>
+</li>
+<li>getParent()
+: <a class="el" href="class_model.html#a69ed4849ae7708a83ace16abb7251b20">Model</a>
 </li>
 <li>getPlugins()
 : <a class="el" href="class_simulator.html#a0e68b96d9af4bb7cf3f0b8a5c2e66d31">Simulator</a>
@@ -381,18 +413,20 @@ $(document).ready(function(){initNavTree('functions_g.html','');});
 : <a class="el" href="class_integrator__if.html#af3ab4e8ffa96c8970b2e3c980f84e89d">Integrator_if</a>
 , <a class="el" href="class_integrator_diogo_impl.html#acf41eec88194f5608b5944f146f82485">IntegratorDiogoImpl</a>
 , <a class="el" href="class_integrator_my_impl1.html#aea9d2dd973771048d4468af0ff8ec0d7">IntegratorMyImpl1</a>
-, <a class="el" href="classstd_1_1_integrator__ar.html#ad8d6b4d05cfba786880e3b27712ec2a8">std::Integrator_ar</a>
 </li>
 <li>getPriority()
 : <a class="el" href="class_release.html#acada98c95b08a9070630cde5bd922aaf">Release</a>
 , <a class="el" href="class_seize.html#aae382dc1d1d3dc9a3de927cc9d7811c9">Seize</a>
+</li>
+<li>getProbs()
+: <a class="el" href="classgenesyspp__driver.html#aa472e7863e26b977531c2e04d58ea27f">genesyspp_driver</a>
 </li>
 <li>getProcessAnalyser()
 : <a class="el" href="class_experiment_design__if.html#ad3d35aef077b45d683e408ee756d83aa">ExperimentDesign_if</a>
 , <a class="el" href="class_experiment_design_my_impl1.html#a776e79e146621df6b6966b2e1e99ffc0">ExperimentDesignMyImpl1</a>
 </li>
 <li>getProjectTitle()
-: <a class="el" href="class_model.html#ae2197c7da38542ec199491c3d5797efd">Model</a>
+: <a class="el" href="class_model_info.html#a1995a8639f6c33bff4e31c6b80247bb5">ModelInfo</a>
 </li>
 <li>getQuantity()
 : <a class="el" href="class_release.html#ab71d29f1a502f6b0a1d65d34ff999efc">Release</a>
@@ -404,10 +438,13 @@ $(document).ready(function(){initNavTree('functions_g.html','');});
 , <a class="el" href="class_seize.html#a37f2b1a10e1ae390d5186a87bdebe30a">Seize</a>
 </li>
 <li>getReplicationLength()
-: <a class="el" href="class_model.html#a6bb4d4fbf90f49c990a00385a9df18d9">Model</a>
+: <a class="el" href="class_model_info.html#ab3d0f7e09c769b410618f99404b1eb4c">ModelInfo</a>
 </li>
 <li>getReplicationLengthTimeUnit()
-: <a class="el" href="class_model.html#aeaba7aa3fb5a75f469b7617910eee446">Model</a>
+: <a class="el" href="class_model_info.html#a4a6537a0fde41408839c7070f3d8f2b5">ModelInfo</a>
+</li>
+<li>getReplicationNumber()
+: <a class="el" href="class_replication_event.html#a652579ddce76b2d845cf3b51c7e826a4">ReplicationEvent</a>
 </li>
 <li>getResourceName()
 : <a class="el" href="class_release.html#a75e54be899af04450feb2d8a1c32cfe7">Release</a>
@@ -431,6 +468,9 @@ $(document).ready(function(){initNavTree('functions_g.html','');});
 <li>getResponseValues()
 : <a class="el" href="class_simulation_scenario.html#a344580e94b9bbab4f89398cff8362620">SimulationScenario</a>
 </li>
+<li>getResult()
+: <a class="el" href="classgenesyspp__driver.html#a10d4649f733221a892e0d6f5fe3659d3">genesyspp_driver</a>
+</li>
 <li>getRNGparameters()
 : <a class="el" href="class_sampler___bru_fab_joa.html#ac0c836807825ae2b4e7de6fd07e6efa9">Sampler_BruFabJoa</a>
 , <a class="el" href="class_sampler__if.html#adb21edf9170ad5d9b27f4788db74bafa">Sampler_if</a>
@@ -452,13 +492,22 @@ $(document).ready(function(){initNavTree('functions_g.html','');});
 , <a class="el" href="class_process_analyser_my_impl1.html#a17c3b2c84926e051d8152f257480debd">ProcessAnalyserMyImpl1</a>
 </li>
 <li>getSimulatedTime()
-: <a class="el" href="class_model.html#a74eb096b8229aa036d11adeeb8787599">Model</a>
+: <a class="el" href="class_model_simulation.html#abd147072d362838f89d0b37e7bf16024">ModelSimulation</a>
+</li>
+<li>getSimulation()
+: <a class="el" href="class_model.html#a217487c8193eb6c0afd95a9315cd51bb">Model</a>
+</li>
+<li>getStrToParse()
+: <a class="el" href="classgenesyspp__driver.html#a584da6b8e120a13da594408b2633986b">genesyspp_driver</a>
 </li>
 <li>getTerminatingCondition()
-: <a class="el" href="class_model.html#a3da1140b818632e728fd57445ab1880b">Model</a>
+: <a class="el" href="class_model_info.html#a31137229cc0de318e238bc9f18f021e2">ModelInfo</a>
 </li>
 <li>getText()
 : <a class="el" href="class_trace_event.html#a7d38a69ad31f86e77a10b9e7a88a6d9c">TraceEvent</a>
+</li>
+<li>getThrowsException()
+: <a class="el" href="classgenesyspp__driver.html#a5399165bbc4939caa37c0def36fc7bd0">genesyspp_driver</a>
 </li>
 <li>getTime()
 : <a class="el" href="class_event.html#a008a7989d0849a45613917cedc27f27e">Event</a>
@@ -473,11 +522,14 @@ $(document).ready(function(){initNavTree('functions_g.html','');});
 <li>getTimeUnit()
 : <a class="el" href="class_source_model_component.html#a16ef9a226d3f57ad1c0c098cf0dfc8f7">SourceModelComponent</a>
 </li>
-<li>getTraceLevel()
-: <a class="el" href="class_model.html#a0fa341be1579f13861af2eda84d4f840">Model</a>
-</li>
 <li>getTracelevel()
 : <a class="el" href="class_trace_event.html#a807c41f98545db38343e77059825606d">TraceEvent</a>
+</li>
+<li>getTraceLevel()
+: <a class="el" href="class_trace_manager.html#a6194f059cc65ff1bef827f4ee81814d1">TraceManager</a>
+</li>
+<li>getTracer()
+: <a class="el" href="class_model.html#adc0de22631d77864b7956591c39ebc60">Model</a>
 </li>
 <li>getType()
 : <a class="el" href="class_simulation_response.html#a3fd37c35a74ec17b651eea2e145ecf4f">SimulationResponse</a>
@@ -491,14 +543,17 @@ $(document).ready(function(){initNavTree('functions_g.html','');});
 , <a class="el" href="class_variable.html#a010d43b1092dbc6c3a1c2e0e3e4fc611">Variable</a>
 </li>
 <li>getVersion()
-: <a class="el" href="class_model.html#a073ecbf56dfd06e46af31bbd67a0402d">Model</a>
+: <a class="el" href="class_model_info.html#a3edf40723a25ac5e48f687f61edfd831">ModelInfo</a>
 , <a class="el" href="class_simulator.html#a2e9d26646db9e0cc35a870514d8dcc3e">Simulator</a>
 </li>
 <li>getWarmUpPeriod()
-: <a class="el" href="class_model.html#aa7b278f97a29269a18dbcbb6513f39da">Model</a>
+: <a class="el" href="class_model_info.html#acdbb7b038db5c12d7b5e8e19674a778e">ModelInfo</a>
 </li>
 <li>getWarmUpPeriodTimeUnit()
-: <a class="el" href="class_model.html#a12a97aefe53ac31b8e7801b50a87715a">Model</a>
+: <a class="el" href="class_model_info.html#adec436c79560bbfa5ec4e2bc21ae0450">ModelInfo</a>
+</li>
+<li>GREATER
+: <a class="el" href="structyy_1_1genesyspp__parser_1_1token.html#a473652e1e69da7c38a16e5d2aaac94b9a9de71cedf58a7b5e8df5aed2948e28a7">yy::genesyspp_parser::token</a>
 </li>
 <li>GREATER_THAN
 : <a class="el" href="class_hypothesis_tester__if.html#a89153ff990252f9f79856a2f2532c349ad0539d107f27b07e600a3c46da5b1934">HypothesisTester_if</a>
@@ -509,7 +564,7 @@ $(document).ready(function(){initNavTree('functions_g.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Oct 10 2018 20:34:03 for GenESyS - Generic and Expansible System Simulator [REBORN] by
+    <li class="footer">Generated on Thu Nov 8 2018 20:21:19 for ReGenESyS - Reborn Generic and Expansible System Simulator by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

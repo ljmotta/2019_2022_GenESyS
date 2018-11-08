@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['debugged',['debugged',['../struct_traits.html#a0abb19a116800ab778598eed38bad4a0',1,'Traits']]]
+  ['begin',['begin',['../classyy_1_1location.html#a70540e90479a85db4112b552d7e032cf',1,'yy::location']]]
 ];

@@ -8,30 +8,30 @@
 \subsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-enum \hyperlink{class_util_aadbd82055afeaa7d4fb4da513de628ff}{Time\-Unit} \{ \\*
-\hyperlink{class_util_aadbd82055afeaa7d4fb4da513de628ffa61a2b7f78d5154e21558eeb7f7dcf189}{T\-U\-\_\-picosecond} = 1, 
-\hyperlink{class_util_aadbd82055afeaa7d4fb4da513de628ffa180a2c9d13a0f09f4736faadcf647652}{T\-U\-\_\-nanosecond} = 2, 
-\hyperlink{class_util_aadbd82055afeaa7d4fb4da513de628ffaea45c265b26be1b824e13c8c0197c596}{T\-U\-\_\-microsecond} = 3, 
-\hyperlink{class_util_aadbd82055afeaa7d4fb4da513de628ffab2d1939f8eede127ea155ff7377a6408}{T\-U\-\_\-milisecond} = 4, 
+enum \hyperlink{class_util_a28504cc2fecc9aa47154cba4e625ec6f}{Time\-Unit} \-: int \{ \\*
+\hyperlink{class_util_a28504cc2fecc9aa47154cba4e625ec6fa50260728dd9e5aa12e649cbfc7d99e2d}{Time\-Unit\-::picosecond} = 1, 
+\hyperlink{class_util_a28504cc2fecc9aa47154cba4e625ec6fa0d7938bf86d4dc7a82f872433a9e1a1c}{Time\-Unit\-::nanosecond} = 2, 
+\hyperlink{class_util_a28504cc2fecc9aa47154cba4e625ec6faf4b6d59819445e05b152c708db4ede10}{Time\-Unit\-::microsecond} = 3, 
+\hyperlink{class_util_a28504cc2fecc9aa47154cba4e625ec6fa40974a3007d9bde9588006a36d0c9ab5}{Time\-Unit\-::milisecond} = 4, 
 \\*
-\hyperlink{class_util_aadbd82055afeaa7d4fb4da513de628ffa2b8682aecb882a22a72fa80cee868574}{T\-U\-\_\-second} = 5, 
-\hyperlink{class_util_aadbd82055afeaa7d4fb4da513de628ffa8a8dec2e0147e6d1d6de316c6607022c}{T\-U\-\_\-minute} = 6, 
-\hyperlink{class_util_aadbd82055afeaa7d4fb4da513de628ffaed08a13fb576de0d635c1ada62e6ed64}{T\-U\-\_\-hour} = 7, 
-\hyperlink{class_util_aadbd82055afeaa7d4fb4da513de628ffa7c189f7f3cfd7d611da081990ebd3971}{T\-U\-\_\-day} = 8, 
+\hyperlink{class_util_a28504cc2fecc9aa47154cba4e625ec6faa9f0e61a137d86aa9db53465e0801612}{Time\-Unit\-::second} = 5, 
+\hyperlink{class_util_a28504cc2fecc9aa47154cba4e625ec6fa0a7d55be9d12a369a6a8da0fb517fba4}{Time\-Unit\-::minute} = 6, 
+\hyperlink{class_util_a28504cc2fecc9aa47154cba4e625ec6fa896c55cc5e46fab38ce9f51ebf7bfcd3}{Time\-Unit\-::hour} = 7, 
+\hyperlink{class_util_a28504cc2fecc9aa47154cba4e625ec6fa628b7db04235f228d40adc671413a8c8}{Time\-Unit\-::day} = 8, 
 \\*
-\hyperlink{class_util_aadbd82055afeaa7d4fb4da513de628ffa556642171373fb32274a3ff32e9818a9}{T\-U\-\_\-week} = 9
+\hyperlink{class_util_a28504cc2fecc9aa47154cba4e625ec6fa172a8327fcd3685ab3c0f740d031da09}{Time\-Unit\-::week} = 9
  \}
 \item 
-enum \hyperlink{class_util_a604561d00f5999b5ca280401140e58d9}{Trace\-Level} \{ \\*
-\hyperlink{class_util_a604561d00f5999b5ca280401140e58d9ae16cd2d59f52612b89b7a094bf6ed758}{T\-L\-\_\-no\-Traces} = 0, 
-\hyperlink{class_util_a604561d00f5999b5ca280401140e58d9a301dc2838784fa24261650a639c11cf1}{T\-L\-\_\-errors} = 10, 
-\hyperlink{class_util_a604561d00f5999b5ca280401140e58d9a5db79a751ceac892c087e3acb5069e22}{T\-L\-\_\-report} = 20, 
-\hyperlink{class_util_a604561d00f5999b5ca280401140e58d9a4b58bddec93bc38da370802e995c3e60}{T\-L\-\_\-simulation} = 30, 
+enum \hyperlink{class_util_a0a3482cfa2d915e261c0cf528fdc7afc}{Trace\-Level} \-: int \{ \\*
+\hyperlink{class_util_a0a3482cfa2d915e261c0cf528fdc7afca35fc71c3d52efde9c56df6874ac1258c}{Trace\-Level\-::no\-Traces} = 0, 
+\hyperlink{class_util_a0a3482cfa2d915e261c0cf528fdc7afca07213a0161f52846ab198be103b5ab43}{Trace\-Level\-::errors} = 10, 
+\hyperlink{class_util_a0a3482cfa2d915e261c0cf528fdc7afcae98d2f001da5678b39482efbdf5770dc}{Trace\-Level\-::report} = 20, 
+\hyperlink{class_util_a0a3482cfa2d915e261c0cf528fdc7afca9e083ec666c9f3db044bb7c381640227}{Trace\-Level\-::simulation} = 30, 
 \\*
-\hyperlink{class_util_a604561d00f5999b5ca280401140e58d9a8b8962b6e41245523e7d7b967f582272}{T\-L\-\_\-transfer\-Only} = 40, 
-\hyperlink{class_util_a604561d00f5999b5ca280401140e58d9a3a33606fc3e2b432131173eeed280d9a}{T\-L\-\_\-block\-Arrival} = 50, 
-\hyperlink{class_util_a604561d00f5999b5ca280401140e58d9a3bf34b905a3128734e417619af900d0e}{T\-L\-\_\-block\-Internal} = 60, 
-\hyperlink{class_util_a604561d00f5999b5ca280401140e58d9a64fd55e7b2e7fa00956ebc5185cef8b0}{T\-L\-\_\-most\-Detailed} = 70
+\hyperlink{class_util_a0a3482cfa2d915e261c0cf528fdc7afca0a2e7262b7e0ff948fd4a57e7cb178b6}{Trace\-Level\-::transfer\-Only} = 40, 
+\hyperlink{class_util_a0a3482cfa2d915e261c0cf528fdc7afcaa784e286f1dae00f9b31823faa5ee90b}{Trace\-Level\-::block\-Arrival} = 50, 
+\hyperlink{class_util_a0a3482cfa2d915e261c0cf528fdc7afca08756a99ac8340cce8bab9de954d738e}{Trace\-Level\-::block\-Internal} = 60, 
+\hyperlink{class_util_a0a3482cfa2d915e261c0cf528fdc7afcaac18d2ea075dba67f95df9a907eee741}{Trace\-Level\-::most\-Detailed} = 70
  \}
 \item 
 typedef unsigned long \hyperlink{class_util_ad17d458d9344b10bba64347e514d6d71}{identitifcation}
@@ -43,7 +43,7 @@ typedef unsigned int \hyperlink{class_util_a2a402b3a3a889d699bb3a1a87cbe6d1e}{ra
 \item 
 static \hyperlink{class_util_ad17d458d9344b10bba64347e514d6d71}{Util\-::identitifcation} \hyperlink{class_util_a59ecba8027c38a9d0a3a0e9e9dc94ad7}{Generate\-New\-Id} ()
 \item 
-static double \hyperlink{class_util_a5f537febaa83db4721745a4730657bab}{Time\-Unit\-Convert} (\hyperlink{class_util_aadbd82055afeaa7d4fb4da513de628ff}{Util\-::\-Time\-Unit} time\-Unit1, \hyperlink{class_util_aadbd82055afeaa7d4fb4da513de628ff}{Util\-::\-Time\-Unit} time\-Unit2)
+static double \hyperlink{class_util_a5f537febaa83db4721745a4730657bab}{Time\-Unit\-Convert} (\hyperlink{class_util_a28504cc2fecc9aa47154cba4e625ec6f}{Util\-::\-Time\-Unit} time\-Unit1, \hyperlink{class_util_a28504cc2fecc9aa47154cba4e625ec6f}{Util\-::\-Time\-Unit} time\-Unit2)
 \item 
 static \hyperlink{class_util_ad17d458d9344b10bba64347e514d6d71}{Util\-::identitifcation} \hyperlink{class_util_a96dd76236d7f5888b8dac562e93f9278}{Generate\-New\-Id\-Of\-Type} (std\-::string objtyp)
 \item 
@@ -86,58 +86,58 @@ Definition at line 25 of file Util.\-h.
 
 
 \subsection{Member Enumeration Documentation}
-\hypertarget{class_util_aadbd82055afeaa7d4fb4da513de628ff}{\index{Util@{Util}!Time\-Unit@{Time\-Unit}}
+\hypertarget{class_util_a28504cc2fecc9aa47154cba4e625ec6f}{\index{Util@{Util}!Time\-Unit@{Time\-Unit}}
 \index{Time\-Unit@{Time\-Unit}!Util@{Util}}
-\subsubsection[{Time\-Unit}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Util\-::\-Time\-Unit}}}\label{class_util_aadbd82055afeaa7d4fb4da513de628ff}
+\subsubsection[{Time\-Unit}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Util\-::\-Time\-Unit} \-: int\hspace{0.3cm}{\ttfamily [strong]}}}\label{class_util_a28504cc2fecc9aa47154cba4e625ec6f}
 \begin{Desc}
 \item[Enumerator]\par
 \begin{description}
-\index{T\-U\-\_\-picosecond@{T\-U\-\_\-picosecond}!Util@{Util}}\index{Util@{Util}!T\-U\-\_\-picosecond@{T\-U\-\_\-picosecond}}\item[{\em 
-\hypertarget{class_util_aadbd82055afeaa7d4fb4da513de628ffa61a2b7f78d5154e21558eeb7f7dcf189}{T\-U\-\_\-picosecond}\label{class_util_aadbd82055afeaa7d4fb4da513de628ffa61a2b7f78d5154e21558eeb7f7dcf189}
-}]\index{T\-U\-\_\-nanosecond@{T\-U\-\_\-nanosecond}!Util@{Util}}\index{Util@{Util}!T\-U\-\_\-nanosecond@{T\-U\-\_\-nanosecond}}\item[{\em 
-\hypertarget{class_util_aadbd82055afeaa7d4fb4da513de628ffa180a2c9d13a0f09f4736faadcf647652}{T\-U\-\_\-nanosecond}\label{class_util_aadbd82055afeaa7d4fb4da513de628ffa180a2c9d13a0f09f4736faadcf647652}
-}]\index{T\-U\-\_\-microsecond@{T\-U\-\_\-microsecond}!Util@{Util}}\index{Util@{Util}!T\-U\-\_\-microsecond@{T\-U\-\_\-microsecond}}\item[{\em 
-\hypertarget{class_util_aadbd82055afeaa7d4fb4da513de628ffaea45c265b26be1b824e13c8c0197c596}{T\-U\-\_\-microsecond}\label{class_util_aadbd82055afeaa7d4fb4da513de628ffaea45c265b26be1b824e13c8c0197c596}
-}]\index{T\-U\-\_\-milisecond@{T\-U\-\_\-milisecond}!Util@{Util}}\index{Util@{Util}!T\-U\-\_\-milisecond@{T\-U\-\_\-milisecond}}\item[{\em 
-\hypertarget{class_util_aadbd82055afeaa7d4fb4da513de628ffab2d1939f8eede127ea155ff7377a6408}{T\-U\-\_\-milisecond}\label{class_util_aadbd82055afeaa7d4fb4da513de628ffab2d1939f8eede127ea155ff7377a6408}
-}]\index{T\-U\-\_\-second@{T\-U\-\_\-second}!Util@{Util}}\index{Util@{Util}!T\-U\-\_\-second@{T\-U\-\_\-second}}\item[{\em 
-\hypertarget{class_util_aadbd82055afeaa7d4fb4da513de628ffa2b8682aecb882a22a72fa80cee868574}{T\-U\-\_\-second}\label{class_util_aadbd82055afeaa7d4fb4da513de628ffa2b8682aecb882a22a72fa80cee868574}
-}]\index{T\-U\-\_\-minute@{T\-U\-\_\-minute}!Util@{Util}}\index{Util@{Util}!T\-U\-\_\-minute@{T\-U\-\_\-minute}}\item[{\em 
-\hypertarget{class_util_aadbd82055afeaa7d4fb4da513de628ffa8a8dec2e0147e6d1d6de316c6607022c}{T\-U\-\_\-minute}\label{class_util_aadbd82055afeaa7d4fb4da513de628ffa8a8dec2e0147e6d1d6de316c6607022c}
-}]\index{T\-U\-\_\-hour@{T\-U\-\_\-hour}!Util@{Util}}\index{Util@{Util}!T\-U\-\_\-hour@{T\-U\-\_\-hour}}\item[{\em 
-\hypertarget{class_util_aadbd82055afeaa7d4fb4da513de628ffaed08a13fb576de0d635c1ada62e6ed64}{T\-U\-\_\-hour}\label{class_util_aadbd82055afeaa7d4fb4da513de628ffaed08a13fb576de0d635c1ada62e6ed64}
-}]\index{T\-U\-\_\-day@{T\-U\-\_\-day}!Util@{Util}}\index{Util@{Util}!T\-U\-\_\-day@{T\-U\-\_\-day}}\item[{\em 
-\hypertarget{class_util_aadbd82055afeaa7d4fb4da513de628ffa7c189f7f3cfd7d611da081990ebd3971}{T\-U\-\_\-day}\label{class_util_aadbd82055afeaa7d4fb4da513de628ffa7c189f7f3cfd7d611da081990ebd3971}
-}]\index{T\-U\-\_\-week@{T\-U\-\_\-week}!Util@{Util}}\index{Util@{Util}!T\-U\-\_\-week@{T\-U\-\_\-week}}\item[{\em 
-\hypertarget{class_util_aadbd82055afeaa7d4fb4da513de628ffa556642171373fb32274a3ff32e9818a9}{T\-U\-\_\-week}\label{class_util_aadbd82055afeaa7d4fb4da513de628ffa556642171373fb32274a3ff32e9818a9}
+\index{picosecond@{picosecond}!Util@{Util}}\index{Util@{Util}!picosecond@{picosecond}}\item[{\em 
+\hypertarget{class_util_a28504cc2fecc9aa47154cba4e625ec6fa50260728dd9e5aa12e649cbfc7d99e2d}{picosecond}\label{class_util_a28504cc2fecc9aa47154cba4e625ec6fa50260728dd9e5aa12e649cbfc7d99e2d}
+}]\index{nanosecond@{nanosecond}!Util@{Util}}\index{Util@{Util}!nanosecond@{nanosecond}}\item[{\em 
+\hypertarget{class_util_a28504cc2fecc9aa47154cba4e625ec6fa0d7938bf86d4dc7a82f872433a9e1a1c}{nanosecond}\label{class_util_a28504cc2fecc9aa47154cba4e625ec6fa0d7938bf86d4dc7a82f872433a9e1a1c}
+}]\index{microsecond@{microsecond}!Util@{Util}}\index{Util@{Util}!microsecond@{microsecond}}\item[{\em 
+\hypertarget{class_util_a28504cc2fecc9aa47154cba4e625ec6faf4b6d59819445e05b152c708db4ede10}{microsecond}\label{class_util_a28504cc2fecc9aa47154cba4e625ec6faf4b6d59819445e05b152c708db4ede10}
+}]\index{milisecond@{milisecond}!Util@{Util}}\index{Util@{Util}!milisecond@{milisecond}}\item[{\em 
+\hypertarget{class_util_a28504cc2fecc9aa47154cba4e625ec6fa40974a3007d9bde9588006a36d0c9ab5}{milisecond}\label{class_util_a28504cc2fecc9aa47154cba4e625ec6fa40974a3007d9bde9588006a36d0c9ab5}
+}]\index{second@{second}!Util@{Util}}\index{Util@{Util}!second@{second}}\item[{\em 
+\hypertarget{class_util_a28504cc2fecc9aa47154cba4e625ec6faa9f0e61a137d86aa9db53465e0801612}{second}\label{class_util_a28504cc2fecc9aa47154cba4e625ec6faa9f0e61a137d86aa9db53465e0801612}
+}]\index{minute@{minute}!Util@{Util}}\index{Util@{Util}!minute@{minute}}\item[{\em 
+\hypertarget{class_util_a28504cc2fecc9aa47154cba4e625ec6fa0a7d55be9d12a369a6a8da0fb517fba4}{minute}\label{class_util_a28504cc2fecc9aa47154cba4e625ec6fa0a7d55be9d12a369a6a8da0fb517fba4}
+}]\index{hour@{hour}!Util@{Util}}\index{Util@{Util}!hour@{hour}}\item[{\em 
+\hypertarget{class_util_a28504cc2fecc9aa47154cba4e625ec6fa896c55cc5e46fab38ce9f51ebf7bfcd3}{hour}\label{class_util_a28504cc2fecc9aa47154cba4e625ec6fa896c55cc5e46fab38ce9f51ebf7bfcd3}
+}]\index{day@{day}!Util@{Util}}\index{Util@{Util}!day@{day}}\item[{\em 
+\hypertarget{class_util_a28504cc2fecc9aa47154cba4e625ec6fa628b7db04235f228d40adc671413a8c8}{day}\label{class_util_a28504cc2fecc9aa47154cba4e625ec6fa628b7db04235f228d40adc671413a8c8}
+}]\index{week@{week}!Util@{Util}}\index{Util@{Util}!week@{week}}\item[{\em 
+\hypertarget{class_util_a28504cc2fecc9aa47154cba4e625ec6fa172a8327fcd3685ab3c0f740d031da09}{week}\label{class_util_a28504cc2fecc9aa47154cba4e625ec6fa172a8327fcd3685ab3c0f740d031da09}
 }]\end{description}
 \end{Desc}
 
 
 Definition at line 27 of file Util.\-h.
 
-\hypertarget{class_util_a604561d00f5999b5ca280401140e58d9}{\index{Util@{Util}!Trace\-Level@{Trace\-Level}}
+\hypertarget{class_util_a0a3482cfa2d915e261c0cf528fdc7afc}{\index{Util@{Util}!Trace\-Level@{Trace\-Level}}
 \index{Trace\-Level@{Trace\-Level}!Util@{Util}}
-\subsubsection[{Trace\-Level}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Util\-::\-Trace\-Level}}}\label{class_util_a604561d00f5999b5ca280401140e58d9}
+\subsubsection[{Trace\-Level}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Util\-::\-Trace\-Level} \-: int\hspace{0.3cm}{\ttfamily [strong]}}}\label{class_util_a0a3482cfa2d915e261c0cf528fdc7afc}
 \begin{Desc}
 \item[Enumerator]\par
 \begin{description}
-\index{T\-L\-\_\-no\-Traces@{T\-L\-\_\-no\-Traces}!Util@{Util}}\index{Util@{Util}!T\-L\-\_\-no\-Traces@{T\-L\-\_\-no\-Traces}}\item[{\em 
-\hypertarget{class_util_a604561d00f5999b5ca280401140e58d9ae16cd2d59f52612b89b7a094bf6ed758}{T\-L\-\_\-no\-Traces}\label{class_util_a604561d00f5999b5ca280401140e58d9ae16cd2d59f52612b89b7a094bf6ed758}
-}]\index{T\-L\-\_\-errors@{T\-L\-\_\-errors}!Util@{Util}}\index{Util@{Util}!T\-L\-\_\-errors@{T\-L\-\_\-errors}}\item[{\em 
-\hypertarget{class_util_a604561d00f5999b5ca280401140e58d9a301dc2838784fa24261650a639c11cf1}{T\-L\-\_\-errors}\label{class_util_a604561d00f5999b5ca280401140e58d9a301dc2838784fa24261650a639c11cf1}
-}]\index{T\-L\-\_\-report@{T\-L\-\_\-report}!Util@{Util}}\index{Util@{Util}!T\-L\-\_\-report@{T\-L\-\_\-report}}\item[{\em 
-\hypertarget{class_util_a604561d00f5999b5ca280401140e58d9a5db79a751ceac892c087e3acb5069e22}{T\-L\-\_\-report}\label{class_util_a604561d00f5999b5ca280401140e58d9a5db79a751ceac892c087e3acb5069e22}
-}]\index{T\-L\-\_\-simulation@{T\-L\-\_\-simulation}!Util@{Util}}\index{Util@{Util}!T\-L\-\_\-simulation@{T\-L\-\_\-simulation}}\item[{\em 
-\hypertarget{class_util_a604561d00f5999b5ca280401140e58d9a4b58bddec93bc38da370802e995c3e60}{T\-L\-\_\-simulation}\label{class_util_a604561d00f5999b5ca280401140e58d9a4b58bddec93bc38da370802e995c3e60}
-}]\index{T\-L\-\_\-transfer\-Only@{T\-L\-\_\-transfer\-Only}!Util@{Util}}\index{Util@{Util}!T\-L\-\_\-transfer\-Only@{T\-L\-\_\-transfer\-Only}}\item[{\em 
-\hypertarget{class_util_a604561d00f5999b5ca280401140e58d9a8b8962b6e41245523e7d7b967f582272}{T\-L\-\_\-transfer\-Only}\label{class_util_a604561d00f5999b5ca280401140e58d9a8b8962b6e41245523e7d7b967f582272}
-}]\index{T\-L\-\_\-block\-Arrival@{T\-L\-\_\-block\-Arrival}!Util@{Util}}\index{Util@{Util}!T\-L\-\_\-block\-Arrival@{T\-L\-\_\-block\-Arrival}}\item[{\em 
-\hypertarget{class_util_a604561d00f5999b5ca280401140e58d9a3a33606fc3e2b432131173eeed280d9a}{T\-L\-\_\-block\-Arrival}\label{class_util_a604561d00f5999b5ca280401140e58d9a3a33606fc3e2b432131173eeed280d9a}
-}]\index{T\-L\-\_\-block\-Internal@{T\-L\-\_\-block\-Internal}!Util@{Util}}\index{Util@{Util}!T\-L\-\_\-block\-Internal@{T\-L\-\_\-block\-Internal}}\item[{\em 
-\hypertarget{class_util_a604561d00f5999b5ca280401140e58d9a3bf34b905a3128734e417619af900d0e}{T\-L\-\_\-block\-Internal}\label{class_util_a604561d00f5999b5ca280401140e58d9a3bf34b905a3128734e417619af900d0e}
-}]\index{T\-L\-\_\-most\-Detailed@{T\-L\-\_\-most\-Detailed}!Util@{Util}}\index{Util@{Util}!T\-L\-\_\-most\-Detailed@{T\-L\-\_\-most\-Detailed}}\item[{\em 
-\hypertarget{class_util_a604561d00f5999b5ca280401140e58d9a64fd55e7b2e7fa00956ebc5185cef8b0}{T\-L\-\_\-most\-Detailed}\label{class_util_a604561d00f5999b5ca280401140e58d9a64fd55e7b2e7fa00956ebc5185cef8b0}
+\index{no\-Traces@{no\-Traces}!Util@{Util}}\index{Util@{Util}!no\-Traces@{no\-Traces}}\item[{\em 
+\hypertarget{class_util_a0a3482cfa2d915e261c0cf528fdc7afca35fc71c3d52efde9c56df6874ac1258c}{no\-Traces}\label{class_util_a0a3482cfa2d915e261c0cf528fdc7afca35fc71c3d52efde9c56df6874ac1258c}
+}]\index{errors@{errors}!Util@{Util}}\index{Util@{Util}!errors@{errors}}\item[{\em 
+\hypertarget{class_util_a0a3482cfa2d915e261c0cf528fdc7afca07213a0161f52846ab198be103b5ab43}{errors}\label{class_util_a0a3482cfa2d915e261c0cf528fdc7afca07213a0161f52846ab198be103b5ab43}
+}]\index{report@{report}!Util@{Util}}\index{Util@{Util}!report@{report}}\item[{\em 
+\hypertarget{class_util_a0a3482cfa2d915e261c0cf528fdc7afcae98d2f001da5678b39482efbdf5770dc}{report}\label{class_util_a0a3482cfa2d915e261c0cf528fdc7afcae98d2f001da5678b39482efbdf5770dc}
+}]\index{simulation@{simulation}!Util@{Util}}\index{Util@{Util}!simulation@{simulation}}\item[{\em 
+\hypertarget{class_util_a0a3482cfa2d915e261c0cf528fdc7afca9e083ec666c9f3db044bb7c381640227}{simulation}\label{class_util_a0a3482cfa2d915e261c0cf528fdc7afca9e083ec666c9f3db044bb7c381640227}
+}]\index{transfer\-Only@{transfer\-Only}!Util@{Util}}\index{Util@{Util}!transfer\-Only@{transfer\-Only}}\item[{\em 
+\hypertarget{class_util_a0a3482cfa2d915e261c0cf528fdc7afca0a2e7262b7e0ff948fd4a57e7cb178b6}{transfer\-Only}\label{class_util_a0a3482cfa2d915e261c0cf528fdc7afca0a2e7262b7e0ff948fd4a57e7cb178b6}
+}]\index{block\-Arrival@{block\-Arrival}!Util@{Util}}\index{Util@{Util}!block\-Arrival@{block\-Arrival}}\item[{\em 
+\hypertarget{class_util_a0a3482cfa2d915e261c0cf528fdc7afcaa784e286f1dae00f9b31823faa5ee90b}{block\-Arrival}\label{class_util_a0a3482cfa2d915e261c0cf528fdc7afcaa784e286f1dae00f9b31823faa5ee90b}
+}]\index{block\-Internal@{block\-Internal}!Util@{Util}}\index{Util@{Util}!block\-Internal@{block\-Internal}}\item[{\em 
+\hypertarget{class_util_a0a3482cfa2d915e261c0cf528fdc7afca08756a99ac8340cce8bab9de954d738e}{block\-Internal}\label{class_util_a0a3482cfa2d915e261c0cf528fdc7afca08756a99ac8340cce8bab9de954d738e}
+}]\index{most\-Detailed@{most\-Detailed}!Util@{Util}}\index{Util@{Util}!most\-Detailed@{most\-Detailed}}\item[{\em 
+\hypertarget{class_util_a0a3482cfa2d915e261c0cf528fdc7afcaac18d2ea075dba67f95df9a907eee741}{most\-Detailed}\label{class_util_a0a3482cfa2d915e261c0cf528fdc7afcaac18d2ea075dba67f95df9a907eee741}
 }]\end{description}
 \end{Desc}
 
@@ -176,9 +176,9 @@ Definition at line 28 of file Util.\-cpp.
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{class_util_aec5f31f4f467113c25a6aef7bb5f4a40}
+Every component or infrastructure has a unique I\-D for its class, but not unique for other classes. I\-Ds are generated sequentially for each class. 
 
-
-Definition at line 67 of file Util.\-h.
+Definition at line 73 of file Util.\-h.
 
 
 
@@ -221,9 +221,9 @@ Here is the caller graph for this function\-:\nopagebreak
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{class_util_a1010d1207367e48e1d417381f32abf1f}
+Return the name of the class used as T. 
 
-
-Definition at line 59 of file Util.\-h.
+Definition at line 62 of file Util.\-h.
 
 
 

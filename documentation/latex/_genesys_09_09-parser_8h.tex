@@ -1,0 +1,171 @@
+\hypertarget{_genesys_09_09-parser_8h}{\section{Genesys++-\/parser.h File Reference}
+\label{_genesys_09_09-parser_8h}\index{Genesys++-\/parser.\-h@{Genesys++-\/parser.\-h}}
+}
+{\ttfamily \#include $<$string$>$}\\*
+{\ttfamily \#include $<$cmath$>$}\\*
+{\ttfamily \#include \char`\"{}obj\-\_\-t.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Util.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Variable.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Queue.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Resource.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$cassert$>$}\\*
+{\ttfamily \#include $<$cstdlib$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$stdexcept$>$}\\*
+{\ttfamily \#include $<$vector$>$}\\*
+{\ttfamily \#include \char`\"{}stack.\-hh\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}location.\-hh\char`\"{}}\\*
+{\ttfamily \#include $<$typeinfo$>$}\\*
+Include dependency graph for Genesys++-\/parser.h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_genesys_09_09-parser_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_genesys_09_09-parser_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structyy_1_1variant}{yy\-::variant$<$ S $>$}
+\item 
+class \hyperlink{classyy_1_1genesyspp__parser}{yy\-::genesyspp\-\_\-parser}
+\begin{DoxyCompactList}\small\item\em A Bison parser. \end{DoxyCompactList}\item 
+union \hyperlink{unionyy_1_1genesyspp__parser_1_1union__type}{yy\-::genesyspp\-\_\-parser\-::union\-\_\-type}
+\begin{DoxyCompactList}\small\item\em An auxiliary type to compute the largest semantic type. \end{DoxyCompactList}\item 
+struct \hyperlink{structyy_1_1genesyspp__parser_1_1syntax__error}{yy\-::genesyspp\-\_\-parser\-::syntax\-\_\-error}
+\begin{DoxyCompactList}\small\item\em Syntax errors thrown from user actions. \end{DoxyCompactList}\item 
+struct \hyperlink{structyy_1_1genesyspp__parser_1_1token}{yy\-::genesyspp\-\_\-parser\-::token}
+\begin{DoxyCompactList}\small\item\em Tokens. \end{DoxyCompactList}\item 
+struct \hyperlink{structyy_1_1genesyspp__parser_1_1basic__symbol}{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol$<$ Base $>$}
+\item 
+struct \hyperlink{structyy_1_1genesyspp__parser_1_1by__type}{yy\-::genesyspp\-\_\-parser\-::by\-\_\-type}
+\begin{DoxyCompactList}\small\item\em Type access provider for token (enum) based symbols. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceyy}{yy}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_genesys_09_09-parser_8h_afd603ddcf170a7d46a33d9d780d18a4b}{Y\-Y\-A\-S\-S\-E\-R\-T}~assert
+\item 
+\#define \hyperlink{_genesys_09_09-parser_8h_a9b07478214400ec2e160dffd1d945266}{Y\-Y\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E}(Spec)~/$\ast$ empty $\ast$/
+\item 
+\#define \hyperlink{_genesys_09_09-parser_8h_ad1405f082b8df6353a9d53c9709c4d03}{Y\-Y\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E\-\_\-\-P\-U\-R\-E}~\hyperlink{_genesys_09_09-parser_8h_a9b07478214400ec2e160dffd1d945266}{Y\-Y\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E} ((\-\_\-\-\_\-pure\-\_\-\-\_\-))
+\item 
+\#define \hyperlink{_genesys_09_09-parser_8h_ab312a884bd41ff11bbd1aa6c1a0e1b0a}{Y\-Y\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E\-\_\-\-U\-N\-U\-S\-E\-D}~\hyperlink{_genesys_09_09-parser_8h_a9b07478214400ec2e160dffd1d945266}{Y\-Y\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E} ((\-\_\-\-\_\-unused\-\_\-\-\_\-))
+\item 
+\#define \hyperlink{_genesys_09_09-parser_8h_afdc60192553b70b37149691b71022d5a}{\-\_\-\-Noreturn}~\hyperlink{_genesys_09_09-parser_8h_a9b07478214400ec2e160dffd1d945266}{Y\-Y\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E} ((\-\_\-\-\_\-noreturn\-\_\-\-\_\-))
+\item 
+\#define \hyperlink{_genesys_09_09-parser_8h_a33c61e326f5675cc74eb9e1a6906595c}{Y\-Y\-U\-S\-E}(E)~((void) (E))
+\item 
+\#define \hyperlink{_genesys_09_09-parser_8h_a6d890db48971847b837a6a1397c9059a}{Y\-Y\-\_\-\-I\-N\-I\-T\-I\-A\-L\-\_\-\-V\-A\-L\-U\-E}(Value)~Value
+\item 
+\#define \hyperlink{_genesys_09_09-parser_8h_a145ddbb780f86b5f35ddfffb23e62d4d}{Y\-Y\-\_\-\-I\-G\-N\-O\-R\-E\-\_\-\-M\-A\-Y\-B\-E\-\_\-\-U\-N\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-E\-D\-\_\-\-B\-E\-G\-I\-N}
+\item 
+\#define \hyperlink{_genesys_09_09-parser_8h_a2b2abbe8d335b7933a69ac2f05a015d2}{Y\-Y\-\_\-\-I\-G\-N\-O\-R\-E\-\_\-\-M\-A\-Y\-B\-E\-\_\-\-U\-N\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-E\-D\-\_\-\-E\-N\-D}
+\item 
+\#define \hyperlink{_genesys_09_09-parser_8h_a853b3bfad6d2b2ff693dce81182e0c2e}{Y\-Y\-D\-E\-B\-U\-G}~1
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Define the yy\-::parser class. 
+
+Definition in file \hyperlink{_genesys_09_09-parser_8h_source}{Genesys++-\/parser.\-h}.
+
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_genesys_09_09-parser_8h_afdc60192553b70b37149691b71022d5a}{\index{Genesys++-\/parser.\-h@{Genesys++-\/parser.\-h}!\-\_\-\-Noreturn@{\-\_\-\-Noreturn}}
+\index{\-\_\-\-Noreturn@{\-\_\-\-Noreturn}!Genesys++-parser.h@{Genesys++-\/parser.\-h}}
+\subsubsection[{\-\_\-\-Noreturn}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-Noreturn~{\bf Y\-Y\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E} ((\-\_\-\-\_\-noreturn\-\_\-\-\_\-))}}\label{_genesys_09_09-parser_8h_afdc60192553b70b37149691b71022d5a}
+
+
+Definition at line 95 of file Genesys++-\/parser.\-h.
+
+\hypertarget{_genesys_09_09-parser_8h_a9b07478214400ec2e160dffd1d945266}{\index{Genesys++-\/parser.\-h@{Genesys++-\/parser.\-h}!Y\-Y\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E@{Y\-Y\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E}}
+\index{Y\-Y\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E@{Y\-Y\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E}!Genesys++-parser.h@{Genesys++-\/parser.\-h}}
+\subsubsection[{Y\-Y\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E(
+\begin{DoxyParamCaption}
+\item[{}]{Spec}
+\end{DoxyParamCaption}
+)~/$\ast$ empty $\ast$/}}\label{_genesys_09_09-parser_8h_a9b07478214400ec2e160dffd1d945266}
+
+
+Definition at line 78 of file Genesys++-\/parser.\-h.
+
+\hypertarget{_genesys_09_09-parser_8h_ad1405f082b8df6353a9d53c9709c4d03}{\index{Genesys++-\/parser.\-h@{Genesys++-\/parser.\-h}!Y\-Y\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E\-\_\-\-P\-U\-R\-E@{Y\-Y\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E\-\_\-\-P\-U\-R\-E}}
+\index{Y\-Y\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E\-\_\-\-P\-U\-R\-E@{Y\-Y\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E\-\_\-\-P\-U\-R\-E}!Genesys++-parser.h@{Genesys++-\/parser.\-h}}
+\subsubsection[{Y\-Y\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E\-\_\-\-P\-U\-R\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E\-\_\-\-P\-U\-R\-E~{\bf Y\-Y\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E} ((\-\_\-\-\_\-pure\-\_\-\-\_\-))}}\label{_genesys_09_09-parser_8h_ad1405f082b8df6353a9d53c9709c4d03}
+
+
+Definition at line 83 of file Genesys++-\/parser.\-h.
+
+\hypertarget{_genesys_09_09-parser_8h_ab312a884bd41ff11bbd1aa6c1a0e1b0a}{\index{Genesys++-\/parser.\-h@{Genesys++-\/parser.\-h}!Y\-Y\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E\-\_\-\-U\-N\-U\-S\-E\-D@{Y\-Y\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E\-\_\-\-U\-N\-U\-S\-E\-D}}
+\index{Y\-Y\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E\-\_\-\-U\-N\-U\-S\-E\-D@{Y\-Y\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E\-\_\-\-U\-N\-U\-S\-E\-D}!Genesys++-parser.h@{Genesys++-\/parser.\-h}}
+\subsubsection[{Y\-Y\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E\-\_\-\-U\-N\-U\-S\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E\-\_\-\-U\-N\-U\-S\-E\-D~{\bf Y\-Y\-\_\-\-A\-T\-T\-R\-I\-B\-U\-T\-E} ((\-\_\-\-\_\-unused\-\_\-\-\_\-))}}\label{_genesys_09_09-parser_8h_ab312a884bd41ff11bbd1aa6c1a0e1b0a}
+
+
+Definition at line 87 of file Genesys++-\/parser.\-h.
+
+\hypertarget{_genesys_09_09-parser_8h_a145ddbb780f86b5f35ddfffb23e62d4d}{\index{Genesys++-\/parser.\-h@{Genesys++-\/parser.\-h}!Y\-Y\-\_\-\-I\-G\-N\-O\-R\-E\-\_\-\-M\-A\-Y\-B\-E\-\_\-\-U\-N\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-E\-D\-\_\-\-B\-E\-G\-I\-N@{Y\-Y\-\_\-\-I\-G\-N\-O\-R\-E\-\_\-\-M\-A\-Y\-B\-E\-\_\-\-U\-N\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-E\-D\-\_\-\-B\-E\-G\-I\-N}}
+\index{Y\-Y\-\_\-\-I\-G\-N\-O\-R\-E\-\_\-\-M\-A\-Y\-B\-E\-\_\-\-U\-N\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-E\-D\-\_\-\-B\-E\-G\-I\-N@{Y\-Y\-\_\-\-I\-G\-N\-O\-R\-E\-\_\-\-M\-A\-Y\-B\-E\-\_\-\-U\-N\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-E\-D\-\_\-\-B\-E\-G\-I\-N}!Genesys++-parser.h@{Genesys++-\/parser.\-h}}
+\subsubsection[{Y\-Y\-\_\-\-I\-G\-N\-O\-R\-E\-\_\-\-M\-A\-Y\-B\-E\-\_\-\-U\-N\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-E\-D\-\_\-\-B\-E\-G\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-\_\-\-I\-G\-N\-O\-R\-E\-\_\-\-M\-A\-Y\-B\-E\-\_\-\-U\-N\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-E\-D\-\_\-\-B\-E\-G\-I\-N}}\label{_genesys_09_09-parser_8h_a145ddbb780f86b5f35ddfffb23e62d4d}
+
+
+Definition at line 118 of file Genesys++-\/parser.\-h.
+
+\hypertarget{_genesys_09_09-parser_8h_a2b2abbe8d335b7933a69ac2f05a015d2}{\index{Genesys++-\/parser.\-h@{Genesys++-\/parser.\-h}!Y\-Y\-\_\-\-I\-G\-N\-O\-R\-E\-\_\-\-M\-A\-Y\-B\-E\-\_\-\-U\-N\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-E\-D\-\_\-\-E\-N\-D@{Y\-Y\-\_\-\-I\-G\-N\-O\-R\-E\-\_\-\-M\-A\-Y\-B\-E\-\_\-\-U\-N\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-E\-D\-\_\-\-E\-N\-D}}
+\index{Y\-Y\-\_\-\-I\-G\-N\-O\-R\-E\-\_\-\-M\-A\-Y\-B\-E\-\_\-\-U\-N\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-E\-D\-\_\-\-E\-N\-D@{Y\-Y\-\_\-\-I\-G\-N\-O\-R\-E\-\_\-\-M\-A\-Y\-B\-E\-\_\-\-U\-N\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-E\-D\-\_\-\-E\-N\-D}!Genesys++-parser.h@{Genesys++-\/parser.\-h}}
+\subsubsection[{Y\-Y\-\_\-\-I\-G\-N\-O\-R\-E\-\_\-\-M\-A\-Y\-B\-E\-\_\-\-U\-N\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-E\-D\-\_\-\-E\-N\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-\_\-\-I\-G\-N\-O\-R\-E\-\_\-\-M\-A\-Y\-B\-E\-\_\-\-U\-N\-I\-N\-I\-T\-I\-A\-L\-I\-Z\-E\-D\-\_\-\-E\-N\-D}}\label{_genesys_09_09-parser_8h_a2b2abbe8d335b7933a69ac2f05a015d2}
+
+
+Definition at line 119 of file Genesys++-\/parser.\-h.
+
+\hypertarget{_genesys_09_09-parser_8h_a6d890db48971847b837a6a1397c9059a}{\index{Genesys++-\/parser.\-h@{Genesys++-\/parser.\-h}!Y\-Y\-\_\-\-I\-N\-I\-T\-I\-A\-L\-\_\-\-V\-A\-L\-U\-E@{Y\-Y\-\_\-\-I\-N\-I\-T\-I\-A\-L\-\_\-\-V\-A\-L\-U\-E}}
+\index{Y\-Y\-\_\-\-I\-N\-I\-T\-I\-A\-L\-\_\-\-V\-A\-L\-U\-E@{Y\-Y\-\_\-\-I\-N\-I\-T\-I\-A\-L\-\_\-\-V\-A\-L\-U\-E}!Genesys++-parser.h@{Genesys++-\/parser.\-h}}
+\subsubsection[{Y\-Y\-\_\-\-I\-N\-I\-T\-I\-A\-L\-\_\-\-V\-A\-L\-U\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-\_\-\-I\-N\-I\-T\-I\-A\-L\-\_\-\-V\-A\-L\-U\-E(
+\begin{DoxyParamCaption}
+\item[{}]{Value}
+\end{DoxyParamCaption}
+)~Value}}\label{_genesys_09_09-parser_8h_a6d890db48971847b837a6a1397c9059a}
+
+
+Definition at line 115 of file Genesys++-\/parser.\-h.
+
+\hypertarget{_genesys_09_09-parser_8h_afd603ddcf170a7d46a33d9d780d18a4b}{\index{Genesys++-\/parser.\-h@{Genesys++-\/parser.\-h}!Y\-Y\-A\-S\-S\-E\-R\-T@{Y\-Y\-A\-S\-S\-E\-R\-T}}
+\index{Y\-Y\-A\-S\-S\-E\-R\-T@{Y\-Y\-A\-S\-S\-E\-R\-T}!Genesys++-parser.h@{Genesys++-\/parser.\-h}}
+\subsubsection[{Y\-Y\-A\-S\-S\-E\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-A\-S\-S\-E\-R\-T~assert}}\label{_genesys_09_09-parser_8h_afd603ddcf170a7d46a33d9d780d18a4b}
+
+
+Definition at line 68 of file Genesys++-\/parser.\-h.
+
+\hypertarget{_genesys_09_09-parser_8h_a853b3bfad6d2b2ff693dce81182e0c2e}{\index{Genesys++-\/parser.\-h@{Genesys++-\/parser.\-h}!Y\-Y\-D\-E\-B\-U\-G@{Y\-Y\-D\-E\-B\-U\-G}}
+\index{Y\-Y\-D\-E\-B\-U\-G@{Y\-Y\-D\-E\-B\-U\-G}!Genesys++-parser.h@{Genesys++-\/parser.\-h}}
+\subsubsection[{Y\-Y\-D\-E\-B\-U\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-D\-E\-B\-U\-G~1}}\label{_genesys_09_09-parser_8h_a853b3bfad6d2b2ff693dce81182e0c2e}
+
+
+Definition at line 134 of file Genesys++-\/parser.\-h.
+
+\hypertarget{_genesys_09_09-parser_8h_a33c61e326f5675cc74eb9e1a6906595c}{\index{Genesys++-\/parser.\-h@{Genesys++-\/parser.\-h}!Y\-Y\-U\-S\-E@{Y\-Y\-U\-S\-E}}
+\index{Y\-Y\-U\-S\-E@{Y\-Y\-U\-S\-E}!Genesys++-parser.h@{Genesys++-\/parser.\-h}}
+\subsubsection[{Y\-Y\-U\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define Y\-Y\-U\-S\-E(
+\begin{DoxyParamCaption}
+\item[{}]{E}
+\end{DoxyParamCaption}
+)~((void) (E))}}\label{_genesys_09_09-parser_8h_a33c61e326f5675cc74eb9e1a6906595c}
+
+
+Definition at line 101 of file Genesys++-\/parser.\-h.
+

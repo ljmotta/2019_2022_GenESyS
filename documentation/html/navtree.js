@@ -1,9 +1,13 @@
 var NAVTREE =
 [
-  [ "GenESyS - Generic and Expansible System Simulator [REBORN]", "index.html", [
+  [ "ReGenESyS - Reborn Generic and Expansible System Simulator", "index.html", [
     [ "GenESyS-Reborn", "md__r_e_a_d_m_e.html", null ],
     [ "Namespaces", null, [
-      [ "Namespace List", "namespaces.html", "namespaces" ]
+      [ "Namespace List", "namespaces.html", "namespaces" ],
+      [ "Namespace Members", "namespacemembers.html", [
+        [ "All", "namespacemembers.html", null ],
+        [ "Functions", "namespacemembers_func.html", null ]
+      ] ]
     ] ],
     [ "Classes", null, [
       [ "Class List", "annotated.html", "annotated" ],
@@ -23,7 +27,9 @@ var NAVTREE =
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
-        [ "Typedefs", "globals_type.html", null ]
+        [ "Variables", "globals_vars.html", null ],
+        [ "Typedefs", "globals_type.html", null ],
+        [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
   ] ]
@@ -32,10 +38,13 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_8dep_8inc.html",
-"_waiting_resource_8cpp_source.html",
-"class_integrator_diogo_impl.html#ab1923d54c4e14989a50d35a284275d7e",
-"class_release.html#a25a9193717393a31a696cfcaf87f8a8b",
-"class_statistics_cancian_impl.html#aca7e7bbc2ef8611129874cc4e3cfbc15"
+"_genesys_09_09-scanner_8cpp.html#ade8fc57d3529bff56440a4f3e9c29586",
+"class_collector__if.html#aa14f7e1065af8fd38ab592e224fb7e43",
+"class_list.html#a2dce655743c2b6c7cc7c9b6034badf78",
+"class_release.html#a8dd7c5b8c0135c223bef50c9e463d980",
+"class_statistics_collector.html#a66eed8e1bd0316588575aa7310ac028b",
+"classyy_1_1slice.html#a9f09083b70527806bb0421c794ac4760",
+"structyy_1_1variant.html#ac43b5ffdcedbda5462c53832027707ac"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

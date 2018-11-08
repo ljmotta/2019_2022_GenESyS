@@ -1,6 +1,6 @@
 var class_queue =
 [
-    [ "Queue", "class_queue.html#a7cfca3637d57c4a9e37351b3426ffd40", null ],
+    [ "Queue", "class_queue.html#a67994e94c7d825b421a188c6b76f4014", null ],
     [ "Queue", "class_queue.html#a09f908d6edb810d86871bda50fdf4bac", null ],
     [ "~Queue", "class_queue.html#a00d119db8fa3050da37746e82cbcf94f", null ],
     [ "_loadInstance", "class_queue.html#ac722922c7cac47ed74502c2d7206c074", null ],

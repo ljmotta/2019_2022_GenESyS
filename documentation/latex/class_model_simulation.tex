@@ -1,0 +1,349 @@
+\hypertarget{class_model_simulation}{\section{Model\-Simulation Class Reference}
+\label{class_model_simulation}\index{Model\-Simulation@{Model\-Simulation}}
+}
+
+
+{\ttfamily \#include $<$Model\-Simulation.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_model_simulation_a273434a2086791805d46aef9afadd24d}{Model\-Simulation} (\hyperlink{class_model}{Model} $\ast$model)
+\item 
+\hyperlink{class_model_simulation_a5858ba409b91834ee922985d1ccd8feb}{Model\-Simulation} (const \hyperlink{class_model_simulation}{Model\-Simulation} \&orig)
+\item 
+virtual \hyperlink{class_model_simulation_a9ca43a1faf5b4f3bc4f4934024e4d5f1}{$\sim$\-Model\-Simulation} ()
+\item 
+void \hyperlink{class_model_simulation_a22ea961f3242d4466dc0cf392c66d5e9}{start\-Simulation} ()
+\item 
+void \hyperlink{class_model_simulation_a6ceaa12581ed433b97452958dfd3371b}{pause\-Simulation} ()
+\item 
+void \hyperlink{class_model_simulation_a68e02df4b71756d360ca0e25464447be}{step\-Simulation} ()
+\item 
+void \hyperlink{class_model_simulation_a8ee10a8bee6b90b91aba1c5ee62f0f36}{stop\-Simulation} ()
+\item 
+void \hyperlink{class_model_simulation_a0fd9ccdaf26dbf79daedfece08d9f0ea}{restart\-Simulation} ()
+\item 
+void \hyperlink{class_model_simulation_a1af329d915189bd4f295d9d1439c0fd1}{set\-Pause\-On\-Event} (bool \-\_\-pause\-On\-Event)
+\item 
+bool \hyperlink{class_model_simulation_a8874f4dfce1800cdce2e9ee68193f1c2}{is\-Pause\-On\-Event} () const 
+\item 
+void \hyperlink{class_model_simulation_a20102be83bb5d73e0ba56896e7df8e4e}{set\-Step\-By\-Step} (bool \-\_\-step\-By\-Step)
+\item 
+bool \hyperlink{class_model_simulation_af50016a6b4a066cca6194c0c0a3349e7}{is\-Step\-By\-Step} () const 
+\item 
+void \hyperlink{class_model_simulation_a990e022cf5d9a07a1467282e7999dafb}{set\-Initialize\-Statistics} (bool \-\_\-initialize\-Statistics)
+\item 
+bool \hyperlink{class_model_simulation_aa4d1e58ddc7f34a6c414b72581424fea}{is\-Initialize\-Statistics} () const 
+\item 
+void \hyperlink{class_model_simulation_a6aff149fae4ec9be0d98772e263e9508}{set\-Initialize\-System} (bool \-\_\-initialize\-System)
+\item 
+bool \hyperlink{class_model_simulation_a7ad0ce011b011a12cab4e08ca9a4bb28}{is\-Initialize\-System} () const 
+\item 
+void \hyperlink{class_model_simulation_ad41d1cfb0e7d4fcafb8bdbdb7f4de516}{set\-Pause\-On\-Replication} (bool \-\_\-pause\-Between\-Replications)
+\item 
+bool \hyperlink{class_model_simulation_a96696912f5c1098843f2fe991c69136e}{is\-Pause\-On\-Replication} () const 
+\item 
+double \hyperlink{class_model_simulation_abd147072d362838f89d0b37e7bf16024}{get\-Simulated\-Time} () const 
+\item 
+bool \hyperlink{class_model_simulation_a1cf94d6c99daef9c8de567fb29c3d7fb}{is\-Running} () const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 23 of file Model\-Simulation.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_model_simulation_a273434a2086791805d46aef9afadd24d}{\index{Model\-Simulation@{Model\-Simulation}!Model\-Simulation@{Model\-Simulation}}
+\index{Model\-Simulation@{Model\-Simulation}!ModelSimulation@{Model\-Simulation}}
+\subsubsection[{Model\-Simulation}]{\setlength{\rightskip}{0pt plus 5cm}Model\-Simulation\-::\-Model\-Simulation (
+\begin{DoxyParamCaption}
+\item[{{\bf Model} $\ast$}]{model}
+\end{DoxyParamCaption}
+)}}\label{class_model_simulation_a273434a2086791805d46aef9afadd24d}
+
+
+Definition at line 21 of file Model\-Simulation.\-cpp.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_simulation_a273434a2086791805d46aef9afadd24d_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_model_simulation_a5858ba409b91834ee922985d1ccd8feb}{\index{Model\-Simulation@{Model\-Simulation}!Model\-Simulation@{Model\-Simulation}}
+\index{Model\-Simulation@{Model\-Simulation}!ModelSimulation@{Model\-Simulation}}
+\subsubsection[{Model\-Simulation}]{\setlength{\rightskip}{0pt plus 5cm}Model\-Simulation\-::\-Model\-Simulation (
+\begin{DoxyParamCaption}
+\item[{const {\bf Model\-Simulation} \&}]{orig}
+\end{DoxyParamCaption}
+)}}\label{class_model_simulation_a5858ba409b91834ee922985d1ccd8feb}
+
+
+Definition at line 26 of file Model\-Simulation.\-cpp.
+
+\hypertarget{class_model_simulation_a9ca43a1faf5b4f3bc4f4934024e4d5f1}{\index{Model\-Simulation@{Model\-Simulation}!$\sim$\-Model\-Simulation@{$\sim$\-Model\-Simulation}}
+\index{$\sim$\-Model\-Simulation@{$\sim$\-Model\-Simulation}!ModelSimulation@{Model\-Simulation}}
+\subsubsection[{$\sim$\-Model\-Simulation}]{\setlength{\rightskip}{0pt plus 5cm}Model\-Simulation\-::$\sim$\-Model\-Simulation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_model_simulation_a9ca43a1faf5b4f3bc4f4934024e4d5f1}
+
+
+Definition at line 29 of file Model\-Simulation.\-cpp.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_model_simulation_abd147072d362838f89d0b37e7bf16024}{\index{Model\-Simulation@{Model\-Simulation}!get\-Simulated\-Time@{get\-Simulated\-Time}}
+\index{get\-Simulated\-Time@{get\-Simulated\-Time}!ModelSimulation@{Model\-Simulation}}
+\subsubsection[{get\-Simulated\-Time}]{\setlength{\rightskip}{0pt plus 5cm}double Model\-Simulation\-::get\-Simulated\-Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_model_simulation_abd147072d362838f89d0b37e7bf16024}
+
+
+Definition at line 257 of file Model\-Simulation.\-cpp.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_simulation_abd147072d362838f89d0b37e7bf16024_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_model_simulation_aa4d1e58ddc7f34a6c414b72581424fea}{\index{Model\-Simulation@{Model\-Simulation}!is\-Initialize\-Statistics@{is\-Initialize\-Statistics}}
+\index{is\-Initialize\-Statistics@{is\-Initialize\-Statistics}!ModelSimulation@{Model\-Simulation}}
+\subsubsection[{is\-Initialize\-Statistics}]{\setlength{\rightskip}{0pt plus 5cm}bool Model\-Simulation\-::is\-Initialize\-Statistics (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_model_simulation_aa4d1e58ddc7f34a6c414b72581424fea}
+
+
+Definition at line 228 of file Model\-Simulation.\-cpp.
+
+\hypertarget{class_model_simulation_a7ad0ce011b011a12cab4e08ca9a4bb28}{\index{Model\-Simulation@{Model\-Simulation}!is\-Initialize\-System@{is\-Initialize\-System}}
+\index{is\-Initialize\-System@{is\-Initialize\-System}!ModelSimulation@{Model\-Simulation}}
+\subsubsection[{is\-Initialize\-System}]{\setlength{\rightskip}{0pt plus 5cm}bool Model\-Simulation\-::is\-Initialize\-System (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_model_simulation_a7ad0ce011b011a12cab4e08ca9a4bb28}
+
+
+Definition at line 236 of file Model\-Simulation.\-cpp.
+
+\hypertarget{class_model_simulation_a8874f4dfce1800cdce2e9ee68193f1c2}{\index{Model\-Simulation@{Model\-Simulation}!is\-Pause\-On\-Event@{is\-Pause\-On\-Event}}
+\index{is\-Pause\-On\-Event@{is\-Pause\-On\-Event}!ModelSimulation@{Model\-Simulation}}
+\subsubsection[{is\-Pause\-On\-Event}]{\setlength{\rightskip}{0pt plus 5cm}bool Model\-Simulation\-::is\-Pause\-On\-Event (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_model_simulation_a8874f4dfce1800cdce2e9ee68193f1c2}
+
+
+Definition at line 220 of file Model\-Simulation.\-cpp.
+
+\hypertarget{class_model_simulation_a96696912f5c1098843f2fe991c69136e}{\index{Model\-Simulation@{Model\-Simulation}!is\-Pause\-On\-Replication@{is\-Pause\-On\-Replication}}
+\index{is\-Pause\-On\-Replication@{is\-Pause\-On\-Replication}!ModelSimulation@{Model\-Simulation}}
+\subsubsection[{is\-Pause\-On\-Replication}]{\setlength{\rightskip}{0pt plus 5cm}bool Model\-Simulation\-::is\-Pause\-On\-Replication (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_model_simulation_a96696912f5c1098843f2fe991c69136e}
+
+
+Definition at line 253 of file Model\-Simulation.\-cpp.
+
+\hypertarget{class_model_simulation_a1cf94d6c99daef9c8de567fb29c3d7fb}{\index{Model\-Simulation@{Model\-Simulation}!is\-Running@{is\-Running}}
+\index{is\-Running@{is\-Running}!ModelSimulation@{Model\-Simulation}}
+\subsubsection[{is\-Running}]{\setlength{\rightskip}{0pt plus 5cm}bool Model\-Simulation\-::is\-Running (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_model_simulation_a1cf94d6c99daef9c8de567fb29c3d7fb}
+The current time in the model being simulated, i.\-e., the instant when the current event was triggered 
+
+Definition at line 261 of file Model\-Simulation.\-cpp.
+
+\hypertarget{class_model_simulation_af50016a6b4a066cca6194c0c0a3349e7}{\index{Model\-Simulation@{Model\-Simulation}!is\-Step\-By\-Step@{is\-Step\-By\-Step}}
+\index{is\-Step\-By\-Step@{is\-Step\-By\-Step}!ModelSimulation@{Model\-Simulation}}
+\subsubsection[{is\-Step\-By\-Step}]{\setlength{\rightskip}{0pt plus 5cm}bool Model\-Simulation\-::is\-Step\-By\-Step (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_model_simulation_af50016a6b4a066cca6194c0c0a3349e7}
+
+
+Definition at line 245 of file Model\-Simulation.\-cpp.
+
+\hypertarget{class_model_simulation_a6ceaa12581ed433b97452958dfd3371b}{\index{Model\-Simulation@{Model\-Simulation}!pause\-Simulation@{pause\-Simulation}}
+\index{pause\-Simulation@{pause\-Simulation}!ModelSimulation@{Model\-Simulation}}
+\subsubsection[{pause\-Simulation}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-Simulation\-::pause\-Simulation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_model_simulation_a6ceaa12581ed433b97452958dfd3371b}
+Starts a sequential execution of a simulation, ie, a set of repliations of this model 
+
+Definition at line 192 of file Model\-Simulation.\-cpp.
+
+\hypertarget{class_model_simulation_a0fd9ccdaf26dbf79daedfece08d9f0ea}{\index{Model\-Simulation@{Model\-Simulation}!restart\-Simulation@{restart\-Simulation}}
+\index{restart\-Simulation@{restart\-Simulation}!ModelSimulation@{Model\-Simulation}}
+\subsubsection[{restart\-Simulation}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-Simulation\-::restart\-Simulation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_model_simulation_a0fd9ccdaf26dbf79daedfece08d9f0ea}
+
+
+Definition at line 213 of file Model\-Simulation.\-cpp.
+
+\hypertarget{class_model_simulation_a990e022cf5d9a07a1467282e7999dafb}{\index{Model\-Simulation@{Model\-Simulation}!set\-Initialize\-Statistics@{set\-Initialize\-Statistics}}
+\index{set\-Initialize\-Statistics@{set\-Initialize\-Statistics}!ModelSimulation@{Model\-Simulation}}
+\subsubsection[{set\-Initialize\-Statistics}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-Simulation\-::set\-Initialize\-Statistics (
+\begin{DoxyParamCaption}
+\item[{bool}]{\-\_\-initialize\-Statistics}
+\end{DoxyParamCaption}
+)}}\label{class_model_simulation_a990e022cf5d9a07a1467282e7999dafb}
+
+
+Definition at line 224 of file Model\-Simulation.\-cpp.
+
+\hypertarget{class_model_simulation_a6aff149fae4ec9be0d98772e263e9508}{\index{Model\-Simulation@{Model\-Simulation}!set\-Initialize\-System@{set\-Initialize\-System}}
+\index{set\-Initialize\-System@{set\-Initialize\-System}!ModelSimulation@{Model\-Simulation}}
+\subsubsection[{set\-Initialize\-System}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-Simulation\-::set\-Initialize\-System (
+\begin{DoxyParamCaption}
+\item[{bool}]{\-\_\-initialize\-System}
+\end{DoxyParamCaption}
+)}}\label{class_model_simulation_a6aff149fae4ec9be0d98772e263e9508}
+
+
+Definition at line 232 of file Model\-Simulation.\-cpp.
+
+\hypertarget{class_model_simulation_a1af329d915189bd4f295d9d1439c0fd1}{\index{Model\-Simulation@{Model\-Simulation}!set\-Pause\-On\-Event@{set\-Pause\-On\-Event}}
+\index{set\-Pause\-On\-Event@{set\-Pause\-On\-Event}!ModelSimulation@{Model\-Simulation}}
+\subsubsection[{set\-Pause\-On\-Event}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-Simulation\-::set\-Pause\-On\-Event (
+\begin{DoxyParamCaption}
+\item[{bool}]{\-\_\-pause\-On\-Event}
+\end{DoxyParamCaption}
+)}}\label{class_model_simulation_a1af329d915189bd4f295d9d1439c0fd1}
+
+
+Definition at line 216 of file Model\-Simulation.\-cpp.
+
+\hypertarget{class_model_simulation_ad41d1cfb0e7d4fcafb8bdbdb7f4de516}{\index{Model\-Simulation@{Model\-Simulation}!set\-Pause\-On\-Replication@{set\-Pause\-On\-Replication}}
+\index{set\-Pause\-On\-Replication@{set\-Pause\-On\-Replication}!ModelSimulation@{Model\-Simulation}}
+\subsubsection[{set\-Pause\-On\-Replication}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-Simulation\-::set\-Pause\-On\-Replication (
+\begin{DoxyParamCaption}
+\item[{bool}]{\-\_\-pause\-Between\-Replications}
+\end{DoxyParamCaption}
+)}}\label{class_model_simulation_ad41d1cfb0e7d4fcafb8bdbdb7f4de516}
+
+
+Definition at line 249 of file Model\-Simulation.\-cpp.
+
+\hypertarget{class_model_simulation_a20102be83bb5d73e0ba56896e7df8e4e}{\index{Model\-Simulation@{Model\-Simulation}!set\-Step\-By\-Step@{set\-Step\-By\-Step}}
+\index{set\-Step\-By\-Step@{set\-Step\-By\-Step}!ModelSimulation@{Model\-Simulation}}
+\subsubsection[{set\-Step\-By\-Step}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-Simulation\-::set\-Step\-By\-Step (
+\begin{DoxyParamCaption}
+\item[{bool}]{\-\_\-step\-By\-Step}
+\end{DoxyParamCaption}
+)}}\label{class_model_simulation_a20102be83bb5d73e0ba56896e7df8e4e}
+
+
+Definition at line 241 of file Model\-Simulation.\-cpp.
+
+\hypertarget{class_model_simulation_a22ea961f3242d4466dc0cf392c66d5e9}{\index{Model\-Simulation@{Model\-Simulation}!start\-Simulation@{start\-Simulation}}
+\index{start\-Simulation@{start\-Simulation}!ModelSimulation@{Model\-Simulation}}
+\subsubsection[{start\-Simulation}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-Simulation\-::start\-Simulation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_model_simulation_a22ea961f3242d4466dc0cf392c66d5e9}
+Checks the model and if ok then initialize the simulation, execute repeatedly each replication and then show simulation statistics 
+
+Definition at line 41 of file Model\-Simulation.\-cpp.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_simulation_a22ea961f3242d4466dc0cf392c66d5e9_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_simulation_a22ea961f3242d4466dc0cf392c66d5e9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_model_simulation_a68e02df4b71756d360ca0e25464447be}{\index{Model\-Simulation@{Model\-Simulation}!step\-Simulation@{step\-Simulation}}
+\index{step\-Simulation@{step\-Simulation}!ModelSimulation@{Model\-Simulation}}
+\subsubsection[{step\-Simulation}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-Simulation\-::step\-Simulation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_model_simulation_a68e02df4b71756d360ca0e25464447be}
+
+
+Definition at line 195 of file Model\-Simulation.\-cpp.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_simulation_a68e02df4b71756d360ca0e25464447be_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_model_simulation_a8ee10a8bee6b90b91aba1c5ee62f0f36}{\index{Model\-Simulation@{Model\-Simulation}!stop\-Simulation@{stop\-Simulation}}
+\index{stop\-Simulation@{stop\-Simulation}!ModelSimulation@{Model\-Simulation}}
+\subsubsection[{stop\-Simulation}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-Simulation\-::stop\-Simulation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_model_simulation_a8ee10a8bee6b90b91aba1c5ee62f0f36}
+Executes the processing of a single event, the next one in the future events list 
+
+Definition at line 210 of file Model\-Simulation.\-cpp.
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_model_simulation_8h}{Model\-Simulation.\-h}\item 
+\hyperlink{_model_simulation_8cpp}{Model\-Simulation.\-cpp}\end{DoxyCompactItemize}

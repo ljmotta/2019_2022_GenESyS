@@ -1,4 +1,10 @@
 <map id="ProbDistrib::normal" name="ProbDistrib::normal">
-<area shape="rect" id="node2" href="$_test_input_analyser_tools_8cpp.html#af7011a62619acc9f81bcb4c5a5fafbe8" title="testStudentSoftwareDevelopments" alt="" coords="190,12,415,39"/>
-<area shape="rect" id="node3" href="$class_test_input_analyser_tools.html#a8015a3024f29bddc865cb0b419214cd7" title="TestInputAnalyserTools\l::main" alt="" coords="464,5,624,46"/>
+<area shape="rect" id="node2" href="$class_fitter_joao_souto.html#a7ca82959fcf03884eaeac57367a04959" title="FitterJoaoSouto::fitNormal" alt="" coords="215,11,390,37"/>
+<area shape="rect" id="node4" href="$classyy_1_1genesyspp__parser.html#ab2fad51435ec4f28dfee2d5e4611f309" title="yy::genesyspp_parser\l::parse" alt="" coords="227,67,378,109"/>
+<area shape="rect" id="node8" href="$_test_input_analyser_tools_8cpp.html#af7011a62619acc9f81bcb4c5a5fafbe8" title="testStudentSoftwareDevelopments" alt="" coords="190,144,415,171"/>
+<area shape="rect" id="node3" href="$class_fitter_joao_souto.html#a83e95985c9bc5d419803b12a572ac743" title="FitterJoaoSouto::fitAll" alt="" coords="485,5,633,32"/>
+<area shape="rect" id="node5" href="$classgenesyspp__driver.html#a2f58e23b084877eee330915c2f4fc71f" title="genesyspp_driver::parse_file" alt="" coords="465,56,653,83"/>
+<area shape="rect" id="node6" href="$classgenesyspp__driver.html#a5e63bd1621e53aa24cf2dee47d53ebdc" title="genesyspp_driver::parse_str" alt="" coords="465,107,652,133"/>
+<area shape="rect" id="node7" href="$class_parser_flex_bison_impl.html#ae8cd1179a3fad2bf11e1ec513d9e45bb" title="ParserFlexBisonImpl\l::parse" alt="" coords="702,99,845,141"/>
+<area shape="rect" id="node9" href="$class_test_input_analyser_tools.html#a8015a3024f29bddc865cb0b419214cd7" title="TestInputAnalyserTools\l::main" alt="" coords="479,158,639,199"/>
 </map>

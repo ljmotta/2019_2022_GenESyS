@@ -19,8 +19,8 @@
 #include "Resource.h"
 
 Assign::Assign(Model* model) : ModelComponent(model) {
-	_name = "Assign " + std::to_string(Util::GenerateNewIdOfType<Assign>());
 	_model = model;
+	_name = "Assign " + std::to_string(Util::GenerateNewIdOfType<Assign>());
 }
 
 Assign::Assign(const Assign& orig) : ModelComponent(orig) {

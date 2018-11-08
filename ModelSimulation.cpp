@@ -44,11 +44,12 @@ void ModelSimulation::startSimulation() {
 		return;
 	}
 	_initSimulation();
-	/* TODO -: event onBeginSimulation */
+	_model->getOnEventManager()->NotifySimulationStartListeners(new SimulationEvent(0, nullptr));
+
 
 	for (_currentReplicationNumber = 1; _currentReplicationNumber <= _info->getNumberOfReplications(); _currentReplicationNumber++) {
 		_initReplication();
-		/* TODO -: event onBeginReplication */
+		_model->getOnEventManager()->NotifyReplicationStartListeners(new SimulationEvent(_currentReplicationNumber, nullptr));
 
 		while (!_finishReplicationCondition()) {
 			_stepSimulation();
@@ -59,7 +60,8 @@ void ModelSimulation::startSimulation() {
 			}
 		}
 
-		/* TODO -: event onEndReplication */
+		_model->getOnEventManager()->NotifyReplicationEndListeners(new SimulationEvent(_currentReplicationNumber, nullptr));
+
 
 		std::string causeTerminated = "";
 		if (_model->getEvents()->empty()) {
@@ -78,7 +80,7 @@ void ModelSimulation::startSimulation() {
 	_showSimulationStatistics();
 
 	std::cout << "Simulation has finished.\n";
-	/* TODO -: event onEndSimulation */
+	_model->getOnEventManager()->NotifySimulationEndListeners(new SimulationEvent(0, nullptr));
 
 }
 
@@ -139,7 +141,7 @@ void ModelSimulation::_stepSimulation() {
 	// process one single event
 	_model->getTracer()->trace(Util::TraceLevel::simulation, ""); // just a new line?
 	//trace(Util::TraceLevel::mostDetailed, "\ntime=" + std::to_string(this->_simulatedTime) + ",events=" + _events->show()); // + ",entities=" + _entities->show());
-	/* TODO -: event onSimulationStep */
+	_model->getOnEventManager()->NotifyReplicationStepListeners(new SimulationEvent(_currentReplicationNumber, nullptr));
 
 	Event* nextEvent;
 	nextEvent = _model->getEvents()->first();
@@ -156,6 +158,9 @@ void ModelSimulation::_processEvent(Event* event) {
 	this->_currentEntity = event->getEntity();
 	this->_currentComponent = event->getComponent();
 	_simulatedTime = event->getTime();
+
+	_model->getOnEventManager()->NotifyProcessEventListeners(new SimulationEvent(_currentReplicationNumber, event));
+
 	try {
 		event->getComponent()->Execute(event->getEntity(), event->getComponent()); // Execute is static
 	} catch (std::exception *e) {

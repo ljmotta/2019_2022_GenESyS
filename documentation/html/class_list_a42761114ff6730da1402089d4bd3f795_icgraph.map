@@ -1,4 +1,5 @@
 <map id="List::first" name="List::first">
-<area shape="rect" id="node2" href="$class_queue.html#a39a1f5a1733f61634339ecee7aac7907" title="Queue::first" alt="" coords="128,5,219,32"/>
-<area shape="rect" id="node3" href="$class_release.html#a63c3cd89082e7f6c1fb61646b93a5c32" title="Release::_execute" alt="" coords="267,5,397,32"/>
+<area shape="rect" id="node2" href="$class_infrastructure_manager.html#a8e10fe1a6a40ce020b1b63232dbb05cd" title="InfrastructureManager\l::show" alt="" coords="128,5,277,46"/>
+<area shape="rect" id="node3" href="$class_queue.html#a39a1f5a1733f61634339ecee7aac7907" title="Queue::first" alt="" coords="157,71,248,97"/>
+<area shape="rect" id="node4" href="$class_release.html#a63c3cd89082e7f6c1fb61646b93a5c32" title="Release::_execute" alt="" coords="325,71,456,97"/>
 </map>

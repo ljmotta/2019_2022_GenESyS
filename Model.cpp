@@ -19,8 +19,8 @@
 #include "Model.h"
 #include "SourceModelComponent.h"
 #include "Simulator.h"
-//#include "ParserMyImpl1.h" // avoid link error
 #include "StatisticsCollector.h"
+#include "Traits.h"
 
 bool EventCompare(const Event* a, const Event * b) {
 	return a->getTime() < b->getTime();

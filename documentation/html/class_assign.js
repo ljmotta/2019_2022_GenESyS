@@ -2,8 +2,8 @@ var class_assign =
 [
     [ "Assignment", "class_assign_1_1_assignment.html", "class_assign_1_1_assignment" ],
     [ "DestinationType", "class_assign.html#ae0f42117c12a8d0bc2bf0b7574070694", [
-      [ "Attribute", "class_assign.html#ae0f42117c12a8d0bc2bf0b7574070694ada06eaebb0fa138e88ff06aa3ec421a0", null ],
-      [ "Variable", "class_assign.html#ae0f42117c12a8d0bc2bf0b7574070694a4977ebf07df3d5858a48313de98b4692", null ]
+      [ "Attribute", "class_assign.html#ae0f42117c12a8d0bc2bf0b7574070694af2bbdf9f72c085adc4d0404e370f0f4c", null ],
+      [ "Variable", "class_assign.html#ae0f42117c12a8d0bc2bf0b7574070694a47c14840d8e15331fa420b9b2f757cd9", null ]
     ] ],
     [ "Assign", "class_assign.html#afaa746a0ce157d4606823ad508dc6281", null ],
     [ "Assign", "class_assign.html#ae4945adcf1b5dcdd3f57faa9dd85a2b0", null ],

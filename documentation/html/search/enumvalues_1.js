@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['different',['DIFFERENT',['../class_hypothesis_tester__if.html#a89153ff990252f9f79856a2f2532c349acf8c0147414ce2a7cfdc8b26854464f8',1,'HypothesisTester_if']]]
+  ['blockarrival',['blockArrival',['../class_util.html#a0a3482cfa2d915e261c0cf528fdc7afcaa784e286f1dae00f9b31823faa5ee90b',1,'Util']]],
+  ['blockinternal',['blockInternal',['../class_util.html#a0a3482cfa2d915e261c0cf528fdc7afca08756a99ac8340cce8bab9de954d738e',1,'Util']]]
 ];

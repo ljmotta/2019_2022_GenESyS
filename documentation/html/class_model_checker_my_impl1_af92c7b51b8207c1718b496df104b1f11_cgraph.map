@@ -1,4 +1,5 @@
 <map id="ModelCheckerMyImpl1::verifySymbol" name="ModelCheckerMyImpl1::verifySymbol">
-<area shape="rect" id="node2" href="$class_model.html#ae0d77f48384e180cfabb8fd8ed16e4db" title="Model::getErrorMessages" alt="" coords="211,5,381,32"/>
-<area shape="rect" id="node3" href="$class_list.html#a518d00fd77740525522949d4316e8826" title="List::insert" alt="" coords="255,56,337,83"/>
+<area shape="rect" id="node2" href="$class_model.html#adc0de22631d77864b7956591c39ebc60" title="Model::getTracer" alt="" coords="260,5,380,32"/>
+<area shape="rect" id="node3" href="$class_trace_manager.html#aa7f2b721c237326d999357d00b1674c4" title="TraceManager::getErrorMessages" alt="" coords="211,56,429,83"/>
+<area shape="rect" id="node4" href="$class_list.html#a518d00fd77740525522949d4316e8826" title="List::insert" alt="" coords="279,107,361,133"/>
 </map>

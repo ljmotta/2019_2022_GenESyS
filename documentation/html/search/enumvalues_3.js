@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['greater_5fthan',['GREATER_THAN',['../class_hypothesis_tester__if.html#a89153ff990252f9f79856a2f2532c349ad0539d107f27b07e600a3c46da5b1934',1,'HypothesisTester_if']]]
+  ['day',['day',['../class_util.html#a28504cc2fecc9aa47154cba4e625ec6fa628b7db04235f228d40adc671413a8c8',1,'Util']]],
+  ['different',['DIFFERENT',['../class_hypothesis_tester__if.html#a89153ff990252f9f79856a2f2532c349acf8c0147414ce2a7cfdc8b26854464f8',1,'HypothesisTester_if']]]
 ];

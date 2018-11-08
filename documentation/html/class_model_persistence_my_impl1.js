@@ -3,6 +3,7 @@ var class_model_persistence_my_impl1 =
     [ "ModelPersistenceMyImpl1", "class_model_persistence_my_impl1.html#a1f1c3099ee5470514ac021fbe8f6fac0", null ],
     [ "ModelPersistenceMyImpl1", "class_model_persistence_my_impl1.html#a3df2056ec9c57daea05630b3df1439b8", null ],
     [ "~ModelPersistenceMyImpl1", "class_model_persistence_my_impl1.html#ab84fa247d7415d856141a8932502c362", null ],
+    [ "isSaved", "class_model_persistence_my_impl1.html#acd16398bec06d3e0dcaa9513f0be7766", null ],
     [ "load", "class_model_persistence_my_impl1.html#a5e35c3da319f209a8d2585ec6e781a45", null ],
     [ "loadAsTXT", "class_model_persistence_my_impl1.html#aa4cf0301bf21bc177eee3e9f9320c382", null ],
     [ "loadAsXML", "class_model_persistence_my_impl1.html#a9047bd5d2f72ef6978cf27a8df38b7b5", null ],

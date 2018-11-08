@@ -28,6 +28,8 @@ virtual bool \hyperlink{class_model_persistence__if_a8c44f9b2e917b33812cbaa7c844
 virtual bool \hyperlink{class_model_persistence__if_a960acf977c56ed52a153524c6ed8d4c6}{save} (std\-::string filename)=0
 \item 
 virtual bool \hyperlink{class_model_persistence__if_a48f90bbb37e106ee4b423075660d5a73}{load} (std\-::string filename)=0
+\item 
+virtual bool \hyperlink{class_model_persistence__if_aac4b87300487d7b5a126979671c05d16}{is\-Saved} ()=0
 \end{DoxyCompactItemize}
 
 
@@ -39,6 +41,17 @@ Definition at line 22 of file Model\-Persistence\-\_\-if.\-h.
 
 
 \subsection{Member Function Documentation}
+\hypertarget{class_model_persistence__if_aac4b87300487d7b5a126979671c05d16}{\index{Model\-Persistence\-\_\-if@{Model\-Persistence\-\_\-if}!is\-Saved@{is\-Saved}}
+\index{is\-Saved@{is\-Saved}!ModelPersistence_if@{Model\-Persistence\-\_\-if}}
+\subsubsection[{is\-Saved}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Model\-Persistence\-\_\-if\-::is\-Saved (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_model_persistence__if_aac4b87300487d7b5a126979671c05d16}
+
+
+Implemented in \hyperlink{class_model_persistence_my_impl1_acd16398bec06d3e0dcaa9513f0be7766}{Model\-Persistence\-My\-Impl1}.
+
 \hypertarget{class_model_persistence__if_a48f90bbb37e106ee4b423075660d5a73}{\index{Model\-Persistence\-\_\-if@{Model\-Persistence\-\_\-if}!load@{load}}
 \index{load@{load}!ModelPersistence_if@{Model\-Persistence\-\_\-if}}
 \subsubsection[{load}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Model\-Persistence\-\_\-if\-::load (
@@ -96,7 +109,8 @@ Implemented in \hyperlink{class_model_persistence_my_impl1_ab24f2e3aea25d628748d
 
 
 
-Here is the caller graph for this function\-:\nopagebreak
+Here is the caller graph for this function\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

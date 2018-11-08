@@ -30,6 +30,8 @@ public:
 			this->_destinationType = destinationType;
 			this->_destination = destination;
 			this->_expression = expression;
+			// an assignment is always in the form:
+			// (destinationType) destination = expression
 		};
 	public:
 		void setDestination(std::string _destination) {

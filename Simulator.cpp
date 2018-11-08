@@ -12,8 +12,13 @@
  */
 
 #include "Simulator.h"
+#include "Traits.h"
 
 Simulator::Simulator() {
+	// 1:1
+	_fitter = new Traits<Fitter_if>::Implementation();
+	_sampler = new Traits<Sampler_if>::Implementation();
+
 	// instanciate 1:n attributes 
 	_plugins = new List<Plugin*>();
 	_models = new List<Model*>();

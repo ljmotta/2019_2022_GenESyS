@@ -33,11 +33,15 @@ void traceSimulationHandler(TraceSimulationEvent e) {
 	std::cout << e.getText() << std::endl;
 }
 
-void onReplicationStartHandler(ReplicationEvent* re) {
+void onReplicationStartHandler(SimulationEvent* re) {
 	std::cout << "Replication " << re->getReplicationNumber() << " starting.";
 }
 
-void onReplicationEndHandler(ReplicationEvent* re) {
+void onProcessEventHandler(SimulationEvent* re) {
+	std::cout << "Processing event " << re->getEventProcessed()->show();
+}
+
+void onReplicationEndHandler(SimulationEvent* re) {
 	std::cout << "Replication " << re->getReplicationNumber() << " ending.";
 }
 
@@ -51,6 +55,7 @@ void buildModel(Model* model) { // buildModelWithAllImplementedComponents
 	OnEventManager* ev = model->getOnEventManager();
 	ev->addOnReplicationStartListener(&onReplicationStartHandler);
 	ev->addOnReplicationEndListener(&onReplicationEndHandler);
+	ev->addOnProcessEventListener(&onProcessEventHandler);
 
 	ModelInfo* infos = model->getInfos();
 	infos->setAnalystName("Meu nome");

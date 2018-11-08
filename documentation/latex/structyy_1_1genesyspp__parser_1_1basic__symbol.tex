@@ -1,0 +1,319 @@
+\hypertarget{structyy_1_1genesyspp__parser_1_1basic__symbol}{\section{yy\-:\-:genesyspp\-\_\-parser\-:\-:basic\-\_\-symbol$<$ Base $>$ Struct Template Reference}
+\label{structyy_1_1genesyspp__parser_1_1basic__symbol}\index{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol$<$ Base $>$@{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol$<$ Base $>$}}
+}
+
+
+{\ttfamily \#include $<$Genesys++-\/parser.\-h$>$}
+
+
+
+Inheritance diagram for yy\-:\-:genesyspp\-\_\-parser\-:\-:basic\-\_\-symbol$<$ Base $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{structyy_1_1genesyspp__parser_1_1basic__symbol__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for yy\-:\-:genesyspp\-\_\-parser\-:\-:basic\-\_\-symbol$<$ Base $>$\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{structyy_1_1genesyspp__parser_1_1basic__symbol__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef Base \hyperlink{structyy_1_1genesyspp__parser_1_1basic__symbol_a1493afba8ed8b978a445fa2cb8b57867}{super\-\_\-type}
+\begin{DoxyCompactList}\small\item\em Alias to Base. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structyy_1_1genesyspp__parser_1_1basic__symbol_ac749c8aa9c095dca4f6455cb91c8a90d}{basic\-\_\-symbol} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\hyperlink{structyy_1_1genesyspp__parser_1_1basic__symbol_a9675a48bfdda3c3c4d3937124740dac4}{basic\-\_\-symbol} (const \hyperlink{structyy_1_1genesyspp__parser_1_1basic__symbol}{basic\-\_\-symbol} \&other)
+\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+\hyperlink{structyy_1_1genesyspp__parser_1_1basic__symbol_a9f10b31e1972d8e8956baff9aa2640e9}{basic\-\_\-symbol} (typename Base\-::kind\-\_\-type t, const \hyperlink{classyy_1_1genesyspp__parser_aa0276d3782ebff157827ad5e7d44f97c}{location\-\_\-type} \&l)
+\begin{DoxyCompactList}\small\item\em Constructor for valueless symbols, and symbols from each type. \end{DoxyCompactList}\item 
+\hyperlink{structyy_1_1genesyspp__parser_1_1basic__symbol_af2a91dccb375a9bc1fb9bb11c7d5907d}{basic\-\_\-symbol} (typename Base\-::kind\-\_\-type t, const \hyperlink{classobj__t}{obj\-\_\-t} \&v, const \hyperlink{classyy_1_1genesyspp__parser_aa0276d3782ebff157827ad5e7d44f97c}{location\-\_\-type} \&l)
+\item 
+\hyperlink{structyy_1_1genesyspp__parser_1_1basic__symbol_a94529fa808d843d97fad2b531bd04466}{basic\-\_\-symbol} (typename Base\-::kind\-\_\-type t, const \hyperlink{classyy_1_1genesyspp__parser_a592978b9aaaa0d61f9faf4093f5f554d}{semantic\-\_\-type} \&v, const \hyperlink{classyy_1_1genesyspp__parser_aa0276d3782ebff157827ad5e7d44f97c}{location\-\_\-type} \&l)
+\begin{DoxyCompactList}\small\item\em Constructor for symbols with semantic value. \end{DoxyCompactList}\item 
+\hyperlink{structyy_1_1genesyspp__parser_1_1basic__symbol_aeaa054339c41c834ec30bbda4dc3beff}{$\sim$basic\-\_\-symbol} ()
+\begin{DoxyCompactList}\small\item\em Destroy the symbol. \end{DoxyCompactList}\item 
+void \hyperlink{structyy_1_1genesyspp__parser_1_1basic__symbol_a307cece0deecd34ac5f4812a92d69d0b}{clear} ()
+\begin{DoxyCompactList}\small\item\em Destroy contents, and record that is empty. \end{DoxyCompactList}\item 
+bool \hyperlink{structyy_1_1genesyspp__parser_1_1basic__symbol_af31a4325622f49b9903cdc6734e4f9d8}{empty} () const 
+\begin{DoxyCompactList}\small\item\em Whether empty. \end{DoxyCompactList}\item 
+void \hyperlink{structyy_1_1genesyspp__parser_1_1basic__symbol_a4244f8c6794d7869a9e82a96cd49e5f2}{move} (\hyperlink{structyy_1_1genesyspp__parser_1_1basic__symbol}{basic\-\_\-symbol} \&s)
+\begin{DoxyCompactList}\small\item\em Destructive move, {\itshape s} is emptied into this. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classyy_1_1genesyspp__parser_a592978b9aaaa0d61f9faf4093f5f554d}{semantic\-\_\-type} \hyperlink{structyy_1_1genesyspp__parser_1_1basic__symbol_a66fa4a750b9ae7e8be9c640b8712fe0b}{value}
+\begin{DoxyCompactList}\small\item\em The semantic value. \end{DoxyCompactList}\item 
+\hyperlink{classyy_1_1genesyspp__parser_aa0276d3782ebff157827ad5e7d44f97c}{location\-\_\-type} \hyperlink{structyy_1_1genesyspp__parser_1_1basic__symbol_ae95666bbb377d80e31b8a676aa44e84a}{location}
+\begin{DoxyCompactList}\small\item\em The location. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Base$>$struct yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol$<$ Base $>$}
+
+A complete symbol.
+
+Expects its Base type to provide access to the symbol type via type\-\_\-get().
+
+Provide access to semantic value and location. 
+
+Definition at line 480 of file Genesys++-\/parser.\-h.
+
+
+
+\subsection{Member Typedef Documentation}
+\hypertarget{structyy_1_1genesyspp__parser_1_1basic__symbol_a1493afba8ed8b978a445fa2cb8b57867}{\index{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol@{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}!super\-\_\-type@{super\-\_\-type}}
+\index{super\-\_\-type@{super\-\_\-type}!yy::genesyspp_parser::basic_symbol@{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}}
+\subsubsection[{super\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Base$>$ typedef Base {\bf yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}$<$ Base $>$\-::{\bf super\-\_\-type}}}\label{structyy_1_1genesyspp__parser_1_1basic__symbol_a1493afba8ed8b978a445fa2cb8b57867}
+
+
+Alias to Base. 
+
+
+
+Definition at line 483 of file Genesys++-\/parser.\-h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{structyy_1_1genesyspp__parser_1_1basic__symbol_ac749c8aa9c095dca4f6455cb91c8a90d}{\index{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol@{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}!basic\-\_\-symbol@{basic\-\_\-symbol}}
+\index{basic\-\_\-symbol@{basic\-\_\-symbol}!yy::genesyspp_parser::basic_symbol@{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}}
+\subsubsection[{basic\-\_\-symbol}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Base $>$ {\bf yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}$<$ Base $>$\-::{\bf basic\-\_\-symbol} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{structyy_1_1genesyspp__parser_1_1basic__symbol_ac749c8aa9c095dca4f6455cb91c8a90d}
+
+
+Default constructor. 
+
+
+
+Definition at line 1077 of file Genesys++-\/parser.\-h.
+
+\hypertarget{structyy_1_1genesyspp__parser_1_1basic__symbol_a9675a48bfdda3c3c4d3937124740dac4}{\index{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol@{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}!basic\-\_\-symbol@{basic\-\_\-symbol}}
+\index{basic\-\_\-symbol@{basic\-\_\-symbol}!yy::genesyspp_parser::basic_symbol@{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}}
+\subsubsection[{basic\-\_\-symbol}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Base $>$ {\bf yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}$<$ Base $>$\-::{\bf basic\-\_\-symbol} (
+\begin{DoxyParamCaption}
+\item[{const {\bf basic\-\_\-symbol}$<$ Base $>$ \&}]{other}
+\end{DoxyParamCaption}
+)}}\label{structyy_1_1genesyspp__parser_1_1basic__symbol_a9675a48bfdda3c3c4d3937124740dac4}
+
+
+Copy constructor. 
+
+
+
+Definition at line 1083 of file Genesys++-\/parser.\-h.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{structyy_1_1genesyspp__parser_1_1basic__symbol_a9675a48bfdda3c3c4d3937124740dac4_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structyy_1_1genesyspp__parser_1_1basic__symbol_a9f10b31e1972d8e8956baff9aa2640e9}{\index{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol@{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}!basic\-\_\-symbol@{basic\-\_\-symbol}}
+\index{basic\-\_\-symbol@{basic\-\_\-symbol}!yy::genesyspp_parser::basic_symbol@{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}}
+\subsubsection[{basic\-\_\-symbol}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Base$>$ {\bf yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}$<$ Base $>$\-::{\bf basic\-\_\-symbol} (
+\begin{DoxyParamCaption}
+\item[{typename Base\-::kind\-\_\-type}]{t, }
+\item[{const {\bf location\-\_\-type} \&}]{l}
+\end{DoxyParamCaption}
+)}}\label{structyy_1_1genesyspp__parser_1_1basic__symbol_a9f10b31e1972d8e8956baff9aa2640e9}
+
+
+Constructor for valueless symbols, and symbols from each type. 
+
+
+
+Definition at line 1256 of file Genesys++-\/parser.\-h.
+
+\hypertarget{structyy_1_1genesyspp__parser_1_1basic__symbol_af2a91dccb375a9bc1fb9bb11c7d5907d}{\index{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol@{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}!basic\-\_\-symbol@{basic\-\_\-symbol}}
+\index{basic\-\_\-symbol@{basic\-\_\-symbol}!yy::genesyspp_parser::basic_symbol@{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}}
+\subsubsection[{basic\-\_\-symbol}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Base$>$ {\bf yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}$<$ Base $>$\-::{\bf basic\-\_\-symbol} (
+\begin{DoxyParamCaption}
+\item[{typename Base\-::kind\-\_\-type}]{t, }
+\item[{const {\bf obj\-\_\-t} \&}]{v, }
+\item[{const {\bf location\-\_\-type} \&}]{l}
+\end{DoxyParamCaption}
+)}}\label{structyy_1_1genesyspp__parser_1_1basic__symbol_af2a91dccb375a9bc1fb9bb11c7d5907d}
+
+
+Definition at line 1262 of file Genesys++-\/parser.\-h.
+
+\hypertarget{structyy_1_1genesyspp__parser_1_1basic__symbol_a94529fa808d843d97fad2b531bd04466}{\index{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol@{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}!basic\-\_\-symbol@{basic\-\_\-symbol}}
+\index{basic\-\_\-symbol@{basic\-\_\-symbol}!yy::genesyspp_parser::basic_symbol@{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}}
+\subsubsection[{basic\-\_\-symbol}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Base$>$ {\bf yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}$<$ Base $>$\-::{\bf basic\-\_\-symbol} (
+\begin{DoxyParamCaption}
+\item[{typename Base\-::kind\-\_\-type}]{t, }
+\item[{const {\bf semantic\-\_\-type} \&}]{v, }
+\item[{const {\bf location\-\_\-type} \&}]{l}
+\end{DoxyParamCaption}
+)}}\label{structyy_1_1genesyspp__parser_1_1basic__symbol_a94529fa808d843d97fad2b531bd04466}
+
+
+Constructor for symbols with semantic value. 
+
+
+
+Definition at line 1168 of file Genesys++-\/parser.\-h.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{structyy_1_1genesyspp__parser_1_1basic__symbol_a94529fa808d843d97fad2b531bd04466_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structyy_1_1genesyspp__parser_1_1basic__symbol_aeaa054339c41c834ec30bbda4dc3beff}{\index{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol@{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}!$\sim$basic\-\_\-symbol@{$\sim$basic\-\_\-symbol}}
+\index{$\sim$basic\-\_\-symbol@{$\sim$basic\-\_\-symbol}!yy::genesyspp_parser::basic_symbol@{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}}
+\subsubsection[{$\sim$basic\-\_\-symbol}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Base $>$ {\bf yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}$<$ Base $>$\-::$\sim${\bf basic\-\_\-symbol} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{structyy_1_1genesyspp__parser_1_1basic__symbol_aeaa054339c41c834ec30bbda4dc3beff}
+
+
+Destroy the symbol. 
+
+
+
+Definition at line 1270 of file Genesys++-\/parser.\-h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{structyy_1_1genesyspp__parser_1_1basic__symbol_a307cece0deecd34ac5f4812a92d69d0b}{\index{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol@{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}!clear@{clear}}
+\index{clear@{clear}!yy::genesyspp_parser::basic_symbol@{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}}
+\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Base $>$ void {\bf yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}$<$ Base $>$\-::clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{structyy_1_1genesyspp__parser_1_1basic__symbol_a307cece0deecd34ac5f4812a92d69d0b}
+
+
+Destroy contents, and record that is empty. 
+
+
+
+Definition at line 1277 of file Genesys++-\/parser.\-h.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structyy_1_1genesyspp__parser_1_1basic__symbol_a307cece0deecd34ac5f4812a92d69d0b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structyy_1_1genesyspp__parser_1_1basic__symbol_af31a4325622f49b9903cdc6734e4f9d8}{\index{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol@{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}!empty@{empty}}
+\index{empty@{empty}!yy::genesyspp_parser::basic_symbol@{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}}
+\subsubsection[{empty}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Base $>$ bool {\bf yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}$<$ Base $>$\-::empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{structyy_1_1genesyspp__parser_1_1basic__symbol_af31a4325622f49b9903cdc6734e4f9d8}
+
+
+Whether empty. 
+
+
+
+Definition at line 1372 of file Genesys++-\/parser.\-h.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structyy_1_1genesyspp__parser_1_1basic__symbol_af31a4325622f49b9903cdc6734e4f9d8_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{structyy_1_1genesyspp__parser_1_1basic__symbol_a4244f8c6794d7869a9e82a96cd49e5f2}{\index{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol@{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}!move@{move}}
+\index{move@{move}!yy::genesyspp_parser::basic_symbol@{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}}
+\subsubsection[{move}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Base $>$ void {\bf yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}$<$ Base $>$\-::move (
+\begin{DoxyParamCaption}
+\item[{{\bf basic\-\_\-symbol}$<$ Base $>$ \&}]{s}
+\end{DoxyParamCaption}
+)}}\label{structyy_1_1genesyspp__parser_1_1basic__symbol_a4244f8c6794d7869a9e82a96cd49e5f2}
+
+
+Destructive move, {\itshape s} is emptied into this. 
+
+
+
+Definition at line 1379 of file Genesys++-\/parser.\-h.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structyy_1_1genesyspp__parser_1_1basic__symbol_a4244f8c6794d7869a9e82a96cd49e5f2_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{structyy_1_1genesyspp__parser_1_1basic__symbol_ae95666bbb377d80e31b8a676aa44e84a}{\index{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol@{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}!location@{location}}
+\index{location@{location}!yy::genesyspp_parser::basic_symbol@{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}}
+\subsubsection[{location}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Base$>$ {\bf location\-\_\-type} {\bf yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}$<$ Base $>$\-::{\bf location}}}\label{structyy_1_1genesyspp__parser_1_1basic__symbol_ae95666bbb377d80e31b8a676aa44e84a}
+
+
+The location. 
+
+
+
+Definition at line 519 of file Genesys++-\/parser.\-h.
+
+\hypertarget{structyy_1_1genesyspp__parser_1_1basic__symbol_a66fa4a750b9ae7e8be9c640b8712fe0b}{\index{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol@{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}!value@{value}}
+\index{value@{value}!yy::genesyspp_parser::basic_symbol@{yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}}
+\subsubsection[{value}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Base$>$ {\bf semantic\-\_\-type} {\bf yy\-::genesyspp\-\_\-parser\-::basic\-\_\-symbol}$<$ Base $>$\-::value}}\label{structyy_1_1genesyspp__parser_1_1basic__symbol_a66fa4a750b9ae7e8be9c640b8712fe0b}
+
+
+The semantic value. 
+
+
+
+Definition at line 516 of file Genesys++-\/parser.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_genesys_09_09-parser_8h}{Genesys++-\/parser.\-h}\end{DoxyCompactItemize}

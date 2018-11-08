@@ -16,7 +16,7 @@
 
 #include <string>
 #include <iostream>
-#include "Traits.h"
+//#include "Traits.h"
 #include "Model.h"
 #include "Plugin.h"
 #include "List.h"
@@ -49,10 +49,10 @@ private: // attributes 1:n
 	List<Plugin*>* _plugins;
 	List<Model*>* _models;
 private: // attributes 1:1 objects
-	Fitter_if* _fitter = new Traits<Fitter_if>::Implementation();
-	Sampler_if* _sampler = new Traits<Sampler_if>::Implementation();
+	Fitter_if* _fitter;// = new Traits<Fitter_if>::Implementation();
+	Sampler_if* _sampler;// = new Traits<Sampler_if>::Implementation();
 private: // attributes 1:1 native
-	const std::string _name = "GenESyS - Generic and Expansible System Simulator [REBORN]";
+	const std::string _name = "ReGenESyS - Reborn Generic and Expansible System Simulator";
 	const std::string _license	= "Academic Mode. In academic mode this software has full functionality and executing training-size simulation models. This software may be duplicated and used for educational purposes only; any commercial application is a violation of the license agreement.";
 	const std::string _version = "2018.10.1";	
 };

@@ -13,14 +13,14 @@
 
 #include "ParserFlexBisonImpl.h"
 
-ParserFlexBisonImpl::ParserFlexBisonImpl(Model* model) {        
-        _model = model;
-	driver = genesyspp_driver(_model,false);
+ParserFlexBisonImpl::ParserFlexBisonImpl(Model* model) {
+	_model = model;
+	driver = genesyspp_driver(_model, false);
 }
 
 ParserFlexBisonImpl::ParserFlexBisonImpl(Model* model, bool throws) {
 	_model = model;
-	driver = genesyspp_driver(_model,throws);
+	driver = genesyspp_driver(_model, throws);
 }
 
 ParserFlexBisonImpl::ParserFlexBisonImpl(const ParserFlexBisonImpl& orig) {
@@ -31,17 +31,17 @@ ParserFlexBisonImpl::~ParserFlexBisonImpl() {
 
 double ParserFlexBisonImpl::parse(const std::string expression) { // may throw exception
 	driver.setThrowsException(true);
-	try{
+	try {
 		int res = driver.parse_str(expression);
-		if(res == 0){
+		if (res == 0) {
 			return driver.getResult();
-		}else {
+		} else {
 			throw std::string("Bison Error");
 		}
-	} catch (std::string e){
-            std::cout << e << "\n";
-            _model->getTracer()->trace(Util::TraceLevel::errors, e);
-            return 0;
+	} catch (std::string e) {
+		std::cout << e << "\n";
+		_model->getTracer()->trace(Util::TraceLevel::errors, e);
+		return 0;
 	}
 }
 
@@ -53,12 +53,12 @@ std::string* ParserFlexBisonImpl::getErrorMessage() {
 double ParserFlexBisonImpl::parse(const std::string expression, bool* success, std::string* errorMessage) {
 	driver.setThrowsException(false);
 	int res = driver.parse_str(expression);
-	if(res == 0){
+	if (res == 0) {
 		*success = true;
 		return driver.getResult();
-	}else {
+	} else {
 		*success = false;
 		*errorMessage = driver.getErrorMessage();
 		return 0;
-	}	
+	}
 }

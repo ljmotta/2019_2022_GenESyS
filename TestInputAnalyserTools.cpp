@@ -8,6 +8,7 @@
 #include "Simulator.h"
 #include "Sampler_if.h"
 #include "ProbDistrib.h"
+#include "Traits.h"
 
 void testStudentSoftwareDevelopments() {
 	Simulator* simulator = new Simulator();

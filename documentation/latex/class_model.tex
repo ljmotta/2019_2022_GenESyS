@@ -14,21 +14,7 @@
 \item 
 virtual \hyperlink{class_model_ad6ebd2062a0b823db841a0b88baac4c0}{$\sim$\-Model} ()
 \item 
-void \hyperlink{class_model_a6fd6613a5141552a6493eb3a840cde24}{start\-Simulation} ()
-\item 
-void \hyperlink{class_model_ab10d4bdc433d11bf4bb7117675091d8c}{pause\-Simulation} ()
-\item 
-void \hyperlink{class_model_a025b6ab3112a1df6f7773389b096302c}{step\-Simulation} ()
-\item 
-void \hyperlink{class_model_a6452e846a5e560220236b7a59f1dd84b}{stop\-Simulation} ()
-\item 
-void \hyperlink{class_model_a8be70da19c6c315269acc5a3fd2e3b7d}{restart\-Simulation} ()
-\item 
 void \hyperlink{class_model_a44c66f552308e7a6a5701801186a8637}{show\-Reports} ()
-\item 
-void \hyperlink{class_model_a99238439363a292fe1fc503eb2157a55}{set\-Pause\-On\-Event} (bool \-\_\-pause\-On\-Event)
-\item 
-bool \hyperlink{class_model_a1dda07db7bddff456907067eeeb5c21a}{is\-Pause\-On\-Event} () const 
 \item 
 bool \hyperlink{class_model_ae099910781f5267a51fb5d607246af4a}{save\-Model} (std\-::string filename)
 \item 
@@ -46,120 +32,36 @@ double \hyperlink{class_model_a5ea283e339b50c0b77040bf908e25af3}{parse\-Expressi
 \item 
 double \hyperlink{class_model_a408ddfa761fcd04ec1211ae6c1526ab3}{parse\-Expression} (const std\-::string expression, bool $\ast$success, std\-::string $\ast$error\-Message)
 \item 
-void \hyperlink{class_model_a144f16211e64bdc0ac4622cda5f5f4ae}{add\-Trace\-Listener} (\hyperlink{_listener_8h_a5ce1a9a31f5f0fa77de45c6e6622c435}{trace\-Listener} \hyperlink{_listener_8h_a5ce1a9a31f5f0fa77de45c6e6622c435}{trace\-Listener})
-\item 
-void \hyperlink{class_model_a0b632c73e85b352d7ea914b30bb455f9}{add\-Trace\-Error\-Listener} (\hyperlink{_listener_8h_afad9be20bdf6a8241ae57bc2fcb678c7}{trace\-Error\-Listener} \hyperlink{_listener_8h_afad9be20bdf6a8241ae57bc2fcb678c7}{trace\-Error\-Listener})
-\item 
-void \hyperlink{class_model_ad94736b0e6c53b3dedd112f21506092a}{add\-Trace\-Report\-Listener} (\hyperlink{_listener_8h_a5ce1a9a31f5f0fa77de45c6e6622c435}{trace\-Listener} trace\-Report\-Listener)
-\item 
-void \hyperlink{class_model_a06f7035263e7ad33360651a9569ed2d6}{add\-Trace\-Simulation\-Listener} (\hyperlink{_listener_8h_a615775a0e20f41866ee44014f198fa59}{trace\-Simulation\-Listener} \hyperlink{_listener_8h_a615775a0e20f41866ee44014f198fa59}{trace\-Simulation\-Listener})
-\item 
-void \hyperlink{class_model_a5de086b514742e84b61ac9a7b128ae8b}{trace} (\hyperlink{class_util_a604561d00f5999b5ca280401140e58d9}{Util\-::\-Trace\-Level} tracelevel, std\-::string text)
-\item 
-void \hyperlink{class_model_a092b7062edcb59344f286d858ed10fac}{trace\-Error} (std\-::exception e, std\-::string text)
-\item 
-void \hyperlink{class_model_a0d866e0ef942638d63c1d8c3eb98fa19}{trace\-Simulation} (\hyperlink{class_util_a604561d00f5999b5ca280401140e58d9}{Util\-::\-Trace\-Level} tracelevel, double time, \hyperlink{class_entity}{Entity} $\ast$entity, \hyperlink{class_model_component}{Model\-Component} $\ast$component, std\-::string text)
-\item 
-void \hyperlink{class_model_ab601f70b29eed01e6a495924c852caf0}{trace\-Report} (\hyperlink{class_util_a604561d00f5999b5ca280401140e58d9}{Util\-::\-Trace\-Level} tracelevel, std\-::string text)
-\item 
-\hyperlink{class_list}{List}$<$ std\-::string $>$ $\ast$ \hyperlink{class_model_ae0d77f48384e180cfabb8fd8ed16e4db}{get\-Error\-Messages} () const 
-\item 
-void \hyperlink{class_model_a2aab01a2871b2924eeb3c265267fabef}{set\-Name} (std\-::string \-\_\-name)
-\item 
-std\-::string \hyperlink{class_model_a1a1c7e795ee409d8e61c942db5f94d17}{get\-Name} () const 
-\item 
-void \hyperlink{class_model_a52c044c61c8411b083006d2c5fbe0abf}{set\-Analyst\-Name} (std\-::string \-\_\-analyst\-Name)
-\item 
-std\-::string \hyperlink{class_model_a9b539226cc78c36bfe911252e9ccd055}{get\-Analyst\-Name} () const 
-\item 
-void \hyperlink{class_model_a84eb0333d18ac7f8a684d1cd32c64dbd}{set\-Description} (std\-::string \-\_\-description)
-\item 
-std\-::string \hyperlink{class_model_a40ad9af9a5cebe907d483fb51d0f4974}{get\-Description} () const 
-\item 
-void \hyperlink{class_model_a97ce94d618caee4364e82a8790f00052}{set\-Project\-Title} (std\-::string \-\_\-project\-Title)
-\item 
-std\-::string \hyperlink{class_model_ae2197c7da38542ec199491c3d5797efd}{get\-Project\-Title} () const 
-\item 
-void \hyperlink{class_model_a630f152feb166751ecf53e5c628a7826}{set\-Version} (std\-::string \-\_\-version)
-\item 
-std\-::string \hyperlink{class_model_a073ecbf56dfd06e46af31bbd67a0402d}{get\-Version} () const 
-\item 
-void \hyperlink{class_model_a55d597e867b5c3e27cb2e1511414e7f3}{set\-Number\-Of\-Replications} (unsigned int \-\_\-number\-Of\-Replications)
-\item 
-unsigned int \hyperlink{class_model_af2fe357b860298f4977f8f48cee7115a}{get\-Number\-Of\-Replications} () const 
-\item 
-void \hyperlink{class_model_a5be13e4bb83891e8caed52b3eae1470f}{set\-Replication\-Length} (double \-\_\-replication\-Length)
-\item 
-double \hyperlink{class_model_a6bb4d4fbf90f49c990a00385a9df18d9}{get\-Replication\-Length} () const 
-\item 
-void \hyperlink{class_model_a0261d2009ad7a3f9025e31cf02e6297a}{set\-Replication\-Length\-Time\-Unit} (\hyperlink{class_util_aadbd82055afeaa7d4fb4da513de628ff}{Util\-::\-Time\-Unit} \-\_\-replication\-Length\-Time\-Unit)
-\item 
-\hyperlink{class_util_aadbd82055afeaa7d4fb4da513de628ff}{Util\-::\-Time\-Unit} \hyperlink{class_model_aeaba7aa3fb5a75f469b7617910eee446}{get\-Replication\-Length\-Time\-Unit} () const 
-\item 
-void \hyperlink{class_model_ac6e4c4bd49b999b2f6ce5ad97d45bbae}{set\-Warm\-Up\-Period} (double \-\_\-warm\-Up\-Period)
-\item 
-double \hyperlink{class_model_aa7b278f97a29269a18dbcbb6513f39da}{get\-Warm\-Up\-Period} () const 
-\item 
-void \hyperlink{class_model_a864c1a3f96cd05b83894042e41ef5ea6}{set\-Warm\-Up\-Period\-Time\-Unit} (\hyperlink{class_util_aadbd82055afeaa7d4fb4da513de628ff}{Util\-::\-Time\-Unit} \-\_\-warm\-Up\-Period\-Time\-Unit)
-\item 
-\hyperlink{class_util_aadbd82055afeaa7d4fb4da513de628ff}{Util\-::\-Time\-Unit} \hyperlink{class_model_a12a97aefe53ac31b8e7801b50a87715a}{get\-Warm\-Up\-Period\-Time\-Unit} () const 
-\item 
-void \hyperlink{class_model_a480b4220ecfe82a1826ca29366a8d2b6}{set\-Terminating\-Condition} (std\-::string \-\_\-terminating\-Condition)
-\item 
-std\-::string \hyperlink{class_model_a3da1140b818632e728fd57445ab1880b}{get\-Terminating\-Condition} () const 
-\item 
-void \hyperlink{class_model_a538fdc09de27b077b4e4c84fdc78a61e}{set\-Trace\-Level} (\hyperlink{class_util_a604561d00f5999b5ca280401140e58d9}{Util\-::\-Trace\-Level} \-\_\-trace\-Level)
-\item 
-\hyperlink{class_util_a604561d00f5999b5ca280401140e58d9}{Util\-::\-Trace\-Level} \hyperlink{class_model_a0fa341be1579f13861af2eda84d4f840}{get\-Trace\-Level} () const 
-\item 
-void \hyperlink{class_model_a2b4b1bb4e9c082e8b0c893a35f5a8f53}{set\-Step\-By\-Step} (bool \-\_\-step\-By\-Step)
-\item 
-bool \hyperlink{class_model_a8bc24806234d057bedb4262ecc090bf0}{is\-Step\-By\-Step} () const 
-\item 
-void \hyperlink{class_model_a2fe72bb622b3d75479822f68710a36c7}{set\-Initialize\-Statistics} (bool \-\_\-initialize\-Statistics)
-\item 
-bool \hyperlink{class_model_aefe1365d9a032fe1ac62991f45446d6a}{is\-Initialize\-Statistics} () const 
-\item 
-void \hyperlink{class_model_ac1299b28921f4d246319b2624e4ad98f}{set\-Initialize\-System} (bool \-\_\-initialize\-System)
-\item 
-bool \hyperlink{class_model_afd5e0285a55278e266045112ef795868}{is\-Initialize\-System} () const 
-\item 
-void \hyperlink{class_model_ae1f205bd8b328b3785694567eaeb77ef}{set\-Pause\-On\-Replication} (bool \-\_\-pause\-Between\-Replications)
-\item 
-bool \hyperlink{class_model_a269e5b3c45f3c7ce606205fec8f0b3b4}{is\-Pause\-On\-Replication} () const 
-\item 
-double \hyperlink{class_model_a74eb096b8229aa036d11adeeb8787599}{get\-Simulated\-Time} () const 
-\item 
-bool \hyperlink{class_model_a597bdaa89e9b6b396bded780e6d32fdf}{is\-Running} () const 
-\item 
-bool \hyperlink{class_model_a8d47ce2750e22e14e5249b724cdf4fd3}{is\-Saved} () const 
-\item 
 \hyperlink{class_util_ad17d458d9344b10bba64347e514d6d71}{Util\-::identitifcation} \hyperlink{class_model_abfd7753d30de6abea64b3f0846e097eb}{get\-Id} () const 
+\item 
+\hyperlink{class_list}{List}$<$ \hyperlink{class_simulation_control}{Simulation\-Control} $\ast$ $>$ $\ast$ \hyperlink{class_model_a20c078a714fe7fba0f02ea1d50a19589}{get\-Controls} () const 
+\item 
+\hyperlink{class_list}{List}$<$ \hyperlink{class_simulation_response}{Simulation\-Response} $\ast$ $>$ $\ast$ \hyperlink{class_model_ad4caeecd30fd5eb67b46c232cfbea14b}{get\-Responses} () const 
+\item 
+\hyperlink{class_trace_manager}{Trace\-Manager} $\ast$ \hyperlink{class_model_adc0de22631d77864b7956591c39ebc60}{get\-Tracer} () const 
+\item 
+\hyperlink{class_on_event_manager}{On\-Event\-Manager} $\ast$ \hyperlink{class_model_afc9de1c6025e8332830b29958ede63a2}{get\-On\-Event\-Manager} () const 
+\item 
+\hyperlink{class_infrastructure_manager}{Infrastructure\-Manager} $\ast$ \hyperlink{class_model_a944c2b2dffd691d4aafc2d4028c02e6b}{get\-Infra\-Manager} () const 
+\item 
+\hyperlink{class_model_info}{Model\-Info} $\ast$ \hyperlink{class_model_ac0f1ea5fbbeba7a2992ee13516e7522f}{get\-Infos} () const 
+\item 
+\hyperlink{class_simulator}{Simulator} $\ast$ \hyperlink{class_model_a69ed4849ae7708a83ace16abb7251b20}{get\-Parent} () const 
+\item 
+\hyperlink{class_model_simulation}{Model\-Simulation} $\ast$ \hyperlink{class_model_a217487c8193eb6c0afd95a9315cd51bb}{get\-Simulation} () const 
 \item 
 \hyperlink{class_list}{List}$<$ \hyperlink{class_model_component}{Model\-Component} $\ast$ $>$ $\ast$ \hyperlink{class_model_ae5773d78fc47cb35be7fbeb74b7d63e4}{get\-Components} () const 
 \item 
 \hyperlink{class_list}{List}$<$ \hyperlink{class_event}{Event} $\ast$ $>$ $\ast$ \hyperlink{class_model_a841c78bda0eb27c652c6921094dc5921}{get\-Events} () const 
 \item 
 \hyperlink{class_list}{List}$<$ \hyperlink{class_entity}{Entity} $\ast$ $>$ $\ast$ \hyperlink{class_model_ae09e777b481981772818ea3fd2880c4c}{get\-Entities} () const 
-\item 
-\hyperlink{class_list}{List}$<$ \hyperlink{class_model_infrastructure}{Model\-Infrastructure} $\ast$ $>$ $\ast$ \hyperlink{class_model_a43ca6ff93bd0b9fbc4c2792962e6b4ed}{get\-Infrastructures} (std\-::string infra\-Typename) const 
-\item 
-\hyperlink{class_model_infrastructure}{Model\-Infrastructure} $\ast$ \hyperlink{class_model_ab460d8d215b5e4fb353f129c04493fa5}{get\-Infrastructure} (std\-::string infra\-Typename, \hyperlink{class_util_ad17d458d9344b10bba64347e514d6d71}{Util\-::identitifcation} id)
-\item 
-\hyperlink{class_model_infrastructure}{Model\-Infrastructure} $\ast$ \hyperlink{class_model_ad6711b51ea9feeacb59eaf70cc8faaed}{get\-Infrastructure} (std\-::string infra\-Typename, std\-::string name)
-\item 
-std\-::list$<$ std\-::string $>$ $\ast$ \hyperlink{class_model_ac1a47354f008dc27fcb7fc902bb8d664}{get\-Infrastructure\-Typenames} () const 
-\item 
-\hyperlink{class_list}{List}$<$ \hyperlink{class_simulation_control}{Simulation\-Control} $\ast$ $>$ $\ast$ \hyperlink{class_model_a20c078a714fe7fba0f02ea1d50a19589}{get\-Controls} () const 
-\item 
-\hyperlink{class_list}{List}$<$ \hyperlink{class_simulation_response}{Simulation\-Response} $\ast$ $>$ $\ast$ \hyperlink{class_model_ad4caeecd30fd5eb67b46c232cfbea14b}{get\-Responses} () const 
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 \hyperlink{class_model}{Model} is probably the most important class of Genesys kernel. It represents a discrete event-\/driven simulation model. Each model is responsible for controlling its own simulation, ie, for sequentially processing events and collecting statistical results. A model is mainly represented by a collection of components (\hyperlink{class_model_component}{Model\-Component}), adequately configurated and connected, and a collection of under layered infrastructure (\hyperlink{class_model_infrastructure}{Model\-Infrastructure}). 
 
-Definition at line 36 of file Model.\-h.
+Definition at line 39 of file Model.\-h.
 
 
 
@@ -175,11 +77,9 @@ Components are sorted by I\-D
 
 The future events list must be chronologicaly sorted
 
-Events are sorted chronologically
+Events are sorted chronologically 
 
-Infrastructures are organized as a map from a string (key), the type of an infrastructure, and a list of infrastructures of that type 
-
-Definition at line 33 of file Model.\-cpp.
+Definition at line 37 of file Model.\-cpp.
 
 
 
@@ -188,7 +88,7 @@ Here is the call graph for this function\-:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{class_model_ae86e1403523e8036ba6366d1967ecac0_cgraph}
+\includegraphics[width=294pt]{class_model_ae86e1403523e8036ba6366d1967ecac0_cgraph}
 \end{center}
 \end{figure}
 
@@ -202,7 +102,7 @@ Here is the call graph for this function\-:
 )}}\label{class_model_afdedf278781f785abeecf5f450e43653}
 
 
-Definition at line 69 of file Model.\-cpp.
+Definition at line 70 of file Model.\-cpp.
 
 \hypertarget{class_model_ad6ebd2062a0b823db841a0b88baac4c0}{\index{Model@{Model}!$\sim$\-Model@{$\sim$\-Model}}
 \index{$\sim$\-Model@{$\sim$\-Model}!Model@{Model}}
@@ -213,88 +113,11 @@ Definition at line 69 of file Model.\-cpp.
 )\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_model_ad6ebd2062a0b823db841a0b88baac4c0}
 
 
-Definition at line 359 of file Model.\-cpp.
+Definition at line 74 of file Model.\-cpp.
 
 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_model_a0b632c73e85b352d7ea914b30bb455f9}{\index{Model@{Model}!add\-Trace\-Error\-Listener@{add\-Trace\-Error\-Listener}}
-\index{add\-Trace\-Error\-Listener@{add\-Trace\-Error\-Listener}!Model@{Model}}
-\subsubsection[{add\-Trace\-Error\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-::add\-Trace\-Error\-Listener (
-\begin{DoxyParamCaption}
-\item[{{\bf trace\-Error\-Listener}}]{trace\-Error\-Listener}
-\end{DoxyParamCaption}
-)}}\label{class_model_a0b632c73e85b352d7ea914b30bb455f9}
-
-
-Definition at line 481 of file Model.\-cpp.
-
-\hypertarget{class_model_a144f16211e64bdc0ac4622cda5f5f4ae}{\index{Model@{Model}!add\-Trace\-Listener@{add\-Trace\-Listener}}
-\index{add\-Trace\-Listener@{add\-Trace\-Listener}!Model@{Model}}
-\subsubsection[{add\-Trace\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-::add\-Trace\-Listener (
-\begin{DoxyParamCaption}
-\item[{{\bf trace\-Listener}}]{trace\-Listener}
-\end{DoxyParamCaption}
-)}}\label{class_model_a144f16211e64bdc0ac4622cda5f5f4ae}
-
-
-Definition at line 469 of file Model.\-cpp.
-
-
-
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_model_a144f16211e64bdc0ac4622cda5f5f4ae_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_model_ad94736b0e6c53b3dedd112f21506092a}{\index{Model@{Model}!add\-Trace\-Report\-Listener@{add\-Trace\-Report\-Listener}}
-\index{add\-Trace\-Report\-Listener@{add\-Trace\-Report\-Listener}!Model@{Model}}
-\subsubsection[{add\-Trace\-Report\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-::add\-Trace\-Report\-Listener (
-\begin{DoxyParamCaption}
-\item[{{\bf trace\-Listener}}]{trace\-Report\-Listener}
-\end{DoxyParamCaption}
-)}}\label{class_model_ad94736b0e6c53b3dedd112f21506092a}
-
-
-Definition at line 485 of file Model.\-cpp.
-
-
-
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_model_ad94736b0e6c53b3dedd112f21506092a_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_model_a06f7035263e7ad33360651a9569ed2d6}{\index{Model@{Model}!add\-Trace\-Simulation\-Listener@{add\-Trace\-Simulation\-Listener}}
-\index{add\-Trace\-Simulation\-Listener@{add\-Trace\-Simulation\-Listener}!Model@{Model}}
-\subsubsection[{add\-Trace\-Simulation\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-::add\-Trace\-Simulation\-Listener (
-\begin{DoxyParamCaption}
-\item[{{\bf trace\-Simulation\-Listener}}]{trace\-Simulation\-Listener}
-\end{DoxyParamCaption}
-)}}\label{class_model_a06f7035263e7ad33360651a9569ed2d6}
-
-
-Definition at line 477 of file Model.\-cpp.
-
-
-
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_model_a06f7035263e7ad33360651a9569ed2d6_icgraph}
-\end{center}
-\end{figure}
-
-
 \hypertarget{class_model_ae3b293adffbef6fd254d661ceeb2e116}{\index{Model@{Model}!check\-Model@{check\-Model}}
 \index{check\-Model@{check\-Model}!Model@{Model}}
 \subsubsection[{check\-Model}]{\setlength{\rightskip}{0pt plus 5cm}bool Model\-::check\-Model (
@@ -304,11 +127,12 @@ Here is the caller graph for this function\-:\nopagebreak
 )}}\label{class_model_ae3b293adffbef6fd254d661ceeb2e116}
 
 
-Definition at line 287 of file Model.\-cpp.
+Definition at line 121 of file Model.\-cpp.
 
 
 
-Here is the call graph for this function\-:\nopagebreak
+Here is the call graph for this function\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -319,7 +143,8 @@ Here is the call graph for this function\-:\nopagebreak
 
 
 
-Here is the caller graph for this function\-:\nopagebreak
+Here is the caller graph for this function\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -327,17 +152,6 @@ Here is the caller graph for this function\-:\nopagebreak
 \end{center}
 \end{figure}
 
-
-\hypertarget{class_model_a9b539226cc78c36bfe911252e9ccd055}{\index{Model@{Model}!get\-Analyst\-Name@{get\-Analyst\-Name}}
-\index{get\-Analyst\-Name@{get\-Analyst\-Name}!Model@{Model}}
-\subsubsection[{get\-Analyst\-Name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Model\-::get\-Analyst\-Name (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}}\label{class_model_a9b539226cc78c36bfe911252e9ccd055}
-
-
-Definition at line 374 of file Model.\-cpp.
 
 \hypertarget{class_model_ae5773d78fc47cb35be7fbeb74b7d63e4}{\index{Model@{Model}!get\-Components@{get\-Components}}
 \index{get\-Components@{get\-Components}!Model@{Model}}
@@ -348,11 +162,12 @@ Definition at line 374 of file Model.\-cpp.
 ) const}}\label{class_model_ae5773d78fc47cb35be7fbeb74b7d63e4}
 
 
-Definition at line 621 of file Model.\-cpp.
+Definition at line 200 of file Model.\-cpp.
 
 
 
-Here is the caller graph for this function\-:\nopagebreak
+Here is the caller graph for this function\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -370,18 +185,7 @@ Here is the caller graph for this function\-:\nopagebreak
 ) const}}\label{class_model_a20c078a714fe7fba0f02ea1d50a19589}
 
 
-Definition at line 566 of file Model.\-cpp.
-
-\hypertarget{class_model_a40ad9af9a5cebe907d483fb51d0f4974}{\index{Model@{Model}!get\-Description@{get\-Description}}
-\index{get\-Description@{get\-Description}!Model@{Model}}
-\subsubsection[{get\-Description}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Model\-::get\-Description (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}}\label{class_model_a40ad9af9a5cebe907d483fb51d0f4974}
-
-
-Definition at line 382 of file Model.\-cpp.
+Definition at line 156 of file Model.\-cpp.
 
 \hypertarget{class_model_ae09e777b481981772818ea3fd2880c4c}{\index{Model@{Model}!get\-Entities@{get\-Entities}}
 \index{get\-Entities@{get\-Entities}!Model@{Model}}
@@ -392,11 +196,12 @@ Definition at line 382 of file Model.\-cpp.
 ) const}}\label{class_model_ae09e777b481981772818ea3fd2880c4c}
 The future events list chronologically sorted; Events are scheduled by components when processing other events, and a replication evolves over time by sequentially processing the very first event in this list. It's initialized with events first described by source components (Source\-Component\-Model) 
 
-Definition at line 584 of file Model.\-cpp.
+Definition at line 190 of file Model.\-cpp.
 
 
 
-Here is the call graph for this function\-:\nopagebreak
+Here is the call graph for this function\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -416,28 +221,6 @@ Here is the caller graph for this function\-:\nopagebreak
 \end{figure}
 
 
-\hypertarget{class_model_ae0d77f48384e180cfabb8fd8ed16e4db}{\index{Model@{Model}!get\-Error\-Messages@{get\-Error\-Messages}}
-\index{get\-Error\-Messages@{get\-Error\-Messages}!Model@{Model}}
-\subsubsection[{get\-Error\-Messages}]{\setlength{\rightskip}{0pt plus 5cm}{\bf List}$<$ std\-::string $>$ $\ast$ Model\-::get\-Error\-Messages (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}}\label{class_model_ae0d77f48384e180cfabb8fd8ed16e4db}
-
-
-Definition at line 525 of file Model.\-cpp.
-
-
-
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_model_ae0d77f48384e180cfabb8fd8ed16e4db_icgraph}
-\end{center}
-\end{figure}
-
-
 \hypertarget{class_model_a841c78bda0eb27c652c6921094dc5921}{\index{Model@{Model}!get\-Events@{get\-Events}}
 \index{get\-Events@{get\-Events}!Model@{Model}}
 \subsubsection[{get\-Events}]{\setlength{\rightskip}{0pt plus 5cm}{\bf List}$<$ {\bf Event} $\ast$ $>$ $\ast$ Model\-::get\-Events (
@@ -447,11 +230,12 @@ Here is the caller graph for this function\-:\nopagebreak
 ) const}}\label{class_model_a841c78bda0eb27c652c6921094dc5921}
 A list of components that compose this model 
 
-Definition at line 529 of file Model.\-cpp.
+Definition at line 151 of file Model.\-cpp.
 
 
 
-Here is the caller graph for this function\-:\nopagebreak
+Here is the caller graph for this function\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -469,196 +253,87 @@ Here is the caller graph for this function\-:\nopagebreak
 ) const}}\label{class_model_abfd7753d30de6abea64b3f0846e097eb}
 
 
-Definition at line 617 of file Model.\-cpp.
+Definition at line 196 of file Model.\-cpp.
 
-\hypertarget{class_model_ab460d8d215b5e4fb353f129c04493fa5}{\index{Model@{Model}!get\-Infrastructure@{get\-Infrastructure}}
-\index{get\-Infrastructure@{get\-Infrastructure}!Model@{Model}}
-\subsubsection[{get\-Infrastructure}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Model\-Infrastructure} $\ast$ Model\-::get\-Infrastructure (
-\begin{DoxyParamCaption}
-\item[{std\-::string}]{infra\-Typename, }
-\item[{{\bf Util\-::identitifcation}}]{id}
-\end{DoxyParamCaption}
-)}}\label{class_model_ab460d8d215b5e4fb353f129c04493fa5}
-
-
-Definition at line 548 of file Model.\-cpp.
-
-
-
-Here is the call graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_model_ab460d8d215b5e4fb353f129c04493fa5_cgraph}
-\end{center}
-\end{figure}
-
-
-
-
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_model_ab460d8d215b5e4fb353f129c04493fa5_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_model_ad6711b51ea9feeacb59eaf70cc8faaed}{\index{Model@{Model}!get\-Infrastructure@{get\-Infrastructure}}
-\index{get\-Infrastructure@{get\-Infrastructure}!Model@{Model}}
-\subsubsection[{get\-Infrastructure}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Model\-Infrastructure} $\ast$ Model\-::get\-Infrastructure (
-\begin{DoxyParamCaption}
-\item[{std\-::string}]{infra\-Typename, }
-\item[{std\-::string}]{name}
-\end{DoxyParamCaption}
-)}}\label{class_model_ad6711b51ea9feeacb59eaf70cc8faaed}
-
-
-Definition at line 574 of file Model.\-cpp.
-
-
-
-Here is the call graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_model_ad6711b51ea9feeacb59eaf70cc8faaed_cgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_model_a43ca6ff93bd0b9fbc4c2792962e6b4ed}{\index{Model@{Model}!get\-Infrastructures@{get\-Infrastructures}}
-\index{get\-Infrastructures@{get\-Infrastructures}!Model@{Model}}
-\subsubsection[{get\-Infrastructures}]{\setlength{\rightskip}{0pt plus 5cm}{\bf List}$<$ {\bf Model\-Infrastructure} $\ast$ $>$ $\ast$ Model\-::get\-Infrastructures (
-\begin{DoxyParamCaption}
-\item[{std\-::string}]{infra\-Typename}
-\end{DoxyParamCaption}
-) const}}\label{class_model_a43ca6ff93bd0b9fbc4c2792962e6b4ed}
-
-
-Definition at line 533 of file Model.\-cpp.
-
-
-
-Here is the call graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=344pt]{class_model_a43ca6ff93bd0b9fbc4c2792962e6b4ed_cgraph}
-\end{center}
-\end{figure}
-
-
-
-
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_model_a43ca6ff93bd0b9fbc4c2792962e6b4ed_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_model_ac1a47354f008dc27fcb7fc902bb8d664}{\index{Model@{Model}!get\-Infrastructure\-Typenames@{get\-Infrastructure\-Typenames}}
-\index{get\-Infrastructure\-Typenames@{get\-Infrastructure\-Typenames}!Model@{Model}}
-\subsubsection[{get\-Infrastructure\-Typenames}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<$ std\-::string $>$ $\ast$ Model\-::get\-Infrastructure\-Typenames (
+\hypertarget{class_model_ac0f1ea5fbbeba7a2992ee13516e7522f}{\index{Model@{Model}!get\-Infos@{get\-Infos}}
+\index{get\-Infos@{get\-Infos}!Model@{Model}}
+\subsubsection[{get\-Infos}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Model\-Info} $\ast$ Model\-::get\-Infos (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_model_ac1a47354f008dc27fcb7fc902bb8d664}
+) const}}\label{class_model_ac0f1ea5fbbeba7a2992ee13516e7522f}
 
 
-Definition at line 558 of file Model.\-cpp.
+Definition at line 176 of file Model.\-cpp.
 
 
 
-Here is the caller graph for this function\-:\nopagebreak
+Here is the caller graph for this function\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{class_model_ac1a47354f008dc27fcb7fc902bb8d664_icgraph}
+\includegraphics[width=350pt]{class_model_ac0f1ea5fbbeba7a2992ee13516e7522f_icgraph}
 \end{center}
 \end{figure}
 
 
-\hypertarget{class_model_a1a1c7e795ee409d8e61c942db5f94d17}{\index{Model@{Model}!get\-Name@{get\-Name}}
-\index{get\-Name@{get\-Name}!Model@{Model}}
-\subsubsection[{get\-Name}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Model\-::get\-Name (
+\hypertarget{class_model_a944c2b2dffd691d4aafc2d4028c02e6b}{\index{Model@{Model}!get\-Infra\-Manager@{get\-Infra\-Manager}}
+\index{get\-Infra\-Manager@{get\-Infra\-Manager}!Model@{Model}}
+\subsubsection[{get\-Infra\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Infrastructure\-Manager} $\ast$ Model\-::get\-Infra\-Manager (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_model_a1a1c7e795ee409d8e61c942db5f94d17}
+) const}}\label{class_model_a944c2b2dffd691d4aafc2d4028c02e6b}
 
 
-Definition at line 366 of file Model.\-cpp.
-
-\hypertarget{class_model_af2fe357b860298f4977f8f48cee7115a}{\index{Model@{Model}!get\-Number\-Of\-Replications@{get\-Number\-Of\-Replications}}
-\index{get\-Number\-Of\-Replications@{get\-Number\-Of\-Replications}!Model@{Model}}
-\subsubsection[{get\-Number\-Of\-Replications}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Model\-::get\-Number\-Of\-Replications (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}}\label{class_model_af2fe357b860298f4977f8f48cee7115a}
-
-
-Definition at line 406 of file Model.\-cpp.
-
-\hypertarget{class_model_ae2197c7da38542ec199491c3d5797efd}{\index{Model@{Model}!get\-Project\-Title@{get\-Project\-Title}}
-\index{get\-Project\-Title@{get\-Project\-Title}!Model@{Model}}
-\subsubsection[{get\-Project\-Title}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Model\-::get\-Project\-Title (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}}\label{class_model_ae2197c7da38542ec199491c3d5797efd}
-
-
-Definition at line 390 of file Model.\-cpp.
-
-\hypertarget{class_model_a6bb4d4fbf90f49c990a00385a9df18d9}{\index{Model@{Model}!get\-Replication\-Length@{get\-Replication\-Length}}
-\index{get\-Replication\-Length@{get\-Replication\-Length}!Model@{Model}}
-\subsubsection[{get\-Replication\-Length}]{\setlength{\rightskip}{0pt plus 5cm}double Model\-::get\-Replication\-Length (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}}\label{class_model_a6bb4d4fbf90f49c990a00385a9df18d9}
-
-
-Definition at line 414 of file Model.\-cpp.
+Definition at line 172 of file Model.\-cpp.
 
 
 
-Here is the caller graph for this function\-:\nopagebreak
+Here is the caller graph for this function\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{class_model_a6bb4d4fbf90f49c990a00385a9df18d9_icgraph}
+\includegraphics[width=350pt]{class_model_a944c2b2dffd691d4aafc2d4028c02e6b_icgraph}
 \end{center}
 \end{figure}
 
 
-\hypertarget{class_model_aeaba7aa3fb5a75f469b7617910eee446}{\index{Model@{Model}!get\-Replication\-Length\-Time\-Unit@{get\-Replication\-Length\-Time\-Unit}}
-\index{get\-Replication\-Length\-Time\-Unit@{get\-Replication\-Length\-Time\-Unit}!Model@{Model}}
-\subsubsection[{get\-Replication\-Length\-Time\-Unit}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Util\-::\-Time\-Unit} Model\-::get\-Replication\-Length\-Time\-Unit (
+\hypertarget{class_model_afc9de1c6025e8332830b29958ede63a2}{\index{Model@{Model}!get\-On\-Event\-Manager@{get\-On\-Event\-Manager}}
+\index{get\-On\-Event\-Manager@{get\-On\-Event\-Manager}!Model@{Model}}
+\subsubsection[{get\-On\-Event\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf On\-Event\-Manager} $\ast$ Model\-::get\-On\-Event\-Manager (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_model_aeaba7aa3fb5a75f469b7617910eee446}
+) const}}\label{class_model_afc9de1c6025e8332830b29958ede63a2}
 
 
-Definition at line 422 of file Model.\-cpp.
+Definition at line 168 of file Model.\-cpp.
 
 
 
-Here is the caller graph for this function\-:\nopagebreak
+Here is the caller graph for this function\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=348pt]{class_model_aeaba7aa3fb5a75f469b7617910eee446_icgraph}
+\includegraphics[width=350pt]{class_model_afc9de1c6025e8332830b29958ede63a2_icgraph}
 \end{center}
 \end{figure}
 
+
+\hypertarget{class_model_a69ed4849ae7708a83ace16abb7251b20}{\index{Model@{Model}!get\-Parent@{get\-Parent}}
+\index{get\-Parent@{get\-Parent}!Model@{Model}}
+\subsubsection[{get\-Parent}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Simulator} $\ast$ Model\-::get\-Parent (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_model_a69ed4849ae7708a83ace16abb7251b20}
+
+
+Definition at line 180 of file Model.\-cpp.
 
 \hypertarget{class_model_ad4caeecd30fd5eb67b46c232cfbea14b}{\index{Model@{Model}!get\-Responses@{get\-Responses}}
 \index{get\-Responses@{get\-Responses}!Model@{Model}}
@@ -669,161 +344,53 @@ Here is the caller graph for this function\-:\nopagebreak
 ) const}}\label{class_model_ad4caeecd30fd5eb67b46c232cfbea14b}
 
 
-Definition at line 570 of file Model.\-cpp.
+Definition at line 160 of file Model.\-cpp.
 
-\hypertarget{class_model_a74eb096b8229aa036d11adeeb8787599}{\index{Model@{Model}!get\-Simulated\-Time@{get\-Simulated\-Time}}
-\index{get\-Simulated\-Time@{get\-Simulated\-Time}!Model@{Model}}
-\subsubsection[{get\-Simulated\-Time}]{\setlength{\rightskip}{0pt plus 5cm}double Model\-::get\-Simulated\-Time (
+\hypertarget{class_model_a217487c8193eb6c0afd95a9315cd51bb}{\index{Model@{Model}!get\-Simulation@{get\-Simulation}}
+\index{get\-Simulation@{get\-Simulation}!Model@{Model}}
+\subsubsection[{get\-Simulation}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Model\-Simulation} $\ast$ Model\-::get\-Simulation (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_model_a74eb096b8229aa036d11adeeb8787599}
+) const}}\label{class_model_a217487c8193eb6c0afd95a9315cd51bb}
 
 
-Definition at line 605 of file Model.\-cpp.
+Definition at line 184 of file Model.\-cpp.
 
 
 
-Here is the caller graph for this function\-:\nopagebreak
+Here is the caller graph for this function\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=342pt]{class_model_a74eb096b8229aa036d11adeeb8787599_icgraph}
+\includegraphics[width=350pt]{class_model_a217487c8193eb6c0afd95a9315cd51bb_icgraph}
 \end{center}
 \end{figure}
 
 
-\hypertarget{class_model_a3da1140b818632e728fd57445ab1880b}{\index{Model@{Model}!get\-Terminating\-Condition@{get\-Terminating\-Condition}}
-\index{get\-Terminating\-Condition@{get\-Terminating\-Condition}!Model@{Model}}
-\subsubsection[{get\-Terminating\-Condition}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Model\-::get\-Terminating\-Condition (
+\hypertarget{class_model_adc0de22631d77864b7956591c39ebc60}{\index{Model@{Model}!get\-Tracer@{get\-Tracer}}
+\index{get\-Tracer@{get\-Tracer}!Model@{Model}}
+\subsubsection[{get\-Tracer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Trace\-Manager} $\ast$ Model\-::get\-Tracer (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_model_a3da1140b818632e728fd57445ab1880b}
+) const}}\label{class_model_adc0de22631d77864b7956591c39ebc60}
 
 
-Definition at line 446 of file Model.\-cpp.
-
-\hypertarget{class_model_a0fa341be1579f13861af2eda84d4f840}{\index{Model@{Model}!get\-Trace\-Level@{get\-Trace\-Level}}
-\index{get\-Trace\-Level@{get\-Trace\-Level}!Model@{Model}}
-\subsubsection[{get\-Trace\-Level}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Util\-::\-Trace\-Level} Model\-::get\-Trace\-Level (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}}\label{class_model_a0fa341be1579f13861af2eda84d4f840}
+Definition at line 164 of file Model.\-cpp.
 
 
-Definition at line 454 of file Model.\-cpp.
 
-\hypertarget{class_model_a073ecbf56dfd06e46af31bbd67a0402d}{\index{Model@{Model}!get\-Version@{get\-Version}}
-\index{get\-Version@{get\-Version}!Model@{Model}}
-\subsubsection[{get\-Version}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Model\-::get\-Version (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}}\label{class_model_a073ecbf56dfd06e46af31bbd67a0402d}
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_adc0de22631d77864b7956591c39ebc60_icgraph}
+\end{center}
+\end{figure}
 
-
-Definition at line 398 of file Model.\-cpp.
-
-\hypertarget{class_model_aa7b278f97a29269a18dbcbb6513f39da}{\index{Model@{Model}!get\-Warm\-Up\-Period@{get\-Warm\-Up\-Period}}
-\index{get\-Warm\-Up\-Period@{get\-Warm\-Up\-Period}!Model@{Model}}
-\subsubsection[{get\-Warm\-Up\-Period}]{\setlength{\rightskip}{0pt plus 5cm}double Model\-::get\-Warm\-Up\-Period (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}}\label{class_model_aa7b278f97a29269a18dbcbb6513f39da}
-
-
-Definition at line 430 of file Model.\-cpp.
-
-\hypertarget{class_model_a12a97aefe53ac31b8e7801b50a87715a}{\index{Model@{Model}!get\-Warm\-Up\-Period\-Time\-Unit@{get\-Warm\-Up\-Period\-Time\-Unit}}
-\index{get\-Warm\-Up\-Period\-Time\-Unit@{get\-Warm\-Up\-Period\-Time\-Unit}!Model@{Model}}
-\subsubsection[{get\-Warm\-Up\-Period\-Time\-Unit}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Util\-::\-Time\-Unit} Model\-::get\-Warm\-Up\-Period\-Time\-Unit (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}}\label{class_model_a12a97aefe53ac31b8e7801b50a87715a}
-
-
-Definition at line 438 of file Model.\-cpp.
-
-\hypertarget{class_model_aefe1365d9a032fe1ac62991f45446d6a}{\index{Model@{Model}!is\-Initialize\-Statistics@{is\-Initialize\-Statistics}}
-\index{is\-Initialize\-Statistics@{is\-Initialize\-Statistics}!Model@{Model}}
-\subsubsection[{is\-Initialize\-Statistics}]{\setlength{\rightskip}{0pt plus 5cm}bool Model\-::is\-Initialize\-Statistics (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}}\label{class_model_aefe1365d9a032fe1ac62991f45446d6a}
-
-
-Definition at line 347 of file Model.\-cpp.
-
-\hypertarget{class_model_afd5e0285a55278e266045112ef795868}{\index{Model@{Model}!is\-Initialize\-System@{is\-Initialize\-System}}
-\index{is\-Initialize\-System@{is\-Initialize\-System}!Model@{Model}}
-\subsubsection[{is\-Initialize\-System}]{\setlength{\rightskip}{0pt plus 5cm}bool Model\-::is\-Initialize\-System (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}}\label{class_model_afd5e0285a55278e266045112ef795868}
-
-
-Definition at line 355 of file Model.\-cpp.
-
-\hypertarget{class_model_a1dda07db7bddff456907067eeeb5c21a}{\index{Model@{Model}!is\-Pause\-On\-Event@{is\-Pause\-On\-Event}}
-\index{is\-Pause\-On\-Event@{is\-Pause\-On\-Event}!Model@{Model}}
-\subsubsection[{is\-Pause\-On\-Event}]{\setlength{\rightskip}{0pt plus 5cm}bool Model\-::is\-Pause\-On\-Event (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}}\label{class_model_a1dda07db7bddff456907067eeeb5c21a}
-
-
-Definition at line 339 of file Model.\-cpp.
-
-\hypertarget{class_model_a269e5b3c45f3c7ce606205fec8f0b3b4}{\index{Model@{Model}!is\-Pause\-On\-Replication@{is\-Pause\-On\-Replication}}
-\index{is\-Pause\-On\-Replication@{is\-Pause\-On\-Replication}!Model@{Model}}
-\subsubsection[{is\-Pause\-On\-Replication}]{\setlength{\rightskip}{0pt plus 5cm}bool Model\-::is\-Pause\-On\-Replication (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}}\label{class_model_a269e5b3c45f3c7ce606205fec8f0b3b4}
-
-
-Definition at line 601 of file Model.\-cpp.
-
-\hypertarget{class_model_a597bdaa89e9b6b396bded780e6d32fdf}{\index{Model@{Model}!is\-Running@{is\-Running}}
-\index{is\-Running@{is\-Running}!Model@{Model}}
-\subsubsection[{is\-Running}]{\setlength{\rightskip}{0pt plus 5cm}bool Model\-::is\-Running (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}}\label{class_model_a597bdaa89e9b6b396bded780e6d32fdf}
-The current time in the model being simulated, i.\-e., the instant when the current event was triggered 
-
-Definition at line 609 of file Model.\-cpp.
-
-\hypertarget{class_model_a8d47ce2750e22e14e5249b724cdf4fd3}{\index{Model@{Model}!is\-Saved@{is\-Saved}}
-\index{is\-Saved@{is\-Saved}!Model@{Model}}
-\subsubsection[{is\-Saved}]{\setlength{\rightskip}{0pt plus 5cm}bool Model\-::is\-Saved (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}}\label{class_model_a8d47ce2750e22e14e5249b724cdf4fd3}
-
-
-Definition at line 613 of file Model.\-cpp.
-
-\hypertarget{class_model_a8bc24806234d057bedb4262ecc090bf0}{\index{Model@{Model}!is\-Step\-By\-Step@{is\-Step\-By\-Step}}
-\index{is\-Step\-By\-Step@{is\-Step\-By\-Step}!Model@{Model}}
-\subsubsection[{is\-Step\-By\-Step}]{\setlength{\rightskip}{0pt plus 5cm}bool Model\-::is\-Step\-By\-Step (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-) const}}\label{class_model_a8bc24806234d057bedb4262ecc090bf0}
-
-
-Definition at line 593 of file Model.\-cpp.
 
 \hypertarget{class_model_aba57e8b62d4dcc3ac8e3037933fa6f04}{\index{Model@{Model}!load\-Model@{load\-Model}}
 \index{load\-Model@{load\-Model}!Model@{Model}}
@@ -834,7 +401,7 @@ Definition at line 593 of file Model.\-cpp.
 )}}\label{class_model_aba57e8b62d4dcc3ac8e3037933fa6f04}
 
 
-Definition at line 91 of file Model.\-cpp.
+Definition at line 96 of file Model.\-cpp.
 
 
 
@@ -856,7 +423,7 @@ Here is the call graph for this function\-:\nopagebreak
 )}}\label{class_model_a5ea283e339b50c0b77040bf908e25af3}
 Used by components (\hyperlink{class_model_component}{Model\-Component}) to send entities to another specific component, usually the next one connected to it, or used by the model itself, when processing an event (\hyperlink{class_event}{Event}). 
 
-Definition at line 95 of file Model.\-cpp.
+Definition at line 100 of file Model.\-cpp.
 
 
 
@@ -871,11 +438,12 @@ Here is the call graph for this function\-:\nopagebreak
 
 
 
-Here is the caller graph for this function\-:\nopagebreak
+Here is the caller graph for this function\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=336pt]{class_model_a5ea283e339b50c0b77040bf908e25af3_icgraph}
+\includegraphics[width=350pt]{class_model_a5ea283e339b50c0b77040bf908e25af3_icgraph}
 \end{center}
 \end{figure}
 
@@ -891,12 +459,11 @@ Here is the caller graph for this function\-:\nopagebreak
 )}}\label{class_model_a408ddfa761fcd04ec1211ae6c1526ab3}
 
 
-Definition at line 100 of file Model.\-cpp.
+Definition at line 105 of file Model.\-cpp.
 
 
 
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -904,17 +471,6 @@ Here is the call graph for this function\-:
 \end{center}
 \end{figure}
 
-
-\hypertarget{class_model_ab10d4bdc433d11bf4bb7117675091d8c}{\index{Model@{Model}!pause\-Simulation@{pause\-Simulation}}
-\index{pause\-Simulation@{pause\-Simulation}!Model@{Model}}
-\subsubsection[{pause\-Simulation}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-::pause\-Simulation (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}}\label{class_model_ab10d4bdc433d11bf4bb7117675091d8c}
-Starts a sequential execution of a simulation, ie, a set of repliations of this model 
-
-Definition at line 311 of file Model.\-cpp.
 
 \hypertarget{class_model_ae62bb3a21cd56fbf9d34195edf2fb9e0}{\index{Model@{Model}!remove\-Entity@{remove\-Entity}}
 \index{remove\-Entity@{remove\-Entity}!Model@{Model}}
@@ -926,11 +482,12 @@ Definition at line 311 of file Model.\-cpp.
 )}}\label{class_model_ae62bb3a21cd56fbf9d34195edf2fb9e0}
 Verifies if a symbol defined in a component (\hyperlink{class_model_component}{Model\-Component}) or infrastructure is syntactically valid and addresses existing components or infrastructures. It's used only by and directed by the component that defines the symbol. 
 
-Definition at line 301 of file Model.\-cpp.
+Definition at line 138 of file Model.\-cpp.
 
 
 
-Here is the call graph for this function\-:\nopagebreak
+Here is the call graph for this function\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -950,17 +507,6 @@ Here is the caller graph for this function\-:\nopagebreak
 \end{figure}
 
 
-\hypertarget{class_model_a8be70da19c6c315269acc5a3fd2e3b7d}{\index{Model@{Model}!restart\-Simulation@{restart\-Simulation}}
-\index{restart\-Simulation@{restart\-Simulation}!Model@{Model}}
-\subsubsection[{restart\-Simulation}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-::restart\-Simulation (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}}\label{class_model_a8be70da19c6c315269acc5a3fd2e3b7d}
-
-
-Definition at line 332 of file Model.\-cpp.
-
 \hypertarget{class_model_ae099910781f5267a51fb5d607246af4a}{\index{Model@{Model}!save\-Model@{save\-Model}}
 \index{save\-Model@{save\-Model}!Model@{Model}}
 \subsubsection[{save\-Model}]{\setlength{\rightskip}{0pt plus 5cm}bool Model\-::save\-Model (
@@ -970,7 +516,7 @@ Definition at line 332 of file Model.\-cpp.
 )}}\label{class_model_ae099910781f5267a51fb5d607246af4a}
 
 
-Definition at line 87 of file Model.\-cpp.
+Definition at line 92 of file Model.\-cpp.
 
 
 
@@ -985,7 +531,8 @@ Here is the call graph for this function\-:\nopagebreak
 
 
 
-Here is the caller graph for this function\-:\nopagebreak
+Here is the caller graph for this function\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -1005,11 +552,12 @@ Here is the caller graph for this function\-:\nopagebreak
 )}}\label{class_model_a244dff6d6bef962b0d95fbe712954079}
 
 
-Definition at line 72 of file Model.\-cpp.
+Definition at line 77 of file Model.\-cpp.
 
 
 
-Here is the call graph for this function\-:\nopagebreak
+Here is the call graph for this function\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -1029,193 +577,6 @@ Here is the caller graph for this function\-:\nopagebreak
 \end{figure}
 
 
-\hypertarget{class_model_a52c044c61c8411b083006d2c5fbe0abf}{\index{Model@{Model}!set\-Analyst\-Name@{set\-Analyst\-Name}}
-\index{set\-Analyst\-Name@{set\-Analyst\-Name}!Model@{Model}}
-\subsubsection[{set\-Analyst\-Name}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-::set\-Analyst\-Name (
-\begin{DoxyParamCaption}
-\item[{std\-::string}]{\-\_\-analyst\-Name}
-\end{DoxyParamCaption}
-)}}\label{class_model_a52c044c61c8411b083006d2c5fbe0abf}
-
-
-Definition at line 370 of file Model.\-cpp.
-
-\hypertarget{class_model_a84eb0333d18ac7f8a684d1cd32c64dbd}{\index{Model@{Model}!set\-Description@{set\-Description}}
-\index{set\-Description@{set\-Description}!Model@{Model}}
-\subsubsection[{set\-Description}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-::set\-Description (
-\begin{DoxyParamCaption}
-\item[{std\-::string}]{\-\_\-description}
-\end{DoxyParamCaption}
-)}}\label{class_model_a84eb0333d18ac7f8a684d1cd32c64dbd}
-
-
-Definition at line 378 of file Model.\-cpp.
-
-\hypertarget{class_model_a2fe72bb622b3d75479822f68710a36c7}{\index{Model@{Model}!set\-Initialize\-Statistics@{set\-Initialize\-Statistics}}
-\index{set\-Initialize\-Statistics@{set\-Initialize\-Statistics}!Model@{Model}}
-\subsubsection[{set\-Initialize\-Statistics}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-::set\-Initialize\-Statistics (
-\begin{DoxyParamCaption}
-\item[{bool}]{\-\_\-initialize\-Statistics}
-\end{DoxyParamCaption}
-)}}\label{class_model_a2fe72bb622b3d75479822f68710a36c7}
-
-
-Definition at line 343 of file Model.\-cpp.
-
-\hypertarget{class_model_ac1299b28921f4d246319b2624e4ad98f}{\index{Model@{Model}!set\-Initialize\-System@{set\-Initialize\-System}}
-\index{set\-Initialize\-System@{set\-Initialize\-System}!Model@{Model}}
-\subsubsection[{set\-Initialize\-System}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-::set\-Initialize\-System (
-\begin{DoxyParamCaption}
-\item[{bool}]{\-\_\-initialize\-System}
-\end{DoxyParamCaption}
-)}}\label{class_model_ac1299b28921f4d246319b2624e4ad98f}
-
-
-Definition at line 351 of file Model.\-cpp.
-
-\hypertarget{class_model_a2aab01a2871b2924eeb3c265267fabef}{\index{Model@{Model}!set\-Name@{set\-Name}}
-\index{set\-Name@{set\-Name}!Model@{Model}}
-\subsubsection[{set\-Name}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-::set\-Name (
-\begin{DoxyParamCaption}
-\item[{std\-::string}]{\-\_\-name}
-\end{DoxyParamCaption}
-)}}\label{class_model_a2aab01a2871b2924eeb3c265267fabef}
-
-
-Definition at line 362 of file Model.\-cpp.
-
-\hypertarget{class_model_a55d597e867b5c3e27cb2e1511414e7f3}{\index{Model@{Model}!set\-Number\-Of\-Replications@{set\-Number\-Of\-Replications}}
-\index{set\-Number\-Of\-Replications@{set\-Number\-Of\-Replications}!Model@{Model}}
-\subsubsection[{set\-Number\-Of\-Replications}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-::set\-Number\-Of\-Replications (
-\begin{DoxyParamCaption}
-\item[{unsigned int}]{\-\_\-number\-Of\-Replications}
-\end{DoxyParamCaption}
-)}}\label{class_model_a55d597e867b5c3e27cb2e1511414e7f3}
-
-
-Definition at line 402 of file Model.\-cpp.
-
-\hypertarget{class_model_a99238439363a292fe1fc503eb2157a55}{\index{Model@{Model}!set\-Pause\-On\-Event@{set\-Pause\-On\-Event}}
-\index{set\-Pause\-On\-Event@{set\-Pause\-On\-Event}!Model@{Model}}
-\subsubsection[{set\-Pause\-On\-Event}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-::set\-Pause\-On\-Event (
-\begin{DoxyParamCaption}
-\item[{bool}]{\-\_\-pause\-On\-Event}
-\end{DoxyParamCaption}
-)}}\label{class_model_a99238439363a292fe1fc503eb2157a55}
-
-
-Definition at line 335 of file Model.\-cpp.
-
-\hypertarget{class_model_ae1f205bd8b328b3785694567eaeb77ef}{\index{Model@{Model}!set\-Pause\-On\-Replication@{set\-Pause\-On\-Replication}}
-\index{set\-Pause\-On\-Replication@{set\-Pause\-On\-Replication}!Model@{Model}}
-\subsubsection[{set\-Pause\-On\-Replication}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-::set\-Pause\-On\-Replication (
-\begin{DoxyParamCaption}
-\item[{bool}]{\-\_\-pause\-Between\-Replications}
-\end{DoxyParamCaption}
-)}}\label{class_model_ae1f205bd8b328b3785694567eaeb77ef}
-
-
-Definition at line 597 of file Model.\-cpp.
-
-\hypertarget{class_model_a97ce94d618caee4364e82a8790f00052}{\index{Model@{Model}!set\-Project\-Title@{set\-Project\-Title}}
-\index{set\-Project\-Title@{set\-Project\-Title}!Model@{Model}}
-\subsubsection[{set\-Project\-Title}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-::set\-Project\-Title (
-\begin{DoxyParamCaption}
-\item[{std\-::string}]{\-\_\-project\-Title}
-\end{DoxyParamCaption}
-)}}\label{class_model_a97ce94d618caee4364e82a8790f00052}
-
-
-Definition at line 386 of file Model.\-cpp.
-
-\hypertarget{class_model_a5be13e4bb83891e8caed52b3eae1470f}{\index{Model@{Model}!set\-Replication\-Length@{set\-Replication\-Length}}
-\index{set\-Replication\-Length@{set\-Replication\-Length}!Model@{Model}}
-\subsubsection[{set\-Replication\-Length}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-::set\-Replication\-Length (
-\begin{DoxyParamCaption}
-\item[{double}]{\-\_\-replication\-Length}
-\end{DoxyParamCaption}
-)}}\label{class_model_a5be13e4bb83891e8caed52b3eae1470f}
-
-
-Definition at line 410 of file Model.\-cpp.
-
-\hypertarget{class_model_a0261d2009ad7a3f9025e31cf02e6297a}{\index{Model@{Model}!set\-Replication\-Length\-Time\-Unit@{set\-Replication\-Length\-Time\-Unit}}
-\index{set\-Replication\-Length\-Time\-Unit@{set\-Replication\-Length\-Time\-Unit}!Model@{Model}}
-\subsubsection[{set\-Replication\-Length\-Time\-Unit}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-::set\-Replication\-Length\-Time\-Unit (
-\begin{DoxyParamCaption}
-\item[{{\bf Util\-::\-Time\-Unit}}]{\-\_\-replication\-Length\-Time\-Unit}
-\end{DoxyParamCaption}
-)}}\label{class_model_a0261d2009ad7a3f9025e31cf02e6297a}
-
-
-Definition at line 418 of file Model.\-cpp.
-
-\hypertarget{class_model_a2b4b1bb4e9c082e8b0c893a35f5a8f53}{\index{Model@{Model}!set\-Step\-By\-Step@{set\-Step\-By\-Step}}
-\index{set\-Step\-By\-Step@{set\-Step\-By\-Step}!Model@{Model}}
-\subsubsection[{set\-Step\-By\-Step}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-::set\-Step\-By\-Step (
-\begin{DoxyParamCaption}
-\item[{bool}]{\-\_\-step\-By\-Step}
-\end{DoxyParamCaption}
-)}}\label{class_model_a2b4b1bb4e9c082e8b0c893a35f5a8f53}
-
-
-Definition at line 589 of file Model.\-cpp.
-
-\hypertarget{class_model_a480b4220ecfe82a1826ca29366a8d2b6}{\index{Model@{Model}!set\-Terminating\-Condition@{set\-Terminating\-Condition}}
-\index{set\-Terminating\-Condition@{set\-Terminating\-Condition}!Model@{Model}}
-\subsubsection[{set\-Terminating\-Condition}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-::set\-Terminating\-Condition (
-\begin{DoxyParamCaption}
-\item[{std\-::string}]{\-\_\-terminating\-Condition}
-\end{DoxyParamCaption}
-)}}\label{class_model_a480b4220ecfe82a1826ca29366a8d2b6}
-
-
-Definition at line 442 of file Model.\-cpp.
-
-\hypertarget{class_model_a538fdc09de27b077b4e4c84fdc78a61e}{\index{Model@{Model}!set\-Trace\-Level@{set\-Trace\-Level}}
-\index{set\-Trace\-Level@{set\-Trace\-Level}!Model@{Model}}
-\subsubsection[{set\-Trace\-Level}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-::set\-Trace\-Level (
-\begin{DoxyParamCaption}
-\item[{{\bf Util\-::\-Trace\-Level}}]{\-\_\-trace\-Level}
-\end{DoxyParamCaption}
-)}}\label{class_model_a538fdc09de27b077b4e4c84fdc78a61e}
-
-
-Definition at line 450 of file Model.\-cpp.
-
-\hypertarget{class_model_a630f152feb166751ecf53e5c628a7826}{\index{Model@{Model}!set\-Version@{set\-Version}}
-\index{set\-Version@{set\-Version}!Model@{Model}}
-\subsubsection[{set\-Version}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-::set\-Version (
-\begin{DoxyParamCaption}
-\item[{std\-::string}]{\-\_\-version}
-\end{DoxyParamCaption}
-)}}\label{class_model_a630f152feb166751ecf53e5c628a7826}
-
-
-Definition at line 394 of file Model.\-cpp.
-
-\hypertarget{class_model_ac6e4c4bd49b999b2f6ce5ad97d45bbae}{\index{Model@{Model}!set\-Warm\-Up\-Period@{set\-Warm\-Up\-Period}}
-\index{set\-Warm\-Up\-Period@{set\-Warm\-Up\-Period}!Model@{Model}}
-\subsubsection[{set\-Warm\-Up\-Period}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-::set\-Warm\-Up\-Period (
-\begin{DoxyParamCaption}
-\item[{double}]{\-\_\-warm\-Up\-Period}
-\end{DoxyParamCaption}
-)}}\label{class_model_ac6e4c4bd49b999b2f6ce5ad97d45bbae}
-
-
-Definition at line 426 of file Model.\-cpp.
-
-\hypertarget{class_model_a864c1a3f96cd05b83894042e41ef5ea6}{\index{Model@{Model}!set\-Warm\-Up\-Period\-Time\-Unit@{set\-Warm\-Up\-Period\-Time\-Unit}}
-\index{set\-Warm\-Up\-Period\-Time\-Unit@{set\-Warm\-Up\-Period\-Time\-Unit}!Model@{Model}}
-\subsubsection[{set\-Warm\-Up\-Period\-Time\-Unit}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-::set\-Warm\-Up\-Period\-Time\-Unit (
-\begin{DoxyParamCaption}
-\item[{{\bf Util\-::\-Time\-Unit}}]{\-\_\-warm\-Up\-Period\-Time\-Unit}
-\end{DoxyParamCaption}
-)}}\label{class_model_a864c1a3f96cd05b83894042e41ef5ea6}
-
-
-Definition at line 434 of file Model.\-cpp.
-
 \hypertarget{class_model_a44c66f552308e7a6a5701801186a8637}{\index{Model@{Model}!show\-Reports@{show\-Reports}}
 \index{show\-Reports@{show\-Reports}!Model@{Model}}
 \subsubsection[{show\-Reports}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-::show\-Reports (
@@ -1223,171 +584,6 @@ Definition at line 434 of file Model.\-cpp.
 {}
 \end{DoxyParamCaption}
 )}}\label{class_model_a44c66f552308e7a6a5701801186a8637}
-
-
-Definition at line 156 of file Model.\-cpp.
-
-
-
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_model_a44c66f552308e7a6a5701801186a8637_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_model_a6fd6613a5141552a6493eb3a840cde24}{\index{Model@{Model}!start\-Simulation@{start\-Simulation}}
-\index{start\-Simulation@{start\-Simulation}!Model@{Model}}
-\subsubsection[{start\-Simulation}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-::start\-Simulation (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}}\label{class_model_a6fd6613a5141552a6493eb3a840cde24}
-Checks the model and if ok then initialize the simulation, execute repeatedly each replication and then show simulation statistics 
-
-Definition at line 113 of file Model.\-cpp.
-
-
-
-Here is the call graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_model_a6fd6613a5141552a6493eb3a840cde24_cgraph}
-\end{center}
-\end{figure}
-
-
-
-
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_model_a6fd6613a5141552a6493eb3a840cde24_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_model_a025b6ab3112a1df6f7773389b096302c}{\index{Model@{Model}!step\-Simulation@{step\-Simulation}}
-\index{step\-Simulation@{step\-Simulation}!Model@{Model}}
-\subsubsection[{step\-Simulation}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-::step\-Simulation (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}}\label{class_model_a025b6ab3112a1df6f7773389b096302c}
-
-
-Definition at line 314 of file Model.\-cpp.
-
-
-
-Here is the call graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=322pt]{class_model_a025b6ab3112a1df6f7773389b096302c_cgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_model_a6452e846a5e560220236b7a59f1dd84b}{\index{Model@{Model}!stop\-Simulation@{stop\-Simulation}}
-\index{stop\-Simulation@{stop\-Simulation}!Model@{Model}}
-\subsubsection[{stop\-Simulation}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-::stop\-Simulation (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}}\label{class_model_a6452e846a5e560220236b7a59f1dd84b}
-Executes the processing of a single event, the next one in the future events list 
-
-Definition at line 329 of file Model.\-cpp.
-
-\hypertarget{class_model_a5de086b514742e84b61ac9a7b128ae8b}{\index{Model@{Model}!trace@{trace}}
-\index{trace@{trace}!Model@{Model}}
-\subsubsection[{trace}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-::trace (
-\begin{DoxyParamCaption}
-\item[{{\bf Util\-::\-Trace\-Level}}]{tracelevel, }
-\item[{std\-::string}]{text}
-\end{DoxyParamCaption}
-)}}\label{class_model_a5de086b514742e84b61ac9a7b128ae8b}
-
-
-Definition at line 489 of file Model.\-cpp.
-
-
-
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_model_a5de086b514742e84b61ac9a7b128ae8b_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_model_a092b7062edcb59344f286d858ed10fac}{\index{Model@{Model}!trace\-Error@{trace\-Error}}
-\index{trace\-Error@{trace\-Error}!Model@{Model}}
-\subsubsection[{trace\-Error}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-::trace\-Error (
-\begin{DoxyParamCaption}
-\item[{std\-::exception}]{e, }
-\item[{std\-::string}]{text}
-\end{DoxyParamCaption}
-)}}\label{class_model_a092b7062edcb59344f286d858ed10fac}
-
-
-Definition at line 499 of file Model.\-cpp.
-
-
-
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_model_a092b7062edcb59344f286d858ed10fac_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_model_ab601f70b29eed01e6a495924c852caf0}{\index{Model@{Model}!trace\-Report@{trace\-Report}}
-\index{trace\-Report@{trace\-Report}!Model@{Model}}
-\subsubsection[{trace\-Report}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-::trace\-Report (
-\begin{DoxyParamCaption}
-\item[{{\bf Util\-::\-Trace\-Level}}]{tracelevel, }
-\item[{std\-::string}]{text}
-\end{DoxyParamCaption}
-)}}\label{class_model_ab601f70b29eed01e6a495924c852caf0}
-
-
-Definition at line 516 of file Model.\-cpp.
-
-\hypertarget{class_model_a0d866e0ef942638d63c1d8c3eb98fa19}{\index{Model@{Model}!trace\-Simulation@{trace\-Simulation}}
-\index{trace\-Simulation@{trace\-Simulation}!Model@{Model}}
-\subsubsection[{trace\-Simulation}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-::trace\-Simulation (
-\begin{DoxyParamCaption}
-\item[{{\bf Util\-::\-Trace\-Level}}]{tracelevel, }
-\item[{double}]{time, }
-\item[{{\bf Entity} $\ast$}]{entity, }
-\item[{{\bf Model\-Component} $\ast$}]{component, }
-\item[{std\-::string}]{text}
-\end{DoxyParamCaption}
-)}}\label{class_model_a0d866e0ef942638d63c1d8c3eb98fa19}
-
-
-Definition at line 507 of file Model.\-cpp.
-
-
-
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=330pt]{class_model_a0d866e0ef942638d63c1d8c3eb98fa19_icgraph}
-\end{center}
-\end{figure}
-
-
 \hypertarget{class_model_ae2be8579f8519eec5da9e6f72c7ec361}{\index{Model@{Model}!verify\-Symbol@{verify\-Symbol}}
 \index{verify\-Symbol@{verify\-Symbol}!Model@{Model}}
 \subsubsection[{verify\-Symbol}]{\setlength{\rightskip}{0pt plus 5cm}bool Model\-::verify\-Symbol (
@@ -1401,7 +597,7 @@ Here is the caller graph for this function\-:\nopagebreak
 )}}\label{class_model_ae2be8579f8519eec5da9e6f72c7ec361}
 Checks the integrity and consistency of the model, possibly corrects some inconsistencies, and returns if the model is in position to the simulated. 
 
-Definition at line 297 of file Model.\-cpp.
+Definition at line 134 of file Model.\-cpp.
 
 
 
@@ -1410,17 +606,6 @@ Here is the call graph for this function\-:\nopagebreak
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{class_model_ae2be8579f8519eec5da9e6f72c7ec361_cgraph}
-\end{center}
-\end{figure}
-
-
-
-
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=342pt]{class_model_ae2be8579f8519eec5da9e6f72c7ec361_icgraph}
 \end{center}
 \end{figure}
 

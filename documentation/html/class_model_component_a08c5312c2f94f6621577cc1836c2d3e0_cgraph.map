@@ -1,8 +1,9 @@
 <map id="ModelComponent::Execute" name="ModelComponent::Execute">
-<area shape="rect" id="node2" href="$class_model.html#a5de086b514742e84b61ac9a7b128ae8b" title="Model::trace" alt="" coords="281,5,375,32"/>
-<area shape="rect" id="node3" href="$class_model_infrastructure.html#aa4d3fa8f302cc6dc4fccdd3187e6a168" title="ModelInfrastructure\l::getId" alt="" coords="261,57,395,98"/>
-<area shape="rect" id="node4" href="$class_model_component.html#ae3fcf8bbdd8368c882438424aa73f714" title="ModelComponent::_execute" alt="" coords="235,123,421,149"/>
-<area shape="rect" id="node5" href="$class_model.html#a092b7062edcb59344f286d858ed10fac" title="Model::traceError" alt="" coords="267,173,389,200"/>
-<area shape="rect" id="node6" href="$class_model_component.html#ad8bc846e36b028eab7efb7da6c549eca" title="ModelComponent::show" alt="" coords="247,224,409,251"/>
-<area shape="rect" id="node7" href="$class_model_infrastructure.html#a649a5a89a0c9931783d3c51de2acf266" title="ModelInfrastructure\l::show" alt="" coords="470,217,605,258"/>
+<area shape="rect" id="node2" href="$class_model.html#adc0de22631d77864b7956591c39ebc60" title="Model::getTracer" alt="" coords="268,5,388,32"/>
+<area shape="rect" id="node3" href="$class_trace_manager.html#a242d77829b85a436fd2aab2092bfa50c" title="TraceManager::trace" alt="" coords="257,56,399,83"/>
+<area shape="rect" id="node4" href="$class_model_infrastructure.html#aa4d3fa8f302cc6dc4fccdd3187e6a168" title="ModelInfrastructure\l::getId" alt="" coords="261,107,395,149"/>
+<area shape="rect" id="node5" href="$class_model_component.html#ae3fcf8bbdd8368c882438424aa73f714" title="ModelComponent::_execute" alt="" coords="235,173,421,200"/>
+<area shape="rect" id="node6" href="$class_trace_manager.html#a774a8549d24361fa2a8f8722de0084ef" title="TraceManager::traceError" alt="" coords="243,224,413,251"/>
+<area shape="rect" id="node7" href="$class_model_component.html#ad8bc846e36b028eab7efb7da6c549eca" title="ModelComponent::show" alt="" coords="247,275,409,301"/>
+<area shape="rect" id="node8" href="$class_model_infrastructure.html#a649a5a89a0c9931783d3c51de2acf266" title="ModelInfrastructure\l::show" alt="" coords="470,267,605,309"/>
 </map>
