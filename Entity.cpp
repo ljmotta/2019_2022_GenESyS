@@ -47,10 +47,10 @@ void Entity::_loadInstance(std::list<std::string> words) {
 }
 
 std::list<std::string>* Entity::_saveInstance() {
-	std::list<std::string>* words = new std::list<std::string>();
+	std::list<std::string>* words = ModelInfrastructure::_saveInstance(Util::TypeOf<Entity>());
 	return words;
 }
 
 bool Entity::_verifySymbols(std::string* errorMessage) {
-	//this->_
+	return true;
 }

@@ -17,7 +17,7 @@
 ModelComponent::ModelComponent(Model* model) : ModelInfrastructure(typeid (this).name()) {
 	_model = model;
 	_nextComponents = new List<ModelComponent*>();
-    //_checkedConnection = false; // ????????????????
+	//_checkedConnection = false; // ????????????????
 }
 
 ModelComponent::ModelComponent(const ModelComponent& orig) : ModelInfrastructure(orig) {
@@ -68,10 +68,21 @@ std::string ModelComponent::show() {
 	return ModelInfrastructure::show(); // "{id=" + std::to_string(this->_id) + ",name=\""+this->_name + "\"}"; // , nextComponents[]=(" + _nextComponents->show() + ")}";
 }
 
-bool ModelComponent::getCheckedConnection(){
-    return this->_checkedConnection;
+bool ModelComponent::getCheckedConnection() {
+	return this->_checkedConnection;
 }
 
-void ModelComponent::setCheckedConnection( bool _checkedConnection){
-    this->_checkedConnection = _checkedConnection;
+void ModelComponent::setCheckedConnection(bool _checkedConnection) {
+	this->_checkedConnection = _checkedConnection;
+}
+
+std::list<std::string>* ModelComponent::_saveInstance() {
+	std::list<std::string>* words = ModelInfrastructure::_saveInstance();
+	return words;
+}
+
+std::list<std::string>* ModelComponent::_saveInstance(std::string type) {
+	std::list<std::string>* words = ModelComponent::_saveInstance();
+	words->insert(words->end(), type);
+	return words;
 }

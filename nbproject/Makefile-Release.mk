@@ -38,7 +38,9 @@ OBJECTFILES= \
 	${OBJECTDIR}/Assign.o \
 	${OBJECTDIR}/Attribute.o \
 	${OBJECTDIR}/BuildSimulationModel.o \
+	${OBJECTDIR}/CollectorDanielBoso.o \
 	${OBJECTDIR}/CollectorDatafileCancianImpl.o \
+	${OBJECTDIR}/CollectorDatafileDanielBoso.o \
 	${OBJECTDIR}/CollectorDatafileMyImpl1.o \
 	${OBJECTDIR}/CollectorMyImpl1.o \
 	${OBJECTDIR}/Create.o \
@@ -47,6 +49,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Entity.o \
 	${OBJECTDIR}/EntityType.o \
 	${OBJECTDIR}/Event.o \
+	${OBJECTDIR}/ExperementDesign_BrunoBonotto_JoaoSouto.o \
 	${OBJECTDIR}/ExperimentDesignMyImpl1.o \
 	${OBJECTDIR}/FactorOrInteractionContribution.o \
 	${OBJECTDIR}/FitterJoaoSouto.o \
@@ -75,6 +78,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Queue.o \
 	${OBJECTDIR}/Release.o \
 	${OBJECTDIR}/Resource.o \
+	${OBJECTDIR}/SamplerDanielBoso.o \
 	${OBJECTDIR}/SamplerMyImpl1.o \
 	${OBJECTDIR}/Sampler_BruFabJoa.o \
 	${OBJECTDIR}/Seize.o \
@@ -86,6 +90,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/SourceModelComponent.o \
 	${OBJECTDIR}/StatisticsCancianImpl.o \
 	${OBJECTDIR}/StatisticsCollector.o \
+	${OBJECTDIR}/StatisticsCollectorDanielBoso.o \
+	${OBJECTDIR}/StatisticsDanielBoso.o \
 	${OBJECTDIR}/StatisticsMyImpl1.o \
 	${OBJECTDIR}/TestInputAnalyserTools.o \
 	${OBJECTDIR}/TestParser.o \
@@ -137,10 +143,20 @@ ${OBJECTDIR}/BuildSimulationModel.o: BuildSimulationModel.cpp nbproject/Makefile
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/BuildSimulationModel.o BuildSimulationModel.cpp
 
+${OBJECTDIR}/CollectorDanielBoso.o: CollectorDanielBoso.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/CollectorDanielBoso.o CollectorDanielBoso.cpp
+
 ${OBJECTDIR}/CollectorDatafileCancianImpl.o: CollectorDatafileCancianImpl.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/CollectorDatafileCancianImpl.o CollectorDatafileCancianImpl.cpp
+
+${OBJECTDIR}/CollectorDatafileDanielBoso.o: CollectorDatafileDanielBoso.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/CollectorDatafileDanielBoso.o CollectorDatafileDanielBoso.cpp
 
 ${OBJECTDIR}/CollectorDatafileMyImpl1.o: CollectorDatafileMyImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -181,6 +197,11 @@ ${OBJECTDIR}/Event.o: Event.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Event.o Event.cpp
+
+${OBJECTDIR}/ExperementDesign_BrunoBonotto_JoaoSouto.o: ExperementDesign_BrunoBonotto_JoaoSouto.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ExperementDesign_BrunoBonotto_JoaoSouto.o ExperementDesign_BrunoBonotto_JoaoSouto.cpp
 
 ${OBJECTDIR}/ExperimentDesignMyImpl1.o: ExperimentDesignMyImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -322,6 +343,11 @@ ${OBJECTDIR}/Resource.o: Resource.cpp nbproject/Makefile-${CND_CONF}.mk
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Resource.o Resource.cpp
 
+${OBJECTDIR}/SamplerDanielBoso.o: SamplerDanielBoso.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SamplerDanielBoso.o SamplerDanielBoso.cpp
+
 ${OBJECTDIR}/SamplerMyImpl1.o: SamplerMyImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -376,6 +402,16 @@ ${OBJECTDIR}/StatisticsCollector.o: StatisticsCollector.cpp nbproject/Makefile-$
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/StatisticsCollector.o StatisticsCollector.cpp
+
+${OBJECTDIR}/StatisticsCollectorDanielBoso.o: StatisticsCollectorDanielBoso.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/StatisticsCollectorDanielBoso.o StatisticsCollectorDanielBoso.cpp
+
+${OBJECTDIR}/StatisticsDanielBoso.o: StatisticsDanielBoso.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/StatisticsDanielBoso.o StatisticsDanielBoso.cpp
 
 ${OBJECTDIR}/StatisticsMyImpl1.o: StatisticsMyImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

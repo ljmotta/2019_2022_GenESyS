@@ -23,13 +23,13 @@ EntityType::EntityType(Model* model) : ModelInfrastructure(typeid (EntityType).n
 	_cstatVATime = new StatisticsCollector("Value Added Time", this);
 	_cstatNVATime = new StatisticsCollector("Non Value Added Time", this);
 	_cstatTimeInSystem = new StatisticsCollector("Time In System", this);
-	List<ModelInfrastructure*>* infras = model->getInfraManager()->getInfrastructures(Util::TypeOf<StatisticsCollector>());
-	infras->insert(this->_cstatNVATime);
-	infras->insert(this->_cstatOtherTime);
-	infras->insert(this->_cstatTimeInSystem);
-	infras->insert(this->_cstatTransferTime);
-	infras->insert(this->_cstatVATime);
-	infras->insert(this->_cstatWaitingTime);
+	//List<ModelInfrastructure*>* infras = model->getInfraManager()->getInfrastructures(Util::TypeOf<StatisticsCollector>());
+	model->getInfraManager()->insertInfrastructure(Util::TypeOf<StatisticsCollector>(), _cstatNVATime);
+	model->getInfraManager()->insertInfrastructure(Util::TypeOf<StatisticsCollector>(), _cstatOtherTime);
+	model->getInfraManager()->insertInfrastructure(Util::TypeOf<StatisticsCollector>(), _cstatTimeInSystem);
+	model->getInfraManager()->insertInfrastructure(Util::TypeOf<StatisticsCollector>(), _cstatTransferTime);
+	model->getInfraManager()->insertInfrastructure(Util::TypeOf<StatisticsCollector>(), _cstatVATime);
+	model->getInfraManager()->insertInfrastructure(Util::TypeOf<StatisticsCollector>(), _cstatWaitingTime);
 }
 
 EntityType::EntityType(const EntityType& orig) : ModelInfrastructure(orig) {
@@ -122,12 +122,12 @@ void EntityType::_loadInstance(std::list<std::string> words) {
 }
 
 std::list<std::string>* EntityType::_saveInstance() {
-	std::list<std::string>* words = new std::list<std::string>();
+	std::list<std::string>* words = ModelInfrastructure::_saveInstance(Util::TypeOf<EntityType>());
 	return words;
 }
 
 bool EntityType::_verifySymbols(std::string* errorMessage) {
-
+	return true;
 }
 
 

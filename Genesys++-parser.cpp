@@ -1258,9 +1258,9 @@ namespace yy {
                                                                   driver.setResult(-1);
                                                                   if(driver.getThrowsException()){
                                                                     if(yystack_[0].value.as< obj_t > ().valor == 0){
-                                                                      throw std::string("Literal nao encontrado");
+                                                                      //throw std::string("Literal nao encontrado");
                                                                     }else if(yystack_[0].value.as< obj_t > ().valor == 1){
-                                                                      throw std::string("Caracter invalido encontrado");
+                                                                      //throw std::string("Caracter invalido encontrado");
                                                                     }
                                                                   }else{
                                                                     if(yystack_[0].value.as< obj_t > ().valor == 0){

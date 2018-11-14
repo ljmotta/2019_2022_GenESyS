@@ -60,7 +60,7 @@ void Delay::_loadInstance(std::list<std::string> words) {
 }
 
 std::list<std::string>* Delay::_saveInstance() {
-	std::list<std::string>* words = new std::list<std::string>();
+	std::list<std::string>* words = ModelComponent::_saveInstance(Util::TypeOf<Delay>());
 	return words;
 
 }

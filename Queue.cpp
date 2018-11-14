@@ -17,9 +17,8 @@
 Queue::Queue(Model* model) : ModelInfrastructure(Util::TypeOf<Queue>()) {
 	_cstatNumberInQueue = new StatisticsCollector("Number In Queue", this); /* TODO: ++ WHY THIS INSERT "DISPOSE" AND "10ENTITYTYPE" STATCOLL ?? */
 	_cstatTimeInQueue = new StatisticsCollector("Time In Queue", this);
-	List<ModelInfrastructure*>* infras = model->getInfraManager()->getInfrastructures(Util::TypeOf<StatisticsCollector>());
-	infras->insert(_cstatNumberInQueue);
-	infras->insert(_cstatTimeInQueue);
+	model->getInfraManager()->insertInfrastructure(Util::TypeOf<StatisticsCollector>(), _cstatNumberInQueue);
+	model->getInfraManager()->insertInfrastructure(Util::TypeOf<StatisticsCollector>(), _cstatTimeInQueue);
 }
 
 Queue::Queue(const Queue& orig) : ModelInfrastructure(orig) {
@@ -66,10 +65,10 @@ void Queue::_loadInstance(std::list<std::string> words) {
 }
 
 std::list<std::string>* Queue::_saveInstance() {
-	std::list<std::string>* words = new std::list<std::string>();
+	std::list<std::string>* words = ModelInfrastructure::_saveInstance(Util::TypeOf<Queue>());
 	return words;
 }
 
 bool Queue::_verifySymbols(std::string* errorMessage) {
-
+	return true;
 }

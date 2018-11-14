@@ -44,9 +44,8 @@ public: //get
     StatisticsCollector* getCstatOtherTime() const;
     StatisticsCollector* getCstatTransferTime() const;
     StatisticsCollector* getCstatWaitingTime() const;
-	
-	
-protected: 
+
+protected: // must be overriden by derived classes
 	virtual void _loadInstance(std::list<std::string> words);
 	virtual std::list<std::string>* _saveInstance();
 	virtual bool _verifySymbols(std::string* errorMessage);

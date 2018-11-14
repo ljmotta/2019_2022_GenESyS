@@ -26,6 +26,11 @@ void testStudentSoftwareDevelopments() {
 	double value;
 	for (unsigned int i = 0; i < 1e3; i++) {
 		value = mmc->sampleNormal(5000, 350);
+		value = mmc->sampleBeta(2,4,1000,2000);
+		value = mmc->sampleErlang(1000,10);
+		value = mmc->sampleGamma(1000,2);
+		value = mmc->sampleTriangular(1000,1900,2000);
+		value = mmc->sampleWeibull(1000,1);
 		collector->addValue(value);
 	}
 
@@ -42,6 +47,7 @@ void testStudentSoftwareDevelopments() {
 	unsigned int numclasses = statistics->histogramNumClasses();
 	for (unsigned int i = 0; i < numclasses; i++) {
 		statVal = statistics->histogramClassFrequency(i);
+		statVal = statistics->histogramClassLowerLimit(i);
 	}
 
 	// fit datafile to different probability distributions

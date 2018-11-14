@@ -62,7 +62,7 @@ void Assign::_loadInstance(std::list<std::string> words) {
 }
 
 std::list<std::string>* Assign::_saveInstance() {
-	std::list<std::string>* words = new std::list<std::string>();
+	std::list<std::string>* words = ModelComponent::_saveInstance(Util::TypeOf<Assign>());
 	return words;
 }
 
@@ -80,14 +80,14 @@ bool Assign::_verifySymbols(std::string* errorMessage) {
 			if (infra==nullptr) {
 				Attribute* newAttribute = new Attribute();
 				newAttribute->setName(let->getDestination());
-				_model->getInfraManager()->getInfrastructures(Util::TypeOf<Attribute>())->insert(newAttribute);
+				_model->getInfraManager()->insertInfrastructure(Util::TypeOf<Attribute>(), newAttribute);
 			}
 		} else if (let->getDestinationType() == DestinationType::Variable) {
 			infra = _model->getInfraManager()->getInfrastructure(Util::TypeOf<Variable>(), let->getDestination());	
 			if (infra==nullptr) {
 				Variable* newVariable = new Variable();
 				newVariable->setName(let->getDestination());
-				_model->getInfraManager()->getInfrastructures(Util::TypeOf<Variable>())->insert(newVariable);
+				_model->getInfraManager()->insertInfrastructure(Util::TypeOf<Variable>(), newVariable);
 			}
 		}
 	}

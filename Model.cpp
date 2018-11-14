@@ -45,6 +45,7 @@ Model::Model(Simulator* simulator) {
 	_parser = new Traits<Parser_if>::Implementation(this);
 	_modelChecker = new Traits<ModelChecker_if>::Implementation(this);
 	_modelPersistence = new Traits<ModelPersistence_if>::Implementation(this);
+	_simulation = new ModelSimulation(this);
 	// 1:n associations
 	_components = new List<ModelComponent*>();
 	_components->setSortFunc([](const ModelComponent* a, const ModelComponent * b) {

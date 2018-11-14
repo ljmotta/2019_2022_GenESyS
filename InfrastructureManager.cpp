@@ -14,10 +14,9 @@
 #include "InfrastructureManager.h"
 #include "Model.h"
 
-
 InfrastructureManager::InfrastructureManager(Model* model) {
 	_model = model;
-		/* TODO: -- Sort methods for infrastructures should be a decorator */
+	/* TODO: -- Sort methods for infrastructures should be a decorator */
 	_infrastructures = new std::map<std::string, List<ModelInfrastructure*>*>(); /// Infrastructures are organized as a map from a string (key), the type of an infrastructure, and a list of infrastructures of that type 
 	//_infrastructures->setSortFunc([](const ModelInfrastructure* a, const ModelInfrastructure * b) {
 	//	return a->getId() < b->getId();
@@ -31,6 +30,23 @@ InfrastructureManager::InfrastructureManager(const InfrastructureManager& orig) 
 InfrastructureManager::~InfrastructureManager() {
 }
 
+bool InfrastructureManager::insertInfrastructure(std::string infraTypename, ModelInfrastructure* infra) {
+	List<ModelInfrastructure*>* listInfras = getInfrastructures(infraTypename);
+	if (listInfras->find(infra) == listInfras->getList()->end()) { //not found
+		if (dynamic_cast<ModelInfrastructure*>(infra) == nullptr) { // how? remove ir. test only because of seg faults
+			return false;
+		}
+		infra->SaveInstance(infra);
+		listInfras->insert(infra);
+	} else {
+		return false; // already exists
+	}
+}
+
+bool InfrastructureManager::removeInfrastructure(std::string infraTypename, ModelInfrastructure* infra) {
+
+}
+
 void InfrastructureManager::show() {
 	_model->getTracer()->trace(Util::TraceLevel::mostDetailed, "Model Infrastructures:");
 	//std::map<std::string, List<ModelInfrastructure*>*>* _infrastructures;
@@ -39,7 +55,7 @@ void InfrastructureManager::show() {
 	for (std::map<std::string, List<ModelInfrastructure*>*>::iterator infraIt = _infrastructures->begin(); infraIt != _infrastructures->end(); infraIt++) {
 		key = (*infraIt).first;
 		list = (*infraIt).second;
-		_model->getTracer()->trace(Util::TraceLevel::mostDetailed, "   " + key + ": ("+std::to_string(list->size())+")");
+		_model->getTracer()->trace(Util::TraceLevel::mostDetailed, "   " + key + ": (" + std::to_string(list->size()) + ")");
 		for (std::list<ModelInfrastructure*>::iterator it = list->getList()->begin(); it != list->getList()->end(); it++) {
 			_model->getTracer()->trace(Util::TraceLevel::mostDetailed, "      " + (*it)->show());
 		}
@@ -78,7 +94,6 @@ std::list<std::string>* InfrastructureManager::getInfrastructureTypenames() cons
 	}
 	return keys;
 }
-
 
 ModelInfrastructure* InfrastructureManager::getInfrastructure(std::string infraTypename, std::string name) {
 	List<ModelInfrastructure*>* list = getInfrastructures(infraTypename);

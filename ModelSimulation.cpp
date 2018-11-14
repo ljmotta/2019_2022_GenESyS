@@ -73,8 +73,8 @@ void ModelSimulation::startSimulation() {
 		} else if (_model->parseExpression(_info->getTerminatingCondition())) {
 			causeTerminated = "termination condition was achieved";
 		} else causeTerminated = "unknown";
-		std::string message = "Replication " + std::to_string(_currentReplicationNumber) +" of " + std::to_string(_info->getNumberOfReplications())+ " has finished at time " + std::to_string(_simulatedTime)+ " because " + causeTerminated;
-		_model->getTracer()->trace(Util::TraceLevel::simulation, message );
+		std::string message = "Replication " + std::to_string(_currentReplicationNumber) + " of " + std::to_string(_info->getNumberOfReplications()) + " has finished at time " + std::to_string(_simulatedTime) + " because " + causeTerminated;
+		_model->getTracer()->trace(Util::TraceLevel::simulation, message);
 		_showReplicationStatistics();
 	}
 	_showSimulationStatistics();
@@ -114,16 +114,19 @@ void ModelSimulation::_initReplication() {
 	Entity *newEntity;
 	Event *newEvent;
 	double creationTime;
+	unsigned int numToCreate;
 	//for(ModelComponent* comp=_components->first(); comp!=_components->last(); _components->next()) {
 	std::list<ModelComponent*>* list = _model->getComponents()->getList();
 	for (std::list<ModelComponent*>::iterator it = list->begin(); it != list->end(); it++) {
 		source = dynamic_cast<SourceModelComponent*> (*it);
 		if (source != nullptr) {
 			creationTime = source->getFirstCreation();
-			/* TODO +-: amount of entities to create, max number of creations */
-			newEntity = new Entity();
-			newEvent = new Event(creationTime, newEntity, (*it));
-			_model->getEvents()->insert(newEvent);
+			numToCreate = source->getEntitiesPerCreation();
+			for (unsigned int i = 1; i <= numToCreate; i++) {
+				newEntity = new Entity();
+				newEvent = new Event(creationTime, newEntity, (*it));
+				_model->getEvents()->insert(newEvent);
+			}
 		}
 	}
 
@@ -169,7 +172,6 @@ void ModelSimulation::_processEvent(Event* event) {
 	}
 }
 
-
 void ModelSimulation::_showReplicationStatistics() {
 	_model->getTracer()->traceReport(Util::TraceLevel::report, "\nReport for replication " + std::to_string(_currentReplicationNumber) + " of " + std::to_string(_info->getNumberOfReplications()));
 
@@ -192,7 +194,6 @@ void ModelSimulation::_showSimulationStatistics() {
 	_model->getTracer()->traceReport(Util::TraceLevel::report, "\nReport for simulation\n");
 	/* TODO */
 }
-
 
 void ModelSimulation::pauseSimulation() {
 }
@@ -241,7 +242,6 @@ void ModelSimulation::setInitializeSystem(bool _initializeSystem) {
 bool ModelSimulation::isInitializeSystem() const {
 	return _initializeSystem;
 }
-
 
 void ModelSimulation::setStepByStep(bool _stepByStep) {
 	this->_stepByStep = _stepByStep;

@@ -68,8 +68,7 @@ void Create::_loadInstance(std::list<std::string> words) {
 }
 
 std::list<std::string>* Create::_saveInstance() {
-	std::list<std::string>* words = new std::list<std::string>();
-	words->insert(words->end(), Util::TypeOf<Create>());
+	std::list<std::string>* words = ModelComponent::_saveInstance(Util::TypeOf<Create>());
 	words->insert(words->end(), std::to_string(this->_entitiesPerCreation));
 	words->insert(words->end(), std::to_string(this->_firstCreation));
 	words->insert(words->end(), (this->_timeBetweenCreationsExpression));
@@ -98,7 +97,7 @@ bool Create::_verifySymbols(std::string* errorMessage) {
             EntityType* newEntityType = new EntityType(_model);
             newEntityType->setName(this->_entityType);
             // insert the new EntittyType into the infrastructure list
-            _model->getInfraManager()->getInfrastructures(Util::TypeOf<EntityType>())->insert(newEntityType);
+            _model->getInfraManager()->insertInfrastructure(Util::TypeOf<EntityType>(), newEntityType);
     }
 
     return result;

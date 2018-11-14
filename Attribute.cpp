@@ -30,9 +30,10 @@ void Attribute::_loadInstance(std::list<std::string> words) {
 }
 
 std::list<std::string>* Attribute::_saveInstance() {
-	std::list<std::string>* words = new std::list<std::string>();
+	std::list<std::string>* words = ModelInfrastructure::_saveInstance(Util::TypeOf<Attribute>());
 	return words;
 }
 
 bool Attribute::_verifySymbols(std::string* errorMessage) {
+	return true;
 }

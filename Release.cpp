@@ -23,14 +23,14 @@ Release::Release(Model* model) : ModelComponent(model) {
 	if (_resource == nullptr) {
 		_resource = new Resource(_model);
 		_resource->setName("Resource 1");
-		_model->getInfraManager()->getInfrastructures(Util::TypeOf<Resource>())->insert(_resource);
+		_model->getInfraManager()->insertInfrastructure(Util::TypeOf<Resource>(), _resource);
 	}
 	std::string queueName = _resource->getName() + "_Queue"; // _name + "_Queue";
 	_queue = (Queue*) _model->getInfraManager()->getInfrastructure(Util::TypeOf<Queue>(), queueName);
 	if (_queue == nullptr) {
 		_queue = new Queue(model);
 		_queue->setName(_name + "_Queue");
-		_model->getInfraManager()->getInfrastructures(Util::TypeOf<Queue>())->insert(_queue);
+		_model->getInfraManager()->insertInfrastructure(Util::TypeOf<Queue>(), _queue);
 	}
 
 }
@@ -124,7 +124,7 @@ void Release::_loadInstance(std::list<std::string> words) {
 }
 
 std::list<std::string>* Release::_saveInstance() {
-	std::list<std::string>* words = new std::list<std::string>();
+	std::list<std::string>* words = ModelComponent::_saveInstance(Util::TypeOf<Release>());
 	return words;
 
 }
@@ -145,7 +145,7 @@ void Release::setQueueName(std::string _queueName) {
 			}
 		} else { // there is another queue with the same name
 			if (!_queue->isLinked()) { // no one else uses it. It can be removed
-				_model->getInfraManager()->getInfrastructures(Util::TypeOf<Queue>())->remove(_queue);
+				_model->getInfraManager()->removeInfrastructure(Util::TypeOf<Queue>(), _queue);
 				_queue->~Queue();
 			} else { // there is another one using the queue with old name. Let it there
 				_queue->removeLink();
@@ -168,7 +168,7 @@ void Release::setResourceName(std::string _resourceName) {
 			}
 		} else { // there is another resource with the same name
 			if (!_resource->isLinked()) { // no one else uses it. It can be removed
-				_model->getInfraManager()->getInfrastructures(Util::TypeOf<Resource>())->remove(_resource);
+				_model->getInfraManager()->removeInfrastructure(Util::TypeOf<Resource>(), _resource);
 				_resource->~Resource();
 			} else { // there is another one using the resource with old name. Let it there
 				_resource->removeLink();

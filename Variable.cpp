@@ -57,9 +57,10 @@ void Variable::_loadInstance(std::list<std::string> words) {
 }
 
 std::list<std::string>* Variable::_saveInstance() {
-	std::list<std::string>* words = new std::list<std::string>();
+	std::list<std::string>* words = ModelInfrastructure::_saveInstance(Util::TypeOf<Variable>());
 	return words;
 }
 
 bool Variable::_verifySymbols(std::string* errorMessage) {
+	return true;
 }

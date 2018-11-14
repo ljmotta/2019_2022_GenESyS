@@ -49,10 +49,10 @@ void StatisticsCollector::_loadInstance(std::list<std::string> words) {
 }
 
 std::list<std::string>* StatisticsCollector::_saveInstance() {
-	std::list<std::string>* words = new std::list<std::string>();
+	std::list<std::string>* words = ModelInfrastructure::_saveInstance(Util::TypeOf<StatisticsCollector>());
 	return words;
 }
 
 bool StatisticsCollector::_verifySymbols(std::string* errorMessage) {
-
+	return true;
 }

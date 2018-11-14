@@ -174,6 +174,23 @@
       <logicalFolder name="f5" displayName="System Optimization" projectFiles="true">
       </logicalFolder>
     </logicalFolder>
+    <logicalFolder name="f4"
+                   displayName="Under Tests"
+                   projectFiles="true"
+                   kind="ROOT">
+      <itemPath>CollectorDanielBoso.cpp</itemPath>
+      <itemPath>CollectorDanielBoso.h</itemPath>
+      <itemPath>CollectorDatafileDanielBoso.cpp</itemPath>
+      <itemPath>CollectorDatafileDanielBoso.h</itemPath>
+      <itemPath>ExperementDesign_BrunoBonotto_JoaoSouto.cpp</itemPath>
+      <itemPath>ExperementDesign_BrunoBonotto_JoaoSouto.h</itemPath>
+      <itemPath>SamplerDanielBoso.cpp</itemPath>
+      <itemPath>SamplerDanielBoso.h</itemPath>
+      <itemPath>StatisticsCollectorDanielBoso.cpp</itemPath>
+      <itemPath>StatisticsCollectorDanielBoso.h</itemPath>
+      <itemPath>StatisticsDanielBoso.cpp</itemPath>
+      <itemPath>StatisticsDanielBoso.h</itemPath>
+    </logicalFolder>
     <logicalFolder name="f10"
                    displayName="User Program Interfaces"
                    projectFiles="true">
@@ -229,9 +246,17 @@
       </item>
       <item path="BuildSimulationModel.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="CollectorDanielBoso.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="CollectorDanielBoso.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="CollectorDatafileCancianImpl.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="CollectorDatafileCancianImpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="CollectorDatafileDanielBoso.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="CollectorDatafileDanielBoso.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="CollectorDatafileMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -268,6 +293,16 @@
       <item path="Event.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Event.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ExperementDesign_BrunoBonotto_JoaoSouto.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="ExperementDesign_BrunoBonotto_JoaoSouto.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="ExperimentDesignMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -402,6 +437,10 @@
       </item>
       <item path="Resource.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="SamplerDanielBoso.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SamplerDanielBoso.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="SamplerMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="SamplerMyImpl1.h" ex="false" tool="3" flavor2="0">
@@ -449,6 +488,14 @@
       <item path="StatisticsCollector.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="StatisticsCollector.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="StatisticsCollectorDanielBoso.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="StatisticsCollectorDanielBoso.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="StatisticsDanielBoso.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="StatisticsDanielBoso.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="StatisticsMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -531,9 +578,17 @@
       </item>
       <item path="BuildSimulationModel.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="CollectorDanielBoso.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="CollectorDanielBoso.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="CollectorDatafileCancianImpl.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="CollectorDatafileCancianImpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="CollectorDatafileDanielBoso.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="CollectorDatafileDanielBoso.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="CollectorDatafileMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -570,6 +625,16 @@
       <item path="Event.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Event.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ExperementDesign_BrunoBonotto_JoaoSouto.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="ExperementDesign_BrunoBonotto_JoaoSouto.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="ExperimentDesignMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -704,6 +769,10 @@
       </item>
       <item path="Resource.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="SamplerDanielBoso.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SamplerDanielBoso.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="SamplerMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="SamplerMyImpl1.h" ex="false" tool="3" flavor2="0">
@@ -751,6 +820,14 @@
       <item path="StatisticsCollector.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="StatisticsCollector.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="StatisticsCollectorDanielBoso.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="StatisticsCollectorDanielBoso.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="StatisticsDanielBoso.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="StatisticsDanielBoso.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="StatisticsMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>

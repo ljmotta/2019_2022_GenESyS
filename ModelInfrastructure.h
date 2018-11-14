@@ -15,8 +15,9 @@
 #define MODELINFRASTRUCTURE_H
 
 #include <string>
-#include "Util.h"
 #include <list>
+#include "Util.h"
+
 
 class ModelInfrastructure {
 public:
@@ -36,8 +37,9 @@ public: // get & set
 	std::string getName() const;
 
 protected: // must be overriden by derived classes
-	virtual void _loadInstance(std::list<std::string> words) = 0;
-	virtual std::list<std::string>* _saveInstance() = 0;
+	virtual void _loadInstance(std::list<std::string> words)=0;
+	virtual std::list<std::string>* _saveInstance();
+	virtual std::list<std::string>* _saveInstance(std::string type);
 	virtual bool _verifySymbols(std::string* errorMessage) = 0;
 
 protected:

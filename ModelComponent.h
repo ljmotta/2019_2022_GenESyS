@@ -56,6 +56,10 @@ private:
 protected:
 	virtual void _execute(Entity* entity) = 0;
 
+protected: 
+	virtual std::list<std::string>* _saveInstance();
+	virtual std::list<std::string>* _saveInstance(std::string type);
+
 protected:
 	Model* _model;
 };

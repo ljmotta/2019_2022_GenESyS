@@ -15,8 +15,7 @@
 
 Resource::Resource(Model* model) : ModelInfrastructure(Util::TypeOf<Resource>()) {
 	_cstatTimeSeized = new StatisticsCollector("Time Seized", this);
-	List<ModelInfrastructure*>* infras = model->getInfraManager()->getInfrastructures(Util::TypeOf<StatisticsCollector>());
-	infras->insert(_cstatTimeSeized);
+	model->getInfraManager()->insertInfrastructure(Util::TypeOf<StatisticsCollector>(), _cstatTimeSeized);
 }
 
 Resource::Resource(const Resource& orig) : ModelInfrastructure(orig) {
@@ -112,10 +111,10 @@ void Resource::_loadInstance(std::list<std::string> words) {
 }
 
 std::list<std::string>* Resource::_saveInstance() {
-	std::list<std::string>* words = new std::list<std::string>();
+	std::list<std::string>* words = ModelInfrastructure::_saveInstance(Util::TypeOf<Resource>());
 	return words;
 }
 
 bool Resource::_verifySymbols(std::string* errorMessage) {
-
+	return true;
 }

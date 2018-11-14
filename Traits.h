@@ -52,14 +52,20 @@
 #include "ExperimentDesignMyImpl1.h"
 #include "TestParser.h"
 #include "ParserFlexBisonImpl.h"
+#include "CollectorDanielBoso.h"
+#include "CollectorDatafileDanielBoso.h"
+#include "SamplerDanielBoso.h"
+#include "StatisticsDanielBoso.h"
+#include "StatisticsCollectorDanielBoso.h"
+#include "ExperementDesign_BrunoBonotto_JoaoSouto.h"
 
 template <typename T>
 struct Traits {
 };
 
 template <> struct Traits<GenesysApplication_if> {
-	//typedef TestInputAnalyserTools Application;  
-	typedef BuildSimulationModel Application;  
+	typedef TestInputAnalyserTools Application;  
+	//typedef BuildSimulationModel Application;  
 	//typedef TestParser Application;  
 };
 
@@ -69,14 +75,16 @@ template <> struct Traits<Model> {
 };
 
 template <> struct Traits<ModelComponent> {
-	typedef CollectorMyImpl1 CollectorImplementation;
+	typedef CollectorDanielBoso CollectorImplementation;
 };
 
 template <> struct Traits<Sampler_if> {
 	//typedef SamplerMyImpl1 Implementation;
 	//typedef SamplerMyImpl1::MyRNG_Parameters Parameters;
-	typedef Sampler_BruFabJoa Implementation;
-	typedef Sampler_BruFabJoa::MyRNG_Parameters Parameters;
+	//typedef Sampler_BruFabJoa Implementation;
+	//typedef Sampler_BruFabJoa::MyRNG_Parameters Parameters;
+	typedef SamplerDanielBoso Implementation;
+	typedef SamplerDanielBoso::MyRNG_Parameters Parameters;
 };
 
 template <> struct Traits<Fitter_if> {
@@ -86,8 +94,10 @@ template <> struct Traits<Fitter_if> {
 
 template <> struct Traits<Collector_if> {
 	//typedef CollectorDatafileMyImpl1 Implementation;
-	typedef CollectorMyImpl1 ModelImplementation; //TEMP
-	typedef CollectorDatafileCancianImpl Implementation;
+	//typedef CollectorMyImpl1 ModelImplementation; //TEMP
+	//typedef CollectorDatafileCancianImpl Implementation;
+	typedef CollectorDanielBoso ModelImplementation; //TEMP
+	typedef CollectorDatafileDanielBoso Implementation;
 };
 
 template <> struct Traits<ModelChecker_if> {
@@ -102,7 +112,8 @@ template <> struct Traits<Parser_if> {
 
 template <> struct Traits<Statistics_if> {
 	//typedef StatisticsMyImpl1 Implementation;
-	typedef StatisticsCancianImpl Implementation;
+	//typedef StatisticsCancianImpl Implementation;
+	typedef StatisticsDanielBoso Implementation;
 };
 
 template <> struct Traits<Integrator_if> {
@@ -122,7 +133,8 @@ template <> struct Traits<ModelPersistence_if> {
 };
 
 template <> struct Traits<ExperimentDesign_if> {
-	typedef ExperimentDesignMyImpl1 Implementation;
+	//typedef ExperimentDesignMyImpl1 Implementation;
+	typedef ExperementDesign_BrunoBonotto_JoaoSouto Implementation;
 	//typedef ProcessAnalyserMyImpl1 ProcessAnalyserImplementation;
 };
 
