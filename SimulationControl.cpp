@@ -13,8 +13,9 @@
 
 #include "SimulationControl.h"
 
-SimulationControl::SimulationControl(std::string type, std::string name, memberFunctionGetDoubleVarHandler getHandler, memberFunctionSetDoubleVarHandler setHandler): SimulationResponse(type, name, getHandler) {
-	this->_memberFunctionSetDoubleHandler = setHandler;
+SimulationControl::SimulationControl(std::string type, std::string name, GetFunctor getFunctor, SetFunctor setFunctor): SimulationResponse(type, name, getFunctor) {
+	this->_type = type;
+    this->_memberFunctionSetDoubleHandler = setFunctor;
 }
 
 SimulationControl::SimulationControl(const SimulationControl& orig): SimulationResponse(orig) {
@@ -23,7 +24,7 @@ SimulationControl::SimulationControl(const SimulationControl& orig): SimulationR
 SimulationControl::~SimulationControl() {
 }
 
-void SimulationControl::getValue(double value) {
+void SimulationControl::setValue(double value) {
 	this->_memberFunctionSetDoubleHandler(value);
 }
 

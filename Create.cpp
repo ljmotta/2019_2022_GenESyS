@@ -14,10 +14,17 @@
 #include "Create.h"
 #include "Model.h"
 #include "EntityType.h"
-//#include <typeinfo>
+#include "Functor.h"
 
 Create::Create(Model* model) : SourceModelComponent(model) {
 	_name = "Create " + std::to_string(Util::GenerateNewIdOfType<Create>());
+	SimulationControl* settingSetEntitiesCreated = new SimulationControl(
+			Util::TypeOf<Create>(),
+			"Entities Per Creation",
+			make_get_functor<SourceModelComponent>(this, &Create::getEntitiesPerCreation),
+			make_set_functor<SourceModelComponent>(this, &Create::setEntitiesPerCreation)
+			);
+	model->getControls()->insert(settingSetEntitiesCreated);
 }
 
 Create::Create(const Create& orig) : SourceModelComponent(orig) {
@@ -61,7 +68,7 @@ void Create::_loadInstance(std::list<std::string> words) {
 	this->_entitiesPerCreation = std::stoi((*it++));
 	this->_firstCreation = std::stoi((*it++));
 	this->_timeBetweenCreationsExpression = (*it++);
-	this->_timeBetweenCreationsTimeUnit = static_cast<Util::TimeUnit>(std::stoi((*it++))); /*TODO: + how to set a enum class based on a string? */  //std::stoi((*it++)); // bad enum convertion!
+	this->_timeBetweenCreationsTimeUnit = static_cast<Util::TimeUnit> (std::stoi((*it++))); /*TODO: + how to set a enum class based on a string? */ //std::stoi((*it++)); // bad enum convertion!
 	this->_maxCreations = std::stoi((*it++));
 	this->_entityType = (*it++);
 	this->_collectStatistics = std::stoi(*it++);
@@ -72,7 +79,7 @@ std::list<std::string>* Create::_saveInstance() {
 	words->insert(words->end(), std::to_string(this->_entitiesPerCreation));
 	words->insert(words->end(), std::to_string(this->_firstCreation));
 	words->insert(words->end(), (this->_timeBetweenCreationsExpression));
-	words->insert(words->end(), std::to_string(static_cast<int>(this->_timeBetweenCreationsTimeUnit)));
+	words->insert(words->end(), std::to_string(static_cast<int> (this->_timeBetweenCreationsTimeUnit)));
 	words->insert(words->end(), std::to_string(this->_maxCreations));
 	words->insert(words->end(), (this->_entityType));
 	words->insert(words->end(), std::to_string(this->_collectStatistics));
@@ -81,24 +88,24 @@ std::list<std::string>* Create::_saveInstance() {
 
 bool Create::_verifySymbols(std::string* errorMessage) {
 	//Genesys.AuxFunctions.VerifySymbol(thismodule.Name, 'Time Between Creations', thisModule.aTimeBetweenCreations, cEXPRESSION, true);
-	
-        // bool res = _model->verifySymbol(this->_name, "Time Between Creations", this->_timeBetweenCreationsExpression, "EXPRESSION", true); // Todo: typeid(Expression)
-	
-        
-    /*Checking Time Between Creations*/
-    bool result = true;
-    this->_model->parseExpression(this->_timeBetweenCreationsExpression, &result, errorMessage);
+
+	// bool res = _model->verifySymbol(this->_name, "Time Between Creations", this->_timeBetweenCreationsExpression, "EXPRESSION", true); // Todo: typeid(Expression)
 
 
-    /*Checking Entity*/
-    // get the list of all EntityType from model infrastrucure and check if it exists
-    if (_model->getInfraManager()->getInfrastructure(Util::TypeOf<EntityType>(), this->_entityType) == nullptr) {
-            // the _entityType does not exists yet, so create it
-            EntityType* newEntityType = new EntityType(_model);
-            newEntityType->setName(this->_entityType);
-            // insert the new EntittyType into the infrastructure list
-            _model->getInfraManager()->insertInfrastructure(Util::TypeOf<EntityType>(), newEntityType);
-    }
+	/*Checking Time Between Creations*/
+	bool result = true;
+	this->_model->parseExpression(this->_timeBetweenCreationsExpression, &result, errorMessage);
 
-    return result;
+
+	/*Checking Entity*/
+	// get the list of all EntityType from model infrastrucure and check if it exists
+	if (_model->getInfraManager()->getInfrastructure(Util::TypeOf<EntityType>(), this->_entityType) == nullptr) {
+		// the _entityType does not exists yet, so create it
+		EntityType* newEntityType = new EntityType(_model);
+		newEntityType->setName(this->_entityType);
+		// insert the new EntittyType into the infrastructure list
+		_model->getInfraManager()->insertInfrastructure(Util::TypeOf<EntityType>(), newEntityType);
+	}
+
+	return result;
 }

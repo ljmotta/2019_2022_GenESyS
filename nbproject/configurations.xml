@@ -92,8 +92,6 @@
         <itemPath>HypothesisTesterMyImpl1.cpp</itemPath>
         <itemPath>HypothesisTesterMyImpl1.h</itemPath>
         <itemPath>HypothesisTester_if.h</itemPath>
-        <itemPath>IntegratorDiogoImpl.cpp</itemPath>
-        <itemPath>IntegratorDiogoImpl.h</itemPath>
         <itemPath>IntegratorMyImpl1.cpp</itemPath>
         <itemPath>IntegratorMyImpl1.h</itemPath>
         <itemPath>Integrator_if.h</itemPath>
@@ -139,21 +137,40 @@
     </logicalFolder>
     <logicalFolder name="f5" displayName="Shell" projectFiles="true">
     </logicalFolder>
+    <logicalFolder name="f4"
+                   displayName="Student developments under tests"
+                   projectFiles="true">
+      <itemPath>CollectorDanielBoso.cpp</itemPath>
+      <itemPath>CollectorDanielBoso.h</itemPath>
+      <itemPath>CollectorDatafileDanielBoso.cpp</itemPath>
+      <itemPath>CollectorDatafileDanielBoso.h</itemPath>
+      <itemPath>ExperementDesign_BrunoBonotto_JoaoSouto.cpp</itemPath>
+      <itemPath>ExperementDesign_BrunoBonotto_JoaoSouto.h</itemPath>
+      <itemPath>FitterJoaoSouto.cpp</itemPath>
+      <itemPath>FitterJoaoSouto.h</itemPath>
+      <itemPath>Functor.h</itemPath>
+      <itemPath>IntegratorDiogoImpl.cpp</itemPath>
+      <itemPath>IntegratorDiogoImpl.h</itemPath>
+      <itemPath>SamplerDanielBoso.cpp</itemPath>
+      <itemPath>SamplerDanielBoso.h</itemPath>
+      <itemPath>Sampler_BruFabJoa.cpp</itemPath>
+      <itemPath>Sampler_BruFabJoa.h</itemPath>
+      <itemPath>StatisticsCollectorDanielBoso.cpp</itemPath>
+      <itemPath>StatisticsCollectorDanielBoso.h</itemPath>
+      <itemPath>StatisticsDanielBoso.cpp</itemPath>
+      <itemPath>StatisticsDanielBoso.h</itemPath>
+    </logicalFolder>
     <logicalFolder name="f8" displayName="Tools" projectFiles="true">
       <logicalFolder name="f1"
                      displayName="Distributed Parallel Execution"
                      projectFiles="true">
       </logicalFolder>
       <logicalFolder name="f1" displayName="Input Analyser" projectFiles="true">
-        <itemPath>FitterJoaoSouto.cpp</itemPath>
-        <itemPath>FitterJoaoSouto.h</itemPath>
         <itemPath>FitterMyImpl1.cpp</itemPath>
         <itemPath>FitterMyImpl1.h</itemPath>
         <itemPath>Fitter_if.h</itemPath>
         <itemPath>SamplerMyImpl1.cpp</itemPath>
         <itemPath>SamplerMyImpl1.h</itemPath>
-        <itemPath>Sampler_BruFabJoa.cpp</itemPath>
-        <itemPath>Sampler_BruFabJoa.h</itemPath>
         <itemPath>Sampler_if.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="Output Analyser" projectFiles="true">
@@ -173,23 +190,6 @@
       </logicalFolder>
       <logicalFolder name="f5" displayName="System Optimization" projectFiles="true">
       </logicalFolder>
-    </logicalFolder>
-    <logicalFolder name="f4"
-                   displayName="Under Tests"
-                   projectFiles="true"
-                   kind="ROOT">
-      <itemPath>CollectorDanielBoso.cpp</itemPath>
-      <itemPath>CollectorDanielBoso.h</itemPath>
-      <itemPath>CollectorDatafileDanielBoso.cpp</itemPath>
-      <itemPath>CollectorDatafileDanielBoso.h</itemPath>
-      <itemPath>ExperementDesign_BrunoBonotto_JoaoSouto.cpp</itemPath>
-      <itemPath>ExperementDesign_BrunoBonotto_JoaoSouto.h</itemPath>
-      <itemPath>SamplerDanielBoso.cpp</itemPath>
-      <itemPath>SamplerDanielBoso.h</itemPath>
-      <itemPath>StatisticsCollectorDanielBoso.cpp</itemPath>
-      <itemPath>StatisticsCollectorDanielBoso.h</itemPath>
-      <itemPath>StatisticsDanielBoso.cpp</itemPath>
-      <itemPath>StatisticsDanielBoso.h</itemPath>
     </logicalFolder>
     <logicalFolder name="f10"
                    displayName="User Program Interfaces"
@@ -326,6 +326,8 @@
       <item path="FitterMyImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Fitter_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Functor.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Genesys++-driver.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -658,6 +660,8 @@
       <item path="FitterMyImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Fitter_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Functor.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Genesys++-driver.cpp" ex="false" tool="1" flavor2="0">
       </item>

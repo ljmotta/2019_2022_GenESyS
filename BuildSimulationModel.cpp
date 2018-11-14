@@ -68,7 +68,8 @@ void buildModel(Model* model) { // buildModelWithAllImplementedComponents
 	Create* create1 = new Create(model);
 	create1->setTimeBetweenCreationsExpression("1.5");
 	create1->setTimeUnit(Util::TimeUnit::minute);
-
+	create1->setEntitiesPerCreation(2);
+	
 	Assign* assign1 = new Assign(model);
 	Assign::Assignment* attrib1Assignment = new Assign::Assignment(Assign::DestinationType::Attribute, "Attribute 1", "Variable 1");
 	assign1->getAssignments()->insert(attrib1Assignment);
@@ -113,6 +114,13 @@ void buildSimulationSystem() {
 	Model* model = new Model(simulator);
 	buildModel(model);
 	simulator->getModels()->insert(model);
+	
+	SimulationControl* control = model->getControls()->first();
+	std::string name = control->getName();
+	double value = control->getValue();
+	control->setValue(3);
+	value = control->getValue();
+	
 	if (model->checkModel()) {
 		model->saveModel("./genesysmodel.txt");
 		model->getSimulation()->startSimulation();

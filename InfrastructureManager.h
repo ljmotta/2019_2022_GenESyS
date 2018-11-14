@@ -28,7 +28,7 @@ public:
 	virtual ~InfrastructureManager();
 public:
 	bool insertInfrastructure(std::string infraTypename, ModelInfrastructure* infra);
-	bool removeInfrastructure(std::string infraTypename, ModelInfrastructure* infra);
+	void removeInfrastructure(std::string infraTypename, ModelInfrastructure* infra);
 	//private:
 public: // MUST BE PRIVATE
 	List<ModelInfrastructure*>* getInfrastructures(std::string infraTypename) const;

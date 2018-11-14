@@ -33,18 +33,19 @@ InfrastructureManager::~InfrastructureManager() {
 bool InfrastructureManager::insertInfrastructure(std::string infraTypename, ModelInfrastructure* infra) {
 	List<ModelInfrastructure*>* listInfras = getInfrastructures(infraTypename);
 	if (listInfras->find(infra) == listInfras->getList()->end()) { //not found
-		if (dynamic_cast<ModelInfrastructure*>(infra) == nullptr) { // how? remove ir. test only because of seg faults
-			return false;
-		}
-		infra->SaveInstance(infra);
+		//if (dynamic_cast<ModelInfrastructure*> (infra) == nullptr) { // how? remove it. test only because of seg faults
+		//	return false;
+		//}
+		//infra->SaveInstance(infra);
 		listInfras->insert(infra);
-	} else {
-		return false; // already exists
+		return true;
 	}
+	return false; 
 }
 
-bool InfrastructureManager::removeInfrastructure(std::string infraTypename, ModelInfrastructure* infra) {
-
+void InfrastructureManager::removeInfrastructure(std::string infraTypename, ModelInfrastructure* infra) {
+	List<ModelInfrastructure*>* listInfras = getInfrastructures(infraTypename);
+		listInfras->remove(infra);
 }
 
 void InfrastructureManager::show() {

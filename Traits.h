@@ -64,8 +64,8 @@ struct Traits {
 };
 
 template <> struct Traits<GenesysApplication_if> {
-	typedef TestInputAnalyserTools Application;  
-	//typedef BuildSimulationModel Application;  
+	//typedef TestInputAnalyserTools Application;  
+	typedef BuildSimulationModel Application;  
 	//typedef TestParser Application;  
 };
 
