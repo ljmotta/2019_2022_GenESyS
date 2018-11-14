@@ -825,7 +825,9 @@ namespace yy {
 
   case 4:
 #line 136 "Genesys++-parser.yy" // lalr1.cc:870
-    { driver.setResult(yystack_[0].value.as< obj_t > ().valor); driver.getModel()->getTracer()->trace(Util::TraceLevel::mostDetailed, std::string("Resultado"));}
+    { driver.setResult(yystack_[0].value.as< obj_t > ().valor); 
+	//driver.getModel()->getTracer()->trace(Util::TraceLevel::mostDetailed, std::string("Resultado"));
+  }
 #line 830 "Genesys++-parser.cpp" // lalr1.cc:870
     break;
 

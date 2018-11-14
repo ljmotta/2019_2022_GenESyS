@@ -11,34 +11,83 @@
  * Created on October 30, 2018, 2:31 PM
  */
 
-#include "ExperementDesign_BrunoBonotto_JoaoSouto.h"
-#include "SimulationScenario.h"
-#include "Assign.h"
-#include "Traits.h"
-
 #include <iostream>
 #include <map>
 #include <set>
 
-ExperementDesign_BrunoBonotto_JoaoSouto::ExperementDesign_BrunoBonotto_JoaoSouto() {
+#include "ExperimentDesign_BrunoBonotto_JoaoSouto.h"
+#include "SimulationScenario.h"
+#include "Assign.h"
+#include "Traits.h"
+
+
+ExperimentDesign_BrunoBonotto_JoaoSouto::ExperimentDesign_BrunoBonotto_JoaoSouto() {
 	_processAnalyser = new Traits<ProcessAnalyser_if>::Implementation();
 }
 
-std::list<FactorOrInteractionContribution*>* ExperementDesign_BrunoBonotto_JoaoSouto::getContributions() const {
+std::list<FactorOrInteractionContribution*>* ExperimentDesign_BrunoBonotto_JoaoSouto::getContributions() const {
 	return _contributions;
 }
 
-ExperementDesign_BrunoBonotto_JoaoSouto::ExperementDesign_BrunoBonotto_JoaoSouto(const ExperementDesign_BrunoBonotto_JoaoSouto& orig) {
+ExperimentDesign_BrunoBonotto_JoaoSouto::ExperimentDesign_BrunoBonotto_JoaoSouto(const ExperimentDesign_BrunoBonotto_JoaoSouto& orig) {
 }
 
-ExperementDesign_BrunoBonotto_JoaoSouto::~ExperementDesign_BrunoBonotto_JoaoSouto() {
+ExperimentDesign_BrunoBonotto_JoaoSouto::~ExperimentDesign_BrunoBonotto_JoaoSouto() {
 }
 
-bool ExperementDesign_BrunoBonotto_JoaoSouto::generate2krScenarioExperiments() {
-	return true;
+bool ExperimentDesign_BrunoBonotto_JoaoSouto::generate2krScenarioExperiments(){
+    List<SimulationControl*>* control = _processAnalyser->getControls();
+    SimulationScenario* scenario;
+    
+    int k = control->size();
+    int total_k = pow(2, k);
+    int size = total_k * k;
+    int combination[size];
+    int factor = 1;
+    
+    // generate matrix of the scenarios
+    int aux = total_k;
+    int i = 0;
+    int generic = 2;
+    while (aux >= 1 && generic != total_k) {
+        aux = (aux / 2);
+        for(int g = 0; g < generic; g++) {
+            factor = -1 * factor;	// NÃO DEVERIA SER VALORES CODIFICADOS, MAS OS VALORES MÍNIMO E MÁXIMO REAIS QUE O FATOR ACEITA 
+            for (int j = 0; j < aux; j++){
+                combination[i] = factor;
+                i++;
+            }
+        }
+        generic = 2 * generic;
+    }
+    
+    // add scenarios in controller
+    int x;
+    for (int h = 0; h < total_k; h++){
+        x = h;
+        for(std::list<SimulationControl*>::iterator it = control->find(control->first()); it != control->find(control->last()); ++it) {
+                scenario->setControlValue(*it, (double) combination[x]);
+                x = x + k;
+        }
+        _processAnalyser->startSimulationOfScenario(scenario);
+        _scenarios->push_back(scenario);
+    }
+	
+	for(auto sce: *_scenarios) {
+		for(std::list<double>::iterator it = sce->getControlValues()->begin(); it !=sce->getControlValues()->end(); it++){
+			double value = (*it);
+			std::cout << value;
+		}
+		//for (auto val: *sce->getControlValues()) {
+		//	std::cout << val;
+		//}
+	}
+	
+    return true;
 }
 
-ProcessAnalyser_if* ExperementDesign_BrunoBonotto_JoaoSouto::getProcessAnalyser() const {
+
+ProcessAnalyser_if* ExperimentDesign_BrunoBonotto_JoaoSouto::getProcessAnalyser() const {
 	return _processAnalyser;
 }
 
@@ -71,7 +120,7 @@ int total_combination(int n) {
 /*
 	Generates the table with all factors and their combinations
  */
-std::map<SimulationScenario*, std::map<FactorOrInteractionContribution*, double>> ExperementDesign_BrunoBonotto_JoaoSouto::create_table() {
+std::map<SimulationScenario*, std::map<FactorOrInteractionContribution*, double>> ExperimentDesign_BrunoBonotto_JoaoSouto::create_table() {
 	auto scenarios = _processAnalyser->getScenarios()->getList();
 	auto responses = _processAnalyser->getResponses()->getList();
 	auto controls = _processAnalyser->getControls()->getList();
@@ -125,7 +174,7 @@ std::map<SimulationScenario*, std::map<FactorOrInteractionContribution*, double>
 /*
 	Calculates the contribution and coefficient to each factor
  */
-bool ExperementDesign_BrunoBonotto_JoaoSouto::calculateContributionAndCoefficients() {
+bool ExperimentDesign_BrunoBonotto_JoaoSouto::calculateContributionAndCoefficients() {
 	auto scenarios = _processAnalyser->getScenarios()->getList();
 	auto responses = _processAnalyser->getResponses()->getList();
 

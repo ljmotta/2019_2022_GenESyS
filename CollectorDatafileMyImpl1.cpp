@@ -38,7 +38,9 @@ double CollectorDatafileMyImpl1::getValue(unsigned int num) {
 }
 
 std::string CollectorDatafileMyImpl1::getDataFilename() {
+	return _filename;
 }
 
 void CollectorDatafileMyImpl1::setDataFilename(std::string filename) {
+	_filename = filename;
 }

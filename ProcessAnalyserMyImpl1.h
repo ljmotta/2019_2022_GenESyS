@@ -35,7 +35,7 @@ public:
 	void stopSimulation();
 	void addTraceSimulationListener(traceSimulationProcessListener traceSimulationProcessListener);
 private:
-
+	List<SimulationControl*>* _controls = new List<SimulationControl*>();
 };
 
 #endif /* PROCESSANALYSERMYIMPL1_H */

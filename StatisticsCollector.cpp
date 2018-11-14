@@ -44,6 +44,10 @@ std::string StatisticsCollector::show() {
 	return ModelInfrastructure::show()+ parentStr;
 }
 
+ModelInfrastructure* StatisticsCollector::getParent() const {
+	return _parent;
+}
+
 void StatisticsCollector::_loadInstance(std::list<std::string> words) {
 
 }

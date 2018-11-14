@@ -49,9 +49,10 @@ OBJECTFILES= \
 	${OBJECTDIR}/Entity.o \
 	${OBJECTDIR}/EntityType.o \
 	${OBJECTDIR}/Event.o \
-	${OBJECTDIR}/ExperementDesign_BrunoBonotto_JoaoSouto.o \
 	${OBJECTDIR}/ExperimentDesignMyImpl1.o \
+	${OBJECTDIR}/ExperimentDesign_BrunoBonotto_JoaoSouto.o \
 	${OBJECTDIR}/FactorOrInteractionContribution.o \
+	${OBJECTDIR}/FitterFabiola.o \
 	${OBJECTDIR}/FitterJoaoSouto.o \
 	${OBJECTDIR}/FitterMyImpl1.o \
 	${OBJECTDIR}/Genesys++-driver.o \
@@ -198,20 +199,25 @@ ${OBJECTDIR}/Event.o: Event.cpp nbproject/Makefile-${CND_CONF}.mk
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Event.o Event.cpp
 
-${OBJECTDIR}/ExperementDesign_BrunoBonotto_JoaoSouto.o: ExperementDesign_BrunoBonotto_JoaoSouto.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ExperementDesign_BrunoBonotto_JoaoSouto.o ExperementDesign_BrunoBonotto_JoaoSouto.cpp
-
 ${OBJECTDIR}/ExperimentDesignMyImpl1.o: ExperimentDesignMyImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ExperimentDesignMyImpl1.o ExperimentDesignMyImpl1.cpp
 
+${OBJECTDIR}/ExperimentDesign_BrunoBonotto_JoaoSouto.o: ExperimentDesign_BrunoBonotto_JoaoSouto.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ExperimentDesign_BrunoBonotto_JoaoSouto.o ExperimentDesign_BrunoBonotto_JoaoSouto.cpp
+
 ${OBJECTDIR}/FactorOrInteractionContribution.o: FactorOrInteractionContribution.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FactorOrInteractionContribution.o FactorOrInteractionContribution.cpp
+
+${OBJECTDIR}/FitterFabiola.o: FitterFabiola.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FitterFabiola.o FitterFabiola.cpp
 
 ${OBJECTDIR}/FitterJoaoSouto.o: FitterJoaoSouto.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

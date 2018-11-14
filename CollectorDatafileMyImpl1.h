@@ -32,7 +32,7 @@ public:
 	void setDataFilename(std::string filename);
 
 private:
-
+	std::string _filename;
 };
 
 #endif /* COLLECTORDATAFILEMYIMPL1_H */

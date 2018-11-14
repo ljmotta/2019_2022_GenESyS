@@ -144,8 +144,10 @@
       <itemPath>CollectorDanielBoso.h</itemPath>
       <itemPath>CollectorDatafileDanielBoso.cpp</itemPath>
       <itemPath>CollectorDatafileDanielBoso.h</itemPath>
-      <itemPath>ExperementDesign_BrunoBonotto_JoaoSouto.cpp</itemPath>
-      <itemPath>ExperementDesign_BrunoBonotto_JoaoSouto.h</itemPath>
+      <itemPath>ExperimentDesign_BrunoBonotto_JoaoSouto.cpp</itemPath>
+      <itemPath>ExperimentDesign_BrunoBonotto_JoaoSouto.h</itemPath>
+      <itemPath>FitterFabiola.cpp</itemPath>
+      <itemPath>FitterFabiola.h</itemPath>
       <itemPath>FitterJoaoSouto.cpp</itemPath>
       <itemPath>FitterJoaoSouto.h</itemPath>
       <itemPath>Functor.h</itemPath>
@@ -294,19 +296,19 @@
       </item>
       <item path="Event.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="ExperementDesign_BrunoBonotto_JoaoSouto.cpp"
+      <item path="ExperimentDesignMyImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ExperimentDesignMyImpl1.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ExperimentDesign_BrunoBonotto_JoaoSouto.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="ExperementDesign_BrunoBonotto_JoaoSouto.h"
+      <item path="ExperimentDesign_BrunoBonotto_JoaoSouto.h"
             ex="false"
             tool="3"
             flavor2="0">
-      </item>
-      <item path="ExperimentDesignMyImpl1.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ExperimentDesignMyImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ExperimentDesign_if.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -316,6 +318,10 @@
             flavor2="0">
       </item>
       <item path="FactorOrInteractionContribution.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="FitterFabiola.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="FitterFabiola.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="FitterJoaoSouto.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -628,19 +634,19 @@
       </item>
       <item path="Event.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="ExperementDesign_BrunoBonotto_JoaoSouto.cpp"
+      <item path="ExperimentDesignMyImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ExperimentDesignMyImpl1.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ExperimentDesign_BrunoBonotto_JoaoSouto.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="ExperementDesign_BrunoBonotto_JoaoSouto.h"
+      <item path="ExperimentDesign_BrunoBonotto_JoaoSouto.h"
             ex="false"
             tool="3"
             flavor2="0">
-      </item>
-      <item path="ExperimentDesignMyImpl1.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ExperimentDesignMyImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ExperimentDesign_if.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -650,6 +656,10 @@
             flavor2="0">
       </item>
       <item path="FactorOrInteractionContribution.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="FitterFabiola.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="FitterFabiola.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="FitterJoaoSouto.cpp" ex="false" tool="1" flavor2="0">
       </item>

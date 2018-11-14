@@ -26,6 +26,7 @@ List<SimulationScenario*>* ProcessAnalyserMyImpl1::getScenarios() const {
 }
 
 List<SimulationControl*>* ProcessAnalyserMyImpl1::getControls() const {
+	return _controls;
 }
 
 List<SimulationResponse*>* ProcessAnalyserMyImpl1::getResponses() const {

@@ -85,7 +85,9 @@ void Model::sendEntityToComponent(Entity* entity, ModelComponent* component, dou
 	} else {
 		// send it now
 		/* TODO -: supposed not to be a queue associated to a component */
+		Util::DecIndent();
 		component->Execute(entity, component);
+		Util::IncIndent();
 	}
 }
 

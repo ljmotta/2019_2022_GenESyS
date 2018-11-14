@@ -28,11 +28,13 @@ ModelComponent::~ModelComponent() {
 
 void ModelComponent::Execute(Entity* entity, ModelComponent* component) {
 	component->_model->getTracer()->trace(Util::TraceLevel::blockArrival, "Entity " + std::to_string(entity->getId()) + " has arrived at component \"" + component->_name + "\""); //std::to_string(component->_id));
+	Util::IncIndent();
 	try {
 		component->_execute(entity);
 	} catch (const std::exception& e) {
 		component->_model->getTracer()->traceError(e, "Error executing component " + component->show());
 	}
+	Util::DecIndent();
 }
 
 std::list<std::string>* ModelComponent::SaveInstance(ModelComponent* component) {

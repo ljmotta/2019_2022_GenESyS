@@ -270,8 +270,8 @@ void Seize::_execute(Entity* entity) {
 	unsigned int quantity = _model->parseExpression(this->_quantity);
 	if (resource->getCapacity() - resource->getNumberBusy() < quantity) { // not enought free quantity to allocate. Entity goes to the queue
 		WaitingResource* waitingRec = new WaitingResource(entity, this, _model->getSimulation()->getSimulatedTime(), quantity);
-		_model->getTracer()->traceSimulation(Util::TraceLevel::blockInternal, _model->getSimulation()->getSimulatedTime(), entity, this, "Entity starts to wait for resource");
 		this->_queue->insertElement(waitingRec); // ->getList()->insert(waitingRec);
+		_model->getTracer()->traceSimulation(Util::TraceLevel::blockInternal, _model->getSimulation()->getSimulatedTime(), entity, this, "Entity starts to wait for resource in queue \""+_queue->getName()+"\" with "+std::to_string(_queue->size())+" elements");
 
 	} else { // alocate the resource
 		_model->getTracer()->traceSimulation(Util::TraceLevel::blockInternal, _model->getSimulation()->getSimulatedTime(), entity, this, "Entity seizes " + std::to_string(quantity) + " elements of resource \"" + resource->getName() + "\"");

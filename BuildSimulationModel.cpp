@@ -34,15 +34,19 @@ void traceSimulationHandler(TraceSimulationEvent e) {
 }
 
 void onReplicationStartHandler(SimulationEvent* re) {
-	std::cout << "Replication " << re->getReplicationNumber() << " starting.";
+	//std::cout << "(Handler) Replication " << re->getReplicationNumber() << " starting." << std::endl;
 }
 
 void onProcessEventHandler(SimulationEvent* re) {
-	std::cout << "Processing event " << re->getEventProcessed()->show();
+	//std::cout << "(Handler) Processing event " << re->getEventProcessed()->show()  << std::endl;
 }
 
 void onReplicationEndHandler(SimulationEvent* re) {
-	std::cout << "Replication " << re->getReplicationNumber() << " ending.";
+	//std::cout << "(Handler) Replication " << re->getReplicationNumber() << " ending." << std::endl;
+}
+
+void onEntityRemoveHandler(SimulationEvent* re) {
+	//std::cout << "(Handler) Entity " << re->getEntity() << " was removed." << std::endl;
 }
 
 void buildModel(Model* model) { // buildModelWithAllImplementedComponents
@@ -58,17 +62,18 @@ void buildModel(Model* model) { // buildModelWithAllImplementedComponents
 	ev->addOnProcessEventListener(&onProcessEventHandler);
 
 	ModelInfo* infos = model->getInfos();
-	infos->setAnalystName("Meu nome");
+	infos->setAnalystName("Rafael Cancian");
+	infos->setProjectTitle("Projeto de simulação orientada a eventos de qualquer coisa simulável");
 	infos->setDescription("Esse é um modelo de teste dos componentes já implementados");
-	infos->setNumberOfReplications(1);
-	infos->setReplicationLength(1);
-	infos->setReplicationLengthTimeUnit(Util::TimeUnit::hour);
+	infos->setNumberOfReplications(2);
+	infos->setReplicationLength(60);
+	infos->setReplicationLengthTimeUnit(Util::TimeUnit::minute);
 	
 	// create and insert model components to the model
 	Create* create1 = new Create(model);
-	create1->setTimeBetweenCreationsExpression("1.5");
+	create1->setTimeBetweenCreationsExpression("NORM(5,1)");
 	create1->setTimeUnit(Util::TimeUnit::minute);
-	create1->setEntitiesPerCreation(2);
+	create1->setEntitiesPerCreation(1);
 	
 	Assign* assign1 = new Assign(model);
 	Assign::Assignment* attrib1Assignment = new Assign::Assignment(Assign::DestinationType::Attribute, "Attribute 1", "Variable 1");
@@ -80,7 +85,8 @@ void buildModel(Model* model) { // buildModelWithAllImplementedComponents
 	seize1->setResourceName("Máquina 1");
 
 	Delay* delay1 = new Delay(model);
-	delay1->setDelayExpression("30");
+	delay1->setDelayExpression("NORM(5,1)");
+	delay1->setDelayTimeUnit(Util::TimeUnit::minute);
 
 	Release* release1 = new Release(model);
 	release1->setResourceName("Máquina 1");

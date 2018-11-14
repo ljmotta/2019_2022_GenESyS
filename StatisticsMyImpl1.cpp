@@ -68,6 +68,7 @@ void StatisticsMyImpl1::setHistogramNumClasses(unsigned short num) {
 }
 
 unsigned short StatisticsMyImpl1::histogramNumClasses() {
+	return 1;
 }
 
 double StatisticsMyImpl1::histogramClassLowerLimit(unsigned short classNum) {

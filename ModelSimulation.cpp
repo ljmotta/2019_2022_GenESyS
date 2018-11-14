@@ -88,7 +88,14 @@ void ModelSimulation::startSimulation() {
  * Initialize once for all replications
  */
 void ModelSimulation::_initSimulation() {
-	_model->getTracer()->trace(Util::TraceLevel::simulation, "\nSimulation of model \"" + _info->getName() + "\" is starting.\n");
+	TraceManager* tm = _model->getTracer();
+	tm->traceReport(Util::TraceLevel::simulation, "-----------------------------------------------------");
+	tm->traceReport(Util::TraceLevel::simulation, _model->getParent()->getName());
+	tm->traceReport(Util::TraceLevel::simulation, _model->getParent()->getLicense());
+	tm->traceReport(Util::TraceLevel::simulation, "Projet Title: " + _info->getProjectTitle());
+	tm->traceReport(Util::TraceLevel::simulation, "Analysit Name: " + _info->getAnalystName());
+	tm->traceReport(Util::TraceLevel::simulation, "");
+	tm->trace(Util::TraceLevel::simulation, "\nSimulation of model \"" + _info->getName() + "\" is starting.\n");
 	/*TODO +-: not implemented*/
 }
 
@@ -97,13 +104,8 @@ void ModelSimulation::_initSimulation() {
  */
 void ModelSimulation::_initReplication() {
 	TraceManager* tm = _model->getTracer();
-	tm->traceReport(Util::TraceLevel::simulation, "-----------------------------------------------------");
-	tm->traceReport(Util::TraceLevel::simulation, _model->getParent()->getName());
-	tm->traceReport(Util::TraceLevel::simulation, _model->getParent()->getLicense());
-	tm->traceReport(Util::TraceLevel::simulation, "Projet Title: " + _info->getProjectTitle());
-	tm->traceReport(Util::TraceLevel::simulation, "Analysit Name: " + _info->getAnalystName());
 	tm->traceReport(Util::TraceLevel::simulation, "");
-	tm->traceReport(Util::TraceLevel::simulation, "Replication " + std::to_string(_currentReplicationNumber) + " of " + std::to_string(_info->getNumberOfReplications()) + " is starting.\n");
+	tm->traceReport(Util::TraceLevel::simulation, "Replication " + std::to_string(_currentReplicationNumber) + " of " + std::to_string(_info->getNumberOfReplications()) + " is starting.");
 
 	_model->getEvents()->clear();
 	_simulatedTime = 0.0;
@@ -142,7 +144,7 @@ void ModelSimulation::_initReplication() {
 
 void ModelSimulation::_stepSimulation() {
 	// process one single event
-	_model->getTracer()->trace(Util::TraceLevel::simulation, ""); // just a new line?
+	//_model->getTracer()->trace(Util::TraceLevel::simulation, ""); // just a new line?
 	//trace(Util::TraceLevel::mostDetailed, "\ntime=" + std::to_string(this->_simulatedTime) + ",events=" + _events->show()); // + ",entities=" + _entities->show());
 	_model->getOnEventManager()->NotifyReplicationStepListeners(new SimulationEvent(_currentReplicationNumber, nullptr));
 
@@ -157,19 +159,21 @@ void ModelSimulation::_stepSimulation() {
 }
 
 void ModelSimulation::_processEvent(Event* event) {
-	_model->getTracer()->trace(Util::TraceLevel::simulation, "Processing event=(" + event->show() + ")");
+	_model->getTracer()->trace(Util::TraceLevel::simulation, "\nProcessing event=(" + event->show() + ")");
 	this->_currentEntity = event->getEntity();
 	this->_currentComponent = event->getComponent();
 	_simulatedTime = event->getTime();
 
 	_model->getOnEventManager()->NotifyProcessEventListeners(new SimulationEvent(_currentReplicationNumber, event));
 
+	Util::IncIndent();
 	try {
 		event->getComponent()->Execute(event->getEntity(), event->getComponent()); // Execute is static
 	} catch (std::exception *e) {
 		////////////////////_model->_excepcionHandled = e;
 		_model->getTracer()->traceError(*e, "Error on processing event (" + event->show() + ")");
 	}
+	Util::DecIndent();
 }
 
 void ModelSimulation::_showReplicationStatistics() {
@@ -185,8 +189,8 @@ void ModelSimulation::_showReplicationStatistics() {
 	Util::IncIndent();
 	for (std::list<ModelInfrastructure*>::iterator it = list->getList()->begin(); it != list->getList()->end(); it++) {
 		cstat = (StatisticsCollector*) (*it);
-		std::string message = cstat->getName() + "\t N=" + std::to_string(cstat->numElements()) + ", avg=" + std::to_string(cstat->average()) + ", stddev=" + std::to_string(cstat->stddeviation()) + ", varCoef=" + std::to_string(cstat->variationCoef()) + ", min=" + std::to_string(cstat->min()) + ", max=" + std::to_string(cstat->max()) + ", e0_95%=" + std::to_string(cstat->halfWidthConfidenceInterval(0.95));
-		_model->getTracer()->traceReport(Util::TraceLevel::report,  message);
+		std::string message = "(" + cstat->getParent()->getName() + ")."+ cstat->getName() + "\t N=" + std::to_string(cstat->numElements()) + ", avg=" + std::to_string(cstat->average()) + ", stddev=" + std::to_string(cstat->stddeviation()) + ", varCoef=" + std::to_string(cstat->variationCoef()) + ", min=" + std::to_string(cstat->min()) + ", max=" + std::to_string(cstat->max()) + ", e0_95%=" + std::to_string(cstat->halfWidthConfidenceInterval(0.95));
+		_model->getTracer()->traceReport(Util::TraceLevel::report, message);
 	}
 	Util::DecIndent();
 }
@@ -194,6 +198,7 @@ void ModelSimulation::_showReplicationStatistics() {
 void ModelSimulation::_showSimulationStatistics() {
 	_model->getTracer()->traceReport(Util::TraceLevel::report, "\nReport for simulation\n");
 	/* TODO */
+	_model->getTracer()->traceReport(Util::TraceLevel::report, "Not implemented");
 }
 
 void ModelSimulation::pauseSimulation() {

@@ -27,6 +27,7 @@ public:
 	virtual ~StatisticsCollector();
 public:
 	virtual std::string show();
+    ModelInfrastructure* getParent() const;
 	
 protected: 
 	virtual void _loadInstance(std::list<std::string> words);

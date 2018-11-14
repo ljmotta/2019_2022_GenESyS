@@ -18,11 +18,11 @@
 #include "ProcessAnalyser_if.h"
 //#include "Traits.h"
 
-class ExperementDesign_BrunoBonotto_JoaoSouto : public ExperimentDesign_if {
+class ExperimentDesign_BrunoBonotto_JoaoSouto : public ExperimentDesign_if {
 public:
-	ExperementDesign_BrunoBonotto_JoaoSouto();
-	ExperementDesign_BrunoBonotto_JoaoSouto(const ExperementDesign_BrunoBonotto_JoaoSouto& orig);
-	virtual ~ExperementDesign_BrunoBonotto_JoaoSouto();
+	ExperimentDesign_BrunoBonotto_JoaoSouto();
+	ExperimentDesign_BrunoBonotto_JoaoSouto(const ExperimentDesign_BrunoBonotto_JoaoSouto& orig);
+	virtual ~ExperimentDesign_BrunoBonotto_JoaoSouto();
 
 public:
 	ProcessAnalyser_if* getProcessAnalyser() const;
@@ -39,7 +39,8 @@ private:
 	std::list<FactorOrInteractionContribution*>* _contributions = new std::list<FactorOrInteractionContribution*>();
 
 	std::map<SimulationScenario*, std::map<FactorOrInteractionContribution*, double>> create_table();
-
+private: // for fabiola implementation
+	std::list<SimulationScenario*>* _scenarios = new std::list<SimulationScenario*>();
 };
 
 #endif /* EXPEREMENTDESIGN_BRUNOBONOTTO_JOAOSOUTO_H */

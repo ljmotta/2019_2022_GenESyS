@@ -10,6 +10,8 @@
 #include "ProbDistrib.h"
 #include "Traits.h"
 
+#include "Functor.h"
+
 void testStudentSoftwareDevelopments() {
 	Simulator* simulator = new Simulator();
 	Sampler_if* mmc = simulator->getSampler(); // Sampler is the new MMC
@@ -93,5 +95,5 @@ TestInputAnalyserTools::TestInputAnalyserTools() {
 }
 
 int TestInputAnalyserTools::main(int argc, char** argv) {
-	testStudentSoftwareDevelopments();
-};
+		testStudentSoftwareDevelopments();
+}
