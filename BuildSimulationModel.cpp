@@ -115,12 +115,6 @@ void buildSimulationSystem() {
 	buildModel(model);
 	simulator->getModels()->insert(model);
 	
-	SimulationControl* control = model->getControls()->first();
-	std::string name = control->getName();
-	double value = control->getValue();
-	control->setValue(3);
-	value = control->getValue();
-	
 	if (model->checkModel()) {
 		model->saveModel("./genesysmodel.txt");
 		model->getSimulation()->startSimulation();
