@@ -22,16 +22,16 @@
 class Resource : public ModelInfrastructure, public LinkedBy {
 public:
 
-	enum ResourceType {
-		rtSET, rtRESOURCE
+	enum class ResourceType: int {
+		SET=1, RESOURCE=2
 	};
 
-	enum ResourceRule {
-		rrRANDOM, rrCICLICAL, rrESPECIFIC, rrSMALLESTBUSY, rrLARGESTREMAININGCAPACITY
+	enum class ResourceRule: int {
+		RANDOM=1, CICLICAL=2, ESPECIFIC=3, SMALLESTBUSY=4, LARGESTREMAININGCAPACITY=5
 	};
 
-	enum ResourceState {
-		rsIDLE, rsBUSY, rsFAILED, rsINACTIVE, rsOTHER
+	enum class ResourceState: int {
+		IDLE=1, BUSY=2, FAILED=3, INACTIVE=4, OTHER=5
 	};
 
 public:
@@ -64,12 +64,15 @@ protected:
 	virtual std::list<std::string>* _saveInstance();
 	virtual bool _verifySymbols(std::string* errorMessage);
 	
+
+private:
+	Model* _model;	
 private:
 	unsigned int _capacity = 1;
 	double _costBusyHour = 1.0;
 	double _costIdleHour = 1.0;
 	double _costPerUse = 1.0;
-	ResourceState _resourceState = ResourceState::rsIDLE;
+	ResourceState _resourceState = ResourceState::IDLE;
 	//Queue* _queue;
 private: // only gets
 	unsigned int _numberBusy = 0;

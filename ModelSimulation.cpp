@@ -182,12 +182,13 @@ void ModelSimulation::_showReplicationStatistics() {
 	_model->getTracer()->traceReport(Util::TraceLevel::report, "Statistics:");
 	StatisticsCollector* cstat;
 	List<ModelInfrastructure*>* list = _model->getInfraManager()->getInfrastructures(Util::TypeOf<StatisticsCollector>());
+	Util::IncIndent();
 	for (std::list<ModelInfrastructure*>::iterator it = list->getList()->begin(); it != list->getList()->end(); it++) {
 		cstat = (StatisticsCollector*) (*it);
 		std::string message = cstat->getName() + "\t N=" + std::to_string(cstat->numElements()) + ", avg=" + std::to_string(cstat->average()) + ", stddev=" + std::to_string(cstat->stddeviation()) + ", varCoef=" + std::to_string(cstat->variationCoef()) + ", min=" + std::to_string(cstat->min()) + ", max=" + std::to_string(cstat->max()) + ", e0_95%=" + std::to_string(cstat->halfWidthConfidenceInterval(0.95));
-		_model->getTracer()->traceReport(Util::TraceLevel::report, "     " + message);
+		_model->getTracer()->traceReport(Util::TraceLevel::report,  message);
 	}
-
+	Util::DecIndent();
 }
 
 void ModelSimulation::_showSimulationStatistics() {

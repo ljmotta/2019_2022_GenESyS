@@ -50,7 +50,7 @@ void Create::_execute(Entity* entity) {
 	for (unsigned int i = 0; i<this->_entitiesPerCreation; i++) {
 		this->_entitiesCreatedSoFar++;
 		Entity* newEntity = new Entity();
-		_model->getEntities()->insert(newEntity);
+		_model->getInfraManager()->insertInfrastructure(Util::TypeOf<Entity>(), newEntity);// ->getEntities()->insert(newEntity);
 		timeBetweenCreations = _model->parseExpression(this->_timeBetweenCreationsExpression);
 		timeScale = Util::TimeUnitConvert(this->_timeBetweenCreationsTimeUnit, _model->getInfos()->getReplicationLengthTimeUnit());
 		newArrivalTime = tnow + timeBetweenCreations*timeScale;

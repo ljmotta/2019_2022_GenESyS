@@ -39,7 +39,7 @@ Model::Model(Simulator* simulator) {
 	// 1:1 associations (no Traits)
 	_infos = new ModelInfo();
 	_eventHandler = new OnEventManager(); // should be on .h (all that does not depends on THIS)
-	_infrastructureManager = new InfrastructureManager(this); 
+	_infrastructureManager = new InfrastructureManager(this);
 	_trace = new TraceManager(this);
 	// 1:1 associations (Traits)
 	_parser = new Traits<Parser_if>::Implementation(this);
@@ -57,7 +57,7 @@ Model::Model(Simulator* simulator) {
 		return a->getTime() < b->getTime(); /// Events are sorted chronologically
 	});
 
-	
+
 	// PAN
 	_responses = new List<SimulationResponse*>();
 	_controls = new List<SimulationControl*>();
@@ -70,7 +70,6 @@ Model::Model(Simulator* simulator) {
 
 Model::Model(const Model& orig) {
 }
-
 
 Model::~Model() {
 }
@@ -107,21 +106,21 @@ double Model::parseExpression(const std::string expression, bool* success, std::
 	return _parser->parse(expression, success, errorMessage);
 }
 
-
-
 void Model::_showComponents() {
 	getTracer()->trace(Util::TraceLevel::mostDetailed, "Simulation Model:");
 	std::list<ModelComponent*>* list = getComponents()->getList();
+	Util::IncIndent();
 	for (std::list<ModelComponent*>::iterator it = list->begin(); it != list->end(); it++) {
-		getTracer()->trace(Util::TraceLevel::mostDetailed, "   " + (*it)->show()); ////
+		getTracer()->trace(Util::TraceLevel::mostDetailed,  (*it)->show()); ////
 	}
+	Util::DecIndent();
 }
-
-
 
 bool Model::checkModel() {
 	getTracer()->trace(Util::TraceLevel::blockInternal, "Checking model consistency");
+	Util::IncIndent();
 	bool res = this->_modelChecker->checkAll();
+	Util::DecIndent();
 	if (res) {
 		getTracer()->trace(Util::TraceLevel::blockInternal, "Model check passed");
 	} else {
@@ -137,22 +136,17 @@ bool Model::verifySymbol(std::string componentName, std::string expressionName, 
 }
 
 void Model::removeEntity(Entity* entity, bool collectStatistics) {
-	/* TODO: Collect statistics */
+	if (collectStatistics) {
+		/* TODO: Collect statistics */
+	}
 	/* TODO -: event onEntityRemove */
-	// destroy 
-	this->getEntities()->remove(entity);
 	getTracer()->trace(Util::TraceLevel::blockInternal, "Entity " + std::to_string(entity->getId()) + " was removed from the system");
-	//_entities->remove(entity);
-	entity->~Entity();
+	this->getInfraManager()->removeInfrastructure(Util::TypeOf<Entity>(), entity);
 }
-
-
-
 
 List<Event*>* Model::getEvents() const {
 	return _events;
 }
-
 
 List<SimulationControl*>* Model::getControls() const {
 	return _controls;
@@ -188,11 +182,10 @@ ModelSimulation* Model::getSimulation() const {
 
 
 
-List<Entity*>* Model::getEntities() const {
-	List<Entity*>* ents = (List<Entity*>*)(getInfraManager()->getInfrastructures(Util::TypeOf<Entity>())); // static_cast ??
-	return ents;
-}
-
+//List<Entity*>* Model::getEntities() const {
+//	List<Entity*>* ents = (List<Entity*>*)(getInfraManager()->getInfrastructures(Util::TypeOf<Entity>())); // static_cast ??
+//	return ents;
+//}
 
 Util::identitifcation Model::getId() const {
 	return _id;

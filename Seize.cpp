@@ -38,7 +38,7 @@ Seize::Seize(const Seize& orig) : ModelComponent(orig) {
 
 std::string Seize::show() {
 	return ModelComponent::show() +
-			",resourceType=" + std::to_string(this->_resourceType) +
+			",resourceType=" + std::to_string(static_cast<int>(this->_resourceType)) +
 			",resource=\"" + this->_resource->getName()+"\""+
 			",quantity=" + this->_quantity;
 }
@@ -112,7 +112,7 @@ void Seize::setQueueName(std::string _queueName) {
 		} else { // there is another queue with the same name
 			if (!_queue->isLinked()) { // no one else uses it. It can be removed
 				_model->getInfraManager()->removeInfrastructure(Util::TypeOf<Queue>(), _queue);
-				_queue->~Queue();
+				//_queue->~Queue();
 			} else { // there is another one using the queue with old name. Let it there
 				_queue->removeLink();
 			}
@@ -135,7 +135,7 @@ void Seize::setResourceName(std::string _resourceName) {
 		} else { // there is another resource with the same name
 			if (!_resource->isLinked()) { // no one else uses it. It can be removed
 				_model->getInfraManager()->removeInfrastructure(Util::TypeOf<Resource>(), _resource);
-				_resource->~Resource();
+				//_resource->~Resource();
 			} else { // there is another one using the resource with old name. Let it there
 				_resource->removeLink();
 			}
@@ -262,7 +262,7 @@ end;
 void Seize::_execute(Entity* entity) {
 	/* TODO +: not implemented yet */
 	Resource* resource = nullptr;
-	if (this->_resourceType == Resource::ResourceType::rtSET) {
+	if (this->_resourceType == Resource::ResourceType::SET) {
 		/* TODO +: not implemented yet */
 	} else {
 		resource = this->_resource;

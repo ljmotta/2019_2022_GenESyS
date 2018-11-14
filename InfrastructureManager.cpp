@@ -40,12 +40,13 @@ bool InfrastructureManager::insertInfrastructure(std::string infraTypename, Mode
 		listInfras->insert(infra);
 		return true;
 	}
-	return false; 
+	return false;
 }
 
 void InfrastructureManager::removeInfrastructure(std::string infraTypename, ModelInfrastructure* infra) {
 	List<ModelInfrastructure*>* listInfras = getInfrastructures(infraTypename);
-		listInfras->remove(infra);
+	listInfras->remove(infra);
+	infra->~ModelInfrastructure(); /* TODO: Check: Should really destroy infra here? */
 }
 
 void InfrastructureManager::show() {
@@ -53,14 +54,18 @@ void InfrastructureManager::show() {
 	//std::map<std::string, List<ModelInfrastructure*>*>* _infrastructures;
 	std::string key;
 	List<ModelInfrastructure*>* list;
+	Util::IncIndent();
 	for (std::map<std::string, List<ModelInfrastructure*>*>::iterator infraIt = _infrastructures->begin(); infraIt != _infrastructures->end(); infraIt++) {
 		key = (*infraIt).first;
 		list = (*infraIt).second;
-		_model->getTracer()->trace(Util::TraceLevel::mostDetailed, "   " + key + ": (" + std::to_string(list->size()) + ")");
+		_model->getTracer()->trace(Util::TraceLevel::mostDetailed,  key + ": (" + std::to_string(list->size()) + ")");
+		Util::IncIndent();
 		for (std::list<ModelInfrastructure*>::iterator it = list->getList()->begin(); it != list->getList()->end(); it++) {
-			_model->getTracer()->trace(Util::TraceLevel::mostDetailed, "      " + (*it)->show());
+			_model->getTracer()->trace(Util::TraceLevel::mostDetailed, (*it)->show());
 		}
+		Util::DecIndent();
 	}
+	Util::DecIndent();
 }
 
 List<ModelInfrastructure*>* InfrastructureManager::getInfrastructures(std::string infraTypename) const {

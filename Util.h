@@ -46,9 +46,15 @@ public:
 		blockInternal = 60,
 		mostDetailed = 70
 	};
-public:
+private:
 	static Util::identitifcation _S_lastId;
 	static std::map<std::string, Util::identitifcation> _S_lastIdOfType;
+	static unsigned int _S_indentation;
+
+public:
+	static void IncIndent();
+	static void DecIndent();
+	static std::string Indent();
 	static Util::identitifcation GenerateNewId();
 
 	static double TimeUnitConvert(Util::TimeUnit timeUnit1, Util::TimeUnit timeUnit2);

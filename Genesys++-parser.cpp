@@ -1209,16 +1209,16 @@ namespace yy {
   case 71:
 #line 246 "Genesys++-parser.yy" // lalr1.cc:870
     {  switch(((Resource*)driver.getModel()->getInfraManager()->getInfrastructure(Util::TypeOf<Resource>(), yystack_[1].value.as< obj_t > ().id))->getResourceState()){
-                                                                    case Resource::ResourceState::rsIDLE:
+                                                                    case Resource::ResourceState::IDLE:
                                                                       yylhs.value.as< obj_t > ().valor = -1;
                                                                       break;
-                                                                    case Resource::ResourceState::rsBUSY:
+                                                                    case Resource::ResourceState::BUSY:
                                                                       yylhs.value.as< obj_t > ().valor = -2;
                                                                       break;
-                                                                    case Resource::ResourceState::rsFAILED:
+                                                                    case Resource::ResourceState::FAILED:
                                                                       yylhs.value.as< obj_t > ().valor = -4;
                                                                       break;
-                                                                    case Resource::ResourceState::rsINACTIVE:
+                                                                    case Resource::ResourceState::INACTIVE:
                                                                       yylhs.value.as< obj_t > ().valor = -3;
                                                                     default:
                                                                       yylhs.value.as< obj_t > ().valor = -5;
@@ -1230,7 +1230,7 @@ namespace yy {
 
   case 72:
 #line 264 "Genesys++-parser.yy" // lalr1.cc:870
-    { yylhs.value.as< obj_t > ().valor = ((Resource*)driver.getModel()->getInfraManager()->getInfrastructure(Util::TypeOf<Resource>(), yystack_[1].value.as< obj_t > ().id))->getResourceState() == Resource::ResourceState::rsFAILED ? 1 : 0; }
+    { yylhs.value.as< obj_t > ().valor = ((Resource*)driver.getModel()->getInfraManager()->getInfrastructure(Util::TypeOf<Resource>(), yystack_[1].value.as< obj_t > ().id))->getResourceState() == Resource::ResourceState::FAILED ? 1 : 0; }
 #line 1235 "Genesys++-parser.cpp" // lalr1.cc:870
     break;
 

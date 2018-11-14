@@ -14,15 +14,17 @@
 #include "Resource.h"
 
 Resource::Resource(Model* model) : ModelInfrastructure(Util::TypeOf<Resource>()) {
+	_model = model;
 	_cstatTimeSeized = new StatisticsCollector("Time Seized", this);
-	model->getInfraManager()->insertInfrastructure(Util::TypeOf<StatisticsCollector>(), _cstatTimeSeized);
+	_model->getInfraManager()->insertInfrastructure(Util::TypeOf<StatisticsCollector>(), _cstatTimeSeized);
 }
 
 Resource::Resource(const Resource& orig) : ModelInfrastructure(orig) {
 }
 
 Resource::~Resource() {
-	_cstatTimeSeized->~StatisticsCollector();
+	_model->getInfraManager()->removeInfrastructure(Util::TypeOf<StatisticsCollector>(), _cstatTimeSeized);
+	//_cstatTimeSeized->~StatisticsCollector();
 }
 
 std::string Resource::show() {
@@ -31,7 +33,7 @@ std::string Resource::show() {
 			",costBusyByour=" + std::to_string(_costBusyHour) +
 			",costIdleByour=" + std::to_string(_costIdleHour) +
 			",costPerUse=" + std::to_string(_costPerUse) +
-			",state=" + std::to_string(_resourceState);
+			",state=" + std::to_string(static_cast<int>(_resourceState));
 }
 
 void Resource::seize(unsigned int quantity, double tnow) {
@@ -49,9 +51,6 @@ void Resource::release(unsigned int quantity, double tnow) {
 	_numberOut++;
 	double timeSeized = tnow - _whenSeized;
 	// Collect statistics about time seized
-	//cstats := Genesys.Model.SIMAN._GetModuleStructuresByKind(cCSTAT);
-	//i := cstats.IndexOf(IntToStr(aCSTATTimeSeizedID));
-	//TCStat(cstats.Objects[i]).AddValue(timeSeized);
 	this->_cstatTimeSeized->getCollector()->addValue(timeSeized);
 	//
 	_lastTimeSeized = timeSeized; // check. Isn't it TNOW?	

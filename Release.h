@@ -52,9 +52,9 @@ protected:
 private:
 //	unsigned int _allocationType = 0; // uint ? enum?
 	unsigned short _priority = 0;
-	Resource::ResourceType _resourceType = Resource::ResourceType::rtRESOURCE;
+	Resource::ResourceType _resourceType = Resource::ResourceType::RESOURCE;
 	std::string _quantity = "1";
-	Resource::ResourceRule _rule = Resource::ResourceRule::rrSMALLESTBUSY;
+	Resource::ResourceRule _rule = Resource::ResourceRule::SMALLESTBUSY;
 	std::string _saveAttribute = "";
         Resource* _verifySymbolsResource(std::string _resourceName);
         Queue* _verifySymbolsQueue(std::string _queueName);

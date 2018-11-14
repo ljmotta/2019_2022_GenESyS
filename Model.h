@@ -66,7 +66,7 @@ public: // only gets
 	// 1:n
 	List<ModelComponent*>* getComponents() const; /*! A list of components that compose this model */
 	List<Event*>* getEvents() const; /*! The future events list chronologically sorted; Events are scheduled by components when processing other events, and a replication evolves over time by sequentially processing the very first event in this list. It's initialized with events first described by source components (SourceComponentModel) */
-	List<Entity*>* getEntities() const;
+	//List<Entity*>* getEntities() const;
 
 	/*
  

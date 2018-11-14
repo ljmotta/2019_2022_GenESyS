@@ -15,18 +15,21 @@
 #include "Model.h"
 
 Queue::Queue(Model* model) : ModelInfrastructure(Util::TypeOf<Queue>()) {
+	_model = model;
 	_cstatNumberInQueue = new StatisticsCollector("Number In Queue", this); /* TODO: ++ WHY THIS INSERT "DISPOSE" AND "10ENTITYTYPE" STATCOLL ?? */
 	_cstatTimeInQueue = new StatisticsCollector("Time In Queue", this);
-	model->getInfraManager()->insertInfrastructure(Util::TypeOf<StatisticsCollector>(), _cstatNumberInQueue);
-	model->getInfraManager()->insertInfrastructure(Util::TypeOf<StatisticsCollector>(), _cstatTimeInQueue);
+	_model->getInfraManager()->insertInfrastructure(Util::TypeOf<StatisticsCollector>(), _cstatNumberInQueue);
+	_model->getInfraManager()->insertInfrastructure(Util::TypeOf<StatisticsCollector>(), _cstatTimeInQueue);
 }
 
 Queue::Queue(const Queue& orig) : ModelInfrastructure(orig) {
 }
 
 Queue::~Queue() {
-	_cstatNumberInQueue->~StatisticsCollector();
-	_cstatTimeInQueue->~StatisticsCollector();
+	_model->getInfraManager()->removeInfrastructure(Util::TypeOf<StatisticsCollector>(), _cstatNumberInQueue);
+	_model->getInfraManager()->removeInfrastructure(Util::TypeOf<StatisticsCollector>(), _cstatTimeInQueue);
+	//_cstatNumberInQueue->~StatisticsCollector();
+	//_cstatTimeInQueue->~StatisticsCollector();
 }
 
 std::string Queue::show() {

@@ -37,14 +37,15 @@ public:
 	Waiting* first();
 	//List<Waiting*>* getList() const; // can't give direct access so Queue can collect statistics
 public: //g&s
-	
-	
-protected: 
+
+
+protected:
 	virtual void _loadInstance(std::list<std::string> words);
 	virtual std::list<std::string>* _saveInstance();
 	virtual bool _verifySymbols(std::string* errorMessage);
-	
 
+private:
+	Model* _model;
 private: //1::n
 	List<Waiting*>* _list = new List<Waiting*>();
 private: //1::1

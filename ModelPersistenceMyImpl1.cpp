@@ -33,22 +33,27 @@ bool ModelPersistenceMyImpl1::saveAsTXT(std::string filename) {
 	// ...
 	
 	// save components
+	_model->getTracer()->trace(Util::TraceLevel::mostDetailed, "Writing components\":"); 
 	List<ModelComponent*>* components = this->_model->getComponents();
+	Util::IncIndent();
 	for (std::list<ModelComponent*>::iterator it = components->getList()->begin(); it != components->getList()->end(); it++) {
 		words = (*it)->SaveInstance((*it));
 		_saveLine(words);
 	}
+	Util::DecIndent();
 	
 	// save infras
 	std::list<std::string>* infraTypenames = _model->getInfraManager()->getInfrastructureTypenames();
 	for (std::list<std::string>::iterator itTypenames=infraTypenames->begin(); itTypenames!=infraTypenames->end(); itTypenames++) {
 		List<ModelInfrastructure*>* infras = _model->getInfraManager()->getInfrastructures((*itTypenames));
-		_model->getTracer()->trace(Util::TraceLevel::blockArrival, "Writing infrastructures of type \"" + (*itTypenames) + "\":"); 
+		_model->getTracer()->trace(Util::TraceLevel::mostDetailed, "Writing infrastructures of type \"" + (*itTypenames) + "\":"); 
+		Util::IncIndent();
 		for (std::list<ModelInfrastructure*>::iterator it=infras->getList()->begin(); it!=infras->getList()->end(); it++) {
-			_model->getTracer()->trace(Util::TraceLevel::blockArrival, "    Writing infrastructure \"" + (*it)->getName() + "\""); 
+			_model->getTracer()->trace(Util::TraceLevel::mostDetailed, 	"Writing "+(*itTypenames)+" \"" + (*it)->getName() + "\""); 
 			words = (*it)->SaveInstance((*it));
 			_saveLine(words);
 		}
+		Util::DecIndent();
 	}
 }
 

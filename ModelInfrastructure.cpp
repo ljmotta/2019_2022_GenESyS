@@ -64,7 +64,6 @@ std::list<std::string>* ModelInfrastructure::SaveInstance(ModelInfrastructure* i
 	std::list<std::string>* words;// = new std::list<std::string>();
 	try {
 		std::string name = infrastructure->_name; /* TODO: TEST ONLY. REMOVE IT */
-
 		//std::cout << "SALVANDO " << name << std::endl;
 		words = infrastructure->_saveInstance();
 	} catch (const std::exception& e) {
