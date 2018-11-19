@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['location_5ftype',['location_type',['../classyy_1_1genesyspp__parser.html#aa0276d3782ebff157827ad5e7d44f97c',1,'yy::genesyspp_parser']]]
+  ['kind_5ftype',['kind_type',['../structyy_1_1genesyspp__parser_1_1by__type.html#a7a616822e1a3b0a196ab34118104c384',1,'yy::genesyspp_parser::by_type']]]
 ];

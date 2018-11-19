@@ -14,6 +14,10 @@
 \item 
 virtual \hyperlink{class_infrastructure_manager_a5bca34aaf33a39c649ad3a1a9cd0ebf9}{$\sim$\-Infrastructure\-Manager} ()
 \item 
+bool \hyperlink{class_infrastructure_manager_a597f2262dee783093e616e3d8894690a}{insert\-Infrastructure} (std\-::string infra\-Typename, \hyperlink{class_model_infrastructure}{Model\-Infrastructure} $\ast$infra)
+\item 
+void \hyperlink{class_infrastructure_manager_a55ea1a348ec52d4ed1de3addf86b6d42}{remove\-Infrastructure} (std\-::string infra\-Typename, \hyperlink{class_model_infrastructure}{Model\-Infrastructure} $\ast$infra)
+\item 
 \hyperlink{class_list}{List}$<$ \hyperlink{class_model_infrastructure}{Model\-Infrastructure} $\ast$ $>$ $\ast$ \hyperlink{class_infrastructure_manager_a1d013b55994e27cac0c45c1ad08f74e0}{get\-Infrastructures} (std\-::string infra\-Typename) const 
 \item 
 \hyperlink{class_model_infrastructure}{Model\-Infrastructure} $\ast$ \hyperlink{class_infrastructure_manager_a2c957eee5107d521e8292cb6f8e9ea5b}{get\-Infrastructure} (std\-::string infra\-Typename, \hyperlink{class_util_ad17d458d9344b10bba64347e514d6d71}{Util\-::identitifcation} id)
@@ -27,9 +31,9 @@ void \hyperlink{class_infrastructure_manager_a8e10fe1a6a40ce020b1b63232dbb05cd}{
 
 
 \subsection{Detailed Description}
+The \hyperlink{class_infrastructure_manager}{Infrastructure\-Manager} is responsible for inserting and removing infrastructures (Model\-Infra\-Structure) used by components, in a consistent way. T\-O F\-I\-X\-: No direct access for insertion or deletion should be allow 
 
-
-Definition at line 24 of file Infrastructure\-Manager.\-h.
+Definition at line 29 of file Infrastructure\-Manager.\-h.
 
 
 
@@ -43,7 +47,7 @@ Definition at line 24 of file Infrastructure\-Manager.\-h.
 )}}\label{class_infrastructure_manager_a65067e32d70b63c7b0b46c61dcab6a22}
 Infrastructures are organized as a map from a string (key), the type of an infrastructure, and a list of infrastructures of that type 
 
-Definition at line 18 of file Infrastructure\-Manager.\-cpp.
+Definition at line 17 of file Infrastructure\-Manager.\-cpp.
 
 \hypertarget{class_infrastructure_manager_a091a712dc18339f9ea350519af229dba}{\index{Infrastructure\-Manager@{Infrastructure\-Manager}!Infrastructure\-Manager@{Infrastructure\-Manager}}
 \index{Infrastructure\-Manager@{Infrastructure\-Manager}!InfrastructureManager@{Infrastructure\-Manager}}
@@ -54,7 +58,7 @@ Definition at line 18 of file Infrastructure\-Manager.\-cpp.
 )}}\label{class_infrastructure_manager_a091a712dc18339f9ea350519af229dba}
 
 
-Definition at line 28 of file Infrastructure\-Manager.\-cpp.
+Definition at line 27 of file Infrastructure\-Manager.\-cpp.
 
 \hypertarget{class_infrastructure_manager_a5bca34aaf33a39c649ad3a1a9cd0ebf9}{\index{Infrastructure\-Manager@{Infrastructure\-Manager}!$\sim$\-Infrastructure\-Manager@{$\sim$\-Infrastructure\-Manager}}
 \index{$\sim$\-Infrastructure\-Manager@{$\sim$\-Infrastructure\-Manager}!InfrastructureManager@{Infrastructure\-Manager}}
@@ -65,7 +69,7 @@ Definition at line 28 of file Infrastructure\-Manager.\-cpp.
 )\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_infrastructure_manager_a5bca34aaf33a39c649ad3a1a9cd0ebf9}
 
 
-Definition at line 31 of file Infrastructure\-Manager.\-cpp.
+Definition at line 30 of file Infrastructure\-Manager.\-cpp.
 
 
 
@@ -80,12 +84,11 @@ Definition at line 31 of file Infrastructure\-Manager.\-cpp.
 )}}\label{class_infrastructure_manager_a2c957eee5107d521e8292cb6f8e9ea5b}
 
 
-Definition at line 64 of file Infrastructure\-Manager.\-cpp.
+Definition at line 86 of file Infrastructure\-Manager.\-cpp.
 
 
 
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -96,8 +99,7 @@ Here is the call graph for this function\-:
 
 
 
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -116,12 +118,11 @@ Here is the caller graph for this function\-:
 )}}\label{class_infrastructure_manager_ab8663cae44cd58387391c1821c48beb7}
 
 
-Definition at line 83 of file Infrastructure\-Manager.\-cpp.
+Definition at line 104 of file Infrastructure\-Manager.\-cpp.
 
 
 
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -139,12 +140,11 @@ Here is the call graph for this function\-:
 ) const}}\label{class_infrastructure_manager_a1d013b55994e27cac0c45c1ad08f74e0}
 
 
-Definition at line 49 of file Infrastructure\-Manager.\-cpp.
+Definition at line 71 of file Infrastructure\-Manager.\-cpp.
 
 
 
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -174,7 +174,42 @@ Here is the caller graph for this function\-:
 ) const}}\label{class_infrastructure_manager_aaf3ff8d9288b333d21a202caae797bc7}
 
 
-Definition at line 74 of file Infrastructure\-Manager.\-cpp.
+Definition at line 96 of file Infrastructure\-Manager.\-cpp.
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_infrastructure_manager_aaf3ff8d9288b333d21a202caae797bc7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_infrastructure_manager_a597f2262dee783093e616e3d8894690a}{\index{Infrastructure\-Manager@{Infrastructure\-Manager}!insert\-Infrastructure@{insert\-Infrastructure}}
+\index{insert\-Infrastructure@{insert\-Infrastructure}!InfrastructureManager@{Infrastructure\-Manager}}
+\subsubsection[{insert\-Infrastructure}]{\setlength{\rightskip}{0pt plus 5cm}bool Infrastructure\-Manager\-::insert\-Infrastructure (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{infra\-Typename, }
+\item[{{\bf Model\-Infrastructure} $\ast$}]{infra}
+\end{DoxyParamCaption}
+)}}\label{class_infrastructure_manager_a597f2262dee783093e616e3d8894690a}
+
+
+Definition at line 33 of file Infrastructure\-Manager.\-cpp.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_infrastructure_manager_a597f2262dee783093e616e3d8894690a_cgraph}
+\end{center}
+\end{figure}
+
 
 
 
@@ -183,7 +218,43 @@ Here is the caller graph for this function\-:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{class_infrastructure_manager_aaf3ff8d9288b333d21a202caae797bc7_icgraph}
+\includegraphics[width=348pt]{class_infrastructure_manager_a597f2262dee783093e616e3d8894690a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_infrastructure_manager_a55ea1a348ec52d4ed1de3addf86b6d42}{\index{Infrastructure\-Manager@{Infrastructure\-Manager}!remove\-Infrastructure@{remove\-Infrastructure}}
+\index{remove\-Infrastructure@{remove\-Infrastructure}!InfrastructureManager@{Infrastructure\-Manager}}
+\subsubsection[{remove\-Infrastructure}]{\setlength{\rightskip}{0pt plus 5cm}void Infrastructure\-Manager\-::remove\-Infrastructure (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{infra\-Typename, }
+\item[{{\bf Model\-Infrastructure} $\ast$}]{infra}
+\end{DoxyParamCaption}
+)}}\label{class_infrastructure_manager_a55ea1a348ec52d4ed1de3addf86b6d42}
+
+
+Definition at line 46 of file Infrastructure\-Manager.\-cpp.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_infrastructure_manager_a55ea1a348ec52d4ed1de3addf86b6d42_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_infrastructure_manager_a55ea1a348ec52d4ed1de3addf86b6d42_icgraph}
 \end{center}
 \end{figure}
 
@@ -197,7 +268,7 @@ Here is the caller graph for this function\-:
 )}}\label{class_infrastructure_manager_a8e10fe1a6a40ce020b1b63232dbb05cd}
 
 
-Definition at line 34 of file Infrastructure\-Manager.\-cpp.
+Definition at line 52 of file Infrastructure\-Manager.\-cpp.
 
 
 
@@ -206,7 +277,7 @@ Here is the call graph for this function\-:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=336pt]{class_infrastructure_manager_a8e10fe1a6a40ce020b1b63232dbb05cd_cgraph}
+\includegraphics[width=350pt]{class_infrastructure_manager_a8e10fe1a6a40ce020b1b63232dbb05cd_cgraph}
 \end{center}
 \end{figure}
 

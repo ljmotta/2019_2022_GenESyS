@@ -1030,9 +1030,9 @@ $(document).ready(function(){initNavTree('_genesys_09_09-scanner_8cpp_source.htm
 <div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;<span class="preprocessor"></span>{</div>
 <div class="line"><a name="l00924"></a><span class="lineno">  924</span>&#160;                        <span class="comment">//Hexadecimal number</span></div>
 <div class="line"><a name="l00925"></a><span class="lineno">  925</span>&#160;            <span class="comment">//Will not fail because of regex</span></div>
-<div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160;            std::string text(<span class="stringliteral">&quot;Found Hexadecimal: &quot;</span>);</div>
-<div class="line"><a name="l00927"></a><span class="lineno">  927</span>&#160;            text += <a class="code" href="_genesys_09_09-scanner_8cpp.html#a35b96d819f6a8f8638894c429e68b02a">yytext</a>;</div>
-<div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160;            driver.getModel()-&gt;getTracer()-&gt;trace(<a class="code" href="class_util.html#a0a3482cfa2d915e261c0cf528fdc7afcaac18d2ea075dba67f95df9a907eee741">Util::TraceLevel::mostDetailed</a>, text);</div>
+<div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160;            <span class="comment">//std::string text(&quot;Found Hexadecimal: &quot;);</span></div>
+<div class="line"><a name="l00927"></a><span class="lineno">  927</span>&#160;            <span class="comment">//text += yytext;</span></div>
+<div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160;            <span class="comment">//driver.getModel()-&gt;getTracer()-&gt;trace(Util::TraceLevel::mostDetailed, text);</span></div>
 <div class="line"><a name="l00929"></a><span class="lineno">  929</span>&#160;                        <span class="keywordflow">return</span> <a class="code" href="classyy_1_1genesyspp__parser.html#a9cf290fdca1278917d918ce85a04254d">yy::genesyspp_parser::make_NUMH</a>(<a class="code" href="classobj__t.html">obj_t</a>(atof(<a class="code" href="_genesys_09_09-scanner_8cpp.html#a35b96d819f6a8f8638894c429e68b02a">yytext</a>), std::string(<span class="stringliteral">&quot;Hexadecimal&quot;</span>)),loc);</div>
 <div class="line"><a name="l00930"></a><span class="lineno">  930</span>&#160;                    }</div>
 <div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160;    <a class="code" href="_genesys_09_09-scanner_8cpp.html#a3cc40a460ad7df816678bcc05241e84c">YY_BREAK</a></div>
@@ -1042,9 +1042,9 @@ $(document).ready(function(){initNavTree('_genesys_09_09-scanner_8cpp_source.htm
 <div class="line"><a name="l00935"></a><span class="lineno">  935</span>&#160;<span class="preprocessor"></span>{</div>
 <div class="line"><a name="l00936"></a><span class="lineno">  936</span>&#160;       <span class="comment">//Float number</span></div>
 <div class="line"><a name="l00937"></a><span class="lineno">  937</span>&#160;       <span class="comment">//Will not fail because of regex</span></div>
-<div class="line"><a name="l00938"></a><span class="lineno">  938</span>&#160;       std::string text(<span class="stringliteral">&quot;Found Float: &quot;</span>);</div>
-<div class="line"><a name="l00939"></a><span class="lineno">  939</span>&#160;       text += <a class="code" href="_genesys_09_09-scanner_8cpp.html#a35b96d819f6a8f8638894c429e68b02a">yytext</a>;</div>
-<div class="line"><a name="l00940"></a><span class="lineno">  940</span>&#160;       driver.getModel()-&gt;getTracer()-&gt;trace(<a class="code" href="class_util.html#a0a3482cfa2d915e261c0cf528fdc7afcaac18d2ea075dba67f95df9a907eee741">Util::TraceLevel::mostDetailed</a>, text);</div>
+<div class="line"><a name="l00938"></a><span class="lineno">  938</span>&#160;       <span class="comment">//std::string text(&quot;Found Float: &quot;);</span></div>
+<div class="line"><a name="l00939"></a><span class="lineno">  939</span>&#160;       <span class="comment">//text += yytext;</span></div>
+<div class="line"><a name="l00940"></a><span class="lineno">  940</span>&#160;       <span class="comment">//driver.getModel()-&gt;getTracer()-&gt;trace(Util::TraceLevel::mostDetailed, text);</span></div>
 <div class="line"><a name="l00941"></a><span class="lineno">  941</span>&#160;       <span class="keywordflow">return</span> <a class="code" href="classyy_1_1genesyspp__parser.html#a9c5a9950823e1b47289bb09c181aba62">yy::genesyspp_parser::make_NUMD</a>(<a class="code" href="classobj__t.html">obj_t</a>(atof(<a class="code" href="_genesys_09_09-scanner_8cpp.html#a35b96d819f6a8f8638894c429e68b02a">yytext</a>),std::string(<span class="stringliteral">&quot;Float&quot;</span>)), loc);</div>
 <div class="line"><a name="l00942"></a><span class="lineno">  942</span>&#160;     }</div>
 <div class="line"><a name="l00943"></a><span class="lineno">  943</span>&#160;    <a class="code" href="_genesys_09_09-scanner_8cpp.html#a3cc40a460ad7df816678bcc05241e84c">YY_BREAK</a></div>
@@ -1054,9 +1054,9 @@ $(document).ready(function(){initNavTree('_genesys_09_09-scanner_8cpp_source.htm
 <div class="line"><a name="l00947"></a><span class="lineno">  947</span>&#160;<span class="preprocessor"></span>{</div>
 <div class="line"><a name="l00948"></a><span class="lineno">  948</span>&#160;       <span class="comment">//Decimal number</span></div>
 <div class="line"><a name="l00949"></a><span class="lineno">  949</span>&#160;       <span class="comment">//Will not fail because of regex</span></div>
-<div class="line"><a name="l00950"></a><span class="lineno">  950</span>&#160;       std::string text(<span class="stringliteral">&quot;Found Decimal: &quot;</span>);</div>
-<div class="line"><a name="l00951"></a><span class="lineno">  951</span>&#160;       text += <a class="code" href="_genesys_09_09-scanner_8cpp.html#a35b96d819f6a8f8638894c429e68b02a">yytext</a>;</div>
-<div class="line"><a name="l00952"></a><span class="lineno">  952</span>&#160;       driver.getModel()-&gt;getTracer()-&gt;trace(<a class="code" href="class_util.html#a0a3482cfa2d915e261c0cf528fdc7afcaac18d2ea075dba67f95df9a907eee741">Util::TraceLevel::mostDetailed</a>, text);</div>
+<div class="line"><a name="l00950"></a><span class="lineno">  950</span>&#160;       <span class="comment">//std::string text(&quot;Found Decimal: &quot;);</span></div>
+<div class="line"><a name="l00951"></a><span class="lineno">  951</span>&#160;       <span class="comment">//text += yytext;</span></div>
+<div class="line"><a name="l00952"></a><span class="lineno">  952</span>&#160;       <span class="comment">//driver.getModel()-&gt;getTracer()-&gt;trace(Util::TraceLevel::mostDetailed, text);</span></div>
 <div class="line"><a name="l00953"></a><span class="lineno">  953</span>&#160;       <span class="keywordflow">return</span> <a class="code" href="classyy_1_1genesyspp__parser.html#a9c5a9950823e1b47289bb09c181aba62">yy::genesyspp_parser::make_NUMD</a>(<a class="code" href="classobj__t.html">obj_t</a>(atof(<a class="code" href="_genesys_09_09-scanner_8cpp.html#a35b96d819f6a8f8638894c429e68b02a">yytext</a>),std::string(<span class="stringliteral">&quot;Decimal&quot;</span>)), loc);</div>
 <div class="line"><a name="l00954"></a><span class="lineno">  954</span>&#160;      }</div>
 <div class="line"><a name="l00955"></a><span class="lineno">  955</span>&#160;    <a class="code" href="_genesys_09_09-scanner_8cpp.html#a3cc40a460ad7df816678bcc05241e84c">YY_BREAK</a></div>
@@ -2379,7 +2379,6 @@ $(document).ready(function(){initNavTree('_genesys_09_09-scanner_8cpp_source.htm
 <div class="ttc" id="_genesys_09_09-scanner_8cpp_html_afc6bef71feb2394eb5291e710139dfb3"><div class="ttname"><a href="_genesys_09_09-scanner_8cpp.html#afc6bef71feb2394eb5291e710139dfb3">yy_last_accepting_cpos</a></div><div class="ttdeci">static char * yy_last_accepting_cpos</div><div class="ttdef"><b>Definition:</b> <a href="_genesys_09_09-scanner_8cpp_source.html#l00594">Genesys++-scanner.cpp:594</a></div></div>
 <div class="ttc" id="classyy_1_1genesyspp__parser_html_ac4d7a0c02d3e48e97c56b85db49becc2"><div class="ttname"><a href="classyy_1_1genesyspp__parser.html#ac4d7a0c02d3e48e97c56b85db49becc2">yy::genesyspp_parser::make_fSTATE</a></div><div class="ttdeci">static symbol_type make_fSTATE(const obj_t &amp;v, const location_type &amp;l)</div><div class="ttdef"><b>Definition:</b> <a href="_genesys_09_09-parser_8h_source.html#l01744">Genesys++-parser.h:1744</a></div></div>
 <div class="ttc" id="_genesys_09_09-scanner_8cpp_html_a551358cae0f2c14b700b72cb3846d2c4"><div class="ttname"><a href="_genesys_09_09-scanner_8cpp.html#a551358cae0f2c14b700b72cb3846d2c4">yyget_out</a></div><div class="ttdeci">FILE * yyget_out(void)</div><div class="ttdef"><b>Definition:</b> <a href="_genesys_09_09-scanner_8cpp_source.html#l02085">Genesys++-scanner.cpp:2085</a></div></div>
-<div class="ttc" id="class_util_html_a0a3482cfa2d915e261c0cf528fdc7afcaac18d2ea075dba67f95df9a907eee741"><div class="ttname"><a href="class_util.html#a0a3482cfa2d915e261c0cf528fdc7afcaac18d2ea075dba67f95df9a907eee741">Util::TraceLevel::mostDetailed</a></div></div>
 <div class="ttc" id="_genesys_09_09-scanner_8cpp_html_a609d19f40900ecc2a5f812d9388c21fb"><div class="ttname"><a href="_genesys_09_09-scanner_8cpp.html#a609d19f40900ecc2a5f812d9388c21fb">YY_BUFFER_NORMAL</a></div><div class="ttdeci">#define YY_BUFFER_NORMAL</div><div class="ttdef"><b>Definition:</b> <a href="_genesys_09_09-scanner_8cpp_source.html#l00233">Genesys++-scanner.cpp:233</a></div></div>
 <div class="ttc" id="_genesys_09_09-scanner_8cpp_html_a3098c48a74ef8fd852f7dd4b3331cbce"><div class="ttname"><a href="_genesys_09_09-scanner_8cpp.html#a3098c48a74ef8fd852f7dd4b3331cbce">yy_switch_to_buffer</a></div><div class="ttdeci">void yy_switch_to_buffer(YY_BUFFER_STATE new_buffer)</div><div class="ttdef"><b>Definition:</b> <a href="_genesys_09_09-scanner_8cpp_source.html#l01709">Genesys++-scanner.cpp:1709</a></div></div>
 <div class="ttc" id="classyy_1_1genesyspp__parser_html_a29932293f709da03fce69d9a58128e4f"><div class="ttname"><a href="classyy_1_1genesyspp__parser.html#a29932293f709da03fce69d9a58128e4f">yy::genesyspp_parser::make_ATRIB</a></div><div class="ttdeci">static symbol_type make_ATRIB(const obj_t &amp;v, const location_type &amp;l)</div><div class="ttdef"><b>Definition:</b> <a href="_genesys_09_09-parser_8h_source.html#l01540">Genesys++-parser.h:1540</a></div></div>
@@ -2513,7 +2512,7 @@ $(document).ready(function(){initNavTree('_genesys_09_09-scanner_8cpp_source.htm
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="_genesys_09_09-scanner_8cpp.html">Genesys++-scanner.cpp</a></li>
-    <li class="footer">Generated on Thu Nov 8 2018 20:21:17 for ReGenESyS - Reborn Generic and Expansible System Simulator by
+    <li class="footer">Generated on Mon Nov 19 2018 09:19:44 for ReGenESyS - Reborn Generic and Expansible System Simulator by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

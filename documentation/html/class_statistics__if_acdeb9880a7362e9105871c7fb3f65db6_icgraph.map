@@ -1,0 +1,11 @@
+<map id="Statistics_if::min" name="Statistics_if::min">
+<area shape="rect" id="node2" href="$class_fitter_fabiola.html#aa4301083831a54b660a172e0ee5c9c76" title="FitterFabiola::fitUniform" alt="" coords="179,5,338,32"/>
+<area shape="rect" id="node4" href="$class_fitter_fabiola.html#aaf668bdbe610ac1f9f83ef89796f7bd1" title="FitterFabiola::fitTriangular" alt="" coords="173,56,344,83"/>
+<area shape="rect" id="node5" href="$class_fitter_fabiola.html#aa1e8d772536e5e3440a0c7207393c82c" title="FitterFabiola::fitNormal" alt="" coords="181,309,336,336"/>
+<area shape="rect" id="node7" href="$class_fitter_fabiola.html#a45c241af82350d6faca63886013e704b" title="FitterFabiola::fitExpo" alt="" coords="187,107,330,133"/>
+<area shape="rect" id="node8" href="$class_fitter_fabiola.html#aa96f144a121ab8f4d8692e40ddf6bda0" title="FitterFabiola::fitErlang" alt="" coords="183,157,334,184"/>
+<area shape="rect" id="node9" href="$class_fitter_fabiola.html#a6de9b0d16c19105a540608cb27faf44b" title="FitterFabiola::fitBeta" alt="" coords="189,208,329,235"/>
+<area shape="rect" id="node10" href="$class_fitter_fabiola.html#a7c80eaca6773e0b8d5ca6689b14188ec" title="FitterFabiola::fitWeibull" alt="" coords="181,259,337,285"/>
+<area shape="rect" id="node3" href="$class_fitter_fabiola.html#ac15542ce538d83e78577e81d1667ff96" title="FitterFabiola::fitAll" alt="" coords="437,157,565,184"/>
+<area shape="rect" id="node6" href="$class_fitter_fabiola.html#a419faa9832e64f6508829271f0b13286" title="FitterFabiola::isNormalDistributed" alt="" coords="393,309,610,336"/>
+</map>

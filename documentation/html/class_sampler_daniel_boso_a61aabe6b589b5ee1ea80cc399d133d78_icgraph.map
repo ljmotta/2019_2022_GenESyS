@@ -1,0 +1,12 @@
+<map id="SamplerDanielBoso::random" name="SamplerDanielBoso::random">
+<area shape="rect" id="node2" href="$class_sampler_daniel_boso.html#ab384b9076bbd7381a26716eecb122830" title="SamplerDanielBoso::\lsampleUniform" alt="" coords="201,5,346,46"/>
+<area shape="rect" id="node3" href="$class_sampler_daniel_boso.html#ae17bf948b30a70762c00ea75f340f3ac" title="SamplerDanielBoso::\lsampleExponential" alt="" coords="201,70,346,111"/>
+<area shape="rect" id="node4" href="$class_sampler_daniel_boso.html#ad26ebbe6b43df7067ff67a652a438b97" title="SamplerDanielBoso::\lsampleErlang" alt="" coords="201,135,346,177"/>
+<area shape="rect" id="node5" href="$class_sampler_daniel_boso.html#ab5ccf42855f9a5e8f9d033942c620500" title="SamplerDanielBoso::\lsampleNormal" alt="" coords="201,201,346,242"/>
+<area shape="rect" id="node7" href="$class_sampler_daniel_boso.html#a84562c6230ad15f8a7e6dd85c0dc3ca9" title="SamplerDanielBoso::\lsampleGamma" alt="" coords="201,266,346,307"/>
+<area shape="rect" id="node9" href="$class_sampler_daniel_boso.html#a5514d11fd1d3be7eadc8d2b310e15ab1" title="SamplerDanielBoso::\lsampleWeibull" alt="" coords="201,331,346,373"/>
+<area shape="rect" id="node10" href="$class_sampler_daniel_boso.html#ac80c166a5f938a04d13111a000bc395b" title="SamplerDanielBoso::\lsampleTriangular" alt="" coords="201,397,346,438"/>
+<area shape="rect" id="node11" href="$class_sampler_daniel_boso.html#a6a8f4ce9a94dadfe5c37ced7f01c3169" title="SamplerDanielBoso::\lsampleDiscrete" alt="" coords="201,462,346,503"/>
+<area shape="rect" id="node6" href="$class_sampler_daniel_boso.html#ad35ba3234553bb3033bac937c6f3cd07" title="SamplerDanielBoso::\lsampleLogNormal" alt="" coords="395,201,541,242"/>
+<area shape="rect" id="node8" href="$class_sampler_daniel_boso.html#aeb42649db302d2927c3afe3a00529246" title="SamplerDanielBoso::\lsampleBeta" alt="" coords="395,266,541,307"/>
+</map>

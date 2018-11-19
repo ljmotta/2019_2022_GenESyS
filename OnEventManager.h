@@ -44,6 +44,10 @@ private:
 
 typedef void (*simulationEventListener)(SimulationEvent*);
 
+/*!
+ * OnEventManager allows external methods to hook interval simulation events as listeners (or observers) of pecific events.
+ * All methods added as listeners of an event will be invovked when that event is triggered.
+ */
 class OnEventManager {
 public:
 	OnEventManager();

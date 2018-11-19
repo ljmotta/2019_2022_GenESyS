@@ -114,8 +114,18 @@ $(document).ready(function(){initNavTree('class_on_event_manager.html','');});
 
 <p>This is the complete list of members for <a class="el" href="class_on_event_manager.html">OnEventManager</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_on_event_manager.html#aee8a28877e0705aed3ece24318e2732c">addOnReplicationEndListener</a>(replicationEventListener eventListener)</td><td class="entry"><a class="el" href="class_on_event_manager.html">OnEventManager</a></td><td class="entry"></td></tr>
-  <tr><td class="entry"><a class="el" href="class_on_event_manager.html#a15ed0dc4fac4d19facfcf883d2c5a5a3">addOnReplicationStartListener</a>(replicationEventListener eventListener)</td><td class="entry"><a class="el" href="class_on_event_manager.html">OnEventManager</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_on_event_manager.html#aa5fa457960768e89460936cd3013daec">addOnProcessEventListener</a>(simulationEventListener eventListener)</td><td class="entry"><a class="el" href="class_on_event_manager.html">OnEventManager</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_on_event_manager.html#af4d92bf77d1811fa3168ed2fbb1ce99c">addOnReplicationEndListener</a>(simulationEventListener eventListener)</td><td class="entry"><a class="el" href="class_on_event_manager.html">OnEventManager</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_on_event_manager.html#a7c8270fc85b56ef80bbba29c1e2f4a22">addOnReplicationStartListener</a>(simulationEventListener eventListener)</td><td class="entry"><a class="el" href="class_on_event_manager.html">OnEventManager</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_on_event_manager.html#ad42eb83d9a6614ae13bd49943bc68e7e">addOnReplicationStepListener</a>(simulationEventListener eventListener)</td><td class="entry"><a class="el" href="class_on_event_manager.html">OnEventManager</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_on_event_manager.html#aa6b2d3c599fc595dbb765a0ff1f55322">addOnSimulationEndListener</a>(simulationEventListener eventListener)</td><td class="entry"><a class="el" href="class_on_event_manager.html">OnEventManager</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_on_event_manager.html#a4341d723dabd237c98fe5a4fdc435b29">addOnSimulationStartListener</a>(simulationEventListener eventListener)</td><td class="entry"><a class="el" href="class_on_event_manager.html">OnEventManager</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_on_event_manager.html#a350340eb707a82e699a73b0000ee56bd">NotifyProcessEventListeners</a>(SimulationEvent *se)</td><td class="entry"><a class="el" href="class_on_event_manager.html">OnEventManager</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_on_event_manager.html#aeab61beafbdfb16757897106d0236fa4">NotifyReplicationEndListeners</a>(SimulationEvent *se)</td><td class="entry"><a class="el" href="class_on_event_manager.html">OnEventManager</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_on_event_manager.html#aeddadb7542cfefd7a8e9be4cbed7617f">NotifyReplicationStartListeners</a>(SimulationEvent *se)</td><td class="entry"><a class="el" href="class_on_event_manager.html">OnEventManager</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_on_event_manager.html#accb26528a27a7b0b679c46d5738da8bf">NotifyReplicationStepListeners</a>(SimulationEvent *se)</td><td class="entry"><a class="el" href="class_on_event_manager.html">OnEventManager</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_on_event_manager.html#a9217816665a7384305f5ebce1c62ef4f">NotifySimulationEndListeners</a>(SimulationEvent *se)</td><td class="entry"><a class="el" href="class_on_event_manager.html">OnEventManager</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_on_event_manager.html#abe358c71aae7624e75b692fa5bae1174">NotifySimulationStartListeners</a>(SimulationEvent *se)</td><td class="entry"><a class="el" href="class_on_event_manager.html">OnEventManager</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_on_event_manager.html#a15f856c9d10d1c8fc002a7ec6f51bae9">OnEventManager</a>()</td><td class="entry"><a class="el" href="class_on_event_manager.html">OnEventManager</a></td><td class="entry"></td></tr>
   <tr><td class="entry"><a class="el" href="class_on_event_manager.html#ae83cecca7e8a1f7d4e921cfa201c7fff">OnEventManager</a>(const OnEventManager &amp;orig)</td><td class="entry"><a class="el" href="class_on_event_manager.html">OnEventManager</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="class_on_event_manager.html#aab0f5d9e7698be7860decf65e487de42">~OnEventManager</a>()</td><td class="entry"><a class="el" href="class_on_event_manager.html">OnEventManager</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
@@ -124,7 +134,7 @@ $(document).ready(function(){initNavTree('class_on_event_manager.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Nov 8 2018 20:21:18 for ReGenESyS - Reborn Generic and Expansible System Simulator by
+    <li class="footer">Generated on Mon Nov 19 2018 09:19:45 for ReGenESyS - Reborn Generic and Expansible System Simulator by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

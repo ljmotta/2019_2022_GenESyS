@@ -17,6 +17,9 @@
 #include <string>
 #include "Util.h"
 
+/*!
+ * ModelInfo stores basic model project information.
+ */
 class ModelInfo {
 public:
 	ModelInfo();

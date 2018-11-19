@@ -6,7 +6,6 @@ var class_model =
     [ "checkModel", "class_model.html#ae3b293adffbef6fd254d661ceeb2e116", null ],
     [ "getComponents", "class_model.html#ae5773d78fc47cb35be7fbeb74b7d63e4", null ],
     [ "getControls", "class_model.html#a20c078a714fe7fba0f02ea1d50a19589", null ],
-    [ "getEntities", "class_model.html#ae09e777b481981772818ea3fd2880c4c", null ],
     [ "getEvents", "class_model.html#a841c78bda0eb27c652c6921094dc5921", null ],
     [ "getId", "class_model.html#abfd7753d30de6abea64b3f0846e097eb", null ],
     [ "getInfos", "class_model.html#ac0f1ea5fbbeba7a2992ee13516e7522f", null ],

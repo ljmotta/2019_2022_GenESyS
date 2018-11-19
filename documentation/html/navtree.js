@@ -25,7 +25,7 @@ var NAVTREE =
     [ "Files", null, [
       [ "File List", "files.html", "files" ],
       [ "File Members", "globals.html", [
-        [ "All", "globals.html", null ],
+        [ "All", "globals.html", "globals_dup" ],
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
         [ "Typedefs", "globals_type.html", null ],
@@ -38,13 +38,13 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_8dep_8inc.html",
-"_genesys_09_09-scanner_8cpp.html#ade8fc57d3529bff56440a4f3e9c29586",
-"class_collector__if.html#aa14f7e1065af8fd38ab592e224fb7e43",
-"class_list.html#a2dce655743c2b6c7cc7c9b6034badf78",
-"class_release.html#a8dd7c5b8c0135c223bef50c9e463d980",
-"class_statistics_collector.html#a66eed8e1bd0316588575aa7310ac028b",
-"classyy_1_1slice.html#a9f09083b70527806bb0421c794ac4760",
-"structyy_1_1variant.html#ac43b5ffdcedbda5462c53832027707ac"
+"_genesys_09_09-scanner_8cpp.html#ab596ae57cdabfb4b298edf3dde7cdf04",
+"_util_8cpp_source.html",
+"class_fitter_joao_souto.html#a9ab8de1bbf179c05e57e54ec101a0b1a",
+"class_model_simulation.html#a96696912f5c1098843f2fe991c69136e",
+"class_seize.html#aae382dc1d1d3dc9a3de927cc9d7811c9",
+"class_util.html#a28504cc2fecc9aa47154cba4e625ec6fa40974a3007d9bde9588006a36d0c9ab5",
+"globals_l.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -2,7 +2,7 @@ var class_fitter__if =
 [
     [ "fitAll", "class_fitter__if.html#a819a5ca8715ba4be30d2c7a3957aa467", null ],
     [ "fitBeta", "class_fitter__if.html#a8ea1e6520f191368274fec5ab8e5f182", null ],
-    [ "fitErlang", "class_fitter__if.html#aead0c465573cdd42e63e2b175c0bc929", null ],
+    [ "fitErlang", "class_fitter__if.html#a936e8145a094537dcbe880872453f612", null ],
     [ "fitExpo", "class_fitter__if.html#a5ab5ac575b736bb720e6a40b334de5a3", null ],
     [ "fitNormal", "class_fitter__if.html#af95b4de00b7ed5d67b10d9ee458379bf", null ],
     [ "fitTriangular", "class_fitter__if.html#a2bfc41c6a8044520aeafb2c5c71fe570", null ],

@@ -1,19 +1,20 @@
 <map id="Model.h" name="Model.h">
-<area shape="rect" id="node3" href="$_list_8h.html" title="List.h" alt="" coords="194,379,248,405"/>
-<area shape="rect" id="node12" href="$_model_component_8h.html" title="ModelComponent.h" alt="" coords="466,229,600,256"/>
-<area shape="rect" id="node16" href="$_event_8h.html" title="Event.h" alt="" coords="559,155,626,181"/>
-<area shape="rect" id="node17" href="$_model_checker__if_8h.html" title="ModelChecker_if.h" alt="" coords="762,453,891,480"/>
-<area shape="rect" id="node18" href="$_parser__if_8h.html" title="Parser_if.h" alt="" coords="1172,304,1258,331"/>
-<area shape="rect" id="node19" href="$_model_persistence__if_8h.html" title="ModelPersistence_if.h" alt="" coords="1224,80,1374,107"/>
-<area shape="rect" id="node20" href="$_infrastructure_manager_8h.html" title="InfrastructureManager.h" alt="" coords="166,304,324,331"/>
-<area shape="rect" id="node21" href="$_trace_manager_8h.html" title="TraceManager.h" alt="" coords="130,155,246,181"/>
-<area shape="rect" id="node22" href="$_on_event_manager_8h.html" title="OnEventManager.h" alt="" coords="842,229,976,256"/>
-<area shape="rect" id="node23" href="$_model_info_8h.html" title="ModelInfo.h" alt="" coords="727,229,818,256"/>
-<area shape="rect" id="node24" href="$_model_simulation_8h.html" title="ModelSimulation.h" alt="" coords="605,80,734,107"/>
-<area shape="rect" id="node25" href="$_simulation_response_8h.html" title="SimulationResponse.h" alt="" coords="928,155,1080,181"/>
-<area shape="rect" id="node26" href="$_simulation_control_8h.html" title="SimulationControl.h" alt="" coords="962,80,1096,107"/>
-<area shape="rect" id="node9" href="$_util_8h.html" title="Util.h" alt="" coords="532,453,586,480"/>
-<area shape="rect" id="node13" href="$_plugin_8h.html" title="Plugin.h" alt="" coords="647,379,716,405"/>
-<area shape="rect" id="node14" href="$_entity_8h.html" title="Entity.h" alt="" coords="350,304,416,331"/>
-<area shape="rect" id="node15" href="$_model_infrastructure_8h.html" title="ModelInfrastructure.h" alt="" coords="426,379,571,405"/>
+<area shape="rect" id="node3" href="$_list_8h.html" title="List.h" alt="" coords="401,379,455,405"/>
+<area shape="rect" id="node12" href="$_model_component_8h.html" title="ModelComponent.h" alt="" coords="737,229,871,256"/>
+<area shape="rect" id="node16" href="$_event_8h.html" title="Event.h" alt="" coords="833,155,900,181"/>
+<area shape="rect" id="node17" href="$_model_checker__if_8h.html" title="ModelChecker_if.h" alt="" coords="5,453,135,480"/>
+<area shape="rect" id="node18" href="$_parser__if_8h.html" title="Parser_if.h" alt="" coords="1072,229,1157,256"/>
+<area shape="rect" id="node19" href="$_model_persistence__if_8h.html" title="ModelPersistence_if.h" alt="" coords="1385,80,1535,107"/>
+<area shape="rect" id="node20" href="$_infrastructure_manager_8h.html" title="InfrastructureManager.h" alt="" coords="465,304,624,331"/>
+<area shape="rect" id="node21" href="$_trace_manager_8h.html" title="TraceManager.h" alt="" coords="319,155,435,181"/>
+<area shape="rect" id="node22" href="$_on_event_manager_8h.html" title="OnEventManager.h" alt="" coords="885,80,1019,107"/>
+<area shape="rect" id="node23" href="$_model_info_8h.html" title="ModelInfo.h" alt="" coords="204,155,295,181"/>
+<area shape="rect" id="node24" href="$_model_simulation_8h.html" title="ModelSimulation.h" alt="" coords="622,80,751,107"/>
+<area shape="rect" id="node25" href="$_simulation_response_8h.html" title="SimulationResponse.h" alt="" coords="1269,304,1421,331"/>
+<area shape="rect" id="node27" href="$_simulation_control_8h.html" title="SimulationControl.h" alt="" coords="1181,229,1316,256"/>
+<area shape="rect" id="node9" href="$_util_8h.html" title="Util.h" alt="" coords="600,453,653,480"/>
+<area shape="rect" id="node13" href="$_plugin_8h.html" title="Plugin.h" alt="" coords="904,379,973,405"/>
+<area shape="rect" id="node14" href="$_entity_8h.html" title="Entity.h" alt="" coords="700,304,767,331"/>
+<area shape="rect" id="node15" href="$_model_infrastructure_8h.html" title="ModelInfrastructure.h" alt="" coords="683,379,828,405"/>
+<area shape="rect" id="node26" href="$_functor_8h.html" title="Functor.h" alt="" coords="1099,379,1175,405"/>
 </map>

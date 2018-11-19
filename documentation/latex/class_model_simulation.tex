@@ -47,13 +47,19 @@ bool \hyperlink{class_model_simulation_a96696912f5c1098843f2fe991c69136e}{is\-Pa
 double \hyperlink{class_model_simulation_abd147072d362838f89d0b37e7bf16024}{get\-Simulated\-Time} () const 
 \item 
 bool \hyperlink{class_model_simulation_a1cf94d6c99daef9c8de567fb29c3d7fb}{is\-Running} () const 
+\item 
+unsigned int \hyperlink{class_model_simulation_ac0ebd4f2076307f171489baf5557e9c2}{get\-Current\-Replication\-Number} () const 
+\item 
+\hyperlink{class_model_component}{Model\-Component} $\ast$ \hyperlink{class_model_simulation_a84c5dc03c1869181f6cfff2f3ce7fce2}{get\-Current\-Component} () const 
+\item 
+\hyperlink{class_entity}{Entity} $\ast$ \hyperlink{class_model_simulation_a1b6f4ef7c6eccef2fc4ce4db2889a7c4}{get\-Current\-Entity} () const 
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+The \hyperlink{class_model_simulation}{Model\-Simulation} controls the simulation of a model, alowing to start, pause, resume e stop a simulation, composed by a set of replications. 
 
-
-Definition at line 23 of file Model\-Simulation.\-h.
+Definition at line 27 of file Model\-Simulation.\-h.
 
 
 
@@ -71,8 +77,7 @@ Definition at line 21 of file Model\-Simulation.\-cpp.
 
 
 
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -106,6 +111,39 @@ Definition at line 29 of file Model\-Simulation.\-cpp.
 
 
 \subsection{Member Function Documentation}
+\hypertarget{class_model_simulation_a84c5dc03c1869181f6cfff2f3ce7fce2}{\index{Model\-Simulation@{Model\-Simulation}!get\-Current\-Component@{get\-Current\-Component}}
+\index{get\-Current\-Component@{get\-Current\-Component}!ModelSimulation@{Model\-Simulation}}
+\subsubsection[{get\-Current\-Component}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Model\-Component} $\ast$ Model\-Simulation\-::get\-Current\-Component (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_model_simulation_a84c5dc03c1869181f6cfff2f3ce7fce2}
+
+
+Definition at line 278 of file Model\-Simulation.\-cpp.
+
+\hypertarget{class_model_simulation_a1b6f4ef7c6eccef2fc4ce4db2889a7c4}{\index{Model\-Simulation@{Model\-Simulation}!get\-Current\-Entity@{get\-Current\-Entity}}
+\index{get\-Current\-Entity@{get\-Current\-Entity}!ModelSimulation@{Model\-Simulation}}
+\subsubsection[{get\-Current\-Entity}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Entity} $\ast$ Model\-Simulation\-::get\-Current\-Entity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_model_simulation_a1b6f4ef7c6eccef2fc4ce4db2889a7c4}
+
+
+Definition at line 282 of file Model\-Simulation.\-cpp.
+
+\hypertarget{class_model_simulation_ac0ebd4f2076307f171489baf5557e9c2}{\index{Model\-Simulation@{Model\-Simulation}!get\-Current\-Replication\-Number@{get\-Current\-Replication\-Number}}
+\index{get\-Current\-Replication\-Number@{get\-Current\-Replication\-Number}!ModelSimulation@{Model\-Simulation}}
+\subsubsection[{get\-Current\-Replication\-Number}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Model\-Simulation\-::get\-Current\-Replication\-Number (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_model_simulation_ac0ebd4f2076307f171489baf5557e9c2}
+
+
+Definition at line 274 of file Model\-Simulation.\-cpp.
+
 \hypertarget{class_model_simulation_abd147072d362838f89d0b37e7bf16024}{\index{Model\-Simulation@{Model\-Simulation}!get\-Simulated\-Time@{get\-Simulated\-Time}}
 \index{get\-Simulated\-Time@{get\-Simulated\-Time}!ModelSimulation@{Model\-Simulation}}
 \subsubsection[{get\-Simulated\-Time}]{\setlength{\rightskip}{0pt plus 5cm}double Model\-Simulation\-::get\-Simulated\-Time (
@@ -115,12 +153,11 @@ Definition at line 29 of file Model\-Simulation.\-cpp.
 ) const}}\label{class_model_simulation_abd147072d362838f89d0b37e7bf16024}
 
 
-Definition at line 257 of file Model\-Simulation.\-cpp.
+Definition at line 266 of file Model\-Simulation.\-cpp.
 
 
 
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -138,7 +175,7 @@ Here is the caller graph for this function\-:
 ) const}}\label{class_model_simulation_aa4d1e58ddc7f34a6c414b72581424fea}
 
 
-Definition at line 228 of file Model\-Simulation.\-cpp.
+Definition at line 238 of file Model\-Simulation.\-cpp.
 
 \hypertarget{class_model_simulation_a7ad0ce011b011a12cab4e08ca9a4bb28}{\index{Model\-Simulation@{Model\-Simulation}!is\-Initialize\-System@{is\-Initialize\-System}}
 \index{is\-Initialize\-System@{is\-Initialize\-System}!ModelSimulation@{Model\-Simulation}}
@@ -149,7 +186,7 @@ Definition at line 228 of file Model\-Simulation.\-cpp.
 ) const}}\label{class_model_simulation_a7ad0ce011b011a12cab4e08ca9a4bb28}
 
 
-Definition at line 236 of file Model\-Simulation.\-cpp.
+Definition at line 246 of file Model\-Simulation.\-cpp.
 
 \hypertarget{class_model_simulation_a8874f4dfce1800cdce2e9ee68193f1c2}{\index{Model\-Simulation@{Model\-Simulation}!is\-Pause\-On\-Event@{is\-Pause\-On\-Event}}
 \index{is\-Pause\-On\-Event@{is\-Pause\-On\-Event}!ModelSimulation@{Model\-Simulation}}
@@ -160,7 +197,7 @@ Definition at line 236 of file Model\-Simulation.\-cpp.
 ) const}}\label{class_model_simulation_a8874f4dfce1800cdce2e9ee68193f1c2}
 
 
-Definition at line 220 of file Model\-Simulation.\-cpp.
+Definition at line 230 of file Model\-Simulation.\-cpp.
 
 \hypertarget{class_model_simulation_a96696912f5c1098843f2fe991c69136e}{\index{Model\-Simulation@{Model\-Simulation}!is\-Pause\-On\-Replication@{is\-Pause\-On\-Replication}}
 \index{is\-Pause\-On\-Replication@{is\-Pause\-On\-Replication}!ModelSimulation@{Model\-Simulation}}
@@ -171,7 +208,7 @@ Definition at line 220 of file Model\-Simulation.\-cpp.
 ) const}}\label{class_model_simulation_a96696912f5c1098843f2fe991c69136e}
 
 
-Definition at line 253 of file Model\-Simulation.\-cpp.
+Definition at line 262 of file Model\-Simulation.\-cpp.
 
 \hypertarget{class_model_simulation_a1cf94d6c99daef9c8de567fb29c3d7fb}{\index{Model\-Simulation@{Model\-Simulation}!is\-Running@{is\-Running}}
 \index{is\-Running@{is\-Running}!ModelSimulation@{Model\-Simulation}}
@@ -182,7 +219,7 @@ Definition at line 253 of file Model\-Simulation.\-cpp.
 ) const}}\label{class_model_simulation_a1cf94d6c99daef9c8de567fb29c3d7fb}
 The current time in the model being simulated, i.\-e., the instant when the current event was triggered 
 
-Definition at line 261 of file Model\-Simulation.\-cpp.
+Definition at line 270 of file Model\-Simulation.\-cpp.
 
 \hypertarget{class_model_simulation_af50016a6b4a066cca6194c0c0a3349e7}{\index{Model\-Simulation@{Model\-Simulation}!is\-Step\-By\-Step@{is\-Step\-By\-Step}}
 \index{is\-Step\-By\-Step@{is\-Step\-By\-Step}!ModelSimulation@{Model\-Simulation}}
@@ -193,7 +230,7 @@ Definition at line 261 of file Model\-Simulation.\-cpp.
 ) const}}\label{class_model_simulation_af50016a6b4a066cca6194c0c0a3349e7}
 
 
-Definition at line 245 of file Model\-Simulation.\-cpp.
+Definition at line 254 of file Model\-Simulation.\-cpp.
 
 \hypertarget{class_model_simulation_a6ceaa12581ed433b97452958dfd3371b}{\index{Model\-Simulation@{Model\-Simulation}!pause\-Simulation@{pause\-Simulation}}
 \index{pause\-Simulation@{pause\-Simulation}!ModelSimulation@{Model\-Simulation}}
@@ -202,9 +239,9 @@ Definition at line 245 of file Model\-Simulation.\-cpp.
 {}
 \end{DoxyParamCaption}
 )}}\label{class_model_simulation_a6ceaa12581ed433b97452958dfd3371b}
-Starts a sequential execution of a simulation, ie, a set of repliations of this model 
+Starts a sequential execution of a simulation, ie, a set of replications of this model 
 
-Definition at line 192 of file Model\-Simulation.\-cpp.
+Definition at line 203 of file Model\-Simulation.\-cpp.
 
 \hypertarget{class_model_simulation_a0fd9ccdaf26dbf79daedfece08d9f0ea}{\index{Model\-Simulation@{Model\-Simulation}!restart\-Simulation@{restart\-Simulation}}
 \index{restart\-Simulation@{restart\-Simulation}!ModelSimulation@{Model\-Simulation}}
@@ -215,7 +252,7 @@ Definition at line 192 of file Model\-Simulation.\-cpp.
 )}}\label{class_model_simulation_a0fd9ccdaf26dbf79daedfece08d9f0ea}
 
 
-Definition at line 213 of file Model\-Simulation.\-cpp.
+Definition at line 223 of file Model\-Simulation.\-cpp.
 
 \hypertarget{class_model_simulation_a990e022cf5d9a07a1467282e7999dafb}{\index{Model\-Simulation@{Model\-Simulation}!set\-Initialize\-Statistics@{set\-Initialize\-Statistics}}
 \index{set\-Initialize\-Statistics@{set\-Initialize\-Statistics}!ModelSimulation@{Model\-Simulation}}
@@ -226,7 +263,7 @@ Definition at line 213 of file Model\-Simulation.\-cpp.
 )}}\label{class_model_simulation_a990e022cf5d9a07a1467282e7999dafb}
 
 
-Definition at line 224 of file Model\-Simulation.\-cpp.
+Definition at line 234 of file Model\-Simulation.\-cpp.
 
 \hypertarget{class_model_simulation_a6aff149fae4ec9be0d98772e263e9508}{\index{Model\-Simulation@{Model\-Simulation}!set\-Initialize\-System@{set\-Initialize\-System}}
 \index{set\-Initialize\-System@{set\-Initialize\-System}!ModelSimulation@{Model\-Simulation}}
@@ -237,7 +274,7 @@ Definition at line 224 of file Model\-Simulation.\-cpp.
 )}}\label{class_model_simulation_a6aff149fae4ec9be0d98772e263e9508}
 
 
-Definition at line 232 of file Model\-Simulation.\-cpp.
+Definition at line 242 of file Model\-Simulation.\-cpp.
 
 \hypertarget{class_model_simulation_a1af329d915189bd4f295d9d1439c0fd1}{\index{Model\-Simulation@{Model\-Simulation}!set\-Pause\-On\-Event@{set\-Pause\-On\-Event}}
 \index{set\-Pause\-On\-Event@{set\-Pause\-On\-Event}!ModelSimulation@{Model\-Simulation}}
@@ -248,7 +285,7 @@ Definition at line 232 of file Model\-Simulation.\-cpp.
 )}}\label{class_model_simulation_a1af329d915189bd4f295d9d1439c0fd1}
 
 
-Definition at line 216 of file Model\-Simulation.\-cpp.
+Definition at line 226 of file Model\-Simulation.\-cpp.
 
 \hypertarget{class_model_simulation_ad41d1cfb0e7d4fcafb8bdbdb7f4de516}{\index{Model\-Simulation@{Model\-Simulation}!set\-Pause\-On\-Replication@{set\-Pause\-On\-Replication}}
 \index{set\-Pause\-On\-Replication@{set\-Pause\-On\-Replication}!ModelSimulation@{Model\-Simulation}}
@@ -259,7 +296,7 @@ Definition at line 216 of file Model\-Simulation.\-cpp.
 )}}\label{class_model_simulation_ad41d1cfb0e7d4fcafb8bdbdb7f4de516}
 
 
-Definition at line 249 of file Model\-Simulation.\-cpp.
+Definition at line 258 of file Model\-Simulation.\-cpp.
 
 \hypertarget{class_model_simulation_a20102be83bb5d73e0ba56896e7df8e4e}{\index{Model\-Simulation@{Model\-Simulation}!set\-Step\-By\-Step@{set\-Step\-By\-Step}}
 \index{set\-Step\-By\-Step@{set\-Step\-By\-Step}!ModelSimulation@{Model\-Simulation}}
@@ -270,7 +307,7 @@ Definition at line 249 of file Model\-Simulation.\-cpp.
 )}}\label{class_model_simulation_a20102be83bb5d73e0ba56896e7df8e4e}
 
 
-Definition at line 241 of file Model\-Simulation.\-cpp.
+Definition at line 250 of file Model\-Simulation.\-cpp.
 
 \hypertarget{class_model_simulation_a22ea961f3242d4466dc0cf392c66d5e9}{\index{Model\-Simulation@{Model\-Simulation}!start\-Simulation@{start\-Simulation}}
 \index{start\-Simulation@{start\-Simulation}!ModelSimulation@{Model\-Simulation}}
@@ -297,8 +334,7 @@ Here is the call graph for this function\-:
 
 
 
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -316,12 +352,11 @@ Here is the caller graph for this function\-:
 )}}\label{class_model_simulation_a68e02df4b71756d360ca0e25464447be}
 
 
-Definition at line 195 of file Model\-Simulation.\-cpp.
+Definition at line 206 of file Model\-Simulation.\-cpp.
 
 
 
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -339,7 +374,7 @@ Here is the call graph for this function\-:
 )}}\label{class_model_simulation_a8ee10a8bee6b90b91aba1c5ee62f0f36}
 Executes the processing of a single event, the next one in the future events list 
 
-Definition at line 210 of file Model\-Simulation.\-cpp.
+Definition at line 220 of file Model\-Simulation.\-cpp.
 
 
 

@@ -53,6 +53,10 @@ static std\-::list$<$ std\-::string $>$ $\ast$ \hyperlink{class_model_component_
 \begin{DoxyCompactItemize}
 \item 
 virtual void \hyperlink{class_model_component_ae3fcf8bbdd8368c882438424aa73f714}{\-\_\-execute} (\hyperlink{class_entity}{Entity} $\ast$entity)=0
+\item 
+virtual std\-::list$<$ std\-::string $>$ $\ast$ \hyperlink{class_model_component_a465f41c7191cb0fdf9039ef1f3d755a5}{\-\_\-save\-Instance} ()
+\item 
+virtual std\-::list$<$ std\-::string $>$ $\ast$ \hyperlink{class_model_component_a245ef30906086f28651a559cdc9a8120}{\-\_\-save\-Instance} (std\-::string type)
 \end{DoxyCompactItemize}
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
@@ -127,6 +131,76 @@ Here is the caller graph for this function\-:\nopagebreak
 \end{figure}
 
 
+\hypertarget{class_model_component_a465f41c7191cb0fdf9039ef1f3d755a5}{\index{Model\-Component@{Model\-Component}!\-\_\-save\-Instance@{\-\_\-save\-Instance}}
+\index{\-\_\-save\-Instance@{\-\_\-save\-Instance}!ModelComponent@{Model\-Component}}
+\subsubsection[{\-\_\-save\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<$ std\-::string $>$ $\ast$ Model\-Component\-::\-\_\-save\-Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_model_component_a465f41c7191cb0fdf9039ef1f3d755a5}
+
+
+Reimplemented from \hyperlink{class_model_infrastructure_a991f46601d9e865f2e27c6cd7a2b702d}{Model\-Infrastructure}.
+
+
+
+Reimplemented in \hyperlink{class_assign_a8b38a0a1bec283f5d2f44f67be5a4a6b}{Assign}, \hyperlink{class_seize_a38a8af6942b51ce11d191469d277661d}{Seize}, \hyperlink{class_release_a2e15540e86b8d0ce62c553f3e9b095c3}{Release}, \hyperlink{class_create_ae1fd0c281cec35dcf91881acba8d7041}{Create}, \hyperlink{class_delay_a73676f11cddd31439a407b5dabcea43a}{Delay}, and \hyperlink{class_dispose_ae12482052fb78fa534dda5d4c0a74e3e}{Dispose}.
+
+
+
+Definition at line 81 of file Model\-Component.\-cpp.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_component_a465f41c7191cb0fdf9039ef1f3d755a5_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_component_a465f41c7191cb0fdf9039ef1f3d755a5_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_model_component_a245ef30906086f28651a559cdc9a8120}{\index{Model\-Component@{Model\-Component}!\-\_\-save\-Instance@{\-\_\-save\-Instance}}
+\index{\-\_\-save\-Instance@{\-\_\-save\-Instance}!ModelComponent@{Model\-Component}}
+\subsubsection[{\-\_\-save\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<$ std\-::string $>$ $\ast$ Model\-Component\-::\-\_\-save\-Instance (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_model_component_a245ef30906086f28651a559cdc9a8120}
+
+
+Reimplemented from \hyperlink{class_model_infrastructure_a0e03d03d3c7166e66dfddac6740c2e1b}{Model\-Infrastructure}.
+
+
+
+Definition at line 86 of file Model\-Component.\-cpp.
+
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_component_a245ef30906086f28651a559cdc9a8120_cgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{class_model_component_a08c5312c2f94f6621577cc1836c2d3e0}{\index{Model\-Component@{Model\-Component}!Execute@{Execute}}
 \index{Execute@{Execute}!ModelComponent@{Model\-Component}}
 \subsubsection[{Execute}]{\setlength{\rightskip}{0pt plus 5cm}void Model\-Component\-::\-Execute (
@@ -171,7 +245,7 @@ Here is the caller graph for this function\-:\nopagebreak
 )}}\label{class_model_component_a142b21a42547af06ceba81678eeccabc}
 
 
-Definition at line 71 of file Model\-Component.\-cpp.
+Definition at line 73 of file Model\-Component.\-cpp.
 
 \hypertarget{class_model_component_a89fe8e3fb064c68aebbecd36eeed7d43}{\index{Model\-Component@{Model\-Component}!get\-Next\-Components@{get\-Next\-Components}}
 \index{get\-Next\-Components@{get\-Next\-Components}!ModelComponent@{Model\-Component}}
@@ -182,12 +256,11 @@ Definition at line 71 of file Model\-Component.\-cpp.
 ) const}}\label{class_model_component_a89fe8e3fb064c68aebbecd36eeed7d43}
 
 
-Definition at line 63 of file Model\-Component.\-cpp.
+Definition at line 65 of file Model\-Component.\-cpp.
 
 
 
-Here is the caller graph for this function\-:
-\nopagebreak
+Here is the caller graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -205,7 +278,7 @@ Here is the caller graph for this function\-:
 )\hspace{0.3cm}{\ttfamily [static]}}}\label{class_model_component_a45d3805f9b7051b7acc142e5d85cded6}
 
 
-Definition at line 38 of file Model\-Component.\-cpp.
+Definition at line 40 of file Model\-Component.\-cpp.
 
 
 
@@ -228,7 +301,7 @@ Here is the call graph for this function\-:
 )}}\label{class_model_component_af3ae0b0182c8d6291235e0eda0cb79b3}
 
 
-Definition at line 75 of file Model\-Component.\-cpp.
+Definition at line 77 of file Model\-Component.\-cpp.
 
 \hypertarget{class_model_component_ad8bc846e36b028eab7efb7da6c549eca}{\index{Model\-Component@{Model\-Component}!show@{show}}
 \index{show@{show}!ModelComponent@{Model\-Component}}
@@ -247,7 +320,7 @@ Reimplemented in \hyperlink{class_assign_af5022b92204adcd9ee3e444b7e316d07}{Assi
 
 
 
-Definition at line 67 of file Model\-Component.\-cpp.
+Definition at line 69 of file Model\-Component.\-cpp.
 
 
 
@@ -281,7 +354,7 @@ Here is the caller graph for this function\-:\nopagebreak
 )\hspace{0.3cm}{\ttfamily [static]}}}\label{class_model_component_a0798a220cf903b34ce28c40e136d207d}
 
 
-Definition at line 49 of file Model\-Component.\-cpp.
+Definition at line 51 of file Model\-Component.\-cpp.
 
 
 
@@ -303,7 +376,7 @@ Here is the call graph for this function\-:
 \subsubsection[{\-\_\-model}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Model}$\ast$ Model\-Component\-::\-\_\-model\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_model_component_a9d9e835755618a794c9759882641bc3c}
 
 
-Definition at line 60 of file Model\-Component.\-h.
+Definition at line 64 of file Model\-Component.\-h.
 
 
 

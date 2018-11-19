@@ -1,10 +1,12 @@
 <map id="Model::removeEntity" name="Model::removeEntity">
-<area shape="rect" id="node2" href="$class_model.html#ae09e777b481981772818ea3fd2880c4c" title="Model::getEntities" alt="" coords="206,64,333,91"/>
-<area shape="rect" id="node6" href="$class_model_infrastructure.html#aa4d3fa8f302cc6dc4fccdd3187e6a168" title="ModelInfrastructure\l::getId" alt="" coords="598,115,733,157"/>
-<area shape="rect" id="node7" href="$class_model.html#adc0de22631d77864b7956591c39ebc60" title="Model::getTracer" alt="" coords="209,173,329,200"/>
-<area shape="rect" id="node8" href="$class_trace_manager.html#a242d77829b85a436fd2aab2092bfa50c" title="TraceManager::trace" alt="" coords="198,224,341,251"/>
-<area shape="rect" id="node9" href="$class_entity.html#adf6d3f7cb1b2ba029b6b048a395cc8ae" title="Entity::~Entity" alt="" coords="216,275,323,301"/>
-<area shape="rect" id="node3" href="$class_model.html#a944c2b2dffd691d4aafc2d4028c02e6b" title="Model::getInfraManager" alt="" coords="390,5,549,32"/>
-<area shape="rect" id="node4" href="$class_infrastructure_manager.html#a1d013b55994e27cac0c45c1ad08f74e0" title="InfrastructureManager\l::getInfrastructures" alt="" coords="395,57,544,98"/>
-<area shape="rect" id="node5" href="$class_list.html#a31a37746c0d960f2f2bb4071b2735c5e" title="List::setSortFunc" alt="" coords="604,64,727,91"/>
+<area shape="rect" id="node2" href="$class_model.html#adc0de22631d77864b7956591c39ebc60" title="Model::getTracer" alt="" coords="217,5,337,32"/>
+<area shape="rect" id="node3" href="$class_trace_manager.html#a242d77829b85a436fd2aab2092bfa50c" title="TraceManager::trace" alt="" coords="206,56,349,83"/>
+<area shape="rect" id="node5" href="$class_model_infrastructure.html#aa4d3fa8f302cc6dc4fccdd3187e6a168" title="ModelInfrastructure\l::getId" alt="" coords="606,99,741,141"/>
+<area shape="rect" id="node6" href="$class_model.html#a944c2b2dffd691d4aafc2d4028c02e6b" title="Model::getInfraManager" alt="" coords="198,157,357,184"/>
+<area shape="rect" id="node7" href="$class_infrastructure_manager.html#a55ea1a348ec52d4ed1de3addf86b6d42" title="InfrastructureManager\l::removeInfrastructure" alt="" coords="202,213,353,254"/>
+<area shape="rect" id="node4" href="$class_util.html#a13a4cb5dbc88ef5e2c3a127362b956d6" title="Util::Indent" alt="" coords="438,56,525,83"/>
+<area shape="rect" id="node8" href="$class_infrastructure_manager.html#a1d013b55994e27cac0c45c1ad08f74e0" title="InfrastructureManager\l::getInfrastructures" alt="" coords="407,158,556,199"/>
+<area shape="rect" id="node10" href="$class_list.html#a0ac08f7f3dad900b99e9a73e76d2beee" title="List::remove" alt="" coords="434,224,529,251"/>
+<area shape="rect" id="node11" href="$class_model_infrastructure.html#aeedd4148c2b9c97600789f884c2ef549" title="ModelInfrastructure\l::~ModelInfrastructure" alt="" coords="406,275,557,317"/>
+<area shape="rect" id="node9" href="$class_list.html#a31a37746c0d960f2f2bb4071b2735c5e" title="List::setSortFunc" alt="" coords="612,165,735,192"/>
 </map>

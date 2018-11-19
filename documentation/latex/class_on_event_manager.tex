@@ -14,16 +14,36 @@
 \item 
 virtual \hyperlink{class_on_event_manager_aab0f5d9e7698be7860decf65e487de42}{$\sim$\-On\-Event\-Manager} ()
 \item 
-void \hyperlink{class_on_event_manager_a15ed0dc4fac4d19facfcf883d2c5a5a3}{add\-On\-Replication\-Start\-Listener} (\hyperlink{_on_event_manager_8h_a24d8ce90102dac8bbc3189e92057ef51}{replication\-Event\-Listener} event\-Listener)
+void \hyperlink{class_on_event_manager_a7c8270fc85b56ef80bbba29c1e2f4a22}{add\-On\-Replication\-Start\-Listener} (\hyperlink{_on_event_manager_8h_aff2bc2c2877d3e4e7c13ea94d46b57e3}{simulation\-Event\-Listener} event\-Listener)
 \item 
-void \hyperlink{class_on_event_manager_aee8a28877e0705aed3ece24318e2732c}{add\-On\-Replication\-End\-Listener} (\hyperlink{_on_event_manager_8h_a24d8ce90102dac8bbc3189e92057ef51}{replication\-Event\-Listener} event\-Listener)
+void \hyperlink{class_on_event_manager_ad42eb83d9a6614ae13bd49943bc68e7e}{add\-On\-Replication\-Step\-Listener} (\hyperlink{_on_event_manager_8h_aff2bc2c2877d3e4e7c13ea94d46b57e3}{simulation\-Event\-Listener} event\-Listener)
+\item 
+void \hyperlink{class_on_event_manager_af4d92bf77d1811fa3168ed2fbb1ce99c}{add\-On\-Replication\-End\-Listener} (\hyperlink{_on_event_manager_8h_aff2bc2c2877d3e4e7c13ea94d46b57e3}{simulation\-Event\-Listener} event\-Listener)
+\item 
+void \hyperlink{class_on_event_manager_aa5fa457960768e89460936cd3013daec}{add\-On\-Process\-Event\-Listener} (\hyperlink{_on_event_manager_8h_aff2bc2c2877d3e4e7c13ea94d46b57e3}{simulation\-Event\-Listener} event\-Listener)
+\item 
+void \hyperlink{class_on_event_manager_a4341d723dabd237c98fe5a4fdc435b29}{add\-On\-Simulation\-Start\-Listener} (\hyperlink{_on_event_manager_8h_aff2bc2c2877d3e4e7c13ea94d46b57e3}{simulation\-Event\-Listener} event\-Listener)
+\item 
+void \hyperlink{class_on_event_manager_aa6b2d3c599fc595dbb765a0ff1f55322}{add\-On\-Simulation\-End\-Listener} (\hyperlink{_on_event_manager_8h_aff2bc2c2877d3e4e7c13ea94d46b57e3}{simulation\-Event\-Listener} event\-Listener)
+\item 
+void \hyperlink{class_on_event_manager_aeddadb7542cfefd7a8e9be4cbed7617f}{Notify\-Replication\-Start\-Listeners} (\hyperlink{class_simulation_event}{Simulation\-Event} $\ast$se)
+\item 
+void \hyperlink{class_on_event_manager_accb26528a27a7b0b679c46d5738da8bf}{Notify\-Replication\-Step\-Listeners} (\hyperlink{class_simulation_event}{Simulation\-Event} $\ast$se)
+\item 
+void \hyperlink{class_on_event_manager_aeab61beafbdfb16757897106d0236fa4}{Notify\-Replication\-End\-Listeners} (\hyperlink{class_simulation_event}{Simulation\-Event} $\ast$se)
+\item 
+void \hyperlink{class_on_event_manager_a350340eb707a82e699a73b0000ee56bd}{Notify\-Process\-Event\-Listeners} (\hyperlink{class_simulation_event}{Simulation\-Event} $\ast$se)
+\item 
+void \hyperlink{class_on_event_manager_abe358c71aae7624e75b692fa5bae1174}{Notify\-Simulation\-Start\-Listeners} (\hyperlink{class_simulation_event}{Simulation\-Event} $\ast$se)
+\item 
+void \hyperlink{class_on_event_manager_a9217816665a7384305f5ebce1c62ef4f}{Notify\-Simulation\-End\-Listeners} (\hyperlink{class_simulation_event}{Simulation\-Event} $\ast$se)
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+\hyperlink{class_on_event_manager}{On\-Event\-Manager} allows external methods to hook interval simulation events as listeners (or observers) of pecific events. All methods added as listeners of an event will be invovked when that event is triggered. 
 
-
-Definition at line 39 of file On\-Event\-Manager.\-h.
+Definition at line 51 of file On\-Event\-Manager.\-h.
 
 
 
@@ -64,16 +84,16 @@ Definition at line 22 of file On\-Event\-Manager.\-cpp.
 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_on_event_manager_aee8a28877e0705aed3ece24318e2732c}{\index{On\-Event\-Manager@{On\-Event\-Manager}!add\-On\-Replication\-End\-Listener@{add\-On\-Replication\-End\-Listener}}
-\index{add\-On\-Replication\-End\-Listener@{add\-On\-Replication\-End\-Listener}!OnEventManager@{On\-Event\-Manager}}
-\subsubsection[{add\-On\-Replication\-End\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}void On\-Event\-Manager\-::add\-On\-Replication\-End\-Listener (
+\hypertarget{class_on_event_manager_aa5fa457960768e89460936cd3013daec}{\index{On\-Event\-Manager@{On\-Event\-Manager}!add\-On\-Process\-Event\-Listener@{add\-On\-Process\-Event\-Listener}}
+\index{add\-On\-Process\-Event\-Listener@{add\-On\-Process\-Event\-Listener}!OnEventManager@{On\-Event\-Manager}}
+\subsubsection[{add\-On\-Process\-Event\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}void On\-Event\-Manager\-::add\-On\-Process\-Event\-Listener (
 \begin{DoxyParamCaption}
-\item[{{\bf replication\-Event\-Listener}}]{event\-Listener}
+\item[{{\bf simulation\-Event\-Listener}}]{event\-Listener}
 \end{DoxyParamCaption}
-)}}\label{class_on_event_manager_aee8a28877e0705aed3ece24318e2732c}
+)}}\label{class_on_event_manager_aa5fa457960768e89460936cd3013daec}
 
 
-Definition at line 29 of file On\-Event\-Manager.\-cpp.
+Definition at line 33 of file On\-Event\-Manager.\-cpp.
 
 
 
@@ -82,18 +102,41 @@ Here is the caller graph for this function\-:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{class_on_event_manager_aee8a28877e0705aed3ece24318e2732c_icgraph}
+\includegraphics[width=350pt]{class_on_event_manager_aa5fa457960768e89460936cd3013daec_icgraph}
 \end{center}
 \end{figure}
 
 
-\hypertarget{class_on_event_manager_a15ed0dc4fac4d19facfcf883d2c5a5a3}{\index{On\-Event\-Manager@{On\-Event\-Manager}!add\-On\-Replication\-Start\-Listener@{add\-On\-Replication\-Start\-Listener}}
+\hypertarget{class_on_event_manager_af4d92bf77d1811fa3168ed2fbb1ce99c}{\index{On\-Event\-Manager@{On\-Event\-Manager}!add\-On\-Replication\-End\-Listener@{add\-On\-Replication\-End\-Listener}}
+\index{add\-On\-Replication\-End\-Listener@{add\-On\-Replication\-End\-Listener}!OnEventManager@{On\-Event\-Manager}}
+\subsubsection[{add\-On\-Replication\-End\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}void On\-Event\-Manager\-::add\-On\-Replication\-End\-Listener (
+\begin{DoxyParamCaption}
+\item[{{\bf simulation\-Event\-Listener}}]{event\-Listener}
+\end{DoxyParamCaption}
+)}}\label{class_on_event_manager_af4d92bf77d1811fa3168ed2fbb1ce99c}
+
+
+Definition at line 37 of file On\-Event\-Manager.\-cpp.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_on_event_manager_af4d92bf77d1811fa3168ed2fbb1ce99c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_on_event_manager_a7c8270fc85b56ef80bbba29c1e2f4a22}{\index{On\-Event\-Manager@{On\-Event\-Manager}!add\-On\-Replication\-Start\-Listener@{add\-On\-Replication\-Start\-Listener}}
 \index{add\-On\-Replication\-Start\-Listener@{add\-On\-Replication\-Start\-Listener}!OnEventManager@{On\-Event\-Manager}}
 \subsubsection[{add\-On\-Replication\-Start\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}void On\-Event\-Manager\-::add\-On\-Replication\-Start\-Listener (
 \begin{DoxyParamCaption}
-\item[{{\bf replication\-Event\-Listener}}]{event\-Listener}
+\item[{{\bf simulation\-Event\-Listener}}]{event\-Listener}
 \end{DoxyParamCaption}
-)}}\label{class_on_event_manager_a15ed0dc4fac4d19facfcf883d2c5a5a3}
+)}}\label{class_on_event_manager_a7c8270fc85b56ef80bbba29c1e2f4a22}
 
 
 Definition at line 25 of file On\-Event\-Manager.\-cpp.
@@ -105,7 +148,154 @@ Here is the caller graph for this function\-:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{class_on_event_manager_a15ed0dc4fac4d19facfcf883d2c5a5a3_icgraph}
+\includegraphics[width=350pt]{class_on_event_manager_a7c8270fc85b56ef80bbba29c1e2f4a22_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_on_event_manager_ad42eb83d9a6614ae13bd49943bc68e7e}{\index{On\-Event\-Manager@{On\-Event\-Manager}!add\-On\-Replication\-Step\-Listener@{add\-On\-Replication\-Step\-Listener}}
+\index{add\-On\-Replication\-Step\-Listener@{add\-On\-Replication\-Step\-Listener}!OnEventManager@{On\-Event\-Manager}}
+\subsubsection[{add\-On\-Replication\-Step\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}void On\-Event\-Manager\-::add\-On\-Replication\-Step\-Listener (
+\begin{DoxyParamCaption}
+\item[{{\bf simulation\-Event\-Listener}}]{event\-Listener}
+\end{DoxyParamCaption}
+)}}\label{class_on_event_manager_ad42eb83d9a6614ae13bd49943bc68e7e}
+
+
+Definition at line 29 of file On\-Event\-Manager.\-cpp.
+
+\hypertarget{class_on_event_manager_aa6b2d3c599fc595dbb765a0ff1f55322}{\index{On\-Event\-Manager@{On\-Event\-Manager}!add\-On\-Simulation\-End\-Listener@{add\-On\-Simulation\-End\-Listener}}
+\index{add\-On\-Simulation\-End\-Listener@{add\-On\-Simulation\-End\-Listener}!OnEventManager@{On\-Event\-Manager}}
+\subsubsection[{add\-On\-Simulation\-End\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}void On\-Event\-Manager\-::add\-On\-Simulation\-End\-Listener (
+\begin{DoxyParamCaption}
+\item[{{\bf simulation\-Event\-Listener}}]{event\-Listener}
+\end{DoxyParamCaption}
+)}}\label{class_on_event_manager_aa6b2d3c599fc595dbb765a0ff1f55322}
+
+
+Definition at line 45 of file On\-Event\-Manager.\-cpp.
+
+\hypertarget{class_on_event_manager_a4341d723dabd237c98fe5a4fdc435b29}{\index{On\-Event\-Manager@{On\-Event\-Manager}!add\-On\-Simulation\-Start\-Listener@{add\-On\-Simulation\-Start\-Listener}}
+\index{add\-On\-Simulation\-Start\-Listener@{add\-On\-Simulation\-Start\-Listener}!OnEventManager@{On\-Event\-Manager}}
+\subsubsection[{add\-On\-Simulation\-Start\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}void On\-Event\-Manager\-::add\-On\-Simulation\-Start\-Listener (
+\begin{DoxyParamCaption}
+\item[{{\bf simulation\-Event\-Listener}}]{event\-Listener}
+\end{DoxyParamCaption}
+)}}\label{class_on_event_manager_a4341d723dabd237c98fe5a4fdc435b29}
+
+
+Definition at line 41 of file On\-Event\-Manager.\-cpp.
+
+\hypertarget{class_on_event_manager_a350340eb707a82e699a73b0000ee56bd}{\index{On\-Event\-Manager@{On\-Event\-Manager}!Notify\-Process\-Event\-Listeners@{Notify\-Process\-Event\-Listeners}}
+\index{Notify\-Process\-Event\-Listeners@{Notify\-Process\-Event\-Listeners}!OnEventManager@{On\-Event\-Manager}}
+\subsubsection[{Notify\-Process\-Event\-Listeners}]{\setlength{\rightskip}{0pt plus 5cm}void On\-Event\-Manager\-::\-Notify\-Process\-Event\-Listeners (
+\begin{DoxyParamCaption}
+\item[{{\bf Simulation\-Event} $\ast$}]{se}
+\end{DoxyParamCaption}
+)}}\label{class_on_event_manager_a350340eb707a82e699a73b0000ee56bd}
+
+
+Definition at line 69 of file On\-Event\-Manager.\-cpp.
+
+\hypertarget{class_on_event_manager_aeab61beafbdfb16757897106d0236fa4}{\index{On\-Event\-Manager@{On\-Event\-Manager}!Notify\-Replication\-End\-Listeners@{Notify\-Replication\-End\-Listeners}}
+\index{Notify\-Replication\-End\-Listeners@{Notify\-Replication\-End\-Listeners}!OnEventManager@{On\-Event\-Manager}}
+\subsubsection[{Notify\-Replication\-End\-Listeners}]{\setlength{\rightskip}{0pt plus 5cm}void On\-Event\-Manager\-::\-Notify\-Replication\-End\-Listeners (
+\begin{DoxyParamCaption}
+\item[{{\bf Simulation\-Event} $\ast$}]{se}
+\end{DoxyParamCaption}
+)}}\label{class_on_event_manager_aeab61beafbdfb16757897106d0236fa4}
+
+
+Definition at line 65 of file On\-Event\-Manager.\-cpp.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_on_event_manager_aeab61beafbdfb16757897106d0236fa4_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_on_event_manager_aeddadb7542cfefd7a8e9be4cbed7617f}{\index{On\-Event\-Manager@{On\-Event\-Manager}!Notify\-Replication\-Start\-Listeners@{Notify\-Replication\-Start\-Listeners}}
+\index{Notify\-Replication\-Start\-Listeners@{Notify\-Replication\-Start\-Listeners}!OnEventManager@{On\-Event\-Manager}}
+\subsubsection[{Notify\-Replication\-Start\-Listeners}]{\setlength{\rightskip}{0pt plus 5cm}void On\-Event\-Manager\-::\-Notify\-Replication\-Start\-Listeners (
+\begin{DoxyParamCaption}
+\item[{{\bf Simulation\-Event} $\ast$}]{se}
+\end{DoxyParamCaption}
+)}}\label{class_on_event_manager_aeddadb7542cfefd7a8e9be4cbed7617f}
+
+
+Definition at line 55 of file On\-Event\-Manager.\-cpp.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_on_event_manager_aeddadb7542cfefd7a8e9be4cbed7617f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_on_event_manager_accb26528a27a7b0b679c46d5738da8bf}{\index{On\-Event\-Manager@{On\-Event\-Manager}!Notify\-Replication\-Step\-Listeners@{Notify\-Replication\-Step\-Listeners}}
+\index{Notify\-Replication\-Step\-Listeners@{Notify\-Replication\-Step\-Listeners}!OnEventManager@{On\-Event\-Manager}}
+\subsubsection[{Notify\-Replication\-Step\-Listeners}]{\setlength{\rightskip}{0pt plus 5cm}void On\-Event\-Manager\-::\-Notify\-Replication\-Step\-Listeners (
+\begin{DoxyParamCaption}
+\item[{{\bf Simulation\-Event} $\ast$}]{se}
+\end{DoxyParamCaption}
+)}}\label{class_on_event_manager_accb26528a27a7b0b679c46d5738da8bf}
+
+
+Definition at line 60 of file On\-Event\-Manager.\-cpp.
+
+\hypertarget{class_on_event_manager_a9217816665a7384305f5ebce1c62ef4f}{\index{On\-Event\-Manager@{On\-Event\-Manager}!Notify\-Simulation\-End\-Listeners@{Notify\-Simulation\-End\-Listeners}}
+\index{Notify\-Simulation\-End\-Listeners@{Notify\-Simulation\-End\-Listeners}!OnEventManager@{On\-Event\-Manager}}
+\subsubsection[{Notify\-Simulation\-End\-Listeners}]{\setlength{\rightskip}{0pt plus 5cm}void On\-Event\-Manager\-::\-Notify\-Simulation\-End\-Listeners (
+\begin{DoxyParamCaption}
+\item[{{\bf Simulation\-Event} $\ast$}]{se}
+\end{DoxyParamCaption}
+)}}\label{class_on_event_manager_a9217816665a7384305f5ebce1c62ef4f}
+
+
+Definition at line 77 of file On\-Event\-Manager.\-cpp.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_on_event_manager_a9217816665a7384305f5ebce1c62ef4f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{class_on_event_manager_abe358c71aae7624e75b692fa5bae1174}{\index{On\-Event\-Manager@{On\-Event\-Manager}!Notify\-Simulation\-Start\-Listeners@{Notify\-Simulation\-Start\-Listeners}}
+\index{Notify\-Simulation\-Start\-Listeners@{Notify\-Simulation\-Start\-Listeners}!OnEventManager@{On\-Event\-Manager}}
+\subsubsection[{Notify\-Simulation\-Start\-Listeners}]{\setlength{\rightskip}{0pt plus 5cm}void On\-Event\-Manager\-::\-Notify\-Simulation\-Start\-Listeners (
+\begin{DoxyParamCaption}
+\item[{{\bf Simulation\-Event} $\ast$}]{se}
+\end{DoxyParamCaption}
+)}}\label{class_on_event_manager_abe358c71aae7624e75b692fa5bae1174}
+
+
+Definition at line 73 of file On\-Event\-Manager.\-cpp.
+
+
+
+Here is the caller graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_on_event_manager_abe358c71aae7624e75b692fa5bae1174_icgraph}
 \end{center}
 \end{figure}
 

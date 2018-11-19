@@ -1,8 +1,10 @@
 <map id="List::size" name="List::size">
-<area shape="rect" id="node2" href="$class_infrastructure_manager.html#a8e10fe1a6a40ce020b1b63232dbb05cd" title="InfrastructureManager\l::show" alt="" coords="133,5,283,46"/>
-<area shape="rect" id="node3" href="$class_queue.html#a961b5b7ca80317aa69f958612fb988ad" title="Queue::insertElement" alt="" coords="134,71,282,97"/>
-<area shape="rect" id="node5" href="$class_queue.html#a114d5144b3026b57cca9cf481b1f0d65" title="Queue::removeElement" alt="" coords="129,121,287,148"/>
-<area shape="rect" id="node7" href="$class_queue.html#a4cd92f99b7abc9ec4df32690dc5a037d" title="Queue::size" alt="" coords="162,172,254,199"/>
-<area shape="rect" id="node4" href="$class_seize.html#a96f6517a40b3bfd0d5ea753d59cef797" title="Seize::_execute" alt="" coords="343,71,459,97"/>
-<area shape="rect" id="node6" href="$class_release.html#a63c3cd89082e7f6c1fb61646b93a5c32" title="Release::_execute" alt="" coords="336,147,467,173"/>
+<area shape="rect" id="node2" href="$class_experiment_design___bruno_bonotto___joao_souto.html#a0feb20dd354e94d17ae2689546233a98" title="ExperimentDesign_BrunoBonotto\l_JoaoSouto::generate2krScenarioExperiments" alt="" coords="128,5,419,46"/>
+<area shape="rect" id="node3" href="$class_experiment_design___bruno_bonotto___joao_souto.html#a1afd5f05fa9fc12e8a391cfe60850ee1" title="ExperimentDesign_BrunoBonotto\l_JoaoSouto::calculateContribution\lAndCoefficients" alt="" coords="163,69,384,125"/>
+<area shape="rect" id="node4" href="$class_infrastructure_manager.html#a8e10fe1a6a40ce020b1b63232dbb05cd" title="InfrastructureManager\l::show" alt="" coords="199,149,348,190"/>
+<area shape="rect" id="node5" href="$class_queue.html#a961b5b7ca80317aa69f958612fb988ad" title="Queue::insertElement" alt="" coords="199,215,347,241"/>
+<area shape="rect" id="node7" href="$class_queue.html#a114d5144b3026b57cca9cf481b1f0d65" title="Queue::removeElement" alt="" coords="194,316,353,343"/>
+<area shape="rect" id="node9" href="$class_queue.html#a4cd92f99b7abc9ec4df32690dc5a037d" title="Queue::size" alt="" coords="227,265,319,292"/>
+<area shape="rect" id="node6" href="$class_seize.html#a96f6517a40b3bfd0d5ea753d59cef797" title="Seize::_execute" alt="" coords="474,240,590,267"/>
+<area shape="rect" id="node8" href="$class_release.html#a63c3cd89082e7f6c1fb61646b93a5c32" title="Release::_execute" alt="" coords="467,303,597,329"/>
 </map>

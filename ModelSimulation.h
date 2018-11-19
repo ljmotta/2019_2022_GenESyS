@@ -20,13 +20,17 @@
 
 class Model;
 
+/*!
+ * The ModelSimulation controls the simulation of a model, alowing to start, pause, resume e stop a simulation, composed by 
+ * a set of replications.
+ */
 class ModelSimulation {
 public:
 	ModelSimulation(Model* model);
 	ModelSimulation(const ModelSimulation& orig);
 	virtual ~ModelSimulation();
 public: // simulation control
-	void startSimulation(); /*! Starts a sequential execution of a simulation, ie, a set of repliations of this model*/
+	void startSimulation(); /*! Starts a sequential execution of a simulation, ie, a set of replications of this model*/
 	void pauseSimulation();
 	void stepSimulation(); /*! Executes the processing of a single event, the next one in the future events list */
 	void stopSimulation();

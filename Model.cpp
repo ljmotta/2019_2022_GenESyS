@@ -35,7 +35,7 @@ void setReplicationLengthNotMemberFunction(double value) { // REMOVE IT. JUST AN
 }
 
 Model::Model(Simulator* simulator) {
-	_simulator = simulator; // a simulator is the "parent" of a model 
+	_parentSimulator = simulator; // a simulator is the "parent" of a model 
 	// 1:1 associations (no Traits)
 	_infos = new ModelInfo();
 	_eventHandler = new OnEventManager(); // should be on .h (all that does not depends on THIS)
@@ -175,7 +175,7 @@ ModelInfo* Model::getInfos() const {
 }
 
 Simulator* Model::getParent() const {
-	return _simulator;
+	return _parentSimulator;
 }
 
 ModelSimulation* Model::getSimulation() const {

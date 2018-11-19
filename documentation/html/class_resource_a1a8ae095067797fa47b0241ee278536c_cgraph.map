@@ -1,7 +1,10 @@
 <map id="Resource::Resource" name="Resource::Resource">
-<area shape="rect" id="node2" href="$class_model.html#a944c2b2dffd691d4aafc2d4028c02e6b" title="Model::getInfraManager" alt="" coords="198,5,357,32"/>
-<area shape="rect" id="node3" href="$class_infrastructure_manager.html#a1d013b55994e27cac0c45c1ad08f74e0" title="InfrastructureManager\l::getInfrastructures" alt="" coords="203,57,352,98"/>
-<area shape="rect" id="node6" href="$class_list.html#a518d00fd77740525522949d4316e8826" title="List::insert" alt="" coords="236,123,319,149"/>
-<area shape="rect" id="node4" href="$class_list.html#a31a37746c0d960f2f2bb4071b2735c5e" title="List::setSortFunc" alt="" coords="412,35,535,61"/>
-<area shape="rect" id="node5" href="$class_model_infrastructure.html#aa4d3fa8f302cc6dc4fccdd3187e6a168" title="ModelInfrastructure\l::getId" alt="" coords="406,86,541,127"/>
+<area shape="rect" id="node2" href="$class_model.html#a944c2b2dffd691d4aafc2d4028c02e6b" title="Model::getInfraManager" alt="" coords="198,60,357,87"/>
+<area shape="rect" id="node3" href="$class_infrastructure_manager.html#a597f2262dee783093e616e3d8894690a" title="InfrastructureManager\l::insertInfrastructure" alt="" coords="203,111,352,153"/>
+<area shape="rect" id="node4" href="$class_infrastructure_manager.html#a1d013b55994e27cac0c45c1ad08f74e0" title="InfrastructureManager\l::getInfrastructures" alt="" coords="405,27,555,69"/>
+<area shape="rect" id="node7" href="$class_list.html#a2f50d3342e016ec57876798ad4e8bf31" title="List::find" alt="" coords="444,93,516,120"/>
+<area shape="rect" id="node8" href="$class_list.html#a570498345450f635b72d1ca2675145cc" title="List::getList" alt="" coords="435,144,525,171"/>
+<area shape="rect" id="node9" href="$class_list.html#a518d00fd77740525522949d4316e8826" title="List::insert" alt="" coords="439,195,521,221"/>
+<area shape="rect" id="node5" href="$class_list.html#a31a37746c0d960f2f2bb4071b2735c5e" title="List::setSortFunc" alt="" coords="609,5,732,32"/>
+<area shape="rect" id="node6" href="$class_model_infrastructure.html#aa4d3fa8f302cc6dc4fccdd3187e6a168" title="ModelInfrastructure\l::getId" alt="" coords="603,57,738,98"/>
 </map>

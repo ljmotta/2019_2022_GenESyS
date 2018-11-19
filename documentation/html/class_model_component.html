@@ -184,11 +184,13 @@ Static Public Member Functions</h2></td></tr>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:ae3fcf8bbdd8368c882438424aa73f714"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model_component.html#ae3fcf8bbdd8368c882438424aa73f714">_execute</a> (<a class="el" href="class_entity.html">Entity</a> *entity)=0</td></tr>
 <tr class="separator:ae3fcf8bbdd8368c882438424aa73f714"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a465f41c7191cb0fdf9039ef1f3d755a5"><td class="memItemLeft" align="right" valign="top">virtual std::list&lt; std::string &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model_component.html#a465f41c7191cb0fdf9039ef1f3d755a5">_saveInstance</a> ()</td></tr>
+<tr class="separator:a465f41c7191cb0fdf9039ef1f3d755a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a245ef30906086f28651a559cdc9a8120"><td class="memItemLeft" align="right" valign="top">virtual std::list&lt; std::string &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model_component.html#a245ef30906086f28651a559cdc9a8120">_saveInstance</a> (std::string type)</td></tr>
+<tr class="separator:a245ef30906086f28651a559cdc9a8120"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_methods_class_model_infrastructure"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_model_infrastructure')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_model_infrastructure.html">ModelInfrastructure</a></td></tr>
 <tr class="memitem:ae118c8ad2ac9d4397c40d004af51b2dc inherit pro_methods_class_model_infrastructure"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model_infrastructure.html#ae118c8ad2ac9d4397c40d004af51b2dc">_loadInstance</a> (std::list&lt; std::string &gt; words)=0</td></tr>
 <tr class="separator:ae118c8ad2ac9d4397c40d004af51b2dc inherit pro_methods_class_model_infrastructure"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3da2fd381c44752598bc448b207e8287 inherit pro_methods_class_model_infrastructure"><td class="memItemLeft" align="right" valign="top">virtual std::list&lt; std::string &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model_infrastructure.html#a3da2fd381c44752598bc448b207e8287">_saveInstance</a> ()=0</td></tr>
-<tr class="separator:a3da2fd381c44752598bc448b207e8287 inherit pro_methods_class_model_infrastructure"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43de089b35b96c32dd24ca4f9636a388 inherit pro_methods_class_model_infrastructure"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model_infrastructure.html#a43de089b35b96c32dd24ca4f9636a388">_verifySymbols</a> (std::string *errorMessage)=0</td></tr>
 <tr class="separator:a43de089b35b96c32dd24ca4f9636a388 inherit pro_methods_class_model_infrastructure"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -303,6 +305,90 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a class="anchor" id="a465f41c7191cb0fdf9039ef1f3d755a5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::list&lt; std::string &gt; * ModelComponent::_saveInstance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="class_model_infrastructure.html#a991f46601d9e865f2e27c6cd7a2b702d">ModelInfrastructure</a>.</p>
+
+<p>Reimplemented in <a class="el" href="class_assign.html#a8b38a0a1bec283f5d2f44f67be5a4a6b">Assign</a>, <a class="el" href="class_seize.html#a38a8af6942b51ce11d191469d277661d">Seize</a>, <a class="el" href="class_release.html#a2e15540e86b8d0ce62c553f3e9b095c3">Release</a>, <a class="el" href="class_create.html#ae1fd0c281cec35dcf91881acba8d7041">Create</a>, <a class="el" href="class_delay.html#a73676f11cddd31439a407b5dabcea43a">Delay</a>, and <a class="el" href="class_dispose.html#ae12482052fb78fa534dda5d4c0a74e3e">Dispose</a>.</p>
+
+<p>Definition at line <a class="el" href="_model_component_8cpp_source.html#l00081">81</a> of file <a class="el" href="_model_component_8cpp_source.html">ModelComponent.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_component_a465f41c7191cb0fdf9039ef1f3d755a5_cgraph.png" border="0" usemap="#class_model_component_a465f41c7191cb0fdf9039ef1f3d755a5_cgraph" alt=""/></div>
+<map name="class_model_component_a465f41c7191cb0fdf9039ef1f3d755a5_cgraph" id="class_model_component_a465f41c7191cb0fdf9039ef1f3d755a5_cgraph">
+<area shape="rect" id="node2" href="class_model_infrastructure.html#a991f46601d9e865f2e27c6cd7a2b702d" title="ModelInfrastructure\l::_saveInstance" alt="" coords="273,5,407,46"/></map>
+</div>
+</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_component_a465f41c7191cb0fdf9039ef1f3d755a5_icgraph.png" border="0" usemap="#class_model_component_a465f41c7191cb0fdf9039ef1f3d755a5_icgraph" alt=""/></div>
+<map name="class_model_component_a465f41c7191cb0fdf9039ef1f3d755a5_icgraph" id="class_model_component_a465f41c7191cb0fdf9039ef1f3d755a5_icgraph">
+<area shape="rect" id="node2" href="class_assign.html#a8b38a0a1bec283f5d2f44f67be5a4a6b" title="Assign::_saveInstance" alt="" coords="304,5,459,32"/><area shape="rect" id="node3" href="class_create.html#ae1fd0c281cec35dcf91881acba8d7041" title="Create::_saveInstance" alt="" coords="304,56,459,83"/><area shape="rect" id="node4" href="class_delay.html#a73676f11cddd31439a407b5dabcea43a" title="Delay::_saveInstance" alt="" coords="307,107,456,133"/><area shape="rect" id="node5" href="class_dispose.html#ae12482052fb78fa534dda5d4c0a74e3e" title="Dispose::_saveInstance" alt="" coords="300,157,463,184"/><area shape="rect" id="node6" href="class_model_component.html#a45d3805f9b7051b7acc142e5d85cded6" title="ModelComponent::SaveInstance" alt="" coords="275,208,487,235"/><area shape="rect" id="node7" href="class_model_component.html#a245ef30906086f28651a559cdc9a8120" title="ModelComponent::_saveInstance" alt="" coords="273,259,490,285"/><area shape="rect" id="node8" href="class_release.html#a2e15540e86b8d0ce62c553f3e9b095c3" title="Release::_saveInstance" alt="" coords="300,309,463,336"/><area shape="rect" id="node9" href="class_seize.html#a38a8af6942b51ce11d191469d277661d" title="Seize::_saveInstance" alt="" coords="307,360,455,387"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a245ef30906086f28651a559cdc9a8120"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::list&lt; std::string &gt; * ModelComponent::_saveInstance </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="class_model_infrastructure.html#a0e03d03d3c7166e66dfddac6740c2e1b">ModelInfrastructure</a>.</p>
+
+<p>Definition at line <a class="el" href="_model_component_8cpp_source.html#l00086">86</a> of file <a class="el" href="_model_component_8cpp_source.html">ModelComponent.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_model_component_a245ef30906086f28651a559cdc9a8120_cgraph.png" border="0" usemap="#class_model_component_a245ef30906086f28651a559cdc9a8120_cgraph" alt=""/></div>
+<map name="class_model_component_a245ef30906086f28651a559cdc9a8120_cgraph" id="class_model_component_a245ef30906086f28651a559cdc9a8120_cgraph">
+<area shape="rect" id="node2" href="class_model_component.html#a465f41c7191cb0fdf9039ef1f3d755a5" title="ModelComponent::_saveInstance" alt="" coords="273,12,490,39"/><area shape="rect" id="node3" href="class_model_infrastructure.html#a991f46601d9e865f2e27c6cd7a2b702d" title="ModelInfrastructure\l::_saveInstance" alt="" coords="539,5,674,46"/></map>
+</div>
+</p>
+
+</div>
+</div>
 <a class="anchor" id="a08c5312c2f94f6621577cc1836c2d3e0"></a>
 <div class="memitem">
 <div class="memproto">
@@ -342,7 +428,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_model_component_a08c5312c2f94f6621577cc1836c2d3e0_cgraph.png" border="0" usemap="#class_model_component_a08c5312c2f94f6621577cc1836c2d3e0_cgraph" alt=""/></div>
 <map name="class_model_component_a08c5312c2f94f6621577cc1836c2d3e0_cgraph" id="class_model_component_a08c5312c2f94f6621577cc1836c2d3e0_cgraph">
-<area shape="rect" id="node2" href="class_model.html#adc0de22631d77864b7956591c39ebc60" title="Model::getTracer" alt="" coords="268,5,388,32"/><area shape="rect" id="node3" href="class_trace_manager.html#a242d77829b85a436fd2aab2092bfa50c" title="TraceManager::trace" alt="" coords="257,56,399,83"/><area shape="rect" id="node4" href="class_model_infrastructure.html#aa4d3fa8f302cc6dc4fccdd3187e6a168" title="ModelInfrastructure\l::getId" alt="" coords="261,107,395,149"/><area shape="rect" id="node5" href="class_model_component.html#ae3fcf8bbdd8368c882438424aa73f714" title="ModelComponent::_execute" alt="" coords="235,173,421,200"/><area shape="rect" id="node6" href="class_trace_manager.html#a774a8549d24361fa2a8f8722de0084ef" title="TraceManager::traceError" alt="" coords="243,224,413,251"/><area shape="rect" id="node7" href="class_model_component.html#ad8bc846e36b028eab7efb7da6c549eca" title="ModelComponent::show" alt="" coords="247,275,409,301"/><area shape="rect" id="node8" href="class_model_infrastructure.html#a649a5a89a0c9931783d3c51de2acf266" title="ModelInfrastructure\l::show" alt="" coords="470,267,605,309"/></map>
+<area shape="rect" id="node2" href="class_model.html#adc0de22631d77864b7956591c39ebc60" title="Model::getTracer" alt="" coords="268,5,388,32"/><area shape="rect" id="node3" href="class_trace_manager.html#a242d77829b85a436fd2aab2092bfa50c" title="TraceManager::trace" alt="" coords="257,56,399,83"/><area shape="rect" id="node5" href="class_model_infrastructure.html#aa4d3fa8f302cc6dc4fccdd3187e6a168" title="ModelInfrastructure\l::getId" alt="" coords="261,107,395,149"/><area shape="rect" id="node6" href="class_util.html#a8110241a80979c8fbecca95eef59e9ad" title="Util::IncIndent" alt="" coords="276,173,380,200"/><area shape="rect" id="node7" href="class_model_component.html#ae3fcf8bbdd8368c882438424aa73f714" title="ModelComponent::_execute" alt="" coords="235,224,421,251"/><area shape="rect" id="node8" href="class_trace_manager.html#a774a8549d24361fa2a8f8722de0084ef" title="TraceManager::traceError" alt="" coords="243,275,413,301"/><area shape="rect" id="node9" href="class_model_component.html#ad8bc846e36b028eab7efb7da6c549eca" title="ModelComponent::show" alt="" coords="247,325,409,352"/><area shape="rect" id="node11" href="class_util.html#a702d44544c3dd604b81e578ee9ee713f" title="Util::DecIndent" alt="" coords="273,376,383,403"/><area shape="rect" id="node4" href="class_util.html#a13a4cb5dbc88ef5e2c3a127362b956d6" title="Util::Indent" alt="" coords="494,56,581,83"/><area shape="rect" id="node10" href="class_model_infrastructure.html#a649a5a89a0c9931783d3c51de2acf266" title="ModelInfrastructure\l::show" alt="" coords="470,318,605,359"/></map>
 </div>
 </p>
 
@@ -370,7 +456,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_component_8cpp_source.html#l00071">71</a> of file <a class="el" href="_model_component_8cpp_source.html">ModelComponent.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_component_8cpp_source.html#l00073">73</a> of file <a class="el" href="_model_component_8cpp_source.html">ModelComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -387,7 +473,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_component_8cpp_source.html#l00063">63</a> of file <a class="el" href="_model_component_8cpp_source.html">ModelComponent.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_component_8cpp_source.html#l00065">65</a> of file <a class="el" href="_model_component_8cpp_source.html">ModelComponent.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -422,14 +508,14 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_component_8cpp_source.html#l00038">38</a> of file <a class="el" href="_model_component_8cpp_source.html">ModelComponent.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_component_8cpp_source.html#l00040">40</a> of file <a class="el" href="_model_component_8cpp_source.html">ModelComponent.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_model_component_a45d3805f9b7051b7acc142e5d85cded6_cgraph.png" border="0" usemap="#class_model_component_a45d3805f9b7051b7acc142e5d85cded6_cgraph" alt=""/></div>
 <map name="class_model_component_a45d3805f9b7051b7acc142e5d85cded6_cgraph" id="class_model_component_a45d3805f9b7051b7acc142e5d85cded6_cgraph">
-<area shape="rect" id="node2" href="class_model.html#adc0de22631d77864b7956591c39ebc60" title="Model::getTracer" alt="" coords="292,5,412,32"/><area shape="rect" id="node3" href="class_trace_manager.html#a242d77829b85a436fd2aab2092bfa50c" title="TraceManager::trace" alt="" coords="281,56,423,83"/><area shape="rect" id="node4" href="class_model_infrastructure.html#a3da2fd381c44752598bc448b207e8287" title="ModelInfrastructure\l::_saveInstance" alt="" coords="285,107,419,149"/><area shape="rect" id="node5" href="class_trace_manager.html#a774a8549d24361fa2a8f8722de0084ef" title="TraceManager::traceError" alt="" coords="267,173,437,200"/><area shape="rect" id="node6" href="class_model_component.html#ad8bc846e36b028eab7efb7da6c549eca" title="ModelComponent::show" alt="" coords="271,224,433,251"/><area shape="rect" id="node7" href="class_model_infrastructure.html#a649a5a89a0c9931783d3c51de2acf266" title="ModelInfrastructure\l::show" alt="" coords="486,217,621,258"/></map>
+<area shape="rect" id="node2" href="class_model.html#adc0de22631d77864b7956591c39ebc60" title="Model::getTracer" alt="" coords="316,5,436,32"/><area shape="rect" id="node3" href="class_trace_manager.html#a242d77829b85a436fd2aab2092bfa50c" title="TraceManager::trace" alt="" coords="305,56,447,83"/><area shape="rect" id="node5" href="class_model_component.html#a465f41c7191cb0fdf9039ef1f3d755a5" title="ModelComponent::_saveInstance" alt="" coords="267,107,485,133"/><area shape="rect" id="node7" href="class_trace_manager.html#a774a8549d24361fa2a8f8722de0084ef" title="TraceManager::traceError" alt="" coords="291,157,461,184"/><area shape="rect" id="node8" href="class_model_component.html#ad8bc846e36b028eab7efb7da6c549eca" title="ModelComponent::show" alt="" coords="295,208,457,235"/><area shape="rect" id="node4" href="class_util.html#a13a4cb5dbc88ef5e2c3a127362b956d6" title="Util::Indent" alt="" coords="558,52,645,79"/><area shape="rect" id="node6" href="class_model_infrastructure.html#a991f46601d9e865f2e27c6cd7a2b702d" title="ModelInfrastructure\l::_saveInstance" alt="" coords="534,103,669,145"/><area shape="rect" id="node9" href="class_model_infrastructure.html#a649a5a89a0c9931783d3c51de2acf266" title="ModelInfrastructure\l::show" alt="" coords="534,201,669,242"/></map>
 </div>
 </p>
 
@@ -449,7 +535,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_component_8cpp_source.html#l00075">75</a> of file <a class="el" href="_model_component_8cpp_source.html">ModelComponent.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_component_8cpp_source.html#l00077">77</a> of file <a class="el" href="_model_component_8cpp_source.html">ModelComponent.cpp</a>.</p>
 
 </div>
 </div>
@@ -478,7 +564,7 @@ Here is the call graph for this function:</div>
 
 <p>Reimplemented in <a class="el" href="class_assign.html#af5022b92204adcd9ee3e444b7e316d07">Assign</a>, <a class="el" href="class_source_model_component.html#a4011597b5780fcc0495e8e22ab8158f6">SourceModelComponent</a>, <a class="el" href="class_seize.html#a495ace3a156680b5816c8b285135322c">Seize</a>, <a class="el" href="class_create.html#a8d1832d2165bbeea4a5a88aded883f86">Create</a>, <a class="el" href="class_delay.html#af8187e4515417b547dc22b5ee0a1f95d">Delay</a>, <a class="el" href="class_release.html#a1ec7b35553820f0f228f31be1df468c3">Release</a>, and <a class="el" href="class_dispose.html#aee8ef98d5ca22eb18a97b258ed059865">Dispose</a>.</p>
 
-<p>Definition at line <a class="el" href="_model_component_8cpp_source.html#l00067">67</a> of file <a class="el" href="_model_component_8cpp_source.html">ModelComponent.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_component_8cpp_source.html#l00069">69</a> of file <a class="el" href="_model_component_8cpp_source.html">ModelComponent.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -532,14 +618,14 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_component_8cpp_source.html#l00049">49</a> of file <a class="el" href="_model_component_8cpp_source.html">ModelComponent.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_model_component_8cpp_source.html#l00051">51</a> of file <a class="el" href="_model_component_8cpp_source.html">ModelComponent.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_model_component_a0798a220cf903b34ce28c40e136d207d_cgraph.png" border="0" usemap="#class_model_component_a0798a220cf903b34ce28c40e136d207d_cgraph" alt=""/></div>
 <map name="class_model_component_a0798a220cf903b34ce28c40e136d207d_cgraph" id="class_model_component_a0798a220cf903b34ce28c40e136d207d_cgraph">
-<area shape="rect" id="node2" href="class_model.html#adc0de22631d77864b7956591c39ebc60" title="Model::getTracer" alt="" coords="297,5,417,32"/><area shape="rect" id="node3" href="class_trace_manager.html#a242d77829b85a436fd2aab2092bfa50c" title="TraceManager::trace" alt="" coords="286,56,429,83"/><area shape="rect" id="node4" href="class_model_infrastructure.html#a43de089b35b96c32dd24ca4f9636a388" title="ModelInfrastructure\l::_verifySymbols" alt="" coords="290,107,425,149"/><area shape="rect" id="node5" href="class_trace_manager.html#a774a8549d24361fa2a8f8722de0084ef" title="TraceManager::traceError" alt="" coords="272,173,443,200"/><area shape="rect" id="node6" href="class_model_component.html#ad8bc846e36b028eab7efb7da6c549eca" title="ModelComponent::show" alt="" coords="276,224,439,251"/><area shape="rect" id="node7" href="class_model_infrastructure.html#a649a5a89a0c9931783d3c51de2acf266" title="ModelInfrastructure\l::show" alt="" coords="491,217,626,258"/></map>
+<area shape="rect" id="node2" href="class_model.html#adc0de22631d77864b7956591c39ebc60" title="Model::getTracer" alt="" coords="297,5,417,32"/><area shape="rect" id="node3" href="class_trace_manager.html#a242d77829b85a436fd2aab2092bfa50c" title="TraceManager::trace" alt="" coords="286,56,429,83"/><area shape="rect" id="node5" href="class_model_infrastructure.html#a43de089b35b96c32dd24ca4f9636a388" title="ModelInfrastructure\l::_verifySymbols" alt="" coords="290,107,425,149"/><area shape="rect" id="node6" href="class_trace_manager.html#a774a8549d24361fa2a8f8722de0084ef" title="TraceManager::traceError" alt="" coords="272,173,443,200"/><area shape="rect" id="node7" href="class_model_component.html#ad8bc846e36b028eab7efb7da6c549eca" title="ModelComponent::show" alt="" coords="276,224,439,251"/><area shape="rect" id="node4" href="class_util.html#a13a4cb5dbc88ef5e2c3a127362b956d6" title="Util::Indent" alt="" coords="515,56,602,83"/><area shape="rect" id="node8" href="class_model_infrastructure.html#a649a5a89a0c9931783d3c51de2acf266" title="ModelInfrastructure\l::show" alt="" coords="491,217,626,258"/></map>
 </div>
 </p>
 
@@ -564,7 +650,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_model_component_8h_source.html#l00060">60</a> of file <a class="el" href="_model_component_8h_source.html">ModelComponent.h</a>.</p>
+<p>Definition at line <a class="el" href="_model_component_8h_source.html#l00064">64</a> of file <a class="el" href="_model_component_8h_source.html">ModelComponent.h</a>.</p>
 
 </div>
 </div>
@@ -578,7 +664,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_model_component.html">ModelComponent</a></li>
-    <li class="footer">Generated on Thu Nov 8 2018 20:21:18 for ReGenESyS - Reborn Generic and Expansible System Simulator by
+    <li class="footer">Generated on Mon Nov 19 2018 09:19:45 for ReGenESyS - Reborn Generic and Expansible System Simulator by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -1,8 +1,10 @@
 <map id="ModelComponent::SaveInstance" name="ModelComponent::SaveInstance">
-<area shape="rect" id="node2" href="$class_model.html#adc0de22631d77864b7956591c39ebc60" title="Model::getTracer" alt="" coords="292,5,412,32"/>
-<area shape="rect" id="node3" href="$class_trace_manager.html#a242d77829b85a436fd2aab2092bfa50c" title="TraceManager::trace" alt="" coords="281,56,423,83"/>
-<area shape="rect" id="node4" href="$class_model_infrastructure.html#a3da2fd381c44752598bc448b207e8287" title="ModelInfrastructure\l::_saveInstance" alt="" coords="285,107,419,149"/>
-<area shape="rect" id="node5" href="$class_trace_manager.html#a774a8549d24361fa2a8f8722de0084ef" title="TraceManager::traceError" alt="" coords="267,173,437,200"/>
-<area shape="rect" id="node6" href="$class_model_component.html#ad8bc846e36b028eab7efb7da6c549eca" title="ModelComponent::show" alt="" coords="271,224,433,251"/>
-<area shape="rect" id="node7" href="$class_model_infrastructure.html#a649a5a89a0c9931783d3c51de2acf266" title="ModelInfrastructure\l::show" alt="" coords="486,217,621,258"/>
+<area shape="rect" id="node2" href="$class_model.html#adc0de22631d77864b7956591c39ebc60" title="Model::getTracer" alt="" coords="316,5,436,32"/>
+<area shape="rect" id="node3" href="$class_trace_manager.html#a242d77829b85a436fd2aab2092bfa50c" title="TraceManager::trace" alt="" coords="305,56,447,83"/>
+<area shape="rect" id="node5" href="$class_model_component.html#a465f41c7191cb0fdf9039ef1f3d755a5" title="ModelComponent::_saveInstance" alt="" coords="267,107,485,133"/>
+<area shape="rect" id="node7" href="$class_trace_manager.html#a774a8549d24361fa2a8f8722de0084ef" title="TraceManager::traceError" alt="" coords="291,157,461,184"/>
+<area shape="rect" id="node8" href="$class_model_component.html#ad8bc846e36b028eab7efb7da6c549eca" title="ModelComponent::show" alt="" coords="295,208,457,235"/>
+<area shape="rect" id="node4" href="$class_util.html#a13a4cb5dbc88ef5e2c3a127362b956d6" title="Util::Indent" alt="" coords="558,52,645,79"/>
+<area shape="rect" id="node6" href="$class_model_infrastructure.html#a991f46601d9e865f2e27c6cd7a2b702d" title="ModelInfrastructure\l::_saveInstance" alt="" coords="534,103,669,145"/>
+<area shape="rect" id="node9" href="$class_model_infrastructure.html#a649a5a89a0c9931783d3c51de2acf266" title="ModelInfrastructure\l::show" alt="" coords="534,201,669,242"/>
 </map>

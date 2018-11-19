@@ -1,5 +1,7 @@
 <map id="Statistics_if" name="Statistics_if">
 <area shape="rect" id="node2" href="$class_statistics_cancian_impl.html" title="StatisticsCancianImpl" alt="" coords="5,80,155,107"/>
-<area shape="rect" id="node3" href="$class_statistics_my_impl1.html" title="StatisticsMyImpl1" alt="" coords="179,80,305,107"/>
-<area shape="rect" id="node4" href="$class_statistics_collector.html" title="StatisticsCollector" alt="" coords="178,155,307,181"/>
+<area shape="rect" id="node3" href="$class_statistics_daniel_boso.html" title="StatisticsDanielBoso" alt="" coords="180,80,324,107"/>
+<area shape="rect" id="node5" href="$class_statistics_my_impl1.html" title="StatisticsMyImpl1" alt="" coords="362,80,488,107"/>
+<area shape="rect" id="node4" href="$class_statistics_collector_daniel_boso.html" title="StatisticsCollectorDanielBoso" alt="" coords="147,155,343,181"/>
+<area shape="rect" id="node6" href="$class_statistics_collector.html" title="StatisticsCollector" alt="" coords="367,155,496,181"/>
 </map>

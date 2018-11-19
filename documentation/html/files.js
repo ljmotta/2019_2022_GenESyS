@@ -17,12 +17,20 @@ var files =
     [ "Collector_if.h", "_collector__if_8h.html", [
       [ "Collector_if", "class_collector__if.html", "class_collector__if" ]
     ] ],
+    [ "CollectorDanielBoso.cpp", "_collector_daniel_boso_8cpp.html", null ],
+    [ "CollectorDanielBoso.h", "_collector_daniel_boso_8h.html", [
+      [ "CollectorDanielBoso", "class_collector_daniel_boso.html", "class_collector_daniel_boso" ]
+    ] ],
     [ "CollectorDatafile_if.h", "_collector_datafile__if_8h.html", [
       [ "CollectorDatafile_if", "class_collector_datafile__if.html", "class_collector_datafile__if" ]
     ] ],
     [ "CollectorDatafileCancianImpl.cpp", "_collector_datafile_cancian_impl_8cpp.html", null ],
     [ "CollectorDatafileCancianImpl.h", "_collector_datafile_cancian_impl_8h.html", [
       [ "CollectorDatafileCancianImpl", "class_collector_datafile_cancian_impl.html", "class_collector_datafile_cancian_impl" ]
+    ] ],
+    [ "CollectorDatafileDanielBoso.cpp", "_collector_datafile_daniel_boso_8cpp.html", null ],
+    [ "CollectorDatafileDanielBoso.h", "_collector_datafile_daniel_boso_8h.html", [
+      [ "CollectorDatafileDanielBoso", "class_collector_datafile_daniel_boso.html", "class_collector_datafile_daniel_boso" ]
     ] ],
     [ "CollectorDatafileMyImpl1.cpp", "_collector_datafile_my_impl1_8cpp.html", null ],
     [ "CollectorDatafileMyImpl1.h", "_collector_datafile_my_impl1_8h.html", [
@@ -56,6 +64,10 @@ var files =
     [ "Event.h", "_event_8h.html", [
       [ "Event", "class_event.html", "class_event" ]
     ] ],
+    [ "ExperimentDesign_BrunoBonotto_JoaoSouto.cpp", "_experiment_design___bruno_bonotto___joao_souto_8cpp.html", "_experiment_design___bruno_bonotto___joao_souto_8cpp" ],
+    [ "ExperimentDesign_BrunoBonotto_JoaoSouto.h", "_experiment_design___bruno_bonotto___joao_souto_8h.html", [
+      [ "ExperimentDesign_BrunoBonotto_JoaoSouto", "class_experiment_design___bruno_bonotto___joao_souto.html", "class_experiment_design___bruno_bonotto___joao_souto" ]
+    ] ],
     [ "ExperimentDesign_if.h", "_experiment_design__if_8h.html", [
       [ "ExperimentDesign_if", "class_experiment_design__if.html", "class_experiment_design__if" ]
     ] ],
@@ -70,6 +82,10 @@ var files =
     [ "Fitter_if.h", "_fitter__if_8h.html", [
       [ "Fitter_if", "class_fitter__if.html", "class_fitter__if" ]
     ] ],
+    [ "FitterFabiola.cpp", "_fitter_fabiola_8cpp.html", null ],
+    [ "FitterFabiola.h", "_fitter_fabiola_8h.html", [
+      [ "FitterFabiola", "class_fitter_fabiola.html", "class_fitter_fabiola" ]
+    ] ],
     [ "FitterJoaoSouto.cpp", "_fitter_joao_souto_8cpp.html", null ],
     [ "FitterJoaoSouto.h", "_fitter_joao_souto_8h.html", [
       [ "FitterJoaoSouto", "class_fitter_joao_souto.html", "class_fitter_joao_souto" ]
@@ -78,6 +94,7 @@ var files =
     [ "FitterMyImpl1.h", "_fitter_my_impl1_8h.html", [
       [ "FitterMyImpl1", "class_fitter_my_impl1.html", "class_fitter_my_impl1" ]
     ] ],
+    [ "Functor.h", "_functor_8h.html", "_functor_8h" ],
     [ "Genesys++-driver.cpp", "_genesys_09_09-driver_8cpp.html", null ],
     [ "Genesys++-driver.h", "_genesys_09_09-driver_8h.html", "_genesys_09_09-driver_8h" ],
     [ "Genesys++-parser.cpp", "_genesys_09_09-parser_8cpp.html", "_genesys_09_09-parser_8cpp" ],
@@ -205,6 +222,11 @@ var files =
       [ "Sampler_if", "class_sampler__if.html", "class_sampler__if" ],
       [ "RNG_Parameters", "class_sampler__if_1_1_r_n_g___parameters.html", null ]
     ] ],
+    [ "SamplerDanielBoso.cpp", "_sampler_daniel_boso_8cpp.html", null ],
+    [ "SamplerDanielBoso.h", "_sampler_daniel_boso_8h.html", [
+      [ "SamplerDanielBoso", "class_sampler_daniel_boso.html", "class_sampler_daniel_boso" ],
+      [ "MyRNG_Parameters", "class_sampler_daniel_boso_1_1_my_r_n_g___parameters.html", "class_sampler_daniel_boso_1_1_my_r_n_g___parameters" ]
+    ] ],
     [ "SamplerMyImpl1.cpp", "_sampler_my_impl1_8cpp.html", null ],
     [ "SamplerMyImpl1.h", "_sampler_my_impl1_8h.html", [
       [ "SamplerMyImpl1", "class_sampler_my_impl1.html", "class_sampler_my_impl1" ],
@@ -255,6 +277,14 @@ var files =
     [ "StatisticsCollector.cpp", "_statistics_collector_8cpp.html", null ],
     [ "StatisticsCollector.h", "_statistics_collector_8h.html", [
       [ "StatisticsCollector", "class_statistics_collector.html", "class_statistics_collector" ]
+    ] ],
+    [ "StatisticsCollectorDanielBoso.cpp", "_statistics_collector_daniel_boso_8cpp.html", "_statistics_collector_daniel_boso_8cpp" ],
+    [ "StatisticsCollectorDanielBoso.h", "_statistics_collector_daniel_boso_8h.html", [
+      [ "StatisticsCollectorDanielBoso", "class_statistics_collector_daniel_boso.html", "class_statistics_collector_daniel_boso" ]
+    ] ],
+    [ "StatisticsDanielBoso.cpp", "_statistics_daniel_boso_8cpp.html", "_statistics_daniel_boso_8cpp" ],
+    [ "StatisticsDanielBoso.h", "_statistics_daniel_boso_8h.html", [
+      [ "StatisticsDanielBoso", "class_statistics_daniel_boso.html", "class_statistics_daniel_boso" ]
     ] ],
     [ "StatisticsMyImpl1.cpp", "_statistics_my_impl1_8cpp.html", null ],
     [ "StatisticsMyImpl1.h", "_statistics_my_impl1_8h.html", [

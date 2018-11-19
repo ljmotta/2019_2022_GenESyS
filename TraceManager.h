@@ -88,7 +88,10 @@ typedef void (*traceErrorListener)(TraceErrorEvent);
 typedef void (*traceSimulationListener)(TraceSimulationEvent);
 typedef void (*traceSimulationProcessListener)(TraceSimulationProcess);
 
-
+/*!
+ * The TraceManager is used to trace back model simulation information and track/debug the simulation. 
+ * It works as the model simulation output (cout) and allows external methods to hook up such output as listeners.
+ */
 class TraceManager {
 public:
 	TraceManager(Model* model);

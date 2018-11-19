@@ -4,18 +4,22 @@ var hierarchy =
     [ "yy::genesyspp_parser::basic_symbol< by_state >", "structyy_1_1genesyspp__parser_1_1basic__symbol.html", null ],
     [ "yy::genesyspp_parser::by_type", "structyy_1_1genesyspp__parser_1_1by__type.html", null ],
     [ "Collector_if", "class_collector__if.html", [
+      [ "CollectorDanielBoso", "class_collector_daniel_boso.html", null ],
       [ "CollectorDatafile_if", "class_collector_datafile__if.html", [
         [ "CollectorDatafileCancianImpl", "class_collector_datafile_cancian_impl.html", null ],
+        [ "CollectorDatafileDanielBoso", "class_collector_datafile_daniel_boso.html", null ],
         [ "CollectorDatafileMyImpl1", "class_collector_datafile_my_impl1.html", null ]
       ] ],
       [ "CollectorMyImpl1", "class_collector_my_impl1.html", null ]
     ] ],
     [ "Event", "class_event.html", null ],
     [ "ExperimentDesign_if", "class_experiment_design__if.html", [
+      [ "ExperimentDesign_BrunoBonotto_JoaoSouto", "class_experiment_design___bruno_bonotto___joao_souto.html", null ],
       [ "ExperimentDesignMyImpl1", "class_experiment_design_my_impl1.html", null ]
     ] ],
     [ "FactorOrInteractionContribution", "class_factor_or_interaction_contribution.html", null ],
     [ "Fitter_if", "class_fitter__if.html", [
+      [ "FitterFabiola", "class_fitter_fabiola.html", null ],
       [ "FitterJoaoSouto", "class_fitter_joao_souto.html", null ],
       [ "FitterMyImpl1", "class_fitter_my_impl1.html", null ]
     ] ],
@@ -74,6 +78,7 @@ var hierarchy =
       [ "Queue", "class_queue.html", null ],
       [ "Resource", "class_resource.html", null ],
       [ "StatisticsCollector", "class_statistics_collector.html", null ],
+      [ "StatisticsCollectorDanielBoso", "class_statistics_collector_daniel_boso.html", null ],
       [ "Variable", "class_variable.html", null ]
     ] ],
     [ "ModelPersistence_if", "class_model_persistence__if.html", [
@@ -92,21 +97,23 @@ var hierarchy =
     [ "ProcessAnalyser_if", "class_process_analyser__if.html", [
       [ "ProcessAnalyserMyImpl1", "class_process_analyser_my_impl1.html", null ]
     ] ],
-    [ "ReplicationEvent", "class_replication_event.html", null ],
-    [ "RNG_Parameters", null, [
-      [ "Sampler_BruFabJoa::MyRNG_Parameters", "struct_sampler___bru_fab_joa_1_1_my_r_n_g___parameters.html", null ]
-    ] ],
     [ "Sampler_if::RNG_Parameters", "class_sampler__if_1_1_r_n_g___parameters.html", [
       [ "SamplerMyImpl1::MyRNG_Parameters", "class_sampler_my_impl1_1_1_my_r_n_g___parameters.html", null ]
+    ] ],
+    [ "RNG_Parameters", null, [
+      [ "Sampler_BruFabJoa::MyRNG_Parameters", "struct_sampler___bru_fab_joa_1_1_my_r_n_g___parameters.html", null ],
+      [ "SamplerDanielBoso::MyRNG_Parameters", "class_sampler_daniel_boso_1_1_my_r_n_g___parameters.html", null ]
     ] ],
     [ "runtime_error", null, [
       [ "yy::genesyspp_parser::syntax_error", "structyy_1_1genesyspp__parser_1_1syntax__error.html", null ]
     ] ],
     [ "Sampler_if", "class_sampler__if.html", [
       [ "Sampler_BruFabJoa", "class_sampler___bru_fab_joa.html", null ],
+      [ "SamplerDanielBoso", "class_sampler_daniel_boso.html", null ],
       [ "SamplerMyImpl1", "class_sampler_my_impl1.html", null ]
     ] ],
     [ "ScenarioExperiment_if", "class_scenario_experiment__if.html", null ],
+    [ "SimulationEvent", "class_simulation_event.html", null ],
     [ "SimulationResponse", "class_simulation_response.html", [
       [ "SimulationControl", "class_simulation_control.html", null ]
     ] ],
@@ -117,6 +124,9 @@ var hierarchy =
     [ "yy::stack< stack_symbol_type >", "classyy_1_1stack.html", null ],
     [ "Statistics_if", "class_statistics__if.html", [
       [ "StatisticsCancianImpl", "class_statistics_cancian_impl.html", null ],
+      [ "StatisticsDanielBoso", "class_statistics_daniel_boso.html", [
+        [ "StatisticsCollectorDanielBoso", "class_statistics_collector_daniel_boso.html", null ]
+      ] ],
       [ "StatisticsMyImpl1", "class_statistics_my_impl1.html", [
         [ "StatisticsCollector", "class_statistics_collector.html", null ]
       ] ]

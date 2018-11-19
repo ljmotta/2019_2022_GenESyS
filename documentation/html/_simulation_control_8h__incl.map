@@ -1,4 +1,5 @@
 <map id="SimulationControl.h" name="SimulationControl.h">
-<area shape="rect" id="node2" href="$_simulation_response_8h.html" title="SimulationResponse.h" alt="" coords="14,80,167,107"/>
-<area shape="rect" id="node4" href="$_on_event_manager_8h.html" title="OnEventManager.h" alt="" coords="83,155,217,181"/>
+<area shape="rect" id="node2" href="$_simulation_response_8h.html" title="SimulationResponse.h" alt="" coords="5,80,157,107"/>
+<area shape="rect" id="node4" href="$_functor_8h.html" title="Functor.h" alt="" coords="139,155,215,181"/>
+<area shape="rect" id="node6" href="$_util_8h.html" title="Util.h" alt="" coords="223,229,276,256"/>
 </map>

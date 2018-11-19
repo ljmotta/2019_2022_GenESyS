@@ -17,7 +17,7 @@
 #include <string>
 
 /*!
- * First and inadequate interface for persistence. It should use the best pattern for the DAO approach
+ * First and inadequate interface for model persistence. It should use the best pattern for the DAO approach
  */
 class ModelPersistence_if {
 public:

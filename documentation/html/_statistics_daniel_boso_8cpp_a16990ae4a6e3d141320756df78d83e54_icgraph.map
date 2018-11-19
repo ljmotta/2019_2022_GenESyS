@@ -1,0 +1,7 @@
+<map id="calculate_variance" name="calculate_variance">
+<area shape="rect" id="node2" href="$class_statistics_daniel_boso.html#ac228a5a8a8a866d34d6d8f5e7b9ede15" title="StatisticsDanielBoso\l::variance" alt="" coords="184,103,328,145"/>
+<area shape="rect" id="node3" href="$class_statistics_daniel_boso.html#ac7cf2864a85369dad7e2d8f214e98ff7" title="StatisticsDanielBoso\l::stddeviation" alt="" coords="401,5,545,46"/>
+<area shape="rect" id="node4" href="$class_statistics_daniel_boso.html#a386746d73807d14c559e1375bd9b48e9" title="StatisticsDanielBoso\l::variationCoef" alt="" coords="401,70,545,111"/>
+<area shape="rect" id="node5" href="$class_statistics_daniel_boso.html#a1402b5e3abad2247a5ebd3a3797022c2" title="StatisticsDanielBoso\l::halfWidthConfidenceInterval" alt="" coords="376,135,571,177"/>
+<area shape="rect" id="node6" href="$class_statistics_daniel_boso.html#a6ffdcdcee9f65a8232b7e5a2c6e0259d" title="StatisticsDanielBoso\l::newSampleSize" alt="" coords="401,201,545,242"/>
+</map>

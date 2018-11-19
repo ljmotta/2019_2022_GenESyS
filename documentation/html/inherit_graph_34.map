@@ -1,3 +1,6 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node2" href="$struct_sampler___bru_fab_joa_1_1_my_r_n_g___parameters.html" title="Sampler_BruFabJoa::\lMyRNG_Parameters" alt="" coords="182,5,330,46"/>
+<area shape="rect" id="node1" href="$class_sampler__if.html" title="Sampler_if" alt="" coords="6,56,90,83"/>
+<area shape="rect" id="node2" href="$class_sampler___bru_fab_joa.html" title="Sampler_BruFabJoa" alt="" coords="139,5,279,32"/>
+<area shape="rect" id="node3" href="$class_sampler_daniel_boso.html" title="SamplerDanielBoso" alt="" coords="141,56,278,83"/>
+<area shape="rect" id="node4" href="$class_sampler_my_impl1.html" title="SamplerMyImpl1" alt="" coords="149,107,269,133"/>
 </map>

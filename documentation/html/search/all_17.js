@@ -42,7 +42,7 @@ var searchData=
   ['yy_5fexceptions',['YY_EXCEPTIONS',['../_genesys_09_09-parser_8cpp.html#a50c42b07435bf2867d707c84388133bf',1,'Genesys++-parser.cpp']]],
   ['yy_5fexit_5ffailure',['YY_EXIT_FAILURE',['../_genesys_09_09-scanner_8cpp.html#ae93e67b85c44f6bd31ead14a552a35c8',1,'Genesys++-scanner.cpp']]],
   ['yy_5fextra_5ftype',['YY_EXTRA_TYPE',['../_genesys_09_09-scanner_8cpp.html#a26938d921de835f6183c02e54cf08828',1,'Genesys++-scanner.cpp']]],
-  ['yy_5ffatal_5ferror',['YY_FATAL_ERROR',['../_genesys_09_09-scanner_8cpp.html#ac0586b8b0b092d02f4ba7d45abe328f2',1,'YY_FATAL_ERROR():&#160;Genesys++-scanner.cpp'],['../_genesys_09_09-scanner_8cpp.html#a25d1992696acab2c6c3b6a6b45d2f487',1,'yy_fatal_error(const char *msg):&#160;Genesys++-scanner.cpp']]],
+  ['yy_5ffatal_5ferror',['yy_fatal_error',['../_genesys_09_09-scanner_8cpp.html#a25d1992696acab2c6c3b6a6b45d2f487',1,'yy_fatal_error(const char *msg):&#160;Genesys++-scanner.cpp'],['../_genesys_09_09-scanner_8cpp.html#ac0586b8b0b092d02f4ba7d45abe328f2',1,'YY_FATAL_ERROR():&#160;Genesys++-scanner.cpp']]],
   ['yy_5ffill_5fbuffer',['yy_fill_buffer',['../structyy__buffer__state.html#a63d2afbb1d79a3fc63df9e12626f827d',1,'yy_buffer_state']]],
   ['yy_5fflex_5fdebug',['yy_flex_debug',['../_genesys_09_09-scanner_8cpp.html#a7411c3bab9eca1afee90113c2d22da37',1,'Genesys++-scanner.cpp']]],
   ['yy_5fflex_5fmajor_5fversion',['YY_FLEX_MAJOR_VERSION',['../_genesys_09_09-scanner_8cpp.html#a243ca1d30872935faf05ea5118ed6fdc',1,'Genesys++-scanner.cpp']]],

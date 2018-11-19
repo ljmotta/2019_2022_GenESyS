@@ -124,14 +124,14 @@ $(document).ready(function(){initNavTree('_parser_flex_bison_impl_8cpp_source.ht
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_parser_flex_bison_impl_8h.html">ParserFlexBisonImpl.h</a>&quot;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_parser_flex_bison_impl.html#aaa64050040b933ecdac46fdbfa3553b3">   16</a></span>&#160;<a class="code" href="class_parser_flex_bison_impl.html#aaa64050040b933ecdac46fdbfa3553b3">ParserFlexBisonImpl::ParserFlexBisonImpl</a>(<a class="code" href="class_model.html">Model</a>* model) {        </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        _model = model;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    driver = <a class="code" href="classgenesyspp__driver.html">genesyspp_driver</a>(_model,<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_parser_flex_bison_impl.html#aaa64050040b933ecdac46fdbfa3553b3">   16</a></span>&#160;<a class="code" href="class_parser_flex_bison_impl.html#aaa64050040b933ecdac46fdbfa3553b3">ParserFlexBisonImpl::ParserFlexBisonImpl</a>(<a class="code" href="class_model.html">Model</a>* model) {</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    _model = model;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    driver = <a class="code" href="classgenesyspp__driver.html">genesyspp_driver</a>(_model, <span class="keyword">false</span>);</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
 <div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_parser_flex_bison_impl.html#a1648bdc0cc7412d99f21d990aea201e1">   21</a></span>&#160;<a class="code" href="class_parser_flex_bison_impl.html#aaa64050040b933ecdac46fdbfa3553b3">ParserFlexBisonImpl::ParserFlexBisonImpl</a>(<a class="code" href="class_model.html">Model</a>* model, <span class="keywordtype">bool</span> <span class="keywordflow">throws</span>) {</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    _model = model;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    driver = <a class="code" href="classgenesyspp__driver.html">genesyspp_driver</a>(_model,<span class="keywordflow">throws</span>);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    driver = <a class="code" href="classgenesyspp__driver.html">genesyspp_driver</a>(_model, <span class="keywordflow">throws</span>);</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
 <div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_parser_flex_bison_impl.html#ae2776e273463002a7cec3b76f5446a95">   26</a></span>&#160;<a class="code" href="class_parser_flex_bison_impl.html#aaa64050040b933ecdac46fdbfa3553b3">ParserFlexBisonImpl::ParserFlexBisonImpl</a>(<span class="keyword">const</span> <a class="code" href="class_parser_flex_bison_impl.html">ParserFlexBisonImpl</a>&amp; orig) {</div>
@@ -142,17 +142,17 @@ $(document).ready(function(){initNavTree('_parser_flex_bison_impl_8cpp_source.ht
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
 <div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="class_parser_flex_bison_impl.html#ae8cd1179a3fad2bf11e1ec513d9e45bb">   32</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="class_parser_flex_bison_impl.html#ae8cd1179a3fad2bf11e1ec513d9e45bb">ParserFlexBisonImpl::parse</a>(<span class="keyword">const</span> std::string expression) { <span class="comment">// may throw exception</span></div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    driver.<a class="code" href="classgenesyspp__driver.html#a00187b9d00b9db5c5ce6ac34fe3d76f0">setThrowsException</a>(<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">try</span>{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">try</span> {</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordtype">int</span> res = driver.<a class="code" href="classgenesyspp__driver.html#a5e63bd1621e53aa24cf2dee47d53ebdc">parse_str</a>(expression);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">if</span>(res == 0){</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keywordflow">if</span> (res == 0) {</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            <span class="keywordflow">return</span> driver.<a class="code" href="classgenesyspp__driver.html#a10d4649f733221a892e0d6f5fe3659d3">getResult</a>();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        }<span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">throw</span> std::string(<span class="stringliteral">&quot;Bison Error&quot;</span>);</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    } <span class="keywordflow">catch</span> (std::string e){</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            std::cout &lt;&lt; e &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            _model-&gt;<a class="code" href="class_model.html#adc0de22631d77864b7956591c39ebc60">getTracer</a>()-&gt;<a class="code" href="class_trace_manager.html#a242d77829b85a436fd2aab2092bfa50c">trace</a>(<a class="code" href="class_util.html#a0a3482cfa2d915e261c0cf528fdc7afca07213a0161f52846ab198be103b5ab43">Util::TraceLevel::errors</a>, e);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    } <span class="keywordflow">catch</span> (std::string e) {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        std::cout &lt;&lt; e &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        _model-&gt;<a class="code" href="class_model.html#adc0de22631d77864b7956591c39ebc60">getTracer</a>()-&gt;<a class="code" href="class_trace_manager.html#a242d77829b85a436fd2aab2092bfa50c">trace</a>(<a class="code" href="class_util.html#a0a3482cfa2d915e261c0cf528fdc7afca07213a0161f52846ab198be103b5ab43">Util::TraceLevel::errors</a>, e);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;}</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
@@ -164,20 +164,20 @@ $(document).ready(function(){initNavTree('_parser_flex_bison_impl_8cpp_source.ht
 <div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="class_parser_flex_bison_impl.html#a25fd55be19467472557819b6eba9f833">   53</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="class_parser_flex_bison_impl.html#ae8cd1179a3fad2bf11e1ec513d9e45bb">ParserFlexBisonImpl::parse</a>(<span class="keyword">const</span> std::string expression, <span class="keywordtype">bool</span>* success, std::string* errorMessage) {</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    driver.<a class="code" href="classgenesyspp__driver.html#a00187b9d00b9db5c5ce6ac34fe3d76f0">setThrowsException</a>(<span class="keyword">false</span>);</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">int</span> res = driver.<a class="code" href="classgenesyspp__driver.html#a5e63bd1621e53aa24cf2dee47d53ebdc">parse_str</a>(expression);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">if</span>(res == 0){</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">if</span> (res == 0) {</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        *success = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">return</span> driver.<a class="code" href="classgenesyspp__driver.html#a10d4649f733221a892e0d6f5fe3659d3">getResult</a>();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }<span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        *success = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        *errorMessage = driver.<a class="code" href="classgenesyspp__driver.html#aa7498e1f29e32ce86bb74aa1e4967bb3">getErrorMessage</a>();</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }   </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
 <div class="ttc" id="classgenesyspp__driver_html_a10d4649f733221a892e0d6f5fe3659d3"><div class="ttname"><a href="classgenesyspp__driver.html#a10d4649f733221a892e0d6f5fe3659d3">genesyspp_driver::getResult</a></div><div class="ttdeci">double getResult()</div><div class="ttdef"><b>Definition:</b> <a href="_genesys_09_09-driver_8cpp_source.html#l00049">Genesys++-driver.cpp:49</a></div></div>
 <div class="ttc" id="class_model_html"><div class="ttname"><a href="class_model.html">Model</a></div><div class="ttdef"><b>Definition:</b> <a href="_model_8h_source.html#l00039">Model.h:39</a></div></div>
 <div class="ttc" id="class_parser_flex_bison_impl_html_a76f69104a38e541ee28bae08dc0eb972"><div class="ttname"><a href="class_parser_flex_bison_impl.html#a76f69104a38e541ee28bae08dc0eb972">ParserFlexBisonImpl::getErrorMessage</a></div><div class="ttdeci">std::string * getErrorMessage()</div><div class="ttdef"><b>Definition:</b> <a href="_parser_flex_bison_impl_8cpp_source.html#l00048">ParserFlexBisonImpl.cpp:48</a></div></div>
 <div class="ttc" id="class_parser_flex_bison_impl_html_ae8cd1179a3fad2bf11e1ec513d9e45bb"><div class="ttname"><a href="class_parser_flex_bison_impl.html#ae8cd1179a3fad2bf11e1ec513d9e45bb">ParserFlexBisonImpl::parse</a></div><div class="ttdeci">double parse(const std::string expression)</div><div class="ttdef"><b>Definition:</b> <a href="_parser_flex_bison_impl_8cpp_source.html#l00032">ParserFlexBisonImpl.cpp:32</a></div></div>
-<div class="ttc" id="class_model_html_adc0de22631d77864b7956591c39ebc60"><div class="ttname"><a href="class_model.html#adc0de22631d77864b7956591c39ebc60">Model::getTracer</a></div><div class="ttdeci">TraceManager * getTracer() const </div><div class="ttdef"><b>Definition:</b> <a href="_model_8cpp_source.html#l00164">Model.cpp:164</a></div></div>
+<div class="ttc" id="class_model_html_adc0de22631d77864b7956591c39ebc60"><div class="ttname"><a href="class_model.html#adc0de22631d77864b7956591c39ebc60">Model::getTracer</a></div><div class="ttdeci">TraceManager * getTracer() const </div><div class="ttdef"><b>Definition:</b> <a href="_model_8cpp_source.html#l00161">Model.cpp:161</a></div></div>
 <div class="ttc" id="classgenesyspp__driver_html_a5e63bd1621e53aa24cf2dee47d53ebdc"><div class="ttname"><a href="classgenesyspp__driver.html#a5e63bd1621e53aa24cf2dee47d53ebdc">genesyspp_driver::parse_str</a></div><div class="ttdeci">int parse_str(const std::string &amp;str)</div><div class="ttdef"><b>Definition:</b> <a href="_genesys_09_09-driver_8cpp_source.html#l00033">Genesys++-driver.cpp:33</a></div></div>
 <div class="ttc" id="class_parser_flex_bison_impl_html_aaa64050040b933ecdac46fdbfa3553b3"><div class="ttname"><a href="class_parser_flex_bison_impl.html#aaa64050040b933ecdac46fdbfa3553b3">ParserFlexBisonImpl::ParserFlexBisonImpl</a></div><div class="ttdeci">ParserFlexBisonImpl(Model *model)</div><div class="ttdef"><b>Definition:</b> <a href="_parser_flex_bison_impl_8cpp_source.html#l00016">ParserFlexBisonImpl.cpp:16</a></div></div>
 <div class="ttc" id="classgenesyspp__driver_html_a00187b9d00b9db5c5ce6ac34fe3d76f0"><div class="ttname"><a href="classgenesyspp__driver.html#a00187b9d00b9db5c5ce6ac34fe3d76f0">genesyspp_driver::setThrowsException</a></div><div class="ttdeci">void setThrowsException(bool throws)</div><div class="ttdef"><b>Definition:</b> <a href="_genesys_09_09-driver_8cpp_source.html#l00057">Genesys++-driver.cpp:57</a></div></div>
@@ -194,7 +194,7 @@ $(document).ready(function(){initNavTree('_parser_flex_bison_impl_8cpp_source.ht
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="_parser_flex_bison_impl_8cpp.html">ParserFlexBisonImpl.cpp</a></li>
-    <li class="footer">Generated on Thu Nov 8 2018 20:21:17 for ReGenESyS - Reborn Generic and Expansible System Simulator by
+    <li class="footer">Generated on Mon Nov 19 2018 09:19:44 for ReGenESyS - Reborn Generic and Expansible System Simulator by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

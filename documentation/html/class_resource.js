@@ -1,22 +1,22 @@
 var class_resource =
 [
-    [ "ResourceRule", "class_resource.html#a8e67503c93766e1ecb47c6a9d744f86d", [
-      [ "rrRANDOM", "class_resource.html#a8e67503c93766e1ecb47c6a9d744f86da35e421844dca71ec174971aa97115840", null ],
-      [ "rrCICLICAL", "class_resource.html#a8e67503c93766e1ecb47c6a9d744f86dafe57c66e48e17e6731cfbc8a172b98bb", null ],
-      [ "rrESPECIFIC", "class_resource.html#a8e67503c93766e1ecb47c6a9d744f86da3d868b559ad89a9b17c107d5f1fea2c8", null ],
-      [ "rrSMALLESTBUSY", "class_resource.html#a8e67503c93766e1ecb47c6a9d744f86da8423d3c9eb253a2aaab93238704bcc27", null ],
-      [ "rrLARGESTREMAININGCAPACITY", "class_resource.html#a8e67503c93766e1ecb47c6a9d744f86da732d729550952cbc7a1ae02d4d29f029", null ]
+    [ "ResourceRule", "class_resource.html#afa28dce79d48cbaf6b10f899f2dedfb7", [
+      [ "RANDOM", "class_resource.html#afa28dce79d48cbaf6b10f899f2dedfb7a170e02e86972c2be8559884cc3c12254", null ],
+      [ "CICLICAL", "class_resource.html#afa28dce79d48cbaf6b10f899f2dedfb7a799276ee6dde6c0ae5c9fb1cacf14531", null ],
+      [ "ESPECIFIC", "class_resource.html#afa28dce79d48cbaf6b10f899f2dedfb7af3445810d590ed87cd13c95d4ed17d0a", null ],
+      [ "SMALLESTBUSY", "class_resource.html#afa28dce79d48cbaf6b10f899f2dedfb7a3a3df6d137a401694ba70b55e6ff7305", null ],
+      [ "LARGESTREMAININGCAPACITY", "class_resource.html#afa28dce79d48cbaf6b10f899f2dedfb7a523a069c516b904643398d8457bf5053", null ]
     ] ],
-    [ "ResourceState", "class_resource.html#ad7a514f9a27e0010b59e147b8368970f", [
-      [ "rsIDLE", "class_resource.html#ad7a514f9a27e0010b59e147b8368970fa58d7f4e406cf4c81434aeba75bc2c5ce", null ],
-      [ "rsBUSY", "class_resource.html#ad7a514f9a27e0010b59e147b8368970fab5265186ddf53906ee4b96b376f5eac6", null ],
-      [ "rsFAILED", "class_resource.html#ad7a514f9a27e0010b59e147b8368970fa42c07e49a872f3c388028ca9c9f23f9a", null ],
-      [ "rsINACTIVE", "class_resource.html#ad7a514f9a27e0010b59e147b8368970fa69fd406e2c63317863f50fe9de605305", null ],
-      [ "rsOTHER", "class_resource.html#ad7a514f9a27e0010b59e147b8368970fae6ab6440bf6274e3965c6cddd700a5d2", null ]
+    [ "ResourceState", "class_resource.html#af2224610b59962683d3cafbdac10621a", [
+      [ "IDLE", "class_resource.html#af2224610b59962683d3cafbdac10621aaa5daf7f2ebbba4975d61dab1c40188c7", null ],
+      [ "BUSY", "class_resource.html#af2224610b59962683d3cafbdac10621aa802706a9238e2928077f97736854bad4", null ],
+      [ "FAILED", "class_resource.html#af2224610b59962683d3cafbdac10621aab9e14d9b2886bcff408b85aefa780419", null ],
+      [ "INACTIVE", "class_resource.html#af2224610b59962683d3cafbdac10621aa6b273343c454f9c53dcfc9c4ccf171d2", null ],
+      [ "OTHER", "class_resource.html#af2224610b59962683d3cafbdac10621aa03570470bad94692ce93e32700d2e1cb", null ]
     ] ],
-    [ "ResourceType", "class_resource.html#ae2554291a9f2c6b3fedb01d0ca41bfd8", [
-      [ "rtSET", "class_resource.html#ae2554291a9f2c6b3fedb01d0ca41bfd8a4d9374214afc5a64dc30c7406fa2282d", null ],
-      [ "rtRESOURCE", "class_resource.html#ae2554291a9f2c6b3fedb01d0ca41bfd8a9d86c2e4e2f9cb022e88d5593a9517af", null ]
+    [ "ResourceType", "class_resource.html#aa607c54bf52a9c36b331888ee936a52c", [
+      [ "SET", "class_resource.html#aa607c54bf52a9c36b331888ee936a52ca8c52684db8f49511e9b44471716bf164", null ],
+      [ "RESOURCE", "class_resource.html#aa607c54bf52a9c36b331888ee936a52ca4f49da9035f276c0947466eb7c42249a", null ]
     ] ],
     [ "Resource", "class_resource.html#a1a8ae095067797fa47b0241ee278536c", null ],
     [ "Resource", "class_resource.html#a30f2ca8f0617a6628ebd246b14b50566", null ],

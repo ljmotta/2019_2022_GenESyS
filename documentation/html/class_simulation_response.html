@@ -127,8 +127,8 @@ Inheritance diagram for SimulationResponse:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac1e30f0ae4469ce18df3261e7d4c4781"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation_response.html#ac1e30f0ae4469ce18df3261e7d4c4781">SimulationResponse</a> (std::string type, std::string name, <a class="el" href="_on_event_manager_8h.html#aa97195a0d80442c68665a1267e6ea97b">memberFunctionGetDoubleVarHandler</a> getHandler)</td></tr>
-<tr class="separator:ac1e30f0ae4469ce18df3261e7d4c4781"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04cf14f90cd74a234491c653c772834e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation_response.html#a04cf14f90cd74a234491c653c772834e">SimulationResponse</a> (std::string type, std::string name, <a class="el" href="_functor_8h.html#a69893c7d35bc5c3bdb40b1034fe4838e">GetFunctor</a> getFunctor)</td></tr>
+<tr class="separator:a04cf14f90cd74a234491c653c772834e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa3a1bdb3a9a330eea2264fdeaa2bdb2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation_response.html#aaa3a1bdb3a9a330eea2264fdeaa2bdb2">SimulationResponse</a> (const <a class="el" href="class_simulation_response.html">SimulationResponse</a> &amp;orig)</td></tr>
 <tr class="separator:aaa3a1bdb3a9a330eea2264fdeaa2bdb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acca988782297cd916b8a8532368fc94d"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation_response.html#acca988782297cd916b8a8532368fc94d">~SimulationResponse</a> ()</td></tr>
@@ -146,15 +146,15 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:af62ba9398deece20fd91dc29e2a79880"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad68ae541afb9cbf6cce4529eb4fb106f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation_response.html#ad68ae541afb9cbf6cce4529eb4fb106f">_name</a></td></tr>
 <tr class="separator:ad68ae541afb9cbf6cce4529eb4fb106f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab472c43caad86b854d557cf4d0abf714"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_on_event_manager_8h.html#aa97195a0d80442c68665a1267e6ea97b">memberFunctionGetDoubleVarHandler</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation_response.html#ab472c43caad86b854d557cf4d0abf714">_memberFunctionGetDoubleHandler</a></td></tr>
-<tr class="separator:ab472c43caad86b854d557cf4d0abf714"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace73436827053ff50cc1c60e858189af"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_functor_8h.html#a69893c7d35bc5c3bdb40b1034fe4838e">GetFunctor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulation_response.html#ace73436827053ff50cc1c60e858189af">_memberFunctionGetDoubleHandler</a></td></tr>
+<tr class="separator:ace73436827053ff50cc1c60e858189af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents any possible response of a simulation. Any infrastructure or event the model can declare one of its own attribute as a simulation response. It just have to create a <a class="el" href="class_simulation_response.html">SimulationResponse</a> object, passing the access to the method that gets the response value and including this <a class="el" href="class_simulation_response.html">SimulationResponse</a> in the corresponding list of the model </p>
 
 <p>Definition at line <a class="el" href="_simulation_response_8h_source.html#l00023">23</a> of file <a class="el" href="_simulation_response_8h_source.html">SimulationResponse.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ac1e30f0ae4469ce18df3261e7d4c4781"></a>
+<a class="anchor" id="a04cf14f90cd74a234491c653c772834e"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -173,8 +173,8 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="_on_event_manager_8h.html#aa97195a0d80442c68665a1267e6ea97b">memberFunctionGetDoubleVarHandler</a>&#160;</td>
-          <td class="paramname"><em>getHandler</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="_functor_8h.html#a69893c7d35bc5c3bdb40b1034fe4838e">GetFunctor</a>&#160;</td>
+          <td class="paramname"><em>getFunctor</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -184,7 +184,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_simulation_response_8cpp_source.html#l00016">16</a> of file <a class="el" href="_simulation_response_8cpp_source.html">SimulationResponse.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_simulation_response_8cpp_source.html#l00017">17</a> of file <a class="el" href="_simulation_response_8cpp_source.html">SimulationResponse.cpp</a>.</p>
 
 </div>
 </div>
@@ -202,7 +202,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_simulation_response_8cpp_source.html#l00022">22</a> of file <a class="el" href="_simulation_response_8cpp_source.html">SimulationResponse.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_simulation_response_8cpp_source.html#l00023">23</a> of file <a class="el" href="_simulation_response_8cpp_source.html">SimulationResponse.cpp</a>.</p>
 
 </div>
 </div>
@@ -227,7 +227,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_simulation_response_8cpp_source.html#l00025">25</a> of file <a class="el" href="_simulation_response_8cpp_source.html">SimulationResponse.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_simulation_response_8cpp_source.html#l00026">26</a> of file <a class="el" href="_simulation_response_8cpp_source.html">SimulationResponse.cpp</a>.</p>
 
 </div>
 </div>
@@ -245,7 +245,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_simulation_response_8cpp_source.html#l00028">28</a> of file <a class="el" href="_simulation_response_8cpp_source.html">SimulationResponse.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_simulation_response_8cpp_source.html#l00029">29</a> of file <a class="el" href="_simulation_response_8cpp_source.html">SimulationResponse.cpp</a>.</p>
 
 </div>
 </div>
@@ -262,7 +262,7 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_simulation_response_8cpp_source.html#l00032">32</a> of file <a class="el" href="_simulation_response_8cpp_source.html">SimulationResponse.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_simulation_response_8cpp_source.html#l00033">33</a> of file <a class="el" href="_simulation_response_8cpp_source.html">SimulationResponse.cpp</a>.</p>
 
 </div>
 </div>
@@ -279,12 +279,12 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_simulation_response_8cpp_source.html#l00037">37</a> of file <a class="el" href="_simulation_response_8cpp_source.html">SimulationResponse.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_simulation_response_8cpp_source.html#l00038">38</a> of file <a class="el" href="_simulation_response_8cpp_source.html">SimulationResponse.cpp</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="ab472c43caad86b854d557cf4d0abf714"></a>
+<a class="anchor" id="ace73436827053ff50cc1c60e858189af"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -292,7 +292,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_on_event_manager_8h.html#aa97195a0d80442c68665a1267e6ea97b">memberFunctionGetDoubleVarHandler</a> SimulationResponse::_memberFunctionGetDoubleHandler</td>
+          <td class="memname"><a class="el" href="_functor_8h.html#a69893c7d35bc5c3bdb40b1034fe4838e">GetFunctor</a> SimulationResponse::_memberFunctionGetDoubleHandler</td>
         </tr>
       </table>
   </td>
@@ -360,7 +360,7 @@ Protected Attributes</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_simulation_response.html">SimulationResponse</a></li>
-    <li class="footer">Generated on Thu Nov 8 2018 20:21:18 for ReGenESyS - Reborn Generic and Expansible System Simulator by
+    <li class="footer">Generated on Mon Nov 19 2018 09:19:45 for ReGenESyS - Reborn Generic and Expansible System Simulator by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

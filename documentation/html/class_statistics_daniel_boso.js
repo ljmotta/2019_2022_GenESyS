@@ -1,0 +1,26 @@
+var class_statistics_daniel_boso =
+[
+    [ "StatisticsDanielBoso", "class_statistics_daniel_boso.html#a071fe19fe8e4798a3121e80939d16ee3", null ],
+    [ "StatisticsDanielBoso", "class_statistics_daniel_boso.html#aaa77292969248fccd8054698a98826a1", null ],
+    [ "~StatisticsDanielBoso", "class_statistics_daniel_boso.html#a7258300027b2afb8b04f77319df43f86", null ],
+    [ "average", "class_statistics_daniel_boso.html#aa9fe6050712928218361095327527ee6", null ],
+    [ "centil", "class_statistics_daniel_boso.html#a3e2e880557836b36b9acc2d77d4e8cf7", null ],
+    [ "decil", "class_statistics_daniel_boso.html#a95ed14261af6328daa1552167ec7a102", null ],
+    [ "getCollector", "class_statistics_daniel_boso.html#a00c8fa132a65e7545abea14059521075", null ],
+    [ "halfWidthConfidenceInterval", "class_statistics_daniel_boso.html#a1402b5e3abad2247a5ebd3a3797022c2", null ],
+    [ "histogramClassFrequency", "class_statistics_daniel_boso.html#a044752eb543dee95f0589bfad236d987", null ],
+    [ "histogramClassLowerLimit", "class_statistics_daniel_boso.html#ac12871289cbff9e271eb452cf0c8b1ce", null ],
+    [ "histogramNumClasses", "class_statistics_daniel_boso.html#ade9cfc25ca07bb7454be97526e96896a", null ],
+    [ "max", "class_statistics_daniel_boso.html#aff2c0e4e5228df0c032b826612cf7af2", null ],
+    [ "mediane", "class_statistics_daniel_boso.html#a2b8c84e1ed1ff68b110dcb1f6fec9047", null ],
+    [ "min", "class_statistics_daniel_boso.html#a027ba7feae745623efd1b63352dd4363", null ],
+    [ "mode", "class_statistics_daniel_boso.html#a7c140b62733f5de4607ae77fa134dc00", null ],
+    [ "newSampleSize", "class_statistics_daniel_boso.html#a6ffdcdcee9f65a8232b7e5a2c6e0259d", null ],
+    [ "numElements", "class_statistics_daniel_boso.html#a5a5988fd21e4cc41cf4e1ed87c6b7e15", null ],
+    [ "quartil", "class_statistics_daniel_boso.html#ab587a37e916c51b02c2418775d28701e", null ],
+    [ "setCollector", "class_statistics_daniel_boso.html#a112d28208c76816f8b3ed1bed318f1e4", null ],
+    [ "setHistogramNumClasses", "class_statistics_daniel_boso.html#a2da6c0a10794a925a21e4806605444b7", null ],
+    [ "stddeviation", "class_statistics_daniel_boso.html#ac7cf2864a85369dad7e2d8f214e98ff7", null ],
+    [ "variance", "class_statistics_daniel_boso.html#ac228a5a8a8a866d34d6d8f5e7b9ede15", null ],
+    [ "variationCoef", "class_statistics_daniel_boso.html#a386746d73807d14c559e1375bd9b48e9", null ]
+];

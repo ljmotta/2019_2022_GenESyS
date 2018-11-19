@@ -155,37 +155,36 @@ $(document).ready(function(){initNavTree('_entity_type_8h_source.html','');});
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="class_statistics_collector.html">StatisticsCollector</a>* <a class="code" href="class_entity_type.html#a8b6a8b11d428c9e23800d01701e7fbd1">getCstatOtherTime</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <a class="code" href="class_statistics_collector.html">StatisticsCollector</a>* <a class="code" href="class_entity_type.html#a2604288226dd7fc0c6c322d415b891cc">getCstatTransferTime</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <a class="code" href="class_statistics_collector.html">StatisticsCollector</a>* <a class="code" href="class_entity_type.html#ae43feed54cd8661efb317ef4891bcfcf">getCstatWaitingTime</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">protected</span>: </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_entity_type.html#af88c3d67f9eb8b92b4e32e04bed6730f">_loadInstance</a>(std::list&lt;std::string&gt; words);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">virtual</span> std::list&lt;std::string&gt;* <a class="code" href="class_entity_type.html#a4f6179d5043e750d9555d6eeef8de4cd">_saveInstance</a>();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_entity_type.html#a50e21c4807823132e777529c70bf7cef">_verifySymbols</a>(std::string* errorMessage);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    std::string _initialPicture = <span class="stringliteral">&quot;report&quot;</span>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">double</span> _initialVACost = 0.0;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">double</span> _initialNVACost = 0.0;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">double</span> _initialOtherCost = 0.0;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">double</span> _initialWaitingCost = 0.0;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="class_statistics_collector.html">StatisticsCollector</a>* _cstatWaitingTime; <span class="comment">// = new StatisticsCollector(&quot;Waiting Time&quot;);</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="class_statistics_collector.html">StatisticsCollector</a>* _cstatTransferTime; <span class="comment">// = new StatisticsCollector(&quot;Transfer Time&quot;);</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="class_statistics_collector.html">StatisticsCollector</a>* _cstatOtherTime; <span class="comment">// = new StatisticsCollector(&quot;Other Time&quot;);</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="class_statistics_collector.html">StatisticsCollector</a>* _cstatVATime; <span class="comment">// = new StatisticsCollector(&quot;Value Added Time&quot;);</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="class_statistics_collector.html">StatisticsCollector</a>* _cstatNVATime; <span class="comment">// = new StatisticsCollector(&quot;Non Value Added Time&quot;);</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="class_statistics_collector.html">StatisticsCollector</a>* _cstatTimeInSystem; <span class="comment">// = new StatisticsCollector(&quot;Time In System&quot;);</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;};</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* ENTITYTYPE_H */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">protected</span>: <span class="comment">// must be overriden by derived classes</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_entity_type.html#af88c3d67f9eb8b92b4e32e04bed6730f">_loadInstance</a>(std::list&lt;std::string&gt; words);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">virtual</span> std::list&lt;std::string&gt;* <a class="code" href="class_entity_type.html#a4f6179d5043e750d9555d6eeef8de4cd">_saveInstance</a>();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_entity_type.html#a50e21c4807823132e777529c70bf7cef">_verifySymbols</a>(std::string* errorMessage);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    std::string _initialPicture = <span class="stringliteral">&quot;report&quot;</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">double</span> _initialVACost = 0.0;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">double</span> _initialNVACost = 0.0;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">double</span> _initialOtherCost = 0.0;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">double</span> _initialWaitingCost = 0.0;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="class_statistics_collector.html">StatisticsCollector</a>* _cstatWaitingTime; <span class="comment">// = new StatisticsCollector(&quot;Waiting Time&quot;);</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="class_statistics_collector.html">StatisticsCollector</a>* _cstatTransferTime; <span class="comment">// = new StatisticsCollector(&quot;Transfer Time&quot;);</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="class_statistics_collector.html">StatisticsCollector</a>* _cstatOtherTime; <span class="comment">// = new StatisticsCollector(&quot;Other Time&quot;);</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="class_statistics_collector.html">StatisticsCollector</a>* _cstatVATime; <span class="comment">// = new StatisticsCollector(&quot;Value Added Time&quot;);</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="class_statistics_collector.html">StatisticsCollector</a>* _cstatNVATime; <span class="comment">// = new StatisticsCollector(&quot;Non Value Added Time&quot;);</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="class_statistics_collector.html">StatisticsCollector</a>* _cstatTimeInSystem; <span class="comment">// = new StatisticsCollector(&quot;Time In System&quot;);</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;};</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* ENTITYTYPE_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor"></span></div>
 <div class="ttc" id="class_entity_type_html_a46dd0977b19bf167eeb12db97464b757"><div class="ttname"><a href="class_entity_type.html#a46dd0977b19bf167eeb12db97464b757">EntityType::getInitialWaitingCost</a></div><div class="ttdeci">double getInitialWaitingCost() const </div><div class="ttdef"><b>Definition:</b> <a href="_entity_type_8cpp_source.html#l00060">EntityType.cpp:60</a></div></div>
 <div class="ttc" id="class_entity_type_html_a9833d4a85dcb5c5bd9db02e1e2e45dd9"><div class="ttname"><a href="class_entity_type.html#a9833d4a85dcb5c5bd9db02e1e2e45dd9">EntityType::getInitialVACost</a></div><div class="ttdeci">double getInitialVACost() const </div><div class="ttdef"><b>Definition:</b> <a href="_entity_type_8cpp_source.html#l00084">EntityType.cpp:84</a></div></div>
 <div class="ttc" id="class_statistics_collector_html"><div class="ttname"><a href="class_statistics_collector.html">StatisticsCollector</a></div><div class="ttdef"><b>Definition:</b> <a href="_statistics_collector_8h_source.html#l00021">StatisticsCollector.h:21</a></div></div>
 <div class="ttc" id="_model_8h_html"><div class="ttname"><a href="_model_8h.html">Model.h</a></div></div>
 <div class="ttc" id="class_model_html"><div class="ttname"><a href="class_model.html">Model</a></div><div class="ttdef"><b>Definition:</b> <a href="_model_8h_source.html#l00039">Model.h:39</a></div></div>
 <div class="ttc" id="class_entity_type_html_ab5a696912b12a9f51decded90f368dea"><div class="ttname"><a href="class_entity_type.html#ab5a696912b12a9f51decded90f368dea">EntityType::show</a></div><div class="ttdeci">virtual std::string show()</div><div class="ttdef"><b>Definition:</b> <a href="_entity_type_8cpp_source.html#l00051">EntityType.cpp:51</a></div></div>
-<div class="ttc" id="class_model_infrastructure_html"><div class="ttname"><a href="class_model_infrastructure.html">ModelInfrastructure</a></div><div class="ttdef"><b>Definition:</b> <a href="_model_infrastructure_8h_source.html#l00021">ModelInfrastructure.h:21</a></div></div>
+<div class="ttc" id="class_model_infrastructure_html"><div class="ttname"><a href="class_model_infrastructure.html">ModelInfrastructure</a></div><div class="ttdef"><b>Definition:</b> <a href="_model_infrastructure_8h_source.html#l00022">ModelInfrastructure.h:22</a></div></div>
 <div class="ttc" id="class_entity_type_html_a32f126822c567a887a446a763db13d64"><div class="ttname"><a href="class_entity_type.html#a32f126822c567a887a446a763db13d64">EntityType::setInitialOtherCost</a></div><div class="ttdeci">void setInitialOtherCost(double _initialOtherCost)</div><div class="ttdef"><b>Definition:</b> <a href="_entity_type_8cpp_source.html#l00064">EntityType.cpp:64</a></div></div>
 <div class="ttc" id="class_entity_type_html"><div class="ttname"><a href="class_entity_type.html">EntityType</a></div><div class="ttdef"><b>Definition:</b> <a href="_entity_type_8h_source.html#l00022">EntityType.h:22</a></div></div>
 <div class="ttc" id="class_entity_type_html_a4f6179d5043e750d9555d6eeef8de4cd"><div class="ttname"><a href="class_entity_type.html#a4f6179d5043e750d9555d6eeef8de4cd">EntityType::_saveInstance</a></div><div class="ttdeci">virtual std::list&lt; std::string &gt; * _saveInstance()</div><div class="ttdef"><b>Definition:</b> <a href="_entity_type_8cpp_source.html#l00124">EntityType.cpp:124</a></div></div>
@@ -214,7 +213,7 @@ $(document).ready(function(){initNavTree('_entity_type_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="_entity_type_8h.html">EntityType.h</a></li>
-    <li class="footer">Generated on Thu Nov 8 2018 20:21:17 for ReGenESyS - Reborn Generic and Expansible System Simulator by
+    <li class="footer">Generated on Mon Nov 19 2018 09:19:44 for ReGenESyS - Reborn Generic and Expansible System Simulator by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -135,30 +135,30 @@ Collaboration diagram for Resource:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ae2554291a9f2c6b3fedb01d0ca41bfd8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_resource.html#ae2554291a9f2c6b3fedb01d0ca41bfd8">ResourceType</a> { <a class="el" href="class_resource.html#ae2554291a9f2c6b3fedb01d0ca41bfd8a4d9374214afc5a64dc30c7406fa2282d">rtSET</a>, 
-<a class="el" href="class_resource.html#ae2554291a9f2c6b3fedb01d0ca41bfd8a9d86c2e4e2f9cb022e88d5593a9517af">rtRESOURCE</a>
+<tr class="memitem:aa607c54bf52a9c36b331888ee936a52c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_resource.html#aa607c54bf52a9c36b331888ee936a52c">ResourceType</a> : int { <a class="el" href="class_resource.html#aa607c54bf52a9c36b331888ee936a52ca8c52684db8f49511e9b44471716bf164">ResourceType::SET</a> =1, 
+<a class="el" href="class_resource.html#aa607c54bf52a9c36b331888ee936a52ca4f49da9035f276c0947466eb7c42249a">ResourceType::RESOURCE</a> =2
  }</td></tr>
-<tr class="separator:ae2554291a9f2c6b3fedb01d0ca41bfd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e67503c93766e1ecb47c6a9d744f86d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_resource.html#a8e67503c93766e1ecb47c6a9d744f86d">ResourceRule</a> { <br/>
-&#160;&#160;<a class="el" href="class_resource.html#a8e67503c93766e1ecb47c6a9d744f86da35e421844dca71ec174971aa97115840">rrRANDOM</a>, 
-<a class="el" href="class_resource.html#a8e67503c93766e1ecb47c6a9d744f86dafe57c66e48e17e6731cfbc8a172b98bb">rrCICLICAL</a>, 
-<a class="el" href="class_resource.html#a8e67503c93766e1ecb47c6a9d744f86da3d868b559ad89a9b17c107d5f1fea2c8">rrESPECIFIC</a>, 
-<a class="el" href="class_resource.html#a8e67503c93766e1ecb47c6a9d744f86da8423d3c9eb253a2aaab93238704bcc27">rrSMALLESTBUSY</a>, 
+<tr class="separator:aa607c54bf52a9c36b331888ee936a52c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa28dce79d48cbaf6b10f899f2dedfb7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_resource.html#afa28dce79d48cbaf6b10f899f2dedfb7">ResourceRule</a> : int { <br/>
+&#160;&#160;<a class="el" href="class_resource.html#afa28dce79d48cbaf6b10f899f2dedfb7a170e02e86972c2be8559884cc3c12254">ResourceRule::RANDOM</a> =1, 
+<a class="el" href="class_resource.html#afa28dce79d48cbaf6b10f899f2dedfb7a799276ee6dde6c0ae5c9fb1cacf14531">ResourceRule::CICLICAL</a> =2, 
+<a class="el" href="class_resource.html#afa28dce79d48cbaf6b10f899f2dedfb7af3445810d590ed87cd13c95d4ed17d0a">ResourceRule::ESPECIFIC</a> =3, 
+<a class="el" href="class_resource.html#afa28dce79d48cbaf6b10f899f2dedfb7a3a3df6d137a401694ba70b55e6ff7305">ResourceRule::SMALLESTBUSY</a> =4, 
 <br/>
-&#160;&#160;<a class="el" href="class_resource.html#a8e67503c93766e1ecb47c6a9d744f86da732d729550952cbc7a1ae02d4d29f029">rrLARGESTREMAININGCAPACITY</a>
-<br/>
- }</td></tr>
-<tr class="separator:a8e67503c93766e1ecb47c6a9d744f86d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7a514f9a27e0010b59e147b8368970f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_resource.html#ad7a514f9a27e0010b59e147b8368970f">ResourceState</a> { <br/>
-&#160;&#160;<a class="el" href="class_resource.html#ad7a514f9a27e0010b59e147b8368970fa58d7f4e406cf4c81434aeba75bc2c5ce">rsIDLE</a>, 
-<a class="el" href="class_resource.html#ad7a514f9a27e0010b59e147b8368970fab5265186ddf53906ee4b96b376f5eac6">rsBUSY</a>, 
-<a class="el" href="class_resource.html#ad7a514f9a27e0010b59e147b8368970fa42c07e49a872f3c388028ca9c9f23f9a">rsFAILED</a>, 
-<a class="el" href="class_resource.html#ad7a514f9a27e0010b59e147b8368970fa69fd406e2c63317863f50fe9de605305">rsINACTIVE</a>, 
-<br/>
-&#160;&#160;<a class="el" href="class_resource.html#ad7a514f9a27e0010b59e147b8368970fae6ab6440bf6274e3965c6cddd700a5d2">rsOTHER</a>
+&#160;&#160;<a class="el" href="class_resource.html#afa28dce79d48cbaf6b10f899f2dedfb7a523a069c516b904643398d8457bf5053">ResourceRule::LARGESTREMAININGCAPACITY</a> =5
 <br/>
  }</td></tr>
-<tr class="separator:ad7a514f9a27e0010b59e147b8368970f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:afa28dce79d48cbaf6b10f899f2dedfb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2224610b59962683d3cafbdac10621a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_resource.html#af2224610b59962683d3cafbdac10621a">ResourceState</a> : int { <br/>
+&#160;&#160;<a class="el" href="class_resource.html#af2224610b59962683d3cafbdac10621aaa5daf7f2ebbba4975d61dab1c40188c7">ResourceState::IDLE</a> =1, 
+<a class="el" href="class_resource.html#af2224610b59962683d3cafbdac10621aa802706a9238e2928077f97736854bad4">ResourceState::BUSY</a> =2, 
+<a class="el" href="class_resource.html#af2224610b59962683d3cafbdac10621aab9e14d9b2886bcff408b85aefa780419">ResourceState::FAILED</a> =3, 
+<a class="el" href="class_resource.html#af2224610b59962683d3cafbdac10621aa6b273343c454f9c53dcfc9c4ccf171d2">ResourceState::INACTIVE</a> =4, 
+<br/>
+&#160;&#160;<a class="el" href="class_resource.html#af2224610b59962683d3cafbdac10621aa03570470bad94692ce93e32700d2e1cb">ResourceState::OTHER</a> =5
+<br/>
+ }</td></tr>
+<tr class="separator:af2224610b59962683d3cafbdac10621a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -174,9 +174,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4c9cc891367f2af07511d8897255d625"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5da4dca5dd48a4818827e6273c20c2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_resource.html#ad5da4dca5dd48a4818827e6273c20c2d">release</a> (unsigned int quantity, double tnow)</td></tr>
 <tr class="separator:ad5da4dca5dd48a4818827e6273c20c2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba60047e3a2400f2aec478b1cfa3647e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_resource.html#aba60047e3a2400f2aec478b1cfa3647e">setResourceState</a> (<a class="el" href="class_resource.html#ad7a514f9a27e0010b59e147b8368970f">ResourceState</a> _resourceState)</td></tr>
+<tr class="memitem:aba60047e3a2400f2aec478b1cfa3647e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_resource.html#aba60047e3a2400f2aec478b1cfa3647e">setResourceState</a> (<a class="el" href="class_resource.html#af2224610b59962683d3cafbdac10621a">ResourceState</a> _resourceState)</td></tr>
 <tr class="separator:aba60047e3a2400f2aec478b1cfa3647e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac832a54ae1e20a2f7137aefd3a5fc003"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_resource.html#ad7a514f9a27e0010b59e147b8368970f">ResourceState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_resource.html#ac832a54ae1e20a2f7137aefd3a5fc003">getResourceState</a> () const </td></tr>
+<tr class="memitem:ac832a54ae1e20a2f7137aefd3a5fc003"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_resource.html#af2224610b59962683d3cafbdac10621a">ResourceState</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_resource.html#ac832a54ae1e20a2f7137aefd3a5fc003">getResourceState</a> () const </td></tr>
 <tr class="separator:ac832a54ae1e20a2f7137aefd3a5fc003"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8530e4507ab493de34feb4fef7d4d03"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_resource.html#aa8530e4507ab493de34feb4fef7d4d03">setCapacity</a> (unsigned int _capacity)</td></tr>
 <tr class="separator:aa8530e4507ab493de34feb4fef7d4d03"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -233,6 +233,9 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a546f61a6f5f57f0c41c722b9b9dc7478"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b282a34c4c706ca63716cb74e7f8183"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_resource.html#a3b282a34c4c706ca63716cb74e7f8183">_verifySymbols</a> (std::string *errorMessage)</td></tr>
 <tr class="separator:a3b282a34c4c706ca63716cb74e7f8183"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_class_model_infrastructure"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_model_infrastructure')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_model_infrastructure.html">ModelInfrastructure</a></td></tr>
+<tr class="memitem:a0e03d03d3c7166e66dfddac6740c2e1b inherit pro_methods_class_model_infrastructure"><td class="memItemLeft" align="right" valign="top">virtual std::list&lt; std::string &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_model_infrastructure.html#a0e03d03d3c7166e66dfddac6740c2e1b">_saveInstance</a> (std::string type)</td></tr>
+<tr class="separator:a0e03d03d3c7166e66dfddac6740c2e1b inherit pro_methods_class_model_infrastructure"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -253,25 +256,33 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock">
 <p>Definition at line <a class="el" href="_resource_8h_source.html#l00022">22</a> of file <a class="el" href="_resource_8h_source.html">Resource.h</a>.</p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
-<a class="anchor" id="a8e67503c93766e1ecb47c6a9d744f86d"></a>
+<a class="anchor" id="afa28dce79d48cbaf6b10f899f2dedfb7"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="class_resource.html#a8e67503c93766e1ecb47c6a9d744f86d">Resource::ResourceRule</a></td>
+          <td class="memname">enum <a class="el" href="class_resource.html#afa28dce79d48cbaf6b10f899f2dedfb7">Resource::ResourceRule</a> : int</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a8e67503c93766e1ecb47c6a9d744f86da35e421844dca71ec174971aa97115840"></a>rrRANDOM</em>&#160;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="afa28dce79d48cbaf6b10f899f2dedfb7a170e02e86972c2be8559884cc3c12254"></a>RANDOM</em>&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a8e67503c93766e1ecb47c6a9d744f86dafe57c66e48e17e6731cfbc8a172b98bb"></a>rrCICLICAL</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="afa28dce79d48cbaf6b10f899f2dedfb7a799276ee6dde6c0ae5c9fb1cacf14531"></a>CICLICAL</em>&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a8e67503c93766e1ecb47c6a9d744f86da3d868b559ad89a9b17c107d5f1fea2c8"></a>rrESPECIFIC</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="afa28dce79d48cbaf6b10f899f2dedfb7af3445810d590ed87cd13c95d4ed17d0a"></a>ESPECIFIC</em>&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a8e67503c93766e1ecb47c6a9d744f86da8423d3c9eb253a2aaab93238704bcc27"></a>rrSMALLESTBUSY</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="afa28dce79d48cbaf6b10f899f2dedfb7a3a3df6d137a401694ba70b55e6ff7305"></a>SMALLESTBUSY</em>&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="a8e67503c93766e1ecb47c6a9d744f86da732d729550952cbc7a1ae02d4d29f029"></a>rrLARGESTREMAININGCAPACITY</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="afa28dce79d48cbaf6b10f899f2dedfb7a523a069c516b904643398d8457bf5053"></a>LARGESTREMAININGCAPACITY</em>&#160;</td><td class="fielddoc">
 </td></tr>
 </table>
 
@@ -279,25 +290,33 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ad7a514f9a27e0010b59e147b8368970f"></a>
+<a class="anchor" id="af2224610b59962683d3cafbdac10621a"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="class_resource.html#ad7a514f9a27e0010b59e147b8368970f">Resource::ResourceState</a></td>
+          <td class="memname">enum <a class="el" href="class_resource.html#af2224610b59962683d3cafbdac10621a">Resource::ResourceState</a> : int</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ad7a514f9a27e0010b59e147b8368970fa58d7f4e406cf4c81434aeba75bc2c5ce"></a>rsIDLE</em>&#160;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="af2224610b59962683d3cafbdac10621aaa5daf7f2ebbba4975d61dab1c40188c7"></a>IDLE</em>&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ad7a514f9a27e0010b59e147b8368970fab5265186ddf53906ee4b96b376f5eac6"></a>rsBUSY</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="af2224610b59962683d3cafbdac10621aa802706a9238e2928077f97736854bad4"></a>BUSY</em>&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ad7a514f9a27e0010b59e147b8368970fa42c07e49a872f3c388028ca9c9f23f9a"></a>rsFAILED</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="af2224610b59962683d3cafbdac10621aab9e14d9b2886bcff408b85aefa780419"></a>FAILED</em>&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ad7a514f9a27e0010b59e147b8368970fa69fd406e2c63317863f50fe9de605305"></a>rsINACTIVE</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="af2224610b59962683d3cafbdac10621aa6b273343c454f9c53dcfc9c4ccf171d2"></a>INACTIVE</em>&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ad7a514f9a27e0010b59e147b8368970fae6ab6440bf6274e3965c6cddd700a5d2"></a>rsOTHER</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="af2224610b59962683d3cafbdac10621aa03570470bad94692ce93e32700d2e1cb"></a>OTHER</em>&#160;</td><td class="fielddoc">
 </td></tr>
 </table>
 
@@ -305,19 +324,27 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ae2554291a9f2c6b3fedb01d0ca41bfd8"></a>
+<a class="anchor" id="aa607c54bf52a9c36b331888ee936a52c"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="class_resource.html#ae2554291a9f2c6b3fedb01d0ca41bfd8">Resource::ResourceType</a></td>
+          <td class="memname">enum <a class="el" href="class_resource.html#aa607c54bf52a9c36b331888ee936a52c">Resource::ResourceType</a> : int</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="ae2554291a9f2c6b3fedb01d0ca41bfd8a4d9374214afc5a64dc30c7406fa2282d"></a>rtSET</em>&#160;</td><td class="fielddoc">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="aa607c54bf52a9c36b331888ee936a52ca8c52684db8f49511e9b44471716bf164"></a>SET</em>&#160;</td><td class="fielddoc">
 </td></tr>
-<tr><td class="fieldname"><em><a class="anchor" id="ae2554291a9f2c6b3fedb01d0ca41bfd8a9d86c2e4e2f9cb022e88d5593a9517af"></a>rtRESOURCE</em>&#160;</td><td class="fielddoc">
+<tr><td class="fieldname"><em><a class="anchor" id="aa607c54bf52a9c36b331888ee936a52ca4f49da9035f276c0947466eb7c42249a"></a>RESOURCE</em>&#160;</td><td class="fielddoc">
 </td></tr>
 </table>
 
@@ -347,7 +374,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_resource_a1a8ae095067797fa47b0241ee278536c_cgraph.png" border="0" usemap="#class_resource_a1a8ae095067797fa47b0241ee278536c_cgraph" alt=""/></div>
 <map name="class_resource_a1a8ae095067797fa47b0241ee278536c_cgraph" id="class_resource_a1a8ae095067797fa47b0241ee278536c_cgraph">
-<area shape="rect" id="node2" href="class_model.html#a944c2b2dffd691d4aafc2d4028c02e6b" title="Model::getInfraManager" alt="" coords="198,5,357,32"/><area shape="rect" id="node3" href="class_infrastructure_manager.html#a1d013b55994e27cac0c45c1ad08f74e0" title="InfrastructureManager\l::getInfrastructures" alt="" coords="203,57,352,98"/><area shape="rect" id="node6" href="class_list.html#a518d00fd77740525522949d4316e8826" title="List::insert" alt="" coords="236,123,319,149"/><area shape="rect" id="node4" href="class_list.html#a31a37746c0d960f2f2bb4071b2735c5e" title="List::setSortFunc" alt="" coords="412,35,535,61"/><area shape="rect" id="node5" href="class_model_infrastructure.html#aa4d3fa8f302cc6dc4fccdd3187e6a168" title="ModelInfrastructure\l::getId" alt="" coords="406,86,541,127"/></map>
+<area shape="rect" id="node2" href="class_model.html#a944c2b2dffd691d4aafc2d4028c02e6b" title="Model::getInfraManager" alt="" coords="198,60,357,87"/><area shape="rect" id="node3" href="class_infrastructure_manager.html#a597f2262dee783093e616e3d8894690a" title="InfrastructureManager\l::insertInfrastructure" alt="" coords="203,111,352,153"/><area shape="rect" id="node4" href="class_infrastructure_manager.html#a1d013b55994e27cac0c45c1ad08f74e0" title="InfrastructureManager\l::getInfrastructures" alt="" coords="405,27,555,69"/><area shape="rect" id="node7" href="class_list.html#a2f50d3342e016ec57876798ad4e8bf31" title="List::find" alt="" coords="444,93,516,120"/><area shape="rect" id="node8" href="class_list.html#a570498345450f635b72d1ca2675145cc" title="List::getList" alt="" coords="435,144,525,171"/><area shape="rect" id="node9" href="class_list.html#a518d00fd77740525522949d4316e8826" title="List::insert" alt="" coords="439,195,521,221"/><area shape="rect" id="node5" href="class_list.html#a31a37746c0d960f2f2bb4071b2735c5e" title="List::setSortFunc" alt="" coords="609,5,732,32"/><area shape="rect" id="node6" href="class_model_infrastructure.html#aa4d3fa8f302cc6dc4fccdd3187e6a168" title="ModelInfrastructure\l::getId" alt="" coords="603,57,738,98"/></map>
 </div>
 </p>
 
@@ -399,16 +426,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_resource_a0e5ec475e2601bdb33644468e86f6f10_cgraph.png" border="0" usemap="#class_resource_a0e5ec475e2601bdb33644468e86f6f10_cgraph" alt=""/></div>
 <map name="class_resource_a0e5ec475e2601bdb33644468e86f6f10_cgraph" id="class_resource_a0e5ec475e2601bdb33644468e86f6f10_cgraph">
-<area shape="rect" id="node2" href="class_statistics_collector.html#aef9244a0c9f715bc19136d283b759c6e" title="StatisticsCollector\l::~StatisticsCollector" alt="" coords="206,5,351,46"/></map>
-</div>
-</p>
-
-<p><div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="class_resource_a0e5ec475e2601bdb33644468e86f6f10_icgraph.png" border="0" usemap="#class_resource_a0e5ec475e2601bdb33644468e86f6f10_icgraph" alt=""/></div>
-<map name="class_resource_a0e5ec475e2601bdb33644468e86f6f10_icgraph" id="class_resource_a0e5ec475e2601bdb33644468e86f6f10_icgraph">
-<area shape="rect" id="node2" href="class_release.html#a26fda460abe6f9a92872027014c41d4a" title="Release::setResourceName" alt="" coords="205,5,392,32"/><area shape="rect" id="node6" href="class_seize.html#a2bdaa616c4fd499f754099eb59729547" title="Seize::setResourceName" alt="" coords="213,56,385,83"/><area shape="rect" id="node3" href="_build_simulation_model_8cpp.html#aeea741000e292b33dca181a0a8a6106f" title="buildModel" alt="" coords="441,31,525,57"/><area shape="rect" id="node4" href="_build_simulation_model_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="573,31,728,57"/><area shape="rect" id="node5" href="class_build_simulation_model.html#a8c50f55d7293860e5e7bc7e7e74f8d4a" title="BuildSimulationModel\l::main" alt="" coords="776,23,923,65"/></map>
+<area shape="rect" id="node2" href="class_model.html#a944c2b2dffd691d4aafc2d4028c02e6b" title="Model::getInfraManager" alt="" coords="206,35,365,61"/><area shape="rect" id="node3" href="class_infrastructure_manager.html#a55ea1a348ec52d4ed1de3addf86b6d42" title="InfrastructureManager\l::removeInfrastructure" alt="" coords="210,86,361,127"/><area shape="rect" id="node4" href="class_infrastructure_manager.html#a1d013b55994e27cac0c45c1ad08f74e0" title="InfrastructureManager\l::getInfrastructures" alt="" coords="415,27,564,69"/><area shape="rect" id="node7" href="class_list.html#a0ac08f7f3dad900b99e9a73e76d2beee" title="List::remove" alt="" coords="442,93,537,120"/><area shape="rect" id="node8" href="class_model_infrastructure.html#aeedd4148c2b9c97600789f884c2ef549" title="ModelInfrastructure\l::~ModelInfrastructure" alt="" coords="414,145,565,186"/><area shape="rect" id="node5" href="class_list.html#a31a37746c0d960f2f2bb4071b2735c5e" title="List::setSortFunc" alt="" coords="620,5,743,32"/><area shape="rect" id="node6" href="class_model_infrastructure.html#aa4d3fa8f302cc6dc4fccdd3187e6a168" title="ModelInfrastructure\l::getId" alt="" coords="614,57,749,98"/></map>
 </div>
 </p>
 
@@ -439,7 +457,7 @@ Here is the caller graph for this function:</div>
 
 <p>Implements <a class="el" href="class_model_infrastructure.html#ae118c8ad2ac9d4397c40d004af51b2dc">ModelInfrastructure</a>.</p>
 
-<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00110">110</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00108">108</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -464,9 +482,18 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_model_infrastructure.html#a3da2fd381c44752598bc448b207e8287">ModelInfrastructure</a>.</p>
+<p>Reimplemented from <a class="el" href="class_model_infrastructure.html#a991f46601d9e865f2e27c6cd7a2b702d">ModelInfrastructure</a>.</p>
 
-<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00114">114</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00112">112</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_resource_a546f61a6f5f57f0c41c722b9b9dc7478_cgraph.png" border="0" usemap="#class_resource_a546f61a6f5f57f0c41c722b9b9dc7478_cgraph" alt=""/></div>
+<map name="class_resource_a546f61a6f5f57f0c41c722b9b9dc7478_cgraph" id="class_resource_a546f61a6f5f57f0c41c722b9b9dc7478_cgraph">
+<area shape="rect" id="node2" href="class_model_infrastructure.html#a991f46601d9e865f2e27c6cd7a2b702d" title="ModelInfrastructure\l::_saveInstance" alt="" coords="225,5,359,46"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -494,7 +521,7 @@ Here is the caller graph for this function:</div>
 
 <p>Implements <a class="el" href="class_model_infrastructure.html#a43de089b35b96c32dd24ca4f9636a388">ModelInfrastructure</a>.</p>
 
-<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00119">119</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00117">117</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -511,7 +538,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00073">73</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00071">71</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -537,7 +564,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00081">81</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00079">79</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -554,7 +581,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00089">89</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00087">87</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -571,7 +598,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00097">97</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00095">95</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -588,7 +615,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00101">101</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00099">99</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -614,7 +641,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00105">105</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00103">103</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -623,7 +650,7 @@ Here is the caller graph for this function:</div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_resource.html#ad7a514f9a27e0010b59e147b8368970f">Resource::ResourceState</a> Resource::getResourceState </td>
+          <td class="memname"><a class="el" href="class_resource.html#af2224610b59962683d3cafbdac10621a">Resource::ResourceState</a> Resource::getResourceState </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -631,7 +658,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00065">65</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00063">63</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -659,7 +686,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00044">44</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00045">45</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -705,7 +732,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00038">38</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00039">39</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -732,7 +759,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00069">69</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00067">67</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -750,7 +777,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00077">77</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00075">75</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -768,7 +795,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00085">85</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00083">83</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -786,7 +813,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00093">93</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00091">91</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -797,14 +824,14 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">void Resource::setResourceState </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_resource.html#ad7a514f9a27e0010b59e147b8368970f">ResourceState</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="class_resource.html#af2224610b59962683d3cafbdac10621a">ResourceState</a>&#160;</td>
           <td class="paramname"><em>_resourceState</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00061">61</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00059">59</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 </div>
 </div>
@@ -831,7 +858,7 @@ Here is the caller graph for this function:</div>
 
 <p>Reimplemented from <a class="el" href="class_model_infrastructure.html#a649a5a89a0c9931783d3c51de2acf266">ModelInfrastructure</a>.</p>
 
-<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00029">29</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_resource_8cpp_source.html#l00030">30</a> of file <a class="el" href="_resource_8cpp_source.html">Resource.cpp</a>.</p>
 
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
@@ -854,7 +881,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_resource.html">Resource</a></li>
-    <li class="footer">Generated on Thu Nov 8 2018 20:21:18 for ReGenESyS - Reborn Generic and Expansible System Simulator by
+    <li class="footer">Generated on Mon Nov 19 2018 09:19:45 for ReGenESyS - Reborn Generic and Expansible System Simulator by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

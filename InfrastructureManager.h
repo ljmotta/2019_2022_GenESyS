@@ -21,6 +21,11 @@
 
 class Model;
 
+/*!
+ * The InfrastructureManager is responsible for inserting and removing infrastructures (ModelInfraStructure) used by components,
+ * in a consistent way.
+ * TO FIX: No direct access for insertion or deletion should be allow
+ */
 class InfrastructureManager {
 public:
 	InfrastructureManager(Model* model);

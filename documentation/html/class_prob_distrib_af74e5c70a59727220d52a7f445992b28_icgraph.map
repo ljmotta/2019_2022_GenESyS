@@ -1,8 +1,10 @@
 <map id="ProbDistrib::beta" name="ProbDistrib::beta">
-<area shape="rect" id="node2" href="$class_fitter_joao_souto.html#a9ab8de1bbf179c05e57e54ec101a0b1a" title="FitterJoaoSouto::fitBeta" alt="" coords="173,5,333,32"/>
-<area shape="rect" id="node4" href="$classyy_1_1genesyspp__parser.html#ab2fad51435ec4f28dfee2d5e4611f309" title="yy::genesyspp_parser\l::parse" alt="" coords="178,57,329,98"/>
-<area shape="rect" id="node3" href="$class_fitter_joao_souto.html#a83e95985c9bc5d419803b12a572ac743" title="FitterJoaoSouto::fitAll" alt="" coords="402,5,550,32"/>
-<area shape="rect" id="node5" href="$classgenesyspp__driver.html#a2f58e23b084877eee330915c2f4fc71f" title="genesyspp_driver::parse_file" alt="" coords="382,60,570,87"/>
-<area shape="rect" id="node6" href="$classgenesyspp__driver.html#a5e63bd1621e53aa24cf2dee47d53ebdc" title="genesyspp_driver::parse_str" alt="" coords="383,111,569,137"/>
-<area shape="rect" id="node7" href="$class_parser_flex_bison_impl.html#ae8cd1179a3fad2bf11e1ec513d9e45bb" title="ParserFlexBisonImpl\l::parse" alt="" coords="619,103,762,145"/>
+<area shape="rect" id="node2" href="$class_fitter_fabiola.html#a6de9b0d16c19105a540608cb27faf44b" title="FitterFabiola::fitBeta" alt="" coords="183,5,323,32"/>
+<area shape="rect" id="node4" href="$class_fitter_joao_souto.html#a9ab8de1bbf179c05e57e54ec101a0b1a" title="FitterJoaoSouto::fitBeta" alt="" coords="173,56,333,83"/>
+<area shape="rect" id="node6" href="$classyy_1_1genesyspp__parser.html#ab2fad51435ec4f28dfee2d5e4611f309" title="yy::genesyspp_parser\l::parse" alt="" coords="178,107,329,149"/>
+<area shape="rect" id="node3" href="$class_fitter_fabiola.html#ac15542ce538d83e78577e81d1667ff96" title="FitterFabiola::fitAll" alt="" coords="412,5,540,32"/>
+<area shape="rect" id="node5" href="$class_fitter_joao_souto.html#a83e95985c9bc5d419803b12a572ac743" title="FitterJoaoSouto::fitAll" alt="" coords="402,56,550,83"/>
+<area shape="rect" id="node7" href="$classgenesyspp__driver.html#a2f58e23b084877eee330915c2f4fc71f" title="genesyspp_driver::parse_file" alt="" coords="382,111,570,137"/>
+<area shape="rect" id="node8" href="$classgenesyspp__driver.html#a5e63bd1621e53aa24cf2dee47d53ebdc" title="genesyspp_driver::parse_str" alt="" coords="383,161,569,188"/>
+<area shape="rect" id="node9" href="$class_parser_flex_bison_impl.html#ae8cd1179a3fad2bf11e1ec513d9e45bb" title="ParserFlexBisonImpl\l::parse" alt="" coords="619,154,762,195"/>
 </map>

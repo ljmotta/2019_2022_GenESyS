@@ -20,6 +20,9 @@
 //#include "Model.h"
 //class Model;
 
+/*!
+ * The ModelChecker is responsable for verifying the model consistency, fixing inconsistencies wheneaver possible
+ */
 class ModelChecker_if {
 public:
 	virtual bool checkAll() = 0; /*! Invoques all other checks and returns true only if all of them returned true */

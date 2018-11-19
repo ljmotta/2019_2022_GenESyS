@@ -76,13 +76,13 @@ private:
 
 private: // read only public access (gets)
 	Util::identitifcation _id;
-	Simulator* _simulator;
+	Simulator* _parentSimulator; /*! The parente of the model */
 	// 1:1 (associted classes)
 	TraceManager* _trace;
 	OnEventManager* _eventHandler;
 	InfrastructureManager* _infrastructureManager;
 	ModelInfo* _infos;
-	ModelSimulation* _simulation;  /*! The parente of the model */
+	ModelSimulation* _simulation;  
 	// 1:n
 	List<ModelComponent*>* _components;
 	List<Event*>* _events;
