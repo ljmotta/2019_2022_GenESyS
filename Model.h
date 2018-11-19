@@ -69,7 +69,7 @@ public: // only gets
 	//List<Entity*>* getEntities() const;
 
 	/*
- 
+	 * PRIVATE
 	 */
 private:
 	void _showComponents();
@@ -77,12 +77,12 @@ private:
 private: // read only public access (gets)
 	Util::identitifcation _id;
 	Simulator* _simulator;
-	// 1:1
+	// 1:1 (associted classes)
 	TraceManager* _trace;
 	OnEventManager* _eventHandler;
 	InfrastructureManager* _infrastructureManager;
 	ModelInfo* _infos;
-	ModelSimulation* _simulation;
+	ModelSimulation* _simulation;  /*! The parente of the model */
 	// 1:n
 	List<ModelComponent*>* _components;
 	List<Event*>* _events;
@@ -91,7 +91,6 @@ private: // read only public access (gets)
 	List<SimulationControl*>* _controls;
 
 private: // no public access (no gets / sets)	
-	std::exception* _excepcionHandled = nullptr;
 	ModelChecker_if* _modelChecker;
 	ModelPersistence_if* _modelPersistence;
 	Parser_if* _parser;

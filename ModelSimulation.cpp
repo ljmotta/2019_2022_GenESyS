@@ -170,7 +170,6 @@ void ModelSimulation::_processEvent(Event* event) {
 	try {
 		event->getComponent()->Execute(event->getEntity(), event->getComponent()); // Execute is static
 	} catch (std::exception *e) {
-		////////////////////_model->_excepcionHandled = e;
 		_model->getTracer()->traceError(*e, "Error on processing event (" + event->show() + ")");
 	}
 	Util::DecIndent();
@@ -210,7 +209,6 @@ void ModelSimulation::stepSimulation() {
 			try {
 				this->_stepSimulation();
 			} catch (std::exception *e) {
-				////////////_model->_excepcionHandled = e;
 				_model->getTracer()->traceError((*e), "Error on simulation step");
 			}
 
@@ -271,4 +269,16 @@ double ModelSimulation::getSimulatedTime() const {
 
 bool ModelSimulation::isRunning() const {
 	return _running;
+}
+
+unsigned int ModelSimulation::getCurrentReplicationNumber() const {
+	return _currentReplicationNumber;
+}
+
+ModelComponent* ModelSimulation::getCurrentComponent() const {
+	return _currentComponent;
+}
+
+Entity* ModelSimulation::getCurrentEntity() const {
+	return _currentEntity;
 }

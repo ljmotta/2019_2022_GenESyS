@@ -45,6 +45,13 @@ public:
 public: // only gets
 	double getSimulatedTime() const; /*! The current time in the model being simulated, i.e., the instant when the current event was triggered */
 	bool isRunning() const;
+    unsigned int getCurrentReplicationNumber() const;
+    ModelComponent* getCurrentComponent() const;
+    Entity* getCurrentEntity() const;
+
+	/*
+	 * PRIVATE
+	 */
 
 private: // simulation control
 	void _initSimulation();
