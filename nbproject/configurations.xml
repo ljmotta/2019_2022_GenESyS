@@ -81,8 +81,8 @@
         <itemPath>TraceManager.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="Statistics" projectFiles="true">
-        <itemPath>CollectorDatafileCancianImpl.cpp</itemPath>
-        <itemPath>CollectorDatafileCancianImpl.h</itemPath>
+        <itemPath>src_students/20182/CollectorDatafileCancianImpl.cpp</itemPath>
+        <itemPath>src_students/20182/CollectorDatafileCancianImpl.h</itemPath>
         <itemPath>CollectorDatafileMyImpl1.cpp</itemPath>
         <itemPath>CollectorDatafileMyImpl1.h</itemPath>
         <itemPath>CollectorDatafile_if.h</itemPath>
@@ -97,8 +97,8 @@
         <itemPath>Integrator_if.h</itemPath>
         <itemPath>ProbDistrib.cpp</itemPath>
         <itemPath>ProbDistrib.h</itemPath>
-        <itemPath>StatisticsCancianImpl.cpp</itemPath>
-        <itemPath>StatisticsCancianImpl.h</itemPath>
+        <itemPath>src_students/20182/StatisticsCancianImpl.cpp</itemPath>
+        <itemPath>src_students/20182/StatisticsCancianImpl.h</itemPath>
         <itemPath>StatisticsMyImpl1.cpp</itemPath>
         <itemPath>StatisticsMyImpl1.h</itemPath>
         <itemPath>Statistics_if.h</itemPath>
@@ -118,18 +118,18 @@
     </logicalFolder>
     <logicalFolder name="f3" displayName="Parser" projectFiles="true">
       <logicalFolder name="f1" displayName="ParserFlexBison" projectFiles="true">
-        <itemPath>Genesys++-driver.cpp</itemPath>
-        <itemPath>Genesys++-driver.h</itemPath>
-        <itemPath>Genesys++-parser.cpp</itemPath>
-        <itemPath>Genesys++-parser.h</itemPath>
-        <itemPath>Genesys++-scanner.cpp</itemPath>
-        <itemPath>ParserFlexBisonImpl.cpp</itemPath>
-        <itemPath>ParserFlexBisonImpl.h</itemPath>
-        <itemPath>location.hh</itemPath>
-        <itemPath>obj_t.cpp</itemPath>
-        <itemPath>obj_t.h</itemPath>
-        <itemPath>position.hh</itemPath>
-        <itemPath>stack.hh</itemPath>
+        <itemPath>src_students/20182/ParserFlexBison/Genesys++-driver.cpp</itemPath>
+        <itemPath>src_students/20182/ParserFlexBison/Genesys++-driver.h</itemPath>
+        <itemPath>src_students/20182/ParserFlexBison/Genesys++-parser.cpp</itemPath>
+        <itemPath>src_students/20182/ParserFlexBison/Genesys++-parser.h</itemPath>
+        <itemPath>src_students/20182/ParserFlexBison/Genesys++-scanner.cpp</itemPath>
+        <itemPath>src_students/20182/ParserFlexBison/ParserFlexBisonImpl.cpp</itemPath>
+        <itemPath>src_students/20182/ParserFlexBison/ParserFlexBisonImpl.h</itemPath>
+        <itemPath>src_students/20182/ParserFlexBison/location.hh</itemPath>
+        <itemPath>src_students/20182/ParserFlexBison/obj_t.cpp</itemPath>
+        <itemPath>src_students/20182/ParserFlexBison/obj_t.h</itemPath>
+        <itemPath>src_students/20182/ParserFlexBison/position.hh</itemPath>
+        <itemPath>src_students/20182/ParserFlexBison/stack.hh</itemPath>
       </logicalFolder>
       <itemPath>ParserMyImpl1.cpp</itemPath>
       <itemPath>ParserMyImpl1.h</itemPath>
@@ -140,27 +140,27 @@
     <logicalFolder name="f4"
                    displayName="Student developments under tests"
                    projectFiles="true">
-      <itemPath>CollectorDanielBoso.cpp</itemPath>
-      <itemPath>CollectorDanielBoso.h</itemPath>
-      <itemPath>CollectorDatafileDanielBoso.cpp</itemPath>
-      <itemPath>CollectorDatafileDanielBoso.h</itemPath>
-      <itemPath>ExperimentDesign_BrunoBonotto_JoaoSouto.cpp</itemPath>
-      <itemPath>ExperimentDesign_BrunoBonotto_JoaoSouto.h</itemPath>
-      <itemPath>FitterFabiola.cpp</itemPath>
-      <itemPath>FitterFabiola.h</itemPath>
-      <itemPath>FitterJoaoSouto.cpp</itemPath>
-      <itemPath>FitterJoaoSouto.h</itemPath>
+      <itemPath>src_students/20182/CollectorDanielBoso.cpp</itemPath>
+      <itemPath>src_students/20182/CollectorDanielBoso.h</itemPath>
+      <itemPath>src_students/20182/CollectorDatafileDanielBoso.cpp</itemPath>
+      <itemPath>src_students/20182/CollectorDatafileDanielBoso.h</itemPath>
+      <itemPath>src_students/20182/ExperimentDesign_BrunoBonotto_JoaoSouto.cpp</itemPath>
+      <itemPath>src_students/20182/ExperimentDesign_BrunoBonotto_JoaoSouto.h</itemPath>
+      <itemPath>src_students/20182/FitterFabiola.cpp</itemPath>
+      <itemPath>src_students/20182/FitterFabiola.h</itemPath>
+      <itemPath>src_students/20182/FitterJoaoSouto.cpp</itemPath>
+      <itemPath>src_students/20182/FitterJoaoSouto.h</itemPath>
       <itemPath>Functor.h</itemPath>
-      <itemPath>IntegratorDiogoImpl.cpp</itemPath>
-      <itemPath>IntegratorDiogoImpl.h</itemPath>
-      <itemPath>SamplerDanielBoso.cpp</itemPath>
-      <itemPath>SamplerDanielBoso.h</itemPath>
-      <itemPath>Sampler_BruFabJoa.cpp</itemPath>
-      <itemPath>Sampler_BruFabJoa.h</itemPath>
-      <itemPath>StatisticsCollectorDanielBoso.cpp</itemPath>
-      <itemPath>StatisticsCollectorDanielBoso.h</itemPath>
-      <itemPath>StatisticsDanielBoso.cpp</itemPath>
-      <itemPath>StatisticsDanielBoso.h</itemPath>
+      <itemPath>src_students/20182/IntegratorDiogoImpl.cpp</itemPath>
+      <itemPath>src_students/20182/IntegratorDiogoImpl.h</itemPath>
+      <itemPath>src_students/20182/SamplerDanielBoso.cpp</itemPath>
+      <itemPath>src_students/20182/SamplerDanielBoso.h</itemPath>
+      <itemPath>src_students/20182/Sampler_BruFabJoa.cpp</itemPath>
+      <itemPath>src_students/20182/Sampler_BruFabJoa.h</itemPath>
+      <itemPath>src_students/20182/StatisticsCollectorDanielBoso.cpp</itemPath>
+      <itemPath>src_students/20182/StatisticsCollectorDanielBoso.h</itemPath>
+      <itemPath>src_students/20182/StatisticsDanielBoso.cpp</itemPath>
+      <itemPath>src_students/20182/StatisticsDanielBoso.h</itemPath>
     </logicalFolder>
     <logicalFolder name="f8" displayName="Tools" projectFiles="true">
       <logicalFolder name="f1"
@@ -248,18 +248,6 @@
       </item>
       <item path="BuildSimulationModel.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="CollectorDanielBoso.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="CollectorDanielBoso.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="CollectorDatafileCancianImpl.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="CollectorDatafileCancianImpl.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="CollectorDatafileDanielBoso.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="CollectorDatafileDanielBoso.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="CollectorDatafileMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="CollectorDatafileMyImpl1.h" ex="false" tool="3" flavor2="0">
@@ -300,16 +288,6 @@
       </item>
       <item path="ExperimentDesignMyImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="ExperimentDesign_BrunoBonotto_JoaoSouto.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="ExperimentDesign_BrunoBonotto_JoaoSouto.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
       <item path="ExperimentDesign_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="FactorOrInteractionContribution.cpp"
@@ -319,14 +297,6 @@
       </item>
       <item path="FactorOrInteractionContribution.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="FitterFabiola.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="FitterFabiola.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="FitterJoaoSouto.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="FitterJoaoSouto.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="FitterMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="FitterMyImpl1.h" ex="false" tool="3" flavor2="0">
@@ -334,16 +304,6 @@
       <item path="Fitter_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Functor.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Genesys++-driver.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Genesys++-driver.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Genesys++-parser.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Genesys++-parser.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Genesys++-scanner.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="GenesysApplication_if.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -356,10 +316,6 @@
       <item path="InfrastructureManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="InfrastructureManager.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="IntegratorDiogoImpl.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="IntegratorDiogoImpl.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="IntegratorMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -409,10 +365,6 @@
       </item>
       <item path="OnEventManager.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="ParserFlexBisonImpl.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ParserFlexBisonImpl.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="ParserMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ParserMyImpl1.h" ex="false" tool="3" flavor2="0">
@@ -445,17 +397,9 @@
       </item>
       <item path="Resource.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="SamplerDanielBoso.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="SamplerDanielBoso.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="SamplerMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="SamplerMyImpl1.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Sampler_BruFabJoa.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Sampler_BruFabJoa.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Sampler_if.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -489,21 +433,9 @@
       </item>
       <item path="SourceModelComponent.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="StatisticsCancianImpl.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="StatisticsCancianImpl.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="StatisticsCollector.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="StatisticsCollector.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="StatisticsCollectorDanielBoso.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="StatisticsCollectorDanielBoso.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="StatisticsDanielBoso.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="StatisticsDanielBoso.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="StatisticsMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -541,17 +473,184 @@
       </item>
       <item path="WaitingResource.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="location.hh" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="obj_t.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src_students/20182/CollectorDanielBoso.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
-      <item path="obj_t.h" ex="false" tool="3" flavor2="0">
+      <item path="src_students/20182/CollectorDanielBoso.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
-      <item path="position.hh" ex="false" tool="3" flavor2="0">
+      <item path="src_students/20182/CollectorDatafileCancianImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
-      <item path="stack.hh" ex="false" tool="3" flavor2="0">
+      <item path="src_students/20182/CollectorDatafileCancianImpl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/CollectorDatafileDanielBoso.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/CollectorDatafileDanielBoso.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/ExperimentDesign_BrunoBonotto_JoaoSouto.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/ExperimentDesign_BrunoBonotto_JoaoSouto.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/FitterFabiola.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/FitterFabiola.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src_students/20182/FitterJoaoSouto.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/FitterJoaoSouto.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/IntegratorDiogoImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/IntegratorDiogoImpl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/ParserFlexBison/Genesys++-driver.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/ParserFlexBison/Genesys++-driver.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/ParserFlexBison/Genesys++-parser.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/ParserFlexBison/Genesys++-parser.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/ParserFlexBison/Genesys++-scanner.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/ParserFlexBison/ParserFlexBisonImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/ParserFlexBison/ParserFlexBisonImpl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/ParserFlexBison/location.hh"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/ParserFlexBison/obj_t.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/ParserFlexBison/obj_t.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/ParserFlexBison/position.hh"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/ParserFlexBison/stack.hh"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/SamplerDanielBoso.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/SamplerDanielBoso.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/Sampler_BruFabJoa.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/Sampler_BruFabJoa.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/StatisticsCancianImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/StatisticsCancianImpl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/StatisticsCollectorDanielBoso.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/StatisticsCollectorDanielBoso.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/StatisticsDanielBoso.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/StatisticsDanielBoso.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -586,18 +685,6 @@
       </item>
       <item path="BuildSimulationModel.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="CollectorDanielBoso.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="CollectorDanielBoso.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="CollectorDatafileCancianImpl.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="CollectorDatafileCancianImpl.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="CollectorDatafileDanielBoso.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="CollectorDatafileDanielBoso.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="CollectorDatafileMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="CollectorDatafileMyImpl1.h" ex="false" tool="3" flavor2="0">
@@ -638,16 +725,6 @@
       </item>
       <item path="ExperimentDesignMyImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="ExperimentDesign_BrunoBonotto_JoaoSouto.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="ExperimentDesign_BrunoBonotto_JoaoSouto.h"
-            ex="false"
-            tool="3"
-            flavor2="0">
-      </item>
       <item path="ExperimentDesign_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="FactorOrInteractionContribution.cpp"
@@ -657,14 +734,6 @@
       </item>
       <item path="FactorOrInteractionContribution.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="FitterFabiola.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="FitterFabiola.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="FitterJoaoSouto.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="FitterJoaoSouto.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="FitterMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="FitterMyImpl1.h" ex="false" tool="3" flavor2="0">
@@ -672,16 +741,6 @@
       <item path="Fitter_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Functor.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Genesys++-driver.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Genesys++-driver.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Genesys++-parser.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Genesys++-parser.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Genesys++-scanner.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="GenesysApplication_if.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -694,10 +753,6 @@
       <item path="InfrastructureManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="InfrastructureManager.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="IntegratorDiogoImpl.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="IntegratorDiogoImpl.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="IntegratorMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -747,10 +802,6 @@
       </item>
       <item path="OnEventManager.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="ParserFlexBisonImpl.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ParserFlexBisonImpl.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="ParserMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ParserMyImpl1.h" ex="false" tool="3" flavor2="0">
@@ -783,17 +834,9 @@
       </item>
       <item path="Resource.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="SamplerDanielBoso.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="SamplerDanielBoso.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="SamplerMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="SamplerMyImpl1.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Sampler_BruFabJoa.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Sampler_BruFabJoa.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Sampler_if.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -827,21 +870,9 @@
       </item>
       <item path="SourceModelComponent.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="StatisticsCancianImpl.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="StatisticsCancianImpl.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="StatisticsCollector.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="StatisticsCollector.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="StatisticsCollectorDanielBoso.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="StatisticsCollectorDanielBoso.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="StatisticsDanielBoso.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="StatisticsDanielBoso.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="StatisticsMyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -879,17 +910,184 @@
       </item>
       <item path="WaitingResource.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="location.hh" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="obj_t.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src_students/20182/CollectorDanielBoso.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
-      <item path="obj_t.h" ex="false" tool="3" flavor2="0">
+      <item path="src_students/20182/CollectorDanielBoso.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
-      <item path="position.hh" ex="false" tool="3" flavor2="0">
+      <item path="src_students/20182/CollectorDatafileCancianImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
       </item>
-      <item path="stack.hh" ex="false" tool="3" flavor2="0">
+      <item path="src_students/20182/CollectorDatafileCancianImpl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/CollectorDatafileDanielBoso.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/CollectorDatafileDanielBoso.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/ExperimentDesign_BrunoBonotto_JoaoSouto.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/ExperimentDesign_BrunoBonotto_JoaoSouto.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/FitterFabiola.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/FitterFabiola.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src_students/20182/FitterJoaoSouto.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/FitterJoaoSouto.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/IntegratorDiogoImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/IntegratorDiogoImpl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/ParserFlexBison/Genesys++-driver.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/ParserFlexBison/Genesys++-driver.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/ParserFlexBison/Genesys++-parser.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/ParserFlexBison/Genesys++-parser.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/ParserFlexBison/Genesys++-scanner.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/ParserFlexBison/ParserFlexBisonImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/ParserFlexBison/ParserFlexBisonImpl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/ParserFlexBison/location.hh"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/ParserFlexBison/obj_t.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/ParserFlexBison/obj_t.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/ParserFlexBison/position.hh"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/ParserFlexBison/stack.hh"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/SamplerDanielBoso.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/SamplerDanielBoso.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/Sampler_BruFabJoa.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/Sampler_BruFabJoa.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/StatisticsCancianImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/StatisticsCancianImpl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/StatisticsCollectorDanielBoso.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/StatisticsCollectorDanielBoso.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/StatisticsDanielBoso.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="src_students/20182/StatisticsDanielBoso.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
     </conf>
   </confs>

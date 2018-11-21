@@ -3,9 +3,9 @@
 # include <string>
 # include <map>
 # include "Genesys++-parser.h"
-# include "Model.h"
-# include "ProbDistrib.h"
-# include "Util.h"
+# include "../../../Model.h"
+# include "../../../ProbDistrib.h"
+# include "../../../Util.h"
 // Tell Flex the lexer's prototype ...
 
 

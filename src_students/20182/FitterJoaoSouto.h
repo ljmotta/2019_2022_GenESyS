@@ -21,9 +21,9 @@
 #include <cmath>
 #include <vector>
 
-#include "Fitter_if.h"
-#include "Traits.h"
-#include "ProbDistrib.h"
+#include "../../Fitter_if.h"
+#include "../../Traits.h"
+#include "../../ProbDistrib.h"
 
 class FitterJoaoSouto: public Fitter_if
 {

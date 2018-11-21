@@ -3,11 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-#include "StatisticsCancianImpl.h"
-#include "ProbDistrib.h"
+#include "../../ProbDistrib.h"
 
 #include "FitterFabiola.h"
-#include "Traits.h"
+#include "../../Traits.h"
 
 FitterFabiola::FitterFabiola() {  
     _collector = new Traits<Collector_if>::Implementation();

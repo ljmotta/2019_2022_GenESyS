@@ -20,11 +20,11 @@
 #include <functional>
 #include <cmath>
 #include <vector>
-#include "Fitter_if.h"
+#include "../../Fitter_if.h"
 
-#include "ProbDistrib.h"
-#include "Statistics_if.h"
-#include "CollectorDatafile_if.h"
+#include "../../ProbDistrib.h"
+#include "../../Statistics_if.h"
+#include "../../CollectorDatafile_if.h"
 
 class FitterFabiola: public Fitter_if {
     

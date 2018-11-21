@@ -16,7 +16,7 @@
 
 #include "StatisticsDanielBoso.h"
 #include "CollectorDanielBoso.h"
-#include "ModelInfrastructure.h"
+#include "../../ModelInfrastructure.h"
 
 class StatisticsCollectorDanielBoso: public ModelInfrastructure, public StatisticsDanielBoso {
 public:

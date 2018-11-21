@@ -45,10 +45,10 @@
 #include <string>
 #include <cmath>
 #include "obj_t.h"
-#include "Util.h"
-#include "Variable.h"
-#include "Queue.h"
-#include "Resource.h"
+#include "../../../Util.h"
+#include "../../../Variable.h"
+#include "../../../Queue.h"
+#include "../../../Resource.h"
 class genesyspp_driver;
 
 

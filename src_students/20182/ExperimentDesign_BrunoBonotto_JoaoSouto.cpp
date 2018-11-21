@@ -16,9 +16,9 @@
 #include <set>
 
 #include "ExperimentDesign_BrunoBonotto_JoaoSouto.h"
-#include "SimulationScenario.h"
-#include "Assign.h"
-#include "Traits.h"
+#include "../../SimulationScenario.h"
+#include "../../Assign.h"
+#include "../../Traits.h"
 
 
 ExperimentDesign_BrunoBonotto_JoaoSouto::ExperimentDesign_BrunoBonotto_JoaoSouto() {

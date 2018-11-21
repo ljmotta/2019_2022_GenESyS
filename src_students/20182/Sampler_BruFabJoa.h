@@ -16,7 +16,7 @@
 #include <math.h>
 #include <stdarg.h>
 
-#include "Sampler_if.h"
+#include "../../Sampler_if.h"
 
 class Sampler_BruFabJoa : public Sampler_if {
 public:

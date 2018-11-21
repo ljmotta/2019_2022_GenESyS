@@ -615,13 +615,13 @@ char *yytext;
 # include "Genesys++-driver.h"
 # include "Genesys++-parser.h"
 # include "obj_t.h"
-# include "Util.h"
-# include "List.h"
-# include "Variable.h"
-# include "Queue.h"
-# include "Resource.h"
-# include "ModelInfrastructure.h"
-# include "Attribute.h"
+# include "../../../Util.h"
+# include "../../../List.h"
+# include "../../../Variable.h"
+# include "../../../Queue.h"
+# include "../../../Resource.h"
+# include "../../../ModelInfrastructure.h"
+# include "../../../Attribute.h"
 
 
 // Work around an incompatibility in flex (at least versions

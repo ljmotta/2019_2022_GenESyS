@@ -14,7 +14,7 @@
 #ifndef INTEGRATORDIOGOIMPL1_H
 #define INTEGRATORDIOGOIMPL1_H
 
-#include "Integrator_if.h"
+#include "../../Integrator_if.h"
 
 /*
  * Utilizes Composite Simpson's method to integrate a function

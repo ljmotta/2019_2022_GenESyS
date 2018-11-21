@@ -21,7 +21,7 @@
 #include <ctime>
 #include <random>
 
-#include "Sampler_if.h"
+#include "../../Sampler_if.h"
 
 class SamplerDanielBoso : public Sampler_if {
 public:

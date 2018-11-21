@@ -14,7 +14,7 @@
 #ifndef COLLECTORDATAFILECANCIANIMPL_H
 #define COLLECTORDATAFILECANCIANIMPL_H
 
-#include "CollectorDatafile_if.h"
+#include "../../CollectorDatafile_if.h"
 #include <string>
 
 class CollectorDatafileCancianImpl : public CollectorDatafile_if {

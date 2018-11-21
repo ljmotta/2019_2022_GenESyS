@@ -14,8 +14,8 @@
 #ifndef EXPEREMENTDESIGN_BRUNOBONOTTO_JOAOSOUTO_H
 #define EXPEREMENTDESIGN_BRUNOBONOTTO_JOAOSOUTO_H
 
-#include "ExperimentDesign_if.h"
-#include "ProcessAnalyser_if.h"
+#include "../../ExperimentDesign_if.h"
+#include "../../ProcessAnalyser_if.h"
 //#include "Traits.h"
 
 class ExperimentDesign_BrunoBonotto_JoaoSouto : public ExperimentDesign_if {

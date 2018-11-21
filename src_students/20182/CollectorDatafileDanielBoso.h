@@ -14,7 +14,7 @@
 #ifndef COLLECTORDATAFILEDANIELBOSO_H
 #define COLLECTORDATAFILEDANIELBOSO_H
 
-#include "CollectorDatafile_if.h"
+#include "../../CollectorDatafile_if.h"
 
 class CollectorDatafileDanielBoso : public CollectorDatafile_if {
 public:
