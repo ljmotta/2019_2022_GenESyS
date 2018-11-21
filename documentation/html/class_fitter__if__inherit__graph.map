@@ -1,5 +1,3 @@
 <map id="Fitter_if" name="Fitter_if">
-<area shape="rect" id="node2" href="$class_fitter_fabiola.html" title="FitterFabiola" alt="" coords="5,80,99,107"/>
-<area shape="rect" id="node3" href="$class_fitter_joao_souto.html" title="FitterJoaoSouto" alt="" coords="124,80,239,107"/>
-<area shape="rect" id="node4" href="$class_fitter_my_impl1.html" title="FitterMyImpl1" alt="" coords="263,80,365,107"/>
+<area shape="rect" id="node2" href="$class_fitter_dummy_impl.html" title="FitterDummyImpl" alt="" coords="5,80,128,107"/>
 </map>

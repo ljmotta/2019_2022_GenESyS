@@ -1,11 +1,11 @@
 <map id="ModelComponent" name="ModelComponent">
-<area shape="rect" id="node3" href="$class_assign.html" title="Assign" alt="" coords="5,155,67,181"/>
-<area shape="rect" id="node4" href="$class_delay.html" title="Delay" alt="" coords="92,155,147,181"/>
-<area shape="rect" id="node5" href="$class_release.html" title="Release" alt="" coords="173,155,243,181"/>
-<area shape="rect" id="node6" href="$class_seize.html" title="Seize" alt="" coords="267,155,321,181"/>
-<area shape="rect" id="node7" href="$class_sink_model_component.html" title="SinkModelComponent" alt="" coords="346,155,496,181"/>
-<area shape="rect" id="node9" href="$class_source_model_component.html" title="SourceModelComponent" alt="" coords="521,155,685,181"/>
-<area shape="rect" id="node2" href="$class_model_infrastructure.html" title="ModelInfrastructure" alt="" coords="183,5,317,32"/>
-<area shape="rect" id="node8" href="$class_dispose.html" title="Dispose" alt="" coords="386,229,456,256"/>
-<area shape="rect" id="node10" href="$class_create.html" title="Create" alt="" coords="573,229,635,256"/>
+<area shape="rect" id="node3" href="$class_assign.html" title="Assign" alt="" coords="5,155,68,181"/>
+<area shape="rect" id="node4" href="$class_delay.html" title="Delay" alt="" coords="93,155,149,181"/>
+<area shape="rect" id="node5" href="$class_release.html" title="Release" alt="" coords="173,155,244,181"/>
+<area shape="rect" id="node6" href="$class_seize.html" title="Seize" alt="" coords="268,155,323,181"/>
+<area shape="rect" id="node7" href="$class_sink_model_component.html" title="SinkModelComponent" alt="" coords="347,155,497,181"/>
+<area shape="rect" id="node9" href="$class_source_model_component.html" title="SourceModelComponent" alt="" coords="522,155,687,181"/>
+<area shape="rect" id="node2" href="$class_model_infrastructure.html" title="ModelInfrastructure" alt="" coords="184,5,319,32"/>
+<area shape="rect" id="node8" href="$class_dispose.html" title="Dispose" alt="" coords="387,229,457,256"/>
+<area shape="rect" id="node10" href="$class_create.html" title="Create" alt="" coords="574,229,635,256"/>
 </map>

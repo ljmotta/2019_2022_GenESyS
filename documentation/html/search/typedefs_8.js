@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['memberfunctiongetdoublevarhandler',['memberFunctionGetDoubleVarHandler',['../_on_event_manager_8h.html#aa97195a0d80442c68665a1267e6ea97b',1,'OnEventManager.h']]],
-  ['memberfunctionsetdoublevarhandler',['memberFunctionSetDoubleVarHandler',['../_on_event_manager_8h.html#a82a7292bfc6ddeaf96ebc9f3e2389467',1,'OnEventManager.h']]],
-  ['modelimplementation',['ModelImplementation',['../struct_traits_3_01_collector__if_01_4.html#a38ef8e0ef3488a361965174720a895ae',1,'Traits&lt; Collector_if &gt;']]]
+  ['traceerrorlistener',['traceErrorListener',['../_trace_manager_8h.html#acbbf973df10808566f22d73581076abd',1,'TraceManager.h']]],
+  ['tracelistener',['traceListener',['../_trace_manager_8h.html#a1136585847f84bdff0c8d3e7fef53d50',1,'TraceManager.h']]],
+  ['tracesimulationlistener',['traceSimulationListener',['../_trace_manager_8h.html#a103daf352a5c1b34d88af32d716bce7e',1,'TraceManager.h']]],
+  ['tracesimulationprocesslistener',['traceSimulationProcessListener',['../_trace_manager_8h.html#a7ff1963642ecda8c9a76991b351f0385',1,'TraceManager.h']]]
 ];

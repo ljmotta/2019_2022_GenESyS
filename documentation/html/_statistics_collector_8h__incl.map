@@ -1,8 +1,8 @@
 <map id="StatisticsCollector.h" name="StatisticsCollector.h">
-<area shape="rect" id="node2" href="$_statistics_my_impl1_8h.html" title="StatisticsMyImpl1.h" alt="" coords="51,80,189,107"/>
-<area shape="rect" id="node6" href="$_collector_my_impl1_8h.html" title="CollectorMyImpl1.h" alt="" coords="131,155,265,181"/>
-<area shape="rect" id="node7" href="$_model_infrastructure_8h.html" title="ModelInfrastructure.h" alt="" coords="290,155,435,181"/>
-<area shape="rect" id="node3" href="$_statistics__if_8h.html" title="Statistics_if.h" alt="" coords="5,155,107,181"/>
-<area shape="rect" id="node5" href="$_collector__if_8h.html" title="Collector_if.h" alt="" coords="93,229,192,256"/>
-<area shape="rect" id="node9" href="$_util_8h.html" title="Util.h" alt="" coords="381,229,435,256"/>
+<area shape="rect" id="node2" href="$_statistics_dummy_impl_8h.html" title="StatisticsDummyImpl.h" alt="" coords="44,80,203,107"/>
+<area shape="rect" id="node6" href="$_collector_dummy_impl_8h.html" title="CollectorDummyImpl.h" alt="" coords="132,155,288,181"/>
+<area shape="rect" id="node7" href="$_model_infrastructure_8h.html" title="ModelInfrastructure.h" alt="" coords="312,155,457,181"/>
+<area shape="rect" id="node3" href="$_statistics__if_8h.html" title="Statistics_if.h" alt="" coords="5,155,108,181"/>
+<area shape="rect" id="node5" href="$_collector__if_8h.html" title="Collector_if.h" alt="" coords="94,229,193,256"/>
+<area shape="rect" id="node9" href="$_util_8h.html" title="Util.h" alt="" coords="382,229,435,256"/>
 </map>

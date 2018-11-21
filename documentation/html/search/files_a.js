@@ -4,8 +4,8 @@ var searchData=
   ['model_2ecpp',['Model.cpp',['../_model_8cpp.html',1,'']]],
   ['model_2eh',['Model.h',['../_model_8h.html',1,'']]],
   ['modelchecker_5fif_2eh',['ModelChecker_if.h',['../_model_checker__if_8h.html',1,'']]],
-  ['modelcheckermyimpl1_2ecpp',['ModelCheckerMyImpl1.cpp',['../_model_checker_my_impl1_8cpp.html',1,'']]],
-  ['modelcheckermyimpl1_2eh',['ModelCheckerMyImpl1.h',['../_model_checker_my_impl1_8h.html',1,'']]],
+  ['modelcheckerdummyimpl_2ecpp',['ModelCheckerDummyImpl.cpp',['../_model_checker_dummy_impl_8cpp.html',1,'']]],
+  ['modelcheckerdummyimpl_2eh',['ModelCheckerDummyImpl.h',['../_model_checker_dummy_impl_8h.html',1,'']]],
   ['modelcomponent_2ecpp',['ModelComponent.cpp',['../_model_component_8cpp.html',1,'']]],
   ['modelcomponent_2eh',['ModelComponent.h',['../_model_component_8h.html',1,'']]],
   ['modelinfo_2ecpp',['ModelInfo.cpp',['../_model_info_8cpp.html',1,'']]],
@@ -13,8 +13,8 @@ var searchData=
   ['modelinfrastructure_2ecpp',['ModelInfrastructure.cpp',['../_model_infrastructure_8cpp.html',1,'']]],
   ['modelinfrastructure_2eh',['ModelInfrastructure.h',['../_model_infrastructure_8h.html',1,'']]],
   ['modelpersistence_5fif_2eh',['ModelPersistence_if.h',['../_model_persistence__if_8h.html',1,'']]],
-  ['modelpersistencemyimpl1_2ecpp',['ModelPersistenceMyImpl1.cpp',['../_model_persistence_my_impl1_8cpp.html',1,'']]],
-  ['modelpersistencemyimpl1_2eh',['ModelPersistenceMyImpl1.h',['../_model_persistence_my_impl1_8h.html',1,'']]],
+  ['modelpersistencedummyimpl_2ecpp',['ModelPersistenceDummyImpl.cpp',['../_model_persistence_dummy_impl_8cpp.html',1,'']]],
+  ['modelpersistencedummyimpl_2eh',['ModelPersistenceDummyImpl.h',['../_model_persistence_dummy_impl_8h.html',1,'']]],
   ['modelsimulation_2ecpp',['ModelSimulation.cpp',['../_model_simulation_8cpp.html',1,'']]],
   ['modelsimulation_2eh',['ModelSimulation.h',['../_model_simulation_8h.html',1,'']]]
 ];

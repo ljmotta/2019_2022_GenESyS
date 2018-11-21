@@ -1,26 +1,27 @@
-\hypertarget{class_queue}{\section{Queue Class Reference}
+\hypertarget{class_queue}{}\section{Queue Class Reference}
 \label{class_queue}\index{Queue@{Queue}}
-}
 
 
-{\ttfamily \#include $<$Queue.\-h$>$}
+{\ttfamily \#include $<$Queue.\+h$>$}
 
 
 
-Inheritance diagram for Queue\-:\nopagebreak
+Inheritance diagram for Queue\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=255pt]{class_queue__inherit__graph}
+\includegraphics[width=256pt]{class_queue__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Collaboration diagram for Queue\-:\nopagebreak
+Collaboration diagram for Queue\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=255pt]{class_queue__coll__graph}
+\includegraphics[width=256pt]{class_queue__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
@@ -30,13 +31,13 @@ Collaboration diagram for Queue\-:\nopagebreak
 \item 
 \hyperlink{class_queue_a09f908d6edb810d86871bda50fdf4bac}{Queue} (const \hyperlink{class_queue}{Queue} \&orig)
 \item 
-virtual \hyperlink{class_queue_a00d119db8fa3050da37746e82cbcf94f}{$\sim$\-Queue} ()
+virtual \hyperlink{class_queue_a00d119db8fa3050da37746e82cbcf94f}{$\sim$\+Queue} ()
 \item 
-virtual std\-::string \hyperlink{class_queue_ac78cc84cd91539c7f38d95dc17dabac5}{show} ()
+virtual std\+::string \hyperlink{class_queue_ac78cc84cd91539c7f38d95dc17dabac5}{show} ()
 \item 
-void \hyperlink{class_queue_a961b5b7ca80317aa69f958612fb988ad}{insert\-Element} (\hyperlink{class_waiting}{Waiting} $\ast$element)
+void \hyperlink{class_queue_a961b5b7ca80317aa69f958612fb988ad}{insert\+Element} (\hyperlink{class_waiting}{Waiting} $\ast$element)
 \item 
-void \hyperlink{class_queue_a114d5144b3026b57cca9cf481b1f0d65}{remove\-Element} (\hyperlink{class_waiting}{Waiting} $\ast$element, double tnow)
+void \hyperlink{class_queue_a114d5144b3026b57cca9cf481b1f0d65}{remove\+Element} (\hyperlink{class_waiting}{Waiting} $\ast$element, double tnow)
 \item 
 unsigned int \hyperlink{class_queue_a4cd92f99b7abc9ec4df32690dc5a037d}{size} ()
 \item 
@@ -45,303 +46,116 @@ unsigned int \hyperlink{class_queue_a4cd92f99b7abc9ec4df32690dc5a037d}{size} ()
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-virtual void \hyperlink{class_queue_ac722922c7cac47ed74502c2d7206c074}{\-\_\-load\-Instance} (std\-::list$<$ std\-::string $>$ words)
+virtual void \hyperlink{class_queue_ac722922c7cac47ed74502c2d7206c074}{\+\_\+load\+Instance} (std\+::list$<$ std\+::string $>$ words)
 \item 
-virtual std\-::list$<$ std\-::string $>$ $\ast$ \hyperlink{class_queue_a9245790264a9d68030ae8bd884c85bcf}{\-\_\-save\-Instance} ()
+virtual std\+::list$<$ std\+::string $>$ $\ast$ \hyperlink{class_queue_a9245790264a9d68030ae8bd884c85bcf}{\+\_\+save\+Instance} ()
 \item 
-virtual bool \hyperlink{class_queue_a81f6676597a7974af394ddd3f67c7926}{\-\_\-verify\-Symbols} (std\-::string $\ast$error\-Message)
+virtual bool \hyperlink{class_queue_a81f6676597a7974af394ddd3f67c7926}{\+\_\+verify\+Symbols} (std\+::string $\ast$error\+Message)
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
-\subsection{Detailed Description}
-
-
-Definition at line 26 of file Queue.\-h.
-
-
-
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{class_queue_a67994e94c7d825b421a188c6b76f4014}{\index{Queue@{Queue}!Queue@{Queue}}
 \index{Queue@{Queue}!Queue@{Queue}}
-\subsubsection[{Queue}]{\setlength{\rightskip}{0pt plus 5cm}Queue\-::\-Queue (
+\index{Queue@{Queue}!Queue@{Queue}}
+\subsubsection[{\texorpdfstring{Queue(\+Model $\ast$model)}{Queue(Model *model)}}]{\setlength{\rightskip}{0pt plus 5cm}Queue\+::\+Queue (
 \begin{DoxyParamCaption}
 \item[{{\bf Model} $\ast$}]{model}
 \end{DoxyParamCaption}
-)}}\label{class_queue_a67994e94c7d825b421a188c6b76f4014}
-
-
-Definition at line 17 of file Queue.\-cpp.
-
-
-
-Here is the call graph for this function\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_queue_a67994e94c7d825b421a188c6b76f4014_cgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_queue_a09f908d6edb810d86871bda50fdf4bac}{\index{Queue@{Queue}!Queue@{Queue}}
+)}\hypertarget{class_queue_a67994e94c7d825b421a188c6b76f4014}{}\label{class_queue_a67994e94c7d825b421a188c6b76f4014}
 \index{Queue@{Queue}!Queue@{Queue}}
-\subsubsection[{Queue}]{\setlength{\rightskip}{0pt plus 5cm}Queue\-::\-Queue (
+\index{Queue@{Queue}!Queue@{Queue}}
+\subsubsection[{\texorpdfstring{Queue(const Queue \&orig)}{Queue(const Queue &orig)}}]{\setlength{\rightskip}{0pt plus 5cm}Queue\+::\+Queue (
 \begin{DoxyParamCaption}
 \item[{const {\bf Queue} \&}]{orig}
 \end{DoxyParamCaption}
-)}}\label{class_queue_a09f908d6edb810d86871bda50fdf4bac}
-
-
-Definition at line 25 of file Queue.\-cpp.
-
-\hypertarget{class_queue_a00d119db8fa3050da37746e82cbcf94f}{\index{Queue@{Queue}!$\sim$\-Queue@{$\sim$\-Queue}}
-\index{$\sim$\-Queue@{$\sim$\-Queue}!Queue@{Queue}}
-\subsubsection[{$\sim$\-Queue}]{\setlength{\rightskip}{0pt plus 5cm}Queue\-::$\sim$\-Queue (
+)}\hypertarget{class_queue_a09f908d6edb810d86871bda50fdf4bac}{}\label{class_queue_a09f908d6edb810d86871bda50fdf4bac}
+\index{Queue@{Queue}!````~Queue@{$\sim$\+Queue}}
+\index{````~Queue@{$\sim$\+Queue}!Queue@{Queue}}
+\subsubsection[{\texorpdfstring{$\sim$\+Queue()}{~Queue()}}]{\setlength{\rightskip}{0pt plus 5cm}Queue\+::$\sim$\+Queue (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_queue_a00d119db8fa3050da37746e82cbcf94f}
-
-
-Definition at line 28 of file Queue.\-cpp.
-
-
-
-Here is the call graph for this function\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_queue_a00d119db8fa3050da37746e82cbcf94f_cgraph}
-\end{center}
-\end{figure}
-
-
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_queue_a00d119db8fa3050da37746e82cbcf94f}{}\label{class_queue_a00d119db8fa3050da37746e82cbcf94f}
 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_queue_ac722922c7cac47ed74502c2d7206c074}{\index{Queue@{Queue}!\-\_\-load\-Instance@{\-\_\-load\-Instance}}
-\index{\-\_\-load\-Instance@{\-\_\-load\-Instance}!Queue@{Queue}}
-\subsubsection[{\-\_\-load\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}void Queue\-::\-\_\-load\-Instance (
+\index{Queue@{Queue}!\+\_\+load\+Instance@{\+\_\+load\+Instance}}
+\index{\+\_\+load\+Instance@{\+\_\+load\+Instance}!Queue@{Queue}}
+\subsubsection[{\texorpdfstring{\+\_\+load\+Instance(std\+::list$<$ std\+::string $>$ words)}{_loadInstance(std::list< std::string > words)}}]{\setlength{\rightskip}{0pt plus 5cm}void Queue\+::\+\_\+load\+Instance (
 \begin{DoxyParamCaption}
-\item[{std\-::list$<$ std\-::string $>$}]{words}
+\item[{std\+::list$<$ std\+::string $>$}]{words}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_queue_ac722922c7cac47ed74502c2d7206c074}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{class_queue_ac722922c7cac47ed74502c2d7206c074}{}\label{class_queue_ac722922c7cac47ed74502c2d7206c074}
 
 
-Implements \hyperlink{class_model_infrastructure_ae118c8ad2ac9d4397c40d004af51b2dc}{Model\-Infrastructure}.
+Implements \hyperlink{class_model_infrastructure_ae118c8ad2ac9d4397c40d004af51b2dc}{Model\+Infrastructure}.
 
-
-
-Definition at line 66 of file Queue.\-cpp.
-
-\hypertarget{class_queue_a9245790264a9d68030ae8bd884c85bcf}{\index{Queue@{Queue}!\-\_\-save\-Instance@{\-\_\-save\-Instance}}
-\index{\-\_\-save\-Instance@{\-\_\-save\-Instance}!Queue@{Queue}}
-\subsubsection[{\-\_\-save\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<$ std\-::string $>$ $\ast$ Queue\-::\-\_\-save\-Instance (
+\index{Queue@{Queue}!\+\_\+save\+Instance@{\+\_\+save\+Instance}}
+\index{\+\_\+save\+Instance@{\+\_\+save\+Instance}!Queue@{Queue}}
+\subsubsection[{\texorpdfstring{\+\_\+save\+Instance()}{_saveInstance()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::list$<$ std\+::string $>$ $\ast$ Queue\+::\+\_\+save\+Instance (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_queue_a9245790264a9d68030ae8bd884c85bcf}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{class_queue_a9245790264a9d68030ae8bd884c85bcf}{}\label{class_queue_a9245790264a9d68030ae8bd884c85bcf}
 
 
-Reimplemented from \hyperlink{class_model_infrastructure_a991f46601d9e865f2e27c6cd7a2b702d}{Model\-Infrastructure}.
+Reimplemented from \hyperlink{class_model_infrastructure_a991f46601d9e865f2e27c6cd7a2b702d}{Model\+Infrastructure}.
 
-
-
-Definition at line 70 of file Queue.\-cpp.
-
-
-
-Here is the call graph for this function\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=334pt]{class_queue_a9245790264a9d68030ae8bd884c85bcf_cgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_queue_a81f6676597a7974af394ddd3f67c7926}{\index{Queue@{Queue}!\-\_\-verify\-Symbols@{\-\_\-verify\-Symbols}}
-\index{\-\_\-verify\-Symbols@{\-\_\-verify\-Symbols}!Queue@{Queue}}
-\subsubsection[{\-\_\-verify\-Symbols}]{\setlength{\rightskip}{0pt plus 5cm}bool Queue\-::\-\_\-verify\-Symbols (
+\index{Queue@{Queue}!\+\_\+verify\+Symbols@{\+\_\+verify\+Symbols}}
+\index{\+\_\+verify\+Symbols@{\+\_\+verify\+Symbols}!Queue@{Queue}}
+\subsubsection[{\texorpdfstring{\+\_\+verify\+Symbols(std\+::string $\ast$error\+Message)}{_verifySymbols(std::string *errorMessage)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Queue\+::\+\_\+verify\+Symbols (
 \begin{DoxyParamCaption}
-\item[{std\-::string $\ast$}]{error\-Message}
+\item[{std\+::string $\ast$}]{error\+Message}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_queue_a81f6676597a7974af394ddd3f67c7926}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{class_queue_a81f6676597a7974af394ddd3f67c7926}{}\label{class_queue_a81f6676597a7974af394ddd3f67c7926}
 
 
-Implements \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a388}{Model\-Infrastructure}.
+Implements \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a388}{Model\+Infrastructure}.
 
-
-
-Definition at line 75 of file Queue.\-cpp.
-
-\hypertarget{class_queue_a39a1f5a1733f61634339ecee7aac7907}{\index{Queue@{Queue}!first@{first}}
+\index{Queue@{Queue}!first@{first}}
 \index{first@{first}!Queue@{Queue}}
-\subsubsection[{first}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Waiting} $\ast$ Queue\-::first (
+\subsubsection[{\texorpdfstring{first()}{first()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Waiting} $\ast$ Queue\+::first (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{class_queue_a39a1f5a1733f61634339ecee7aac7907}
-
-
-Definition at line 56 of file Queue.\-cpp.
-
-
-
-Here is the call graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=240pt]{class_queue_a39a1f5a1733f61634339ecee7aac7907_cgraph}
-\end{center}
-\end{figure}
-
-
-
-
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=282pt]{class_queue_a39a1f5a1733f61634339ecee7aac7907_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_queue_a961b5b7ca80317aa69f958612fb988ad}{\index{Queue@{Queue}!insert\-Element@{insert\-Element}}
-\index{insert\-Element@{insert\-Element}!Queue@{Queue}}
-\subsubsection[{insert\-Element}]{\setlength{\rightskip}{0pt plus 5cm}void Queue\-::insert\-Element (
+)}\hypertarget{class_queue_a39a1f5a1733f61634339ecee7aac7907}{}\label{class_queue_a39a1f5a1733f61634339ecee7aac7907}
+\index{Queue@{Queue}!insert\+Element@{insert\+Element}}
+\index{insert\+Element@{insert\+Element}!Queue@{Queue}}
+\subsubsection[{\texorpdfstring{insert\+Element(\+Waiting $\ast$element)}{insertElement(Waiting *element)}}]{\setlength{\rightskip}{0pt plus 5cm}void Queue\+::insert\+Element (
 \begin{DoxyParamCaption}
 \item[{{\bf Waiting} $\ast$}]{element}
 \end{DoxyParamCaption}
-)}}\label{class_queue_a961b5b7ca80317aa69f958612fb988ad}
-
-
-Definition at line 40 of file Queue.\-cpp.
-
-
-
-Here is the call graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=342pt]{class_queue_a961b5b7ca80317aa69f958612fb988ad_cgraph}
-\end{center}
-\end{figure}
-
-
-
-
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=316pt]{class_queue_a961b5b7ca80317aa69f958612fb988ad_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_queue_a114d5144b3026b57cca9cf481b1f0d65}{\index{Queue@{Queue}!remove\-Element@{remove\-Element}}
-\index{remove\-Element@{remove\-Element}!Queue@{Queue}}
-\subsubsection[{remove\-Element}]{\setlength{\rightskip}{0pt plus 5cm}void Queue\-::remove\-Element (
+)}\hypertarget{class_queue_a961b5b7ca80317aa69f958612fb988ad}{}\label{class_queue_a961b5b7ca80317aa69f958612fb988ad}
+\index{Queue@{Queue}!remove\+Element@{remove\+Element}}
+\index{remove\+Element@{remove\+Element}!Queue@{Queue}}
+\subsubsection[{\texorpdfstring{remove\+Element(\+Waiting $\ast$element, double tnow)}{removeElement(Waiting *element, double tnow)}}]{\setlength{\rightskip}{0pt plus 5cm}void Queue\+::remove\+Element (
 \begin{DoxyParamCaption}
 \item[{{\bf Waiting} $\ast$}]{element, }
 \item[{double}]{tnow}
 \end{DoxyParamCaption}
-)}}\label{class_queue_a114d5144b3026b57cca9cf481b1f0d65}
-
-
-Definition at line 45 of file Queue.\-cpp.
-
-
-
-Here is the call graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_queue_a114d5144b3026b57cca9cf481b1f0d65_cgraph}
-\end{center}
-\end{figure}
-
-
-
-
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=334pt]{class_queue_a114d5144b3026b57cca9cf481b1f0d65_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_queue_ac78cc84cd91539c7f38d95dc17dabac5}{\index{Queue@{Queue}!show@{show}}
+)}\hypertarget{class_queue_a114d5144b3026b57cca9cf481b1f0d65}{}\label{class_queue_a114d5144b3026b57cca9cf481b1f0d65}
+\index{Queue@{Queue}!show@{show}}
 \index{show@{show}!Queue@{Queue}}
-\subsubsection[{show}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Queue\-::show (
+\subsubsection[{\texorpdfstring{show()}{show()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Queue\+::show (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_queue_ac78cc84cd91539c7f38d95dc17dabac5}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_queue_ac78cc84cd91539c7f38d95dc17dabac5}{}\label{class_queue_ac78cc84cd91539c7f38d95dc17dabac5}
 
 
-Reimplemented from \hyperlink{class_model_infrastructure_a649a5a89a0c9931783d3c51de2acf266}{Model\-Infrastructure}.
+Reimplemented from \hyperlink{class_model_infrastructure_a649a5a89a0c9931783d3c51de2acf266}{Model\+Infrastructure}.
 
-
-
-Definition at line 35 of file Queue.\-cpp.
-
-
-
-Here is the call graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=292pt]{class_queue_ac78cc84cd91539c7f38d95dc17dabac5_cgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_queue_a4cd92f99b7abc9ec4df32690dc5a037d}{\index{Queue@{Queue}!size@{size}}
+\index{Queue@{Queue}!size@{size}}
 \index{size@{size}!Queue@{Queue}}
-\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Queue\-::size (
+\subsubsection[{\texorpdfstring{size()}{size()}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Queue\+::size (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{class_queue_a4cd92f99b7abc9ec4df32690dc5a037d}
+)}\hypertarget{class_queue_a4cd92f99b7abc9ec4df32690dc5a037d}{}\label{class_queue_a4cd92f99b7abc9ec4df32690dc5a037d}
 
 
-Definition at line 52 of file Queue.\-cpp.
-
-
-
-Here is the call graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=242pt]{class_queue_a4cd92f99b7abc9ec4df32690dc5a037d_cgraph}
-\end{center}
-\end{figure}
-
-
-
-
-Here is the caller graph for this function\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=284pt]{class_queue_a4cd92f99b7abc9ec4df32690dc5a037d_icgraph}
-\end{center}
-\end{figure}
-
-
-
-
-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-\hyperlink{_queue_8h}{Queue.\-h}\item 
-\hyperlink{_queue_8cpp}{Queue.\-cpp}\end{DoxyCompactItemize}
+\hyperlink{_queue_8h}{Queue.\+h}\item 
+\hyperlink{_queue_8cpp}{Queue.\+cpp}\end{DoxyCompactItemize}

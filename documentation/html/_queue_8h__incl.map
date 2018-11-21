@@ -1,15 +1,15 @@
 <map id="Queue.h" name="Queue.h">
-<area shape="rect" id="node2" href="$_model_infrastructure_8h.html" title="ModelInfrastructure.h" alt="" coords="594,304,739,331"/>
-<area shape="rect" id="node9" href="$_linked_by_8h.html" title="LinkedBy.h" alt="" coords="287,80,373,107"/>
-<area shape="rect" id="node10" href="$_list_8h.html" title="List.h" alt="" coords="269,304,323,331"/>
-<area shape="rect" id="node14" href="$_entity_8h.html" title="Entity.h" alt="" coords="379,229,445,256"/>
-<area shape="rect" id="node15" href="$_waiting_8h.html" title="Waiting.h" alt="" coords="449,80,525,107"/>
-<area shape="rect" id="node18" href="$_statistics_collector_8h.html" title="StatisticsCollector.h" alt="" coords="781,155,920,181"/>
-<area shape="rect" id="node5" href="$_util_8h.html" title="Util.h" alt="" coords="356,379,409,405"/>
-<area shape="rect" id="node16" href="$_model_component_8h.html" title="ModelComponent.h" alt="" coords="501,155,635,181"/>
-<area shape="rect" id="node17" href="$_plugin_8h.html" title="Plugin.h" alt="" coords="449,304,519,331"/>
-<area shape="rect" id="node19" href="$_statistics_my_impl1_8h.html" title="StatisticsMyImpl1.h" alt="" coords="807,229,945,256"/>
-<area shape="rect" id="node22" href="$_collector_my_impl1_8h.html" title="CollectorMyImpl1.h" alt="" coords="942,304,1076,331"/>
-<area shape="rect" id="node20" href="$_statistics__if_8h.html" title="Statistics_if.h" alt="" coords="815,304,917,331"/>
-<area shape="rect" id="node21" href="$_collector__if_8h.html" title="Collector_if.h" alt="" coords="865,379,964,405"/>
+<area shape="rect" id="node2" href="$_model_infrastructure_8h.html" title="ModelInfrastructure.h" alt="" coords="595,304,740,331"/>
+<area shape="rect" id="node9" href="$_linked_by_8h.html" title="LinkedBy.h" alt="" coords="288,80,375,107"/>
+<area shape="rect" id="node10" href="$_list_8h.html" title="List.h" alt="" coords="269,304,324,331"/>
+<area shape="rect" id="node14" href="$_entity_8h.html" title="Entity.h" alt="" coords="379,229,446,256"/>
+<area shape="rect" id="node15" href="$_waiting_8h.html" title="Waiting.h" alt="" coords="450,80,527,107"/>
+<area shape="rect" id="node18" href="$_statistics_collector_8h.html" title="StatisticsCollector.h" alt="" coords="796,155,936,181"/>
+<area shape="rect" id="node5" href="$_util_8h.html" title="Util.h" alt="" coords="357,379,410,405"/>
+<area shape="rect" id="node16" href="$_model_component_8h.html" title="ModelComponent.h" alt="" coords="501,155,636,181"/>
+<area shape="rect" id="node17" href="$_plugin_8h.html" title="Plugin.h" alt="" coords="450,304,519,331"/>
+<area shape="rect" id="node19" href="$_statistics_dummy_impl_8h.html" title="StatisticsDummyImpl.h" alt="" coords="817,229,976,256"/>
+<area shape="rect" id="node22" href="$_collector_dummy_impl_8h.html" title="CollectorDummyImpl.h" alt="" coords="943,304,1099,331"/>
+<area shape="rect" id="node20" href="$_statistics__if_8h.html" title="Statistics_if.h" alt="" coords="816,304,919,331"/>
+<area shape="rect" id="node21" href="$_collector__if_8h.html" title="Collector_if.h" alt="" coords="866,379,965,405"/>
 </map>

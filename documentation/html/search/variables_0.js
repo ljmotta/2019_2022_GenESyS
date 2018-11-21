@@ -12,6 +12,5 @@ var searchData=
   ['_5fname',['_name',['../class_model_infrastructure.html#aa73c0444ba8e3515e2aec3154eaad85d',1,'ModelInfrastructure::_name()'],['../class_simulation_response.html#ad68ae541afb9cbf6cce4529eb4fb106f',1,'SimulationResponse::_name()']]],
   ['_5ftimebetweencreationsexpression',['_timeBetweenCreationsExpression',['../class_source_model_component.html#ab0c96af4d61d8125773fa41cff865211',1,'SourceModelComponent']]],
   ['_5ftimebetweencreationstimeunit',['_timeBetweenCreationsTimeUnit',['../class_source_model_component.html#af34df20551bc223eb103ca87e9f1463e',1,'SourceModelComponent']]],
-  ['_5ftype',['_type',['../class_simulation_response.html#af62ba9398deece20fd91dc29e2a79880',1,'SimulationResponse']]],
-  ['_5fwords',['_words',['../_statistics_collector_daniel_boso_8cpp.html#aba91e49dcd9d89d7017c9287498ff276',1,'StatisticsCollectorDanielBoso.cpp']]]
+  ['_5ftype',['_type',['../class_simulation_response.html#af62ba9398deece20fd91dc29e2a79880',1,'SimulationResponse']]]
 ];

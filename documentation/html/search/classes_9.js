@@ -11,6 +11,5 @@ var searchData=
   ['list_3c_20simulationcontrol_20_2a_20_3e',['List&lt; SimulationControl * &gt;',['../class_list.html',1,'']]],
   ['list_3c_20simulationresponse_20_2a_20_3e',['List&lt; SimulationResponse * &gt;',['../class_list.html',1,'']]],
   ['list_3c_20std_3a_3astring_20_3e',['List&lt; std::string &gt;',['../class_list.html',1,'']]],
-  ['list_3c_20waiting_20_2a_20_3e',['List&lt; Waiting * &gt;',['../class_list.html',1,'']]],
-  ['location',['location',['../classyy_1_1location.html',1,'yy']]]
+  ['list_3c_20waiting_20_2a_20_3e',['List&lt; Waiting * &gt;',['../class_list.html',1,'']]]
 ];

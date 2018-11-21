@@ -22,13 +22,5 @@ var class_util =
       [ "blockArrival", "class_util.html#a0a3482cfa2d915e261c0cf528fdc7afcaa784e286f1dae00f9b31823faa5ee90b", null ],
       [ "blockInternal", "class_util.html#a0a3482cfa2d915e261c0cf528fdc7afca08756a99ac8340cce8bab9de954d738e", null ],
       [ "mostDetailed", "class_util.html#a0a3482cfa2d915e261c0cf528fdc7afcaac18d2ea075dba67f95df9a907eee741", null ]
-    ] ],
-    [ "DecIndent", "class_util.html#a702d44544c3dd604b81e578ee9ee713f", null ],
-    [ "GenerateNewId", "class_util.html#a59ecba8027c38a9d0a3a0e9e9dc94ad7", null ],
-    [ "GenerateNewIdOfType", "class_util.html#a96dd76236d7f5888b8dac562e93f9278", null ],
-    [ "GenerateNewIdOfType", "class_util.html#aec5f31f4f467113c25a6aef7bb5f4a40", null ],
-    [ "IncIndent", "class_util.html#a8110241a80979c8fbecca95eef59e9ad", null ],
-    [ "Indent", "class_util.html#a13a4cb5dbc88ef5e2c3a127362b956d6", null ],
-    [ "TimeUnitConvert", "class_util.html#a5f537febaa83db4721745a4730657bab", null ],
-    [ "TypeOf", "class_util.html#a1010d1207367e48e1d417381f32abf1f", null ]
+    ] ]
 ];

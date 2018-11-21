@@ -5,8 +5,8 @@ var _trace_manager_8h =
     [ "TraceSimulationEvent", "class_trace_simulation_event.html", "class_trace_simulation_event" ],
     [ "TraceSimulationProcess", "class_trace_simulation_process.html", "class_trace_simulation_process" ],
     [ "TraceManager", "class_trace_manager.html", "class_trace_manager" ],
-    [ "traceErrorListener", "_trace_manager_8h.html#afad9be20bdf6a8241ae57bc2fcb678c7", null ],
-    [ "traceListener", "_trace_manager_8h.html#a5ce1a9a31f5f0fa77de45c6e6622c435", null ],
-    [ "traceSimulationListener", "_trace_manager_8h.html#a615775a0e20f41866ee44014f198fa59", null ],
-    [ "traceSimulationProcessListener", "_trace_manager_8h.html#a8f5a30615774c5ee0b5c5f86741e4b6f", null ]
+    [ "traceErrorListener", "_trace_manager_8h.html#acbbf973df10808566f22d73581076abd", null ],
+    [ "traceListener", "_trace_manager_8h.html#a1136585847f84bdff0c8d3e7fef53d50", null ],
+    [ "traceSimulationListener", "_trace_manager_8h.html#a103daf352a5c1b34d88af32d716bce7e", null ],
+    [ "traceSimulationProcessListener", "_trace_manager_8h.html#a7ff1963642ecda8c9a76991b351f0385", null ]
 ];

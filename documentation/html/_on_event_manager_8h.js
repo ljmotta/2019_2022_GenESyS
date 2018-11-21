@@ -2,7 +2,7 @@ var _on_event_manager_8h =
 [
     [ "SimulationEvent", "class_simulation_event.html", "class_simulation_event" ],
     [ "OnEventManager", "class_on_event_manager.html", "class_on_event_manager" ],
-    [ "memberFunctionGetDoubleVarHandler", "_on_event_manager_8h.html#aa97195a0d80442c68665a1267e6ea97b", null ],
-    [ "memberFunctionSetDoubleVarHandler", "_on_event_manager_8h.html#a82a7292bfc6ddeaf96ebc9f3e2389467", null ],
-    [ "simulationEventListener", "_on_event_manager_8h.html#aff2bc2c2877d3e4e7c13ea94d46b57e3", null ]
+    [ "memberFunctionGetDoubleVarHandler", "_on_event_manager_8h.html#a5b84c87141d3044e77ddd97ef47580dd", null ],
+    [ "memberFunctionSetDoubleVarHandler", "_on_event_manager_8h.html#a3099a9ac310779bb513dcdf45a13815a", null ],
+    [ "simulationEventListener", "_on_event_manager_8h.html#a23e254b33ca0caca5421c78af1b7542d", null ]
 ];

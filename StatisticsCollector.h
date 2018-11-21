@@ -14,11 +14,11 @@
 #ifndef STATISTICSCOLLECTOR_H
 #define STATISTICSCOLLECTOR_H
 
-#include "StatisticsMyImpl1.h"
-#include "CollectorMyImpl1.h" /*TODO: ++ Should be an interface, not a concrete implementation. Only Traits specifies a concrete implementation */
+#include "StatisticsDummyImpl.h"
+#include "CollectorDummyImpl.h" /*TODO: ++ Should be an interface, not a concrete implementation. Only Traits specifies a concrete implementation */
 #include "ModelInfrastructure.h"
 
-class StatisticsCollector: public ModelInfrastructure, public StatisticsMyImpl1 {
+class StatisticsCollector: public ModelInfrastructure, public StatisticsDummyImpl {
 public:
 	StatisticsCollector();
 	StatisticsCollector(std::string name);

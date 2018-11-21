@@ -1,96 +1,71 @@
-\hypertarget{class_plugin}{\section{Plugin Class Reference}
+\hypertarget{class_plugin}{}\section{Plugin Class Reference}
 \label{class_plugin}\index{Plugin@{Plugin}}
-}
 
 
-{\ttfamily \#include $<$Plugin.\-h$>$}
+{\ttfamily \#include $<$Plugin.\+h$>$}
 
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_plugin_a1180a8be15f3a920f1044e528d807ea1}{Plugin} (std\-::string name, bool source, bool drain)
+\hyperlink{class_plugin_a1180a8be15f3a920f1044e528d807ea1}{Plugin} (std\+::string name, bool source, bool drain)
 \item 
 \hyperlink{class_plugin_acececc8908162c6b0c883e62995abad8}{Plugin} (const \hyperlink{class_plugin}{Plugin} \&orig)
 \item 
-virtual \hyperlink{class_plugin_aee4cc1864a2afa84a9ad935153f3fe39}{$\sim$\-Plugin} ()
+virtual \hyperlink{class_plugin_aee4cc1864a2afa84a9ad935153f3fe39}{$\sim$\+Plugin} ()
 \item 
-bool \hyperlink{class_plugin_a1f1610d1eee7009dedf030f8495ab748}{is\-Drain} () const 
+bool \hyperlink{class_plugin_a1f1610d1eee7009dedf030f8495ab748}{is\+Drain} () const 
 \item 
-bool \hyperlink{class_plugin_a87ed4a6c7eab8e84a650c4e057f15dd1}{is\-Source} () const 
+bool \hyperlink{class_plugin_a87ed4a6c7eab8e84a650c4e057f15dd1}{is\+Source} () const 
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-A \hyperlink{class_plugin}{Plugin} represents a dynamically linked component class (\hyperlink{class_model_component}{Model\-Component}) or infrastructure class (\hyperlink{class_model_infrastructure}{Model\-Infrastructure}); It gives access to a \hyperlink{class_model_component}{Model\-Component} so it can be used by the model. Classes like \hyperlink{class_create}{Create}, \hyperlink{class_delay}{Delay}, and \hyperlink{class_dispose}{Dispose} are examples of Plug\-Ins. It corresponds directly to the \char`\"{}\-Expansible\char`\"{} part (the capitalized 'E') of the Gen\-E\-Sy\-S acronymous Plug\-Ins are N\-O\-T implemented yet 
-
-Definition at line 24 of file Plugin.\-h.
-
-
+A \hyperlink{class_plugin}{Plugin} represents a dynamically linked component class (\hyperlink{class_model_component}{Model\+Component}) or infrastructure class (\hyperlink{class_model_infrastructure}{Model\+Infrastructure}); It gives access to a \hyperlink{class_model_component}{Model\+Component} so it can be used by the model. Classes like \hyperlink{class_create}{Create}, \hyperlink{class_delay}{Delay}, and \hyperlink{class_dispose}{Dispose} are examples of Plug\+Ins. It corresponds directly to the \char`\"{}\+Expansible\char`\"{} part (the capitalized \textquotesingle{}E\textquotesingle{}) of the Gen\+E\+SyS acronymous Plug\+Ins are N\+OT implemented yet 
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{class_plugin_a1180a8be15f3a920f1044e528d807ea1}{\index{Plugin@{Plugin}!Plugin@{Plugin}}
 \index{Plugin@{Plugin}!Plugin@{Plugin}}
-\subsubsection[{Plugin}]{\setlength{\rightskip}{0pt plus 5cm}Plugin\-::\-Plugin (
+\index{Plugin@{Plugin}!Plugin@{Plugin}}
+\subsubsection[{\texorpdfstring{Plugin(std\+::string name, bool source, bool drain)}{Plugin(std::string name, bool source, bool drain)}}]{\setlength{\rightskip}{0pt plus 5cm}Plugin\+::\+Plugin (
 \begin{DoxyParamCaption}
-\item[{std\-::string}]{name, }
+\item[{std\+::string}]{name, }
 \item[{bool}]{source, }
 \item[{bool}]{drain}
 \end{DoxyParamCaption}
-)}}\label{class_plugin_a1180a8be15f3a920f1044e528d807ea1}
-
-
-Definition at line 16 of file Plugin.\-cpp.
-
-\hypertarget{class_plugin_acececc8908162c6b0c883e62995abad8}{\index{Plugin@{Plugin}!Plugin@{Plugin}}
+)}\hypertarget{class_plugin_a1180a8be15f3a920f1044e528d807ea1}{}\label{class_plugin_a1180a8be15f3a920f1044e528d807ea1}
 \index{Plugin@{Plugin}!Plugin@{Plugin}}
-\subsubsection[{Plugin}]{\setlength{\rightskip}{0pt plus 5cm}Plugin\-::\-Plugin (
+\index{Plugin@{Plugin}!Plugin@{Plugin}}
+\subsubsection[{\texorpdfstring{Plugin(const Plugin \&orig)}{Plugin(const Plugin &orig)}}]{\setlength{\rightskip}{0pt plus 5cm}Plugin\+::\+Plugin (
 \begin{DoxyParamCaption}
 \item[{const {\bf Plugin} \&}]{orig}
 \end{DoxyParamCaption}
-)}}\label{class_plugin_acececc8908162c6b0c883e62995abad8}
-
-
-Definition at line 22 of file Plugin.\-cpp.
-
-\hypertarget{class_plugin_aee4cc1864a2afa84a9ad935153f3fe39}{\index{Plugin@{Plugin}!$\sim$\-Plugin@{$\sim$\-Plugin}}
-\index{$\sim$\-Plugin@{$\sim$\-Plugin}!Plugin@{Plugin}}
-\subsubsection[{$\sim$\-Plugin}]{\setlength{\rightskip}{0pt plus 5cm}Plugin\-::$\sim$\-Plugin (
+)}\hypertarget{class_plugin_acececc8908162c6b0c883e62995abad8}{}\label{class_plugin_acececc8908162c6b0c883e62995abad8}
+\index{Plugin@{Plugin}!````~Plugin@{$\sim$\+Plugin}}
+\index{````~Plugin@{$\sim$\+Plugin}!Plugin@{Plugin}}
+\subsubsection[{\texorpdfstring{$\sim$\+Plugin()}{~Plugin()}}]{\setlength{\rightskip}{0pt plus 5cm}Plugin\+::$\sim$\+Plugin (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_plugin_aee4cc1864a2afa84a9ad935153f3fe39}
-
-
-Definition at line 25 of file Plugin.\-cpp.
-
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_plugin_aee4cc1864a2afa84a9ad935153f3fe39}{}\label{class_plugin_aee4cc1864a2afa84a9ad935153f3fe39}
 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_plugin_a1f1610d1eee7009dedf030f8495ab748}{\index{Plugin@{Plugin}!is\-Drain@{is\-Drain}}
-\index{is\-Drain@{is\-Drain}!Plugin@{Plugin}}
-\subsubsection[{is\-Drain}]{\setlength{\rightskip}{0pt plus 5cm}bool Plugin\-::is\-Drain (
+\index{Plugin@{Plugin}!is\+Drain@{is\+Drain}}
+\index{is\+Drain@{is\+Drain}!Plugin@{Plugin}}
+\subsubsection[{\texorpdfstring{is\+Drain() const }{isDrain() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Plugin\+::is\+Drain (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_plugin_a1f1610d1eee7009dedf030f8495ab748}
-
-
-Definition at line 28 of file Plugin.\-cpp.
-
-\hypertarget{class_plugin_a87ed4a6c7eab8e84a650c4e057f15dd1}{\index{Plugin@{Plugin}!is\-Source@{is\-Source}}
-\index{is\-Source@{is\-Source}!Plugin@{Plugin}}
-\subsubsection[{is\-Source}]{\setlength{\rightskip}{0pt plus 5cm}bool Plugin\-::is\-Source (
+) const}\hypertarget{class_plugin_a1f1610d1eee7009dedf030f8495ab748}{}\label{class_plugin_a1f1610d1eee7009dedf030f8495ab748}
+\index{Plugin@{Plugin}!is\+Source@{is\+Source}}
+\index{is\+Source@{is\+Source}!Plugin@{Plugin}}
+\subsubsection[{\texorpdfstring{is\+Source() const }{isSource() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Plugin\+::is\+Source (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_plugin_a87ed4a6c7eab8e84a650c4e057f15dd1}
+) const}\hypertarget{class_plugin_a87ed4a6c7eab8e84a650c4e057f15dd1}{}\label{class_plugin_a87ed4a6c7eab8e84a650c4e057f15dd1}
 
 
-Definition at line 32 of file Plugin.\-cpp.
-
-
-
-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-\hyperlink{_plugin_8h}{Plugin.\-h}\item 
-\hyperlink{_plugin_8cpp}{Plugin.\-cpp}\end{DoxyCompactItemize}
+\hyperlink{_plugin_8h}{Plugin.\+h}\item 
+\hyperlink{_plugin_8cpp}{Plugin.\+cpp}\end{DoxyCompactItemize}

@@ -1,6 +1,6 @@
 <map id="Create" name="Create">
-<area shape="rect" id="node2" href="$class_source_model_component.html" title="SourceModelComponent" alt="" coords="49,173,213,200"/>
-<area shape="rect" id="node3" href="$class_model_component.html" title="ModelComponent" alt="" coords="70,96,193,123"/>
-<area shape="rect" id="node4" href="$class_model_infrastructure.html" title="ModelInfrastructure" alt="" coords="5,5,139,32"/>
-<area shape="rect" id="node5" href="$class_model.html" title="Model" alt="" coords="163,5,220,32"/>
+<area shape="rect" id="node2" href="$class_source_model_component.html" title="SourceModelComponent" alt="" coords="50,171,215,197"/>
+<area shape="rect" id="node3" href="$class_model_component.html" title="ModelComponent" alt="" coords="71,95,195,121"/>
+<area shape="rect" id="node4" href="$class_model_infrastructure.html" title="ModelInfrastructure" alt="" coords="5,5,140,32"/>
+<area shape="rect" id="node5" href="$class_model.html" title="Model" alt="" coords="164,5,221,32"/>
 </map>

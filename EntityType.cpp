@@ -12,7 +12,7 @@
  */
 
 #include "EntityType.h"
-#include "CollectorMyImpl1.h" /////
+#include "CollectorDummyImpl.h" /////
 //#include "Traits.h"
 
 EntityType::EntityType(Model* model) : ModelInfrastructure(typeid (EntityType).name()) {

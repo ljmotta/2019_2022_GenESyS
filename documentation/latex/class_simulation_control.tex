@@ -1,103 +1,84 @@
-\hypertarget{class_simulation_control}{\section{Simulation\-Control Class Reference}
-\label{class_simulation_control}\index{Simulation\-Control@{Simulation\-Control}}
-}
+\hypertarget{class_simulation_control}{}\section{Simulation\+Control Class Reference}
+\label{class_simulation_control}\index{Simulation\+Control@{Simulation\+Control}}
 
 
-{\ttfamily \#include $<$Simulation\-Control.\-h$>$}
+{\ttfamily \#include $<$Simulation\+Control.\+h$>$}
 
 
 
-Inheritance diagram for Simulation\-Control\-:\nopagebreak
+Inheritance diagram for Simulation\+Control\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=186pt]{class_simulation_control__inherit__graph}
+\includegraphics[width=187pt]{class_simulation_control__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Collaboration diagram for Simulation\-Control\-:\nopagebreak
+Collaboration diagram for Simulation\+Control\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=186pt]{class_simulation_control__coll__graph}
+\includegraphics[width=187pt]{class_simulation_control__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_simulation_control_abc4b94dcd52bf60db702206e324481a5}{Simulation\-Control} (std\-::string type, std\-::string name, \hyperlink{_functor_8h_a69893c7d35bc5c3bdb40b1034fe4838e}{Get\-Functor} get\-Functor, \hyperlink{_functor_8h_a60162e2fcd32c651903530f47a55f6c9}{Set\-Functor} set\-Functor)
+\hyperlink{class_simulation_control_abc4b94dcd52bf60db702206e324481a5}{Simulation\+Control} (std\+::string type, std\+::string name, \hyperlink{_functor_8h_a69893c7d35bc5c3bdb40b1034fe4838e}{Get\+Functor} get\+Functor, \hyperlink{_functor_8h_a60162e2fcd32c651903530f47a55f6c9}{Set\+Functor} set\+Functor)
 \item 
-\hyperlink{class_simulation_control_a12851e6e9168d46c2a9761ac52b6b49c}{Simulation\-Control} (const \hyperlink{class_simulation_control}{Simulation\-Control} \&orig)
+\hyperlink{class_simulation_control_a12851e6e9168d46c2a9761ac52b6b49c}{Simulation\+Control} (const \hyperlink{class_simulation_control}{Simulation\+Control} \&orig)
 \item 
-virtual \hyperlink{class_simulation_control_ae6e46cf7af75d2d6755bcb99ac1a6b23}{$\sim$\-Simulation\-Control} ()
+virtual \hyperlink{class_simulation_control_ae6e46cf7af75d2d6755bcb99ac1a6b23}{$\sim$\+Simulation\+Control} ()
 \item 
-void \hyperlink{class_simulation_control_a72fafddaf6615fe33a29b49fc08a218a}{set\-Value} (double value)
+void \hyperlink{class_simulation_control_a72fafddaf6615fe33a29b49fc08a218a}{set\+Value} (double value)
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
 \subsection{Detailed Description}
-Represents any possible parameter or control for a simulation. Any infrastructure or event the model can declare one of its own attribute as a simulation control. It just have to create a \hyperlink{class_simulation_control}{Simulation\-Control} object, passing the access to the methods that gets and sets the control value and including this \hyperlink{class_simulation_control}{Simulation\-Control} in the corresponding list of the model 
-
-Definition at line 23 of file Simulation\-Control.\-h.
-
-
+Represents any possible parameter or control for a simulation. Any infrastructure or event the model can declare one of its own attribute as a simulation control. It just have to create a \hyperlink{class_simulation_control}{Simulation\+Control} object, passing the access to the methods that gets and sets the control value and including this \hyperlink{class_simulation_control}{Simulation\+Control} in the corresponding list of the model 
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{class_simulation_control_abc4b94dcd52bf60db702206e324481a5}{\index{Simulation\-Control@{Simulation\-Control}!Simulation\-Control@{Simulation\-Control}}
-\index{Simulation\-Control@{Simulation\-Control}!SimulationControl@{Simulation\-Control}}
-\subsubsection[{Simulation\-Control}]{\setlength{\rightskip}{0pt plus 5cm}Simulation\-Control\-::\-Simulation\-Control (
+\index{Simulation\+Control@{Simulation\+Control}!Simulation\+Control@{Simulation\+Control}}
+\index{Simulation\+Control@{Simulation\+Control}!Simulation\+Control@{Simulation\+Control}}
+\subsubsection[{\texorpdfstring{Simulation\+Control(std\+::string type, std\+::string name, Get\+Functor get\+Functor, Set\+Functor set\+Functor)}{SimulationControl(std::string type, std::string name, GetFunctor getFunctor, SetFunctor setFunctor)}}]{\setlength{\rightskip}{0pt plus 5cm}Simulation\+Control\+::\+Simulation\+Control (
 \begin{DoxyParamCaption}
-\item[{std\-::string}]{type, }
-\item[{std\-::string}]{name, }
-\item[{{\bf Get\-Functor}}]{get\-Functor, }
-\item[{{\bf Set\-Functor}}]{set\-Functor}
+\item[{std\+::string}]{type, }
+\item[{std\+::string}]{name, }
+\item[{{\bf Get\+Functor}}]{get\+Functor, }
+\item[{{\bf Set\+Functor}}]{set\+Functor}
 \end{DoxyParamCaption}
-)}}\label{class_simulation_control_abc4b94dcd52bf60db702206e324481a5}
-
-
-Definition at line 16 of file Simulation\-Control.\-cpp.
-
-\hypertarget{class_simulation_control_a12851e6e9168d46c2a9761ac52b6b49c}{\index{Simulation\-Control@{Simulation\-Control}!Simulation\-Control@{Simulation\-Control}}
-\index{Simulation\-Control@{Simulation\-Control}!SimulationControl@{Simulation\-Control}}
-\subsubsection[{Simulation\-Control}]{\setlength{\rightskip}{0pt plus 5cm}Simulation\-Control\-::\-Simulation\-Control (
+)}\hypertarget{class_simulation_control_abc4b94dcd52bf60db702206e324481a5}{}\label{class_simulation_control_abc4b94dcd52bf60db702206e324481a5}
+\index{Simulation\+Control@{Simulation\+Control}!Simulation\+Control@{Simulation\+Control}}
+\index{Simulation\+Control@{Simulation\+Control}!Simulation\+Control@{Simulation\+Control}}
+\subsubsection[{\texorpdfstring{Simulation\+Control(const Simulation\+Control \&orig)}{SimulationControl(const SimulationControl &orig)}}]{\setlength{\rightskip}{0pt plus 5cm}Simulation\+Control\+::\+Simulation\+Control (
 \begin{DoxyParamCaption}
-\item[{const {\bf Simulation\-Control} \&}]{orig}
+\item[{const {\bf Simulation\+Control} \&}]{orig}
 \end{DoxyParamCaption}
-)}}\label{class_simulation_control_a12851e6e9168d46c2a9761ac52b6b49c}
-
-
-Definition at line 21 of file Simulation\-Control.\-cpp.
-
-\hypertarget{class_simulation_control_ae6e46cf7af75d2d6755bcb99ac1a6b23}{\index{Simulation\-Control@{Simulation\-Control}!$\sim$\-Simulation\-Control@{$\sim$\-Simulation\-Control}}
-\index{$\sim$\-Simulation\-Control@{$\sim$\-Simulation\-Control}!SimulationControl@{Simulation\-Control}}
-\subsubsection[{$\sim$\-Simulation\-Control}]{\setlength{\rightskip}{0pt plus 5cm}Simulation\-Control\-::$\sim$\-Simulation\-Control (
+)}\hypertarget{class_simulation_control_a12851e6e9168d46c2a9761ac52b6b49c}{}\label{class_simulation_control_a12851e6e9168d46c2a9761ac52b6b49c}
+\index{Simulation\+Control@{Simulation\+Control}!````~Simulation\+Control@{$\sim$\+Simulation\+Control}}
+\index{````~Simulation\+Control@{$\sim$\+Simulation\+Control}!Simulation\+Control@{Simulation\+Control}}
+\subsubsection[{\texorpdfstring{$\sim$\+Simulation\+Control()}{~SimulationControl()}}]{\setlength{\rightskip}{0pt plus 5cm}Simulation\+Control\+::$\sim$\+Simulation\+Control (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_simulation_control_ae6e46cf7af75d2d6755bcb99ac1a6b23}
-
-
-Definition at line 24 of file Simulation\-Control.\-cpp.
-
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_simulation_control_ae6e46cf7af75d2d6755bcb99ac1a6b23}{}\label{class_simulation_control_ae6e46cf7af75d2d6755bcb99ac1a6b23}
 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_simulation_control_a72fafddaf6615fe33a29b49fc08a218a}{\index{Simulation\-Control@{Simulation\-Control}!set\-Value@{set\-Value}}
-\index{set\-Value@{set\-Value}!SimulationControl@{Simulation\-Control}}
-\subsubsection[{set\-Value}]{\setlength{\rightskip}{0pt plus 5cm}void Simulation\-Control\-::set\-Value (
+\index{Simulation\+Control@{Simulation\+Control}!set\+Value@{set\+Value}}
+\index{set\+Value@{set\+Value}!Simulation\+Control@{Simulation\+Control}}
+\subsubsection[{\texorpdfstring{set\+Value(double value)}{setValue(double value)}}]{\setlength{\rightskip}{0pt plus 5cm}void Simulation\+Control\+::set\+Value (
 \begin{DoxyParamCaption}
 \item[{double}]{value}
 \end{DoxyParamCaption}
-)}}\label{class_simulation_control_a72fafddaf6615fe33a29b49fc08a218a}
+)}\hypertarget{class_simulation_control_a72fafddaf6615fe33a29b49fc08a218a}{}\label{class_simulation_control_a72fafddaf6615fe33a29b49fc08a218a}
 
 
-Definition at line 27 of file Simulation\-Control.\-cpp.
-
-
-
-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-\hyperlink{_simulation_control_8h}{Simulation\-Control.\-h}\item 
-\hyperlink{_simulation_control_8cpp}{Simulation\-Control.\-cpp}\end{DoxyCompactItemize}
+\hyperlink{_simulation_control_8h}{Simulation\+Control.\+h}\item 
+\hyperlink{_simulation_control_8cpp}{Simulation\+Control.\+cpp}\end{DoxyCompactItemize}

@@ -1,290 +1,118 @@
-\hypertarget{class_infrastructure_manager}{\section{Infrastructure\-Manager Class Reference}
-\label{class_infrastructure_manager}\index{Infrastructure\-Manager@{Infrastructure\-Manager}}
-}
+\hypertarget{class_infrastructure_manager}{}\section{Infrastructure\+Manager Class Reference}
+\label{class_infrastructure_manager}\index{Infrastructure\+Manager@{Infrastructure\+Manager}}
 
 
-{\ttfamily \#include $<$Infrastructure\-Manager.\-h$>$}
+{\ttfamily \#include $<$Infrastructure\+Manager.\+h$>$}
 
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_infrastructure_manager_a65067e32d70b63c7b0b46c61dcab6a22}{Infrastructure\-Manager} (\hyperlink{class_model}{Model} $\ast$model)
+\hyperlink{class_infrastructure_manager_a65067e32d70b63c7b0b46c61dcab6a22}{Infrastructure\+Manager} (\hyperlink{class_model}{Model} $\ast$model)
 \item 
-\hyperlink{class_infrastructure_manager_a091a712dc18339f9ea350519af229dba}{Infrastructure\-Manager} (const \hyperlink{class_infrastructure_manager}{Infrastructure\-Manager} \&orig)
+\hyperlink{class_infrastructure_manager_a091a712dc18339f9ea350519af229dba}{Infrastructure\+Manager} (const \hyperlink{class_infrastructure_manager}{Infrastructure\+Manager} \&orig)
 \item 
-virtual \hyperlink{class_infrastructure_manager_a5bca34aaf33a39c649ad3a1a9cd0ebf9}{$\sim$\-Infrastructure\-Manager} ()
+virtual \hyperlink{class_infrastructure_manager_a5bca34aaf33a39c649ad3a1a9cd0ebf9}{$\sim$\+Infrastructure\+Manager} ()
 \item 
-bool \hyperlink{class_infrastructure_manager_a597f2262dee783093e616e3d8894690a}{insert\-Infrastructure} (std\-::string infra\-Typename, \hyperlink{class_model_infrastructure}{Model\-Infrastructure} $\ast$infra)
+bool \hyperlink{class_infrastructure_manager_a597f2262dee783093e616e3d8894690a}{insert\+Infrastructure} (std\+::string infra\+Typename, \hyperlink{class_model_infrastructure}{Model\+Infrastructure} $\ast$infra)
 \item 
-void \hyperlink{class_infrastructure_manager_a55ea1a348ec52d4ed1de3addf86b6d42}{remove\-Infrastructure} (std\-::string infra\-Typename, \hyperlink{class_model_infrastructure}{Model\-Infrastructure} $\ast$infra)
+void \hyperlink{class_infrastructure_manager_a55ea1a348ec52d4ed1de3addf86b6d42}{remove\+Infrastructure} (std\+::string infra\+Typename, \hyperlink{class_model_infrastructure}{Model\+Infrastructure} $\ast$infra)
 \item 
-\hyperlink{class_list}{List}$<$ \hyperlink{class_model_infrastructure}{Model\-Infrastructure} $\ast$ $>$ $\ast$ \hyperlink{class_infrastructure_manager_a1d013b55994e27cac0c45c1ad08f74e0}{get\-Infrastructures} (std\-::string infra\-Typename) const 
+\hyperlink{class_list}{List}$<$ \hyperlink{class_model_infrastructure}{Model\+Infrastructure} $\ast$ $>$ $\ast$ \hyperlink{class_infrastructure_manager_a1d013b55994e27cac0c45c1ad08f74e0}{get\+Infrastructures} (std\+::string infra\+Typename) const 
 \item 
-\hyperlink{class_model_infrastructure}{Model\-Infrastructure} $\ast$ \hyperlink{class_infrastructure_manager_a2c957eee5107d521e8292cb6f8e9ea5b}{get\-Infrastructure} (std\-::string infra\-Typename, \hyperlink{class_util_ad17d458d9344b10bba64347e514d6d71}{Util\-::identitifcation} id)
+\hyperlink{class_model_infrastructure}{Model\+Infrastructure} $\ast$ \hyperlink{class_infrastructure_manager_a2c957eee5107d521e8292cb6f8e9ea5b}{get\+Infrastructure} (std\+::string infra\+Typename, \hyperlink{class_util_ad17d458d9344b10bba64347e514d6d71}{Util\+::identitifcation} id)
 \item 
-\hyperlink{class_model_infrastructure}{Model\-Infrastructure} $\ast$ \hyperlink{class_infrastructure_manager_ab8663cae44cd58387391c1821c48beb7}{get\-Infrastructure} (std\-::string infra\-Typename, std\-::string name)
+\hyperlink{class_model_infrastructure}{Model\+Infrastructure} $\ast$ \hyperlink{class_infrastructure_manager_ab8663cae44cd58387391c1821c48beb7}{get\+Infrastructure} (std\+::string infra\+Typename, std\+::string name)
 \item 
-std\-::list$<$ std\-::string $>$ $\ast$ \hyperlink{class_infrastructure_manager_aaf3ff8d9288b333d21a202caae797bc7}{get\-Infrastructure\-Typenames} () const 
+std\+::list$<$ std\+::string $>$ $\ast$ \hyperlink{class_infrastructure_manager_aaf3ff8d9288b333d21a202caae797bc7}{get\+Infrastructure\+Typenames} () const 
 \item 
 void \hyperlink{class_infrastructure_manager_a8e10fe1a6a40ce020b1b63232dbb05cd}{show} ()
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-The \hyperlink{class_infrastructure_manager}{Infrastructure\-Manager} is responsible for inserting and removing infrastructures (Model\-Infra\-Structure) used by components, in a consistent way. T\-O F\-I\-X\-: No direct access for insertion or deletion should be allow 
-
-Definition at line 29 of file Infrastructure\-Manager.\-h.
-
-
+The \hyperlink{class_infrastructure_manager}{Infrastructure\+Manager} is responsible for inserting and removing infrastructures (Model\+Infra\+Structure) used by components, in a consistent way. TO F\+IX\+: No direct access for insertion or deletion should be allow 
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{class_infrastructure_manager_a65067e32d70b63c7b0b46c61dcab6a22}{\index{Infrastructure\-Manager@{Infrastructure\-Manager}!Infrastructure\-Manager@{Infrastructure\-Manager}}
-\index{Infrastructure\-Manager@{Infrastructure\-Manager}!InfrastructureManager@{Infrastructure\-Manager}}
-\subsubsection[{Infrastructure\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Infrastructure\-Manager\-::\-Infrastructure\-Manager (
+\index{Infrastructure\+Manager@{Infrastructure\+Manager}!Infrastructure\+Manager@{Infrastructure\+Manager}}
+\index{Infrastructure\+Manager@{Infrastructure\+Manager}!Infrastructure\+Manager@{Infrastructure\+Manager}}
+\subsubsection[{\texorpdfstring{Infrastructure\+Manager(\+Model $\ast$model)}{InfrastructureManager(Model *model)}}]{\setlength{\rightskip}{0pt plus 5cm}Infrastructure\+Manager\+::\+Infrastructure\+Manager (
 \begin{DoxyParamCaption}
 \item[{{\bf Model} $\ast$}]{model}
 \end{DoxyParamCaption}
-)}}\label{class_infrastructure_manager_a65067e32d70b63c7b0b46c61dcab6a22}
-Infrastructures are organized as a map from a string (key), the type of an infrastructure, and a list of infrastructures of that type 
-
-Definition at line 17 of file Infrastructure\-Manager.\-cpp.
-
-\hypertarget{class_infrastructure_manager_a091a712dc18339f9ea350519af229dba}{\index{Infrastructure\-Manager@{Infrastructure\-Manager}!Infrastructure\-Manager@{Infrastructure\-Manager}}
-\index{Infrastructure\-Manager@{Infrastructure\-Manager}!InfrastructureManager@{Infrastructure\-Manager}}
-\subsubsection[{Infrastructure\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Infrastructure\-Manager\-::\-Infrastructure\-Manager (
+)}\hypertarget{class_infrastructure_manager_a65067e32d70b63c7b0b46c61dcab6a22}{}\label{class_infrastructure_manager_a65067e32d70b63c7b0b46c61dcab6a22}
+Infrastructures are organized as a map from a string (key), the type of an infrastructure, and a list of infrastructures of that type \index{Infrastructure\+Manager@{Infrastructure\+Manager}!Infrastructure\+Manager@{Infrastructure\+Manager}}
+\index{Infrastructure\+Manager@{Infrastructure\+Manager}!Infrastructure\+Manager@{Infrastructure\+Manager}}
+\subsubsection[{\texorpdfstring{Infrastructure\+Manager(const Infrastructure\+Manager \&orig)}{InfrastructureManager(const InfrastructureManager &orig)}}]{\setlength{\rightskip}{0pt plus 5cm}Infrastructure\+Manager\+::\+Infrastructure\+Manager (
 \begin{DoxyParamCaption}
-\item[{const {\bf Infrastructure\-Manager} \&}]{orig}
+\item[{const {\bf Infrastructure\+Manager} \&}]{orig}
 \end{DoxyParamCaption}
-)}}\label{class_infrastructure_manager_a091a712dc18339f9ea350519af229dba}
-
-
-Definition at line 27 of file Infrastructure\-Manager.\-cpp.
-
-\hypertarget{class_infrastructure_manager_a5bca34aaf33a39c649ad3a1a9cd0ebf9}{\index{Infrastructure\-Manager@{Infrastructure\-Manager}!$\sim$\-Infrastructure\-Manager@{$\sim$\-Infrastructure\-Manager}}
-\index{$\sim$\-Infrastructure\-Manager@{$\sim$\-Infrastructure\-Manager}!InfrastructureManager@{Infrastructure\-Manager}}
-\subsubsection[{$\sim$\-Infrastructure\-Manager}]{\setlength{\rightskip}{0pt plus 5cm}Infrastructure\-Manager\-::$\sim$\-Infrastructure\-Manager (
+)}\hypertarget{class_infrastructure_manager_a091a712dc18339f9ea350519af229dba}{}\label{class_infrastructure_manager_a091a712dc18339f9ea350519af229dba}
+\index{Infrastructure\+Manager@{Infrastructure\+Manager}!````~Infrastructure\+Manager@{$\sim$\+Infrastructure\+Manager}}
+\index{````~Infrastructure\+Manager@{$\sim$\+Infrastructure\+Manager}!Infrastructure\+Manager@{Infrastructure\+Manager}}
+\subsubsection[{\texorpdfstring{$\sim$\+Infrastructure\+Manager()}{~InfrastructureManager()}}]{\setlength{\rightskip}{0pt plus 5cm}Infrastructure\+Manager\+::$\sim$\+Infrastructure\+Manager (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_infrastructure_manager_a5bca34aaf33a39c649ad3a1a9cd0ebf9}
-
-
-Definition at line 30 of file Infrastructure\-Manager.\-cpp.
-
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_infrastructure_manager_a5bca34aaf33a39c649ad3a1a9cd0ebf9}{}\label{class_infrastructure_manager_a5bca34aaf33a39c649ad3a1a9cd0ebf9}
 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_infrastructure_manager_a2c957eee5107d521e8292cb6f8e9ea5b}{\index{Infrastructure\-Manager@{Infrastructure\-Manager}!get\-Infrastructure@{get\-Infrastructure}}
-\index{get\-Infrastructure@{get\-Infrastructure}!InfrastructureManager@{Infrastructure\-Manager}}
-\subsubsection[{get\-Infrastructure}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Model\-Infrastructure} $\ast$ Infrastructure\-Manager\-::get\-Infrastructure (
+\index{Infrastructure\+Manager@{Infrastructure\+Manager}!get\+Infrastructure@{get\+Infrastructure}}
+\index{get\+Infrastructure@{get\+Infrastructure}!Infrastructure\+Manager@{Infrastructure\+Manager}}
+\subsubsection[{\texorpdfstring{get\+Infrastructure(std\+::string infra\+Typename, Util\+::identitifcation id)}{getInfrastructure(std::string infraTypename, Util::identitifcation id)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Model\+Infrastructure} $\ast$ Infrastructure\+Manager\+::get\+Infrastructure (
 \begin{DoxyParamCaption}
-\item[{std\-::string}]{infra\-Typename, }
-\item[{{\bf Util\-::identitifcation}}]{id}
+\item[{std\+::string}]{infra\+Typename, }
+\item[{{\bf Util\+::identitifcation}}]{id}
 \end{DoxyParamCaption}
-)}}\label{class_infrastructure_manager_a2c957eee5107d521e8292cb6f8e9ea5b}
-
-
-Definition at line 86 of file Infrastructure\-Manager.\-cpp.
-
-
-
-Here is the call graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_infrastructure_manager_a2c957eee5107d521e8292cb6f8e9ea5b_cgraph}
-\end{center}
-\end{figure}
-
-
-
-
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_infrastructure_manager_a2c957eee5107d521e8292cb6f8e9ea5b_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_infrastructure_manager_ab8663cae44cd58387391c1821c48beb7}{\index{Infrastructure\-Manager@{Infrastructure\-Manager}!get\-Infrastructure@{get\-Infrastructure}}
-\index{get\-Infrastructure@{get\-Infrastructure}!InfrastructureManager@{Infrastructure\-Manager}}
-\subsubsection[{get\-Infrastructure}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Model\-Infrastructure} $\ast$ Infrastructure\-Manager\-::get\-Infrastructure (
+)}\hypertarget{class_infrastructure_manager_a2c957eee5107d521e8292cb6f8e9ea5b}{}\label{class_infrastructure_manager_a2c957eee5107d521e8292cb6f8e9ea5b}
+\index{Infrastructure\+Manager@{Infrastructure\+Manager}!get\+Infrastructure@{get\+Infrastructure}}
+\index{get\+Infrastructure@{get\+Infrastructure}!Infrastructure\+Manager@{Infrastructure\+Manager}}
+\subsubsection[{\texorpdfstring{get\+Infrastructure(std\+::string infra\+Typename, std\+::string name)}{getInfrastructure(std::string infraTypename, std::string name)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Model\+Infrastructure} $\ast$ Infrastructure\+Manager\+::get\+Infrastructure (
 \begin{DoxyParamCaption}
-\item[{std\-::string}]{infra\-Typename, }
-\item[{std\-::string}]{name}
+\item[{std\+::string}]{infra\+Typename, }
+\item[{std\+::string}]{name}
 \end{DoxyParamCaption}
-)}}\label{class_infrastructure_manager_ab8663cae44cd58387391c1821c48beb7}
-
-
-Definition at line 104 of file Infrastructure\-Manager.\-cpp.
-
-
-
-Here is the call graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_infrastructure_manager_ab8663cae44cd58387391c1821c48beb7_cgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_infrastructure_manager_a1d013b55994e27cac0c45c1ad08f74e0}{\index{Infrastructure\-Manager@{Infrastructure\-Manager}!get\-Infrastructures@{get\-Infrastructures}}
-\index{get\-Infrastructures@{get\-Infrastructures}!InfrastructureManager@{Infrastructure\-Manager}}
-\subsubsection[{get\-Infrastructures}]{\setlength{\rightskip}{0pt plus 5cm}{\bf List}$<$ {\bf Model\-Infrastructure} $\ast$ $>$ $\ast$ Infrastructure\-Manager\-::get\-Infrastructures (
+)}\hypertarget{class_infrastructure_manager_ab8663cae44cd58387391c1821c48beb7}{}\label{class_infrastructure_manager_ab8663cae44cd58387391c1821c48beb7}
+\index{Infrastructure\+Manager@{Infrastructure\+Manager}!get\+Infrastructures@{get\+Infrastructures}}
+\index{get\+Infrastructures@{get\+Infrastructures}!Infrastructure\+Manager@{Infrastructure\+Manager}}
+\subsubsection[{\texorpdfstring{get\+Infrastructures(std\+::string infra\+Typename) const }{getInfrastructures(std::string infraTypename) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf List}$<$ {\bf Model\+Infrastructure} $\ast$ $>$ $\ast$ Infrastructure\+Manager\+::get\+Infrastructures (
 \begin{DoxyParamCaption}
-\item[{std\-::string}]{infra\-Typename}
+\item[{std\+::string}]{infra\+Typename}
 \end{DoxyParamCaption}
-) const}}\label{class_infrastructure_manager_a1d013b55994e27cac0c45c1ad08f74e0}
-
-
-Definition at line 71 of file Infrastructure\-Manager.\-cpp.
-
-
-
-Here is the call graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=330pt]{class_infrastructure_manager_a1d013b55994e27cac0c45c1ad08f74e0_cgraph}
-\end{center}
-\end{figure}
-
-
-
-
-Here is the caller graph for this function\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_infrastructure_manager_a1d013b55994e27cac0c45c1ad08f74e0_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_infrastructure_manager_aaf3ff8d9288b333d21a202caae797bc7}{\index{Infrastructure\-Manager@{Infrastructure\-Manager}!get\-Infrastructure\-Typenames@{get\-Infrastructure\-Typenames}}
-\index{get\-Infrastructure\-Typenames@{get\-Infrastructure\-Typenames}!InfrastructureManager@{Infrastructure\-Manager}}
-\subsubsection[{get\-Infrastructure\-Typenames}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<$ std\-::string $>$ $\ast$ Infrastructure\-Manager\-::get\-Infrastructure\-Typenames (
+) const}\hypertarget{class_infrastructure_manager_a1d013b55994e27cac0c45c1ad08f74e0}{}\label{class_infrastructure_manager_a1d013b55994e27cac0c45c1ad08f74e0}
+\index{Infrastructure\+Manager@{Infrastructure\+Manager}!get\+Infrastructure\+Typenames@{get\+Infrastructure\+Typenames}}
+\index{get\+Infrastructure\+Typenames@{get\+Infrastructure\+Typenames}!Infrastructure\+Manager@{Infrastructure\+Manager}}
+\subsubsection[{\texorpdfstring{get\+Infrastructure\+Typenames() const }{getInfrastructureTypenames() const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::list$<$ std\+::string $>$ $\ast$ Infrastructure\+Manager\+::get\+Infrastructure\+Typenames (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_infrastructure_manager_aaf3ff8d9288b333d21a202caae797bc7}
-
-
-Definition at line 96 of file Infrastructure\-Manager.\-cpp.
-
-
-
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_infrastructure_manager_aaf3ff8d9288b333d21a202caae797bc7_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_infrastructure_manager_a597f2262dee783093e616e3d8894690a}{\index{Infrastructure\-Manager@{Infrastructure\-Manager}!insert\-Infrastructure@{insert\-Infrastructure}}
-\index{insert\-Infrastructure@{insert\-Infrastructure}!InfrastructureManager@{Infrastructure\-Manager}}
-\subsubsection[{insert\-Infrastructure}]{\setlength{\rightskip}{0pt plus 5cm}bool Infrastructure\-Manager\-::insert\-Infrastructure (
+) const}\hypertarget{class_infrastructure_manager_aaf3ff8d9288b333d21a202caae797bc7}{}\label{class_infrastructure_manager_aaf3ff8d9288b333d21a202caae797bc7}
+\index{Infrastructure\+Manager@{Infrastructure\+Manager}!insert\+Infrastructure@{insert\+Infrastructure}}
+\index{insert\+Infrastructure@{insert\+Infrastructure}!Infrastructure\+Manager@{Infrastructure\+Manager}}
+\subsubsection[{\texorpdfstring{insert\+Infrastructure(std\+::string infra\+Typename, Model\+Infrastructure $\ast$infra)}{insertInfrastructure(std::string infraTypename, ModelInfrastructure *infra)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Infrastructure\+Manager\+::insert\+Infrastructure (
 \begin{DoxyParamCaption}
-\item[{std\-::string}]{infra\-Typename, }
-\item[{{\bf Model\-Infrastructure} $\ast$}]{infra}
+\item[{std\+::string}]{infra\+Typename, }
+\item[{{\bf Model\+Infrastructure} $\ast$}]{infra}
 \end{DoxyParamCaption}
-)}}\label{class_infrastructure_manager_a597f2262dee783093e616e3d8894690a}
-
-
-Definition at line 33 of file Infrastructure\-Manager.\-cpp.
-
-
-
-Here is the call graph for this function\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_infrastructure_manager_a597f2262dee783093e616e3d8894690a_cgraph}
-\end{center}
-\end{figure}
-
-
-
-
-Here is the caller graph for this function\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=348pt]{class_infrastructure_manager_a597f2262dee783093e616e3d8894690a_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_infrastructure_manager_a55ea1a348ec52d4ed1de3addf86b6d42}{\index{Infrastructure\-Manager@{Infrastructure\-Manager}!remove\-Infrastructure@{remove\-Infrastructure}}
-\index{remove\-Infrastructure@{remove\-Infrastructure}!InfrastructureManager@{Infrastructure\-Manager}}
-\subsubsection[{remove\-Infrastructure}]{\setlength{\rightskip}{0pt plus 5cm}void Infrastructure\-Manager\-::remove\-Infrastructure (
+)}\hypertarget{class_infrastructure_manager_a597f2262dee783093e616e3d8894690a}{}\label{class_infrastructure_manager_a597f2262dee783093e616e3d8894690a}
+\index{Infrastructure\+Manager@{Infrastructure\+Manager}!remove\+Infrastructure@{remove\+Infrastructure}}
+\index{remove\+Infrastructure@{remove\+Infrastructure}!Infrastructure\+Manager@{Infrastructure\+Manager}}
+\subsubsection[{\texorpdfstring{remove\+Infrastructure(std\+::string infra\+Typename, Model\+Infrastructure $\ast$infra)}{removeInfrastructure(std::string infraTypename, ModelInfrastructure *infra)}}]{\setlength{\rightskip}{0pt plus 5cm}void Infrastructure\+Manager\+::remove\+Infrastructure (
 \begin{DoxyParamCaption}
-\item[{std\-::string}]{infra\-Typename, }
-\item[{{\bf Model\-Infrastructure} $\ast$}]{infra}
+\item[{std\+::string}]{infra\+Typename, }
+\item[{{\bf Model\+Infrastructure} $\ast$}]{infra}
 \end{DoxyParamCaption}
-)}}\label{class_infrastructure_manager_a55ea1a348ec52d4ed1de3addf86b6d42}
-
-
-Definition at line 46 of file Infrastructure\-Manager.\-cpp.
-
-
-
-Here is the call graph for this function\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_infrastructure_manager_a55ea1a348ec52d4ed1de3addf86b6d42_cgraph}
-\end{center}
-\end{figure}
-
-
-
-
-Here is the caller graph for this function\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_infrastructure_manager_a55ea1a348ec52d4ed1de3addf86b6d42_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_infrastructure_manager_a8e10fe1a6a40ce020b1b63232dbb05cd}{\index{Infrastructure\-Manager@{Infrastructure\-Manager}!show@{show}}
-\index{show@{show}!InfrastructureManager@{Infrastructure\-Manager}}
-\subsubsection[{show}]{\setlength{\rightskip}{0pt plus 5cm}void Infrastructure\-Manager\-::show (
+)}\hypertarget{class_infrastructure_manager_a55ea1a348ec52d4ed1de3addf86b6d42}{}\label{class_infrastructure_manager_a55ea1a348ec52d4ed1de3addf86b6d42}
+\index{Infrastructure\+Manager@{Infrastructure\+Manager}!show@{show}}
+\index{show@{show}!Infrastructure\+Manager@{Infrastructure\+Manager}}
+\subsubsection[{\texorpdfstring{show()}{show()}}]{\setlength{\rightskip}{0pt plus 5cm}void Infrastructure\+Manager\+::show (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{class_infrastructure_manager_a8e10fe1a6a40ce020b1b63232dbb05cd}
+)}\hypertarget{class_infrastructure_manager_a8e10fe1a6a40ce020b1b63232dbb05cd}{}\label{class_infrastructure_manager_a8e10fe1a6a40ce020b1b63232dbb05cd}
 
 
-Definition at line 52 of file Infrastructure\-Manager.\-cpp.
-
-
-
-Here is the call graph for this function\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_infrastructure_manager_a8e10fe1a6a40ce020b1b63232dbb05cd_cgraph}
-\end{center}
-\end{figure}
-
-
-
-
-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-\hyperlink{_infrastructure_manager_8h}{Infrastructure\-Manager.\-h}\item 
-\hyperlink{_infrastructure_manager_8cpp}{Infrastructure\-Manager.\-cpp}\end{DoxyCompactItemize}
+\hyperlink{_infrastructure_manager_8h}{Infrastructure\+Manager.\+h}\item 
+\hyperlink{_infrastructure_manager_8cpp}{Infrastructure\+Manager.\+cpp}\end{DoxyCompactItemize}

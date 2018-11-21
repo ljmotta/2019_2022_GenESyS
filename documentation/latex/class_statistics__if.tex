@@ -1,28 +1,27 @@
-\hypertarget{class_statistics__if}{\section{Statistics\-\_\-if Class Reference}
-\label{class_statistics__if}\index{Statistics\-\_\-if@{Statistics\-\_\-if}}
-}
+\hypertarget{class_statistics__if}{}\section{Statistics\+\_\+if Class Reference}
+\label{class_statistics__if}\index{Statistics\+\_\+if@{Statistics\+\_\+if}}
 
 
-{\ttfamily \#include $<$Statistics\-\_\-if.\-h$>$}
+{\ttfamily \#include $<$Statistics\+\_\+if.\+h$>$}
 
 
 
-Inheritance diagram for Statistics\-\_\-if\-:
+Inheritance diagram for Statistics\+\_\+if\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{class_statistics__if__inherit__graph}
+\includegraphics[width=191pt]{class_statistics__if__inherit__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-virtual \hyperlink{class_collector__if}{Collector\-\_\-if} $\ast$ \hyperlink{class_statistics__if_a49a730541ca9a3d8272f39f4000485c4}{get\-Collector} ()=0
+virtual \hyperlink{class_collector__if}{Collector\+\_\+if} $\ast$ \hyperlink{class_statistics__if_a49a730541ca9a3d8272f39f4000485c4}{get\+Collector} ()=0
 \item 
-virtual void \hyperlink{class_statistics__if_a203ffe8e5215e887b716b7810023adc6}{set\-Collector} (\hyperlink{class_collector__if}{Collector\-\_\-if} $\ast$collector)=0
+virtual void \hyperlink{class_statistics__if_a203ffe8e5215e887b716b7810023adc6}{set\+Collector} (\hyperlink{class_collector__if}{Collector\+\_\+if} $\ast$collector)=0
 \item 
-virtual unsigned int \hyperlink{class_statistics__if_a1e76d98f8a61fe03df9e36194eaa5722}{num\-Elements} ()=0
+virtual unsigned int \hyperlink{class_statistics__if_a1e76d98f8a61fe03df9e36194eaa5722}{num\+Elements} ()=0
 \item 
 virtual double \hyperlink{class_statistics__if_acdeb9880a7362e9105871c7fb3f65db6}{min} ()=0
 \item 
@@ -38,11 +37,11 @@ virtual double \hyperlink{class_statistics__if_a1b563f7e92eda3cf3a8f47f07824b96b
 \item 
 virtual double \hyperlink{class_statistics__if_a88d2478c6dfd8de19436ab248080a509}{stddeviation} ()=0
 \item 
-virtual double \hyperlink{class_statistics__if_ae0ad6bf18f8263003b0ac7552318be57}{variation\-Coef} ()=0
+virtual double \hyperlink{class_statistics__if_ae0ad6bf18f8263003b0ac7552318be57}{variation\+Coef} ()=0
 \item 
-virtual double \hyperlink{class_statistics__if_a093e08a43aefa0738f94ea4f68eaa40d}{half\-Width\-Confidence\-Interval} (double confidencelevel)=0
+virtual double \hyperlink{class_statistics__if_a093e08a43aefa0738f94ea4f68eaa40d}{half\+Width\+Confidence\+Interval} (double confidencelevel)=0
 \item 
-virtual unsigned int \hyperlink{class_statistics__if_a041cafef3eb831901296987871f707f0}{new\-Sample\-Size} (double confidencelevel, double half\-Width)=0
+virtual unsigned int \hyperlink{class_statistics__if_a041cafef3eb831901296987871f707f0}{new\+Sample\+Size} (double confidencelevel, double half\+Width)=0
 \item 
 virtual double \hyperlink{class_statistics__if_af85daafcb428420ceeacdd4807c045eb}{quartil} (unsigned short num)=0
 \item 
@@ -50,400 +49,243 @@ virtual double \hyperlink{class_statistics__if_a562230cad7a31c8af403217743b156f3
 \item 
 virtual double \hyperlink{class_statistics__if_a906e7f2428e5e6482daf5dd1b2d54bfc}{centil} (unsigned short num)=0
 \item 
-virtual void \hyperlink{class_statistics__if_a82349cd351436591c909d39f580c2f63}{set\-Histogram\-Num\-Classes} (unsigned short num)=0
+virtual void \hyperlink{class_statistics__if_a82349cd351436591c909d39f580c2f63}{set\+Histogram\+Num\+Classes} (unsigned short num)=0
 \item 
-virtual unsigned short \hyperlink{class_statistics__if_ab86db530e84375431be9d13c88424de3}{histogram\-Num\-Classes} ()=0
+virtual unsigned short \hyperlink{class_statistics__if_ab86db530e84375431be9d13c88424de3}{histogram\+Num\+Classes} ()=0
 \item 
-virtual double \hyperlink{class_statistics__if_abedad81a78b2c04ade10994e5503825c}{histogram\-Class\-Lower\-Limit} (unsigned short class\-Num)=0
+virtual double \hyperlink{class_statistics__if_abedad81a78b2c04ade10994e5503825c}{histogram\+Class\+Lower\+Limit} (unsigned short class\+Num)=0
 \item 
-virtual unsigned int \hyperlink{class_statistics__if_a7b72e8473ff71da5f8b77e4f2c15a407}{histogram\-Class\-Frequency} (unsigned short class\-Num)=0
+virtual unsigned int \hyperlink{class_statistics__if_a7b72e8473ff71da5f8b77e4f2c15a407}{histogram\+Class\+Frequency} (unsigned short class\+Num)=0
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-Interface for statisct synthesis of a stochastic variable collected by a \hyperlink{class_collector__if}{Collector\-\_\-if}. The statistics generated may be updated based only on the previous statistics and the single newest added value or they may be updated based on a datafile, depending on the Collector implementation. 
-
-Definition at line 23 of file Statistics\-\_\-if.\-h.
-
-
+Interface for statisct synthesis of a stochastic variable collected by a \hyperlink{class_collector__if}{Collector\+\_\+if}. The statistics generated may be updated based only on the previous statistics and the single newest added value or they may be updated based on a datafile, depending on the Collector implementation. 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_statistics__if_a791ab6bbd166254429a3131bdf6e8dd6}{\index{Statistics\-\_\-if@{Statistics\-\_\-if}!average@{average}}
-\index{average@{average}!Statistics_if@{Statistics\-\_\-if}}
-\subsubsection[{average}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\-\_\-if\-::average (
+\index{Statistics\+\_\+if@{Statistics\+\_\+if}!average@{average}}
+\index{average@{average}!Statistics\+\_\+if@{Statistics\+\_\+if}}
+\subsubsection[{\texorpdfstring{average()=0}{average()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\+\_\+if\+::average (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_statistics__if_a791ab6bbd166254429a3131bdf6e8dd6}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_a791ab6bbd166254429a3131bdf6e8dd6}{}\label{class_statistics__if_a791ab6bbd166254429a3131bdf6e8dd6}
 
 
-Implemented in \hyperlink{class_statistics_daniel_boso_aa9fe6050712928218361095327527ee6}{Statistics\-Daniel\-Boso}, \hyperlink{class_statistics_my_impl1_aed2e463c216a215c23004904c5fdb520}{Statistics\-My\-Impl1}, and \hyperlink{class_statistics_cancian_impl_ac1fd3ea442b571b7399e2b24106f66d2}{Statistics\-Cancian\-Impl}.
+Implemented in \hyperlink{class_statistics_dummy_impl_a6a92fc5fc549b4e674e95d03e0adf6e3}{Statistics\+Dummy\+Impl}.
 
-
-
-Here is the caller graph for this function\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_statistics__if_a791ab6bbd166254429a3131bdf6e8dd6_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_statistics__if_a906e7f2428e5e6482daf5dd1b2d54bfc}{\index{Statistics\-\_\-if@{Statistics\-\_\-if}!centil@{centil}}
-\index{centil@{centil}!Statistics_if@{Statistics\-\_\-if}}
-\subsubsection[{centil}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\-\_\-if\-::centil (
+\index{Statistics\+\_\+if@{Statistics\+\_\+if}!centil@{centil}}
+\index{centil@{centil}!Statistics\+\_\+if@{Statistics\+\_\+if}}
+\subsubsection[{\texorpdfstring{centil(unsigned short num)=0}{centil(unsigned short num)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\+\_\+if\+::centil (
 \begin{DoxyParamCaption}
 \item[{unsigned short}]{num}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_statistics__if_a906e7f2428e5e6482daf5dd1b2d54bfc}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_a906e7f2428e5e6482daf5dd1b2d54bfc}{}\label{class_statistics__if_a906e7f2428e5e6482daf5dd1b2d54bfc}
 
 
-Implemented in \hyperlink{class_statistics_daniel_boso_a3e2e880557836b36b9acc2d77d4e8cf7}{Statistics\-Daniel\-Boso}, \hyperlink{class_statistics_my_impl1_acdadfa7b651ae6dcbe5c43d77b0cb084}{Statistics\-My\-Impl1}, and \hyperlink{class_statistics_cancian_impl_a0c6f2c98edd270d9da9ac654a4be1221}{Statistics\-Cancian\-Impl}.
+Implemented in \hyperlink{class_statistics_dummy_impl_a72a39c441803615318e1fdcb005600cb}{Statistics\+Dummy\+Impl}.
 
-\hypertarget{class_statistics__if_a562230cad7a31c8af403217743b156f3}{\index{Statistics\-\_\-if@{Statistics\-\_\-if}!decil@{decil}}
-\index{decil@{decil}!Statistics_if@{Statistics\-\_\-if}}
-\subsubsection[{decil}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\-\_\-if\-::decil (
+\index{Statistics\+\_\+if@{Statistics\+\_\+if}!decil@{decil}}
+\index{decil@{decil}!Statistics\+\_\+if@{Statistics\+\_\+if}}
+\subsubsection[{\texorpdfstring{decil(unsigned short num)=0}{decil(unsigned short num)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\+\_\+if\+::decil (
 \begin{DoxyParamCaption}
 \item[{unsigned short}]{num}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_statistics__if_a562230cad7a31c8af403217743b156f3}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_a562230cad7a31c8af403217743b156f3}{}\label{class_statistics__if_a562230cad7a31c8af403217743b156f3}
 
 
-Implemented in \hyperlink{class_statistics_daniel_boso_a95ed14261af6328daa1552167ec7a102}{Statistics\-Daniel\-Boso}, \hyperlink{class_statistics_my_impl1_ae9b726c6f571f906cf413a618da7e87b}{Statistics\-My\-Impl1}, and \hyperlink{class_statistics_cancian_impl_a77873cb356ffab21ad8f1d7c6ab11d88}{Statistics\-Cancian\-Impl}.
+Implemented in \hyperlink{class_statistics_dummy_impl_a8bf7d2641c3bfcddfeeefbb7cb62d2fe}{Statistics\+Dummy\+Impl}.
 
-\hypertarget{class_statistics__if_a49a730541ca9a3d8272f39f4000485c4}{\index{Statistics\-\_\-if@{Statistics\-\_\-if}!get\-Collector@{get\-Collector}}
-\index{get\-Collector@{get\-Collector}!Statistics_if@{Statistics\-\_\-if}}
-\subsubsection[{get\-Collector}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Collector\-\_\-if}$\ast$ Statistics\-\_\-if\-::get\-Collector (
+\index{Statistics\+\_\+if@{Statistics\+\_\+if}!get\+Collector@{get\+Collector}}
+\index{get\+Collector@{get\+Collector}!Statistics\+\_\+if@{Statistics\+\_\+if}}
+\subsubsection[{\texorpdfstring{get\+Collector()=0}{getCollector()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Collector\+\_\+if}$\ast$ Statistics\+\_\+if\+::get\+Collector (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_statistics__if_a49a730541ca9a3d8272f39f4000485c4}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_a49a730541ca9a3d8272f39f4000485c4}{}\label{class_statistics__if_a49a730541ca9a3d8272f39f4000485c4}
 
 
-Implemented in \hyperlink{class_statistics_daniel_boso_a00c8fa132a65e7545abea14059521075}{Statistics\-Daniel\-Boso}, \hyperlink{class_statistics_my_impl1_a7c01fbd99fabf6edd4e039c125a6eb3d}{Statistics\-My\-Impl1}, and \hyperlink{class_statistics_cancian_impl_ab255391ad55fada9f781933d2f791970}{Statistics\-Cancian\-Impl}.
+Implemented in \hyperlink{class_statistics_dummy_impl_ac17e897d6131550bcdf5b2243c26a43b}{Statistics\+Dummy\+Impl}.
 
-\hypertarget{class_statistics__if_a093e08a43aefa0738f94ea4f68eaa40d}{\index{Statistics\-\_\-if@{Statistics\-\_\-if}!half\-Width\-Confidence\-Interval@{half\-Width\-Confidence\-Interval}}
-\index{half\-Width\-Confidence\-Interval@{half\-Width\-Confidence\-Interval}!Statistics_if@{Statistics\-\_\-if}}
-\subsubsection[{half\-Width\-Confidence\-Interval}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\-\_\-if\-::half\-Width\-Confidence\-Interval (
+\index{Statistics\+\_\+if@{Statistics\+\_\+if}!half\+Width\+Confidence\+Interval@{half\+Width\+Confidence\+Interval}}
+\index{half\+Width\+Confidence\+Interval@{half\+Width\+Confidence\+Interval}!Statistics\+\_\+if@{Statistics\+\_\+if}}
+\subsubsection[{\texorpdfstring{half\+Width\+Confidence\+Interval(double confidencelevel)=0}{halfWidthConfidenceInterval(double confidencelevel)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\+\_\+if\+::half\+Width\+Confidence\+Interval (
 \begin{DoxyParamCaption}
 \item[{double}]{confidencelevel}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_statistics__if_a093e08a43aefa0738f94ea4f68eaa40d}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_a093e08a43aefa0738f94ea4f68eaa40d}{}\label{class_statistics__if_a093e08a43aefa0738f94ea4f68eaa40d}
 
 
-Implemented in \hyperlink{class_statistics_daniel_boso_a1402b5e3abad2247a5ebd3a3797022c2}{Statistics\-Daniel\-Boso}, \hyperlink{class_statistics_my_impl1_ac0211d104dab15928738fea6990ccad8}{Statistics\-My\-Impl1}, and \hyperlink{class_statistics_cancian_impl_a79b4ef1179bf3211ad65db76d6bbb514}{Statistics\-Cancian\-Impl}.
+Implemented in \hyperlink{class_statistics_dummy_impl_a1c4042f54bf3c420da0b6fdca482e474}{Statistics\+Dummy\+Impl}.
 
-
-
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_statistics__if_a093e08a43aefa0738f94ea4f68eaa40d_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_statistics__if_a7b72e8473ff71da5f8b77e4f2c15a407}{\index{Statistics\-\_\-if@{Statistics\-\_\-if}!histogram\-Class\-Frequency@{histogram\-Class\-Frequency}}
-\index{histogram\-Class\-Frequency@{histogram\-Class\-Frequency}!Statistics_if@{Statistics\-\_\-if}}
-\subsubsection[{histogram\-Class\-Frequency}]{\setlength{\rightskip}{0pt plus 5cm}virtual unsigned int Statistics\-\_\-if\-::histogram\-Class\-Frequency (
+\index{Statistics\+\_\+if@{Statistics\+\_\+if}!histogram\+Class\+Frequency@{histogram\+Class\+Frequency}}
+\index{histogram\+Class\+Frequency@{histogram\+Class\+Frequency}!Statistics\+\_\+if@{Statistics\+\_\+if}}
+\subsubsection[{\texorpdfstring{histogram\+Class\+Frequency(unsigned short class\+Num)=0}{histogramClassFrequency(unsigned short classNum)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual unsigned int Statistics\+\_\+if\+::histogram\+Class\+Frequency (
 \begin{DoxyParamCaption}
-\item[{unsigned short}]{class\-Num}
+\item[{unsigned short}]{class\+Num}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_statistics__if_a7b72e8473ff71da5f8b77e4f2c15a407}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_a7b72e8473ff71da5f8b77e4f2c15a407}{}\label{class_statistics__if_a7b72e8473ff71da5f8b77e4f2c15a407}
 
 
-Implemented in \hyperlink{class_statistics_daniel_boso_a044752eb543dee95f0589bfad236d987}{Statistics\-Daniel\-Boso}, \hyperlink{class_statistics_my_impl1_a01889ba1456bea0be29caac98de4d666}{Statistics\-My\-Impl1}, and \hyperlink{class_statistics_cancian_impl_abaffc9e18eadfefacdeab4ddf6f97f02}{Statistics\-Cancian\-Impl}.
+Implemented in \hyperlink{class_statistics_dummy_impl_ac540e251f446d113ed332a3fb0c02ad9}{Statistics\+Dummy\+Impl}.
 
-
-
-Here is the caller graph for this function\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_statistics__if_a7b72e8473ff71da5f8b77e4f2c15a407_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_statistics__if_abedad81a78b2c04ade10994e5503825c}{\index{Statistics\-\_\-if@{Statistics\-\_\-if}!histogram\-Class\-Lower\-Limit@{histogram\-Class\-Lower\-Limit}}
-\index{histogram\-Class\-Lower\-Limit@{histogram\-Class\-Lower\-Limit}!Statistics_if@{Statistics\-\_\-if}}
-\subsubsection[{histogram\-Class\-Lower\-Limit}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\-\_\-if\-::histogram\-Class\-Lower\-Limit (
+\index{Statistics\+\_\+if@{Statistics\+\_\+if}!histogram\+Class\+Lower\+Limit@{histogram\+Class\+Lower\+Limit}}
+\index{histogram\+Class\+Lower\+Limit@{histogram\+Class\+Lower\+Limit}!Statistics\+\_\+if@{Statistics\+\_\+if}}
+\subsubsection[{\texorpdfstring{histogram\+Class\+Lower\+Limit(unsigned short class\+Num)=0}{histogramClassLowerLimit(unsigned short classNum)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\+\_\+if\+::histogram\+Class\+Lower\+Limit (
 \begin{DoxyParamCaption}
-\item[{unsigned short}]{class\-Num}
+\item[{unsigned short}]{class\+Num}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_statistics__if_abedad81a78b2c04ade10994e5503825c}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_abedad81a78b2c04ade10994e5503825c}{}\label{class_statistics__if_abedad81a78b2c04ade10994e5503825c}
 
 
-Implemented in \hyperlink{class_statistics_daniel_boso_ac12871289cbff9e271eb452cf0c8b1ce}{Statistics\-Daniel\-Boso}, \hyperlink{class_statistics_my_impl1_aa78fe0eff5d2aa36dda26837d18796f4}{Statistics\-My\-Impl1}, and \hyperlink{class_statistics_cancian_impl_a0c1fc73df7e35ec2460952536fa2ddf9}{Statistics\-Cancian\-Impl}.
+Implemented in \hyperlink{class_statistics_dummy_impl_aaa9e994f5b80ec6f5def79054d7527b8}{Statistics\+Dummy\+Impl}.
 
-
-
-Here is the caller graph for this function\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_statistics__if_abedad81a78b2c04ade10994e5503825c_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_statistics__if_ab86db530e84375431be9d13c88424de3}{\index{Statistics\-\_\-if@{Statistics\-\_\-if}!histogram\-Num\-Classes@{histogram\-Num\-Classes}}
-\index{histogram\-Num\-Classes@{histogram\-Num\-Classes}!Statistics_if@{Statistics\-\_\-if}}
-\subsubsection[{histogram\-Num\-Classes}]{\setlength{\rightskip}{0pt plus 5cm}virtual unsigned short Statistics\-\_\-if\-::histogram\-Num\-Classes (
+\index{Statistics\+\_\+if@{Statistics\+\_\+if}!histogram\+Num\+Classes@{histogram\+Num\+Classes}}
+\index{histogram\+Num\+Classes@{histogram\+Num\+Classes}!Statistics\+\_\+if@{Statistics\+\_\+if}}
+\subsubsection[{\texorpdfstring{histogram\+Num\+Classes()=0}{histogramNumClasses()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual unsigned short Statistics\+\_\+if\+::histogram\+Num\+Classes (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_statistics__if_ab86db530e84375431be9d13c88424de3}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_ab86db530e84375431be9d13c88424de3}{}\label{class_statistics__if_ab86db530e84375431be9d13c88424de3}
 
 
-Implemented in \hyperlink{class_statistics_daniel_boso_ade9cfc25ca07bb7454be97526e96896a}{Statistics\-Daniel\-Boso}, \hyperlink{class_statistics_my_impl1_a43e7f87f01b84e9f137eb8c60a036a6f}{Statistics\-My\-Impl1}, and \hyperlink{class_statistics_cancian_impl_a64174a2a3f3e58301fca192e4a093da4}{Statistics\-Cancian\-Impl}.
+Implemented in \hyperlink{class_statistics_dummy_impl_a977ebf1184b3aef665b5c6eee682d8d8}{Statistics\+Dummy\+Impl}.
 
-
-
-Here is the caller graph for this function\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_statistics__if_ab86db530e84375431be9d13c88424de3_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_statistics__if_a24e3652122f2ec649b4c7d3accc43da0}{\index{Statistics\-\_\-if@{Statistics\-\_\-if}!max@{max}}
-\index{max@{max}!Statistics_if@{Statistics\-\_\-if}}
-\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\-\_\-if\-::max (
+\index{Statistics\+\_\+if@{Statistics\+\_\+if}!max@{max}}
+\index{max@{max}!Statistics\+\_\+if@{Statistics\+\_\+if}}
+\subsubsection[{\texorpdfstring{max()=0}{max()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\+\_\+if\+::max (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_statistics__if_a24e3652122f2ec649b4c7d3accc43da0}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_a24e3652122f2ec649b4c7d3accc43da0}{}\label{class_statistics__if_a24e3652122f2ec649b4c7d3accc43da0}
 
 
-Implemented in \hyperlink{class_statistics_daniel_boso_aff2c0e4e5228df0c032b826612cf7af2}{Statistics\-Daniel\-Boso}, \hyperlink{class_statistics_my_impl1_a74d67916a66528d0813ed066788f0010}{Statistics\-My\-Impl1}, and \hyperlink{class_statistics_cancian_impl_a3bfd053fdffa3fd7cbb4246b40503a8a}{Statistics\-Cancian\-Impl}.
+Implemented in \hyperlink{class_statistics_dummy_impl_a5aa9311e22a79c8287ce77a5be16902b}{Statistics\+Dummy\+Impl}.
 
-
-
-Here is the caller graph for this function\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_statistics__if_a24e3652122f2ec649b4c7d3accc43da0_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_statistics__if_a0414c1df9272ca674cba6fc30f027684}{\index{Statistics\-\_\-if@{Statistics\-\_\-if}!mediane@{mediane}}
-\index{mediane@{mediane}!Statistics_if@{Statistics\-\_\-if}}
-\subsubsection[{mediane}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\-\_\-if\-::mediane (
+\index{Statistics\+\_\+if@{Statistics\+\_\+if}!mediane@{mediane}}
+\index{mediane@{mediane}!Statistics\+\_\+if@{Statistics\+\_\+if}}
+\subsubsection[{\texorpdfstring{mediane()=0}{mediane()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\+\_\+if\+::mediane (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_statistics__if_a0414c1df9272ca674cba6fc30f027684}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_a0414c1df9272ca674cba6fc30f027684}{}\label{class_statistics__if_a0414c1df9272ca674cba6fc30f027684}
 
 
-Implemented in \hyperlink{class_statistics_daniel_boso_a2b8c84e1ed1ff68b110dcb1f6fec9047}{Statistics\-Daniel\-Boso}, \hyperlink{class_statistics_my_impl1_aa50da1ebb25c6c8fb30b8f4355ac5a89}{Statistics\-My\-Impl1}, and \hyperlink{class_statistics_cancian_impl_aa57086cacb75c3a85cebd6d3d5c47053}{Statistics\-Cancian\-Impl}.
+Implemented in \hyperlink{class_statistics_dummy_impl_a464109b84c8994089f3a288be6c8ee77}{Statistics\+Dummy\+Impl}.
 
-
-
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_statistics__if_a0414c1df9272ca674cba6fc30f027684_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_statistics__if_acdeb9880a7362e9105871c7fb3f65db6}{\index{Statistics\-\_\-if@{Statistics\-\_\-if}!min@{min}}
-\index{min@{min}!Statistics_if@{Statistics\-\_\-if}}
-\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\-\_\-if\-::min (
+\index{Statistics\+\_\+if@{Statistics\+\_\+if}!min@{min}}
+\index{min@{min}!Statistics\+\_\+if@{Statistics\+\_\+if}}
+\subsubsection[{\texorpdfstring{min()=0}{min()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\+\_\+if\+::min (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_statistics__if_acdeb9880a7362e9105871c7fb3f65db6}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_acdeb9880a7362e9105871c7fb3f65db6}{}\label{class_statistics__if_acdeb9880a7362e9105871c7fb3f65db6}
 
 
-Implemented in \hyperlink{class_statistics_daniel_boso_a027ba7feae745623efd1b63352dd4363}{Statistics\-Daniel\-Boso}, \hyperlink{class_statistics_my_impl1_a6342489ef309c427fd2de529e8d27f93}{Statistics\-My\-Impl1}, and \hyperlink{class_statistics_cancian_impl_a3ab4844399b479aa3cb18dfe41b8e776}{Statistics\-Cancian\-Impl}.
+Implemented in \hyperlink{class_statistics_dummy_impl_afa54fbcf5b2cd94cd31144ceea0d3617}{Statistics\+Dummy\+Impl}.
 
-
-
-Here is the caller graph for this function\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_statistics__if_acdeb9880a7362e9105871c7fb3f65db6_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_statistics__if_a43b850db407a9a64ab3e2f4d06eab350}{\index{Statistics\-\_\-if@{Statistics\-\_\-if}!mode@{mode}}
-\index{mode@{mode}!Statistics_if@{Statistics\-\_\-if}}
-\subsubsection[{mode}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\-\_\-if\-::mode (
+\index{Statistics\+\_\+if@{Statistics\+\_\+if}!mode@{mode}}
+\index{mode@{mode}!Statistics\+\_\+if@{Statistics\+\_\+if}}
+\subsubsection[{\texorpdfstring{mode()=0}{mode()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\+\_\+if\+::mode (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_statistics__if_a43b850db407a9a64ab3e2f4d06eab350}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_a43b850db407a9a64ab3e2f4d06eab350}{}\label{class_statistics__if_a43b850db407a9a64ab3e2f4d06eab350}
 
 
-Implemented in \hyperlink{class_statistics_daniel_boso_a7c140b62733f5de4607ae77fa134dc00}{Statistics\-Daniel\-Boso}, \hyperlink{class_statistics_my_impl1_a3bdde1e171fbfac219d8f22e654deb8d}{Statistics\-My\-Impl1}, and \hyperlink{class_statistics_cancian_impl_a8255541bdf60880cad08fecfb2e51349}{Statistics\-Cancian\-Impl}.
+Implemented in \hyperlink{class_statistics_dummy_impl_acd482a6fa39b3ada3df4d2f2720896eb}{Statistics\+Dummy\+Impl}.
 
-
-
-Here is the caller graph for this function\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_statistics__if_a43b850db407a9a64ab3e2f4d06eab350_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_statistics__if_a041cafef3eb831901296987871f707f0}{\index{Statistics\-\_\-if@{Statistics\-\_\-if}!new\-Sample\-Size@{new\-Sample\-Size}}
-\index{new\-Sample\-Size@{new\-Sample\-Size}!Statistics_if@{Statistics\-\_\-if}}
-\subsubsection[{new\-Sample\-Size}]{\setlength{\rightskip}{0pt plus 5cm}virtual unsigned int Statistics\-\_\-if\-::new\-Sample\-Size (
+\index{Statistics\+\_\+if@{Statistics\+\_\+if}!new\+Sample\+Size@{new\+Sample\+Size}}
+\index{new\+Sample\+Size@{new\+Sample\+Size}!Statistics\+\_\+if@{Statistics\+\_\+if}}
+\subsubsection[{\texorpdfstring{new\+Sample\+Size(double confidencelevel, double half\+Width)=0}{newSampleSize(double confidencelevel, double halfWidth)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual unsigned int Statistics\+\_\+if\+::new\+Sample\+Size (
 \begin{DoxyParamCaption}
 \item[{double}]{confidencelevel, }
-\item[{double}]{half\-Width}
+\item[{double}]{half\+Width}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_statistics__if_a041cafef3eb831901296987871f707f0}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_a041cafef3eb831901296987871f707f0}{}\label{class_statistics__if_a041cafef3eb831901296987871f707f0}
 
 
-Implemented in \hyperlink{class_statistics_daniel_boso_a6ffdcdcee9f65a8232b7e5a2c6e0259d}{Statistics\-Daniel\-Boso}, \hyperlink{class_statistics_my_impl1_a61278828268208d484ae1ceb82bc8ad8}{Statistics\-My\-Impl1}, and \hyperlink{class_statistics_cancian_impl_aca7e7bbc2ef8611129874cc4e3cfbc15}{Statistics\-Cancian\-Impl}.
+Implemented in \hyperlink{class_statistics_dummy_impl_a066b0df170c50c08e52205eb312b838c}{Statistics\+Dummy\+Impl}.
 
-\hypertarget{class_statistics__if_a1e76d98f8a61fe03df9e36194eaa5722}{\index{Statistics\-\_\-if@{Statistics\-\_\-if}!num\-Elements@{num\-Elements}}
-\index{num\-Elements@{num\-Elements}!Statistics_if@{Statistics\-\_\-if}}
-\subsubsection[{num\-Elements}]{\setlength{\rightskip}{0pt plus 5cm}virtual unsigned int Statistics\-\_\-if\-::num\-Elements (
+\index{Statistics\+\_\+if@{Statistics\+\_\+if}!num\+Elements@{num\+Elements}}
+\index{num\+Elements@{num\+Elements}!Statistics\+\_\+if@{Statistics\+\_\+if}}
+\subsubsection[{\texorpdfstring{num\+Elements()=0}{numElements()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual unsigned int Statistics\+\_\+if\+::num\+Elements (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_statistics__if_a1e76d98f8a61fe03df9e36194eaa5722}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_a1e76d98f8a61fe03df9e36194eaa5722}{}\label{class_statistics__if_a1e76d98f8a61fe03df9e36194eaa5722}
 
 
-Implemented in \hyperlink{class_statistics_daniel_boso_a5a5988fd21e4cc41cf4e1ed87c6b7e15}{Statistics\-Daniel\-Boso}, \hyperlink{class_statistics_my_impl1_a2849b72a9be58c379b5a97281082e63a}{Statistics\-My\-Impl1}, and \hyperlink{class_statistics_cancian_impl_a1d2fe0fe83fc07eb0521b76fbfd7c49b}{Statistics\-Cancian\-Impl}.
+Implemented in \hyperlink{class_statistics_dummy_impl_a6669b3555223a6104fb31edacf577553}{Statistics\+Dummy\+Impl}.
 
-
-
-Here is the caller graph for this function\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_statistics__if_a1e76d98f8a61fe03df9e36194eaa5722_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_statistics__if_af85daafcb428420ceeacdd4807c045eb}{\index{Statistics\-\_\-if@{Statistics\-\_\-if}!quartil@{quartil}}
-\index{quartil@{quartil}!Statistics_if@{Statistics\-\_\-if}}
-\subsubsection[{quartil}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\-\_\-if\-::quartil (
+\index{Statistics\+\_\+if@{Statistics\+\_\+if}!quartil@{quartil}}
+\index{quartil@{quartil}!Statistics\+\_\+if@{Statistics\+\_\+if}}
+\subsubsection[{\texorpdfstring{quartil(unsigned short num)=0}{quartil(unsigned short num)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\+\_\+if\+::quartil (
 \begin{DoxyParamCaption}
 \item[{unsigned short}]{num}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_statistics__if_af85daafcb428420ceeacdd4807c045eb}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_af85daafcb428420ceeacdd4807c045eb}{}\label{class_statistics__if_af85daafcb428420ceeacdd4807c045eb}
 
 
-Implemented in \hyperlink{class_statistics_daniel_boso_ab587a37e916c51b02c2418775d28701e}{Statistics\-Daniel\-Boso}, \hyperlink{class_statistics_my_impl1_abf81ba44177a032fce8bbe7f775b77b6}{Statistics\-My\-Impl1}, and \hyperlink{class_statistics_cancian_impl_ad8085939d9ee9d6fba32ace19290d7ec}{Statistics\-Cancian\-Impl}.
+Implemented in \hyperlink{class_statistics_dummy_impl_abf36d630332a91f95fef2ab6056813ab}{Statistics\+Dummy\+Impl}.
 
-
-
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_statistics__if_af85daafcb428420ceeacdd4807c045eb_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_statistics__if_a203ffe8e5215e887b716b7810023adc6}{\index{Statistics\-\_\-if@{Statistics\-\_\-if}!set\-Collector@{set\-Collector}}
-\index{set\-Collector@{set\-Collector}!Statistics_if@{Statistics\-\_\-if}}
-\subsubsection[{set\-Collector}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Statistics\-\_\-if\-::set\-Collector (
+\index{Statistics\+\_\+if@{Statistics\+\_\+if}!set\+Collector@{set\+Collector}}
+\index{set\+Collector@{set\+Collector}!Statistics\+\_\+if@{Statistics\+\_\+if}}
+\subsubsection[{\texorpdfstring{set\+Collector(\+Collector\+\_\+if $\ast$collector)=0}{setCollector(Collector_if *collector)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Statistics\+\_\+if\+::set\+Collector (
 \begin{DoxyParamCaption}
-\item[{{\bf Collector\-\_\-if} $\ast$}]{collector}
+\item[{{\bf Collector\+\_\+if} $\ast$}]{collector}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_statistics__if_a203ffe8e5215e887b716b7810023adc6}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_a203ffe8e5215e887b716b7810023adc6}{}\label{class_statistics__if_a203ffe8e5215e887b716b7810023adc6}
 
 
-Implemented in \hyperlink{class_statistics_daniel_boso_a112d28208c76816f8b3ed1bed318f1e4}{Statistics\-Daniel\-Boso}, \hyperlink{class_statistics_my_impl1_a220ad0da6ffa6dc237dcd182f35c3221}{Statistics\-My\-Impl1}, and \hyperlink{class_statistics_cancian_impl_adbbf4036ba04976819af9bb104988b11}{Statistics\-Cancian\-Impl}.
+Implemented in \hyperlink{class_statistics_dummy_impl_a6a6d3fc91a7afe22cb66d10760891fa0}{Statistics\+Dummy\+Impl}.
 
-
-
-Here is the caller graph for this function\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_statistics__if_a203ffe8e5215e887b716b7810023adc6_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_statistics__if_a82349cd351436591c909d39f580c2f63}{\index{Statistics\-\_\-if@{Statistics\-\_\-if}!set\-Histogram\-Num\-Classes@{set\-Histogram\-Num\-Classes}}
-\index{set\-Histogram\-Num\-Classes@{set\-Histogram\-Num\-Classes}!Statistics_if@{Statistics\-\_\-if}}
-\subsubsection[{set\-Histogram\-Num\-Classes}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Statistics\-\_\-if\-::set\-Histogram\-Num\-Classes (
+\index{Statistics\+\_\+if@{Statistics\+\_\+if}!set\+Histogram\+Num\+Classes@{set\+Histogram\+Num\+Classes}}
+\index{set\+Histogram\+Num\+Classes@{set\+Histogram\+Num\+Classes}!Statistics\+\_\+if@{Statistics\+\_\+if}}
+\subsubsection[{\texorpdfstring{set\+Histogram\+Num\+Classes(unsigned short num)=0}{setHistogramNumClasses(unsigned short num)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Statistics\+\_\+if\+::set\+Histogram\+Num\+Classes (
 \begin{DoxyParamCaption}
 \item[{unsigned short}]{num}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_statistics__if_a82349cd351436591c909d39f580c2f63}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_a82349cd351436591c909d39f580c2f63}{}\label{class_statistics__if_a82349cd351436591c909d39f580c2f63}
 
 
-Implemented in \hyperlink{class_statistics_daniel_boso_a2da6c0a10794a925a21e4806605444b7}{Statistics\-Daniel\-Boso}, \hyperlink{class_statistics_my_impl1_a589bb9a58d92720b4b9ab18456fcf95a}{Statistics\-My\-Impl1}, and \hyperlink{class_statistics_cancian_impl_a7c5e76c04e9800cb20cd07a9a7de0ea1}{Statistics\-Cancian\-Impl}.
+Implemented in \hyperlink{class_statistics_dummy_impl_a6c88ebef76311957f2c83e9d420f1f75}{Statistics\+Dummy\+Impl}.
 
-\hypertarget{class_statistics__if_a88d2478c6dfd8de19436ab248080a509}{\index{Statistics\-\_\-if@{Statistics\-\_\-if}!stddeviation@{stddeviation}}
-\index{stddeviation@{stddeviation}!Statistics_if@{Statistics\-\_\-if}}
-\subsubsection[{stddeviation}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\-\_\-if\-::stddeviation (
+\index{Statistics\+\_\+if@{Statistics\+\_\+if}!stddeviation@{stddeviation}}
+\index{stddeviation@{stddeviation}!Statistics\+\_\+if@{Statistics\+\_\+if}}
+\subsubsection[{\texorpdfstring{stddeviation()=0}{stddeviation()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\+\_\+if\+::stddeviation (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_statistics__if_a88d2478c6dfd8de19436ab248080a509}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_a88d2478c6dfd8de19436ab248080a509}{}\label{class_statistics__if_a88d2478c6dfd8de19436ab248080a509}
 
 
-Implemented in \hyperlink{class_statistics_daniel_boso_ac7cf2864a85369dad7e2d8f214e98ff7}{Statistics\-Daniel\-Boso}, \hyperlink{class_statistics_my_impl1_ac5bb46f4782920b8be4a297b0ae2bd5e}{Statistics\-My\-Impl1}, and \hyperlink{class_statistics_cancian_impl_a2caa83257f21643b5fb8ccf4255c9f32}{Statistics\-Cancian\-Impl}.
+Implemented in \hyperlink{class_statistics_dummy_impl_aecd1ae947272fe51658fbac3cb3647e8}{Statistics\+Dummy\+Impl}.
 
-
-
-Here is the caller graph for this function\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_statistics__if_a88d2478c6dfd8de19436ab248080a509_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_statistics__if_a1b563f7e92eda3cf3a8f47f07824b96b}{\index{Statistics\-\_\-if@{Statistics\-\_\-if}!variance@{variance}}
-\index{variance@{variance}!Statistics_if@{Statistics\-\_\-if}}
-\subsubsection[{variance}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\-\_\-if\-::variance (
+\index{Statistics\+\_\+if@{Statistics\+\_\+if}!variance@{variance}}
+\index{variance@{variance}!Statistics\+\_\+if@{Statistics\+\_\+if}}
+\subsubsection[{\texorpdfstring{variance()=0}{variance()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\+\_\+if\+::variance (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_statistics__if_a1b563f7e92eda3cf3a8f47f07824b96b}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_a1b563f7e92eda3cf3a8f47f07824b96b}{}\label{class_statistics__if_a1b563f7e92eda3cf3a8f47f07824b96b}
 
 
-Implemented in \hyperlink{class_statistics_daniel_boso_ac228a5a8a8a866d34d6d8f5e7b9ede15}{Statistics\-Daniel\-Boso}, \hyperlink{class_statistics_my_impl1_afa5cfa9ad68d31cb2707dbfccf8fb5c5}{Statistics\-My\-Impl1}, and \hyperlink{class_statistics_cancian_impl_a8c4044fab2d60ab1855a73e43bae84a5}{Statistics\-Cancian\-Impl}.
+Implemented in \hyperlink{class_statistics_dummy_impl_a205e3cb135b3bea12d03826964930069}{Statistics\+Dummy\+Impl}.
 
-\hypertarget{class_statistics__if_ae0ad6bf18f8263003b0ac7552318be57}{\index{Statistics\-\_\-if@{Statistics\-\_\-if}!variation\-Coef@{variation\-Coef}}
-\index{variation\-Coef@{variation\-Coef}!Statistics_if@{Statistics\-\_\-if}}
-\subsubsection[{variation\-Coef}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\-\_\-if\-::variation\-Coef (
+\index{Statistics\+\_\+if@{Statistics\+\_\+if}!variation\+Coef@{variation\+Coef}}
+\index{variation\+Coef@{variation\+Coef}!Statistics\+\_\+if@{Statistics\+\_\+if}}
+\subsubsection[{\texorpdfstring{variation\+Coef()=0}{variationCoef()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\+\_\+if\+::variation\+Coef (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_statistics__if_ae0ad6bf18f8263003b0ac7552318be57}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_ae0ad6bf18f8263003b0ac7552318be57}{}\label{class_statistics__if_ae0ad6bf18f8263003b0ac7552318be57}
 
 
-Implemented in \hyperlink{class_statistics_daniel_boso_a386746d73807d14c559e1375bd9b48e9}{Statistics\-Daniel\-Boso}, \hyperlink{class_statistics_my_impl1_abe90460ab3f591c78a60a1924ebe43f5}{Statistics\-My\-Impl1}, and \hyperlink{class_statistics_cancian_impl_a6e3a2bdd9a19d464a97d5bfb2f38cc6e}{Statistics\-Cancian\-Impl}.
+Implemented in \hyperlink{class_statistics_dummy_impl_af1dff0a22b596cfca7aa123757f35d05}{Statistics\+Dummy\+Impl}.
 
 
 
-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-\hyperlink{_statistics__if_8h}{Statistics\-\_\-if.\-h}\end{DoxyCompactItemize}
+\hyperlink{_statistics__if_8h}{Statistics\+\_\+if.\+h}\end{DoxyCompactItemize}

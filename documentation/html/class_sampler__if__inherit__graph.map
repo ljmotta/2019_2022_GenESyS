@@ -1,5 +1,3 @@
 <map id="Sampler_if" name="Sampler_if">
-<area shape="rect" id="node2" href="$class_sampler___bru_fab_joa.html" title="Sampler_BruFabJoa" alt="" coords="5,80,144,107"/>
-<area shape="rect" id="node3" href="$class_sampler_daniel_boso.html" title="SamplerDanielBoso" alt="" coords="169,80,305,107"/>
-<area shape="rect" id="node4" href="$class_sampler_my_impl1.html" title="SamplerMyImpl1" alt="" coords="331,80,451,107"/>
+<area shape="rect" id="node2" href="$class_sampler_dummy_impl.html" title="SamplerDummyImpl" alt="" coords="5,80,147,107"/>
 </map>

@@ -37,34 +37,20 @@
 #include "TestParser.h"
 
 // dummy implementations
-#include "CollectorMyImpl1.h"
-#include "SamplerMyImpl1.h"
-#include "FitterMyImpl1.h"
-#include "ParserMyImpl1.h"
-#include "ModelCheckerMyImpl1.h"
-#include "IntegratorMyImpl1.h"
-#include "ExperimentDesignMyImpl1.h"
-#include "StatisticsMyImpl1.h"
-#include "ProcessAnalyserMyImpl1.h"
-#include "CollectorDatafileMyImpl1.h"
-#include "HypothesisTesterMyImpl1.h"
-#include "ModelPersistenceMyImpl1.h"
+#include "CollectorDummyImpl.h"
+#include "SamplerDummyImpl.h"
+#include "FitterDummyImpl.h"
+#include "ParserDummyImpl.h"
+#include "ModelCheckerDummyImpl.h"
+#include "IntegratorDummyImpl.h"
+#include "ExperimentDesignDummyImpl.h"
+#include "StatisticsDummyImpl.h"
+#include "ProcessAnalyserDummyImpl.h"
+#include "CollectorDatafileDummyImpl.h"
+#include "HypothesisTesterDummyImpl.h"
+#include "ModelPersistenceDummyImpl.h"
 
 // students implementations
-//#include "src_students/20182/CollectorDatafileCancianImpl.h"
-//#include "src_students/20182/Sampler_BruFabJoa.h"
-//#include "src_students/20182/FitterJoaoSouto.h"
-//#include "src_students/20182/IntegratorDiogoImpl.h"
-//#include "src_students/20182/HypothesisTesterDiogo.h"
-//#include "src_students/20182/StatisticsCancianImpl.h"
-#include "src_students/20182/ParserFlexBison/ParserFlexBisonImpl.h"
-//#include "src_students/20182/CollectorDanielBoso.h"
-//#include "src_students/20182/CollectorDatafileDanielBoso.h"
-//#include "src_students/20182/SamplerDanielBoso.h"
-//#include "src_students/20182/StatisticsDanielBoso.h"
-//#include "src_students/20182/StatisticsCollectorDanielBoso.h"
-//#include "src_students/20182/ExperimentDesign_BrunoBonotto_JoaoSouto.h"
-//#include "src_students/20182/FitterFabiola.h"
 
 template <typename T>
 struct Traits {
@@ -82,73 +68,55 @@ template <> struct Traits<Model> {
 };
 
 template <> struct Traits<ModelComponent> {
-	typedef CollectorMyImpl1 CollectorImplementation;
-	//typedef CollectorDanielBoso CollectorImplementation;
+	typedef CollectorDummyImpl CollectorImplementation;
 };
 
 template <> struct Traits<Sampler_if> {
-	typedef SamplerMyImpl1 Implementation;
-	typedef SamplerMyImpl1::MyRNG_Parameters Parameters;
-	//typedef Sampler_BruFabJoa Implementation;
-	//typedef Sampler_BruFabJoa::MyRNG_Parameters Parameters;
-	//typedef SamplerDanielBoso Implementation;
-	//typedef SamplerDanielBoso::MyRNG_Parameters Parameters;
+	typedef SamplerDummyImpl Implementation;
+	typedef SamplerDummyImpl::MyRNG_Parameters Parameters;
 };
 
 template <> struct Traits<Fitter_if> {
-	typedef FitterMyImpl1 Implementation;
-	//typedef FitterFabiola Implementation;
-    //typedef FitterJoaoSouto Implementation;
+	typedef FitterDummyImpl Implementation;
 };
 
 template <> struct Traits<Collector_if> {
-	typedef CollectorDatafileMyImpl1 Implementation;
-	typedef CollectorMyImpl1 ModelImplementation; //TEMP
-	//typedef CollectorDatafileCancianImpl Implementation;
-	//typedef CollectorDanielBoso ModelImplementation; //TEMP
-	//typedef CollectorDatafileDanielBoso Implementation;
+	typedef CollectorDatafileDummyImpl Implementation;
+	typedef CollectorDummyImpl ModelImplementation; //TEMP
 };
 
 template <> struct Traits<ModelChecker_if> {
-	typedef ModelCheckerMyImpl1 Implementation;
-	//typedef ModelChecker_DS2Karla Implementation;
+	typedef ModelCheckerDummyImpl Implementation;
 };
 
 template <> struct Traits<Parser_if> {
-	//typedef ParserMyImpl1 Implementation;
-	typedef ParserFlexBisonImpl Implementation;
+	typedef ParserDummyImpl Implementation;
 };
 
 template <> struct Traits<Statistics_if> {
-	typedef StatisticsMyImpl1 Implementation;
-	//typedef StatisticsCancianImpl Implementation;
-	//typedef StatisticsDanielBoso Implementation;
+	typedef StatisticsDummyImpl Implementation;
 };
 
 template <> struct Traits<Integrator_if> {
-	typedef IntegratorMyImpl1 Implementation;
-	//typedef IntegratorDiogoImpl Implementation;
+	typedef IntegratorDummyImpl Implementation;
 	unsigned int MaxIterations = 1000;
 	double MaxError = 1e-9;
 };
 
 template <> struct Traits<HypothesisTester_if> {
-	typedef HypothesisTesterMyImpl1 Implementation;
-	//typedef HypothesisTesterDiogo Implementation;
+	typedef HypothesisTesterDummyImpl Implementation;
 };
 
 template <> struct Traits<ModelPersistence_if> {
-	typedef ModelPersistenceMyImpl1 Implementation;
+	typedef ModelPersistenceDummyImpl Implementation;
 };
 
 template <> struct Traits<ExperimentDesign_if> {
-	typedef ExperimentDesignMyImpl1 Implementation;
-	//typedef ExperimentDesign_BrunoBonotto_JoaoSouto Implementation;
-	//typedef ProcessAnalyserMyImpl1 ProcessAnalyserImplementation;
+	typedef ExperimentDesignDummyImpl Implementation;
 };
 
 template <> struct Traits<ProcessAnalyser_if> {
-	typedef ProcessAnalyserMyImpl1 Implementation;
+	typedef ProcessAnalyserDummyImpl Implementation;
 };
 
 #endif /* TRAITS_H */

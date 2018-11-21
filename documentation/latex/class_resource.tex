@@ -1,51 +1,52 @@
-\hypertarget{class_resource}{\section{Resource Class Reference}
+\hypertarget{class_resource}{}\section{Resource Class Reference}
 \label{class_resource}\index{Resource@{Resource}}
-}
 
 
-{\ttfamily \#include $<$Resource.\-h$>$}
+{\ttfamily \#include $<$Resource.\+h$>$}
 
 
 
-Inheritance diagram for Resource\-:\nopagebreak
+Inheritance diagram for Resource\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=255pt]{class_resource__inherit__graph}
+\includegraphics[width=256pt]{class_resource__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Collaboration diagram for Resource\-:\nopagebreak
+Collaboration diagram for Resource\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=255pt]{class_resource__coll__graph}
+\includegraphics[width=256pt]{class_resource__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-enum \hyperlink{class_resource_aa607c54bf52a9c36b331888ee936a52c}{Resource\-Type} \-: int \{ \hyperlink{class_resource_aa607c54bf52a9c36b331888ee936a52ca8c52684db8f49511e9b44471716bf164}{Resource\-Type\-::\-S\-E\-T} =1, 
-\hyperlink{class_resource_aa607c54bf52a9c36b331888ee936a52ca4f49da9035f276c0947466eb7c42249a}{Resource\-Type\-::\-R\-E\-S\-O\-U\-R\-C\-E} =2
+enum \hyperlink{class_resource_aa607c54bf52a9c36b331888ee936a52c}{Resource\+Type} \+: int \{ \hyperlink{class_resource_aa607c54bf52a9c36b331888ee936a52ca8c52684db8f49511e9b44471716bf164}{Resource\+Type\+::\+S\+ET} =1, 
+\hyperlink{class_resource_aa607c54bf52a9c36b331888ee936a52ca4f49da9035f276c0947466eb7c42249a}{Resource\+Type\+::\+R\+E\+S\+O\+U\+R\+CE} =2
  \}
 \item 
-enum \hyperlink{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7}{Resource\-Rule} \-: int \{ \\*
-\hyperlink{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7a170e02e86972c2be8559884cc3c12254}{Resource\-Rule\-::\-R\-A\-N\-D\-O\-M} =1, 
-\hyperlink{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7a799276ee6dde6c0ae5c9fb1cacf14531}{Resource\-Rule\-::\-C\-I\-C\-L\-I\-C\-A\-L} =2, 
-\hyperlink{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7af3445810d590ed87cd13c95d4ed17d0a}{Resource\-Rule\-::\-E\-S\-P\-E\-C\-I\-F\-I\-C} =3, 
-\hyperlink{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7a3a3df6d137a401694ba70b55e6ff7305}{Resource\-Rule\-::\-S\-M\-A\-L\-L\-E\-S\-T\-B\-U\-S\-Y} =4, 
+enum \hyperlink{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7}{Resource\+Rule} \+: int \{ \\*
+\hyperlink{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7a170e02e86972c2be8559884cc3c12254}{Resource\+Rule\+::\+R\+A\+N\+D\+OM} =1, 
+\hyperlink{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7a799276ee6dde6c0ae5c9fb1cacf14531}{Resource\+Rule\+::\+C\+I\+C\+L\+I\+C\+AL} =2, 
+\hyperlink{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7af3445810d590ed87cd13c95d4ed17d0a}{Resource\+Rule\+::\+E\+S\+P\+E\+C\+I\+F\+IC} =3, 
+\hyperlink{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7a3a3df6d137a401694ba70b55e6ff7305}{Resource\+Rule\+::\+S\+M\+A\+L\+L\+E\+S\+T\+B\+U\+SY} =4, 
 \\*
-\hyperlink{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7a523a069c516b904643398d8457bf5053}{Resource\-Rule\-::\-L\-A\-R\-G\-E\-S\-T\-R\-E\-M\-A\-I\-N\-I\-N\-G\-C\-A\-P\-A\-C\-I\-T\-Y} =5
+\hyperlink{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7a523a069c516b904643398d8457bf5053}{Resource\+Rule\+::\+L\+A\+R\+G\+E\+S\+T\+R\+E\+M\+A\+I\+N\+I\+N\+G\+C\+A\+P\+A\+C\+I\+TY} =5
  \}
 \item 
-enum \hyperlink{class_resource_af2224610b59962683d3cafbdac10621a}{Resource\-State} \-: int \{ \\*
-\hyperlink{class_resource_af2224610b59962683d3cafbdac10621aaa5daf7f2ebbba4975d61dab1c40188c7}{Resource\-State\-::\-I\-D\-L\-E} =1, 
-\hyperlink{class_resource_af2224610b59962683d3cafbdac10621aa802706a9238e2928077f97736854bad4}{Resource\-State\-::\-B\-U\-S\-Y} =2, 
-\hyperlink{class_resource_af2224610b59962683d3cafbdac10621aab9e14d9b2886bcff408b85aefa780419}{Resource\-State\-::\-F\-A\-I\-L\-E\-D} =3, 
-\hyperlink{class_resource_af2224610b59962683d3cafbdac10621aa6b273343c454f9c53dcfc9c4ccf171d2}{Resource\-State\-::\-I\-N\-A\-C\-T\-I\-V\-E} =4, 
+enum \hyperlink{class_resource_af2224610b59962683d3cafbdac10621a}{Resource\+State} \+: int \{ \\*
+\hyperlink{class_resource_af2224610b59962683d3cafbdac10621aaa5daf7f2ebbba4975d61dab1c40188c7}{Resource\+State\+::\+I\+D\+LE} =1, 
+\hyperlink{class_resource_af2224610b59962683d3cafbdac10621aa802706a9238e2928077f97736854bad4}{Resource\+State\+::\+B\+U\+SY} =2, 
+\hyperlink{class_resource_af2224610b59962683d3cafbdac10621aab9e14d9b2886bcff408b85aefa780419}{Resource\+State\+::\+F\+A\+I\+L\+ED} =3, 
+\hyperlink{class_resource_af2224610b59962683d3cafbdac10621aa6b273343c454f9c53dcfc9c4ccf171d2}{Resource\+State\+::\+I\+N\+A\+C\+T\+I\+VE} =4, 
 \\*
-\hyperlink{class_resource_af2224610b59962683d3cafbdac10621aa03570470bad94692ce93e32700d2e1cb}{Resource\-State\-::\-O\-T\-H\-E\-R} =5
+\hyperlink{class_resource_af2224610b59962683d3cafbdac10621aa03570470bad94692ce93e32700d2e1cb}{Resource\+State\+::\+O\+T\+H\+ER} =5
  \}
 \end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
@@ -55,478 +56,273 @@ enum \hyperlink{class_resource_af2224610b59962683d3cafbdac10621a}{Resource\-Stat
 \item 
 \hyperlink{class_resource_a30f2ca8f0617a6628ebd246b14b50566}{Resource} (const \hyperlink{class_resource}{Resource} \&orig)
 \item 
-virtual \hyperlink{class_resource_a0e5ec475e2601bdb33644468e86f6f10}{$\sim$\-Resource} ()
+virtual \hyperlink{class_resource_a0e5ec475e2601bdb33644468e86f6f10}{$\sim$\+Resource} ()
 \item 
-virtual std\-::string \hyperlink{class_resource_a593cf83404dc90706943b4e60213fd01}{show} ()
+virtual std\+::string \hyperlink{class_resource_a593cf83404dc90706943b4e60213fd01}{show} ()
 \item 
 void \hyperlink{class_resource_a4c9cc891367f2af07511d8897255d625}{seize} (unsigned int quantity, double tnow)
 \item 
 void \hyperlink{class_resource_ad5da4dca5dd48a4818827e6273c20c2d}{release} (unsigned int quantity, double tnow)
 \item 
-void \hyperlink{class_resource_aba60047e3a2400f2aec478b1cfa3647e}{set\-Resource\-State} (\hyperlink{class_resource_af2224610b59962683d3cafbdac10621a}{Resource\-State} \-\_\-resource\-State)
+void \hyperlink{class_resource_aba60047e3a2400f2aec478b1cfa3647e}{set\+Resource\+State} (\hyperlink{class_resource_af2224610b59962683d3cafbdac10621a}{Resource\+State} \+\_\+resource\+State)
 \item 
-\hyperlink{class_resource_af2224610b59962683d3cafbdac10621a}{Resource\-State} \hyperlink{class_resource_ac832a54ae1e20a2f7137aefd3a5fc003}{get\-Resource\-State} () const 
+\hyperlink{class_resource_af2224610b59962683d3cafbdac10621a}{Resource\+State} \hyperlink{class_resource_ac832a54ae1e20a2f7137aefd3a5fc003}{get\+Resource\+State} () const 
 \item 
-void \hyperlink{class_resource_aa8530e4507ab493de34feb4fef7d4d03}{set\-Capacity} (unsigned int \-\_\-capacity)
+void \hyperlink{class_resource_aa8530e4507ab493de34feb4fef7d4d03}{set\+Capacity} (unsigned int \+\_\+capacity)
 \item 
-unsigned int \hyperlink{class_resource_a0aa3a9287571af52be298611580e661e}{get\-Capacity} () const 
+unsigned int \hyperlink{class_resource_a0aa3a9287571af52be298611580e661e}{get\+Capacity} () const 
 \item 
-void \hyperlink{class_resource_a28c348f8562fcf63e174229e9001f55c}{set\-Cost\-Busy\-Hour} (double \-\_\-cost\-Busy\-Hour)
+void \hyperlink{class_resource_a28c348f8562fcf63e174229e9001f55c}{set\+Cost\+Busy\+Hour} (double \+\_\+cost\+Busy\+Hour)
 \item 
-double \hyperlink{class_resource_a66bd7e365c6ccb088afad2a6f24afdae}{get\-Cost\-Busy\-Hour} () const 
+double \hyperlink{class_resource_a66bd7e365c6ccb088afad2a6f24afdae}{get\+Cost\+Busy\+Hour} () const 
 \item 
-void \hyperlink{class_resource_aee4482e9f914b0b4e83cdb4ada50e45e}{set\-Cost\-Idle\-Hour} (double \-\_\-cost\-Idle\-Hour)
+void \hyperlink{class_resource_aee4482e9f914b0b4e83cdb4ada50e45e}{set\+Cost\+Idle\+Hour} (double \+\_\+cost\+Idle\+Hour)
 \item 
-double \hyperlink{class_resource_a8033fb963bed0116f01af2b637bd4cad}{get\-Cost\-Idle\-Hour} () const 
+double \hyperlink{class_resource_a8033fb963bed0116f01af2b637bd4cad}{get\+Cost\+Idle\+Hour} () const 
 \item 
-void \hyperlink{class_resource_adedf8ae8388efb1a194441613647b669}{set\-Cost\-Per\-Use} (double \-\_\-cost\-Per\-Use)
+void \hyperlink{class_resource_adedf8ae8388efb1a194441613647b669}{set\+Cost\+Per\+Use} (double \+\_\+cost\+Per\+Use)
 \item 
-double \hyperlink{class_resource_a93d303fba82b1ef9879cc75fbafef506}{get\-Cost\-Per\-Use} () const 
+double \hyperlink{class_resource_a93d303fba82b1ef9879cc75fbafef506}{get\+Cost\+Per\+Use} () const 
 \item 
-unsigned int \hyperlink{class_resource_a6fafa0b8da75c9596ca52932482a5568}{get\-Number\-Busy} () const 
+unsigned int \hyperlink{class_resource_a6fafa0b8da75c9596ca52932482a5568}{get\+Number\+Busy} () const 
 \item 
-unsigned int \hyperlink{class_resource_a1aedd0bf239010a6b7e2a6c15a324481}{get\-Number\-Out} () const 
+unsigned int \hyperlink{class_resource_a1aedd0bf239010a6b7e2a6c15a324481}{get\+Number\+Out} () const 
 \end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-virtual void \hyperlink{class_resource_a5c4aedea65e6800cf44fb3620d559148}{\-\_\-load\-Instance} (std\-::list$<$ std\-::string $>$ words)
+virtual void \hyperlink{class_resource_a5c4aedea65e6800cf44fb3620d559148}{\+\_\+load\+Instance} (std\+::list$<$ std\+::string $>$ words)
 \item 
-virtual std\-::list$<$ std\-::string $>$ $\ast$ \hyperlink{class_resource_a546f61a6f5f57f0c41c722b9b9dc7478}{\-\_\-save\-Instance} ()
+virtual std\+::list$<$ std\+::string $>$ $\ast$ \hyperlink{class_resource_a546f61a6f5f57f0c41c722b9b9dc7478}{\+\_\+save\+Instance} ()
 \item 
-virtual bool \hyperlink{class_resource_a3b282a34c4c706ca63716cb74e7f8183}{\-\_\-verify\-Symbols} (std\-::string $\ast$error\-Message)
+virtual bool \hyperlink{class_resource_a3b282a34c4c706ca63716cb74e7f8183}{\+\_\+verify\+Symbols} (std\+::string $\ast$error\+Message)
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
-\subsection{Detailed Description}
-
-
-Definition at line 22 of file Resource.\-h.
-
-
-
 \subsection{Member Enumeration Documentation}
-\hypertarget{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7}{\index{Resource@{Resource}!Resource\-Rule@{Resource\-Rule}}
-\index{Resource\-Rule@{Resource\-Rule}!Resource@{Resource}}
-\subsubsection[{Resource\-Rule}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Resource\-::\-Resource\-Rule} \-: int\hspace{0.3cm}{\ttfamily [strong]}}}\label{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7}
+\index{Resource@{Resource}!Resource\+Rule@{Resource\+Rule}}
+\index{Resource\+Rule@{Resource\+Rule}!Resource@{Resource}}
+\subsubsection[{\texorpdfstring{Resource\+Rule}{ResourceRule}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Resource\+::\+Resource\+Rule} \+: int\hspace{0.3cm}{\ttfamily [strong]}}\hypertarget{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7}{}\label{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7}
 \begin{Desc}
 \item[Enumerator]\par
 \begin{description}
-\index{R\-A\-N\-D\-O\-M@{R\-A\-N\-D\-O\-M}!Resource@{Resource}}\index{Resource@{Resource}!R\-A\-N\-D\-O\-M@{R\-A\-N\-D\-O\-M}}\item[{\em 
-\hypertarget{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7a170e02e86972c2be8559884cc3c12254}{R\-A\-N\-D\-O\-M}\label{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7a170e02e86972c2be8559884cc3c12254}
-}]\index{C\-I\-C\-L\-I\-C\-A\-L@{C\-I\-C\-L\-I\-C\-A\-L}!Resource@{Resource}}\index{Resource@{Resource}!C\-I\-C\-L\-I\-C\-A\-L@{C\-I\-C\-L\-I\-C\-A\-L}}\item[{\em 
-\hypertarget{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7a799276ee6dde6c0ae5c9fb1cacf14531}{C\-I\-C\-L\-I\-C\-A\-L}\label{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7a799276ee6dde6c0ae5c9fb1cacf14531}
-}]\index{E\-S\-P\-E\-C\-I\-F\-I\-C@{E\-S\-P\-E\-C\-I\-F\-I\-C}!Resource@{Resource}}\index{Resource@{Resource}!E\-S\-P\-E\-C\-I\-F\-I\-C@{E\-S\-P\-E\-C\-I\-F\-I\-C}}\item[{\em 
-\hypertarget{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7af3445810d590ed87cd13c95d4ed17d0a}{E\-S\-P\-E\-C\-I\-F\-I\-C}\label{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7af3445810d590ed87cd13c95d4ed17d0a}
-}]\index{S\-M\-A\-L\-L\-E\-S\-T\-B\-U\-S\-Y@{S\-M\-A\-L\-L\-E\-S\-T\-B\-U\-S\-Y}!Resource@{Resource}}\index{Resource@{Resource}!S\-M\-A\-L\-L\-E\-S\-T\-B\-U\-S\-Y@{S\-M\-A\-L\-L\-E\-S\-T\-B\-U\-S\-Y}}\item[{\em 
-\hypertarget{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7a3a3df6d137a401694ba70b55e6ff7305}{S\-M\-A\-L\-L\-E\-S\-T\-B\-U\-S\-Y}\label{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7a3a3df6d137a401694ba70b55e6ff7305}
-}]\index{L\-A\-R\-G\-E\-S\-T\-R\-E\-M\-A\-I\-N\-I\-N\-G\-C\-A\-P\-A\-C\-I\-T\-Y@{L\-A\-R\-G\-E\-S\-T\-R\-E\-M\-A\-I\-N\-I\-N\-G\-C\-A\-P\-A\-C\-I\-T\-Y}!Resource@{Resource}}\index{Resource@{Resource}!L\-A\-R\-G\-E\-S\-T\-R\-E\-M\-A\-I\-N\-I\-N\-G\-C\-A\-P\-A\-C\-I\-T\-Y@{L\-A\-R\-G\-E\-S\-T\-R\-E\-M\-A\-I\-N\-I\-N\-G\-C\-A\-P\-A\-C\-I\-T\-Y}}\item[{\em 
-\hypertarget{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7a523a069c516b904643398d8457bf5053}{L\-A\-R\-G\-E\-S\-T\-R\-E\-M\-A\-I\-N\-I\-N\-G\-C\-A\-P\-A\-C\-I\-T\-Y}\label{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7a523a069c516b904643398d8457bf5053}
+\index{R\+A\+N\+D\+OM@{R\+A\+N\+D\+OM}!Resource@{Resource}}\index{Resource@{Resource}!R\+A\+N\+D\+OM@{R\+A\+N\+D\+OM}}\item[{\em 
+R\+A\+N\+D\+OM\hypertarget{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7a170e02e86972c2be8559884cc3c12254}{}\label{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7a170e02e86972c2be8559884cc3c12254}
+}]\index{C\+I\+C\+L\+I\+C\+AL@{C\+I\+C\+L\+I\+C\+AL}!Resource@{Resource}}\index{Resource@{Resource}!C\+I\+C\+L\+I\+C\+AL@{C\+I\+C\+L\+I\+C\+AL}}\item[{\em 
+C\+I\+C\+L\+I\+C\+AL\hypertarget{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7a799276ee6dde6c0ae5c9fb1cacf14531}{}\label{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7a799276ee6dde6c0ae5c9fb1cacf14531}
+}]\index{E\+S\+P\+E\+C\+I\+F\+IC@{E\+S\+P\+E\+C\+I\+F\+IC}!Resource@{Resource}}\index{Resource@{Resource}!E\+S\+P\+E\+C\+I\+F\+IC@{E\+S\+P\+E\+C\+I\+F\+IC}}\item[{\em 
+E\+S\+P\+E\+C\+I\+F\+IC\hypertarget{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7af3445810d590ed87cd13c95d4ed17d0a}{}\label{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7af3445810d590ed87cd13c95d4ed17d0a}
+}]\index{S\+M\+A\+L\+L\+E\+S\+T\+B\+U\+SY@{S\+M\+A\+L\+L\+E\+S\+T\+B\+U\+SY}!Resource@{Resource}}\index{Resource@{Resource}!S\+M\+A\+L\+L\+E\+S\+T\+B\+U\+SY@{S\+M\+A\+L\+L\+E\+S\+T\+B\+U\+SY}}\item[{\em 
+S\+M\+A\+L\+L\+E\+S\+T\+B\+U\+SY\hypertarget{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7a3a3df6d137a401694ba70b55e6ff7305}{}\label{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7a3a3df6d137a401694ba70b55e6ff7305}
+}]\index{L\+A\+R\+G\+E\+S\+T\+R\+E\+M\+A\+I\+N\+I\+N\+G\+C\+A\+P\+A\+C\+I\+TY@{L\+A\+R\+G\+E\+S\+T\+R\+E\+M\+A\+I\+N\+I\+N\+G\+C\+A\+P\+A\+C\+I\+TY}!Resource@{Resource}}\index{Resource@{Resource}!L\+A\+R\+G\+E\+S\+T\+R\+E\+M\+A\+I\+N\+I\+N\+G\+C\+A\+P\+A\+C\+I\+TY@{L\+A\+R\+G\+E\+S\+T\+R\+E\+M\+A\+I\+N\+I\+N\+G\+C\+A\+P\+A\+C\+I\+TY}}\item[{\em 
+L\+A\+R\+G\+E\+S\+T\+R\+E\+M\+A\+I\+N\+I\+N\+G\+C\+A\+P\+A\+C\+I\+TY\hypertarget{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7a523a069c516b904643398d8457bf5053}{}\label{class_resource_afa28dce79d48cbaf6b10f899f2dedfb7a523a069c516b904643398d8457bf5053}
 }]\end{description}
 \end{Desc}
-
-
-Definition at line 29 of file Resource.\-h.
-
-\hypertarget{class_resource_af2224610b59962683d3cafbdac10621a}{\index{Resource@{Resource}!Resource\-State@{Resource\-State}}
-\index{Resource\-State@{Resource\-State}!Resource@{Resource}}
-\subsubsection[{Resource\-State}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Resource\-::\-Resource\-State} \-: int\hspace{0.3cm}{\ttfamily [strong]}}}\label{class_resource_af2224610b59962683d3cafbdac10621a}
+\index{Resource@{Resource}!Resource\+State@{Resource\+State}}
+\index{Resource\+State@{Resource\+State}!Resource@{Resource}}
+\subsubsection[{\texorpdfstring{Resource\+State}{ResourceState}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Resource\+::\+Resource\+State} \+: int\hspace{0.3cm}{\ttfamily [strong]}}\hypertarget{class_resource_af2224610b59962683d3cafbdac10621a}{}\label{class_resource_af2224610b59962683d3cafbdac10621a}
 \begin{Desc}
 \item[Enumerator]\par
 \begin{description}
-\index{I\-D\-L\-E@{I\-D\-L\-E}!Resource@{Resource}}\index{Resource@{Resource}!I\-D\-L\-E@{I\-D\-L\-E}}\item[{\em 
-\hypertarget{class_resource_af2224610b59962683d3cafbdac10621aaa5daf7f2ebbba4975d61dab1c40188c7}{I\-D\-L\-E}\label{class_resource_af2224610b59962683d3cafbdac10621aaa5daf7f2ebbba4975d61dab1c40188c7}
-}]\index{B\-U\-S\-Y@{B\-U\-S\-Y}!Resource@{Resource}}\index{Resource@{Resource}!B\-U\-S\-Y@{B\-U\-S\-Y}}\item[{\em 
-\hypertarget{class_resource_af2224610b59962683d3cafbdac10621aa802706a9238e2928077f97736854bad4}{B\-U\-S\-Y}\label{class_resource_af2224610b59962683d3cafbdac10621aa802706a9238e2928077f97736854bad4}
-}]\index{F\-A\-I\-L\-E\-D@{F\-A\-I\-L\-E\-D}!Resource@{Resource}}\index{Resource@{Resource}!F\-A\-I\-L\-E\-D@{F\-A\-I\-L\-E\-D}}\item[{\em 
-\hypertarget{class_resource_af2224610b59962683d3cafbdac10621aab9e14d9b2886bcff408b85aefa780419}{F\-A\-I\-L\-E\-D}\label{class_resource_af2224610b59962683d3cafbdac10621aab9e14d9b2886bcff408b85aefa780419}
-}]\index{I\-N\-A\-C\-T\-I\-V\-E@{I\-N\-A\-C\-T\-I\-V\-E}!Resource@{Resource}}\index{Resource@{Resource}!I\-N\-A\-C\-T\-I\-V\-E@{I\-N\-A\-C\-T\-I\-V\-E}}\item[{\em 
-\hypertarget{class_resource_af2224610b59962683d3cafbdac10621aa6b273343c454f9c53dcfc9c4ccf171d2}{I\-N\-A\-C\-T\-I\-V\-E}\label{class_resource_af2224610b59962683d3cafbdac10621aa6b273343c454f9c53dcfc9c4ccf171d2}
-}]\index{O\-T\-H\-E\-R@{O\-T\-H\-E\-R}!Resource@{Resource}}\index{Resource@{Resource}!O\-T\-H\-E\-R@{O\-T\-H\-E\-R}}\item[{\em 
-\hypertarget{class_resource_af2224610b59962683d3cafbdac10621aa03570470bad94692ce93e32700d2e1cb}{O\-T\-H\-E\-R}\label{class_resource_af2224610b59962683d3cafbdac10621aa03570470bad94692ce93e32700d2e1cb}
+\index{I\+D\+LE@{I\+D\+LE}!Resource@{Resource}}\index{Resource@{Resource}!I\+D\+LE@{I\+D\+LE}}\item[{\em 
+I\+D\+LE\hypertarget{class_resource_af2224610b59962683d3cafbdac10621aaa5daf7f2ebbba4975d61dab1c40188c7}{}\label{class_resource_af2224610b59962683d3cafbdac10621aaa5daf7f2ebbba4975d61dab1c40188c7}
+}]\index{B\+U\+SY@{B\+U\+SY}!Resource@{Resource}}\index{Resource@{Resource}!B\+U\+SY@{B\+U\+SY}}\item[{\em 
+B\+U\+SY\hypertarget{class_resource_af2224610b59962683d3cafbdac10621aa802706a9238e2928077f97736854bad4}{}\label{class_resource_af2224610b59962683d3cafbdac10621aa802706a9238e2928077f97736854bad4}
+}]\index{F\+A\+I\+L\+ED@{F\+A\+I\+L\+ED}!Resource@{Resource}}\index{Resource@{Resource}!F\+A\+I\+L\+ED@{F\+A\+I\+L\+ED}}\item[{\em 
+F\+A\+I\+L\+ED\hypertarget{class_resource_af2224610b59962683d3cafbdac10621aab9e14d9b2886bcff408b85aefa780419}{}\label{class_resource_af2224610b59962683d3cafbdac10621aab9e14d9b2886bcff408b85aefa780419}
+}]\index{I\+N\+A\+C\+T\+I\+VE@{I\+N\+A\+C\+T\+I\+VE}!Resource@{Resource}}\index{Resource@{Resource}!I\+N\+A\+C\+T\+I\+VE@{I\+N\+A\+C\+T\+I\+VE}}\item[{\em 
+I\+N\+A\+C\+T\+I\+VE\hypertarget{class_resource_af2224610b59962683d3cafbdac10621aa6b273343c454f9c53dcfc9c4ccf171d2}{}\label{class_resource_af2224610b59962683d3cafbdac10621aa6b273343c454f9c53dcfc9c4ccf171d2}
+}]\index{O\+T\+H\+ER@{O\+T\+H\+ER}!Resource@{Resource}}\index{Resource@{Resource}!O\+T\+H\+ER@{O\+T\+H\+ER}}\item[{\em 
+O\+T\+H\+ER\hypertarget{class_resource_af2224610b59962683d3cafbdac10621aa03570470bad94692ce93e32700d2e1cb}{}\label{class_resource_af2224610b59962683d3cafbdac10621aa03570470bad94692ce93e32700d2e1cb}
 }]\end{description}
 \end{Desc}
-
-
-Definition at line 33 of file Resource.\-h.
-
-\hypertarget{class_resource_aa607c54bf52a9c36b331888ee936a52c}{\index{Resource@{Resource}!Resource\-Type@{Resource\-Type}}
-\index{Resource\-Type@{Resource\-Type}!Resource@{Resource}}
-\subsubsection[{Resource\-Type}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Resource\-::\-Resource\-Type} \-: int\hspace{0.3cm}{\ttfamily [strong]}}}\label{class_resource_aa607c54bf52a9c36b331888ee936a52c}
+\index{Resource@{Resource}!Resource\+Type@{Resource\+Type}}
+\index{Resource\+Type@{Resource\+Type}!Resource@{Resource}}
+\subsubsection[{\texorpdfstring{Resource\+Type}{ResourceType}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Resource\+::\+Resource\+Type} \+: int\hspace{0.3cm}{\ttfamily [strong]}}\hypertarget{class_resource_aa607c54bf52a9c36b331888ee936a52c}{}\label{class_resource_aa607c54bf52a9c36b331888ee936a52c}
 \begin{Desc}
 \item[Enumerator]\par
 \begin{description}
-\index{S\-E\-T@{S\-E\-T}!Resource@{Resource}}\index{Resource@{Resource}!S\-E\-T@{S\-E\-T}}\item[{\em 
-\hypertarget{class_resource_aa607c54bf52a9c36b331888ee936a52ca8c52684db8f49511e9b44471716bf164}{S\-E\-T}\label{class_resource_aa607c54bf52a9c36b331888ee936a52ca8c52684db8f49511e9b44471716bf164}
-}]\index{R\-E\-S\-O\-U\-R\-C\-E@{R\-E\-S\-O\-U\-R\-C\-E}!Resource@{Resource}}\index{Resource@{Resource}!R\-E\-S\-O\-U\-R\-C\-E@{R\-E\-S\-O\-U\-R\-C\-E}}\item[{\em 
-\hypertarget{class_resource_aa607c54bf52a9c36b331888ee936a52ca4f49da9035f276c0947466eb7c42249a}{R\-E\-S\-O\-U\-R\-C\-E}\label{class_resource_aa607c54bf52a9c36b331888ee936a52ca4f49da9035f276c0947466eb7c42249a}
+\index{S\+ET@{S\+ET}!Resource@{Resource}}\index{Resource@{Resource}!S\+ET@{S\+ET}}\item[{\em 
+S\+ET\hypertarget{class_resource_aa607c54bf52a9c36b331888ee936a52ca8c52684db8f49511e9b44471716bf164}{}\label{class_resource_aa607c54bf52a9c36b331888ee936a52ca8c52684db8f49511e9b44471716bf164}
+}]\index{R\+E\+S\+O\+U\+R\+CE@{R\+E\+S\+O\+U\+R\+CE}!Resource@{Resource}}\index{Resource@{Resource}!R\+E\+S\+O\+U\+R\+CE@{R\+E\+S\+O\+U\+R\+CE}}\item[{\em 
+R\+E\+S\+O\+U\+R\+CE\hypertarget{class_resource_aa607c54bf52a9c36b331888ee936a52ca4f49da9035f276c0947466eb7c42249a}{}\label{class_resource_aa607c54bf52a9c36b331888ee936a52ca4f49da9035f276c0947466eb7c42249a}
 }]\end{description}
 \end{Desc}
-
-
-Definition at line 25 of file Resource.\-h.
-
 
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{class_resource_a1a8ae095067797fa47b0241ee278536c}{\index{Resource@{Resource}!Resource@{Resource}}
 \index{Resource@{Resource}!Resource@{Resource}}
-\subsubsection[{Resource}]{\setlength{\rightskip}{0pt plus 5cm}Resource\-::\-Resource (
+\index{Resource@{Resource}!Resource@{Resource}}
+\subsubsection[{\texorpdfstring{Resource(\+Model $\ast$model)}{Resource(Model *model)}}]{\setlength{\rightskip}{0pt plus 5cm}Resource\+::\+Resource (
 \begin{DoxyParamCaption}
 \item[{{\bf Model} $\ast$}]{model}
 \end{DoxyParamCaption}
-)}}\label{class_resource_a1a8ae095067797fa47b0241ee278536c}
-
-
-Definition at line 16 of file Resource.\-cpp.
-
-
-
-Here is the call graph for this function\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_resource_a1a8ae095067797fa47b0241ee278536c_cgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_resource_a30f2ca8f0617a6628ebd246b14b50566}{\index{Resource@{Resource}!Resource@{Resource}}
+)}\hypertarget{class_resource_a1a8ae095067797fa47b0241ee278536c}{}\label{class_resource_a1a8ae095067797fa47b0241ee278536c}
 \index{Resource@{Resource}!Resource@{Resource}}
-\subsubsection[{Resource}]{\setlength{\rightskip}{0pt plus 5cm}Resource\-::\-Resource (
+\index{Resource@{Resource}!Resource@{Resource}}
+\subsubsection[{\texorpdfstring{Resource(const Resource \&orig)}{Resource(const Resource &orig)}}]{\setlength{\rightskip}{0pt plus 5cm}Resource\+::\+Resource (
 \begin{DoxyParamCaption}
 \item[{const {\bf Resource} \&}]{orig}
 \end{DoxyParamCaption}
-)}}\label{class_resource_a30f2ca8f0617a6628ebd246b14b50566}
-
-
-Definition at line 22 of file Resource.\-cpp.
-
-\hypertarget{class_resource_a0e5ec475e2601bdb33644468e86f6f10}{\index{Resource@{Resource}!$\sim$\-Resource@{$\sim$\-Resource}}
-\index{$\sim$\-Resource@{$\sim$\-Resource}!Resource@{Resource}}
-\subsubsection[{$\sim$\-Resource}]{\setlength{\rightskip}{0pt plus 5cm}Resource\-::$\sim$\-Resource (
+)}\hypertarget{class_resource_a30f2ca8f0617a6628ebd246b14b50566}{}\label{class_resource_a30f2ca8f0617a6628ebd246b14b50566}
+\index{Resource@{Resource}!````~Resource@{$\sim$\+Resource}}
+\index{````~Resource@{$\sim$\+Resource}!Resource@{Resource}}
+\subsubsection[{\texorpdfstring{$\sim$\+Resource()}{~Resource()}}]{\setlength{\rightskip}{0pt plus 5cm}Resource\+::$\sim$\+Resource (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_resource_a0e5ec475e2601bdb33644468e86f6f10}
-
-
-Definition at line 25 of file Resource.\-cpp.
-
-
-
-Here is the call graph for this function\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_resource_a0e5ec475e2601bdb33644468e86f6f10_cgraph}
-\end{center}
-\end{figure}
-
-
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_resource_a0e5ec475e2601bdb33644468e86f6f10}{}\label{class_resource_a0e5ec475e2601bdb33644468e86f6f10}
 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_resource_a5c4aedea65e6800cf44fb3620d559148}{\index{Resource@{Resource}!\-\_\-load\-Instance@{\-\_\-load\-Instance}}
-\index{\-\_\-load\-Instance@{\-\_\-load\-Instance}!Resource@{Resource}}
-\subsubsection[{\-\_\-load\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\-::\-\_\-load\-Instance (
+\index{Resource@{Resource}!\+\_\+load\+Instance@{\+\_\+load\+Instance}}
+\index{\+\_\+load\+Instance@{\+\_\+load\+Instance}!Resource@{Resource}}
+\subsubsection[{\texorpdfstring{\+\_\+load\+Instance(std\+::list$<$ std\+::string $>$ words)}{_loadInstance(std::list< std::string > words)}}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\+::\+\_\+load\+Instance (
 \begin{DoxyParamCaption}
-\item[{std\-::list$<$ std\-::string $>$}]{words}
+\item[{std\+::list$<$ std\+::string $>$}]{words}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_resource_a5c4aedea65e6800cf44fb3620d559148}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{class_resource_a5c4aedea65e6800cf44fb3620d559148}{}\label{class_resource_a5c4aedea65e6800cf44fb3620d559148}
 
 
-Implements \hyperlink{class_model_infrastructure_ae118c8ad2ac9d4397c40d004af51b2dc}{Model\-Infrastructure}.
+Implements \hyperlink{class_model_infrastructure_ae118c8ad2ac9d4397c40d004af51b2dc}{Model\+Infrastructure}.
 
-
-
-Definition at line 108 of file Resource.\-cpp.
-
-\hypertarget{class_resource_a546f61a6f5f57f0c41c722b9b9dc7478}{\index{Resource@{Resource}!\-\_\-save\-Instance@{\-\_\-save\-Instance}}
-\index{\-\_\-save\-Instance@{\-\_\-save\-Instance}!Resource@{Resource}}
-\subsubsection[{\-\_\-save\-Instance}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<$ std\-::string $>$ $\ast$ Resource\-::\-\_\-save\-Instance (
+\index{Resource@{Resource}!\+\_\+save\+Instance@{\+\_\+save\+Instance}}
+\index{\+\_\+save\+Instance@{\+\_\+save\+Instance}!Resource@{Resource}}
+\subsubsection[{\texorpdfstring{\+\_\+save\+Instance()}{_saveInstance()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::list$<$ std\+::string $>$ $\ast$ Resource\+::\+\_\+save\+Instance (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_resource_a546f61a6f5f57f0c41c722b9b9dc7478}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{class_resource_a546f61a6f5f57f0c41c722b9b9dc7478}{}\label{class_resource_a546f61a6f5f57f0c41c722b9b9dc7478}
 
 
-Reimplemented from \hyperlink{class_model_infrastructure_a991f46601d9e865f2e27c6cd7a2b702d}{Model\-Infrastructure}.
+Reimplemented from \hyperlink{class_model_infrastructure_a991f46601d9e865f2e27c6cd7a2b702d}{Model\+Infrastructure}.
 
-
-
-Definition at line 112 of file Resource.\-cpp.
-
-
-
-Here is the call graph for this function\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=346pt]{class_resource_a546f61a6f5f57f0c41c722b9b9dc7478_cgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_resource_a3b282a34c4c706ca63716cb74e7f8183}{\index{Resource@{Resource}!\-\_\-verify\-Symbols@{\-\_\-verify\-Symbols}}
-\index{\-\_\-verify\-Symbols@{\-\_\-verify\-Symbols}!Resource@{Resource}}
-\subsubsection[{\-\_\-verify\-Symbols}]{\setlength{\rightskip}{0pt plus 5cm}bool Resource\-::\-\_\-verify\-Symbols (
+\index{Resource@{Resource}!\+\_\+verify\+Symbols@{\+\_\+verify\+Symbols}}
+\index{\+\_\+verify\+Symbols@{\+\_\+verify\+Symbols}!Resource@{Resource}}
+\subsubsection[{\texorpdfstring{\+\_\+verify\+Symbols(std\+::string $\ast$error\+Message)}{_verifySymbols(std::string *errorMessage)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Resource\+::\+\_\+verify\+Symbols (
 \begin{DoxyParamCaption}
-\item[{std\-::string $\ast$}]{error\-Message}
+\item[{std\+::string $\ast$}]{error\+Message}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}}\label{class_resource_a3b282a34c4c706ca63716cb74e7f8183}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{class_resource_a3b282a34c4c706ca63716cb74e7f8183}{}\label{class_resource_a3b282a34c4c706ca63716cb74e7f8183}
 
 
-Implements \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a388}{Model\-Infrastructure}.
+Implements \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a388}{Model\+Infrastructure}.
 
-
-
-Definition at line 117 of file Resource.\-cpp.
-
-\hypertarget{class_resource_a0aa3a9287571af52be298611580e661e}{\index{Resource@{Resource}!get\-Capacity@{get\-Capacity}}
-\index{get\-Capacity@{get\-Capacity}!Resource@{Resource}}
-\subsubsection[{get\-Capacity}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Resource\-::get\-Capacity (
+\index{Resource@{Resource}!get\+Capacity@{get\+Capacity}}
+\index{get\+Capacity@{get\+Capacity}!Resource@{Resource}}
+\subsubsection[{\texorpdfstring{get\+Capacity() const }{getCapacity() const }}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Resource\+::get\+Capacity (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_resource_a0aa3a9287571af52be298611580e661e}
-
-
-Definition at line 71 of file Resource.\-cpp.
-
-
-
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=322pt]{class_resource_a0aa3a9287571af52be298611580e661e_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_resource_a66bd7e365c6ccb088afad2a6f24afdae}{\index{Resource@{Resource}!get\-Cost\-Busy\-Hour@{get\-Cost\-Busy\-Hour}}
-\index{get\-Cost\-Busy\-Hour@{get\-Cost\-Busy\-Hour}!Resource@{Resource}}
-\subsubsection[{get\-Cost\-Busy\-Hour}]{\setlength{\rightskip}{0pt plus 5cm}double Resource\-::get\-Cost\-Busy\-Hour (
+) const}\hypertarget{class_resource_a0aa3a9287571af52be298611580e661e}{}\label{class_resource_a0aa3a9287571af52be298611580e661e}
+\index{Resource@{Resource}!get\+Cost\+Busy\+Hour@{get\+Cost\+Busy\+Hour}}
+\index{get\+Cost\+Busy\+Hour@{get\+Cost\+Busy\+Hour}!Resource@{Resource}}
+\subsubsection[{\texorpdfstring{get\+Cost\+Busy\+Hour() const }{getCostBusyHour() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Resource\+::get\+Cost\+Busy\+Hour (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_resource_a66bd7e365c6ccb088afad2a6f24afdae}
-
-
-Definition at line 79 of file Resource.\-cpp.
-
-\hypertarget{class_resource_a8033fb963bed0116f01af2b637bd4cad}{\index{Resource@{Resource}!get\-Cost\-Idle\-Hour@{get\-Cost\-Idle\-Hour}}
-\index{get\-Cost\-Idle\-Hour@{get\-Cost\-Idle\-Hour}!Resource@{Resource}}
-\subsubsection[{get\-Cost\-Idle\-Hour}]{\setlength{\rightskip}{0pt plus 5cm}double Resource\-::get\-Cost\-Idle\-Hour (
+) const}\hypertarget{class_resource_a66bd7e365c6ccb088afad2a6f24afdae}{}\label{class_resource_a66bd7e365c6ccb088afad2a6f24afdae}
+\index{Resource@{Resource}!get\+Cost\+Idle\+Hour@{get\+Cost\+Idle\+Hour}}
+\index{get\+Cost\+Idle\+Hour@{get\+Cost\+Idle\+Hour}!Resource@{Resource}}
+\subsubsection[{\texorpdfstring{get\+Cost\+Idle\+Hour() const }{getCostIdleHour() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Resource\+::get\+Cost\+Idle\+Hour (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_resource_a8033fb963bed0116f01af2b637bd4cad}
-
-
-Definition at line 87 of file Resource.\-cpp.
-
-\hypertarget{class_resource_a93d303fba82b1ef9879cc75fbafef506}{\index{Resource@{Resource}!get\-Cost\-Per\-Use@{get\-Cost\-Per\-Use}}
-\index{get\-Cost\-Per\-Use@{get\-Cost\-Per\-Use}!Resource@{Resource}}
-\subsubsection[{get\-Cost\-Per\-Use}]{\setlength{\rightskip}{0pt plus 5cm}double Resource\-::get\-Cost\-Per\-Use (
+) const}\hypertarget{class_resource_a8033fb963bed0116f01af2b637bd4cad}{}\label{class_resource_a8033fb963bed0116f01af2b637bd4cad}
+\index{Resource@{Resource}!get\+Cost\+Per\+Use@{get\+Cost\+Per\+Use}}
+\index{get\+Cost\+Per\+Use@{get\+Cost\+Per\+Use}!Resource@{Resource}}
+\subsubsection[{\texorpdfstring{get\+Cost\+Per\+Use() const }{getCostPerUse() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Resource\+::get\+Cost\+Per\+Use (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_resource_a93d303fba82b1ef9879cc75fbafef506}
-
-
-Definition at line 95 of file Resource.\-cpp.
-
-\hypertarget{class_resource_a6fafa0b8da75c9596ca52932482a5568}{\index{Resource@{Resource}!get\-Number\-Busy@{get\-Number\-Busy}}
-\index{get\-Number\-Busy@{get\-Number\-Busy}!Resource@{Resource}}
-\subsubsection[{get\-Number\-Busy}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Resource\-::get\-Number\-Busy (
+) const}\hypertarget{class_resource_a93d303fba82b1ef9879cc75fbafef506}{}\label{class_resource_a93d303fba82b1ef9879cc75fbafef506}
+\index{Resource@{Resource}!get\+Number\+Busy@{get\+Number\+Busy}}
+\index{get\+Number\+Busy@{get\+Number\+Busy}!Resource@{Resource}}
+\subsubsection[{\texorpdfstring{get\+Number\+Busy() const }{getNumberBusy() const }}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Resource\+::get\+Number\+Busy (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_resource_a6fafa0b8da75c9596ca52932482a5568}
-
-
-Definition at line 99 of file Resource.\-cpp.
-
-
-
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=340pt]{class_resource_a6fafa0b8da75c9596ca52932482a5568_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_resource_a1aedd0bf239010a6b7e2a6c15a324481}{\index{Resource@{Resource}!get\-Number\-Out@{get\-Number\-Out}}
-\index{get\-Number\-Out@{get\-Number\-Out}!Resource@{Resource}}
-\subsubsection[{get\-Number\-Out}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Resource\-::get\-Number\-Out (
+) const}\hypertarget{class_resource_a6fafa0b8da75c9596ca52932482a5568}{}\label{class_resource_a6fafa0b8da75c9596ca52932482a5568}
+\index{Resource@{Resource}!get\+Number\+Out@{get\+Number\+Out}}
+\index{get\+Number\+Out@{get\+Number\+Out}!Resource@{Resource}}
+\subsubsection[{\texorpdfstring{get\+Number\+Out() const }{getNumberOut() const }}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Resource\+::get\+Number\+Out (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_resource_a1aedd0bf239010a6b7e2a6c15a324481}
-
-
-Definition at line 103 of file Resource.\-cpp.
-
-\hypertarget{class_resource_ac832a54ae1e20a2f7137aefd3a5fc003}{\index{Resource@{Resource}!get\-Resource\-State@{get\-Resource\-State}}
-\index{get\-Resource\-State@{get\-Resource\-State}!Resource@{Resource}}
-\subsubsection[{get\-Resource\-State}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Resource\-::\-Resource\-State} Resource\-::get\-Resource\-State (
+) const}\hypertarget{class_resource_a1aedd0bf239010a6b7e2a6c15a324481}{}\label{class_resource_a1aedd0bf239010a6b7e2a6c15a324481}
+\index{Resource@{Resource}!get\+Resource\+State@{get\+Resource\+State}}
+\index{get\+Resource\+State@{get\+Resource\+State}!Resource@{Resource}}
+\subsubsection[{\texorpdfstring{get\+Resource\+State() const }{getResourceState() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Resource\+::\+Resource\+State} Resource\+::get\+Resource\+State (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_resource_ac832a54ae1e20a2f7137aefd3a5fc003}
-
-
-Definition at line 63 of file Resource.\-cpp.
-
-\hypertarget{class_resource_ad5da4dca5dd48a4818827e6273c20c2d}{\index{Resource@{Resource}!release@{release}}
+) const}\hypertarget{class_resource_ac832a54ae1e20a2f7137aefd3a5fc003}{}\label{class_resource_ac832a54ae1e20a2f7137aefd3a5fc003}
+\index{Resource@{Resource}!release@{release}}
 \index{release@{release}!Resource@{Resource}}
-\subsubsection[{release}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\-::release (
+\subsubsection[{\texorpdfstring{release(unsigned int quantity, double tnow)}{release(unsigned int quantity, double tnow)}}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\+::release (
 \begin{DoxyParamCaption}
 \item[{unsigned int}]{quantity, }
 \item[{double}]{tnow}
 \end{DoxyParamCaption}
-)}}\label{class_resource_ad5da4dca5dd48a4818827e6273c20c2d}
-
-
-Definition at line 45 of file Resource.\-cpp.
-
-
-
-Here is the call graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=326pt]{class_resource_ad5da4dca5dd48a4818827e6273c20c2d_cgraph}
-\end{center}
-\end{figure}
-
-
-
-
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=310pt]{class_resource_ad5da4dca5dd48a4818827e6273c20c2d_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_resource_a4c9cc891367f2af07511d8897255d625}{\index{Resource@{Resource}!seize@{seize}}
+)}\hypertarget{class_resource_ad5da4dca5dd48a4818827e6273c20c2d}{}\label{class_resource_ad5da4dca5dd48a4818827e6273c20c2d}
+\index{Resource@{Resource}!seize@{seize}}
 \index{seize@{seize}!Resource@{Resource}}
-\subsubsection[{seize}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\-::seize (
+\subsubsection[{\texorpdfstring{seize(unsigned int quantity, double tnow)}{seize(unsigned int quantity, double tnow)}}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\+::seize (
 \begin{DoxyParamCaption}
 \item[{unsigned int}]{quantity, }
 \item[{double}]{tnow}
 \end{DoxyParamCaption}
-)}}\label{class_resource_a4c9cc891367f2af07511d8897255d625}
-
-
-Definition at line 39 of file Resource.\-cpp.
-
-
-
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=292pt]{class_resource_a4c9cc891367f2af07511d8897255d625_icgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{class_resource_aa8530e4507ab493de34feb4fef7d4d03}{\index{Resource@{Resource}!set\-Capacity@{set\-Capacity}}
-\index{set\-Capacity@{set\-Capacity}!Resource@{Resource}}
-\subsubsection[{set\-Capacity}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\-::set\-Capacity (
+)}\hypertarget{class_resource_a4c9cc891367f2af07511d8897255d625}{}\label{class_resource_a4c9cc891367f2af07511d8897255d625}
+\index{Resource@{Resource}!set\+Capacity@{set\+Capacity}}
+\index{set\+Capacity@{set\+Capacity}!Resource@{Resource}}
+\subsubsection[{\texorpdfstring{set\+Capacity(unsigned int \+\_\+capacity)}{setCapacity(unsigned int _capacity)}}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\+::set\+Capacity (
 \begin{DoxyParamCaption}
-\item[{unsigned int}]{\-\_\-capacity}
+\item[{unsigned int}]{\+\_\+capacity}
 \end{DoxyParamCaption}
-)}}\label{class_resource_aa8530e4507ab493de34feb4fef7d4d03}
-
-
-Definition at line 67 of file Resource.\-cpp.
-
-\hypertarget{class_resource_a28c348f8562fcf63e174229e9001f55c}{\index{Resource@{Resource}!set\-Cost\-Busy\-Hour@{set\-Cost\-Busy\-Hour}}
-\index{set\-Cost\-Busy\-Hour@{set\-Cost\-Busy\-Hour}!Resource@{Resource}}
-\subsubsection[{set\-Cost\-Busy\-Hour}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\-::set\-Cost\-Busy\-Hour (
+)}\hypertarget{class_resource_aa8530e4507ab493de34feb4fef7d4d03}{}\label{class_resource_aa8530e4507ab493de34feb4fef7d4d03}
+\index{Resource@{Resource}!set\+Cost\+Busy\+Hour@{set\+Cost\+Busy\+Hour}}
+\index{set\+Cost\+Busy\+Hour@{set\+Cost\+Busy\+Hour}!Resource@{Resource}}
+\subsubsection[{\texorpdfstring{set\+Cost\+Busy\+Hour(double \+\_\+cost\+Busy\+Hour)}{setCostBusyHour(double _costBusyHour)}}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\+::set\+Cost\+Busy\+Hour (
 \begin{DoxyParamCaption}
-\item[{double}]{\-\_\-cost\-Busy\-Hour}
+\item[{double}]{\+\_\+cost\+Busy\+Hour}
 \end{DoxyParamCaption}
-)}}\label{class_resource_a28c348f8562fcf63e174229e9001f55c}
-
-
-Definition at line 75 of file Resource.\-cpp.
-
-\hypertarget{class_resource_aee4482e9f914b0b4e83cdb4ada50e45e}{\index{Resource@{Resource}!set\-Cost\-Idle\-Hour@{set\-Cost\-Idle\-Hour}}
-\index{set\-Cost\-Idle\-Hour@{set\-Cost\-Idle\-Hour}!Resource@{Resource}}
-\subsubsection[{set\-Cost\-Idle\-Hour}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\-::set\-Cost\-Idle\-Hour (
+)}\hypertarget{class_resource_a28c348f8562fcf63e174229e9001f55c}{}\label{class_resource_a28c348f8562fcf63e174229e9001f55c}
+\index{Resource@{Resource}!set\+Cost\+Idle\+Hour@{set\+Cost\+Idle\+Hour}}
+\index{set\+Cost\+Idle\+Hour@{set\+Cost\+Idle\+Hour}!Resource@{Resource}}
+\subsubsection[{\texorpdfstring{set\+Cost\+Idle\+Hour(double \+\_\+cost\+Idle\+Hour)}{setCostIdleHour(double _costIdleHour)}}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\+::set\+Cost\+Idle\+Hour (
 \begin{DoxyParamCaption}
-\item[{double}]{\-\_\-cost\-Idle\-Hour}
+\item[{double}]{\+\_\+cost\+Idle\+Hour}
 \end{DoxyParamCaption}
-)}}\label{class_resource_aee4482e9f914b0b4e83cdb4ada50e45e}
-
-
-Definition at line 83 of file Resource.\-cpp.
-
-\hypertarget{class_resource_adedf8ae8388efb1a194441613647b669}{\index{Resource@{Resource}!set\-Cost\-Per\-Use@{set\-Cost\-Per\-Use}}
-\index{set\-Cost\-Per\-Use@{set\-Cost\-Per\-Use}!Resource@{Resource}}
-\subsubsection[{set\-Cost\-Per\-Use}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\-::set\-Cost\-Per\-Use (
+)}\hypertarget{class_resource_aee4482e9f914b0b4e83cdb4ada50e45e}{}\label{class_resource_aee4482e9f914b0b4e83cdb4ada50e45e}
+\index{Resource@{Resource}!set\+Cost\+Per\+Use@{set\+Cost\+Per\+Use}}
+\index{set\+Cost\+Per\+Use@{set\+Cost\+Per\+Use}!Resource@{Resource}}
+\subsubsection[{\texorpdfstring{set\+Cost\+Per\+Use(double \+\_\+cost\+Per\+Use)}{setCostPerUse(double _costPerUse)}}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\+::set\+Cost\+Per\+Use (
 \begin{DoxyParamCaption}
-\item[{double}]{\-\_\-cost\-Per\-Use}
+\item[{double}]{\+\_\+cost\+Per\+Use}
 \end{DoxyParamCaption}
-)}}\label{class_resource_adedf8ae8388efb1a194441613647b669}
-
-
-Definition at line 91 of file Resource.\-cpp.
-
-\hypertarget{class_resource_aba60047e3a2400f2aec478b1cfa3647e}{\index{Resource@{Resource}!set\-Resource\-State@{set\-Resource\-State}}
-\index{set\-Resource\-State@{set\-Resource\-State}!Resource@{Resource}}
-\subsubsection[{set\-Resource\-State}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\-::set\-Resource\-State (
+)}\hypertarget{class_resource_adedf8ae8388efb1a194441613647b669}{}\label{class_resource_adedf8ae8388efb1a194441613647b669}
+\index{Resource@{Resource}!set\+Resource\+State@{set\+Resource\+State}}
+\index{set\+Resource\+State@{set\+Resource\+State}!Resource@{Resource}}
+\subsubsection[{\texorpdfstring{set\+Resource\+State(\+Resource\+State \+\_\+resource\+State)}{setResourceState(ResourceState _resourceState)}}]{\setlength{\rightskip}{0pt plus 5cm}void Resource\+::set\+Resource\+State (
 \begin{DoxyParamCaption}
-\item[{{\bf Resource\-State}}]{\-\_\-resource\-State}
+\item[{{\bf Resource\+State}}]{\+\_\+resource\+State}
 \end{DoxyParamCaption}
-)}}\label{class_resource_aba60047e3a2400f2aec478b1cfa3647e}
-
-
-Definition at line 59 of file Resource.\-cpp.
-
-\hypertarget{class_resource_a593cf83404dc90706943b4e60213fd01}{\index{Resource@{Resource}!show@{show}}
+)}\hypertarget{class_resource_aba60047e3a2400f2aec478b1cfa3647e}{}\label{class_resource_aba60047e3a2400f2aec478b1cfa3647e}
+\index{Resource@{Resource}!show@{show}}
 \index{show@{show}!Resource@{Resource}}
-\subsubsection[{show}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Resource\-::show (
+\subsubsection[{\texorpdfstring{show()}{show()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Resource\+::show (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_resource_a593cf83404dc90706943b4e60213fd01}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_resource_a593cf83404dc90706943b4e60213fd01}{}\label{class_resource_a593cf83404dc90706943b4e60213fd01}
 
 
-Reimplemented from \hyperlink{class_model_infrastructure_a649a5a89a0c9931783d3c51de2acf266}{Model\-Infrastructure}.
-
-
-
-Definition at line 30 of file Resource.\-cpp.
+Reimplemented from \hyperlink{class_model_infrastructure_a649a5a89a0c9931783d3c51de2acf266}{Model\+Infrastructure}.
 
 
 
-Here is the call graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=306pt]{class_resource_a593cf83404dc90706943b4e60213fd01_cgraph}
-\end{center}
-\end{figure}
-
-
-
-
-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-\hyperlink{_resource_8h}{Resource.\-h}\item 
-\hyperlink{_resource_8cpp}{Resource.\-cpp}\end{DoxyCompactItemize}
+\hyperlink{_resource_8h}{Resource.\+h}\item 
+\hyperlink{_resource_8cpp}{Resource.\+cpp}\end{DoxyCompactItemize}
