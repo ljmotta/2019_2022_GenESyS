@@ -27,7 +27,7 @@ public:
 	void fitTriangular (double *sqrerror, double *min, double *mo, double *max);
 	void fitNormal (double *sqrerror, double *avg, double *stddev);
 	void fitExpo (double *sqrerror, double *avg1);
-	void fitErlang (double *sqrerror, double *avg, int *m);
+	void fitErlang (double *sqrerror, double *avg, double *m);
 	void fitBeta (double *sqrerror, double *alpha, double *beta, double *infLimit,double *supLimit);
 	void fitWeibull (double *sqrerror, double *alpha, double *scale);
 	void fitAll (double *sqrerror, std::string *name);

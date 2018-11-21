@@ -1,8 +1,8 @@
-// A Bison parser, made by GNU Bison 3.1.
+// A Bison parser, made by GNU Bison 3.0.4.
 
 // Skeleton interface for Bison LALR(1) parsers in C++
 
-// Copyright (C) 2002-2015, 2018 Free Software Foundation, Inc.
+// Copyright (C) 2002-2015 Free Software Foundation, Inc.
 
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -31,7 +31,7 @@
 // version 2.2 of Bison.
 
 /**
- ** \file Genesys++-parser.h
+ ** \file ../Genesys++-parser.h
  ** Define the yy::parser class.
  */
 
@@ -40,7 +40,7 @@
 #ifndef YY_YY_GENESYS_PARSER_H_INCLUDED
 # define YY_YY_GENESYS_PARSER_H_INCLUDED
 // //                    "%code requires" blocks.
-#line 9 "Genesys++-parser.yy" // lalr1.cc:380
+#line 9 "Genesys++-parser.yy" // lalr1.cc:377
 
 #include <string>
 #include <cmath>
@@ -52,7 +52,7 @@
 class genesyspp_driver;
 
 
-#line 56 "Genesys++-parser.h" // lalr1.cc:380
+#line 56 "../Genesys++-parser.h" // lalr1.cc:377
 
 # include <cassert>
 # include <cstdlib> // std::abort
@@ -103,7 +103,7 @@ class genesyspp_driver;
 # define YYUSE(E) /* empty */
 #endif
 
-#if defined __GNUC__ && ! defined __ICC && 407 <= __GNUC__ * 100 + __GNUC_MINOR__
+#if defined __GNUC__ && 407 <= __GNUC__ * 100 + __GNUC_MINOR__
 /* Suppress an incorrect diagnostic about yylval being uninitialized.  */
 # define YY_IGNORE_MAYBE_UNINITIALIZED_BEGIN \
     _Pragma ("GCC diagnostic push") \
@@ -122,13 +122,6 @@ class genesyspp_driver;
 # define YY_INITIAL_VALUE(Value) /* Nothing. */
 #endif
 
-# ifndef YY_NULLPTR
-#  if defined __cplusplus && 201103L <= __cplusplus
-#   define YY_NULLPTR nullptr
-#  else
-#   define YY_NULLPTR 0
-#  endif
-# endif
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 1
@@ -136,7 +129,7 @@ class genesyspp_driver;
 
 
 namespace yy {
-#line 140 "Genesys++-parser.h" // lalr1.cc:380
+#line 133 "../Genesys++-parser.h" // lalr1.cc:377
 
 
 
@@ -153,8 +146,7 @@ namespace yy {
 
     /// Empty construction.
     variant ()
-      : yybuffer_ ()
-      , yytypeid_ (YY_NULLPTR)
+      : yytypeid_ (YY_NULLPTR)
     {}
 
     /// Construct and fill.
@@ -180,7 +172,7 @@ namespace yy {
       YYASSERT (!yytypeid_);
       YYASSERT (sizeof (T) <= S);
       yytypeid_ = & typeid (T);
-      return *new (yyas_<T> ()) T ();
+      return *new (yyas_<T> ()) T;
     }
 
     /// Instantiate a \a T in here from \a t.
@@ -199,7 +191,6 @@ namespace yy {
     T&
     as ()
     {
-      YYASSERT (yytypeid_);
       YYASSERT (*yytypeid_ == typeid (T));
       YYASSERT (sizeof (T) <= S);
       return *yyas_<T> ();
@@ -210,7 +201,6 @@ namespace yy {
     const T&
     as () const
     {
-      YYASSERT (yytypeid_);
       YYASSERT (*yytypeid_ == typeid (T));
       YYASSERT (sizeof (T) <= S);
       return *yyas_<T> ();
@@ -352,7 +342,6 @@ namespace yy {
       // cTO
       // cDO
       // ILLEGAL
-      // TESTE
       // input
       // programa
       // expressao
@@ -444,17 +433,17 @@ namespace yy {
         cTO = 301,
         cDO = 302,
         ILLEGAL = 303,
-        TESTE = 304,
-        LPAREN = 305,
-        RPAREN = 306,
-        PLUS = 307,
-        MINUS = 308,
-        STAR = 309,
-        SLASH = 310,
-        LESS = 311,
-        GREATER = 312,
-        ASSIGN = 313,
-        COMMA = 314
+        LPAREN = 304,
+        RPAREN = 305,
+        PLUS = 306,
+        MINUS = 307,
+        STAR = 308,
+        SLASH = 309,
+        LESS = 310,
+        GREATER = 311,
+        ASSIGN = 312,
+        COMMA = 313,
+        NEG = 314
       };
     };
 
@@ -492,7 +481,7 @@ namespace yy {
 
   basic_symbol (typename Base::kind_type t, const location_type& l);
 
-  basic_symbol (typename Base::kind_type t, const obj_t& v, const location_type& l);
+  basic_symbol (typename Base::kind_type t, const obj_t v, const location_type& l);
 
 
       /// Constructor for symbols with semantic value.
@@ -751,10 +740,6 @@ namespace yy {
 
     static inline
     symbol_type
-    make_TESTE (const obj_t& v, const location_type& l);
-
-    static inline
-    symbol_type
     make_LPAREN (const location_type& l);
 
     static inline
@@ -792,6 +777,10 @@ namespace yy {
     static inline
     symbol_type
     make_COMMA (const location_type& l);
+
+    static inline
+    symbol_type
+    make_NEG (const location_type& l);
 
 
     /// Build a parser object.
@@ -860,7 +849,7 @@ namespace yy {
     // Tables.
   // YYPACT[STATE-NUM] -- Index in YYTABLE of the portion describing
   // STATE-NUM.
-  static const short yypact_[];
+  static const short int yypact_[];
 
   // YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
   // Performed when YYTABLE does not specify something else to do.  Zero
@@ -871,14 +860,14 @@ namespace yy {
   static const signed char yypgoto_[];
 
   // YYDEFGOTO[NTERM-NUM].
-  static const short yydefgoto_[];
+  static const short int yydefgoto_[];
 
   // YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
   // positive, shift that token.  If negative, reduce the rule whose
   // number is the opposite.  If YYTABLE_NINF, syntax error.
-  static const short yytable_[];
+  static const short int yytable_[];
 
-  static const short yycheck_[];
+  static const short int yycheck_[];
 
   // YYSTOS[STATE-NUM] -- The (internal number of the) accessing
   // symbol of state STATE-NUM.
@@ -899,7 +888,7 @@ namespace yy {
     static const char* const yytname_[];
 #if YYDEBUG
   // YYRLINE[YYN] -- Source line where rule number YYN was defined.
-  static const unsigned short yyrline_[];
+  static const unsigned short int yyrline_[];
     /// Report on the debug stream that the rule \a r is going to be reduced.
     virtual void yy_reduce_print_ (int r);
     /// Print the state stack on the debug stream.
@@ -964,8 +953,6 @@ namespace yy {
       typedef basic_symbol<by_state> super_type;
       /// Construct an empty symbol.
       stack_symbol_type ();
-      /// Copy construct (for efficiency).
-      stack_symbol_type (const stack_symbol_type& that);
       /// Steal the contents from \a sym to build this.
       stack_symbol_type (state_type s, symbol_type& sym);
       /// Assignment, needed by push_back.
@@ -994,18 +981,18 @@ namespace yy {
     void yypush_ (const char* m, state_type s, symbol_type& sym);
 
     /// Pop \a n symbols the three stacks.
-    void yypop_ (unsigned n = 1);
+    void yypop_ (unsigned int n = 1);
 
     /// Constants.
     enum
     {
       yyeof_ = 0,
-      yylast_ = 889,     ///< Last index in yytable_.
+      yylast_ = 973,     ///< Last index in yytable_.
       yynnts_ = 22,  ///< Number of nonterminal symbols.
       yyfinal_ = 6, ///< Termination state number.
       yyterror_ = 1,
       yyerrcode_ = 256,
-      yyntokens_ = 70  ///< Number of tokens.
+      yyntokens_ = 64  ///< Number of tokens.
     };
 
 
@@ -1023,12 +1010,12 @@ namespace yy {
     translate_table[] =
     {
      0,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-      66,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+      60,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-       2,     2,    64,    62,     2,    63,     2,    65,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-      60,     2,    61,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
@@ -1053,14 +1040,14 @@ namespace yy {
       25,    26,    27,    28,    29,    30,    31,    32,    33,    34,
       35,    36,    37,    38,    39,    40,    41,    42,    43,    44,
       45,    46,    47,    48,    49,    50,    51,    52,    53,    54,
-      55,    56,    57,    58,    59,    67,    68,    69
+      55,    56,    57,    58,    59,    61,    62,    63
     };
-    const unsigned user_token_number_max_ = 317;
+    const unsigned int user_token_number_max_ = 317;
     const token_number_type undef_token_ = 2;
 
-    if (static_cast<int> (t) <= yyeof_)
+    if (static_cast<int>(t) <= yyeof_)
       return yyeof_;
-    else if (static_cast<unsigned> (t) <= user_token_number_max_)
+    else if (static_cast<unsigned int> (t) <= user_token_number_max_)
       return translate_table[t];
     else
       return undef_token_;
@@ -1074,18 +1061,19 @@ namespace yy {
 
   // basic_symbol.
   template <typename Base>
+  inline
   genesyspp_parser::basic_symbol<Base>::basic_symbol ()
     : value ()
-    , location ()
   {}
 
   template <typename Base>
+  inline
   genesyspp_parser::basic_symbol<Base>::basic_symbol (const basic_symbol& other)
     : Base (other)
     , value ()
     , location (other.location)
   {
-    switch (other.type_get ())
+      switch (other.type_get ())
     {
       case 3: // NUMD
       case 4: // NUMH
@@ -1133,28 +1121,27 @@ namespace yy {
       case 46: // cTO
       case 47: // cDO
       case 48: // ILLEGAL
-      case 49: // TESTE
-      case 71: // input
-      case 72: // programa
-      case 73: // expressao
-      case 74: // numero
-      case 75: // aritmetica
-      case 76: // relacional
-      case 77: // comando
-      case 78: // comandoIF
-      case 79: // comandoFOR
-      case 80: // funcao
-      case 81: // atributo
-      case 82: // atribuicao
-      case 83: // variavel
-      case 84: // formula
-      case 85: // funcaoTrig
-      case 86: // funcaoArit
-      case 87: // funcaoProb
-      case 88: // funcaoStrc
-      case 89: // funcaoUser
-      case 90: // listaparm
-      case 91: // illegal
+      case 65: // input
+      case 66: // programa
+      case 67: // expressao
+      case 68: // numero
+      case 69: // aritmetica
+      case 70: // relacional
+      case 71: // comando
+      case 72: // comandoIF
+      case 73: // comandoFOR
+      case 74: // funcao
+      case 75: // atributo
+      case 76: // atribuicao
+      case 77: // variavel
+      case 78: // formula
+      case 79: // funcaoTrig
+      case 80: // funcaoArit
+      case 81: // funcaoProb
+      case 82: // funcaoStrc
+      case 83: // funcaoUser
+      case 84: // listaparm
+      case 85: // illegal
         value.copy< obj_t > (other.value);
         break;
 
@@ -1164,14 +1151,16 @@ namespace yy {
 
   }
 
+
   template <typename Base>
+  inline
   genesyspp_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, const semantic_type& v, const location_type& l)
     : Base (t)
     , value ()
     , location (l)
   {
     (void) v;
-    switch (this->type_get ())
+      switch (this->type_get ())
     {
       case 3: // NUMD
       case 4: // NUMH
@@ -1219,28 +1208,27 @@ namespace yy {
       case 46: // cTO
       case 47: // cDO
       case 48: // ILLEGAL
-      case 49: // TESTE
-      case 71: // input
-      case 72: // programa
-      case 73: // expressao
-      case 74: // numero
-      case 75: // aritmetica
-      case 76: // relacional
-      case 77: // comando
-      case 78: // comandoIF
-      case 79: // comandoFOR
-      case 80: // funcao
-      case 81: // atributo
-      case 82: // atribuicao
-      case 83: // variavel
-      case 84: // formula
-      case 85: // funcaoTrig
-      case 86: // funcaoArit
-      case 87: // funcaoProb
-      case 88: // funcaoStrc
-      case 89: // funcaoUser
-      case 90: // listaparm
-      case 91: // illegal
+      case 65: // input
+      case 66: // programa
+      case 67: // expressao
+      case 68: // numero
+      case 69: // aritmetica
+      case 70: // relacional
+      case 71: // comando
+      case 72: // comandoIF
+      case 73: // comandoFOR
+      case 74: // funcao
+      case 75: // atributo
+      case 76: // atribuicao
+      case 77: // variavel
+      case 78: // formula
+      case 79: // funcaoTrig
+      case 80: // funcaoArit
+      case 81: // funcaoProb
+      case 82: // funcaoStrc
+      case 83: // funcaoUser
+      case 84: // listaparm
+      case 85: // illegal
         value.copy< obj_t > (v);
         break;
 
@@ -1255,11 +1243,12 @@ namespace yy {
   template <typename Base>
   genesyspp_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, const location_type& l)
     : Base (t)
+    , value ()
     , location (l)
   {}
 
   template <typename Base>
-  genesyspp_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, const obj_t& v, const location_type& l)
+  genesyspp_parser::basic_symbol<Base>::basic_symbol (typename Base::kind_type t, const obj_t v, const location_type& l)
     : Base (t)
     , value (v)
     , location (l)
@@ -1267,12 +1256,14 @@ namespace yy {
 
 
   template <typename Base>
+  inline
   genesyspp_parser::basic_symbol<Base>::~basic_symbol ()
   {
     clear ();
   }
 
   template <typename Base>
+  inline
   void
   genesyspp_parser::basic_symbol<Base>::clear ()
   {
@@ -1287,7 +1278,7 @@ namespace yy {
     }
 
     // Type destructor.
-  switch (yytype)
+    switch (yytype)
     {
       case 3: // NUMD
       case 4: // NUMH
@@ -1335,28 +1326,27 @@ namespace yy {
       case 46: // cTO
       case 47: // cDO
       case 48: // ILLEGAL
-      case 49: // TESTE
-      case 71: // input
-      case 72: // programa
-      case 73: // expressao
-      case 74: // numero
-      case 75: // aritmetica
-      case 76: // relacional
-      case 77: // comando
-      case 78: // comandoIF
-      case 79: // comandoFOR
-      case 80: // funcao
-      case 81: // atributo
-      case 82: // atribuicao
-      case 83: // variavel
-      case 84: // formula
-      case 85: // funcaoTrig
-      case 86: // funcaoArit
-      case 87: // funcaoProb
-      case 88: // funcaoStrc
-      case 89: // funcaoUser
-      case 90: // listaparm
-      case 91: // illegal
+      case 65: // input
+      case 66: // programa
+      case 67: // expressao
+      case 68: // numero
+      case 69: // aritmetica
+      case 70: // relacional
+      case 71: // comando
+      case 72: // comandoIF
+      case 73: // comandoFOR
+      case 74: // funcao
+      case 75: // atributo
+      case 76: // atribuicao
+      case 77: // variavel
+      case 78: // formula
+      case 79: // funcaoTrig
+      case 80: // funcaoArit
+      case 81: // funcaoProb
+      case 82: // funcaoStrc
+      case 83: // funcaoUser
+      case 84: // listaparm
+      case 85: // illegal
         value.template destroy< obj_t > ();
         break;
 
@@ -1368,6 +1358,7 @@ namespace yy {
   }
 
   template <typename Base>
+  inline
   bool
   genesyspp_parser::basic_symbol<Base>::empty () const
   {
@@ -1375,11 +1366,12 @@ namespace yy {
   }
 
   template <typename Base>
+  inline
   void
   genesyspp_parser::basic_symbol<Base>::move (basic_symbol& s)
   {
-    super_type::move (s);
-    switch (this->type_get ())
+    super_type::move(s);
+      switch (this->type_get ())
     {
       case 3: // NUMD
       case 4: // NUMH
@@ -1427,28 +1419,27 @@ namespace yy {
       case 46: // cTO
       case 47: // cDO
       case 48: // ILLEGAL
-      case 49: // TESTE
-      case 71: // input
-      case 72: // programa
-      case 73: // expressao
-      case 74: // numero
-      case 75: // aritmetica
-      case 76: // relacional
-      case 77: // comando
-      case 78: // comandoIF
-      case 79: // comandoFOR
-      case 80: // funcao
-      case 81: // atributo
-      case 82: // atribuicao
-      case 83: // variavel
-      case 84: // formula
-      case 85: // funcaoTrig
-      case 86: // funcaoArit
-      case 87: // funcaoProb
-      case 88: // funcaoStrc
-      case 89: // funcaoUser
-      case 90: // listaparm
-      case 91: // illegal
+      case 65: // input
+      case 66: // programa
+      case 67: // expressao
+      case 68: // numero
+      case 69: // aritmetica
+      case 70: // relacional
+      case 71: // comando
+      case 72: // comandoIF
+      case 73: // comandoFOR
+      case 74: // funcao
+      case 75: // atributo
+      case 76: // atribuicao
+      case 77: // variavel
+      case 78: // formula
+      case 79: // funcaoTrig
+      case 80: // funcaoArit
+      case 81: // funcaoProb
+      case 82: // funcaoStrc
+      case 83: // funcaoUser
+      case 84: // listaparm
+      case 85: // illegal
         value.move< obj_t > (s.value);
         break;
 
@@ -1504,7 +1495,7 @@ namespace yy {
     // YYTOKNUM[NUM] -- (External) token number corresponding to the
     // (internal) symbol number NUM (which must be that of a token).  */
     static
-    const unsigned short
+    const unsigned short int
     yytoken_number_[] =
     {
        0,   256,   257,   258,   259,   260,   261,   262,   263,   264,
@@ -1513,7 +1504,7 @@ namespace yy {
      285,   286,   287,   288,   289,   290,   291,   292,   293,   294,
      295,   296,   297,   298,   299,   300,   301,   302,   303,   304,
      305,   306,   307,   308,   309,   310,   311,   312,   313,   314,
-      60,    62,    43,    45,    42,    47,    10,   315,   316,   317
+      10,   315,   316,   317
     };
     return static_cast<token_type> (yytoken_number_[type]);
   }
@@ -1801,12 +1792,6 @@ namespace yy {
   }
 
   genesyspp_parser::symbol_type
-  genesyspp_parser::make_TESTE (const obj_t& v, const location_type& l)
-  {
-    return symbol_type (token::TESTE, v, l);
-  }
-
-  genesyspp_parser::symbol_type
   genesyspp_parser::make_LPAREN (const location_type& l)
   {
     return symbol_type (token::LPAREN, l);
@@ -1866,10 +1851,16 @@ namespace yy {
     return symbol_type (token::COMMA, l);
   }
 
+  genesyspp_parser::symbol_type
+  genesyspp_parser::make_NEG (const location_type& l)
+  {
+    return symbol_type (token::NEG, l);
+  }
+
 
 
 } // yy
-#line 1873 "Genesys++-parser.h" // lalr1.cc:380
+#line 1864 "../Genesys++-parser.h" // lalr1.cc:377
 
 
 

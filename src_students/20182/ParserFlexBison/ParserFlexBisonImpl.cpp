@@ -8,7 +8,7 @@
  * File:   ParserFlexBisonImpl.cpp
  * Author: Joao Ortigara
  *
- * 
+ *
  */
 
 #include "ParserFlexBisonImpl.h"
@@ -41,7 +41,7 @@ double ParserFlexBisonImpl::parse(const std::string expression) { // may throw e
 	} catch (std::string e) {
 		std::cout << e << "\n";
 		_model->getTracer()->trace(Util::TraceLevel::errors, e);
-		return 0;
+		return driver.getResult();
 	}
 }
 
@@ -59,6 +59,6 @@ double ParserFlexBisonImpl::parse(const std::string expression, bool* success, s
 	} else {
 		*success = false;
 		*errorMessage = driver.getErrorMessage();
-		return 0;
+		return driver.getResult();
 	}
 }

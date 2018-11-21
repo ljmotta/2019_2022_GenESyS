@@ -41,7 +41,7 @@ void FitterMyImpl1::fitNormal(double *sqrerror, double *avg, double *stddev) {
 void FitterMyImpl1::fitExpo(double *sqrerror, double *avg1) {
 }
 
-void FitterMyImpl1::fitErlang (double *sqrerror, double *avg, int *m) {
+void FitterMyImpl1::fitErlang (double *sqrerror, double *avg, double *m) {
 
 }
 

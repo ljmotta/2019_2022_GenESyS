@@ -1,5 +1,6 @@
-#include "Genesys++-driver.h"
 #include <string>
+#include "Genesys++-driver.h"
+#include "../../../Traits.h"
 
 
 genesyspp_driver::genesyspp_driver ()
@@ -9,7 +10,7 @@ genesyspp_driver::genesyspp_driver ()
 genesyspp_driver::genesyspp_driver(Model* model, bool throws)
 {
   _model = model;
-  probs = ProbDistrib();
+  probs = new Traits<Sampler_if>::Implementation();
   throwsException = throws;
 }
 
@@ -22,6 +23,7 @@ genesyspp_driver::parse_file (const std::string &f)
 {
   result = 0;
   file = f;
+  setErrorMessage("");
   scan_begin_file();
   yy::genesyspp_parser parser (*this);
   int res = parser.parse();
@@ -34,6 +36,7 @@ genesyspp_driver::parse_str (const std::string &str)
 {
   result = 0;
   str_to_parse = str;
+  setErrorMessage("");
   scan_begin_str();
   yy::genesyspp_parser parser(*this);
   int res = parser.parse();
@@ -70,7 +73,7 @@ Model* genesyspp_driver::getModel(){
   return _model;
 }
 
-ProbDistrib genesyspp_driver::getProbs(){
+Sampler_if* genesyspp_driver::getProbs(){
   return probs;
 }
 
@@ -94,16 +97,17 @@ void genesyspp_driver::setStrToParse(std::string str){
 void
 genesyspp_driver::error (const yy::location& l, const std::string& m)
 {
-  //std::string erro(l);
-  std::string erro(m);
-  //erro.append(":");
-  //erro.append(m);
-  erro.append("\n");
-  _model->getTracer()->trace(Util::TraceLevel::errors,erro);
+    std::string erro(m);
+    erro.append("\n");
+    setErrorMessage(m);
+    setResult(-1);
+    _model->getTracer()->trace(Util::TraceLevel::errors,erro);
 }
 
 void
 genesyspp_driver::error (const std::string& m)
-{
-  _model->getTracer()->trace(Util::TraceLevel::errors,m);
+{    
+    setErrorMessage(m);
+    setResult(-1);
+    _model->getTracer()->trace(Util::TraceLevel::errors,m);
 }

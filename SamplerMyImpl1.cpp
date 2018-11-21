@@ -13,6 +13,7 @@
 
 #include "SamplerMyImpl1.h"
 #include <iostream> //remove
+#include <cmath>
 
 SamplerMyImpl1::SamplerMyImpl1() {
 }
@@ -36,6 +37,7 @@ double SamplerMyImpl1::sampleErlang(double mean, int M) {
 }
 
 double SamplerMyImpl1::sampleNormal(double mean, double stddev) {
+	return 21;
 }
 
 double SamplerMyImpl1::sampleGamma(double mean, double alpha) {

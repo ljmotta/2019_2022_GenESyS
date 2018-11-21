@@ -51,20 +51,20 @@
 #include "ModelPersistenceMyImpl1.h"
 
 // students implementations
-#include "src_students/20182/CollectorDatafileCancianImpl.h"
-#include "src_students/20182/Sampler_BruFabJoa.h"
+//#include "src_students/20182/CollectorDatafileCancianImpl.h"
+//#include "src_students/20182/Sampler_BruFabJoa.h"
 //#include "src_students/20182/FitterJoaoSouto.h"
-#include "src_students/20182/IntegratorDiogoImpl.h"
+//#include "src_students/20182/IntegratorDiogoImpl.h"
 //#include "src_students/20182/HypothesisTesterDiogo.h"
-#include "src_students/20182/StatisticsCancianImpl.h"
+//#include "src_students/20182/StatisticsCancianImpl.h"
 #include "src_students/20182/ParserFlexBison/ParserFlexBisonImpl.h"
-#include "src_students/20182/CollectorDanielBoso.h"
-#include "src_students/20182/CollectorDatafileDanielBoso.h"
-#include "src_students/20182/SamplerDanielBoso.h"
-#include "src_students/20182/StatisticsDanielBoso.h"
-#include "src_students/20182/StatisticsCollectorDanielBoso.h"
-#include "src_students/20182/ExperimentDesign_BrunoBonotto_JoaoSouto.h"
-#include "src_students/20182/FitterFabiola.h"
+//#include "src_students/20182/CollectorDanielBoso.h"
+//#include "src_students/20182/CollectorDatafileDanielBoso.h"
+//#include "src_students/20182/SamplerDanielBoso.h"
+//#include "src_students/20182/StatisticsDanielBoso.h"
+//#include "src_students/20182/StatisticsCollectorDanielBoso.h"
+//#include "src_students/20182/ExperimentDesign_BrunoBonotto_JoaoSouto.h"
+//#include "src_students/20182/FitterFabiola.h"
 
 template <typename T>
 struct Traits {
@@ -96,8 +96,8 @@ template <> struct Traits<Sampler_if> {
 };
 
 template <> struct Traits<Fitter_if> {
-	//typedef FitterMyImpl1 Implementation;
-	typedef FitterFabiola Implementation;
+	typedef FitterMyImpl1 Implementation;
+	//typedef FitterFabiola Implementation;
     //typedef FitterJoaoSouto Implementation;
 };
 
@@ -142,8 +142,8 @@ template <> struct Traits<ModelPersistence_if> {
 };
 
 template <> struct Traits<ExperimentDesign_if> {
-	//typedef ExperimentDesignMyImpl1 Implementation;
-	typedef ExperimentDesign_BrunoBonotto_JoaoSouto Implementation;
+	typedef ExperimentDesignMyImpl1 Implementation;
+	//typedef ExperimentDesign_BrunoBonotto_JoaoSouto Implementation;
 	//typedef ProcessAnalyserMyImpl1 ProcessAnalyserImplementation;
 };
 

@@ -8,13 +8,13 @@
 # include "Genesys++-driver.h"
 # include "Genesys++-parser.h"
 # include "obj_t.h"
-# include "../../Util.h"
-# include "../../List.h"
-# include "../../Variable.h"
-# include "../../Queue.h"
-# include "../../Resource.h"
-# include "../../ModelInfrastructure.h"
-# include "../../Attribute.h"
+# include "../../../Util.h"
+# include "../../../List.h"
+# include "../../../Variable.h"
+# include "../../../Queue.h"
+# include "../../../Resource.h"
+# include "../../../ModelInfrastructure.h"
+# include "../../../Attribute.h"
 
 
 // Work around an incompatibility in flex (at least versions
@@ -35,8 +35,8 @@ static yy::location loc;
 %}
 
 I     ~[A-Za-z]+
-DD     [-]?[0-9]+([eE][-]?[0-9]+)?
-RR     [-]?[0-9]+[.][0-9]+([eE][-]?[0-9]+)?
+DD     [0-9]+([eE][-]?[0-9]+)?
+RR     [0-9]+[.][0-9]+([eE][-]?[0-9]+)?
 L      [A-Za-z0-9_.]+
 
 %%
@@ -52,7 +52,7 @@ L      [A-Za-z0-9_.]+
             //Will not fail because of regex
             std::string text("Found Hexadecimal: ");
             text += yytext;
-            driver.getModel()->trace(Util::TraceLevel::mostDetailed, text);
+            driver.getModel()->getTracer()->trace(Util::TraceLevel::mostDetailed, text);
 						return yy::genesyspp_parser::make_NUMH(obj_t(atof(yytext), std::string("Hexadecimal")),loc);
 					}
 
@@ -61,7 +61,7 @@ L      [A-Za-z0-9_.]+
        //Will not fail because of regex
        std::string text("Found Float: ");
        text += yytext;
-       driver.getModel()->trace(Util::TraceLevel::mostDetailed, text);
+       driver.getModel()->getTracer()->trace(Util::TraceLevel::mostDetailed, text);
        return yy::genesyspp_parser::make_NUMD(obj_t(atof(yytext),std::string("Float")), loc);
      }
 
@@ -70,7 +70,7 @@ L      [A-Za-z0-9_.]+
        //Will not fail because of regex
        std::string text("Found Decimal: ");
        text += yytext;
-       driver.getModel()->trace(Util::TraceLevel::mostDetailed, text);
+       driver.getModel()->getTracer()->trace(Util::TraceLevel::mostDetailed, text);
        return yy::genesyspp_parser::make_NUMD(obj_t(atof(yytext),std::string("Decimal")), loc);
       }
 
@@ -148,10 +148,16 @@ L      [A-Za-z0-9_.]+
 
 
 {L}   {
+        //getAttributeValue not implemented, change comparisson on future
+        double attribute = driver.getModel()->getSimulation()->getCurrentEntity()->getAttributeValue(std::string(yytext));
+        if(attribute != -1){
+          //does nothing now because getAttributeValue not implemented
+          //return yy::genesyspp_parser::make_ATRIB(obj_t(attribute, Util::TypeOf<Attribute>(), -1),loc);
+        }
         //iterates through the model Infrastructures and returns its id and the matching token
-        std::list<std::string>* listaDisponiveis = driver.getModel()->getInfrastructureTypenames();
+        std::list<std::string>* listaDisponiveis = driver.getModel()->getInfraManager()->getInfrastructureTypenames();
         for(std::list<std::string>::iterator it = listaDisponiveis->begin(); it != listaDisponiveis->end(); ++it){
-          List<ModelInfrastructure*>* listaAtual = driver.getModel()->getInfrastructures(*it);
+          List<ModelInfrastructure*>* listaAtual = driver.getModel()->getInfraManager()->getInfrastructures(*it);
           for(std::list<ModelInfrastructure*>::iterator it2 = listaAtual->getList()->begin(); it2 != listaAtual->getList()->end(); ++it2){
             if((*it2)->getName() == std::string(yytext)){//case sensitive names
               if (*it == Util::TypeOf<Variable>()){
@@ -162,9 +168,6 @@ L      [A-Za-z0-9_.]+
               }
               if (*it == Util::TypeOf<Resource>()){
                 return yy::genesyspp_parser::make_RES(obj_t(0, Util::TypeOf<Resource>(), (*it2)->getId()),loc);
-              }
-              if (*it == Util::TypeOf<Attribute>()){//Attribute not fully implemented on GenESyS or need access to current entity
-                return yy::genesyspp_parser::make_ATRIB(obj_t(0, Util::TypeOf<Attribute>(), (*it2)->getId()),loc);
               }
               //Formula not implemented on Genesys
             }
@@ -197,12 +200,10 @@ genesyspp_driver::scan_begin_file ()
 void genesyspp_driver::scan_begin_str ()
 {
   //yy_flex_debug = trace_scanning;
-  if(!str_to_parse.empty()){
-    //std::cout << "String nao vazia\n";
+  if(!str_to_parse.empty()){    
     yy_scan_string (str_to_parse.c_str()); //maybe throw exception on else
   }else{
     std::string str("0");
-    //std::cout << "String vazia\n";
     yy_scan_string (str.c_str()); //maybe throw exception on else
   }
 }
@@ -220,4 +221,3 @@ genesyspp_driver::scan_end_str ()
 {
   yy_delete_buffer(YY_CURRENT_BUFFER);
 }
-
