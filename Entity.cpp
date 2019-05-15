@@ -6,51 +6,94 @@
 
 /* 
  * File:   Entity.cpp
- * Author: cancian
+ * Author: rafael.luiz.cancian
  * 
  * Created on 21 de Junho de 2018, 16:30
  */
 
 #include <typeinfo>
 #include "Entity.h"
+#include "Attribute.h"
 
-Entity::Entity() : ModelInfrastructure(Util::TypeOf<Entity>()) {
-	_name = "Entity " + Util::GenerateNewIdOfType<Entity>();
+Entity::Entity(ElementManager* elements) : ModelElement(Util::TypeOf<Entity>()) {
+    _elements = elements;
+    unsigned int numAttributes = _elements->getNumberOfElements(Util::TypeOf<Attribute>());
+    for (unsigned i = 0; i < numAttributes; i++) {
+        _attributeValues->insert(0.0);
+    }
 }
 
-Entity::Entity(const Entity& orig) : ModelInfrastructure(orig) {
+Entity::Entity(const Entity& orig) : ModelElement(orig) {
 }
 
 Entity::~Entity() {
 }
 
-void Entity::setEntityTypeName(std::string _entityTypeName) {
-	this->_entityTypeName = _entityTypeName;
+void Entity::setEntityTypeName(std::string entityTypeName) throw () {
+    EntityType* entitytype = static_cast<EntityType*> (this->_elements->getElement(Util::TypeOf<EntityType>(), entityTypeName));
+    if (entitytype != nullptr) {
+        this->_entityType = entitytype;
+    } else {
+        throw std::invalid_argument("EntityType does not exist");
+    }
 }
 
 std::string Entity::getEntityTypeName() const {
-	return _entityTypeName;
+    return this->_entityType->getName();
+}
+
+void Entity::setEntityType(EntityType* entityType) {
+    _entityType = entityType;
+}
+
+EntityType* Entity::getEntityType() const {
+    return _entityType;
 }
 
 std::string Entity::show() {
-	return ModelInfrastructure::show() +
-			",entityTypeName=" + this->_entityTypeName; //+ ",attributeValues="+std::to_string(this->_attributeValues);
+    std::string message = ModelElement::show();
+    if (this->_entityType != nullptr) {
+        message += ",entityType=\"" + this->_entityType->getName()+"\"";
+    }
+    message += ",attributeValues=[";
+    _attributeValues->first();
+    for (unsigned int i = 0; i < _attributeValues->size(); i++) {
+        message += std::to_string(_attributeValues->actual()) + ",";
+        _attributeValues->next();
+    }
+    message += "]";
+    return message;
 }
 
 double Entity::getAttributeValue(std::string attributeName) {
+    int rank = this->_elements->getRankOf(Util::TypeOf<Attribute>(), attributeName);
+    if (rank >= 0) {
+        return this->_attributeValues->getAtRank(rank);
+    } else
+        return 0.0; /* TODO: Never should happen. check how to report */
 }
 
 void Entity::setAttributeValue(std::string attributeName, double value) {
+    int rank = this->_elements->getRankOf(Util::TypeOf<Attribute>(), attributeName);
+    if (rank >= 0) {
+        this->_attributeValues->setAtRank(rank, value);
+    }
+    /*
+    std::map<std::string, AttributeValue*>::iterator it = entity->getAttributeValues()->find('Entity.ArrivalTime');
+    if (it != entity->getAttributeValues()::end()) {
+        (*it)->second->setValue(this->_model->getSimulationTime());
+    }
+     */
 }
 
 void Entity::_loadInstance(std::list<std::string> words) {
 }
 
 std::list<std::string>* Entity::_saveInstance() {
-	std::list<std::string>* words = ModelInfrastructure::_saveInstance(Util::TypeOf<Entity>());
-	return words;
+    std::list<std::string>* words = ModelElement::_saveInstance(Util::TypeOf<Entity>());
+    return words;
 }
 
 bool Entity::_verifySymbols(std::string* errorMessage) {
-	return true;
+    return true;
 }

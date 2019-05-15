@@ -6,7 +6,7 @@
 
 /* 
  * File:   StatisticsCollector.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 30 de Agosto de 2018, 17:24
  */
@@ -14,28 +14,31 @@
 #ifndef STATISTICSCOLLECTOR_H
 #define STATISTICSCOLLECTOR_H
 
-#include "StatisticsDummyImpl.h"
-#include "CollectorDummyImpl.h" /*TODO: ++ Should be an interface, not a concrete implementation. Only Traits specifies a concrete implementation */
-#include "ModelInfrastructure.h"
+#include "ModelElement.h"
+#include "Statistics_if.h"
 
-class StatisticsCollector: public ModelInfrastructure, public StatisticsDummyImpl {
+class StatisticsCollector : public ModelElement {//, public Statistics_if {
 public:
-	StatisticsCollector();
-	StatisticsCollector(std::string name);
-	StatisticsCollector(std::string name, ModelInfrastructure* parent);
-	StatisticsCollector(const StatisticsCollector& orig);
-	virtual ~StatisticsCollector();
+    StatisticsCollector();
+    StatisticsCollector(std::string name);
+    StatisticsCollector(std::string name, ModelElement* parent);
+    StatisticsCollector(const StatisticsCollector& orig);
+    virtual ~StatisticsCollector();
 public:
-	virtual std::string show();
-    ModelInfrastructure* getParent() const;
-	
-protected: 
-	virtual void _loadInstance(std::list<std::string> words);
-	virtual std::list<std::string>* _saveInstance();
-	virtual bool _verifySymbols(std::string* errorMessage);
+    virtual std::string show();
+    ModelElement* getParent() const;
+    Statistics_if* getStatistics() const;
+
+protected:
+    virtual void _loadInstance(std::list<std::string> words);
+    virtual std::list<std::string>* _saveInstance();
+    virtual bool _verifySymbols(std::string* errorMessage);
 
 private:
-	ModelInfrastructure* _parent;
+    void _initStaticsAndCollector();
+private:
+    ModelElement* _parent;
+    Statistics_if* _statistics; //= new Traits<ModelComponent>::StatisticsCollector_StatisticsImplementation();
 };
 
 #endif /* STATISTICSCOLLECTOR_H */

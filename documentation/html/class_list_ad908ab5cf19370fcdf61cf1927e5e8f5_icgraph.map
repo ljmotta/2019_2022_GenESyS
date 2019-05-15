@@ -1,10 +1,15 @@
 <map id="List::size" name="List::size">
-<area shape="rect" id="node2" href="$class_experiment_design___bruno_bonotto___joao_souto.html#a0feb20dd354e94d17ae2689546233a98" title="ExperimentDesign_BrunoBonotto\l_JoaoSouto::generate2krScenarioExperiments" alt="" coords="128,5,419,46"/>
-<area shape="rect" id="node3" href="$class_experiment_design___bruno_bonotto___joao_souto.html#a1afd5f05fa9fc12e8a391cfe60850ee1" title="ExperimentDesign_BrunoBonotto\l_JoaoSouto::calculateContribution\lAndCoefficients" alt="" coords="163,69,384,125"/>
-<area shape="rect" id="node4" href="$class_infrastructure_manager.html#a8e10fe1a6a40ce020b1b63232dbb05cd" title="InfrastructureManager\l::show" alt="" coords="199,149,348,190"/>
-<area shape="rect" id="node5" href="$class_queue.html#a961b5b7ca80317aa69f958612fb988ad" title="Queue::insertElement" alt="" coords="199,215,347,241"/>
-<area shape="rect" id="node7" href="$class_queue.html#a114d5144b3026b57cca9cf481b1f0d65" title="Queue::removeElement" alt="" coords="194,316,353,343"/>
-<area shape="rect" id="node9" href="$class_queue.html#a4cd92f99b7abc9ec4df32690dc5a037d" title="Queue::size" alt="" coords="227,265,319,292"/>
-<area shape="rect" id="node6" href="$class_seize.html#a96f6517a40b3bfd0d5ea753d59cef797" title="Seize::_execute" alt="" coords="474,240,590,267"/>
-<area shape="rect" id="node8" href="$class_release.html#a63c3cd89082e7f6c1fb61646b93a5c32" title="Release::_execute" alt="" coords="467,303,597,329"/>
+<area shape="rect" id="node2" href="$class_element_manager.html#ade38f33e0b0902ea4d4e756592c77998" title="ElementManager::getNumber\lOfElements" alt="" coords="147,5,339,47"/>
+<area shape="rect" id="node4" href="$class_element_manager.html#a77b13541fb1da854d2680802778b5a64" title="ElementManager::show" alt="" coords="164,71,323,98"/>
+<area shape="rect" id="node5" href="$class_entity.html#a86cc324050b451b31b134943e7978e36" title="Entity::show" alt="" coords="196,122,291,149"/>
+<area shape="rect" id="node9" href="$class_model_simulation.html#a9ca43a1faf5b4f3bc4f4934024e4d5f1" title="ModelSimulation::~ModelSimulation" alt="" coords="128,173,359,199"/>
+<area shape="rect" id="node10" href="$class_queue.html#a961b5b7ca80317aa69f958612fb988ad" title="Queue::insertElement" alt="" coords="169,223,317,250"/>
+<area shape="rect" id="node12" href="$class_queue.html#a114d5144b3026b57cca9cf481b1f0d65" title="Queue::removeElement" alt="" coords="164,325,323,351"/>
+<area shape="rect" id="node14" href="$class_queue.html#a4cd92f99b7abc9ec4df32690dc5a037d" title="Queue::size" alt="" coords="197,274,289,301"/>
+<area shape="rect" id="node3" href="$class_entity.html#a4e83017c50e1b0fd5d3bd5a915e1e1a5" title="Entity::Entity" alt="" coords="464,13,563,39"/>
+<area shape="rect" id="node6" href="$class_model_simulation.html#a22ea961f3242d4466dc0cf392c66d5e9" title="Starts a sequential execution of a simulation, ie, a set of replications of this model. " alt="" coords="407,122,620,149"/>
+<area shape="rect" id="node7" href="$_build_simulation_model_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="668,122,823,149"/>
+<area shape="rect" id="node8" href="$class_build_simulation_model.html#a8c50f55d7293860e5e7bc7e7e74f8d4a" title="BuildSimulationModel\l::main" alt="" coords="871,115,1017,156"/>
+<area shape="rect" id="node11" href="$class_seize.html#a96f6517a40b3bfd0d5ea753d59cef797" title="Seize::_execute" alt="" coords="455,249,571,275"/>
+<area shape="rect" id="node13" href="$class_seize.html#adadd376a826f2b3a84176242dd9a15ca" title="Seize::setQueueName" alt="" coords="436,325,591,351"/>
 </map>

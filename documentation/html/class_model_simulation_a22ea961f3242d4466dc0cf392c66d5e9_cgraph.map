@@ -1,21 +1,51 @@
 <map id="ModelSimulation::startSimulation" name="ModelSimulation::startSimulation">
-<area shape="rect" id="node2" href="$class_model.html#ae3b293adffbef6fd254d661ceeb2e116" title="Model::checkModel" alt="" coords="318,107,453,133"/>
-<area shape="rect" id="node3" href="$class_model.html#adc0de22631d77864b7956591c39ebc60" title="Model::getTracer" alt="" coords="581,5,701,32"/>
-<area shape="rect" id="node4" href="$class_trace_manager.html#a242d77829b85a436fd2aab2092bfa50c" title="TraceManager::trace" alt="" coords="570,208,713,235"/>
-<area shape="rect" id="node9" href="$class_model.html#afc9de1c6025e8332830b29958ede63a2" title="Model::getOnEventManager" alt="" coords="293,208,477,235"/>
-<area shape="rect" id="node10" href="$class_on_event_manager.html#abe358c71aae7624e75b692fa5bae1174" title="OnEventManager::NotifySimulation\lStartListeners" alt="" coords="272,259,499,301"/>
-<area shape="rect" id="node11" href="$class_model_info.html#a66d8ae9376d62d74ea770d9e88e1bd89" title="ModelInfo::getNumberOfReplications" alt="" coords="267,325,504,352"/>
-<area shape="rect" id="node12" href="$class_on_event_manager.html#aeddadb7542cfefd7a8e9be4cbed7617f" title="OnEventManager::NotifyReplication\lStartListeners" alt="" coords="270,377,501,418"/>
-<area shape="rect" id="node13" href="$class_on_event_manager.html#aeab61beafbdfb16757897106d0236fa4" title="OnEventManager::NotifyReplication\lEndListeners" alt="" coords="270,442,501,483"/>
-<area shape="rect" id="node14" href="$class_model.html#a841c78bda0eb27c652c6921094dc5921" title="Model::getEvents" alt="" coords="323,508,447,535"/>
-<area shape="rect" id="node15" href="$class_list.html#a3737ca60365287ce663393d8c07d1a41" title="List::empty" alt="" coords="342,559,429,585"/>
-<area shape="rect" id="node16" href="$class_model_info.html#ab3d0f7e09c769b410618f99404b1eb4c" title="ModelInfo::getReplication\lLength" alt="" coords="300,610,471,651"/>
-<area shape="rect" id="node17" href="$class_model.html#a5ea283e339b50c0b77040bf908e25af3" title="Model::parseExpression" alt="" coords="304,676,467,703"/>
-<area shape="rect" id="node19" href="$class_model_info.html#a31137229cc0de318e238bc9f18f021e2" title="ModelInfo::getTerminating\lCondition" alt="" coords="299,727,472,769"/>
-<area shape="rect" id="node20" href="$class_on_event_manager.html#a9217816665a7384305f5ebce1c62ef4f" title="OnEventManager::NotifySimulation\lEndListeners" alt="" coords="272,793,499,834"/>
-<area shape="rect" id="node6" href="$class_util.html#a8110241a80979c8fbecca95eef59e9ad" title="Util::IncIndent" alt="" coords="589,56,693,83"/>
-<area shape="rect" id="node7" href="$class_model_checker__if.html#a83bc988696c49a17e0e7668e24743251" title="ModelChecker_if::checkAll" alt="" coords="552,107,731,133"/>
-<area shape="rect" id="node8" href="$class_util.html#a702d44544c3dd604b81e578ee9ee713f" title="Util::DecIndent" alt="" coords="586,157,697,184"/>
-<area shape="rect" id="node5" href="$class_util.html#a13a4cb5dbc88ef5e2c3a127362b956d6" title="Util::Indent" alt="" coords="779,208,866,235"/>
-<area shape="rect" id="node18" href="$class_parser__if.html#a4a5dacf0588b29e7eb6c639ae2701fa6" title="Parser_if::parse" alt="" coords="584,676,699,703"/>
+<area shape="rect" id="node2" href="$class_model.html#ae3b293adffbef6fd254d661ceeb2e116" title="Checks the integrity and consistency of the model, possibly corrects some inconsistencies, and returns if the model is in position to the simulated. " alt="" coords="318,118,453,145"/>
+<area shape="rect" id="node3" href="$class_model.html#adc0de22631d77864b7956591c39ebc60" title="Provides access to the class that performs the trace of simulation and replications. " alt="" coords="581,17,701,43"/>
+<area shape="rect" id="node4" href="$class_trace_manager.html#a242d77829b85a436fd2aab2092bfa50c" title="TraceManager::trace" alt="" coords="570,67,713,94"/>
+<area shape="rect" id="node5" href="$class_util.html#a8110241a80979c8fbecca95eef59e9ad" title="Util::IncIndent" alt="" coords="589,169,693,195"/>
+<area shape="rect" id="node7" href="$class_util.html#a702d44544c3dd604b81e578ee9ee713f" title="Util::DecIndent" alt="" coords="586,219,697,246"/>
+<area shape="rect" id="node8" href="$class_util.html#a46334c5a95a3828f46a073a655d68d8d" title="Util::ClearIndent" alt="" coords="327,270,444,297"/>
+<area shape="rect" id="node9" href="$class_model.html#afc9de1c6025e8332830b29958ede63a2" title="Model::getOnEventManager" alt="" coords="293,321,477,347"/>
+<area shape="rect" id="node10" href="$class_on_event_manager.html#aadccf8efdc248ef6ff8ff2826850b925" title="OnEventManager::NotifySimulation\lStartHandlers" alt="" coords="272,372,499,413"/>
+<area shape="rect" id="node11" href="$class_model_info.html#a66d8ae9376d62d74ea770d9e88e1bd89" title="ModelInfo::getNumberOfReplications" alt="" coords="267,438,504,465"/>
+<area shape="rect" id="node12" href="$class_on_event_manager.html#a5d8be7dd06e944189658f918961554b3" title="OnEventManager::NotifyReplication\lStartHandlers" alt="" coords="270,489,501,531"/>
+<area shape="rect" id="node13" href="$class_on_event_manager.html#aea1476daf888bec9c15c180c72d65848" title="OnEventManager::NotifyReplication\lEndHandlers" alt="" coords="270,555,501,596"/>
+<area shape="rect" id="node14" href="$class_model.html#a841c78bda0eb27c652c6921094dc5921" title="The future events list chronologically sorted; Events are scheduled by components when processing oth..." alt="" coords="323,621,447,647"/>
+<area shape="rect" id="node15" href="$class_list.html#a3737ca60365287ce663393d8c07d1a41" title="List::empty" alt="" coords="342,671,429,698"/>
+<area shape="rect" id="node16" href="$class_model_info.html#ab3d0f7e09c769b410618f99404b1eb4c" title="ModelInfo::getReplication\lLength" alt="" coords="300,723,471,764"/>
+<area shape="rect" id="node17" href="$class_model.html#a5ea283e339b50c0b77040bf908e25af3" title="Model::parseExpression" alt="" coords="304,789,467,815"/>
+<area shape="rect" id="node18" href="$class_model_info.html#a31137229cc0de318e238bc9f18f021e2" title="ModelInfo::getTerminating\lCondition" alt="" coords="299,840,472,881"/>
+<area shape="rect" id="node19" href="$class_simulation_reporter__if.html#aaa14f4d6c30b88594d016b62b1ad710c" title="SimulationReporter\l_if::showReplicationStatistics" alt="" coords="288,905,483,947"/>
+<area shape="rect" id="node20" href="$class_simulation_reporter__if.html#abe61376c8699d4498f9718e4f4077211" title="SimulationReporter\l_if::showSimulationStatistics" alt="" coords="290,971,481,1012"/>
+<area shape="rect" id="node21" href="$class_model_info.html#a562466f43f7995be34d74dc6dfd22985" title="ModelInfo::getName" alt="" coords="315,1037,455,1063"/>
+<area shape="rect" id="node22" href="$class_on_event_manager.html#a018da7221c8d1761b86bfe523334aa8e" title="OnEventManager::NotifySimulation\lEndHandlers" alt="" coords="272,1088,499,1129"/>
+<area shape="rect" id="node23" href="$class_trace_manager.html#a2f6882a0c61b991a85b54162573c93be" title="TraceManager::traceReport" alt="" coords="295,1154,476,1181"/>
+<area shape="rect" id="node24" href="$class_model.html#a69ed4849ae7708a83ace16abb7251b20" title="Model::getParent" alt="" coords="325,1205,446,1231"/>
+<area shape="rect" id="node25" href="$class_simulator.html#a767a6811df08f6327524ab6ccb715672" title="Simulator::getName" alt="" coords="316,1255,455,1282"/>
+<area shape="rect" id="node26" href="$class_simulator.html#ae180aeffe94a7b0af5fb64ce8ad29810" title="Simulator::getLicense" alt="" coords="311,1306,459,1333"/>
+<area shape="rect" id="node27" href="$class_model_info.html#a1995a8639f6c33bff4e31c6b80247bb5" title="ModelInfo::getProjectTitle" alt="" coords="300,1357,471,1383"/>
+<area shape="rect" id="node28" href="$class_model_info.html#a9cdad4bf93758de01d5e913f62f1640c" title="ModelInfo::getAnalystName" alt="" coords="293,1407,477,1434"/>
+<area shape="rect" id="node29" href="$class_list.html#ae296516a252e11963dbf963727ce429a" title="List::clear" alt="" coords="346,1458,425,1485"/>
+<area shape="rect" id="node30" href="$class_model.html#ae5773d78fc47cb35be7fbeb74b7d63e4" title="Returns the list of components (such as Create, Delay, Dispose, etc.) that make up the simulation mod..." alt="" coords="307,1509,464,1535"/>
+<area shape="rect" id="node31" href="$class_list.html#a570498345450f635b72d1ca2675145cc" title="List::getList" alt="" coords="340,1559,431,1586"/>
+<area shape="rect" id="node32" href="$class_source_model_component.html#ab7688b78b8e069ebe245446dce9224f7" title="SourceModelComponent\l::getFirstCreation" alt="" coords="303,1611,468,1652"/>
+<area shape="rect" id="node33" href="$class_source_model_component.html#a6edc1b939b60f4f21747699875a326e4" title="SourceModelComponent\l::getEntitiesPerCreation" alt="" coords="303,1676,468,1717"/>
+<area shape="rect" id="node34" href="$class_model.html#a46d3fd0cd25e58a294f3feab5347ade7" title="Provides access to the class that manages the most basic elements of the simulation model (such as qu..." alt="" coords="295,1742,476,1769"/>
+<area shape="rect" id="node35" href="$class_entity.html#a4f0e7975687368ca429a9ec94884350f" title="Entity::setEntityType" alt="" coords="313,1793,458,1819"/>
+<area shape="rect" id="node36" href="$class_source_model_component.html#aa6b0b8ae8c3ed7c56ba3038cd0bab439" title="SourceModelComponent\l::getEntityType" alt="" coords="303,1844,468,1885"/>
+<area shape="rect" id="node37" href="$class_list.html#a518d00fd77740525522949d4316e8826" title="List::insert" alt="" coords="344,1910,427,1937"/>
+<area shape="rect" id="node38" href="$class_element_manager.html#a1c2f03e1279b3f2686e21f670edb1173" title="ElementManager::getElements" alt="" coords="285,1961,486,1987"/>
+<area shape="rect" id="node39" href="$class_statistics_collector.html#a8150e75713026e48f5add4d941a1cd34" title="StatisticsCollector\l::getStatistics" alt="" coords="321,2012,450,2053"/>
+<area shape="rect" id="node40" href="$class_statistics__if.html#a49a730541ca9a3d8272f39f4000485c4" title="Statistics_if::getCollector" alt="" coords="301,2078,470,2105"/>
+<area shape="rect" id="node41" href="$class_collector__if.html#a035bd1300c85866870c2f6178a9528e8" title="Collector_if::clear" alt="" coords="323,2129,447,2155"/>
+<area shape="rect" id="node42" href="$class_list.html#a42761114ff6730da1402089d4bd3f795" title="List::first" alt="" coords="605,2205,678,2231"/>
+<area shape="rect" id="node43" href="$class_event.html#a008a7989d0849a45613917cedc27f27e" title="Event::getTime" alt="" coords="330,2281,441,2307"/>
+<area shape="rect" id="node44" href="$class_list.html#a024af4543f71544345351a45850c42d8" title="List::pop_front" alt="" coords="333,2331,438,2358"/>
+<area shape="rect" id="node45" href="$class_on_event_manager.html#a2fe07e578bff9d56cf536d94d22d2c82" title="OnEventManager::NotifyReplication\lStepHandlers" alt="" coords="270,2383,501,2424"/>
+<area shape="rect" id="node46" href="$class_event.html#a640f132001d454af52cb0d0e20ebb856" title="Event::show" alt="" coords="338,2449,433,2475"/>
+<area shape="rect" id="node47" href="$class_event.html#a6890c776c6c2e13abbc0892fc7333102" title="Event::getEntity" alt="" coords="327,2499,443,2526"/>
+<area shape="rect" id="node48" href="$class_entity.html#a86cc324050b451b31b134943e7978e36" title="Entity::show" alt="" coords="338,2230,433,2257"/>
+<area shape="rect" id="node49" href="$class_on_event_manager.html#ab0c4f9891843f2a5f998a3e37b001aee" title="OnEventManager::NotifyProcess\lEventHandlers" alt="" coords="278,2551,493,2592"/>
+<area shape="rect" id="node50" href="$class_trace_manager.html#a774a8549d24361fa2a8f8722de0084ef" title="TraceManager::traceError" alt="" coords="300,2617,471,2643"/>
+<area shape="rect" id="node6" href="$class_model_checker__if.html#a83bc988696c49a17e0e7668e24743251" title="ModelChecker_if::checkAll" alt="" coords="552,118,731,145"/>
 </map>

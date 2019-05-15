@@ -1,6 +1,6 @@
 var class_process_analyser__if =
 [
-    [ "addTraceSimulationListener", "class_process_analyser__if.html#abdbb0685841e8366507f77a6884451c3", null ],
+    [ "addTraceSimulationHandler", "class_process_analyser__if.html#a7c05c8bb79ac9fd70b6ac114d84a9672", null ],
     [ "extractControlsFromModel", "class_process_analyser__if.html#a27b1e534ff72b8faecc28ae7419dd588", null ],
     [ "extractResponsesFromModel", "class_process_analyser__if.html#a0a13770b90d56f44fe89e4a2e940800e", null ],
     [ "getControls", "class_process_analyser__if.html#a639a16af5f2ad52e63fce4dc751c9fd4", null ],

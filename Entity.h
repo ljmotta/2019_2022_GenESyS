@@ -6,7 +6,7 @@
 
 /* 
  * File:   Entity.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 21 de Junho de 2018, 16:30
  */
@@ -18,34 +18,36 @@
 #include <map>
 
 #include "Util.h"
-#include "ModelInfrastructure.h"
 #include "List.h"
+#include "ModelElement.h"
+#include "EntityType.h"
 
-class Entity: public ModelInfrastructure {
+class Entity : public ModelElement {
 public:
-	Entity();
-	Entity(const Entity& orig);
-	virtual ~Entity();
+    Entity(ElementManager* elements);
+    Entity(const Entity& orig);
+    virtual ~Entity();
 public:
-	virtual std::string show();
+    virtual std::string show();
 
 public: // g & s
-    void setEntityTypeName(std::string _entityTypeName); // indirect access to EntityType
+    void setEntityTypeName(std::string entityTypeName) throw(); // indirect access to EntityType
     std::string getEntityTypeName() const;
-public:	
-	double getAttributeValue(std::string attributeName);
-	void setAttributeValue(std::string attributeName, double value);
-	
-protected: 
-	virtual void _loadInstance(std::list<std::string> words);
-	virtual std::list<std::string>* _saveInstance();
-	virtual bool _verifySymbols(std::string* errorMessage);
-	
+    void setEntityType(EntityType* entityType); // direct access to EntityType
+    EntityType* getEntityType() const;
+public:
+    double getAttributeValue(std::string attributeName);
+    void setAttributeValue(std::string attributeName, double value);
+protected:
+    virtual void _loadInstance(std::list<std::string> words);
+    virtual std::list<std::string>* _saveInstance();
+    virtual bool _verifySymbols(std::string* errorMessage);
+
 private:
-	//EntityType* _entityType;
-	std::string _entityTypeName = "Entity Type 1";
+    ElementManager* _elements;
+    EntityType* _entityType = nullptr;
 private: // 1::n
-	List<double>* _attributeValues = new List<double>();
+    List<double>* _attributeValues = new List<double>();
 };
 
 #endif /* ENTITY_H */

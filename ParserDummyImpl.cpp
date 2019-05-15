@@ -6,7 +6,7 @@
 
 /* 
  * File:   ParserDummyImpl.cpp
- * Author: cancian
+ * Author: rafael.luiz.cancian
  * 
  * Created on 22 de Agosto de 2018, 08:45
  */
@@ -14,7 +14,7 @@
 #include "ParserDummyImpl.h"
 
 ParserDummyImpl::ParserDummyImpl(Model* model) {
-	_model = model;
+    _model = model;
 }
 
 ParserDummyImpl::ParserDummyImpl(const ParserDummyImpl& orig) {
@@ -24,26 +24,26 @@ ParserDummyImpl::~ParserDummyImpl() {
 }
 
 double ParserDummyImpl::parse(const std::string expression) { // may throw exception
-	double result = std::atof(expression.c_str()); // change by a real parser
-	return result;
+    double result = std::atof(expression.c_str()); // change by a real parser
+    return result;
 }
 
 std::string* ParserDummyImpl::getErrorMessage() {
-	std::string* errorMsg = new std::string();	
-	return errorMsg; /* @TODO */
+    std::string* errorMsg = new std::string();
+    return errorMsg; /* @TODO */
 }
 
 double ParserDummyImpl::parse(const std::string expression, bool* success, std::string* errorMessage) {
-	try {
-		double result = this->parse(expression);
+    try {
+        double result = this->parse(expression);
         std::string temp("");
-		errorMessage= &temp;
-		*success = true;
-		return result;
-	} catch (...) {
+        errorMessage = &temp;
+        *success = true;
+        return result;
+    } catch (...) {
         std::string temp("Error parsing...");
-		errorMessage= &temp;
-		*success = false;
-		return 0.0;
-	}
+        errorMessage = &temp;
+        *success = false;
+        return 0.0;
+    }
 }

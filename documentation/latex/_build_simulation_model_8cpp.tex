@@ -9,7 +9,12 @@
 {\ttfamily \#include \char`\"{}Seize.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}Release.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}Assign.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}Model\+Simulation.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Record.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Decide.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Element\+Manager.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Entity\+Type.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Attribute.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Prob\+Distrib.\+h\char`\"{}}\\*
 Include dependency graph for Build\+Simulation\+Model.\+cpp\+:
 \nopagebreak
 \begin{figure}[H]
@@ -24,6 +29,8 @@ Include dependency graph for Build\+Simulation\+Model.\+cpp\+:
 void \hyperlink{_build_simulation_model_8cpp_a49c2cff373ab55daf6bd94173ed21575}{trace\+Handler} (\hyperlink{class_trace_event}{Trace\+Event} e)
 \item 
 void \hyperlink{_build_simulation_model_8cpp_a68baabbb892a3a6f875ef4c1c764dbcc}{trace\+Simulation\+Handler} (\hyperlink{class_trace_simulation_event}{Trace\+Simulation\+Event} e)
+\item 
+void \hyperlink{_build_simulation_model_8cpp_ab1aa03287f46a703ec8980118cfcddcc}{on\+Simulation\+Start\+Handler} (\hyperlink{class_simulation_event}{Simulation\+Event} $\ast$re)
 \item 
 void \hyperlink{_build_simulation_model_8cpp_a98cf90f32056967f913d0c126ead305a}{on\+Replication\+Start\+Handler} (\hyperlink{class_simulation_event}{Simulation\+Event} $\ast$re)
 \item 
@@ -47,6 +54,34 @@ void \hyperlink{_build_simulation_model_8cpp_a5168010deba14b290a849f0507e974eb}{
 \item[{{\bf Model} $\ast$}]{model}
 \end{DoxyParamCaption}
 )}\hypertarget{_build_simulation_model_8cpp_aeea741000e292b33dca181a0a8a6106f}{}\label{_build_simulation_model_8cpp_aeea741000e292b33dca181a0a8a6106f}
+This function shows an example of how to create a simulation model. It creates some handlers for tracing (debug) and for events, set model infos and than creates the model itself. The model is a composition of components (and elements that they use), connected to form a process/fluxogram 
+\begin{DoxyParams}{Parameters}
+{\em model} & -\/ The instance returned that will contains the built model \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{_build_simulation_model_8cpp_aeea741000e292b33dca181a0a8a6106f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_build_simulation_model_8cpp_aeea741000e292b33dca181a0a8a6106f_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Build\+Simulation\+Model.\+cpp@{Build\+Simulation\+Model.\+cpp}!build\+Simulation\+System@{build\+Simulation\+System}}
 \index{build\+Simulation\+System@{build\+Simulation\+System}!Build\+Simulation\+Model.\+cpp@{Build\+Simulation\+Model.\+cpp}}
 \subsubsection[{\texorpdfstring{build\+Simulation\+System()}{buildSimulationSystem()}}]{\setlength{\rightskip}{0pt plus 5cm}void build\+Simulation\+System (
@@ -54,6 +89,29 @@ void \hyperlink{_build_simulation_model_8cpp_a5168010deba14b290a849f0507e974eb}{
 {}
 \end{DoxyParamCaption}
 )}\hypertarget{_build_simulation_model_8cpp_a5168010deba14b290a849f0507e974eb}{}\label{_build_simulation_model_8cpp_a5168010deba14b290a849f0507e974eb}
+This is the main function of the \hyperlink{class_build_simulation_model}{Build\+Simulation\+Model} application. It instanciates the simulator, builds a simulation model and then simulate that model. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{_build_simulation_model_8cpp_a5168010deba14b290a849f0507e974eb_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{_build_simulation_model_8cpp_a5168010deba14b290a849f0507e974eb_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Build\+Simulation\+Model.\+cpp@{Build\+Simulation\+Model.\+cpp}!on\+Entity\+Remove\+Handler@{on\+Entity\+Remove\+Handler}}
 \index{on\+Entity\+Remove\+Handler@{on\+Entity\+Remove\+Handler}!Build\+Simulation\+Model.\+cpp@{Build\+Simulation\+Model.\+cpp}}
 \subsubsection[{\texorpdfstring{on\+Entity\+Remove\+Handler(\+Simulation\+Event $\ast$re)}{onEntityRemoveHandler(SimulationEvent *re)}}]{\setlength{\rightskip}{0pt plus 5cm}void on\+Entity\+Remove\+Handler (
@@ -61,6 +119,17 @@ void \hyperlink{_build_simulation_model_8cpp_a5168010deba14b290a849f0507e974eb}{
 \item[{{\bf Simulation\+Event} $\ast$}]{re}
 \end{DoxyParamCaption}
 )}\hypertarget{_build_simulation_model_8cpp_ad08612f8566d3cbd54e525ffaf9d2e18}{}\label{_build_simulation_model_8cpp_ad08612f8566d3cbd54e525ffaf9d2e18}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_build_simulation_model_8cpp_ad08612f8566d3cbd54e525ffaf9d2e18_cgraph}
+\end{center}
+\end{figure}
+
+
 \index{Build\+Simulation\+Model.\+cpp@{Build\+Simulation\+Model.\+cpp}!on\+Process\+Event\+Handler@{on\+Process\+Event\+Handler}}
 \index{on\+Process\+Event\+Handler@{on\+Process\+Event\+Handler}!Build\+Simulation\+Model.\+cpp@{Build\+Simulation\+Model.\+cpp}}
 \subsubsection[{\texorpdfstring{on\+Process\+Event\+Handler(\+Simulation\+Event $\ast$re)}{onProcessEventHandler(SimulationEvent *re)}}]{\setlength{\rightskip}{0pt plus 5cm}void on\+Process\+Event\+Handler (
@@ -68,6 +137,17 @@ void \hyperlink{_build_simulation_model_8cpp_a5168010deba14b290a849f0507e974eb}{
 \item[{{\bf Simulation\+Event} $\ast$}]{re}
 \end{DoxyParamCaption}
 )}\hypertarget{_build_simulation_model_8cpp_a6753d4060ed2de7a45bb99a62f66ccc0}{}\label{_build_simulation_model_8cpp_a6753d4060ed2de7a45bb99a62f66ccc0}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_build_simulation_model_8cpp_a6753d4060ed2de7a45bb99a62f66ccc0_cgraph}
+\end{center}
+\end{figure}
+
+
 \index{Build\+Simulation\+Model.\+cpp@{Build\+Simulation\+Model.\+cpp}!on\+Replication\+End\+Handler@{on\+Replication\+End\+Handler}}
 \index{on\+Replication\+End\+Handler@{on\+Replication\+End\+Handler}!Build\+Simulation\+Model.\+cpp@{Build\+Simulation\+Model.\+cpp}}
 \subsubsection[{\texorpdfstring{on\+Replication\+End\+Handler(\+Simulation\+Event $\ast$re)}{onReplicationEndHandler(SimulationEvent *re)}}]{\setlength{\rightskip}{0pt plus 5cm}void on\+Replication\+End\+Handler (
@@ -75,6 +155,17 @@ void \hyperlink{_build_simulation_model_8cpp_a5168010deba14b290a849f0507e974eb}{
 \item[{{\bf Simulation\+Event} $\ast$}]{re}
 \end{DoxyParamCaption}
 )}\hypertarget{_build_simulation_model_8cpp_a03cc00f6c44ceda9c43433912b122344}{}\label{_build_simulation_model_8cpp_a03cc00f6c44ceda9c43433912b122344}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_build_simulation_model_8cpp_a03cc00f6c44ceda9c43433912b122344_cgraph}
+\end{center}
+\end{figure}
+
+
 \index{Build\+Simulation\+Model.\+cpp@{Build\+Simulation\+Model.\+cpp}!on\+Replication\+Start\+Handler@{on\+Replication\+Start\+Handler}}
 \index{on\+Replication\+Start\+Handler@{on\+Replication\+Start\+Handler}!Build\+Simulation\+Model.\+cpp@{Build\+Simulation\+Model.\+cpp}}
 \subsubsection[{\texorpdfstring{on\+Replication\+Start\+Handler(\+Simulation\+Event $\ast$re)}{onReplicationStartHandler(SimulationEvent *re)}}]{\setlength{\rightskip}{0pt plus 5cm}void on\+Replication\+Start\+Handler (
@@ -82,6 +173,24 @@ void \hyperlink{_build_simulation_model_8cpp_a5168010deba14b290a849f0507e974eb}{
 \item[{{\bf Simulation\+Event} $\ast$}]{re}
 \end{DoxyParamCaption}
 )}\hypertarget{_build_simulation_model_8cpp_a98cf90f32056967f913d0c126ead305a}{}\label{_build_simulation_model_8cpp_a98cf90f32056967f913d0c126ead305a}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_build_simulation_model_8cpp_a98cf90f32056967f913d0c126ead305a_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{Build\+Simulation\+Model.\+cpp@{Build\+Simulation\+Model.\+cpp}!on\+Simulation\+Start\+Handler@{on\+Simulation\+Start\+Handler}}
+\index{on\+Simulation\+Start\+Handler@{on\+Simulation\+Start\+Handler}!Build\+Simulation\+Model.\+cpp@{Build\+Simulation\+Model.\+cpp}}
+\subsubsection[{\texorpdfstring{on\+Simulation\+Start\+Handler(\+Simulation\+Event $\ast$re)}{onSimulationStartHandler(SimulationEvent *re)}}]{\setlength{\rightskip}{0pt plus 5cm}void on\+Simulation\+Start\+Handler (
+\begin{DoxyParamCaption}
+\item[{{\bf Simulation\+Event} $\ast$}]{re}
+\end{DoxyParamCaption}
+)}\hypertarget{_build_simulation_model_8cpp_ab1aa03287f46a703ec8980118cfcddcc}{}\label{_build_simulation_model_8cpp_ab1aa03287f46a703ec8980118cfcddcc}
 \index{Build\+Simulation\+Model.\+cpp@{Build\+Simulation\+Model.\+cpp}!trace\+Handler@{trace\+Handler}}
 \index{trace\+Handler@{trace\+Handler}!Build\+Simulation\+Model.\+cpp@{Build\+Simulation\+Model.\+cpp}}
 \subsubsection[{\texorpdfstring{trace\+Handler(\+Trace\+Event e)}{traceHandler(TraceEvent e)}}]{\setlength{\rightskip}{0pt plus 5cm}void trace\+Handler (
@@ -89,6 +198,28 @@ void \hyperlink{_build_simulation_model_8cpp_a5168010deba14b290a849f0507e974eb}{
 \item[{{\bf Trace\+Event}}]{e}
 \end{DoxyParamCaption}
 )}\hypertarget{_build_simulation_model_8cpp_a49c2cff373ab55daf6bd94173ed21575}{}\label{_build_simulation_model_8cpp_a49c2cff373ab55daf6bd94173ed21575}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{_build_simulation_model_8cpp_a49c2cff373ab55daf6bd94173ed21575_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_build_simulation_model_8cpp_a49c2cff373ab55daf6bd94173ed21575_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Build\+Simulation\+Model.\+cpp@{Build\+Simulation\+Model.\+cpp}!trace\+Simulation\+Handler@{trace\+Simulation\+Handler}}
 \index{trace\+Simulation\+Handler@{trace\+Simulation\+Handler}!Build\+Simulation\+Model.\+cpp@{Build\+Simulation\+Model.\+cpp}}
 \subsubsection[{\texorpdfstring{trace\+Simulation\+Handler(\+Trace\+Simulation\+Event e)}{traceSimulationHandler(TraceSimulationEvent e)}}]{\setlength{\rightskip}{0pt plus 5cm}void trace\+Simulation\+Handler (
@@ -96,3 +227,25 @@ void \hyperlink{_build_simulation_model_8cpp_a5168010deba14b290a849f0507e974eb}{
 \item[{{\bf Trace\+Simulation\+Event}}]{e}
 \end{DoxyParamCaption}
 )}\hypertarget{_build_simulation_model_8cpp_a68baabbb892a3a6f875ef4c1c764dbcc}{}\label{_build_simulation_model_8cpp_a68baabbb892a3a6f875ef4c1c764dbcc}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{_build_simulation_model_8cpp_a68baabbb892a3a6f875ef4c1c764dbcc_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_build_simulation_model_8cpp_a68baabbb892a3a6f875ef4c1c764dbcc_icgraph}
+\end{center}
+\end{figure}
+
+

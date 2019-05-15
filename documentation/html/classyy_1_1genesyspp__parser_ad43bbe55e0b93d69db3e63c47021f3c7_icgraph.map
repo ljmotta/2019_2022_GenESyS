@@ -1,7 +1,0 @@
-<map id="yy::genesyspp_parser::error" name="yy::genesyspp_parser::error">
-<area shape="rect" id="node2" href="$classyy_1_1genesyspp__parser.html#ab2fad51435ec4f28dfee2d5e4611f309" title="yy::genesyspp_parser\l::parse" alt="" coords="206,23,357,65"/>
-<area shape="rect" id="node6" href="$classyy_1_1genesyspp__parser.html#a2c5b0f4df0100038887dc7804c112c5b" title="Report a syntax error. " alt="" coords="206,89,357,130"/>
-<area shape="rect" id="node3" href="$classgenesyspp__driver.html#a2f58e23b084877eee330915c2f4fc71f" title="genesyspp_driver::parse_file" alt="" coords="406,5,594,32"/>
-<area shape="rect" id="node4" href="$classgenesyspp__driver.html#a5e63bd1621e53aa24cf2dee47d53ebdc" title="genesyspp_driver::parse_str" alt="" coords="407,56,593,83"/>
-<area shape="rect" id="node5" href="$class_parser_flex_bison_impl.html#ae8cd1179a3fad2bf11e1ec513d9e45bb" title="ParserFlexBisonImpl\l::parse" alt="" coords="643,49,786,90"/>
-</map>

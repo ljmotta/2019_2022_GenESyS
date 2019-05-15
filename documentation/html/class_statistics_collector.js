@@ -2,12 +2,13 @@ var class_statistics_collector =
 [
     [ "StatisticsCollector", "class_statistics_collector.html#a2129c2bd19f9d64814fbfe18974a6d2e", null ],
     [ "StatisticsCollector", "class_statistics_collector.html#acbb20e7e94252ff7105de7b0cdecb7ee", null ],
-    [ "StatisticsCollector", "class_statistics_collector.html#a9c51fc17337d3c050ff7e650825cccf9", null ],
+    [ "StatisticsCollector", "class_statistics_collector.html#a270668f12d5d16f21f1a57a944504111", null ],
     [ "StatisticsCollector", "class_statistics_collector.html#a25e8def6d91decdf48d7c0fedb4382dc", null ],
     [ "~StatisticsCollector", "class_statistics_collector.html#aef9244a0c9f715bc19136d283b759c6e", null ],
     [ "_loadInstance", "class_statistics_collector.html#aa13d2bc6d9deeffa9667388ae3e4f962", null ],
     [ "_saveInstance", "class_statistics_collector.html#a66eed8e1bd0316588575aa7310ac028b", null ],
     [ "_verifySymbols", "class_statistics_collector.html#a5aeefa5028a2b6a0157db55c0dfc7419", null ],
-    [ "getParent", "class_statistics_collector.html#a8364c0ffd6fa0ffddc6ab2290ef8d184", null ],
+    [ "getParent", "class_statistics_collector.html#a38791d35ae91285f6e8ed04f86cdce8f", null ],
+    [ "getStatistics", "class_statistics_collector.html#a8150e75713026e48f5add4d941a1cd34", null ],
     [ "show", "class_statistics_collector.html#a7ce8dad7e29d06c73a01d2ddee93fe00", null ]
 ];

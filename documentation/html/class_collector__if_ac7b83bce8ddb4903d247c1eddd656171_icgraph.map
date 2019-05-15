@@ -1,9 +1,18 @@
 <map id="Collector_if::addValue" name="Collector_if::addValue">
-<area shape="rect" id="node2" href="$class_queue.html#a961b5b7ca80317aa69f958612fb988ad" title="Queue::insertElement" alt="" coords="245,5,393,32"/>
-<area shape="rect" id="node4" href="$class_queue.html#a114d5144b3026b57cca9cf481b1f0d65" title="Queue::removeElement" alt="" coords="239,56,398,83"/>
-<area shape="rect" id="node6" href="$class_resource.html#ad5da4dca5dd48a4818827e6273c20c2d" title="Resource::release" alt="" coords="255,107,383,133"/>
-<area shape="rect" id="node7" href="$_test_input_analyser_tools_8cpp.html#af7011a62619acc9f81bcb4c5a5fafbe8" title="testStudentSoftwareDevelopments" alt="" coords="206,157,431,184"/>
-<area shape="rect" id="node3" href="$class_seize.html#a96f6517a40b3bfd0d5ea753d59cef797" title="Seize::_execute" alt="" coords="502,5,618,32"/>
-<area shape="rect" id="node5" href="$class_release.html#a63c3cd89082e7f6c1fb61646b93a5c32" title="Release::_execute" alt="" coords="495,77,625,104"/>
-<area shape="rect" id="node8" href="$class_test_input_analyser_tools.html#a8015a3024f29bddc865cb0b419214cd7" title="TestInputAnalyserTools\l::main" alt="" coords="480,150,640,191"/>
+<area shape="rect" id="node2" href="$class_delay.html#a029d91a2cd736ff9c361c69336e6ab41" title="Delay::_execute" alt="" coords="258,5,375,32"/>
+<area shape="rect" id="node3" href="$class_model.html#ae62bb3a21cd56fbf9d34195edf2fb9e0" title="Model::removeEntity" alt="" coords="245,56,388,83"/>
+<area shape="rect" id="node5" href="$class_model_simulation.html#a22ea961f3242d4466dc0cf392c66d5e9" title="Starts a sequential execution of a simulation, ie, a set of replications of this model. " alt="" coords="210,107,423,133"/>
+<area shape="rect" id="node8" href="$class_queue.html#a961b5b7ca80317aa69f958612fb988ad" title="Queue::insertElement" alt="" coords="243,157,391,184"/>
+<area shape="rect" id="node10" href="$class_queue.html#a114d5144b3026b57cca9cf481b1f0d65" title="Queue::removeElement" alt="" coords="237,208,396,235"/>
+<area shape="rect" id="node12" href="$class_record.html#a036df9e81131cf36de20079c95d55151" title="Record::_execute" alt="" coords="254,259,379,285"/>
+<area shape="rect" id="node13" href="$class_resource.html#ad5da4dca5dd48a4818827e6273c20c2d" title="Resource::release" alt="" coords="253,309,381,336"/>
+<area shape="rect" id="node15" href="$_test_input_analyser_tools_8cpp.html#af7011a62619acc9f81bcb4c5a5fafbe8" title="testStudentSoftwareDevelopments" alt="" coords="204,360,429,387"/>
+<area shape="rect" id="node17" href="$class_test_statistics.html#a5311e246afefb4778d3fcf06c5c4c756" title="TestStatistics::main" alt="" coords="247,411,386,437"/>
+<area shape="rect" id="node4" href="$class_dispose.html#a342eb428496534cdfd17524ad78b0c08" title="Dispose::_execute" alt="" coords="492,56,623,83"/>
+<area shape="rect" id="node6" href="$_build_simulation_model_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="480,107,635,133"/>
+<area shape="rect" id="node7" href="$class_build_simulation_model.html#a8c50f55d7293860e5e7bc7e7e74f8d4a" title="BuildSimulationModel\l::main" alt="" coords="685,99,832,141"/>
+<area shape="rect" id="node9" href="$class_seize.html#a96f6517a40b3bfd0d5ea753d59cef797" title="Seize::_execute" alt="" coords="499,157,615,184"/>
+<area shape="rect" id="node11" href="$class_seize.html#adadd376a826f2b3a84176242dd9a15ca" title="Seize::setQueueName" alt="" coords="480,208,635,235"/>
+<area shape="rect" id="node14" href="$class_release.html#a63c3cd89082e7f6c1fb61646b93a5c32" title="Release::_execute" alt="" coords="492,305,623,332"/>
+<area shape="rect" id="node16" href="$class_test_input_analyser_tools.html#a8015a3024f29bddc865cb0b419214cd7" title="TestInputAnalyserTools\l::main" alt="" coords="477,357,637,398"/>
 </map>

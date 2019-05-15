@@ -1,3 +1,4 @@
 <map id="Resource::getCapacity" name="Resource::getCapacity">
-<area shape="rect" id="node2" href="$class_seize.html#a96f6517a40b3bfd0d5ea753d59cef797" title="Seize::_execute" alt="" coords="211,5,327,32"/>
+<area shape="rect" id="node2" href="$class_seize.html#adadd376a826f2b3a84176242dd9a15ca" title="Seize::setQueueName" alt="" coords="209,5,364,32"/>
+<area shape="rect" id="node3" href="$class_seize.html#a96f6517a40b3bfd0d5ea753d59cef797" title="Seize::_execute" alt="" coords="229,56,345,83"/>
 </map>

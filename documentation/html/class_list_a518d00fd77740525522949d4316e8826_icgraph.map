@@ -1,23 +1,33 @@
 <map id="List::insert" name="List::insert">
-<area shape="rect" id="node2" href="$_build_simulation_model_8cpp.html#aeea741000e292b33dca181a0a8a6106f" title="buildModel" alt="" coords="199,61,283,88"/>
-<area shape="rect" id="node3" href="$_build_simulation_model_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="397,12,552,39"/>
-<area shape="rect" id="node5" href="$class_create.html#a81bd7a50b926660c264ebe29e2095170" title="Create::Create" alt="" coords="187,232,295,259"/>
-<area shape="rect" id="node6" href="$class_create.html#acd3a4b8805561591e0c88d3fd689cf74" title="Create::_execute" alt="" coords="413,417,536,444"/>
-<area shape="rect" id="node7" href="$class_delay.html#a029d91a2cd736ff9c361c69336e6ab41" title="Delay::_execute" alt="" coords="183,620,300,647"/>
-<area shape="rect" id="node8" href="$class_infrastructure_manager.html#a597f2262dee783093e616e3d8894690a" title="InfrastructureManager\l::insertInfrastructure" alt="" coords="167,283,316,325"/>
-<area shape="rect" id="node16" href="$class_model.html#a244dff6d6bef962b0d95fbe712954079" title="Model::sendEntityToComponent" alt="" coords="137,468,346,495"/>
-<area shape="rect" id="node18" href="$class_release.html#a63c3cd89082e7f6c1fb61646b93a5c32" title="Release::_execute" alt="" coords="409,519,540,545"/>
-<area shape="rect" id="node20" href="$class_model_checker_my_impl1.html#af92c7b51b8207c1718b496df104b1f11" title="ModelCheckerMyImpl1\l::verifySymbol" alt="" coords="163,671,319,713"/>
-<area shape="rect" id="node21" href="$class_queue.html#a961b5b7ca80317aa69f958612fb988ad" title="Queue::insertElement" alt="" coords="167,569,315,596"/>
-<area shape="rect" id="node22" href="$class_test_parser.html#ae1421b04c5b7420e8d542ebefe46f70e" title="TestParser::main" alt="" coords="180,737,303,764"/>
-<area shape="rect" id="node4" href="$class_build_simulation_model.html#a8c50f55d7293860e5e7bc7e7e74f8d4a" title="BuildSimulationModel\l::main" alt="" coords="603,5,749,46"/>
-<area shape="rect" id="node9" href="$class_assign.html#a5f3a7d8a7214574fea926cae1b1acb94" title="Assign::_verifySymbols" alt="" coords="395,63,555,89"/>
-<area shape="rect" id="node10" href="$class_create.html#ad445fd3bec94b4e66669089f10f96057" title="Create::_verifySymbols" alt="" coords="395,113,554,140"/>
-<area shape="rect" id="node11" href="$class_entity_type.html#a76c09c732793a586dc3b474485e9824f" title="EntityType::EntityType" alt="" coords="397,164,553,191"/>
-<area shape="rect" id="node12" href="$class_queue.html#a67994e94c7d825b421a188c6b76f4014" title="Queue::Queue" alt="" coords="421,215,528,241"/>
-<area shape="rect" id="node13" href="$class_release.html#a4abb6616f9b6de8183558f0c380ccea3" title="Release::Release" alt="" coords="411,265,538,292"/>
-<area shape="rect" id="node14" href="$class_resource.html#a1a8ae095067797fa47b0241ee278536c" title="Resource::Resource" alt="" coords="403,316,546,343"/>
-<area shape="rect" id="node15" href="$class_seize.html#a28a360900407ddb26fe627fd147a93fe" title="Seize::Seize" alt="" coords="427,367,523,393"/>
-<area shape="rect" id="node17" href="$class_assign.html#a5fabf69268b2e65d8b01ce247be87a40" title="Assign::_execute" alt="" coords="413,468,536,495"/>
-<area shape="rect" id="node19" href="$class_seize.html#a96f6517a40b3bfd0d5ea753d59cef797" title="Seize::_execute" alt="" coords="417,569,533,596"/>
+<area shape="rect" id="node2" href="$_build_simulation_model_8cpp.html#aeea741000e292b33dca181a0a8a6106f" title="buildModel" alt="" coords="665,173,749,200"/>
+<area shape="rect" id="node3" href="$_build_simulation_model_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="861,97,1016,124"/>
+<area shape="rect" id="node5" href="$class_create.html#a81bd7a50b926660c264ebe29e2095170" title="Create::Create" alt="" coords="187,756,295,782"/>
+<area shape="rect" id="node6" href="$class_create.html#acd3a4b8805561591e0c88d3fd689cf74" title="Create::_execute" alt="" coords="411,604,534,630"/>
+<area shape="rect" id="node7" href="$class_delay.html#a029d91a2cd736ff9c361c69336e6ab41" title="Delay::_execute" alt="" coords="182,806,299,833"/>
+<area shape="rect" id="node8" href="$class_dispose.html#a9b5ccd61252e7f36d747fd832debdfaa" title="Dispose::Dispose" alt="" coords="177,857,304,884"/>
+<area shape="rect" id="node9" href="$class_element_manager.html#ad3158696ee88632fe42e5cebb2af4582" title="ElementManager::insertElement" alt="" coords="137,452,345,478"/>
+<area shape="rect" id="node16" href="$class_entity.html#a4e83017c50e1b0fd5d3bd5a915e1e1a5" title="Entity::Entity" alt="" coords="191,908,290,934"/>
+<area shape="rect" id="node17" href="$class_model.html#ae86e1403523e8036ba6366d1967ecac0" title="Model::Model" alt="" coords="191,958,291,985"/>
+<area shape="rect" id="node18" href="$class_model.html#a244dff6d6bef962b0d95fbe712954079" title="Used by components (ModelComponent) to send entities to another specific component, usually the next one connected to it, or used by the model itself, when processing an event (Event). " alt="" coords="136,654,345,681"/>
+<area shape="rect" id="node25" href="$class_model_checker_default_impl1.html#a9d021151effa2f7ed5ffa1a691eb7668" title="ModelCheckerDefaultImpl1\l::verifySymbol" alt="" coords="151,1010,331,1051"/>
+<area shape="rect" id="node26" href="$class_model_checker_dummy_impl.html#af02c0747aa03a726f506be15aaa4ff10" title="ModelCheckerDummyImpl\l::verifySymbol" alt="" coords="152,1075,329,1116"/>
+<area shape="rect" id="node27" href="$class_model_simulation.html#a22ea961f3242d4466dc0cf392c66d5e9" title="Starts a sequential execution of a simulation, ie, a set of replications of this model. " alt="" coords="600,46,813,73"/>
+<area shape="rect" id="node28" href="$class_queue.html#a961b5b7ca80317aa69f958612fb988ad" title="Queue::insertElement" alt="" coords="167,705,315,732"/>
+<area shape="rect" id="node29" href="$class_resource.html#afc3651546b83c8953306d7958c4ac179" title="Resource::addResourceEvent\lHandler" alt="" coords="142,292,339,334"/>
+<area shape="rect" id="node31" href="$class_seize.html#adadd376a826f2b3a84176242dd9a15ca" title="Seize::setQueueName" alt="" coords="163,1141,318,1168"/>
+<area shape="rect" id="node32" href="$class_test_parser.html#ae1421b04c5b7420e8d542ebefe46f70e" title="TestParser::main" alt="" coords="179,1192,302,1218"/>
+<area shape="rect" id="node4" href="$class_build_simulation_model.html#a8c50f55d7293860e5e7bc7e7e74f8d4a" title="BuildSimulationModel\l::main" alt="" coords="1064,90,1211,131"/>
+<area shape="rect" id="node10" href="$class_create.html#ad445fd3bec94b4e66669089f10f96057" title="Create::_verifySymbols" alt="" coords="393,350,552,377"/>
+<area shape="rect" id="node11" href="$class_delay.html#af1690df9ba58e9972f5721f5bdc2b520" title="Delay::_verifySymbols" alt="" coords="395,401,550,428"/>
+<area shape="rect" id="node12" href="$class_entity_type.html#acdbf39a5a5b55adccc845cbf9d1f0363" title="EntityType::EntityType" alt="" coords="395,452,551,478"/>
+<area shape="rect" id="node13" href="$class_queue.html#aff61cf134dd95fc7359a8c55a214a7e0" title="Queue::Queue" alt="" coords="419,502,526,529"/>
+<area shape="rect" id="node14" href="$class_record.html#a2772f19656d25d57e5329ab49fd915f3" title="Record::Record" alt="" coords="415,553,530,580"/>
+<area shape="rect" id="node15" href="$class_resource.html#ae0c082231cd64485af560b51b025d8fe" title="Resource::Resource" alt="" coords="401,300,544,326"/>
+<area shape="rect" id="node19" href="$class_assign.html#a5fabf69268b2e65d8b01ce247be87a40" title="Assign::_execute" alt="" coords="411,705,534,732"/>
+<area shape="rect" id="node21" href="$class_decide.html#a873773c9e74e15a4dae52ef11c43b96c" title="Decide::_execute" alt="" coords="411,756,535,782"/>
+<area shape="rect" id="node22" href="$class_record.html#a036df9e81131cf36de20079c95d55151" title="Record::_execute" alt="" coords="410,806,535,833"/>
+<area shape="rect" id="node23" href="$class_release.html#a63c3cd89082e7f6c1fb61646b93a5c32" title="Release::_execute" alt="" coords="407,654,538,681"/>
+<area shape="rect" id="node24" href="$class_seize.html#a96f6517a40b3bfd0d5ea753d59cef797" title="Seize::_execute" alt="" coords="415,857,531,884"/>
+<area shape="rect" id="node20" href="$class_assign_1_1_assignment.html#a724dc03a686c4d53d57ee45b7617ae2f" title="Assign::Assignment\l::getExpression" alt="" coords="637,698,776,739"/>
+<area shape="rect" id="node30" href="$class_seize.html#a00358422896770f637a3ab4f916fbb01" title="Seize::setResource" alt="" coords="404,198,541,225"/>
 </map>

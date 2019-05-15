@@ -1,5 +1,5 @@
 <map id="TestParser::main" name="TestParser::main">
-<area shape="rect" id="node2" href="$class_simulator.html#adf2949b99c40c3c94c790786de1a038f" title="Simulator::getModels" alt="" coords="185,5,330,32"/>
+<area shape="rect" id="node2" href="$class_simulator.html#adf2949b99c40c3c94c790786de1a038f" title="Returns the list of open models in the simulator. " alt="" coords="185,5,330,32"/>
 <area shape="rect" id="node3" href="$class_list.html#a518d00fd77740525522949d4316e8826" title="List::insert" alt="" coords="216,56,299,83"/>
 <area shape="rect" id="node4" href="$class_model.html#a5ea283e339b50c0b77040bf908e25af3" title="Model::parseExpression" alt="" coords="176,107,339,133"/>
 <area shape="rect" id="node5" href="$class_parser__if.html#a4a5dacf0588b29e7eb6c639ae2701fa6" title="Parser_if::parse" alt="" coords="387,107,501,133"/>

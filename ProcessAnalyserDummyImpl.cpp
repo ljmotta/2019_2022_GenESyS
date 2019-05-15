@@ -6,7 +6,7 @@
 
 /* 
  * File:   ProcessAnalyserDummyImpl.cpp
- * Author: cancian
+ * Author: rafael.luiz.cancian
  * 
  * Created on 10 de Outubro de 2018, 18:27
  */
@@ -26,7 +26,7 @@ List<SimulationScenario*>* ProcessAnalyserDummyImpl::getScenarios() const {
 }
 
 List<SimulationControl*>* ProcessAnalyserDummyImpl::getControls() const {
-	return _controls;
+    return _controls;
 }
 
 List<SimulationResponse*>* ProcessAnalyserDummyImpl::getResponses() const {
@@ -47,5 +47,5 @@ void ProcessAnalyserDummyImpl::startSimulation() {
 void ProcessAnalyserDummyImpl::stopSimulation() {
 }
 
-void ProcessAnalyserDummyImpl::addTraceSimulationListener(traceSimulationProcessListener traceSimulationProcessListener) {
+void ProcessAnalyserDummyImpl::addTraceSimulationHandler(traceSimulationProcessListener traceSimulationProcessListener) {
 }

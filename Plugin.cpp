@@ -6,7 +6,7 @@
 
 /* 
  * File:   Plugin.cpp
- * Author: cancian
+ * Author: rafael.luiz.cancian
  * 
  * Created on 21 de Junho de 2018, 12:58
  */
@@ -14,9 +14,9 @@
 #include "Plugin.h"
 
 Plugin::Plugin(std::string name, bool source, bool drain) {
-	//_fullfilename = fullfilename;
-	_source = source;
-	_drain = drain;
+    //_fullfilename = fullfilename;
+    _source = source;
+    _drain = drain;
 }
 
 Plugin::Plugin(const Plugin& orig) {
@@ -26,11 +26,11 @@ Plugin::~Plugin() {
 }
 
 bool Plugin::isDrain() const {
-	return _drain;
+    return _drain;
 }
 
 bool Plugin::isSource() const {
-	return _source;
+    return _source;
 }
 
 

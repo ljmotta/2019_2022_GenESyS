@@ -1,0 +1,5 @@
+<map id="Simulator::getLicense" name="Simulator::getLicense">
+<area shape="rect" id="node2" href="$class_model_simulation.html#a22ea961f3242d4466dc0cf392c66d5e9" title="Starts a sequential execution of a simulation, ie, a set of replications of this model. " alt="" coords="201,13,415,39"/>
+<area shape="rect" id="node3" href="$_build_simulation_model_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="463,13,617,39"/>
+<area shape="rect" id="node4" href="$class_build_simulation_model.html#a8c50f55d7293860e5e7bc7e7e74f8d4a" title="BuildSimulationModel\l::main" alt="" coords="665,5,812,47"/>
+</map>

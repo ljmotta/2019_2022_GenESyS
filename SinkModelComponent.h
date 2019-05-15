@@ -6,7 +6,7 @@
 
 /* 
  * File:   SinkModelComponent.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 14 de Agosto de 2018, 14:29
  */
@@ -16,18 +16,22 @@
 
 #include "ModelComponent.h"
 
+/*!
+ * This class is the basis for any component representing the end of a process flow, such as a Dispose. 
+ * It can remove entities from the system and collect statistics.
+ */
 class SinkModelComponent : public ModelComponent {
 public:
-	SinkModelComponent(Model* model);
-	SinkModelComponent(const SinkModelComponent& orig);
-	virtual ~SinkModelComponent();
+    SinkModelComponent(Model* model, std::string componentTypename);
+    SinkModelComponent(const SinkModelComponent& orig);
+    virtual ~SinkModelComponent();
 public:
-	void setCollectStatistics(bool _collectStatistics);
-	bool isCollectStatistics() const;
+    void setCollectStatistics(bool _collectStatistics);
+    bool isCollectStatistics() const;
 public:
 
 private:
-	bool _collectStatistics = true;
+    bool _collectStatistics = true;
 };
 
 #endif /* SINKMODELCOMPONENT_H */

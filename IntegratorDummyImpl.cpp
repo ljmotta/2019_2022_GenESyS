@@ -6,7 +6,7 @@
 
 /* 
  * File:   IntegratorDummyImpl.cpp
- * Author: cancian
+ * Author: rafael.luiz.cancian
  * 
  * Created on 23 de Agosto de 2018, 17:28
  */
@@ -23,10 +23,11 @@ IntegratorDummyImpl::~IntegratorDummyImpl() {
 }
 
 void IntegratorDummyImpl::setPrecision(double e) {
-
+    _precision = e;
 }
 
 double IntegratorDummyImpl::getPrecision() {
+    return _precision;
 }
 
 double IntegratorDummyImpl::integrate(double min, double max, double (*f)(double, double), double p2) {

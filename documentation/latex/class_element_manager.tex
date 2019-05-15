@@ -1,0 +1,306 @@
+\hypertarget{class_element_manager}{}\section{Element\+Manager Class Reference}
+\label{class_element_manager}\index{Element\+Manager@{Element\+Manager}}
+
+
+{\ttfamily \#include $<$Element\+Manager.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_element_manager_abdf29f8c7805df664ed077481e767051}{Element\+Manager} (\hyperlink{class_model}{Model} $\ast$model)
+\item 
+\hyperlink{class_element_manager_a674093b8cf13e0df185b9a90e92ec2cb}{Element\+Manager} (const \hyperlink{class_element_manager}{Element\+Manager} \&orig)
+\item 
+virtual \hyperlink{class_element_manager_a7cd0ea7c41af215ed20657493cd96e3b}{$\sim$\+Element\+Manager} ()
+\item 
+bool \hyperlink{class_element_manager_ad3158696ee88632fe42e5cebb2af4582}{insert\+Element} (std\+::string infra\+Typename, \hyperlink{class_model_element}{Model\+Element} $\ast$infra)
+\item 
+void \hyperlink{class_element_manager_a2f918ec41d81e4ec0ba14fa6c6ab249a}{remove\+Element} (std\+::string infra\+Typename, \hyperlink{class_model_element}{Model\+Element} $\ast$infra)
+\item 
+\hyperlink{class_model_element}{Model\+Element} $\ast$ \hyperlink{class_element_manager_a31be666a89f2a19583ac0bf3e124cf32}{get\+Element} (std\+::string infra\+Typename, \hyperlink{class_util_ad17d458d9344b10bba64347e514d6d71}{Util\+::identitifcation} id)
+\item 
+\hyperlink{class_model_element}{Model\+Element} $\ast$ \hyperlink{class_element_manager_ae5f80eb977a94280705de474e49f2e04}{get\+Element} (std\+::string infra\+Typename, std\+::string name)
+\item 
+unsigned int \hyperlink{class_element_manager_ade38f33e0b0902ea4d4e756592c77998}{get\+Number\+Of\+Elements} (std\+::string infra\+Typename)
+\item 
+int \hyperlink{class_element_manager_a9d3f036b85665023061f62c19cdf0cc0}{get\+Rank\+Of} (std\+::string infra\+Typename, std\+::string name)
+\begin{DoxyCompactList}\small\item\em returns the position (1st position=0) of the element if found, or negative value if not found \end{DoxyCompactList}\item 
+std\+::list$<$ std\+::string $>$ $\ast$ \hyperlink{class_element_manager_a58c8c572a76a712c3da42baafa888a8a}{get\+Element\+Typenames} () const 
+\item 
+\hyperlink{class_list}{List}$<$ \hyperlink{class_model_element}{Model\+Element} $\ast$ $>$ $\ast$ \hyperlink{class_element_manager_a1c2f03e1279b3f2686e21f670edb1173}{get\+Elements} (std\+::string infra\+Typename) const 
+\item 
+void \hyperlink{class_element_manager_a77b13541fb1da854d2680802778b5a64}{show} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_element_manager}{Element\+Manager} is responsible for inserting and removing elements (\hyperlink{class_model_element}{Model\+Element}) used by components, in a consistent way. TO F\+IX\+: No direct access for insertion or deletion should be allow 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Element\+Manager@{Element\+Manager}!Element\+Manager@{Element\+Manager}}
+\index{Element\+Manager@{Element\+Manager}!Element\+Manager@{Element\+Manager}}
+\subsubsection[{\texorpdfstring{Element\+Manager(\+Model $\ast$model)}{ElementManager(Model *model)}}]{\setlength{\rightskip}{0pt plus 5cm}Element\+Manager\+::\+Element\+Manager (
+\begin{DoxyParamCaption}
+\item[{{\bf Model} $\ast$}]{model}
+\end{DoxyParamCaption}
+)}\hypertarget{class_element_manager_abdf29f8c7805df664ed077481e767051}{}\label{class_element_manager_abdf29f8c7805df664ed077481e767051}
+Elements are organized as a map from a string (key), the type of an element, and a list of elements of that type \index{Element\+Manager@{Element\+Manager}!Element\+Manager@{Element\+Manager}}
+\index{Element\+Manager@{Element\+Manager}!Element\+Manager@{Element\+Manager}}
+\subsubsection[{\texorpdfstring{Element\+Manager(const Element\+Manager \&orig)}{ElementManager(const ElementManager &orig)}}]{\setlength{\rightskip}{0pt plus 5cm}Element\+Manager\+::\+Element\+Manager (
+\begin{DoxyParamCaption}
+\item[{const {\bf Element\+Manager} \&}]{orig}
+\end{DoxyParamCaption}
+)}\hypertarget{class_element_manager_a674093b8cf13e0df185b9a90e92ec2cb}{}\label{class_element_manager_a674093b8cf13e0df185b9a90e92ec2cb}
+\index{Element\+Manager@{Element\+Manager}!````~Element\+Manager@{$\sim$\+Element\+Manager}}
+\index{````~Element\+Manager@{$\sim$\+Element\+Manager}!Element\+Manager@{Element\+Manager}}
+\subsubsection[{\texorpdfstring{$\sim$\+Element\+Manager()}{~ElementManager()}}]{\setlength{\rightskip}{0pt plus 5cm}Element\+Manager\+::$\sim$\+Element\+Manager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_element_manager_a7cd0ea7c41af215ed20657493cd96e3b}{}\label{class_element_manager_a7cd0ea7c41af215ed20657493cd96e3b}
+
+
+\subsection{Member Function Documentation}
+\index{Element\+Manager@{Element\+Manager}!get\+Element@{get\+Element}}
+\index{get\+Element@{get\+Element}!Element\+Manager@{Element\+Manager}}
+\subsubsection[{\texorpdfstring{get\+Element(std\+::string infra\+Typename, Util\+::identitifcation id)}{getElement(std::string infraTypename, Util::identitifcation id)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Model\+Element} $\ast$ Element\+Manager\+::get\+Element (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{infra\+Typename, }
+\item[{{\bf Util\+::identitifcation}}]{id}
+\end{DoxyParamCaption}
+)}\hypertarget{class_element_manager_a31be666a89f2a19583ac0bf3e124cf32}{}\label{class_element_manager_a31be666a89f2a19583ac0bf3e124cf32}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_element_manager_a31be666a89f2a19583ac0bf3e124cf32_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_element_manager_a31be666a89f2a19583ac0bf3e124cf32_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{Element\+Manager@{Element\+Manager}!get\+Element@{get\+Element}}
+\index{get\+Element@{get\+Element}!Element\+Manager@{Element\+Manager}}
+\subsubsection[{\texorpdfstring{get\+Element(std\+::string infra\+Typename, std\+::string name)}{getElement(std::string infraTypename, std::string name)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Model\+Element} $\ast$ Element\+Manager\+::get\+Element (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{infra\+Typename, }
+\item[{std\+::string}]{name}
+\end{DoxyParamCaption}
+)}\hypertarget{class_element_manager_ae5f80eb977a94280705de474e49f2e04}{}\label{class_element_manager_ae5f80eb977a94280705de474e49f2e04}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_element_manager_ae5f80eb977a94280705de474e49f2e04_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{Element\+Manager@{Element\+Manager}!get\+Elements@{get\+Elements}}
+\index{get\+Elements@{get\+Elements}!Element\+Manager@{Element\+Manager}}
+\subsubsection[{\texorpdfstring{get\+Elements(std\+::string infra\+Typename) const }{getElements(std::string infraTypename) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf List}$<$ {\bf Model\+Element} $\ast$ $>$ $\ast$ Element\+Manager\+::get\+Elements (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{infra\+Typename}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_element_manager_a1c2f03e1279b3f2686e21f670edb1173}{}\label{class_element_manager_a1c2f03e1279b3f2686e21f670edb1173}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_element_manager_a1c2f03e1279b3f2686e21f670edb1173_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_element_manager_a1c2f03e1279b3f2686e21f670edb1173_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{Element\+Manager@{Element\+Manager}!get\+Element\+Typenames@{get\+Element\+Typenames}}
+\index{get\+Element\+Typenames@{get\+Element\+Typenames}!Element\+Manager@{Element\+Manager}}
+\subsubsection[{\texorpdfstring{get\+Element\+Typenames() const }{getElementTypenames() const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::list$<$ std\+::string $>$ $\ast$ Element\+Manager\+::get\+Element\+Typenames (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_element_manager_a58c8c572a76a712c3da42baafa888a8a}{}\label{class_element_manager_a58c8c572a76a712c3da42baafa888a8a}
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_element_manager_a58c8c572a76a712c3da42baafa888a8a_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{Element\+Manager@{Element\+Manager}!get\+Number\+Of\+Elements@{get\+Number\+Of\+Elements}}
+\index{get\+Number\+Of\+Elements@{get\+Number\+Of\+Elements}!Element\+Manager@{Element\+Manager}}
+\subsubsection[{\texorpdfstring{get\+Number\+Of\+Elements(std\+::string infra\+Typename)}{getNumberOfElements(std::string infraTypename)}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Element\+Manager\+::get\+Number\+Of\+Elements (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{infra\+Typename}
+\end{DoxyParamCaption}
+)}\hypertarget{class_element_manager_ade38f33e0b0902ea4d4e756592c77998}{}\label{class_element_manager_ade38f33e0b0902ea4d4e756592c77998}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_element_manager_ade38f33e0b0902ea4d4e756592c77998_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{class_element_manager_ade38f33e0b0902ea4d4e756592c77998_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{Element\+Manager@{Element\+Manager}!get\+Rank\+Of@{get\+Rank\+Of}}
+\index{get\+Rank\+Of@{get\+Rank\+Of}!Element\+Manager@{Element\+Manager}}
+\subsubsection[{\texorpdfstring{get\+Rank\+Of(std\+::string infra\+Typename, std\+::string name)}{getRankOf(std::string infraTypename, std::string name)}}]{\setlength{\rightskip}{0pt plus 5cm}int Element\+Manager\+::get\+Rank\+Of (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{infra\+Typename, }
+\item[{std\+::string}]{name}
+\end{DoxyParamCaption}
+)}\hypertarget{class_element_manager_a9d3f036b85665023061f62c19cdf0cc0}{}\label{class_element_manager_a9d3f036b85665023061f62c19cdf0cc0}
+
+
+returns the position (1st position=0) of the element if found, or negative value if not found 
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_element_manager_a9d3f036b85665023061f62c19cdf0cc0_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_element_manager_a9d3f036b85665023061f62c19cdf0cc0_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{Element\+Manager@{Element\+Manager}!insert\+Element@{insert\+Element}}
+\index{insert\+Element@{insert\+Element}!Element\+Manager@{Element\+Manager}}
+\subsubsection[{\texorpdfstring{insert\+Element(std\+::string infra\+Typename, Model\+Element $\ast$infra)}{insertElement(std::string infraTypename, ModelElement *infra)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Element\+Manager\+::insert\+Element (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{infra\+Typename, }
+\item[{{\bf Model\+Element} $\ast$}]{infra}
+\end{DoxyParamCaption}
+)}\hypertarget{class_element_manager_ad3158696ee88632fe42e5cebb2af4582}{}\label{class_element_manager_ad3158696ee88632fe42e5cebb2af4582}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_element_manager_ad3158696ee88632fe42e5cebb2af4582_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_element_manager_ad3158696ee88632fe42e5cebb2af4582_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{Element\+Manager@{Element\+Manager}!remove\+Element@{remove\+Element}}
+\index{remove\+Element@{remove\+Element}!Element\+Manager@{Element\+Manager}}
+\subsubsection[{\texorpdfstring{remove\+Element(std\+::string infra\+Typename, Model\+Element $\ast$infra)}{removeElement(std::string infraTypename, ModelElement *infra)}}]{\setlength{\rightskip}{0pt plus 5cm}void Element\+Manager\+::remove\+Element (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{infra\+Typename, }
+\item[{{\bf Model\+Element} $\ast$}]{infra}
+\end{DoxyParamCaption}
+)}\hypertarget{class_element_manager_a2f918ec41d81e4ec0ba14fa6c6ab249a}{}\label{class_element_manager_a2f918ec41d81e4ec0ba14fa6c6ab249a}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_element_manager_a2f918ec41d81e4ec0ba14fa6c6ab249a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_element_manager_a2f918ec41d81e4ec0ba14fa6c6ab249a_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{Element\+Manager@{Element\+Manager}!show@{show}}
+\index{show@{show}!Element\+Manager@{Element\+Manager}}
+\subsubsection[{\texorpdfstring{show()}{show()}}]{\setlength{\rightskip}{0pt plus 5cm}void Element\+Manager\+::show (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_element_manager_a77b13541fb1da854d2680802778b5a64}{}\label{class_element_manager_a77b13541fb1da854d2680802778b5a64}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_element_manager_a77b13541fb1da854d2680802778b5a64_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_element_manager_8h}{Element\+Manager.\+h}\item 
+\hyperlink{_element_manager_8cpp}{Element\+Manager.\+cpp}\end{DoxyCompactItemize}

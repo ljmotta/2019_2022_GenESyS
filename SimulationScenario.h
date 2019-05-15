@@ -6,7 +6,7 @@
 
 /* 
  * File:   SimulationScenario.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 10 de Outubro de 2018, 18:21
  */
@@ -24,9 +24,9 @@
  */
 class SimulationScenario {
 public:
-	SimulationScenario();
-	SimulationScenario(const SimulationScenario& orig);
-	virtual ~SimulationScenario();
+    SimulationScenario();
+    SimulationScenario(const SimulationScenario& orig);
+    virtual ~SimulationScenario();
 public:
     void setName(std::string _name);
     std::string getName() const;
@@ -35,14 +35,14 @@ public:
     void setModelFilename(std::string _modelFilename);
     std::string getModelFilename() const;
 public:
-	double getResponseValue(SimulationResponse* value);
-	double getControlValue(SimulationControl* control);
-	void setControlValue(SimulationControl* control, double value);
+    double getResponseValue(SimulationResponse* value);
+    double getControlValue(SimulationControl* control);
+    void setControlValue(SimulationControl* control, double value);
 private:
-	std::string _name;
-	std::string _modelFilename;
-	std::list<double>* _controlValues;
-	std::list<double>* _responseValues;
+    std::string _name;
+    std::string _modelFilename;
+    std::list<double>* _controlValues;
+    std::list<double>* _responseValues;
 };
 
 #endif /* SIMULATIONSCENARIO_H */

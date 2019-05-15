@@ -6,8 +6,7 @@
 
 
 
-Inheritance diagram for Source\+Model\+Component\+:
-\nopagebreak
+Inheritance diagram for Source\+Model\+Component\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -16,18 +15,17 @@ Inheritance diagram for Source\+Model\+Component\+:
 \end{figure}
 
 
-Collaboration diagram for Source\+Model\+Component\+:
-\nopagebreak
+Collaboration diagram for Source\+Model\+Component\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=242pt]{class_source_model_component__coll__graph}
+\includegraphics[width=256pt]{class_source_model_component__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_source_model_component_ac4d6d7dc2cae463094ebaafc3830028a}{Source\+Model\+Component} (\hyperlink{class_model}{Model} $\ast$model)
+\hyperlink{class_source_model_component_ab8bb5ccbed0901f9d9a810bb5deac5d8}{Source\+Model\+Component} (\hyperlink{class_model}{Model} $\ast$model, std\+::string component\+Typename)
 \item 
 \hyperlink{class_source_model_component_a8b959636a75fb95d6c8ae21cbf601639}{Source\+Model\+Component} (const \hyperlink{class_source_model_component}{Source\+Model\+Component} \&orig)
 \item 
@@ -41,9 +39,9 @@ void \hyperlink{class_source_model_component_a5558d791e079e06678639995f548479f}{
 \item 
 bool \hyperlink{class_source_model_component_aa7964063eb075c229570e2e3dcc013cf}{is\+Collect\+Statistics} () const 
 \item 
-void \hyperlink{class_source_model_component_aade34add37e4e4f90077e1a0e88b1bc6}{set\+Entity\+Type} (std\+::string \hyperlink{class_source_model_component_ad001e8ae30c828916f271ac72c7817d1}{\+\_\+entity\+Type})
+void \hyperlink{class_source_model_component_a4405f201c7169761862547486c50f338}{set\+Entity\+Type} (\hyperlink{class_entity_type}{Entity\+Type} $\ast$\hyperlink{class_source_model_component_a564b2c74f5273f8f092d92a5800456cf}{\+\_\+entity\+Type})
 \item 
-std\+::string \hyperlink{class_source_model_component_a04b26c3973ba1bde5b008f8967f2c477}{get\+Entity\+Type} () const 
+\hyperlink{class_entity_type}{Entity\+Type} $\ast$ \hyperlink{class_source_model_component_aa6b0b8ae8c3ed7c56ba3038cd0bab439}{get\+Entity\+Type} () const 
 \item 
 void \hyperlink{class_source_model_component_a970939206ab664141633f75e42abfc8e}{set\+Time\+Unit} (\hyperlink{class_util_a28504cc2fecc9aa47154cba4e625ec6f}{Util\+::\+Time\+Unit} \+\_\+time\+Unit)
 \item 
@@ -70,7 +68,7 @@ virtual std\+::string \hyperlink{class_source_model_component_a4011597b5780fcc04
 \subsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-std\+::string \hyperlink{class_source_model_component_ad001e8ae30c828916f271ac72c7817d1}{\+\_\+entity\+Type} = \char`\"{}Entity Type 1\char`\"{}
+\hyperlink{class_entity_type}{Entity\+Type} $\ast$ \hyperlink{class_source_model_component_a564b2c74f5273f8f092d92a5800456cf}{\+\_\+entity\+Type}
 \item 
 double \hyperlink{class_source_model_component_ad58dddde2b6a81d85f261fa8a11243b3}{\+\_\+first\+Creation} = 0.\+0
 \item 
@@ -95,11 +93,12 @@ A source component implements the base for inserting entities into the model whe
 \subsection{Constructor \& Destructor Documentation}
 \index{Source\+Model\+Component@{Source\+Model\+Component}!Source\+Model\+Component@{Source\+Model\+Component}}
 \index{Source\+Model\+Component@{Source\+Model\+Component}!Source\+Model\+Component@{Source\+Model\+Component}}
-\subsubsection[{\texorpdfstring{Source\+Model\+Component(\+Model $\ast$model)}{SourceModelComponent(Model *model)}}]{\setlength{\rightskip}{0pt plus 5cm}Source\+Model\+Component\+::\+Source\+Model\+Component (
+\subsubsection[{\texorpdfstring{Source\+Model\+Component(\+Model $\ast$model, std\+::string component\+Typename)}{SourceModelComponent(Model *model, std::string componentTypename)}}]{\setlength{\rightskip}{0pt plus 5cm}Source\+Model\+Component\+::\+Source\+Model\+Component (
 \begin{DoxyParamCaption}
-\item[{{\bf Model} $\ast$}]{model}
+\item[{{\bf Model} $\ast$}]{model, }
+\item[{std\+::string}]{component\+Typename}
 \end{DoxyParamCaption}
-)}\hypertarget{class_source_model_component_ac4d6d7dc2cae463094ebaafc3830028a}{}\label{class_source_model_component_ac4d6d7dc2cae463094ebaafc3830028a}
+)}\hypertarget{class_source_model_component_ab8bb5ccbed0901f9d9a810bb5deac5d8}{}\label{class_source_model_component_ab8bb5ccbed0901f9d9a810bb5deac5d8}
 \index{Source\+Model\+Component@{Source\+Model\+Component}!Source\+Model\+Component@{Source\+Model\+Component}}
 \index{Source\+Model\+Component@{Source\+Model\+Component}!Source\+Model\+Component@{Source\+Model\+Component}}
 \subsubsection[{\texorpdfstring{Source\+Model\+Component(const Source\+Model\+Component \&orig)}{SourceModelComponent(const SourceModelComponent &orig)}}]{\setlength{\rightskip}{0pt plus 5cm}Source\+Model\+Component\+::\+Source\+Model\+Component (
@@ -131,13 +130,35 @@ A source component implements the base for inserting entities into the model whe
 {}
 \end{DoxyParamCaption}
 ) const}\hypertarget{class_source_model_component_a6edc1b939b60f4f21747699875a326e4}{}\label{class_source_model_component_a6edc1b939b60f4f21747699875a326e4}
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_source_model_component_a6edc1b939b60f4f21747699875a326e4_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Source\+Model\+Component@{Source\+Model\+Component}!get\+Entity\+Type@{get\+Entity\+Type}}
 \index{get\+Entity\+Type@{get\+Entity\+Type}!Source\+Model\+Component@{Source\+Model\+Component}}
-\subsubsection[{\texorpdfstring{get\+Entity\+Type() const }{getEntityType() const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Source\+Model\+Component\+::get\+Entity\+Type (
+\subsubsection[{\texorpdfstring{get\+Entity\+Type() const }{getEntityType() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Entity\+Type} $\ast$ Source\+Model\+Component\+::get\+Entity\+Type (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}\hypertarget{class_source_model_component_a04b26c3973ba1bde5b008f8967f2c477}{}\label{class_source_model_component_a04b26c3973ba1bde5b008f8967f2c477}
+) const}\hypertarget{class_source_model_component_aa6b0b8ae8c3ed7c56ba3038cd0bab439}{}\label{class_source_model_component_aa6b0b8ae8c3ed7c56ba3038cd0bab439}
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_source_model_component_aa6b0b8ae8c3ed7c56ba3038cd0bab439_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Source\+Model\+Component@{Source\+Model\+Component}!get\+First\+Creation@{get\+First\+Creation}}
 \index{get\+First\+Creation@{get\+First\+Creation}!Source\+Model\+Component@{Source\+Model\+Component}}
 \subsubsection[{\texorpdfstring{get\+First\+Creation() const }{getFirstCreation() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Source\+Model\+Component\+::get\+First\+Creation (
@@ -145,6 +166,17 @@ A source component implements the base for inserting entities into the model whe
 {}
 \end{DoxyParamCaption}
 ) const}\hypertarget{class_source_model_component_ab7688b78b8e069ebe245446dce9224f7}{}\label{class_source_model_component_ab7688b78b8e069ebe245446dce9224f7}
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_source_model_component_ab7688b78b8e069ebe245446dce9224f7_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Source\+Model\+Component@{Source\+Model\+Component}!get\+Max\+Creations@{get\+Max\+Creations}}
 \index{get\+Max\+Creations@{get\+Max\+Creations}!Source\+Model\+Component@{Source\+Model\+Component}}
 \subsubsection[{\texorpdfstring{get\+Max\+Creations() const }{getMaxCreations() const }}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Source\+Model\+Component\+::get\+Max\+Creations (
@@ -194,13 +226,35 @@ A source component implements the base for inserting entities into the model whe
 \item[{unsigned int}]{\+\_\+entities\+Per\+Creation}
 \end{DoxyParamCaption}
 )}\hypertarget{class_source_model_component_ae7a609afb2b921642258d063a0704030}{}\label{class_source_model_component_ae7a609afb2b921642258d063a0704030}
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_source_model_component_ae7a609afb2b921642258d063a0704030_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Source\+Model\+Component@{Source\+Model\+Component}!set\+Entity\+Type@{set\+Entity\+Type}}
 \index{set\+Entity\+Type@{set\+Entity\+Type}!Source\+Model\+Component@{Source\+Model\+Component}}
-\subsubsection[{\texorpdfstring{set\+Entity\+Type(std\+::string \+\_\+entity\+Type)}{setEntityType(std::string _entityType)}}]{\setlength{\rightskip}{0pt plus 5cm}void Source\+Model\+Component\+::set\+Entity\+Type (
+\subsubsection[{\texorpdfstring{set\+Entity\+Type(\+Entity\+Type $\ast$\+\_\+entity\+Type)}{setEntityType(EntityType *_entityType)}}]{\setlength{\rightskip}{0pt plus 5cm}void Source\+Model\+Component\+::set\+Entity\+Type (
 \begin{DoxyParamCaption}
-\item[{std\+::string}]{\+\_\+entity\+Type}
+\item[{{\bf Entity\+Type} $\ast$}]{\+\_\+entity\+Type}
 \end{DoxyParamCaption}
-)}\hypertarget{class_source_model_component_aade34add37e4e4f90077e1a0e88b1bc6}{}\label{class_source_model_component_aade34add37e4e4f90077e1a0e88b1bc6}
+)}\hypertarget{class_source_model_component_a4405f201c7169761862547486c50f338}{}\label{class_source_model_component_a4405f201c7169761862547486c50f338}
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_source_model_component_a4405f201c7169761862547486c50f338_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Source\+Model\+Component@{Source\+Model\+Component}!set\+First\+Creation@{set\+First\+Creation}}
 \index{set\+First\+Creation@{set\+First\+Creation}!Source\+Model\+Component@{Source\+Model\+Component}}
 \subsubsection[{\texorpdfstring{set\+First\+Creation(double \+\_\+first\+Creation)}{setFirstCreation(double _firstCreation)}}]{\setlength{\rightskip}{0pt plus 5cm}void Source\+Model\+Component\+::set\+First\+Creation (
@@ -222,6 +276,17 @@ A source component implements the base for inserting entities into the model whe
 \item[{std\+::string}]{\+\_\+time\+Between\+Creations}
 \end{DoxyParamCaption}
 )}\hypertarget{class_source_model_component_ab1c513f6c32f4bccbca41ce87c415e00}{}\label{class_source_model_component_ab1c513f6c32f4bccbca41ce87c415e00}
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_source_model_component_ab1c513f6c32f4bccbca41ce87c415e00_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Source\+Model\+Component@{Source\+Model\+Component}!set\+Time\+Unit@{set\+Time\+Unit}}
 \index{set\+Time\+Unit@{set\+Time\+Unit}!Source\+Model\+Component@{Source\+Model\+Component}}
 \subsubsection[{\texorpdfstring{set\+Time\+Unit(\+Util\+::\+Time\+Unit \+\_\+time\+Unit)}{setTimeUnit(Util::TimeUnit _timeUnit)}}]{\setlength{\rightskip}{0pt plus 5cm}void Source\+Model\+Component\+::set\+Time\+Unit (
@@ -229,6 +294,17 @@ A source component implements the base for inserting entities into the model whe
 \item[{{\bf Util\+::\+Time\+Unit}}]{\+\_\+time\+Unit}
 \end{DoxyParamCaption}
 )}\hypertarget{class_source_model_component_a970939206ab664141633f75e42abfc8e}{}\label{class_source_model_component_a970939206ab664141633f75e42abfc8e}
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_source_model_component_a970939206ab664141633f75e42abfc8e_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Source\+Model\+Component@{Source\+Model\+Component}!show@{show}}
 \index{show@{show}!Source\+Model\+Component@{Source\+Model\+Component}}
 \subsubsection[{\texorpdfstring{show()}{show()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Source\+Model\+Component\+::show (
@@ -246,6 +322,28 @@ Reimplemented in \hyperlink{class_create_a8d1832d2165bbeea4a5a88aded883f86}{Crea
 
 
 
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_source_model_component_a4011597b5780fcc0495e8e22ab8158f6_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=315pt]{class_source_model_component_a4011597b5780fcc0495e8e22ab8158f6_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
 \subsection{Member Data Documentation}
 \index{Source\+Model\+Component@{Source\+Model\+Component}!\+\_\+collect\+Statistics@{\+\_\+collect\+Statistics}}
 \index{\+\_\+collect\+Statistics@{\+\_\+collect\+Statistics}!Source\+Model\+Component@{Source\+Model\+Component}}
@@ -258,7 +356,7 @@ Reimplemented in \hyperlink{class_create_a8d1832d2165bbeea4a5a88aded883f86}{Crea
 \subsubsection[{\texorpdfstring{\+\_\+entities\+Per\+Creation}{_entitiesPerCreation}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Source\+Model\+Component\+::\+\_\+entities\+Per\+Creation = 1\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_source_model_component_a68b0576903281a4716eb3ea0281dd133}{}\label{class_source_model_component_a68b0576903281a4716eb3ea0281dd133}
 \index{Source\+Model\+Component@{Source\+Model\+Component}!\+\_\+entity\+Type@{\+\_\+entity\+Type}}
 \index{\+\_\+entity\+Type@{\+\_\+entity\+Type}!Source\+Model\+Component@{Source\+Model\+Component}}
-\subsubsection[{\texorpdfstring{\+\_\+entity\+Type}{_entityType}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Source\+Model\+Component\+::\+\_\+entity\+Type = \char`\"{}Entity Type 1\char`\"{}\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_source_model_component_ad001e8ae30c828916f271ac72c7817d1}{}\label{class_source_model_component_ad001e8ae30c828916f271ac72c7817d1}
+\subsubsection[{\texorpdfstring{\+\_\+entity\+Type}{_entityType}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Entity\+Type}$\ast$ Source\+Model\+Component\+::\+\_\+entity\+Type\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_source_model_component_a564b2c74f5273f8f092d92a5800456cf}{}\label{class_source_model_component_a564b2c74f5273f8f092d92a5800456cf}
 \index{Source\+Model\+Component@{Source\+Model\+Component}!\+\_\+first\+Creation@{\+\_\+first\+Creation}}
 \index{\+\_\+first\+Creation@{\+\_\+first\+Creation}!Source\+Model\+Component@{Source\+Model\+Component}}
 \subsubsection[{\texorpdfstring{\+\_\+first\+Creation}{_firstCreation}}]{\setlength{\rightskip}{0pt plus 5cm}double Source\+Model\+Component\+::\+\_\+first\+Creation = 0.\+0\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_source_model_component_ad58dddde2b6a81d85f261fa8a11243b3}{}\label{class_source_model_component_ad58dddde2b6a81d85f261fa8a11243b3}

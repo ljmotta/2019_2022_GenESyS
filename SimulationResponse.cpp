@@ -6,18 +6,17 @@
 
 /* 
  * File:   SimulationResponse.cpp
- * Author: cancian
+ * Author: rafael.luiz.cancian
  * 
  * Created on 10 de Outubro de 2018, 16:18
  */
 
 #include "SimulationResponse.h"
 
-
-SimulationResponse::SimulationResponse(std::string type, std::string name, GetFunctor getFunctor) {
-	_type = type;
-	_name = name;
-	_memberFunctionGetDoubleHandler = getFunctor;
+SimulationResponse::SimulationResponse(std::string type, std::string name, GetterMember getterMember) {
+    _type = type;
+    _name = name;
+    _getterMemberFunction = getterMember;
 }
 
 SimulationResponse::SimulationResponse(const SimulationResponse& orig) {
@@ -27,14 +26,13 @@ SimulationResponse::~SimulationResponse() {
 }
 
 std::string SimulationResponse::getName() const {
-	return _name;
+    return _name;
 }
 
 std::string SimulationResponse::getType() const {
-	return _type;
+    return _type;
 }
 
-
 double SimulationResponse::getValue() {
-	return this->_memberFunctionGetDoubleHandler();
+    return this->_getterMemberFunction();
 }

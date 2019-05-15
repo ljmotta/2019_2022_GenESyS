@@ -1,7 +1,0 @@
-<map id="InfrastructureManager::removeInfrastructure" name="InfrastructureManager::removeInfrastructure">
-<area shape="rect" id="node2" href="$class_infrastructure_manager.html#a1d013b55994e27cac0c45c1ad08f74e0" title="InfrastructureManager\l::getInfrastructures" alt="" coords="207,27,356,69"/>
-<area shape="rect" id="node5" href="$class_list.html#a0ac08f7f3dad900b99e9a73e76d2beee" title="List::remove" alt="" coords="234,93,329,120"/>
-<area shape="rect" id="node6" href="$class_model_infrastructure.html#aeedd4148c2b9c97600789f884c2ef549" title="ModelInfrastructure\l::~ModelInfrastructure" alt="" coords="206,145,357,186"/>
-<area shape="rect" id="node3" href="$class_list.html#a31a37746c0d960f2f2bb4071b2735c5e" title="List::setSortFunc" alt="" coords="412,5,535,32"/>
-<area shape="rect" id="node4" href="$class_model_infrastructure.html#aa4d3fa8f302cc6dc4fccdd3187e6a168" title="ModelInfrastructure\l::getId" alt="" coords="406,57,541,98"/>
-</map>

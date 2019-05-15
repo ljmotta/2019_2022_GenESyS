@@ -1,4 +1,4 @@
 <map id="Delay::show" name="Delay::show">
-<area shape="rect" id="node2" href="$class_model_component.html#ad8bc846e36b028eab7efb7da6c549eca" title="ModelComponent::show" alt="" coords="149,12,312,39"/>
-<area shape="rect" id="node3" href="$class_model_infrastructure.html#a649a5a89a0c9931783d3c51de2acf266" title="ModelInfrastructure\l::show" alt="" coords="361,5,495,46"/>
+<area shape="rect" id="node2" href="$class_model_component.html#ad8bc846e36b028eab7efb7da6c549eca" title="ModelComponent::show" alt="" coords="148,5,311,32"/>
+<area shape="rect" id="node3" href="$class_model_element.html#af084d684e8effe5cd4c2265abc98896c" title="ModelElement::show" alt="" coords="359,5,503,32"/>
 </map>

@@ -6,7 +6,7 @@
 
 /* 
  * File:   OnEventManager.cpp
- * Author: cancian
+ * Author: rafael.luiz.cancian
  * 
  * Created on 7 de Novembro de 2018, 12:28
  */
@@ -22,58 +22,58 @@ OnEventManager::OnEventManager(const OnEventManager& orig) {
 OnEventManager::~OnEventManager() {
 }
 
-void OnEventManager::addOnReplicationStartListener(simulationEventListener eventListener) {
-	this->_onReplicationStartListeners->insert(this->_onReplicationStartListeners->end(), eventListener);
+void OnEventManager::addOnReplicationStartHandler(simulationEventHandler EventHandler) {
+    this->_onReplicationStartHandlers->insert(this->_onReplicationStartHandlers->end(), EventHandler);
 }
 
-void OnEventManager::addOnReplicationStepListener(simulationEventListener eventListener) {
-	this->_onReplicationStepListeners->insert(this->_onReplicationStepListeners->end(), eventListener);
+void OnEventManager::addOnReplicationStepHandler(simulationEventHandler EventHandler) {
+    this->_onReplicationStepHandlers->insert(this->_onReplicationStepHandlers->end(), EventHandler);
 }
 
-void OnEventManager::addOnProcessEventListener(simulationEventListener eventListener) {
-	this->_onProcessEventListeners->insert(this->_onProcessEventListeners->end(), eventListener);
+void OnEventManager::addOnProcessEventHandler(simulationEventHandler EventHandler) {
+    this->_onProcessEventHandlers->insert(this->_onProcessEventHandlers->end(), EventHandler);
 }
 
-void OnEventManager::addOnReplicationEndListener(simulationEventListener eventListener) {
-	this->_onReplicationEndListeners->insert(this->_onReplicationEndListeners->end(), eventListener);
+void OnEventManager::addOnReplicationEndHandler(simulationEventHandler EventHandler) {
+    this->_onReplicationEndHandlers->insert(this->_onReplicationEndHandlers->end(), EventHandler);
 }
 
-void OnEventManager::addOnSimulationStartListener(simulationEventListener eventListener) {
-	this->_onSimulationStartListeners->insert(this->_onSimulationStartListeners->end(), eventListener);
+void OnEventManager::addOnSimulationStartHandler(simulationEventHandler EventHandler) {
+    this->_onSimulationStartHandlers->insert(this->_onSimulationStartHandlers->end(), EventHandler);
 }
 
-void OnEventManager::addOnSimulationEndListener(simulationEventListener eventListener) {
-	this->_onSimulationEndListeners->insert(this->_onSimulationEndListeners->end(), eventListener);
+void OnEventManager::addOnSimulationEndHandler(simulationEventHandler EventHandler) {
+    this->_onSimulationEndHandlers->insert(this->_onSimulationEndHandlers->end(), EventHandler);
 }
 
-void OnEventManager::_NotifyListeners(std::list<simulationEventListener>* list, SimulationEvent* se) {
-	for (std::list<simulationEventListener>::iterator it = list->begin(); it != list->end(); it++) {
-		(*it)(se);
-	}
+void OnEventManager::_NotifyHandlers(std::list<simulationEventHandler>* list, SimulationEvent* se) {
+    for (std::list<simulationEventHandler>::iterator it = list->begin(); it != list->end(); it++) {
+        (*it)(se);
+    }
 }
 
-void OnEventManager::NotifyReplicationStartListeners(SimulationEvent* se) {
-	this->_NotifyListeners(this->_onReplicationStartListeners, se);
-
-}
-
-void OnEventManager::NotifyReplicationStepListeners(SimulationEvent* se) {
-	this->_NotifyListeners(this->_onReplicationStepListeners, se);
+void OnEventManager::NotifyReplicationStartHandlers(SimulationEvent* se) {
+    this->_NotifyHandlers(this->_onReplicationStartHandlers, se);
 
 }
 
-void OnEventManager::NotifyReplicationEndListeners(SimulationEvent* se) {
-	this->_NotifyListeners(this->_onReplicationEndListeners, se);
+void OnEventManager::NotifyReplicationStepHandlers(SimulationEvent* se) {
+    this->_NotifyHandlers(this->_onReplicationStepHandlers, se);
+
 }
 
-void OnEventManager::NotifyProcessEventListeners(SimulationEvent* se) {
-	this->_NotifyListeners(this->_onProcessEventListeners, se);
+void OnEventManager::NotifyReplicationEndHandlers(SimulationEvent* se) {
+    this->_NotifyHandlers(this->_onReplicationEndHandlers, se);
 }
 
-void OnEventManager::NotifySimulationStartListeners(SimulationEvent* se) {
-	this->_NotifyListeners(this->_onReplicationEndListeners, se);
+void OnEventManager::NotifyProcessEventHandlers(SimulationEvent* se) {
+    this->_NotifyHandlers(this->_onProcessEventHandlers, se);
 }
 
-void OnEventManager::NotifySimulationEndListeners(SimulationEvent* se) {
+void OnEventManager::NotifySimulationStartHandlers(SimulationEvent* se) {
+    this->_NotifyHandlers(this->_onReplicationEndHandlers, se);
+}
+
+void OnEventManager::NotifySimulationEndHandlers(SimulationEvent* se) {
 
 }

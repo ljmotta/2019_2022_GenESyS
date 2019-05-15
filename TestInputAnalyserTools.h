@@ -6,7 +6,7 @@
 
 /* 
  * File:   testInputAnalyserTools.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 2 de Outubro de 2018, 19:31
  */
@@ -19,10 +19,10 @@ using namespace std;
 #include "GenesysApplication_if.h"
 
 class TestInputAnalyserTools : public GenesysApplication_if {
-public: 
-	TestInputAnalyserTools();
 public:
-	int main(int argc, char** argv);
+    TestInputAnalyserTools();
+public:
+    int main(int argc, char** argv);
 };
 
 #endif /* TESTINPUTANALYSERTOOLS_H */

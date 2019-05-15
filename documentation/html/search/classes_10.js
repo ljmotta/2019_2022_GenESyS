@@ -2,6 +2,7 @@ var searchData=
 [
   ['testinputanalysertools',['TestInputAnalyserTools',['../class_test_input_analyser_tools.html',1,'']]],
   ['testparser',['TestParser',['../class_test_parser.html',1,'']]],
+  ['teststatistics',['TestStatistics',['../class_test_statistics.html',1,'']]],
   ['traceerrorevent',['TraceErrorEvent',['../class_trace_error_event.html',1,'']]],
   ['traceevent',['TraceEvent',['../class_trace_event.html',1,'']]],
   ['tracemanager',['TraceManager',['../class_trace_manager.html',1,'']]],
@@ -21,5 +22,6 @@ var searchData=
   ['traits_3c_20parser_5fif_20_3e',['Traits&lt; Parser_if &gt;',['../struct_traits_3_01_parser__if_01_4.html',1,'']]],
   ['traits_3c_20processanalyser_5fif_20_3e',['Traits&lt; ProcessAnalyser_if &gt;',['../struct_traits_3_01_process_analyser__if_01_4.html',1,'']]],
   ['traits_3c_20sampler_5fif_20_3e',['Traits&lt; Sampler_if &gt;',['../struct_traits_3_01_sampler__if_01_4.html',1,'']]],
+  ['traits_3c_20simulationreporter_5fif_20_3e',['Traits&lt; SimulationReporter_if &gt;',['../struct_traits_3_01_simulation_reporter__if_01_4.html',1,'']]],
   ['traits_3c_20statistics_5fif_20_3e',['Traits&lt; Statistics_if &gt;',['../struct_traits_3_01_statistics__if_01_4.html',1,'']]]
 ];

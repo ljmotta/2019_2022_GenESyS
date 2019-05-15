@@ -6,7 +6,7 @@
 
 /* 
  * File:   StatisticsDummyImpl.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 23 de Agosto de 2018, 16:52
  */
@@ -15,43 +15,34 @@
 #define STATISTICSDUMMYIMPL_H
 
 #include "Statistics_if.h"
-#include "CollectorDummyImpl.h"
-//#include "Collector_if.h"
-//#include "Traits.h"
+#include "Collector_if.h"
 
 class StatisticsDummyImpl : public Statistics_if {
 public:
-	StatisticsDummyImpl();
-	StatisticsDummyImpl(const StatisticsDummyImpl& orig);
-	virtual ~StatisticsDummyImpl();
+    StatisticsDummyImpl();
+    StatisticsDummyImpl(const StatisticsDummyImpl& orig);
+    virtual ~StatisticsDummyImpl();
 public:
-	Collector_if* getCollector();
-	void setCollector(Collector_if* collector);
+    virtual Collector_if* getCollector();
+    void setCollector(Collector_if* collector);
 public:
-	unsigned int numElements();
-	double min();
-	double max();
-	double average();
-	double mode();
-	double mediane();
-	double variance();
-	double stddeviation();
-	double variationCoef();
-	double halfWidthConfidenceInterval(double confidencelevel);
-	unsigned int newSampleSize(double confidencelevel, double halfWidth);
-	double quartil(unsigned short num);
-	double decil(unsigned short num);
-	double centil(unsigned short num);
-	void setHistogramNumClasses(unsigned short num);
-	unsigned short histogramNumClasses();
-	double histogramClassLowerLimit(unsigned short classNum);
-	unsigned int histogramClassFrequency(unsigned short classNum);
+    virtual unsigned int numElements();
+    virtual double min();
+    virtual double max();
+    virtual double average();
+    virtual double variance();
+    virtual double stddeviation();
+    virtual double variationCoef();
+    virtual double halfWidthConfidenceInterval();
+    virtual unsigned int newSampleSize(double halfWidth);
+    virtual double getConfidenceLevel() ;
+    virtual void setConfidenceLevel(double confidencelevel);
 private:
-	Collector_if* _collector = new CollectorDummyImpl();
-	/* TODO:  WTF? Why the next lines do not compile? */
-	//Collector_if* _collector = new Traits<ModelComponent>::CollectorImplementation();
-	//Collector_if* _collector = new Traits<Collector_if>::ModelImplementation();
-
+    void collectorAddHandler(double newValue);
+    void collectorClearHandler();
+private:
+    Collector_if* _collector;
+    double _average = 0.0;
 };
 
 #endif /* STATISTICSDUMMYIMPL_H */

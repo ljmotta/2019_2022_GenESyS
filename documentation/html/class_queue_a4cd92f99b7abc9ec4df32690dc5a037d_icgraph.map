@@ -1,4 +1,3 @@
 <map id="Queue::size" name="Queue::size">
-<area shape="rect" id="node2" href="$class_release.html#a63c3cd89082e7f6c1fb61646b93a5c32" title="Release::_execute" alt="" coords="147,5,277,32"/>
-<area shape="rect" id="node3" href="$class_seize.html#a96f6517a40b3bfd0d5ea753d59cef797" title="Seize::_execute" alt="" coords="154,56,270,83"/>
+<area shape="rect" id="node2" href="$class_seize.html#a96f6517a40b3bfd0d5ea753d59cef797" title="Seize::_execute" alt="" coords="145,5,261,32"/>
 </map>

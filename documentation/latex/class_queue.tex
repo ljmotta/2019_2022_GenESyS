@@ -6,28 +6,37 @@
 
 
 
-Inheritance diagram for Queue\+:
-\nopagebreak
+Inheritance diagram for Queue\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=256pt]{class_queue__inherit__graph}
+\includegraphics[width=234pt]{class_queue__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Collaboration diagram for Queue\+:
-\nopagebreak
+Collaboration diagram for Queue\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=256pt]{class_queue__coll__graph}
+\includegraphics[width=234pt]{class_queue__coll__graph}
 \end{center}
 \end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_queue_ad95b032373998be7300d630784246aae}{Order\+Rule} \+: int \{ \hyperlink{class_queue_ad95b032373998be7300d630784246aaeac589858dbe1d06c46544266ae4cd2c6f}{Order\+Rule\+::\+F\+I\+FO} = 1, 
+\hyperlink{class_queue_ad95b032373998be7300d630784246aaea249e6270d397378907bb92948fb14876}{Order\+Rule\+::\+L\+I\+FO} = 2, 
+\hyperlink{class_queue_ad95b032373998be7300d630784246aaeac4484b1c747b2daf46405fd02cb106fd}{Order\+Rule\+::\+H\+I\+G\+H\+E\+S\+T\+V\+A\+L\+UE} = 3, 
+\hyperlink{class_queue_ad95b032373998be7300d630784246aaea40dc8d31da54b6a213022f8c6165440e}{Order\+Rule\+::\+S\+M\+A\+L\+L\+E\+S\+T\+V\+A\+L\+UE} = 4
+ \}
+\end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_queue_a67994e94c7d825b421a188c6b76f4014}{Queue} (\hyperlink{class_model}{Model} $\ast$model)
+\hyperlink{class_queue_a21aace6957127c66dfcf25c32f05106c}{Queue} (\hyperlink{class_element_manager}{Element\+Manager} $\ast$elems)
+\item 
+\hyperlink{class_queue_aff61cf134dd95fc7359a8c55a214a7e0}{Queue} (\hyperlink{class_element_manager}{Element\+Manager} $\ast$elems, std\+::string name)
 \item 
 \hyperlink{class_queue_a09f908d6edb810d86871bda50fdf4bac}{Queue} (const \hyperlink{class_queue}{Queue} \&orig)
 \item 
@@ -42,6 +51,14 @@ void \hyperlink{class_queue_a114d5144b3026b57cca9cf481b1f0d65}{remove\+Element} 
 unsigned int \hyperlink{class_queue_a4cd92f99b7abc9ec4df32690dc5a037d}{size} ()
 \item 
 \hyperlink{class_waiting}{Waiting} $\ast$ \hyperlink{class_queue_a39a1f5a1733f61634339ecee7aac7907}{first} ()
+\item 
+void \hyperlink{class_queue_ac6dfa8e6902a2ef4aebf2b19c33279fd}{set\+Attribute\+Name} (std\+::string \+\_\+attribute\+Name)
+\item 
+std\+::string \hyperlink{class_queue_adad268232645381606198ea9ac598cb3}{get\+Attribute\+Name} () const 
+\item 
+void \hyperlink{class_queue_acab2f77f099d40afa971ad5d9d9d9323}{set\+Order\+Rule} (\hyperlink{class_queue_ad95b032373998be7300d630784246aae}{Order\+Rule} \+\_\+order\+Rule)
+\item 
+\hyperlink{class_queue_ad95b032373998be7300d630784246aae}{Queue\+::\+Order\+Rule} \hyperlink{class_queue_af66acbad0c1272ea67255425cd9d5a37}{get\+Order\+Rule} () const 
 \end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
@@ -55,14 +72,52 @@ virtual bool \hyperlink{class_queue_a81f6676597a7974af394ddd3f67c7926}{\+\_\+ver
 \subsection*{Additional Inherited Members}
 
 
+\subsection{Member Enumeration Documentation}
+\index{Queue@{Queue}!Order\+Rule@{Order\+Rule}}
+\index{Order\+Rule@{Order\+Rule}!Queue@{Queue}}
+\subsubsection[{\texorpdfstring{Order\+Rule}{OrderRule}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Queue\+::\+Order\+Rule} \+: int\hspace{0.3cm}{\ttfamily [strong]}}\hypertarget{class_queue_ad95b032373998be7300d630784246aae}{}\label{class_queue_ad95b032373998be7300d630784246aae}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{F\+I\+FO@{F\+I\+FO}!Queue@{Queue}}\index{Queue@{Queue}!F\+I\+FO@{F\+I\+FO}}\item[{\em 
+F\+I\+FO\hypertarget{class_queue_ad95b032373998be7300d630784246aaeac589858dbe1d06c46544266ae4cd2c6f}{}\label{class_queue_ad95b032373998be7300d630784246aaeac589858dbe1d06c46544266ae4cd2c6f}
+}]\index{L\+I\+FO@{L\+I\+FO}!Queue@{Queue}}\index{Queue@{Queue}!L\+I\+FO@{L\+I\+FO}}\item[{\em 
+L\+I\+FO\hypertarget{class_queue_ad95b032373998be7300d630784246aaea249e6270d397378907bb92948fb14876}{}\label{class_queue_ad95b032373998be7300d630784246aaea249e6270d397378907bb92948fb14876}
+}]\index{H\+I\+G\+H\+E\+S\+T\+V\+A\+L\+UE@{H\+I\+G\+H\+E\+S\+T\+V\+A\+L\+UE}!Queue@{Queue}}\index{Queue@{Queue}!H\+I\+G\+H\+E\+S\+T\+V\+A\+L\+UE@{H\+I\+G\+H\+E\+S\+T\+V\+A\+L\+UE}}\item[{\em 
+H\+I\+G\+H\+E\+S\+T\+V\+A\+L\+UE\hypertarget{class_queue_ad95b032373998be7300d630784246aaeac4484b1c747b2daf46405fd02cb106fd}{}\label{class_queue_ad95b032373998be7300d630784246aaeac4484b1c747b2daf46405fd02cb106fd}
+}]\index{S\+M\+A\+L\+L\+E\+S\+T\+V\+A\+L\+UE@{S\+M\+A\+L\+L\+E\+S\+T\+V\+A\+L\+UE}!Queue@{Queue}}\index{Queue@{Queue}!S\+M\+A\+L\+L\+E\+S\+T\+V\+A\+L\+UE@{S\+M\+A\+L\+L\+E\+S\+T\+V\+A\+L\+UE}}\item[{\em 
+S\+M\+A\+L\+L\+E\+S\+T\+V\+A\+L\+UE\hypertarget{class_queue_ad95b032373998be7300d630784246aaea40dc8d31da54b6a213022f8c6165440e}{}\label{class_queue_ad95b032373998be7300d630784246aaea40dc8d31da54b6a213022f8c6165440e}
+}]\end{description}
+\end{Desc}
+
+
 \subsection{Constructor \& Destructor Documentation}
 \index{Queue@{Queue}!Queue@{Queue}}
 \index{Queue@{Queue}!Queue@{Queue}}
-\subsubsection[{\texorpdfstring{Queue(\+Model $\ast$model)}{Queue(Model *model)}}]{\setlength{\rightskip}{0pt plus 5cm}Queue\+::\+Queue (
+\subsubsection[{\texorpdfstring{Queue(\+Element\+Manager $\ast$elems)}{Queue(ElementManager *elems)}}]{\setlength{\rightskip}{0pt plus 5cm}Queue\+::\+Queue (
 \begin{DoxyParamCaption}
-\item[{{\bf Model} $\ast$}]{model}
+\item[{{\bf Element\+Manager} $\ast$}]{elems}
 \end{DoxyParamCaption}
-)}\hypertarget{class_queue_a67994e94c7d825b421a188c6b76f4014}{}\label{class_queue_a67994e94c7d825b421a188c6b76f4014}
+)}\hypertarget{class_queue_a21aace6957127c66dfcf25c32f05106c}{}\label{class_queue_a21aace6957127c66dfcf25c32f05106c}
+\index{Queue@{Queue}!Queue@{Queue}}
+\index{Queue@{Queue}!Queue@{Queue}}
+\subsubsection[{\texorpdfstring{Queue(\+Element\+Manager $\ast$elems, std\+::string name)}{Queue(ElementManager *elems, std::string name)}}]{\setlength{\rightskip}{0pt plus 5cm}Queue\+::\+Queue (
+\begin{DoxyParamCaption}
+\item[{{\bf Element\+Manager} $\ast$}]{elems, }
+\item[{std\+::string}]{name}
+\end{DoxyParamCaption}
+)}\hypertarget{class_queue_aff61cf134dd95fc7359a8c55a214a7e0}{}\label{class_queue_aff61cf134dd95fc7359a8c55a214a7e0}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_queue_aff61cf134dd95fc7359a8c55a214a7e0_cgraph}
+\end{center}
+\end{figure}
+
+
 \index{Queue@{Queue}!Queue@{Queue}}
 \index{Queue@{Queue}!Queue@{Queue}}
 \subsubsection[{\texorpdfstring{Queue(const Queue \&orig)}{Queue(const Queue &orig)}}]{\setlength{\rightskip}{0pt plus 5cm}Queue\+::\+Queue (
@@ -79,6 +134,17 @@ virtual bool \hyperlink{class_queue_a81f6676597a7974af394ddd3f67c7926}{\+\_\+ver
 )\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_queue_a00d119db8fa3050da37746e82cbcf94f}{}\label{class_queue_a00d119db8fa3050da37746e82cbcf94f}
 
 
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_queue_a00d119db8fa3050da37746e82cbcf94f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
 \subsection{Member Function Documentation}
 \index{Queue@{Queue}!\+\_\+load\+Instance@{\+\_\+load\+Instance}}
 \index{\+\_\+load\+Instance@{\+\_\+load\+Instance}!Queue@{Queue}}
@@ -89,7 +155,7 @@ virtual bool \hyperlink{class_queue_a81f6676597a7974af394ddd3f67c7926}{\+\_\+ver
 )\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{class_queue_ac722922c7cac47ed74502c2d7206c074}{}\label{class_queue_ac722922c7cac47ed74502c2d7206c074}
 
 
-Implements \hyperlink{class_model_infrastructure_ae118c8ad2ac9d4397c40d004af51b2dc}{Model\+Infrastructure}.
+Implements \hyperlink{class_model_element_a8208ee1dbd8b15acf7c2a0a85b218d56}{Model\+Element}.
 
 \index{Queue@{Queue}!\+\_\+save\+Instance@{\+\_\+save\+Instance}}
 \index{\+\_\+save\+Instance@{\+\_\+save\+Instance}!Queue@{Queue}}
@@ -100,7 +166,18 @@ Implements \hyperlink{class_model_infrastructure_ae118c8ad2ac9d4397c40d004af51b2
 )\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{class_queue_a9245790264a9d68030ae8bd884c85bcf}{}\label{class_queue_a9245790264a9d68030ae8bd884c85bcf}
 
 
-Reimplemented from \hyperlink{class_model_infrastructure_a991f46601d9e865f2e27c6cd7a2b702d}{Model\+Infrastructure}.
+Reimplemented from \hyperlink{class_model_element_af20dbba778ca07b23b299f2be73dc964}{Model\+Element}.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_queue_a9245790264a9d68030ae8bd884c85bcf_cgraph}
+\end{center}
+\end{figure}
+
 
 \index{Queue@{Queue}!\+\_\+verify\+Symbols@{\+\_\+verify\+Symbols}}
 \index{\+\_\+verify\+Symbols@{\+\_\+verify\+Symbols}!Queue@{Queue}}
@@ -111,7 +188,7 @@ Reimplemented from \hyperlink{class_model_infrastructure_a991f46601d9e865f2e27c6
 )\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{class_queue_a81f6676597a7974af394ddd3f67c7926}{}\label{class_queue_a81f6676597a7974af394ddd3f67c7926}
 
 
-Implements \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a388}{Model\+Infrastructure}.
+Implements \hyperlink{class_model_element_a42d23a83672cf746c709a031966484b2}{Model\+Element}.
 
 \index{Queue@{Queue}!first@{first}}
 \index{first@{first}!Queue@{Queue}}
@@ -120,6 +197,42 @@ Implements \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a3
 {}
 \end{DoxyParamCaption}
 )}\hypertarget{class_queue_a39a1f5a1733f61634339ecee7aac7907}{}\label{class_queue_a39a1f5a1733f61634339ecee7aac7907}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=239pt]{class_queue_a39a1f5a1733f61634339ecee7aac7907_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{class_queue_a39a1f5a1733f61634339ecee7aac7907_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{Queue@{Queue}!get\+Attribute\+Name@{get\+Attribute\+Name}}
+\index{get\+Attribute\+Name@{get\+Attribute\+Name}!Queue@{Queue}}
+\subsubsection[{\texorpdfstring{get\+Attribute\+Name() const }{getAttributeName() const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Queue\+::get\+Attribute\+Name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_queue_adad268232645381606198ea9ac598cb3}{}\label{class_queue_adad268232645381606198ea9ac598cb3}
+\index{Queue@{Queue}!get\+Order\+Rule@{get\+Order\+Rule}}
+\index{get\+Order\+Rule@{get\+Order\+Rule}!Queue@{Queue}}
+\subsubsection[{\texorpdfstring{get\+Order\+Rule() const }{getOrderRule() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Queue\+::\+Order\+Rule} Queue\+::get\+Order\+Rule (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_queue_af66acbad0c1272ea67255425cd9d5a37}{}\label{class_queue_af66acbad0c1272ea67255425cd9d5a37}
 \index{Queue@{Queue}!insert\+Element@{insert\+Element}}
 \index{insert\+Element@{insert\+Element}!Queue@{Queue}}
 \subsubsection[{\texorpdfstring{insert\+Element(\+Waiting $\ast$element)}{insertElement(Waiting *element)}}]{\setlength{\rightskip}{0pt plus 5cm}void Queue\+::insert\+Element (
@@ -127,6 +240,28 @@ Implements \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a3
 \item[{{\bf Waiting} $\ast$}]{element}
 \end{DoxyParamCaption}
 )}\hypertarget{class_queue_a961b5b7ca80317aa69f958612fb988ad}{}\label{class_queue_a961b5b7ca80317aa69f958612fb988ad}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_queue_a961b5b7ca80317aa69f958612fb988ad_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{class_queue_a961b5b7ca80317aa69f958612fb988ad_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Queue@{Queue}!remove\+Element@{remove\+Element}}
 \index{remove\+Element@{remove\+Element}!Queue@{Queue}}
 \subsubsection[{\texorpdfstring{remove\+Element(\+Waiting $\ast$element, double tnow)}{removeElement(Waiting *element, double tnow)}}]{\setlength{\rightskip}{0pt plus 5cm}void Queue\+::remove\+Element (
@@ -135,6 +270,53 @@ Implements \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a3
 \item[{double}]{tnow}
 \end{DoxyParamCaption}
 )}\hypertarget{class_queue_a114d5144b3026b57cca9cf481b1f0d65}{}\label{class_queue_a114d5144b3026b57cca9cf481b1f0d65}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_queue_a114d5144b3026b57cca9cf481b1f0d65_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_queue_a114d5144b3026b57cca9cf481b1f0d65_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{Queue@{Queue}!set\+Attribute\+Name@{set\+Attribute\+Name}}
+\index{set\+Attribute\+Name@{set\+Attribute\+Name}!Queue@{Queue}}
+\subsubsection[{\texorpdfstring{set\+Attribute\+Name(std\+::string \+\_\+attribute\+Name)}{setAttributeName(std::string _attributeName)}}]{\setlength{\rightskip}{0pt plus 5cm}void Queue\+::set\+Attribute\+Name (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{\+\_\+attribute\+Name}
+\end{DoxyParamCaption}
+)}\hypertarget{class_queue_ac6dfa8e6902a2ef4aebf2b19c33279fd}{}\label{class_queue_ac6dfa8e6902a2ef4aebf2b19c33279fd}
+\index{Queue@{Queue}!set\+Order\+Rule@{set\+Order\+Rule}}
+\index{set\+Order\+Rule@{set\+Order\+Rule}!Queue@{Queue}}
+\subsubsection[{\texorpdfstring{set\+Order\+Rule(\+Order\+Rule \+\_\+order\+Rule)}{setOrderRule(OrderRule _orderRule)}}]{\setlength{\rightskip}{0pt plus 5cm}void Queue\+::set\+Order\+Rule (
+\begin{DoxyParamCaption}
+\item[{{\bf Order\+Rule}}]{\+\_\+order\+Rule}
+\end{DoxyParamCaption}
+)}\hypertarget{class_queue_acab2f77f099d40afa971ad5d9d9d9323}{}\label{class_queue_acab2f77f099d40afa971ad5d9d9d9323}
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_queue_acab2f77f099d40afa971ad5d9d9d9323_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Queue@{Queue}!show@{show}}
 \index{show@{show}!Queue@{Queue}}
 \subsubsection[{\texorpdfstring{show()}{show()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Queue\+::show (
@@ -144,7 +326,18 @@ Implements \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a3
 )\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_queue_ac78cc84cd91539c7f38d95dc17dabac5}{}\label{class_queue_ac78cc84cd91539c7f38d95dc17dabac5}
 
 
-Reimplemented from \hyperlink{class_model_infrastructure_a649a5a89a0c9931783d3c51de2acf266}{Model\+Infrastructure}.
+Reimplemented from \hyperlink{class_model_element_af084d684e8effe5cd4c2265abc98896c}{Model\+Element}.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{class_queue_ac78cc84cd91539c7f38d95dc17dabac5_cgraph}
+\end{center}
+\end{figure}
+
 
 \index{Queue@{Queue}!size@{size}}
 \index{size@{size}!Queue@{Queue}}
@@ -153,6 +346,28 @@ Reimplemented from \hyperlink{class_model_infrastructure_a649a5a89a0c9931783d3c5
 {}
 \end{DoxyParamCaption}
 )}\hypertarget{class_queue_a4cd92f99b7abc9ec4df32690dc5a037d}{}\label{class_queue_a4cd92f99b7abc9ec4df32690dc5a037d}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=241pt]{class_queue_a4cd92f99b7abc9ec4df32690dc5a037d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{class_queue_a4cd92f99b7abc9ec4df32690dc5a037d_icgraph}
+\end{center}
+\end{figure}
+
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

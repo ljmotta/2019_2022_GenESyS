@@ -6,22 +6,20 @@
 
 
 
-Inheritance diagram for Release\+:
-\nopagebreak
+Inheritance diagram for Release\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=181pt]{class_release__inherit__graph}
+\includegraphics[width=173pt]{class_release__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Collaboration diagram for Release\+:
-\nopagebreak
+Collaboration diagram for Release\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=242pt]{class_release__coll__graph}
+\includegraphics[width=220pt]{class_release__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
@@ -55,13 +53,13 @@ void \hyperlink{class_release_a6f9e951b23189c70d3b323be8a76a102}{set\+Save\+Attr
 \item 
 std\+::string \hyperlink{class_release_a525e021be268daa004f06559d83081c3}{get\+Save\+Attribute} () const 
 \item 
-void \hyperlink{class_release_a26fda460abe6f9a92872027014c41d4a}{set\+Resource\+Name} (std\+::string \+\_\+resource\+Name)
+void \hyperlink{class_release_aeb4a7c34e93f252f1f6a43d674b24544}{set\+Resource} (\hyperlink{class_resource}{Resource} $\ast$\+\_\+resource)
+\item 
+\hyperlink{class_resource}{Resource} $\ast$ \hyperlink{class_release_a1197ffb3d874d54850371026d1465adf}{get\+Resource} () const 
+\item 
+void \hyperlink{class_release_a5e95c1fffad1768a17703faf2d173b78}{set\+Resource\+Name} (std\+::string resource\+Name)  throw ()
 \item 
 std\+::string \hyperlink{class_release_a75e54be899af04450feb2d8a1c32cfe7}{get\+Resource\+Name} () const 
-\item 
-void \hyperlink{class_release_ae845be9db739fbb317bd05f0b0fe21c5}{set\+Queue\+Name} (std\+::string \+\_\+queue\+Name)
-\item 
-std\+::string \hyperlink{class_release_aa8571b1bd8a9880d316a2556df1a07f3}{get\+Queue\+Name} () const 
 \end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
@@ -113,6 +111,17 @@ virtual bool \hyperlink{class_release_a81a30c1357d00e830bdc044418865e31}{\+\_\+v
 
 Implements \hyperlink{class_model_component_ae3fcf8bbdd8368c882438424aa73f714}{Model\+Component}.
 
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_release_a63c3cd89082e7f6c1fb61646b93a5c32_cgraph}
+\end{center}
+\end{figure}
+
+
 \index{Release@{Release}!\+\_\+load\+Instance@{\+\_\+load\+Instance}}
 \index{\+\_\+load\+Instance@{\+\_\+load\+Instance}!Release@{Release}}
 \subsubsection[{\texorpdfstring{\+\_\+load\+Instance(std\+::list$<$ std\+::string $>$ words)}{_loadInstance(std::list< std::string > words)}}]{\setlength{\rightskip}{0pt plus 5cm}void Release\+::\+\_\+load\+Instance (
@@ -122,7 +131,7 @@ Implements \hyperlink{class_model_component_ae3fcf8bbdd8368c882438424aa73f714}{M
 )\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{class_release_a1c3820675ad6a119a8cc6a75b870bd49}{}\label{class_release_a1c3820675ad6a119a8cc6a75b870bd49}
 
 
-Implements \hyperlink{class_model_infrastructure_ae118c8ad2ac9d4397c40d004af51b2dc}{Model\+Infrastructure}.
+Implements \hyperlink{class_model_element_a8208ee1dbd8b15acf7c2a0a85b218d56}{Model\+Element}.
 
 \index{Release@{Release}!\+\_\+save\+Instance@{\+\_\+save\+Instance}}
 \index{\+\_\+save\+Instance@{\+\_\+save\+Instance}!Release@{Release}}
@@ -135,6 +144,17 @@ Implements \hyperlink{class_model_infrastructure_ae118c8ad2ac9d4397c40d004af51b2
 
 Reimplemented from \hyperlink{class_model_component_a465f41c7191cb0fdf9039ef1f3d755a5}{Model\+Component}.
 
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_release_a2e15540e86b8d0ce62c553f3e9b095c3_cgraph}
+\end{center}
+\end{figure}
+
+
 \index{Release@{Release}!\+\_\+verify\+Symbols@{\+\_\+verify\+Symbols}}
 \index{\+\_\+verify\+Symbols@{\+\_\+verify\+Symbols}!Release@{Release}}
 \subsubsection[{\texorpdfstring{\+\_\+verify\+Symbols(std\+::string $\ast$error\+Message)}{_verifySymbols(std::string *errorMessage)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Release\+::\+\_\+verify\+Symbols (
@@ -144,7 +164,7 @@ Reimplemented from \hyperlink{class_model_component_a465f41c7191cb0fdf9039ef1f3d
 )\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{class_release_a81a30c1357d00e830bdc044418865e31}{}\label{class_release_a81a30c1357d00e830bdc044418865e31}
 
 
-Implements \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a388}{Model\+Infrastructure}.
+Implements \hyperlink{class_model_element_a42d23a83672cf746c709a031966484b2}{Model\+Element}.
 
 \index{Release@{Release}!get\+Priority@{get\+Priority}}
 \index{get\+Priority@{get\+Priority}!Release@{Release}}
@@ -160,13 +180,13 @@ Implements \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a3
 {}
 \end{DoxyParamCaption}
 ) const}\hypertarget{class_release_ab71d29f1a502f6b0a1d65d34ff999efc}{}\label{class_release_ab71d29f1a502f6b0a1d65d34ff999efc}
-\index{Release@{Release}!get\+Queue\+Name@{get\+Queue\+Name}}
-\index{get\+Queue\+Name@{get\+Queue\+Name}!Release@{Release}}
-\subsubsection[{\texorpdfstring{get\+Queue\+Name() const }{getQueueName() const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Release\+::get\+Queue\+Name (
+\index{Release@{Release}!get\+Resource@{get\+Resource}}
+\index{get\+Resource@{get\+Resource}!Release@{Release}}
+\subsubsection[{\texorpdfstring{get\+Resource() const }{getResource() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Resource} $\ast$ Release\+::get\+Resource (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}\hypertarget{class_release_aa8571b1bd8a9880d316a2556df1a07f3}{}\label{class_release_aa8571b1bd8a9880d316a2556df1a07f3}
+) const}\hypertarget{class_release_a1197ffb3d874d54850371026d1465adf}{}\label{class_release_a1197ffb3d874d54850371026d1465adf}
 \index{Release@{Release}!get\+Resource\+Name@{get\+Resource\+Name}}
 \index{get\+Resource\+Name@{get\+Resource\+Name}!Release@{Release}}
 \subsubsection[{\texorpdfstring{get\+Resource\+Name() const }{getResourceName() const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Release\+::get\+Resource\+Name (
@@ -174,6 +194,17 @@ Implements \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a3
 {}
 \end{DoxyParamCaption}
 ) const}\hypertarget{class_release_a75e54be899af04450feb2d8a1c32cfe7}{}\label{class_release_a75e54be899af04450feb2d8a1c32cfe7}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_release_a75e54be899af04450feb2d8a1c32cfe7_cgraph}
+\end{center}
+\end{figure}
+
+
 \index{Release@{Release}!get\+Resource\+Type@{get\+Resource\+Type}}
 \index{get\+Resource\+Type@{get\+Resource\+Type}!Release@{Release}}
 \subsubsection[{\texorpdfstring{get\+Resource\+Type() const }{getResourceType() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Resource\+::\+Resource\+Type} Release\+::get\+Resource\+Type (
@@ -209,20 +240,42 @@ Implements \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a3
 \item[{std\+::string}]{\+\_\+quantity}
 \end{DoxyParamCaption}
 )}\hypertarget{class_release_a79c838d313189712919ca132d3e4102a}{}\label{class_release_a79c838d313189712919ca132d3e4102a}
-\index{Release@{Release}!set\+Queue\+Name@{set\+Queue\+Name}}
-\index{set\+Queue\+Name@{set\+Queue\+Name}!Release@{Release}}
-\subsubsection[{\texorpdfstring{set\+Queue\+Name(std\+::string \+\_\+queue\+Name)}{setQueueName(std::string _queueName)}}]{\setlength{\rightskip}{0pt plus 5cm}void Release\+::set\+Queue\+Name (
+\index{Release@{Release}!set\+Resource@{set\+Resource}}
+\index{set\+Resource@{set\+Resource}!Release@{Release}}
+\subsubsection[{\texorpdfstring{set\+Resource(\+Resource $\ast$\+\_\+resource)}{setResource(Resource *_resource)}}]{\setlength{\rightskip}{0pt plus 5cm}void Release\+::set\+Resource (
 \begin{DoxyParamCaption}
-\item[{std\+::string}]{\+\_\+queue\+Name}
+\item[{{\bf Resource} $\ast$}]{\+\_\+resource}
 \end{DoxyParamCaption}
-)}\hypertarget{class_release_ae845be9db739fbb317bd05f0b0fe21c5}{}\label{class_release_ae845be9db739fbb317bd05f0b0fe21c5}
+)}\hypertarget{class_release_aeb4a7c34e93f252f1f6a43d674b24544}{}\label{class_release_aeb4a7c34e93f252f1f6a43d674b24544}
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_release_aeb4a7c34e93f252f1f6a43d674b24544_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Release@{Release}!set\+Resource\+Name@{set\+Resource\+Name}}
 \index{set\+Resource\+Name@{set\+Resource\+Name}!Release@{Release}}
-\subsubsection[{\texorpdfstring{set\+Resource\+Name(std\+::string \+\_\+resource\+Name)}{setResourceName(std::string _resourceName)}}]{\setlength{\rightskip}{0pt plus 5cm}void Release\+::set\+Resource\+Name (
+\subsubsection[{\texorpdfstring{set\+Resource\+Name(std\+::string resource\+Name)}{setResourceName(std::string resourceName)}}]{\setlength{\rightskip}{0pt plus 5cm}void Release\+::set\+Resource\+Name (
 \begin{DoxyParamCaption}
-\item[{std\+::string}]{\+\_\+resource\+Name}
+\item[{std\+::string}]{resource\+Name}
 \end{DoxyParamCaption}
-)}\hypertarget{class_release_a26fda460abe6f9a92872027014c41d4a}{}\label{class_release_a26fda460abe6f9a92872027014c41d4a}
+) throw  ) }\hypertarget{class_release_a5e95c1fffad1768a17703faf2d173b78}{}\label{class_release_a5e95c1fffad1768a17703faf2d173b78}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_release_a5e95c1fffad1768a17703faf2d173b78_cgraph}
+\end{center}
+\end{figure}
+
+
 \index{Release@{Release}!set\+Resource\+Type@{set\+Resource\+Type}}
 \index{set\+Resource\+Type@{set\+Resource\+Type}!Release@{Release}}
 \subsubsection[{\texorpdfstring{set\+Resource\+Type(\+Resource\+::\+Resource\+Type \+\_\+resource\+Type)}{setResourceType(Resource::ResourceType _resourceType)}}]{\setlength{\rightskip}{0pt plus 5cm}void Release\+::set\+Resource\+Type (
@@ -254,6 +307,17 @@ Implements \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a3
 
 
 Reimplemented from \hyperlink{class_model_component_ad8bc846e36b028eab7efb7da6c549eca}{Model\+Component}.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_release_a1ec7b35553820f0f228f31be1df468c3_cgraph}
+\end{center}
+\end{figure}
+
 
 
 

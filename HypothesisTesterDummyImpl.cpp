@@ -6,7 +6,7 @@
 
 /* 
  * File:   HypothesisTester.cpp
- * Author: cancian
+ * Author: rafael.luiz.cancian
  * 
  * Created on 7 de Agosto de 2018, 19:03
  */
@@ -22,22 +22,22 @@ HypothesisTesterDummyImpl::HypothesisTesterDummyImpl(const HypothesisTesterDummy
 HypothesisTesterDummyImpl::~HypothesisTesterDummyImpl() {
 }
 
-bool HypothesisTesterDummyImpl::testAverage(double confidencelevel, double avg, H1Comparition comp) {
+double HypothesisTesterDummyImpl::testAverage(double confidencelevel, double avg, H1Comparition comp) {
 }
 
-bool HypothesisTesterDummyImpl::testProportion(double confidencelevel, double prop, H1Comparition comp) {
+double HypothesisTesterDummyImpl::testProportion(double confidencelevel, double prop, H1Comparition comp) {
 }
 
-bool HypothesisTesterDummyImpl::testVariance(double confidencelevel, double var, H1Comparition comp) {
+double HypothesisTesterDummyImpl::testVariance(double confidencelevel, double var, H1Comparition comp) {
 }
 
-bool HypothesisTesterDummyImpl::testAverage(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) {
+double HypothesisTesterDummyImpl::testAverage(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) {
 }
 
-bool HypothesisTesterDummyImpl::testProportion(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) {
+double HypothesisTesterDummyImpl::testProportion(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) {
 }
 
-bool HypothesisTesterDummyImpl::testVariance(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) {
+double HypothesisTesterDummyImpl::testVariance(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) {
 }
 
 void HypothesisTesterDummyImpl::setDataFilename(std::string dataFilename) {

@@ -6,25 +6,25 @@
 
 /* 
  * File:   SimulationControl.cpp
- * Author: cancian
+ * Author: rafael.luiz.cancian
  * 
  * Created on 10 de Outubro de 2018, 18:01
  */
 
 #include "SimulationControl.h"
 
-SimulationControl::SimulationControl(std::string type, std::string name, GetFunctor getFunctor, SetFunctor setFunctor): SimulationResponse(type, name, getFunctor) {
-	this->_type = type;
-    this->_memberFunctionSetDoubleHandler = setFunctor;
+SimulationControl::SimulationControl(std::string type, std::string name, GetterMember getterMember, SetterMember setterMember) : SimulationResponse(type, name, getterMember) {
+    this->_type = type;
+    this->_setMemberFunction = setterMember;
 }
 
-SimulationControl::SimulationControl(const SimulationControl& orig): SimulationResponse(orig) {
+SimulationControl::SimulationControl(const SimulationControl& orig) : SimulationResponse(orig) {
 }
 
 SimulationControl::~SimulationControl() {
 }
 
 void SimulationControl::setValue(double value) {
-	this->_memberFunctionSetDoubleHandler(value);
+    this->_setMemberFunction(value);
 }
 

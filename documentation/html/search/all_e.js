@@ -1,10 +1,13 @@
 var searchData=
 [
-  ['parameters',['Parameters',['../struct_traits_3_01_sampler__if_01_4.html#a1d090ad5a8c6c3554e5ad4361210eb00',1,'Traits&lt; Sampler_if &gt;']]],
-  ['parse',['parse',['../class_parser__if.html#a4a5dacf0588b29e7eb6c639ae2701fa6',1,'Parser_if::parse(const std::string expression)=0'],['../class_parser__if.html#af163b0c5b081ccfa2ba04267cd4741b1',1,'Parser_if::parse(const std::string expression, bool *success, std::string *errorMessage)=0'],['../class_parser_dummy_impl.html#ad22fb84dd90c9b19d11a0711b1148e32',1,'ParserDummyImpl::parse(const std::string expression)'],['../class_parser_dummy_impl.html#a7e26c2710c8da73807a3800223d01412',1,'ParserDummyImpl::parse(const std::string expression, bool *success, std::string *errorMessage)']]],
+  ['parameters',['Parameters',['../struct_traits_3_01_sampler__if_01_4.html#a487504e8c07ee1f93dcdc3e0a9a26de5',1,'Traits&lt; Sampler_if &gt;']]],
+  ['parse',['parse',['../class_parser__if.html#a4a5dacf0588b29e7eb6c639ae2701fa6',1,'Parser_if::parse(const std::string expression)=0'],['../class_parser__if.html#af163b0c5b081ccfa2ba04267cd4741b1',1,'Parser_if::parse(const std::string expression, bool *success, std::string *errorMessage)=0'],['../class_parser_default_impl1.html#a145c7f11930fe2c14f1befe129f79ea1',1,'ParserDefaultImpl1::parse(const std::string expression)'],['../class_parser_default_impl1.html#af8bd248de0bfbf6148c0e86d9ad2184c',1,'ParserDefaultImpl1::parse(const std::string expression, bool *success, std::string *errorMessage)'],['../class_parser_dummy_impl.html#ad22fb84dd90c9b19d11a0711b1148e32',1,'ParserDummyImpl::parse(const std::string expression)'],['../class_parser_dummy_impl.html#a7e26c2710c8da73807a3800223d01412',1,'ParserDummyImpl::parse(const std::string expression, bool *success, std::string *errorMessage)']]],
   ['parseexpression',['parseExpression',['../class_model.html#a5ea283e339b50c0b77040bf908e25af3',1,'Model::parseExpression(const std::string expression)'],['../class_model.html#a408ddfa761fcd04ec1211ae6c1526ab3',1,'Model::parseExpression(const std::string expression, bool *success, std::string *errorMessage)']]],
   ['parser_5fif',['Parser_if',['../class_parser__if.html',1,'']]],
   ['parser_5fif_2eh',['Parser_if.h',['../_parser__if_8h.html',1,'']]],
+  ['parserdefaultimpl1',['ParserDefaultImpl1',['../class_parser_default_impl1.html',1,'ParserDefaultImpl1'],['../class_parser_default_impl1.html#aac6f2b7233d48d18f560ced0c60f217b',1,'ParserDefaultImpl1::ParserDefaultImpl1(Model *model)'],['../class_parser_default_impl1.html#a119a4fa2dfe5e2ed560f597eb6a0760a',1,'ParserDefaultImpl1::ParserDefaultImpl1(const ParserDefaultImpl1 &amp;orig)']]],
+  ['parserdefaultimpl1_2ecpp',['ParserDefaultImpl1.cpp',['../_parser_default_impl1_8cpp.html',1,'']]],
+  ['parserdefaultimpl1_2eh',['ParserDefaultImpl1.h',['../_parser_default_impl1_8h.html',1,'']]],
   ['parserdummyimpl',['ParserDummyImpl',['../class_parser_dummy_impl.html',1,'ParserDummyImpl'],['../class_parser_dummy_impl.html#a35d0880aeacf49b43dc36af3fc5175e9',1,'ParserDummyImpl::ParserDummyImpl(Model *model)'],['../class_parser_dummy_impl.html#ab567bc3489bab35c008d0736b86bc579',1,'ParserDummyImpl::ParserDummyImpl(const ParserDummyImpl &amp;orig)']]],
   ['parserdummyimpl_2ecpp',['ParserDummyImpl.cpp',['../_parser_dummy_impl_8cpp.html',1,'']]],
   ['parserdummyimpl_2eh',['ParserDummyImpl.h',['../_parser_dummy_impl_8h.html',1,'']]],
@@ -14,6 +17,7 @@ var searchData=
   ['plugin_2ecpp',['Plugin.cpp',['../_plugin_8cpp.html',1,'']]],
   ['plugin_2eh',['Plugin.h',['../_plugin_8h.html',1,'']]],
   ['pop_5ffront',['pop_front',['../class_list.html#a024af4543f71544345351a45850c42d8',1,'List']]],
+  ['precision',['Precision',['../struct_traits_3_01_integrator__if_01_4.html#a040fd02afb3cf89c999fd7affeefa70f',1,'Traits&lt; Integrator_if &gt;']]],
   ['previous',['previous',['../class_list.html#ab43f87321c901694807e6c9315a72cd0',1,'List']]],
   ['probdistrib',['ProbDistrib',['../class_prob_distrib.html',1,'']]],
   ['probdistrib_2ecpp',['ProbDistrib.cpp',['../_prob_distrib_8cpp.html',1,'']]],

@@ -6,7 +6,7 @@
 
 /* 
  * File:   CollectorDatafileDummyImpl.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 30 de Agosto de 2018, 16:53
  */
@@ -18,21 +18,25 @@
 
 class CollectorDatafileDummyImpl : public CollectorDatafile_if {
 public:
-	CollectorDatafileDummyImpl();
-	CollectorDatafileDummyImpl(const CollectorDatafileDummyImpl& orig);
-	~CollectorDatafileDummyImpl();
+    CollectorDatafileDummyImpl();
+    CollectorDatafileDummyImpl(const CollectorDatafileDummyImpl& orig);
+    ~CollectorDatafileDummyImpl();
+public: // inherited from Collector_if
+    void clear();
+    void addValue(double value);
+    double getLastValue();
+    unsigned long numElements();
 public:
-	void clear();
-	void addValue(double value);
-	double getLastValue();
-	unsigned long numElements();
+    double getValue(unsigned int num);
+    double getNextValue();
+    void seekFirstValue();
+    std::string getDataFilename();
+    void setDataFilename(std::string filename);
 public:
-	double getValue(unsigned int num);
-	std::string getDataFilename();
-	void setDataFilename(std::string filename);
-
+    void setAddValueHandler(CollectorAddValueHandler addValueHandler);
+    void setClearHandler(CollectorClearHandler clearHandler);
 private:
-	std::string _filename;
+    std::string _filename;
 };
 
 #endif /* COLLECTORDATAFILEDUMMYIMPL_H */

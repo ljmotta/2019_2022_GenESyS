@@ -1,3 +1,7 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_infrastructure_manager.html" title="InfrastructureManager" alt="" coords="5,5,155,32"/>
+<area shape="rect" id="node1" href="$class_genesys_application__if.html" title="GenesysApplication_if" alt="" coords="5,81,157,108"/>
+<area shape="rect" id="node2" href="$class_build_simulation_model.html" title="BuildSimulationModel" alt="" coords="212,5,359,32"/>
+<area shape="rect" id="node3" href="$class_test_input_analyser_tools.html" title="TestInputAnalyserTools" alt="" coords="205,56,365,83"/>
+<area shape="rect" id="node4" href="$class_test_parser.html" title="TestParser" alt="" coords="242,107,329,133"/>
+<area shape="rect" id="node5" href="$class_test_statistics.html" title="TestStatistics" alt="" coords="234,157,337,184"/>
 </map>

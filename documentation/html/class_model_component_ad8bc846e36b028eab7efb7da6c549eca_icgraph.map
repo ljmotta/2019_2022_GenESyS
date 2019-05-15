@@ -1,17 +1,21 @@
 <map id="ModelComponent::show" name="ModelComponent::show">
-<area shape="rect" id="node2" href="$class_assign.html#af5022b92204adcd9ee3e444b7e316d07" title="Assign::show" alt="" coords="275,5,376,32"/>
-<area shape="rect" id="node3" href="$class_delay.html#af8187e4515417b547dc22b5ee0a1f95d" title="Delay::show" alt="" coords="278,56,373,83"/>
-<area shape="rect" id="node4" href="$class_dispose.html#aee8ef98d5ca22eb18a97b258ed059865" title="Dispose::show" alt="" coords="271,107,380,133"/>
-<area shape="rect" id="node5" href="$class_model_component.html#a08c5312c2f94f6621577cc1836c2d3e0" title="ModelComponent::Execute" alt="" coords="235,157,415,184"/>
-<area shape="rect" id="node11" href="$class_model_component.html#a45d3805f9b7051b7acc142e5d85cded6" title="ModelComponent::SaveInstance" alt="" coords="219,208,431,235"/>
-<area shape="rect" id="node12" href="$class_model_component.html#a0798a220cf903b34ce28c40e136d207d" title="ModelComponent::VerifySymbols" alt="" coords="217,259,434,285"/>
-<area shape="rect" id="node13" href="$class_release.html#a1ec7b35553820f0f228f31be1df468c3" title="Release::show" alt="" coords="271,309,380,336"/>
-<area shape="rect" id="node14" href="$class_seize.html#a495ace3a156680b5816c8b285135322c" title="Seize::show" alt="" coords="278,360,373,387"/>
-<area shape="rect" id="node15" href="$class_source_model_component.html#a4011597b5780fcc0495e8e22ab8158f6" title="SourceModelComponent\l::show" alt="" coords="243,411,408,453"/>
-<area shape="rect" id="node6" href="$class_model.html#a244dff6d6bef962b0d95fbe712954079" title="Model::sendEntityToComponent" alt="" coords="483,157,693,184"/>
-<area shape="rect" id="node7" href="$class_assign.html#a5fabf69268b2e65d8b01ce247be87a40" title="Assign::_execute" alt="" coords="745,81,868,108"/>
-<area shape="rect" id="node8" href="$class_create.html#acd3a4b8805561591e0c88d3fd689cf74" title="Create::_execute" alt="" coords="745,132,868,159"/>
-<area shape="rect" id="node9" href="$class_release.html#a63c3cd89082e7f6c1fb61646b93a5c32" title="Release::_execute" alt="" coords="741,183,872,209"/>
-<area shape="rect" id="node10" href="$class_seize.html#a96f6517a40b3bfd0d5ea753d59cef797" title="Seize::_execute" alt="" coords="749,233,865,260"/>
-<area shape="rect" id="node16" href="$class_create.html#a8d1832d2165bbeea4a5a88aded883f86" title="Create::show" alt="" coords="538,419,638,445"/>
+<area shape="rect" id="node2" href="$class_assign.html#af5022b92204adcd9ee3e444b7e316d07" title="Assign::show" alt="" coords="274,13,375,39"/>
+<area shape="rect" id="node5" href="$class_delay.html#af8187e4515417b547dc22b5ee0a1f95d" title="Delay::show" alt="" coords="277,63,372,90"/>
+<area shape="rect" id="node6" href="$class_dispose.html#aee8ef98d5ca22eb18a97b258ed059865" title="Dispose::show" alt="" coords="270,114,379,141"/>
+<area shape="rect" id="node7" href="$class_model_component.html#a08c5312c2f94f6621577cc1836c2d3e0" title="This method triggers the simulation of the behavior of the component. It is invoked when an event (co..." alt="" coords="235,165,415,191"/>
+<area shape="rect" id="node14" href="$class_model_component.html#a45d3805f9b7051b7acc142e5d85cded6" title="ModelComponent::SaveInstance" alt="" coords="219,215,431,242"/>
+<area shape="rect" id="node15" href="$class_model_component.html#a0798a220cf903b34ce28c40e136d207d" title="ModelComponent::VerifySymbols" alt="" coords="216,266,433,293"/>
+<area shape="rect" id="node16" href="$class_record.html#aa2e77e0277c38e76541ec5811e0379ab" title="Record::show" alt="" coords="273,317,376,343"/>
+<area shape="rect" id="node17" href="$class_release.html#a1ec7b35553820f0f228f31be1df468c3" title="Release::show" alt="" coords="270,367,379,394"/>
+<area shape="rect" id="node18" href="$class_seize.html#a495ace3a156680b5816c8b285135322c" title="Seize::show" alt="" coords="277,418,372,445"/>
+<area shape="rect" id="node19" href="$class_source_model_component.html#a4011597b5780fcc0495e8e22ab8158f6" title="SourceModelComponent\l::show" alt="" coords="242,469,407,511"/>
+<area shape="rect" id="node3" href="$class_assign_1_1_assignment.html#a724dc03a686c4d53d57ee45b7617ae2f" title="Assign::Assignment\l::getExpression" alt="" coords="517,5,655,47"/>
+<area shape="rect" id="node4" href="$class_assign.html#a5fabf69268b2e65d8b01ce247be87a40" title="Assign::_execute" alt="" coords="743,13,865,39"/>
+<area shape="rect" id="node8" href="$class_model.html#a244dff6d6bef962b0d95fbe712954079" title="Used by components (ModelComponent) to send entities to another specific component, usually the next one connected to it, or used by the model itself, when processing an event (Event). " alt="" coords="481,165,691,191"/>
+<area shape="rect" id="node9" href="$class_create.html#acd3a4b8805561591e0c88d3fd689cf74" title="Create::_execute" alt="" coords="743,63,865,90"/>
+<area shape="rect" id="node10" href="$class_decide.html#a873773c9e74e15a4dae52ef11c43b96c" title="Decide::_execute" alt="" coords="742,114,866,141"/>
+<area shape="rect" id="node11" href="$class_record.html#a036df9e81131cf36de20079c95d55151" title="Record::_execute" alt="" coords="741,165,867,191"/>
+<area shape="rect" id="node12" href="$class_release.html#a63c3cd89082e7f6c1fb61646b93a5c32" title="Release::_execute" alt="" coords="739,215,869,242"/>
+<area shape="rect" id="node13" href="$class_seize.html#a96f6517a40b3bfd0d5ea753d59cef797" title="Seize::_execute" alt="" coords="746,266,862,293"/>
+<area shape="rect" id="node20" href="$class_create.html#a8d1832d2165bbeea4a5a88aded883f86" title="Create::show" alt="" coords="536,477,636,503"/>
 </map>

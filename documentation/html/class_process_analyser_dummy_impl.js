@@ -3,7 +3,7 @@ var class_process_analyser_dummy_impl =
     [ "ProcessAnalyserDummyImpl", "class_process_analyser_dummy_impl.html#a5db24b827b7a48066deffe5229b74a32", null ],
     [ "ProcessAnalyserDummyImpl", "class_process_analyser_dummy_impl.html#a7157c55cb39b5aaab4c3f00bf3fcc347", null ],
     [ "~ProcessAnalyserDummyImpl", "class_process_analyser_dummy_impl.html#aea9c62c96a8e1eb12568df16667db33e", null ],
-    [ "addTraceSimulationListener", "class_process_analyser_dummy_impl.html#a34a57be3360cd6e8b428430e37cf9cb2", null ],
+    [ "addTraceSimulationHandler", "class_process_analyser_dummy_impl.html#af78d57b552952bf18490a3e4b57a5efb", null ],
     [ "extractControlsFromModel", "class_process_analyser_dummy_impl.html#ad0d2050ee20f8250312401044a33ef2d", null ],
     [ "extractResponsesFromModel", "class_process_analyser_dummy_impl.html#a2e4d0b4779c0c2eb0a563f0f3ba3c8de", null ],
     [ "getControls", "class_process_analyser_dummy_impl.html#ac1fd3d1c3329056a269594647a8a5d8d", null ],

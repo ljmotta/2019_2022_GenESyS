@@ -6,7 +6,7 @@
 
 /* 
  * File:   SimulationControl.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 10 de Outubro de 2018, 18:01
  */
@@ -15,20 +15,20 @@
 #define SIMULATIONCONTROL_H
 
 #include "SimulationResponse.h"
-#include "Functor.h"
+#include "DefineGetterSetter.h"
 
 /*!
- * Represents any possible parameter or control for a simulation. Any infrastructure or event the model can declare one of its own attribute as a simulation control. It just have to create a SimulationControl object, passing the access to the methods that gets and sets the control value and including this SimulationControl in the corresponding list of the model
+ * Represents any possible parameter or control for a simulation. Any element or event the model can declare one of its own attribute as a simulation control. It just have to create a SimulationControl object, passing the access to the methods that gets and sets the control value and including this SimulationControl in the corresponding list of the model
  */
-class SimulationControl: public SimulationResponse {
+class SimulationControl : public SimulationResponse {
 public:
-	SimulationControl(std::string type, std::string name, GetFunctor getFunctor, SetFunctor setFunctor);
-	SimulationControl(const SimulationControl& orig);
-	virtual ~SimulationControl();
+    SimulationControl(std::string type, std::string name, GetterMember getterMember, SetterMember setterMember);
+    SimulationControl(const SimulationControl& orig);
+    virtual ~SimulationControl();
 public:
-	void setValue(double value);
+    void setValue(double value);
 private:
-	SetFunctor _memberFunctionSetDoubleHandler;
+    SetterMember _setMemberFunction;
 };
 
 #endif /* SIMULATIONCONTROL_H */

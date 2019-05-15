@@ -6,7 +6,7 @@
 
 /* 
  * File:   ScenarioExperiment_if.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 10 de Outubro de 2018, 14:52
  */
@@ -15,7 +15,6 @@
 #define SCENARIOEXPERIMENT_IF_H
 
 class ScenarioExperiment_if {
-	
 };
 
 #endif /* SCENARIOEXPERIMENT_IF_H */

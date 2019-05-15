@@ -6,7 +6,7 @@
 
 /* 
  * File:   Traits.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 14 de Agosto de 2018, 19:36
  */
@@ -28,6 +28,7 @@
 #include "GenesysApplication_if.h"
 #include "ProcessAnalyser_if.h"
 #include "ExperimentDesign_if.h"
+#include "SimulationReporter_if.h"
 
 // possible implementations
 
@@ -35,88 +36,118 @@
 #include "BuildSimulationModel.h"
 #include "TestInputAnalyserTools.h"
 #include "TestParser.h"
+#include "TestStatistics.h"
+
 
 // dummy implementations
-#include "CollectorDummyImpl.h"
-#include "SamplerDummyImpl.h"
 #include "FitterDummyImpl.h"
-#include "ParserDummyImpl.h"
-#include "ModelCheckerDummyImpl.h"
-#include "IntegratorDummyImpl.h"
-#include "ExperimentDesignDummyImpl.h"
-#include "StatisticsDummyImpl.h"
 #include "ProcessAnalyserDummyImpl.h"
-#include "CollectorDatafileDummyImpl.h"
-#include "HypothesisTesterDummyImpl.h"
 #include "ModelPersistenceDummyImpl.h"
 
-// students implementations
+//  Default implementations
+#include "CollectorDefaultImpl1.h"
+#include "CollectorDatafileDefaultImpl1.h"
+#include "StatisticsDefaultImpl1.h"
+#include "IntegratorDefaultImpl1.h"
+#include "HypothesisTesterDefaultImpl1.h"
+#include "SamplerDefaultImpl1.h"
+#include "parserBisonFlex/ParserFlexBisonImpl.h"
+#include "SimulationReporterDefaultImpl1.h"
+#include "ModelCheckerDefaultImpl1.h"
+#include "ExperimentDesignDefaultImpl1.h"
 
 template <typename T>
 struct Traits {
 };
 
+/*
+ *  Genesys Application
+ */
+
 template <> struct Traits<GenesysApplication_if> {
-	//typedef TestInputAnalyserTools Application;  
-	typedef BuildSimulationModel Application;  
-	//typedef TestParser Application;  
+    //typedef TestInputAnalyserTools Application;  
+    typedef BuildSimulationModel Application;
+    //typedef TestParser Application;  
+    //typedef TestStatistics Application;
 };
+
+
+/*
+ *  Model
+ */
 
 template <> struct Traits<Model> {
-	static const bool debugged = true;
-	static const Util::TraceLevel traceLevel = Util::TraceLevel::mostDetailed; 
-};
-
-template <> struct Traits<ModelComponent> {
-	typedef CollectorDummyImpl CollectorImplementation;
-};
-
-template <> struct Traits<Sampler_if> {
-	typedef SamplerDummyImpl Implementation;
-	typedef SamplerDummyImpl::MyRNG_Parameters Parameters;
-};
-
-template <> struct Traits<Fitter_if> {
-	typedef FitterDummyImpl Implementation;
-};
-
-template <> struct Traits<Collector_if> {
-	typedef CollectorDatafileDummyImpl Implementation;
-	typedef CollectorDummyImpl ModelImplementation; //TEMP
-};
-
-template <> struct Traits<ModelChecker_if> {
-	typedef ModelCheckerDummyImpl Implementation;
-};
-
-template <> struct Traits<Parser_if> {
-	typedef ParserDummyImpl Implementation;
-};
-
-template <> struct Traits<Statistics_if> {
-	typedef StatisticsDummyImpl Implementation;
-};
-
-template <> struct Traits<Integrator_if> {
-	typedef IntegratorDummyImpl Implementation;
-	unsigned int MaxIterations = 1000;
-	double MaxError = 1e-9;
-};
-
-template <> struct Traits<HypothesisTester_if> {
-	typedef HypothesisTesterDummyImpl Implementation;
+    static const bool debugged = true;
+    static const Util::TraceLevel traceLevel = Util::TraceLevel::mostDetailed;//::simulation;
 };
 
 template <> struct Traits<ModelPersistence_if> {
-	typedef ModelPersistenceDummyImpl Implementation;
+    typedef ModelPersistenceDummyImpl Implementation;
 };
 
+template <> struct Traits<SimulationReporter_if> {
+    typedef SimulationReporterDefaultImpl1 Implementation;
+};
+
+template <> struct Traits<ModelComponent> {
+    typedef StatisticsDefaultImpl1 StatisticsCollector_StatisticsImplementation;
+    typedef CollectorDefaultImpl1 StatisticsCollector_CollectorImplementation;
+};
+
+template <> struct Traits<ModelChecker_if> {
+    typedef ModelCheckerDefaultImpl1 Implementation;
+};
+
+template <> struct Traits<Parser_if> {
+    typedef ParserFlexBisonImpl Implementation; //ParserDefaultImpl1
+};
+
+/*
+ Statistics
+ */
+
+template <> struct Traits<Collector_if> {
+    typedef CollectorDatafileDefaultImpl1 Implementation;
+    //typedef CollectorDatafileDummyImpl Implementation;
+    //typedef CollectorDummyImpl ModelImplementation; //TEMP
+};
+
+template <> struct Traits<Statistics_if> {
+    typedef StatisticsDefaultImpl1 Implementation;
+    typedef CollectorDefaultImpl1 CollectorImplementation;
+    static constexpr double SignificanceLevel = 0.05;
+};
+
+template <> struct Traits<Integrator_if> {
+    typedef IntegratorDefaultImpl1 Implementation;
+    static constexpr unsigned int MaxIterations = 1e3; 
+    static constexpr double Precision = 1e-9;
+};
+
+template <> struct Traits<Sampler_if> {
+    typedef SamplerDefaultImpl1 Implementation;
+    typedef SamplerDefaultImpl1::DefaultImpl1RNG_Parameters Parameters;
+};
+
+template <> struct Traits<Fitter_if> {
+    typedef FitterDummyImpl Implementation;
+};
+
+template <> struct Traits<HypothesisTester_if> {
+    typedef IntegratorDefaultImpl1 IntegratorImplementation;
+    typedef HypothesisTesterDefaultImpl1 Implementation;
+};
+
+/*
+ * Tools
+ */
+
 template <> struct Traits<ExperimentDesign_if> {
-	typedef ExperimentDesignDummyImpl Implementation;
+    typedef ExperimentDesignDefaultImpl1 Implementation;
 };
 
 template <> struct Traits<ProcessAnalyser_if> {
-	typedef ProcessAnalyserDummyImpl Implementation;
+    typedef ProcessAnalyserDummyImpl Implementation;
 };
 
 #endif /* TRAITS_H */

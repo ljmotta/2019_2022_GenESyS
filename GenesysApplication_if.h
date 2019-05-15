@@ -6,7 +6,7 @@
 
 /* 
  * File:   GenesysApplication_if.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 2 de Outubro de 2018, 19:14
  */
@@ -16,7 +16,7 @@
 
 class GenesysApplication_if {
 public:
-	virtual int main(int argc, char** argv) = 0;
+    virtual int main(int argc, char** argv) = 0;
 };
 
 #endif /* GENESYSAPPLICATION_IF_H */

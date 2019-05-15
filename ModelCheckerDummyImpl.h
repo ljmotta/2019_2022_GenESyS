@@ -6,7 +6,7 @@
 
 /* 
  * File:   ModelCheckerDummyImpl.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 23 de Agosto de 2018, 15:52
  */
@@ -20,21 +20,21 @@
 /*!
  * Just an example of possible implementation of the ModelChecker interface. Developers can implement their own class
  */
-class ModelCheckerDummyImpl: public ModelChecker_if {
+class ModelCheckerDummyImpl : public ModelChecker_if {
 public:
-	ModelCheckerDummyImpl(Model* model);
-	ModelCheckerDummyImpl(const ModelCheckerDummyImpl& orig);
-	~ModelCheckerDummyImpl();
-public: 
-	bool checkAll();
-	bool checkAndAddInternalLiterals();
-	bool checkConnected();
-	bool checkSymbols();
-	bool checkPathway();
-	bool checkActivationCode();
-	bool verifySymbol(std::string componentName, std::string expressionName, std::string expression, std::string expressionResult, bool mandatory);
+    ModelCheckerDummyImpl(Model* model);
+    ModelCheckerDummyImpl(const ModelCheckerDummyImpl& orig);
+    ~ModelCheckerDummyImpl();
+public:
+    virtual bool checkAll();
+    virtual bool checkAndAddInternalLiterals();
+    virtual bool checkConnected();
+    virtual bool checkSymbols();
+    virtual bool checkPathway();
+    virtual bool checkActivationCode();
+    virtual bool verifySymbol(std::string componentName, std::string expressionName, std::string expression, std::string expressionResult, bool mandatory);
 private:
-	Model* _model = nullptr;
+    Model* _model;
 };
 
 #endif /* MODELCHECKERDUMMYIMPL_H */

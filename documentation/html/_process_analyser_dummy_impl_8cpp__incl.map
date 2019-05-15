@@ -1,11 +1,12 @@
 <map id="ProcessAnalyserDummyImpl.cpp" name="ProcessAnalyserDummyImpl.cpp">
-<area shape="rect" id="node2" href="$_process_analyser_dummy_impl_8h.html" title="ProcessAnalyserDummyImpl.h" alt="" coords="142,80,345,107"/>
-<area shape="rect" id="node3" href="$_process_analyser__if_8h.html" title="ProcessAnalyser_if.h" alt="" coords="226,155,373,181"/>
-<area shape="rect" id="node14" href="$_simulation_scenario_8h.html" title="SimulationScenario.h" alt="" coords="5,229,151,256"/>
-<area shape="rect" id="node15" href="$_simulation_response_8h.html" title="SimulationResponse.h" alt="" coords="133,379,287,405"/>
-<area shape="rect" id="node17" href="$_simulation_control_8h.html" title="SimulationControl.h" alt="" coords="277,304,413,331"/>
-<area shape="rect" id="node4" href="$_list_8h.html" title="List.h" alt="" coords="423,453,477,480"/>
-<area shape="rect" id="node18" href="$_trace_manager_8h.html" title="TraceManager.h" alt="" coords="448,229,564,256"/>
-<area shape="rect" id="node11" href="$_util_8h.html" title="Util.h" alt="" coords="409,528,462,555"/>
-<area shape="rect" id="node16" href="$_functor_8h.html" title="Functor.h" alt="" coords="282,453,359,480"/>
+<area shape="rect" id="node2" href="$_process_analyser_dummy_impl_8h.html" title="ProcessAnalyserDummyImpl.h" alt="" coords="197,80,400,107"/>
+<area shape="rect" id="node3" href="$_process_analyser__if_8h.html" title="ProcessAnalyser_if.h" alt="" coords="377,155,524,181"/>
+<area shape="rect" id="node15" href="$_simulation_scenario_8h.html" title="SimulationScenario.h" alt="" coords="157,229,302,256"/>
+<area shape="rect" id="node16" href="$_simulation_response_8h.html" title="SimulationResponse.h" alt="" coords="171,379,325,405"/>
+<area shape="rect" id="node18" href="$_simulation_control_8h.html" title="SimulationControl.h" alt="" coords="271,304,407,331"/>
+<area shape="rect" id="node4" href="$_list_8h.html" title="List.h" alt="" coords="563,379,618,405"/>
+<area shape="rect" id="node19" href="$_trace_manager_8h.html" title="TraceManager.h" alt="" coords="533,229,649,256"/>
+<area shape="rect" id="node11" href="$_util_8h.html" title="Util.h" alt="" coords="551,528,604,555"/>
+<area shape="rect" id="node14" href="$_model_element_8h.html" title="ModelElement.h" alt="" coords="195,453,311,480"/>
+<area shape="rect" id="node17" href="$_define_getter_setter_8h.html" title="DefineGetterSetter.h" alt="" coords="335,453,478,480"/>
 </map>

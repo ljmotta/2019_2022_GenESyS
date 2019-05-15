@@ -6,8 +6,7 @@
 
 
 
-Inheritance diagram for Model\+Component\+:
-\nopagebreak
+Inheritance diagram for Model\+Component\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -16,18 +15,17 @@ Inheritance diagram for Model\+Component\+:
 \end{figure}
 
 
-Collaboration diagram for Model\+Component\+:
-\nopagebreak
+Collaboration diagram for Model\+Component\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=242pt]{class_model_component__coll__graph}
+\includegraphics[width=220pt]{class_model_component__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_model_component_a1e2b24c3592711a9bd3f131706b7f0c7}{Model\+Component} (\hyperlink{class_model}{Model} $\ast$model)
+\hyperlink{class_model_component_adb9a28a0a9780f1852bee781761fef6a}{Model\+Component} (\hyperlink{class_model}{Model} $\ast$model, std\+::string component\+Typename)
 \item 
 \hyperlink{class_model_component_a5b95933e7a265039eb01f6ec88d92675}{Model\+Component} (const \hyperlink{class_model_component}{Model\+Component} \&orig)
 \item 
@@ -36,16 +34,12 @@ virtual \hyperlink{class_model_component_a6d490d6a2fdf66ad13ed8adcc39ec611}{$\si
 virtual std\+::string \hyperlink{class_model_component_ad8bc846e36b028eab7efb7da6c549eca}{show} ()
 \item 
 \hyperlink{class_list}{List}$<$ \hyperlink{class_model_component}{Model\+Component} $\ast$ $>$ $\ast$ \hyperlink{class_model_component_a89fe8e3fb064c68aebbecd36eeed7d43}{get\+Next\+Components} () const 
-\item 
-bool \hyperlink{class_model_component_a142b21a42547af06ceba81678eeccabc}{get\+Checked\+Connection} ()
-\item 
-void \hyperlink{class_model_component_af3ae0b0182c8d6291235e0eda0cb79b3}{set\+Checked\+Connection} (bool \+\_\+checked\+Connection)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Returns a list of components directly connected to the output. Usually the components have a single output, but they may have none (such as \hyperlink{class_dispose}{Dispose}) or more than one (as \hyperlink{class_decide}{Decide}). \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 static void \hyperlink{class_model_component_a08c5312c2f94f6621577cc1836c2d3e0}{Execute} (\hyperlink{class_entity}{Entity} $\ast$entity, \hyperlink{class_model_component}{Model\+Component} $\ast$component)
-\item 
+\begin{DoxyCompactList}\small\item\em This method triggers the simulation of the behavior of the component. It is invoked when an event (corresponding to this component) is taken from the list of future events or when an entity arrives at this component by connection. \end{DoxyCompactList}\item 
 static bool \hyperlink{class_model_component_a0798a220cf903b34ce28c40e136d207d}{Verify\+Symbols} (\hyperlink{class_model_component}{Model\+Component} $\ast$component, std\+::string $\ast$error\+Message)
 \item 
 static std\+::list$<$ std\+::string $>$ $\ast$ \hyperlink{class_model_component_a45d3805f9b7051b7acc142e5d85cded6}{Save\+Instance} (\hyperlink{class_model_component}{Model\+Component} $\ast$component)
@@ -66,14 +60,23 @@ virtual std\+::list$<$ std\+::string $>$ $\ast$ \hyperlink{class_model_component
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+Um componente do modelo é um bloco que representa um comportamento específico a ser simulado. O comportamento é disparado quando uma entidade chega ao componente, o que corresponde à ocorrência de um evento. Um modelo de simulação corresponde a um conjunto de componentes interconectados para formar o processo pelo qual a entidade é submetida. 
+\begin{DoxyParams}{Parameters}
+{\em model} & The model this component belongs to \\
+\hline
+\end{DoxyParams}
+
+
 \subsection{Constructor \& Destructor Documentation}
 \index{Model\+Component@{Model\+Component}!Model\+Component@{Model\+Component}}
 \index{Model\+Component@{Model\+Component}!Model\+Component@{Model\+Component}}
-\subsubsection[{\texorpdfstring{Model\+Component(\+Model $\ast$model)}{ModelComponent(Model *model)}}]{\setlength{\rightskip}{0pt plus 5cm}Model\+Component\+::\+Model\+Component (
+\subsubsection[{\texorpdfstring{Model\+Component(\+Model $\ast$model, std\+::string component\+Typename)}{ModelComponent(Model *model, std::string componentTypename)}}]{\setlength{\rightskip}{0pt plus 5cm}Model\+Component\+::\+Model\+Component (
 \begin{DoxyParamCaption}
-\item[{{\bf Model} $\ast$}]{model}
+\item[{{\bf Model} $\ast$}]{model, }
+\item[{std\+::string}]{component\+Typename}
 \end{DoxyParamCaption}
-)}\hypertarget{class_model_component_a1e2b24c3592711a9bd3f131706b7f0c7}{}\label{class_model_component_a1e2b24c3592711a9bd3f131706b7f0c7}
+)}\hypertarget{class_model_component_adb9a28a0a9780f1852bee781761fef6a}{}\label{class_model_component_adb9a28a0a9780f1852bee781761fef6a}
 \index{Model\+Component@{Model\+Component}!Model\+Component@{Model\+Component}}
 \index{Model\+Component@{Model\+Component}!Model\+Component@{Model\+Component}}
 \subsubsection[{\texorpdfstring{Model\+Component(const Model\+Component \&orig)}{ModelComponent(const ModelComponent &orig)}}]{\setlength{\rightskip}{0pt plus 5cm}Model\+Component\+::\+Model\+Component (
@@ -100,7 +103,18 @@ virtual std\+::list$<$ std\+::string $>$ $\ast$ \hyperlink{class_model_component
 )\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [pure virtual]}}\hypertarget{class_model_component_ae3fcf8bbdd8368c882438424aa73f714}{}\label{class_model_component_ae3fcf8bbdd8368c882438424aa73f714}
 
 
-Implemented in \hyperlink{class_assign_a5fabf69268b2e65d8b01ce247be87a40}{Assign}, \hyperlink{class_seize_a96f6517a40b3bfd0d5ea753d59cef797}{Seize}, \hyperlink{class_release_a63c3cd89082e7f6c1fb61646b93a5c32}{Release}, \hyperlink{class_create_acd3a4b8805561591e0c88d3fd689cf74}{Create}, \hyperlink{class_delay_a029d91a2cd736ff9c361c69336e6ab41}{Delay}, and \hyperlink{class_dispose_a342eb428496534cdfd17524ad78b0c08}{Dispose}.
+Implemented in \hyperlink{class_assign_a5fabf69268b2e65d8b01ce247be87a40}{Assign}, \hyperlink{class_seize_a96f6517a40b3bfd0d5ea753d59cef797}{Seize}, \hyperlink{class_release_a63c3cd89082e7f6c1fb61646b93a5c32}{Release}, \hyperlink{class_record_a036df9e81131cf36de20079c95d55151}{Record}, \hyperlink{class_create_acd3a4b8805561591e0c88d3fd689cf74}{Create}, \hyperlink{class_delay_a029d91a2cd736ff9c361c69336e6ab41}{Delay}, \hyperlink{class_dispose_a342eb428496534cdfd17524ad78b0c08}{Dispose}, and \hyperlink{class_decide_a873773c9e74e15a4dae52ef11c43b96c}{Decide}.
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_component_ae3fcf8bbdd8368c882438424aa73f714_icgraph}
+\end{center}
+\end{figure}
+
 
 \index{Model\+Component@{Model\+Component}!\+\_\+save\+Instance@{\+\_\+save\+Instance}}
 \index{\+\_\+save\+Instance@{\+\_\+save\+Instance}!Model\+Component@{Model\+Component}}
@@ -111,11 +125,33 @@ Implemented in \hyperlink{class_assign_a5fabf69268b2e65d8b01ce247be87a40}{Assign
 )\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{class_model_component_a465f41c7191cb0fdf9039ef1f3d755a5}{}\label{class_model_component_a465f41c7191cb0fdf9039ef1f3d755a5}
 
 
-Reimplemented from \hyperlink{class_model_infrastructure_a991f46601d9e865f2e27c6cd7a2b702d}{Model\+Infrastructure}.
+Reimplemented from \hyperlink{class_model_element_af20dbba778ca07b23b299f2be73dc964}{Model\+Element}.
 
 
 
-Reimplemented in \hyperlink{class_assign_a8b38a0a1bec283f5d2f44f67be5a4a6b}{Assign}, \hyperlink{class_seize_a38a8af6942b51ce11d191469d277661d}{Seize}, \hyperlink{class_release_a2e15540e86b8d0ce62c553f3e9b095c3}{Release}, \hyperlink{class_create_ae1fd0c281cec35dcf91881acba8d7041}{Create}, \hyperlink{class_delay_a73676f11cddd31439a407b5dabcea43a}{Delay}, and \hyperlink{class_dispose_ae12482052fb78fa534dda5d4c0a74e3e}{Dispose}.
+Reimplemented in \hyperlink{class_assign_a8b38a0a1bec283f5d2f44f67be5a4a6b}{Assign}, \hyperlink{class_seize_a38a8af6942b51ce11d191469d277661d}{Seize}, \hyperlink{class_release_a2e15540e86b8d0ce62c553f3e9b095c3}{Release}, \hyperlink{class_record_ad4eaa67bbfecbfad8b3b93e010f46f78}{Record}, \hyperlink{class_create_ae1fd0c281cec35dcf91881acba8d7041}{Create}, \hyperlink{class_delay_a73676f11cddd31439a407b5dabcea43a}{Delay}, \hyperlink{class_dispose_ae12482052fb78fa534dda5d4c0a74e3e}{Dispose}, and \hyperlink{class_decide_ae628db01a2a5583893bec28cc43fa29a}{Decide}.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_component_a465f41c7191cb0fdf9039ef1f3d755a5_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_component_a465f41c7191cb0fdf9039ef1f3d755a5_icgraph}
+\end{center}
+\end{figure}
+
 
 \index{Model\+Component@{Model\+Component}!\+\_\+save\+Instance@{\+\_\+save\+Instance}}
 \index{\+\_\+save\+Instance@{\+\_\+save\+Instance}!Model\+Component@{Model\+Component}}
@@ -126,7 +162,18 @@ Reimplemented in \hyperlink{class_assign_a8b38a0a1bec283f5d2f44f67be5a4a6b}{Assi
 )\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{class_model_component_a245ef30906086f28651a559cdc9a8120}{}\label{class_model_component_a245ef30906086f28651a559cdc9a8120}
 
 
-Reimplemented from \hyperlink{class_model_infrastructure_a0e03d03d3c7166e66dfddac6740c2e1b}{Model\+Infrastructure}.
+Reimplemented from \hyperlink{class_model_element_ae1d44a8e317ca1f8b9481e0dd3c2e495}{Model\+Element}.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_component_a245ef30906086f28651a559cdc9a8120_cgraph}
+\end{center}
+\end{figure}
+
 
 \index{Model\+Component@{Model\+Component}!Execute@{Execute}}
 \index{Execute@{Execute}!Model\+Component@{Model\+Component}}
@@ -136,13 +183,32 @@ Reimplemented from \hyperlink{class_model_infrastructure_a0e03d03d3c7166e66dfdda
 \item[{{\bf Model\+Component} $\ast$}]{component}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_model_component_a08c5312c2f94f6621577cc1836c2d3e0}{}\label{class_model_component_a08c5312c2f94f6621577cc1836c2d3e0}
-\index{Model\+Component@{Model\+Component}!get\+Checked\+Connection@{get\+Checked\+Connection}}
-\index{get\+Checked\+Connection@{get\+Checked\+Connection}!Model\+Component@{Model\+Component}}
-\subsubsection[{\texorpdfstring{get\+Checked\+Connection()}{getCheckedConnection()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Model\+Component\+::get\+Checked\+Connection (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}\hypertarget{class_model_component_a142b21a42547af06ceba81678eeccabc}{}\label{class_model_component_a142b21a42547af06ceba81678eeccabc}
+
+
+This method triggers the simulation of the behavior of the component. It is invoked when an event (corresponding to this component) is taken from the list of future events or when an entity arrives at this component by connection. 
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_component_a08c5312c2f94f6621577cc1836c2d3e0_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_component_a08c5312c2f94f6621577cc1836c2d3e0_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Model\+Component@{Model\+Component}!get\+Next\+Components@{get\+Next\+Components}}
 \index{get\+Next\+Components@{get\+Next\+Components}!Model\+Component@{Model\+Component}}
 \subsubsection[{\texorpdfstring{get\+Next\+Components() const }{getNextComponents() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf List}$<$ {\bf Model\+Component} $\ast$ $>$ $\ast$ Model\+Component\+::get\+Next\+Components (
@@ -150,6 +216,21 @@ Reimplemented from \hyperlink{class_model_infrastructure_a0e03d03d3c7166e66dfdda
 {}
 \end{DoxyParamCaption}
 ) const}\hypertarget{class_model_component_a89fe8e3fb064c68aebbecd36eeed7d43}{}\label{class_model_component_a89fe8e3fb064c68aebbecd36eeed7d43}
+
+
+Returns a list of components directly connected to the output. Usually the components have a single output, but they may have none (such as \hyperlink{class_dispose}{Dispose}) or more than one (as \hyperlink{class_decide}{Decide}). 
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_component_a89fe8e3fb064c68aebbecd36eeed7d43_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Model\+Component@{Model\+Component}!Save\+Instance@{Save\+Instance}}
 \index{Save\+Instance@{Save\+Instance}!Model\+Component@{Model\+Component}}
 \subsubsection[{\texorpdfstring{Save\+Instance(\+Model\+Component $\ast$component)}{SaveInstance(ModelComponent *component)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::list$<$ std\+::string $>$ $\ast$ Model\+Component\+::\+Save\+Instance (
@@ -157,13 +238,17 @@ Reimplemented from \hyperlink{class_model_infrastructure_a0e03d03d3c7166e66dfdda
 \item[{{\bf Model\+Component} $\ast$}]{component}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_model_component_a45d3805f9b7051b7acc142e5d85cded6}{}\label{class_model_component_a45d3805f9b7051b7acc142e5d85cded6}
-\index{Model\+Component@{Model\+Component}!set\+Checked\+Connection@{set\+Checked\+Connection}}
-\index{set\+Checked\+Connection@{set\+Checked\+Connection}!Model\+Component@{Model\+Component}}
-\subsubsection[{\texorpdfstring{set\+Checked\+Connection(bool \+\_\+checked\+Connection)}{setCheckedConnection(bool _checkedConnection)}}]{\setlength{\rightskip}{0pt plus 5cm}void Model\+Component\+::set\+Checked\+Connection (
-\begin{DoxyParamCaption}
-\item[{bool}]{\+\_\+checked\+Connection}
-\end{DoxyParamCaption}
-)}\hypertarget{class_model_component_af3ae0b0182c8d6291235e0eda0cb79b3}{}\label{class_model_component_af3ae0b0182c8d6291235e0eda0cb79b3}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_component_a45d3805f9b7051b7acc142e5d85cded6_cgraph}
+\end{center}
+\end{figure}
+
+
 \index{Model\+Component@{Model\+Component}!show@{show}}
 \index{show@{show}!Model\+Component@{Model\+Component}}
 \subsubsection[{\texorpdfstring{show()}{show()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Model\+Component\+::show (
@@ -173,11 +258,33 @@ Reimplemented from \hyperlink{class_model_infrastructure_a0e03d03d3c7166e66dfdda
 )\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_model_component_ad8bc846e36b028eab7efb7da6c549eca}{}\label{class_model_component_ad8bc846e36b028eab7efb7da6c549eca}
 
 
-Reimplemented from \hyperlink{class_model_infrastructure_a649a5a89a0c9931783d3c51de2acf266}{Model\+Infrastructure}.
+Reimplemented from \hyperlink{class_model_element_af084d684e8effe5cd4c2265abc98896c}{Model\+Element}.
 
 
 
-Reimplemented in \hyperlink{class_assign_af5022b92204adcd9ee3e444b7e316d07}{Assign}, \hyperlink{class_source_model_component_a4011597b5780fcc0495e8e22ab8158f6}{Source\+Model\+Component}, \hyperlink{class_seize_a495ace3a156680b5816c8b285135322c}{Seize}, \hyperlink{class_create_a8d1832d2165bbeea4a5a88aded883f86}{Create}, \hyperlink{class_delay_af8187e4515417b547dc22b5ee0a1f95d}{Delay}, \hyperlink{class_release_a1ec7b35553820f0f228f31be1df468c3}{Release}, and \hyperlink{class_dispose_aee8ef98d5ca22eb18a97b258ed059865}{Dispose}.
+Reimplemented in \hyperlink{class_assign_af5022b92204adcd9ee3e444b7e316d07}{Assign}, \hyperlink{class_source_model_component_a4011597b5780fcc0495e8e22ab8158f6}{Source\+Model\+Component}, \hyperlink{class_record_aa2e77e0277c38e76541ec5811e0379ab}{Record}, \hyperlink{class_seize_a495ace3a156680b5816c8b285135322c}{Seize}, \hyperlink{class_create_a8d1832d2165bbeea4a5a88aded883f86}{Create}, \hyperlink{class_delay_af8187e4515417b547dc22b5ee0a1f95d}{Delay}, \hyperlink{class_decide_a19e2a1143403795bcfd83903a1c0f695}{Decide}, \hyperlink{class_release_a1ec7b35553820f0f228f31be1df468c3}{Release}, and \hyperlink{class_dispose_aee8ef98d5ca22eb18a97b258ed059865}{Dispose}.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{class_model_component_ad8bc846e36b028eab7efb7da6c549eca_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_component_ad8bc846e36b028eab7efb7da6c549eca_icgraph}
+\end{center}
+\end{figure}
+
 
 \index{Model\+Component@{Model\+Component}!Verify\+Symbols@{Verify\+Symbols}}
 \index{Verify\+Symbols@{Verify\+Symbols}!Model\+Component@{Model\+Component}}
@@ -187,6 +294,17 @@ Reimplemented in \hyperlink{class_assign_af5022b92204adcd9ee3e444b7e316d07}{Assi
 \item[{std\+::string $\ast$}]{error\+Message}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_model_component_a0798a220cf903b34ce28c40e136d207d}{}\label{class_model_component_a0798a220cf903b34ce28c40e136d207d}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_component_a0798a220cf903b34ce28c40e136d207d_cgraph}
+\end{center}
+\end{figure}
+
+
 
 
 \subsection{Member Data Documentation}

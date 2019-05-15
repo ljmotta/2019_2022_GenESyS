@@ -6,7 +6,7 @@
 
 /* 
  * File:   Release.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 21 de Agosto de 2018, 16:17
  */
@@ -18,15 +18,14 @@
 
 #include "ModelComponent.h"
 #include "Resource.h"
-#include "Queue.h"
 
-class Release: public ModelComponent {
+class Release : public ModelComponent {
 public:
-	Release(Model* model);
-	Release(const Release& orig);
-	virtual ~Release();
+    Release(Model* model);
+    Release(const Release& orig);
+    virtual ~Release();
 public:
-	virtual std::string show();
+    virtual std::string show();
 public: // get & set
     void setPriority(unsigned short _priority);
     unsigned short getPriority() const;
@@ -38,30 +37,28 @@ public: // get & set
     Resource::ResourceRule getRule() const;
     void setSaveAttribute(std::string _saveAttribute);
     std::string getSaveAttribute() const;
-	// indirect access to Queue* and Resource*
-    void setResourceName(std::string _resourceName);
+    void setResource(Resource* _resource);
+    Resource* getResource() const;
+    // indirect access to and Resource*
+    void setResourceName(std::string resourceName) throw();
     std::string getResourceName() const;
-    void setQueueName(std::string _queueName);
-    std::string getQueueName() const;
-	
+    
 protected:
-	virtual void _execute(Entity* entity);
-	virtual void _loadInstance(std::list<std::string> words);
-	virtual std::list<std::string>* _saveInstance();
-	virtual bool _verifySymbols(std::string* errorMessage);
+    virtual void _execute(Entity* entity);
+    virtual void _loadInstance(std::list<std::string> words);
+    virtual std::list<std::string>* _saveInstance();
+    virtual bool _verifySymbols(std::string* errorMessage);
 private:
-//	unsigned int _allocationType = 0; // uint ? enum?
-	unsigned short _priority = 0;
-	Resource::ResourceType _resourceType = Resource::ResourceType::RESOURCE;
-	std::string _quantity = "1";
-	Resource::ResourceRule _rule = Resource::ResourceRule::SMALLESTBUSY;
-	std::string _saveAttribute = "";
-        Resource* _verifySymbolsResource(std::string _resourceName);
-        Queue* _verifySymbolsQueue(std::string _queueName);
-	
+    //	unsigned int _allocationType = 0; // uint ? enum?
+    unsigned short _priority = 0;
+    Resource::ResourceType _resourceType = Resource::ResourceType::RESOURCE;
+    std::string _quantity = "1";
+    Resource::ResourceRule _rule = Resource::ResourceRule::SMALLESTBUSY;
+    std::string _saveAttribute = "";
+    Resource* _verifySymbolsResource(std::string _resourceName);
+
 private: // no g&s
-	Resource* _resource;
-	Queue* _queue;
+    Resource* _resource;
 };
 
 #endif /* RELEASE_H */

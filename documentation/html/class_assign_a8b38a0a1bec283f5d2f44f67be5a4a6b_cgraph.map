@@ -1,4 +1,4 @@
 <map id="Assign::_saveInstance" name="Assign::_saveInstance">
-<area shape="rect" id="node2" href="$class_model_component.html#a465f41c7191cb0fdf9039ef1f3d755a5" title="ModelComponent::_saveInstance" alt="" coords="209,12,426,39"/>
-<area shape="rect" id="node3" href="$class_model_infrastructure.html#a991f46601d9e865f2e27c6cd7a2b702d" title="ModelInfrastructure\l::_saveInstance" alt="" coords="475,5,610,46"/>
+<area shape="rect" id="node2" href="$class_model_component.html#a465f41c7191cb0fdf9039ef1f3d755a5" title="ModelComponent::_saveInstance" alt="" coords="208,5,425,32"/>
+<area shape="rect" id="node3" href="$class_model_element.html#af20dbba778ca07b23b299f2be73dc964" title="ModelElement::_saveInstance" alt="" coords="473,5,672,32"/>
 </map>

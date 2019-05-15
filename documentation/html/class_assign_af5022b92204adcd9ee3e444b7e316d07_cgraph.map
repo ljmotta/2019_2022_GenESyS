@@ -1,4 +1,4 @@
 <map id="Assign::show" name="Assign::show">
-<area shape="rect" id="node2" href="$class_model_component.html#ad8bc846e36b028eab7efb7da6c549eca" title="ModelComponent::show" alt="" coords="155,12,317,39"/>
-<area shape="rect" id="node3" href="$class_model_infrastructure.html#a649a5a89a0c9931783d3c51de2acf266" title="ModelInfrastructure\l::show" alt="" coords="366,5,501,46"/>
+<area shape="rect" id="node2" href="$class_model_component.html#ad8bc846e36b028eab7efb7da6c549eca" title="ModelComponent::show" alt="" coords="155,5,317,32"/>
+<area shape="rect" id="node3" href="$class_model_element.html#af084d684e8effe5cd4c2265abc98896c" title="ModelElement::show" alt="" coords="365,5,509,32"/>
 </map>

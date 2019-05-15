@@ -6,7 +6,7 @@
 
 /* 
  * File:   ExperimentDesignDummyImpl.cpp
- * Author: cancian
+ * Author: rafael.luiz.cancian
  * 
  * Created on 10 de Outubro de 2018, 18:32
  */
@@ -18,7 +18,7 @@ ExperimentDesignDummyImpl::ExperimentDesignDummyImpl() {
 }
 
 std::list<FactorOrInteractionContribution*>* ExperimentDesignDummyImpl::getContributions() const {
-	return _contributions;
+    return _contributions;
 }
 
 ExperimentDesignDummyImpl::ExperimentDesignDummyImpl(const ExperimentDesignDummyImpl& orig) {
@@ -27,15 +27,15 @@ ExperimentDesignDummyImpl::ExperimentDesignDummyImpl(const ExperimentDesignDummy
 ExperimentDesignDummyImpl::~ExperimentDesignDummyImpl() {
 }
 
-bool ExperimentDesignDummyImpl::generate2krScenarioExperiments(){
+bool ExperimentDesignDummyImpl::generate2krScenarioExperiments() {
     return true;
 }
 
-bool ExperimentDesignDummyImpl::calculateContributionAndCoefficients(){
+bool ExperimentDesignDummyImpl::calculateContributionAndCoefficients() {
     return true;
 }
 
 ProcessAnalyser_if* ExperimentDesignDummyImpl::getProcessAnalyser() const {
-	return _processAnalyser;
+    return _processAnalyser;
 }
 

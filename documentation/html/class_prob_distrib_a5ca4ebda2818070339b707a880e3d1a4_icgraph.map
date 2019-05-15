@@ -1,13 +1,4 @@
 <map id="ProbDistrib::normal" name="ProbDistrib::normal">
-<area shape="rect" id="node2" href="$class_fitter_fabiola.html#aa1e8d772536e5e3440a0c7207393c82c" title="FitterFabiola::fitNormal" alt="" coords="225,56,380,83"/>
-<area shape="rect" id="node5" href="$class_fitter_joao_souto.html#a7ca82959fcf03884eaeac57367a04959" title="FitterJoaoSouto::fitNormal" alt="" coords="215,107,390,133"/>
-<area shape="rect" id="node7" href="$classyy_1_1genesyspp__parser.html#ab2fad51435ec4f28dfee2d5e4611f309" title="yy::genesyspp_parser\l::parse" alt="" coords="227,158,378,199"/>
-<area shape="rect" id="node11" href="$_test_input_analyser_tools_8cpp.html#af7011a62619acc9f81bcb4c5a5fafbe8" title="testStudentSoftwareDevelopments" alt="" coords="190,245,415,272"/>
-<area shape="rect" id="node3" href="$class_fitter_fabiola.html#a419faa9832e64f6508829271f0b13286" title="FitterFabiola::isNormalDistributed" alt="" coords="465,5,682,32"/>
-<area shape="rect" id="node4" href="$class_fitter_fabiola.html#ac15542ce538d83e78577e81d1667ff96" title="FitterFabiola::fitAll" alt="" coords="509,56,637,83"/>
-<area shape="rect" id="node6" href="$class_fitter_joao_souto.html#a83e95985c9bc5d419803b12a572ac743" title="FitterJoaoSouto::fitAll" alt="" coords="499,107,647,133"/>
-<area shape="rect" id="node8" href="$classgenesyspp__driver.html#a2f58e23b084877eee330915c2f4fc71f" title="genesyspp_driver::parse_file" alt="" coords="479,157,667,184"/>
-<area shape="rect" id="node9" href="$classgenesyspp__driver.html#a5e63bd1621e53aa24cf2dee47d53ebdc" title="genesyspp_driver::parse_str" alt="" coords="480,208,667,235"/>
-<area shape="rect" id="node10" href="$class_parser_flex_bison_impl.html#ae8cd1179a3fad2bf11e1ec513d9e45bb" title="ParserFlexBisonImpl\l::parse" alt="" coords="731,201,874,242"/>
-<area shape="rect" id="node12" href="$class_test_input_analyser_tools.html#a8015a3024f29bddc865cb0b419214cd7" title="TestInputAnalyserTools\l::main" alt="" coords="493,259,653,301"/>
+<area shape="rect" id="node2" href="$_test_input_analyser_tools_8cpp.html#af7011a62619acc9f81bcb4c5a5fafbe8" title="testStudentSoftwareDevelopments" alt="" coords="188,13,413,39"/>
+<area shape="rect" id="node3" href="$class_test_input_analyser_tools.html#a8015a3024f29bddc865cb0b419214cd7" title="TestInputAnalyserTools\l::main" alt="" coords="461,5,621,47"/>
 </map>

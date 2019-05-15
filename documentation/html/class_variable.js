@@ -1,6 +1,7 @@
 var class_variable =
 [
     [ "Variable", "class_variable.html#a5716c9dcafcc8cf59a6f6b5dac3ec7a2", null ],
+    [ "Variable", "class_variable.html#aa577850f5c43638f1042bb4fc1356c25", null ],
     [ "Variable", "class_variable.html#a1974dd984e1ee5bf74f25d03301108c1", null ],
     [ "~Variable", "class_variable.html#acfc14d0ad77af53025f890b4d3a7745a", null ],
     [ "_loadInstance", "class_variable.html#a37db5791f858048daf0549d2ea3f3a62", null ],

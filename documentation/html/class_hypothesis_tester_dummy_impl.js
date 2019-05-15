@@ -5,10 +5,10 @@ var class_hypothesis_tester_dummy_impl =
     [ "~HypothesisTesterDummyImpl", "class_hypothesis_tester_dummy_impl.html#a604e36c3fa5d99dfa33a86d51398223e", null ],
     [ "getDataFilename", "class_hypothesis_tester_dummy_impl.html#ae30c2fa88b87f19bd62ae5e557620e3c", null ],
     [ "setDataFilename", "class_hypothesis_tester_dummy_impl.html#a43f07179a7fd3825a00cbddf07eea13a", null ],
-    [ "testAverage", "class_hypothesis_tester_dummy_impl.html#ac3c4e7af925e74d89d6d8974d5b5f54b", null ],
-    [ "testAverage", "class_hypothesis_tester_dummy_impl.html#ab5f212676d5f42b639702c9a737da07f", null ],
-    [ "testProportion", "class_hypothesis_tester_dummy_impl.html#a815efa8f1265cb7636f0e622f1e760a9", null ],
-    [ "testProportion", "class_hypothesis_tester_dummy_impl.html#aa713d0b66446c80053edc0c15a28ebe9", null ],
-    [ "testVariance", "class_hypothesis_tester_dummy_impl.html#ad7bf6740aa7f5d2a57625b4933c4cdc0", null ],
-    [ "testVariance", "class_hypothesis_tester_dummy_impl.html#a0947f4b4e5829dc66bc8cf0a5113b94b", null ]
+    [ "testAverage", "class_hypothesis_tester_dummy_impl.html#aac603382c2eaad79a1390a42988060f5", null ],
+    [ "testAverage", "class_hypothesis_tester_dummy_impl.html#a4ebaa7ef9541724941ca0bebda907171", null ],
+    [ "testProportion", "class_hypothesis_tester_dummy_impl.html#a5a96ba69b75ac822ee8c00c372309b10", null ],
+    [ "testProportion", "class_hypothesis_tester_dummy_impl.html#a5ee29a4c5a2ba6be62094530fa37719a", null ],
+    [ "testVariance", "class_hypothesis_tester_dummy_impl.html#aab76d8071306f218e816d0ae26079c10", null ],
+    [ "testVariance", "class_hypothesis_tester_dummy_impl.html#a7503d9ce32e13e036de315b13ab5d536", null ]
 ];

@@ -1,3 +1,8 @@
 <map id="Entity::show" name="Entity::show">
-<area shape="rect" id="node2" href="$class_model_infrastructure.html#a649a5a89a0c9931783d3c51de2acf266" title="ModelInfrastructure\l::show" alt="" coords="150,5,285,46"/>
+<area shape="rect" id="node2" href="$class_model_element.html#af084d684e8effe5cd4c2265abc98896c" title="ModelElement::show" alt="" coords="159,5,303,32"/>
+<area shape="rect" id="node3" href="$class_model_element.html#afd840f06567a2b5621464f5314ae066e" title="ModelElement::getName" alt="" coords="148,56,315,83"/>
+<area shape="rect" id="node4" href="$class_list.html#a42761114ff6730da1402089d4bd3f795" title="List::first" alt="" coords="195,107,268,133"/>
+<area shape="rect" id="node5" href="$class_list.html#ad908ab5cf19370fcdf61cf1927e5e8f5" title="List::size" alt="" coords="194,157,269,184"/>
+<area shape="rect" id="node6" href="$class_list.html#a58474bac3aa3d1ef7208aa06a3789d57" title="List::actual" alt="" coords="188,208,275,235"/>
+<area shape="rect" id="node7" href="$class_list.html#a2dce655743c2b6c7cc7c9b6034badf78" title="List::next" alt="" coords="193,259,269,285"/>
 </map>

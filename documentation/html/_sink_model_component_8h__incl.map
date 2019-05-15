@@ -1,8 +1,13 @@
 <map id="SinkModelComponent.h" name="SinkModelComponent.h">
-<area shape="rect" id="node2" href="$_model_component_8h.html" title="ModelComponent.h" alt="" coords="231,80,365,107"/>
-<area shape="rect" id="node5" href="$_plugin_8h.html" title="Plugin.h" alt="" coords="26,229,95,256"/>
-<area shape="rect" id="node10" href="$_list_8h.html" title="List.h" alt="" coords="493,229,548,256"/>
-<area shape="rect" id="node14" href="$_entity_8h.html" title="Entity.h" alt="" coords="310,155,377,181"/>
-<area shape="rect" id="node15" href="$_model_infrastructure_8h.html" title="ModelInfrastructure.h" alt="" coords="171,229,316,256"/>
-<area shape="rect" id="node6" href="$_util_8h.html" title="Util.h" alt="" coords="270,304,323,331"/>
+<area shape="rect" id="node2" href="$_model_component_8h.html" title="ModelComponent.h" alt="" coords="795,80,930,107"/>
+<area shape="rect" id="node5" href="$_plugin_8h.html" title="Plugin.h" alt="" coords="97,453,167,480"/>
+<area shape="rect" id="node10" href="$_list_8h.html" title="List.h" alt="" coords="399,379,454,405"/>
+<area shape="rect" id="node14" href="$_model_element_8h.html" title="ModelElement.h" alt="" coords="810,453,926,480"/>
+<area shape="rect" id="node15" href="$_entity_8h.html" title="Entity.h" alt="" coords="725,155,792,181"/>
+<area shape="rect" id="node6" href="$_util_8h.html" title="Util.h" alt="" coords="103,528,156,555"/>
+<area shape="rect" id="node16" href="$_entity_type_8h.html" title="EntityType.h" alt="" coords="711,229,807,256"/>
+<area shape="rect" id="node17" href="$_statistics_collector_8h.html" title="StatisticsCollector.h" alt="" coords="634,379,774,405"/>
+<area shape="rect" id="node20" href="$_element_manager_8h.html" title="ElementManager.h" alt="" coords="480,304,611,331"/>
+<area shape="rect" id="node18" href="$_statistics__if_8h.html" title="Statistics_if.h" alt="" coords="581,453,683,480"/>
+<area shape="rect" id="node19" href="$_collector__if_8h.html" title="Collector_if.h" alt="" coords="581,528,680,555"/>
 </map>

@@ -6,7 +6,7 @@
 
 /* 
  * File:   main.cpp
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 21 de Junho de 2018, 12:47
  */
@@ -20,9 +20,9 @@
  * This is the MAIN application of GenESyS. It just calls the Application specificied on the configuration file.
  */
 int main(int argc, char** argv) {
-	// do not change it. Set you own application in Traits file => Traits<GenesysApplication_if>::Application
-	GenesysApplication_if *app = new Traits<GenesysApplication_if>::Application();
-	int res = app->main(argc, argv);
-	return res;
+    // do not change it. Set you own application in Traits file => Traits<GenesysApplication_if>::Application
+    GenesysApplication_if *app = new Traits<GenesysApplication_if>::Application();
+    int res = app->main(argc, argv);
+    return res;
 }
 

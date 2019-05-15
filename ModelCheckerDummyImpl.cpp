@@ -6,7 +6,7 @@
 
 /* 
  * File:   ModelCheckerDummyImpl.cpp
- * Author: cancian
+ * Author: rafael.luiz.cancian
  * 
  * Created on 23 de Agosto de 2018, 15:52
  */
@@ -16,7 +16,7 @@
 #include "ModelCheckerDummyImpl.h"
 
 ModelCheckerDummyImpl::ModelCheckerDummyImpl(Model* model) {
-	_model = model;
+    _model = model;
 }
 
 ModelCheckerDummyImpl::ModelCheckerDummyImpl(const ModelCheckerDummyImpl& orig) {
@@ -26,49 +26,50 @@ ModelCheckerDummyImpl::~ModelCheckerDummyImpl() {
 }
 
 bool ModelCheckerDummyImpl::checkAll() {
-	bool res = true;
-	res &= checkConnected();
-	res &= checkPathway();
-	res &= checkSymbols();
-	res &= checkAndAddInternalLiterals();
-	res &= checkActivationCode();
-	return res;
+    bool res = true;
+    res &= checkConnected();
+    res &= checkPathway();
+    res &= checkSymbols();
+    res &= checkAndAddInternalLiterals();
+    res &= checkActivationCode();
+    return res;
 }
 
 bool ModelCheckerDummyImpl::checkAndAddInternalLiterals() {
-	return true;
+    return true;
 }
 
 bool ModelCheckerDummyImpl::checkConnected() {
-	return true;
+    return true;
 }
 
 bool ModelCheckerDummyImpl::checkSymbols() {
-	bool res = true;
-	std::string* errorMessage;  // replaced by errorMessages in model??
-	List<ModelComponent*>* components = this->_model->getComponents();
-	for (std::list<ModelComponent*>::iterator it= components->getList()->begin(); it!=components->getList()->end(); it++) {
-		res &= (*it)->VerifySymbols((*it), errorMessage);
-	}
-	return res;
+    bool res = true;
+    std::string* errorMessage; // replaced by errorMessages in model??
+    List<ModelComponent*>* components = this->_model->getComponents();
+    for (std::list<ModelComponent*>::iterator it = components->getList()->begin(); it != components->getList()->end(); it++) {
+        res &= (*it)->VerifySymbols((*it), errorMessage);
+    }
+    /* TODO: CHeck in elements */
+    return res;
 }
 
 bool ModelCheckerDummyImpl::checkPathway() {
-	/* TODO +-: not implemented yet */
-	return true;
+    /* TODO +-: not implemented yet */
+    return true;
 
 }
 
 bool ModelCheckerDummyImpl::checkActivationCode() {
-	return true;
+    return true;
 }
 
 bool ModelCheckerDummyImpl::verifySymbol(std::string componentName, std::string expressionName, std::string expression, std::string expressionResult, bool mandatory) {
-	bool res = true;
-	if (mandatory && expression=="") {
-		_model->getTracer()->getErrorMessages()->insert("Error verifying symbol \""+expressionName+"\" of component \""+componentName+"\n: Mandatory symbol is empty");
-		res = false;
-	}
-	/* TODO: Not implemented yet */
-	return res;
+    bool res = true;
+    if (mandatory && expression == "") {
+        _model->getTracer()->getErrorMessages()->insert("Error verifying symbol \"" + expressionName + "\" of component \"" + componentName + "\n: Mandatory symbol is empty");
+        res = false;
+    }
+    /* TODO: Not implemented yet */
+    return res;
 }

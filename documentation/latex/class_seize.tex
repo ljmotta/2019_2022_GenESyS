@@ -6,22 +6,20 @@
 
 
 
-Inheritance diagram for Seize\+:
-\nopagebreak
+Inheritance diagram for Seize\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=181pt]{class_seize__inherit__graph}
+\includegraphics[width=173pt]{class_seize__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Collaboration diagram for Seize\+:
-\nopagebreak
+Collaboration diagram for Seize\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=242pt]{class_seize__coll__graph}
+\includegraphics[width=220pt]{class_seize__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
@@ -63,13 +61,21 @@ void \hyperlink{class_seize_a4f6354bf4897ce4c46ff9c1e2dd5c150}{set\+Allocation\+
 \item 
 unsigned int \hyperlink{class_seize_ac40f22e56d4448c5d5bae40b64ef4deb}{get\+Allocation\+Type} () const 
 \item 
-void \hyperlink{class_seize_a2bdaa616c4fd499f754099eb59729547}{set\+Resource\+Name} (std\+::string \+\_\+resource\+Name)
+void \hyperlink{class_seize_a2bdaa616c4fd499f754099eb59729547}{set\+Resource\+Name} (std\+::string \+\_\+resource\+Name)  throw ()
 \item 
 std\+::string \hyperlink{class_seize_a30781601e8fcfb165c99aee731c081e8}{get\+Resource\+Name} () const 
 \item 
-void \hyperlink{class_seize_a4d24a3326db05e92439379e1c4efa940}{set\+Queue\+Name} (std\+::string \+\_\+queue\+Name)
+void \hyperlink{class_seize_adadd376a826f2b3a84176242dd9a15ca}{set\+Queue\+Name} (std\+::string queue\+Name)  throw ()
 \item 
 std\+::string \hyperlink{class_seize_a37f2b1a10e1ae390d5186a87bdebe30a}{get\+Queue\+Name} () const 
+\item 
+void \hyperlink{class_seize_a00358422896770f637a3ab4f916fbb01}{set\+Resource} (\hyperlink{class_resource}{Resource} $\ast$resource)
+\item 
+\hyperlink{class_resource}{Resource} $\ast$ \hyperlink{class_seize_a69f42d0b8a6ce26c210c8b7cb927b405}{get\+Resource} () const 
+\item 
+void \hyperlink{class_seize_a474f5050620ea1733f9cdc9eda5f3d47}{set\+Queue} (\hyperlink{class_queue}{Queue} $\ast$queue)
+\item 
+\hyperlink{class_queue}{Queue} $\ast$ \hyperlink{class_seize_aa09d1a08f966e187ec70d161a1cd496f}{get\+Queue} () const 
 \end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
@@ -124,6 +130,17 @@ virtual bool \hyperlink{class_seize_a51dc9257dc692083006f676546ddfff8}{\+\_\+ver
 
 Implements \hyperlink{class_model_component_ae3fcf8bbdd8368c882438424aa73f714}{Model\+Component}.
 
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_seize_a96f6517a40b3bfd0d5ea753d59cef797_cgraph}
+\end{center}
+\end{figure}
+
+
 \index{Seize@{Seize}!\+\_\+load\+Instance@{\+\_\+load\+Instance}}
 \index{\+\_\+load\+Instance@{\+\_\+load\+Instance}!Seize@{Seize}}
 \subsubsection[{\texorpdfstring{\+\_\+load\+Instance(std\+::list$<$ std\+::string $>$ words)}{_loadInstance(std::list< std::string > words)}}]{\setlength{\rightskip}{0pt plus 5cm}void Seize\+::\+\_\+load\+Instance (
@@ -133,7 +150,7 @@ Implements \hyperlink{class_model_component_ae3fcf8bbdd8368c882438424aa73f714}{M
 )\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{class_seize_a421a0ec6382cb30f6a0342f8dea050db}{}\label{class_seize_a421a0ec6382cb30f6a0342f8dea050db}
 
 
-Implements \hyperlink{class_model_infrastructure_ae118c8ad2ac9d4397c40d004af51b2dc}{Model\+Infrastructure}.
+Implements \hyperlink{class_model_element_a8208ee1dbd8b15acf7c2a0a85b218d56}{Model\+Element}.
 
 \index{Seize@{Seize}!\+\_\+save\+Instance@{\+\_\+save\+Instance}}
 \index{\+\_\+save\+Instance@{\+\_\+save\+Instance}!Seize@{Seize}}
@@ -146,6 +163,17 @@ Implements \hyperlink{class_model_infrastructure_ae118c8ad2ac9d4397c40d004af51b2
 
 Reimplemented from \hyperlink{class_model_component_a465f41c7191cb0fdf9039ef1f3d755a5}{Model\+Component}.
 
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_seize_a38a8af6942b51ce11d191469d277661d_cgraph}
+\end{center}
+\end{figure}
+
+
 \index{Seize@{Seize}!\+\_\+verify\+Symbols@{\+\_\+verify\+Symbols}}
 \index{\+\_\+verify\+Symbols@{\+\_\+verify\+Symbols}!Seize@{Seize}}
 \subsubsection[{\texorpdfstring{\+\_\+verify\+Symbols(std\+::string $\ast$error\+Message)}{_verifySymbols(std::string *errorMessage)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Seize\+::\+\_\+verify\+Symbols (
@@ -155,7 +183,7 @@ Reimplemented from \hyperlink{class_model_component_a465f41c7191cb0fdf9039ef1f3d
 )\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{class_seize_a51dc9257dc692083006f676546ddfff8}{}\label{class_seize_a51dc9257dc692083006f676546ddfff8}
 
 
-Implements \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a388}{Model\+Infrastructure}.
+Implements \hyperlink{class_model_element_a42d23a83672cf746c709a031966484b2}{Model\+Element}.
 
 \index{Seize@{Seize}!get\+Allocation\+Type@{get\+Allocation\+Type}}
 \index{get\+Allocation\+Type@{get\+Allocation\+Type}!Seize@{Seize}}
@@ -185,6 +213,13 @@ Implements \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a3
 {}
 \end{DoxyParamCaption}
 ) const}\hypertarget{class_seize_a3d35c1a3b959b045aeeaf11ec8a86cbc}{}\label{class_seize_a3d35c1a3b959b045aeeaf11ec8a86cbc}
+\index{Seize@{Seize}!get\+Queue@{get\+Queue}}
+\index{get\+Queue@{get\+Queue}!Seize@{Seize}}
+\subsubsection[{\texorpdfstring{get\+Queue() const }{getQueue() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Queue} $\ast$ Seize\+::get\+Queue (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_seize_aa09d1a08f966e187ec70d161a1cd496f}{}\label{class_seize_aa09d1a08f966e187ec70d161a1cd496f}
 \index{Seize@{Seize}!get\+Queue\+Name@{get\+Queue\+Name}}
 \index{get\+Queue\+Name@{get\+Queue\+Name}!Seize@{Seize}}
 \subsubsection[{\texorpdfstring{get\+Queue\+Name() const }{getQueueName() const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Seize\+::get\+Queue\+Name (
@@ -192,6 +227,24 @@ Implements \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a3
 {}
 \end{DoxyParamCaption}
 ) const}\hypertarget{class_seize_a37f2b1a10e1ae390d5186a87bdebe30a}{}\label{class_seize_a37f2b1a10e1ae390d5186a87bdebe30a}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_seize_a37f2b1a10e1ae390d5186a87bdebe30a_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{Seize@{Seize}!get\+Resource@{get\+Resource}}
+\index{get\+Resource@{get\+Resource}!Seize@{Seize}}
+\subsubsection[{\texorpdfstring{get\+Resource() const }{getResource() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Resource} $\ast$ Seize\+::get\+Resource (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_seize_a69f42d0b8a6ce26c210c8b7cb927b405}{}\label{class_seize_a69f42d0b8a6ce26c210c8b7cb927b405}
 \index{Seize@{Seize}!get\+Resource\+Name@{get\+Resource\+Name}}
 \index{get\+Resource\+Name@{get\+Resource\+Name}!Seize@{Seize}}
 \subsubsection[{\texorpdfstring{get\+Resource\+Name() const }{getResourceName() const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Seize\+::get\+Resource\+Name (
@@ -199,6 +252,17 @@ Implements \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a3
 {}
 \end{DoxyParamCaption}
 ) const}\hypertarget{class_seize_a30781601e8fcfb165c99aee731c081e8}{}\label{class_seize_a30781601e8fcfb165c99aee731c081e8}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_seize_a30781601e8fcfb165c99aee731c081e8_cgraph}
+\end{center}
+\end{figure}
+
+
 \index{Seize@{Seize}!get\+Resource\+Type@{get\+Resource\+Type}}
 \index{get\+Resource\+Type@{get\+Resource\+Type}!Seize@{Seize}}
 \subsubsection[{\texorpdfstring{get\+Resource\+Type() const }{getResourceType() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Resource\+::\+Resource\+Type} Seize\+::get\+Resource\+Type (
@@ -248,20 +312,89 @@ Implements \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a3
 \item[{std\+::string}]{\+\_\+quantity}
 \end{DoxyParamCaption}
 )}\hypertarget{class_seize_af1d376022212dabf763f28d67a1a549b}{}\label{class_seize_af1d376022212dabf763f28d67a1a549b}
+\index{Seize@{Seize}!set\+Queue@{set\+Queue}}
+\index{set\+Queue@{set\+Queue}!Seize@{Seize}}
+\subsubsection[{\texorpdfstring{set\+Queue(\+Queue $\ast$queue)}{setQueue(Queue *queue)}}]{\setlength{\rightskip}{0pt plus 5cm}void Seize\+::set\+Queue (
+\begin{DoxyParamCaption}
+\item[{{\bf Queue} $\ast$}]{queue}
+\end{DoxyParamCaption}
+)}\hypertarget{class_seize_a474f5050620ea1733f9cdc9eda5f3d47}{}\label{class_seize_a474f5050620ea1733f9cdc9eda5f3d47}
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_seize_a474f5050620ea1733f9cdc9eda5f3d47_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Seize@{Seize}!set\+Queue\+Name@{set\+Queue\+Name}}
 \index{set\+Queue\+Name@{set\+Queue\+Name}!Seize@{Seize}}
-\subsubsection[{\texorpdfstring{set\+Queue\+Name(std\+::string \+\_\+queue\+Name)}{setQueueName(std::string _queueName)}}]{\setlength{\rightskip}{0pt plus 5cm}void Seize\+::set\+Queue\+Name (
+\subsubsection[{\texorpdfstring{set\+Queue\+Name(std\+::string queue\+Name)}{setQueueName(std::string queueName)}}]{\setlength{\rightskip}{0pt plus 5cm}void Seize\+::set\+Queue\+Name (
 \begin{DoxyParamCaption}
-\item[{std\+::string}]{\+\_\+queue\+Name}
+\item[{std\+::string}]{queue\+Name}
 \end{DoxyParamCaption}
-)}\hypertarget{class_seize_a4d24a3326db05e92439379e1c4efa940}{}\label{class_seize_a4d24a3326db05e92439379e1c4efa940}
+) throw  ) }\hypertarget{class_seize_adadd376a826f2b3a84176242dd9a15ca}{}\label{class_seize_adadd376a826f2b3a84176242dd9a15ca}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_seize_adadd376a826f2b3a84176242dd9a15ca_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{Seize@{Seize}!set\+Resource@{set\+Resource}}
+\index{set\+Resource@{set\+Resource}!Seize@{Seize}}
+\subsubsection[{\texorpdfstring{set\+Resource(\+Resource $\ast$resource)}{setResource(Resource *resource)}}]{\setlength{\rightskip}{0pt plus 5cm}void Seize\+::set\+Resource (
+\begin{DoxyParamCaption}
+\item[{{\bf Resource} $\ast$}]{resource}
+\end{DoxyParamCaption}
+)}\hypertarget{class_seize_a00358422896770f637a3ab4f916fbb01}{}\label{class_seize_a00358422896770f637a3ab4f916fbb01}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_seize_a00358422896770f637a3ab4f916fbb01_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_seize_a00358422896770f637a3ab4f916fbb01_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Seize@{Seize}!set\+Resource\+Name@{set\+Resource\+Name}}
 \index{set\+Resource\+Name@{set\+Resource\+Name}!Seize@{Seize}}
 \subsubsection[{\texorpdfstring{set\+Resource\+Name(std\+::string \+\_\+resource\+Name)}{setResourceName(std::string _resourceName)}}]{\setlength{\rightskip}{0pt plus 5cm}void Seize\+::set\+Resource\+Name (
 \begin{DoxyParamCaption}
 \item[{std\+::string}]{\+\_\+resource\+Name}
 \end{DoxyParamCaption}
-)}\hypertarget{class_seize_a2bdaa616c4fd499f754099eb59729547}{}\label{class_seize_a2bdaa616c4fd499f754099eb59729547}
+) throw  ) }\hypertarget{class_seize_a2bdaa616c4fd499f754099eb59729547}{}\label{class_seize_a2bdaa616c4fd499f754099eb59729547}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_seize_a2bdaa616c4fd499f754099eb59729547_cgraph}
+\end{center}
+\end{figure}
+
+
 \index{Seize@{Seize}!set\+Resource\+Type@{set\+Resource\+Type}}
 \index{set\+Resource\+Type@{set\+Resource\+Type}!Seize@{Seize}}
 \subsubsection[{\texorpdfstring{set\+Resource\+Type(\+Resource\+::\+Resource\+Type \+\_\+resource\+Type)}{setResourceType(Resource::ResourceType _resourceType)}}]{\setlength{\rightskip}{0pt plus 5cm}void Seize\+::set\+Resource\+Type (
@@ -293,6 +426,17 @@ Implements \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a3
 
 
 Reimplemented from \hyperlink{class_model_component_ad8bc846e36b028eab7efb7da6c549eca}{Model\+Component}.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_seize_a495ace3a156680b5816c8b285135322c_cgraph}
+\end{center}
+\end{figure}
+
 
 
 

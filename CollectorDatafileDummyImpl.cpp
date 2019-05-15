@@ -6,7 +6,7 @@
 
 /* 
  * File:   CollectorDatafileDummyImpl.cpp
- * Author: cancian
+ * Author: rafael.luiz.cancian
  * 
  * Created on 30 de Agosto de 2018, 16:53
  */
@@ -37,10 +37,24 @@ unsigned long CollectorDatafileDummyImpl::numElements() {
 double CollectorDatafileDummyImpl::getValue(unsigned int num) {
 }
 
+double CollectorDatafileDummyImpl::getNextValue() {
+}
+
+void CollectorDatafileDummyImpl::seekFirstValue() {
+}
+
 std::string CollectorDatafileDummyImpl::getDataFilename() {
-	return _filename;
+    return _filename;
 }
 
 void CollectorDatafileDummyImpl::setDataFilename(std::string filename) {
-	_filename = filename;
+    _filename = filename;
+}
+
+void CollectorDatafileDummyImpl::setAddValueHandler(CollectorAddValueHandler addValueHandler) {
+
+}
+
+void CollectorDatafileDummyImpl::setClearHandler(CollectorClearHandler clearHandler) {
+
 }

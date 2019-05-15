@@ -6,7 +6,7 @@
 
 /* 
  * File:   FactorOrInteractionContribution.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 10 de Outubro de 2018, 20:08
  */
@@ -22,17 +22,17 @@
  */
 class FactorOrInteractionContribution {
 public:
-	FactorOrInteractionContribution(double contribution, double modelCoefficient, std::list<SimulationControl*>* controls);
-	FactorOrInteractionContribution(const FactorOrInteractionContribution& orig);
-	~FactorOrInteractionContribution() ;
+    FactorOrInteractionContribution(double contribution, double modelCoefficient, std::list<SimulationControl*>* controls);
+    FactorOrInteractionContribution(const FactorOrInteractionContribution& orig);
+    ~FactorOrInteractionContribution();
 public:
-	double getModelCoefficient() const;
-	std::list<SimulationControl*>* getControls() const;
-	double getContribution() const;
+    double getModelCoefficient() const;
+    std::list<SimulationControl*>* getControls() const;
+    double getContribution() const;
 private:
-	double _contribution;
-	double _modelCoefficient;
-	std::list<SimulationControl*>* _controls;
+    double _contribution;
+    double _modelCoefficient;
+    std::list<SimulationControl*>* _controls;
 };
 
 #endif /* FACTORORINTERACTIONCONTRIBUTION_H */

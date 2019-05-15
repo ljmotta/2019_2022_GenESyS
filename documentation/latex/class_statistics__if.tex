@@ -6,12 +6,11 @@
 
 
 
-Inheritance diagram for Statistics\+\_\+if\+:
-\nopagebreak
+Inheritance diagram for Statistics\+\_\+if\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=191pt]{class_statistics__if__inherit__graph}
+\includegraphics[width=350pt]{class_statistics__if__inherit__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
@@ -29,33 +28,19 @@ virtual double \hyperlink{class_statistics__if_a24e3652122f2ec649b4c7d3accc43da0
 \item 
 virtual double \hyperlink{class_statistics__if_a791ab6bbd166254429a3131bdf6e8dd6}{average} ()=0
 \item 
-virtual double \hyperlink{class_statistics__if_a43b850db407a9a64ab3e2f4d06eab350}{mode} ()=0
-\item 
-virtual double \hyperlink{class_statistics__if_a0414c1df9272ca674cba6fc30f027684}{mediane} ()=0
-\item 
 virtual double \hyperlink{class_statistics__if_a1b563f7e92eda3cf3a8f47f07824b96b}{variance} ()=0
 \item 
 virtual double \hyperlink{class_statistics__if_a88d2478c6dfd8de19436ab248080a509}{stddeviation} ()=0
 \item 
 virtual double \hyperlink{class_statistics__if_ae0ad6bf18f8263003b0ac7552318be57}{variation\+Coef} ()=0
 \item 
-virtual double \hyperlink{class_statistics__if_a093e08a43aefa0738f94ea4f68eaa40d}{half\+Width\+Confidence\+Interval} (double confidencelevel)=0
+virtual double \hyperlink{class_statistics__if_a5d4ab727b54825cb55b3b9bd00b4b88d}{half\+Width\+Confidence\+Interval} ()=0
 \item 
-virtual unsigned int \hyperlink{class_statistics__if_a041cafef3eb831901296987871f707f0}{new\+Sample\+Size} (double confidencelevel, double half\+Width)=0
+virtual unsigned int \hyperlink{class_statistics__if_a926ff99efcecb3609918b70e495057fd}{new\+Sample\+Size} (double half\+Width)=0
 \item 
-virtual double \hyperlink{class_statistics__if_af85daafcb428420ceeacdd4807c045eb}{quartil} (unsigned short num)=0
+virtual double \hyperlink{class_statistics__if_a1533540d1977c62b0024d6d571a994d9}{get\+Confidence\+Level} ()=0
 \item 
-virtual double \hyperlink{class_statistics__if_a562230cad7a31c8af403217743b156f3}{decil} (unsigned short num)=0
-\item 
-virtual double \hyperlink{class_statistics__if_a906e7f2428e5e6482daf5dd1b2d54bfc}{centil} (unsigned short num)=0
-\item 
-virtual void \hyperlink{class_statistics__if_a82349cd351436591c909d39f580c2f63}{set\+Histogram\+Num\+Classes} (unsigned short num)=0
-\item 
-virtual unsigned short \hyperlink{class_statistics__if_ab86db530e84375431be9d13c88424de3}{histogram\+Num\+Classes} ()=0
-\item 
-virtual double \hyperlink{class_statistics__if_abedad81a78b2c04ade10994e5503825c}{histogram\+Class\+Lower\+Limit} (unsigned short class\+Num)=0
-\item 
-virtual unsigned int \hyperlink{class_statistics__if_a7b72e8473ff71da5f8b77e4f2c15a407}{histogram\+Class\+Frequency} (unsigned short class\+Num)=0
+virtual void \hyperlink{class_statistics__if_af40ee46b5ea90979439edc6aa26179c8}{set\+Confidence\+Level} (double confidencelevel)=0
 \end{DoxyCompactItemize}
 
 
@@ -72,29 +57,19 @@ Interface for statisct synthesis of a stochastic variable collected by a \hyperl
 )\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_a791ab6bbd166254429a3131bdf6e8dd6}{}\label{class_statistics__if_a791ab6bbd166254429a3131bdf6e8dd6}
 
 
-Implemented in \hyperlink{class_statistics_dummy_impl_a6a92fc5fc549b4e674e95d03e0adf6e3}{Statistics\+Dummy\+Impl}.
-
-\index{Statistics\+\_\+if@{Statistics\+\_\+if}!centil@{centil}}
-\index{centil@{centil}!Statistics\+\_\+if@{Statistics\+\_\+if}}
-\subsubsection[{\texorpdfstring{centil(unsigned short num)=0}{centil(unsigned short num)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\+\_\+if\+::centil (
-\begin{DoxyParamCaption}
-\item[{unsigned short}]{num}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_a906e7f2428e5e6482daf5dd1b2d54bfc}{}\label{class_statistics__if_a906e7f2428e5e6482daf5dd1b2d54bfc}
+Implemented in \hyperlink{class_statistics_default_impl1_a9d455901cf69ec5acb7f8d22f6cf6e7d}{Statistics\+Default\+Impl1}, \hyperlink{class_statistics_dummy_impl_a6a92fc5fc549b4e674e95d03e0adf6e3}{Statistics\+Dummy\+Impl}, and \hyperlink{class_statistics_data_file_dummy_impl_a841db1f62ab7e20e5dbc7f943c4bd204}{Statistics\+Data\+File\+Dummy\+Impl}.
 
 
-Implemented in \hyperlink{class_statistics_dummy_impl_a72a39c441803615318e1fdcb005600cb}{Statistics\+Dummy\+Impl}.
 
-\index{Statistics\+\_\+if@{Statistics\+\_\+if}!decil@{decil}}
-\index{decil@{decil}!Statistics\+\_\+if@{Statistics\+\_\+if}}
-\subsubsection[{\texorpdfstring{decil(unsigned short num)=0}{decil(unsigned short num)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\+\_\+if\+::decil (
-\begin{DoxyParamCaption}
-\item[{unsigned short}]{num}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_a562230cad7a31c8af403217743b156f3}{}\label{class_statistics__if_a562230cad7a31c8af403217743b156f3}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_statistics__if_a791ab6bbd166254429a3131bdf6e8dd6_icgraph}
+\end{center}
+\end{figure}
 
-
-Implemented in \hyperlink{class_statistics_dummy_impl_a8bf7d2641c3bfcddfeeefbb7cb62d2fe}{Statistics\+Dummy\+Impl}.
 
 \index{Statistics\+\_\+if@{Statistics\+\_\+if}!get\+Collector@{get\+Collector}}
 \index{get\+Collector@{get\+Collector}!Statistics\+\_\+if@{Statistics\+\_\+if}}
@@ -105,51 +80,64 @@ Implemented in \hyperlink{class_statistics_dummy_impl_a8bf7d2641c3bfcddfeeefbb7c
 )\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_a49a730541ca9a3d8272f39f4000485c4}{}\label{class_statistics__if_a49a730541ca9a3d8272f39f4000485c4}
 
 
-Implemented in \hyperlink{class_statistics_dummy_impl_ac17e897d6131550bcdf5b2243c26a43b}{Statistics\+Dummy\+Impl}.
-
-\index{Statistics\+\_\+if@{Statistics\+\_\+if}!half\+Width\+Confidence\+Interval@{half\+Width\+Confidence\+Interval}}
-\index{half\+Width\+Confidence\+Interval@{half\+Width\+Confidence\+Interval}!Statistics\+\_\+if@{Statistics\+\_\+if}}
-\subsubsection[{\texorpdfstring{half\+Width\+Confidence\+Interval(double confidencelevel)=0}{halfWidthConfidenceInterval(double confidencelevel)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\+\_\+if\+::half\+Width\+Confidence\+Interval (
-\begin{DoxyParamCaption}
-\item[{double}]{confidencelevel}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_a093e08a43aefa0738f94ea4f68eaa40d}{}\label{class_statistics__if_a093e08a43aefa0738f94ea4f68eaa40d}
+Implemented in \hyperlink{class_statistics_default_impl1_aaded347086e5510d2b429aabd4b29117}{Statistics\+Default\+Impl1}, \hyperlink{class_statistics_dummy_impl_ac17e897d6131550bcdf5b2243c26a43b}{Statistics\+Dummy\+Impl}, and \hyperlink{class_statistics_data_file_dummy_impl_a918e9a2af69abdf66ed90fbacfd5d67d}{Statistics\+Data\+File\+Dummy\+Impl}.
 
 
-Implemented in \hyperlink{class_statistics_dummy_impl_a1c4042f54bf3c420da0b6fdca482e474}{Statistics\+Dummy\+Impl}.
 
-\index{Statistics\+\_\+if@{Statistics\+\_\+if}!histogram\+Class\+Frequency@{histogram\+Class\+Frequency}}
-\index{histogram\+Class\+Frequency@{histogram\+Class\+Frequency}!Statistics\+\_\+if@{Statistics\+\_\+if}}
-\subsubsection[{\texorpdfstring{histogram\+Class\+Frequency(unsigned short class\+Num)=0}{histogramClassFrequency(unsigned short classNum)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual unsigned int Statistics\+\_\+if\+::histogram\+Class\+Frequency (
-\begin{DoxyParamCaption}
-\item[{unsigned short}]{class\+Num}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_a7b72e8473ff71da5f8b77e4f2c15a407}{}\label{class_statistics__if_a7b72e8473ff71da5f8b77e4f2c15a407}
-
-
-Implemented in \hyperlink{class_statistics_dummy_impl_ac540e251f446d113ed332a3fb0c02ad9}{Statistics\+Dummy\+Impl}.
-
-\index{Statistics\+\_\+if@{Statistics\+\_\+if}!histogram\+Class\+Lower\+Limit@{histogram\+Class\+Lower\+Limit}}
-\index{histogram\+Class\+Lower\+Limit@{histogram\+Class\+Lower\+Limit}!Statistics\+\_\+if@{Statistics\+\_\+if}}
-\subsubsection[{\texorpdfstring{histogram\+Class\+Lower\+Limit(unsigned short class\+Num)=0}{histogramClassLowerLimit(unsigned short classNum)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\+\_\+if\+::histogram\+Class\+Lower\+Limit (
-\begin{DoxyParamCaption}
-\item[{unsigned short}]{class\+Num}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_abedad81a78b2c04ade10994e5503825c}{}\label{class_statistics__if_abedad81a78b2c04ade10994e5503825c}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_statistics__if_a49a730541ca9a3d8272f39f4000485c4_icgraph}
+\end{center}
+\end{figure}
 
 
-Implemented in \hyperlink{class_statistics_dummy_impl_aaa9e994f5b80ec6f5def79054d7527b8}{Statistics\+Dummy\+Impl}.
-
-\index{Statistics\+\_\+if@{Statistics\+\_\+if}!histogram\+Num\+Classes@{histogram\+Num\+Classes}}
-\index{histogram\+Num\+Classes@{histogram\+Num\+Classes}!Statistics\+\_\+if@{Statistics\+\_\+if}}
-\subsubsection[{\texorpdfstring{histogram\+Num\+Classes()=0}{histogramNumClasses()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual unsigned short Statistics\+\_\+if\+::histogram\+Num\+Classes (
+\index{Statistics\+\_\+if@{Statistics\+\_\+if}!get\+Confidence\+Level@{get\+Confidence\+Level}}
+\index{get\+Confidence\+Level@{get\+Confidence\+Level}!Statistics\+\_\+if@{Statistics\+\_\+if}}
+\subsubsection[{\texorpdfstring{get\+Confidence\+Level()=0}{getConfidenceLevel()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\+\_\+if\+::get\+Confidence\+Level (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_ab86db530e84375431be9d13c88424de3}{}\label{class_statistics__if_ab86db530e84375431be9d13c88424de3}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_a1533540d1977c62b0024d6d571a994d9}{}\label{class_statistics__if_a1533540d1977c62b0024d6d571a994d9}
 
 
-Implemented in \hyperlink{class_statistics_dummy_impl_a977ebf1184b3aef665b5c6eee682d8d8}{Statistics\+Dummy\+Impl}.
+Implemented in \hyperlink{class_statistics_default_impl1_a6b7260a7dc9064a59c21d2812cdba4a7}{Statistics\+Default\+Impl1}, and \hyperlink{class_statistics_dummy_impl_a0705395b51a406e1d90664ba2c95d037}{Statistics\+Dummy\+Impl}.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_statistics__if_a1533540d1977c62b0024d6d571a994d9_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{Statistics\+\_\+if@{Statistics\+\_\+if}!half\+Width\+Confidence\+Interval@{half\+Width\+Confidence\+Interval}}
+\index{half\+Width\+Confidence\+Interval@{half\+Width\+Confidence\+Interval}!Statistics\+\_\+if@{Statistics\+\_\+if}}
+\subsubsection[{\texorpdfstring{half\+Width\+Confidence\+Interval()=0}{halfWidthConfidenceInterval()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\+\_\+if\+::half\+Width\+Confidence\+Interval (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_a5d4ab727b54825cb55b3b9bd00b4b88d}{}\label{class_statistics__if_a5d4ab727b54825cb55b3b9bd00b4b88d}
+
+
+Implemented in \hyperlink{class_statistics_default_impl1_a6305be6a663af6d01bcf8b1517be06a0}{Statistics\+Default\+Impl1}, and \hyperlink{class_statistics_dummy_impl_a544a2899b078f8a81199204870de61d0}{Statistics\+Dummy\+Impl}.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_statistics__if_a5d4ab727b54825cb55b3b9bd00b4b88d_icgraph}
+\end{center}
+\end{figure}
+
 
 \index{Statistics\+\_\+if@{Statistics\+\_\+if}!max@{max}}
 \index{max@{max}!Statistics\+\_\+if@{Statistics\+\_\+if}}
@@ -160,18 +148,19 @@ Implemented in \hyperlink{class_statistics_dummy_impl_a977ebf1184b3aef665b5c6eee
 )\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_a24e3652122f2ec649b4c7d3accc43da0}{}\label{class_statistics__if_a24e3652122f2ec649b4c7d3accc43da0}
 
 
-Implemented in \hyperlink{class_statistics_dummy_impl_a5aa9311e22a79c8287ce77a5be16902b}{Statistics\+Dummy\+Impl}.
-
-\index{Statistics\+\_\+if@{Statistics\+\_\+if}!mediane@{mediane}}
-\index{mediane@{mediane}!Statistics\+\_\+if@{Statistics\+\_\+if}}
-\subsubsection[{\texorpdfstring{mediane()=0}{mediane()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\+\_\+if\+::mediane (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_a0414c1df9272ca674cba6fc30f027684}{}\label{class_statistics__if_a0414c1df9272ca674cba6fc30f027684}
+Implemented in \hyperlink{class_statistics_default_impl1_ac5880adb2aa226ca0049619d4c8f9055}{Statistics\+Default\+Impl1}, \hyperlink{class_statistics_dummy_impl_a5aa9311e22a79c8287ce77a5be16902b}{Statistics\+Dummy\+Impl}, and \hyperlink{class_statistics_data_file_dummy_impl_a3b01b94c593e1a4bed17dc70b79d8f5b}{Statistics\+Data\+File\+Dummy\+Impl}.
 
 
-Implemented in \hyperlink{class_statistics_dummy_impl_a464109b84c8994089f3a288be6c8ee77}{Statistics\+Dummy\+Impl}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_statistics__if_a24e3652122f2ec649b4c7d3accc43da0_icgraph}
+\end{center}
+\end{figure}
+
 
 \index{Statistics\+\_\+if@{Statistics\+\_\+if}!min@{min}}
 \index{min@{min}!Statistics\+\_\+if@{Statistics\+\_\+if}}
@@ -182,30 +171,30 @@ Implemented in \hyperlink{class_statistics_dummy_impl_a464109b84c8994089f3a288be
 )\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_acdeb9880a7362e9105871c7fb3f65db6}{}\label{class_statistics__if_acdeb9880a7362e9105871c7fb3f65db6}
 
 
-Implemented in \hyperlink{class_statistics_dummy_impl_afa54fbcf5b2cd94cd31144ceea0d3617}{Statistics\+Dummy\+Impl}.
-
-\index{Statistics\+\_\+if@{Statistics\+\_\+if}!mode@{mode}}
-\index{mode@{mode}!Statistics\+\_\+if@{Statistics\+\_\+if}}
-\subsubsection[{\texorpdfstring{mode()=0}{mode()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\+\_\+if\+::mode (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_a43b850db407a9a64ab3e2f4d06eab350}{}\label{class_statistics__if_a43b850db407a9a64ab3e2f4d06eab350}
+Implemented in \hyperlink{class_statistics_default_impl1_abe3c2ecfecf1f41c3e234c4837ebf958}{Statistics\+Default\+Impl1}, \hyperlink{class_statistics_dummy_impl_afa54fbcf5b2cd94cd31144ceea0d3617}{Statistics\+Dummy\+Impl}, and \hyperlink{class_statistics_data_file_dummy_impl_afb326f24142b0d2647cd2dc399555d89}{Statistics\+Data\+File\+Dummy\+Impl}.
 
 
-Implemented in \hyperlink{class_statistics_dummy_impl_acd482a6fa39b3ada3df4d2f2720896eb}{Statistics\+Dummy\+Impl}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_statistics__if_acdeb9880a7362e9105871c7fb3f65db6_icgraph}
+\end{center}
+\end{figure}
+
 
 \index{Statistics\+\_\+if@{Statistics\+\_\+if}!new\+Sample\+Size@{new\+Sample\+Size}}
 \index{new\+Sample\+Size@{new\+Sample\+Size}!Statistics\+\_\+if@{Statistics\+\_\+if}}
-\subsubsection[{\texorpdfstring{new\+Sample\+Size(double confidencelevel, double half\+Width)=0}{newSampleSize(double confidencelevel, double halfWidth)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual unsigned int Statistics\+\_\+if\+::new\+Sample\+Size (
+\subsubsection[{\texorpdfstring{new\+Sample\+Size(double half\+Width)=0}{newSampleSize(double halfWidth)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual unsigned int Statistics\+\_\+if\+::new\+Sample\+Size (
 \begin{DoxyParamCaption}
-\item[{double}]{confidencelevel, }
 \item[{double}]{half\+Width}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_a041cafef3eb831901296987871f707f0}{}\label{class_statistics__if_a041cafef3eb831901296987871f707f0}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_a926ff99efcecb3609918b70e495057fd}{}\label{class_statistics__if_a926ff99efcecb3609918b70e495057fd}
 
 
-Implemented in \hyperlink{class_statistics_dummy_impl_a066b0df170c50c08e52205eb312b838c}{Statistics\+Dummy\+Impl}.
+Implemented in \hyperlink{class_statistics_default_impl1_a08a59890f738459d9b822d948b02b23c}{Statistics\+Default\+Impl1}, and \hyperlink{class_statistics_dummy_impl_abb437988ddf2f5d75d3b62aa971da2e6}{Statistics\+Dummy\+Impl}.
 
 \index{Statistics\+\_\+if@{Statistics\+\_\+if}!num\+Elements@{num\+Elements}}
 \index{num\+Elements@{num\+Elements}!Statistics\+\_\+if@{Statistics\+\_\+if}}
@@ -216,18 +205,19 @@ Implemented in \hyperlink{class_statistics_dummy_impl_a066b0df170c50c08e52205eb3
 )\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_a1e76d98f8a61fe03df9e36194eaa5722}{}\label{class_statistics__if_a1e76d98f8a61fe03df9e36194eaa5722}
 
 
-Implemented in \hyperlink{class_statistics_dummy_impl_a6669b3555223a6104fb31edacf577553}{Statistics\+Dummy\+Impl}.
-
-\index{Statistics\+\_\+if@{Statistics\+\_\+if}!quartil@{quartil}}
-\index{quartil@{quartil}!Statistics\+\_\+if@{Statistics\+\_\+if}}
-\subsubsection[{\texorpdfstring{quartil(unsigned short num)=0}{quartil(unsigned short num)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Statistics\+\_\+if\+::quartil (
-\begin{DoxyParamCaption}
-\item[{unsigned short}]{num}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_af85daafcb428420ceeacdd4807c045eb}{}\label{class_statistics__if_af85daafcb428420ceeacdd4807c045eb}
+Implemented in \hyperlink{class_statistics_default_impl1_a3ad348a8f7f6c787bae7bd047778732f}{Statistics\+Default\+Impl1}, \hyperlink{class_statistics_dummy_impl_a6669b3555223a6104fb31edacf577553}{Statistics\+Dummy\+Impl}, and \hyperlink{class_statistics_data_file_dummy_impl_a0931af6cd8a0852c5682fdbe6f6c5a77}{Statistics\+Data\+File\+Dummy\+Impl}.
 
 
-Implemented in \hyperlink{class_statistics_dummy_impl_abf36d630332a91f95fef2ab6056813ab}{Statistics\+Dummy\+Impl}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_statistics__if_a1e76d98f8a61fe03df9e36194eaa5722_icgraph}
+\end{center}
+\end{figure}
+
 
 \index{Statistics\+\_\+if@{Statistics\+\_\+if}!set\+Collector@{set\+Collector}}
 \index{set\+Collector@{set\+Collector}!Statistics\+\_\+if@{Statistics\+\_\+if}}
@@ -238,18 +228,29 @@ Implemented in \hyperlink{class_statistics_dummy_impl_abf36d630332a91f95fef2ab60
 )\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_a203ffe8e5215e887b716b7810023adc6}{}\label{class_statistics__if_a203ffe8e5215e887b716b7810023adc6}
 
 
-Implemented in \hyperlink{class_statistics_dummy_impl_a6a6d3fc91a7afe22cb66d10760891fa0}{Statistics\+Dummy\+Impl}.
+Implemented in \hyperlink{class_statistics_default_impl1_a356b96434f96963340ad6a64e72d2287}{Statistics\+Default\+Impl1}, \hyperlink{class_statistics_dummy_impl_a6a6d3fc91a7afe22cb66d10760891fa0}{Statistics\+Dummy\+Impl}, and \hyperlink{class_statistics_data_file_dummy_impl_a3d149d314ea88c3136754e0a4c182b49}{Statistics\+Data\+File\+Dummy\+Impl}.
 
-\index{Statistics\+\_\+if@{Statistics\+\_\+if}!set\+Histogram\+Num\+Classes@{set\+Histogram\+Num\+Classes}}
-\index{set\+Histogram\+Num\+Classes@{set\+Histogram\+Num\+Classes}!Statistics\+\_\+if@{Statistics\+\_\+if}}
-\subsubsection[{\texorpdfstring{set\+Histogram\+Num\+Classes(unsigned short num)=0}{setHistogramNumClasses(unsigned short num)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Statistics\+\_\+if\+::set\+Histogram\+Num\+Classes (
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_statistics__if_a203ffe8e5215e887b716b7810023adc6_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{Statistics\+\_\+if@{Statistics\+\_\+if}!set\+Confidence\+Level@{set\+Confidence\+Level}}
+\index{set\+Confidence\+Level@{set\+Confidence\+Level}!Statistics\+\_\+if@{Statistics\+\_\+if}}
+\subsubsection[{\texorpdfstring{set\+Confidence\+Level(double confidencelevel)=0}{setConfidenceLevel(double confidencelevel)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Statistics\+\_\+if\+::set\+Confidence\+Level (
 \begin{DoxyParamCaption}
-\item[{unsigned short}]{num}
+\item[{double}]{confidencelevel}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_a82349cd351436591c909d39f580c2f63}{}\label{class_statistics__if_a82349cd351436591c909d39f580c2f63}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_af40ee46b5ea90979439edc6aa26179c8}{}\label{class_statistics__if_af40ee46b5ea90979439edc6aa26179c8}
 
 
-Implemented in \hyperlink{class_statistics_dummy_impl_a6c88ebef76311957f2c83e9d420f1f75}{Statistics\+Dummy\+Impl}.
+Implemented in \hyperlink{class_statistics_default_impl1_a180488f21098944d1bc64233bf7aba6d}{Statistics\+Default\+Impl1}, and \hyperlink{class_statistics_dummy_impl_a73e9769979bfb2aa79eb40cf8a5572a1}{Statistics\+Dummy\+Impl}.
 
 \index{Statistics\+\_\+if@{Statistics\+\_\+if}!stddeviation@{stddeviation}}
 \index{stddeviation@{stddeviation}!Statistics\+\_\+if@{Statistics\+\_\+if}}
@@ -260,7 +261,19 @@ Implemented in \hyperlink{class_statistics_dummy_impl_a6c88ebef76311957f2c83e9d4
 )\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_a88d2478c6dfd8de19436ab248080a509}{}\label{class_statistics__if_a88d2478c6dfd8de19436ab248080a509}
 
 
-Implemented in \hyperlink{class_statistics_dummy_impl_aecd1ae947272fe51658fbac3cb3647e8}{Statistics\+Dummy\+Impl}.
+Implemented in \hyperlink{class_statistics_default_impl1_a4f456241bc3340e04e688652fcad8037}{Statistics\+Default\+Impl1}, \hyperlink{class_statistics_dummy_impl_aecd1ae947272fe51658fbac3cb3647e8}{Statistics\+Dummy\+Impl}, and \hyperlink{class_statistics_data_file_dummy_impl_a098b76d88a1ba4fdb07d29d8927c6c5b}{Statistics\+Data\+File\+Dummy\+Impl}.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_statistics__if_a88d2478c6dfd8de19436ab248080a509_icgraph}
+\end{center}
+\end{figure}
+
 
 \index{Statistics\+\_\+if@{Statistics\+\_\+if}!variance@{variance}}
 \index{variance@{variance}!Statistics\+\_\+if@{Statistics\+\_\+if}}
@@ -271,7 +284,19 @@ Implemented in \hyperlink{class_statistics_dummy_impl_aecd1ae947272fe51658fbac3c
 )\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_a1b563f7e92eda3cf3a8f47f07824b96b}{}\label{class_statistics__if_a1b563f7e92eda3cf3a8f47f07824b96b}
 
 
-Implemented in \hyperlink{class_statistics_dummy_impl_a205e3cb135b3bea12d03826964930069}{Statistics\+Dummy\+Impl}.
+Implemented in \hyperlink{class_statistics_default_impl1_af4f4f87081443d4316db24d41b1815ea}{Statistics\+Default\+Impl1}, \hyperlink{class_statistics_dummy_impl_a205e3cb135b3bea12d03826964930069}{Statistics\+Dummy\+Impl}, and \hyperlink{class_statistics_data_file_dummy_impl_ae34ab679014e047ad22020dc6ed258e3}{Statistics\+Data\+File\+Dummy\+Impl}.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_statistics__if_a1b563f7e92eda3cf3a8f47f07824b96b_icgraph}
+\end{center}
+\end{figure}
+
 
 \index{Statistics\+\_\+if@{Statistics\+\_\+if}!variation\+Coef@{variation\+Coef}}
 \index{variation\+Coef@{variation\+Coef}!Statistics\+\_\+if@{Statistics\+\_\+if}}
@@ -282,7 +307,19 @@ Implemented in \hyperlink{class_statistics_dummy_impl_a205e3cb135b3bea12d0382696
 )\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_statistics__if_ae0ad6bf18f8263003b0ac7552318be57}{}\label{class_statistics__if_ae0ad6bf18f8263003b0ac7552318be57}
 
 
-Implemented in \hyperlink{class_statistics_dummy_impl_af1dff0a22b596cfca7aa123757f35d05}{Statistics\+Dummy\+Impl}.
+Implemented in \hyperlink{class_statistics_default_impl1_a6cf660daca8ad4144e080dccaf33a282}{Statistics\+Default\+Impl1}, \hyperlink{class_statistics_dummy_impl_af1dff0a22b596cfca7aa123757f35d05}{Statistics\+Dummy\+Impl}, and \hyperlink{class_statistics_data_file_dummy_impl_a9efec5bc302c6fb09a67dde03f2b2ebc}{Statistics\+Data\+File\+Dummy\+Impl}.
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_statistics__if_ae0ad6bf18f8263003b0ac7552318be57_icgraph}
+\end{center}
+\end{figure}
+
 
 
 

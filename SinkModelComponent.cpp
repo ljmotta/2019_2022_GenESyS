@@ -6,14 +6,14 @@
 
 /* 
  * File:   SinkModelComponent.cpp
- * Author: cancian
+ * Author: rafael.luiz.cancian
  * 
  * Created on 14 de Agosto de 2018, 14:29
  */
 
 #include "SinkModelComponent.h"
 
-SinkModelComponent::SinkModelComponent(Model* model) : ModelComponent(model) {
+SinkModelComponent::SinkModelComponent(Model* model, std::string componentTypename) : ModelComponent(model, componentTypename) {
 }
 
 SinkModelComponent::SinkModelComponent(const SinkModelComponent& orig) : ModelComponent(orig) {
@@ -23,10 +23,10 @@ SinkModelComponent::~SinkModelComponent() {
 }
 
 void SinkModelComponent::setCollectStatistics(bool _collectStatistics) {
-	this->_collectStatistics = _collectStatistics;
+    this->_collectStatistics = _collectStatistics;
 }
 
 bool SinkModelComponent::isCollectStatistics() const {
-	return _collectStatistics;
+    return _collectStatistics;
 }
 

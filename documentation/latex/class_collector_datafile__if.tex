@@ -6,18 +6,16 @@
 
 
 
-Inheritance diagram for Collector\+Datafile\+\_\+if\+:
-\nopagebreak
+Inheritance diagram for Collector\+Datafile\+\_\+if\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=223pt]{class_collector_datafile__if__inherit__graph}
+\includegraphics[width=350pt]{class_collector_datafile__if__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Collaboration diagram for Collector\+Datafile\+\_\+if\+:
-\nopagebreak
+Collaboration diagram for Collector\+Datafile\+\_\+if\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -27,7 +25,11 @@ Collaboration diagram for Collector\+Datafile\+\_\+if\+:
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-virtual double \hyperlink{class_collector_datafile__if_aa790efe68dfa16cebd66b481bbda8411}{get\+Value} (unsigned int num)=0
+virtual double \hyperlink{class_collector_datafile__if_a1f10deeaa49fad2ecf4a4fa4ea262b5c}{get\+Value} (unsigned int rank)=0
+\item 
+virtual void \hyperlink{class_collector_datafile__if_af5d33f603cf60214387a4303adc88969}{seek\+First\+Value} ()=0
+\item 
+virtual double \hyperlink{class_collector_datafile__if_a0064b4a740e3590c52ea15790b976dad}{get\+Next\+Value} ()=0
 \item 
 virtual std\+::string \hyperlink{class_collector_datafile__if_a81d109f34c25f5295f76ba13f4234a3c}{get\+Data\+Filename} ()=0
 \item 
@@ -46,20 +48,53 @@ Interface for collecting values of a stochastic variable that will be stores in 
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_collector_datafile__if_a81d109f34c25f5295f76ba13f4234a3c}{}\label{class_collector_datafile__if_a81d109f34c25f5295f76ba13f4234a3c}
+Get the next value in the file and advances the pointer 
+
+Implemented in \hyperlink{class_collector_datafile_default_impl1_afe570b0792bf13a06ff1dea12d7593b7}{Collector\+Datafile\+Default\+Impl1}, and \hyperlink{class_collector_datafile_dummy_impl_a33a261f553b05c9c39aa46e1222e4918}{Collector\+Datafile\+Dummy\+Impl}.
 
 
-Implemented in \hyperlink{class_collector_datafile_dummy_impl_a33a261f553b05c9c39aa46e1222e4918}{Collector\+Datafile\+Dummy\+Impl}.
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_collector_datafile__if_a81d109f34c25f5295f76ba13f4234a3c_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{Collector\+Datafile\+\_\+if@{Collector\+Datafile\+\_\+if}!get\+Next\+Value@{get\+Next\+Value}}
+\index{get\+Next\+Value@{get\+Next\+Value}!Collector\+Datafile\+\_\+if@{Collector\+Datafile\+\_\+if}}
+\subsubsection[{\texorpdfstring{get\+Next\+Value()=0}{getNextValue()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Collector\+Datafile\+\_\+if\+::get\+Next\+Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_collector_datafile__if_a0064b4a740e3590c52ea15790b976dad}{}\label{class_collector_datafile__if_a0064b4a740e3590c52ea15790b976dad}
+Set the pointer to the first value in the file 
+
+Implemented in \hyperlink{class_collector_datafile_default_impl1_a615090f649ddd8260b1f058f6cd29668}{Collector\+Datafile\+Default\+Impl1}, and \hyperlink{class_collector_datafile_dummy_impl_a362d8bf7fee03c319239c994a01cf1ae}{Collector\+Datafile\+Dummy\+Impl}.
 
 \index{Collector\+Datafile\+\_\+if@{Collector\+Datafile\+\_\+if}!get\+Value@{get\+Value}}
 \index{get\+Value@{get\+Value}!Collector\+Datafile\+\_\+if@{Collector\+Datafile\+\_\+if}}
-\subsubsection[{\texorpdfstring{get\+Value(unsigned int num)=0}{getValue(unsigned int num)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Collector\+Datafile\+\_\+if\+::get\+Value (
+\subsubsection[{\texorpdfstring{get\+Value(unsigned int rank)=0}{getValue(unsigned int rank)=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual double Collector\+Datafile\+\_\+if\+::get\+Value (
 \begin{DoxyParamCaption}
-\item[{unsigned int}]{num}
+\item[{unsigned int}]{rank}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_collector_datafile__if_aa790efe68dfa16cebd66b481bbda8411}{}\label{class_collector_datafile__if_aa790efe68dfa16cebd66b481bbda8411}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_collector_datafile__if_a1f10deeaa49fad2ecf4a4fa4ea262b5c}{}\label{class_collector_datafile__if_a1f10deeaa49fad2ecf4a4fa4ea262b5c}
 
 
-Implemented in \hyperlink{class_collector_datafile_dummy_impl_a84eb10b49223b402897c466f93dc1bcf}{Collector\+Datafile\+Dummy\+Impl}.
+Implemented in \hyperlink{class_collector_datafile_default_impl1_ac40e05b78e9fcc41c648664a9597d30c}{Collector\+Datafile\+Default\+Impl1}, and \hyperlink{class_collector_datafile_dummy_impl_a84eb10b49223b402897c466f93dc1bcf}{Collector\+Datafile\+Dummy\+Impl}.
+
+\index{Collector\+Datafile\+\_\+if@{Collector\+Datafile\+\_\+if}!seek\+First\+Value@{seek\+First\+Value}}
+\index{seek\+First\+Value@{seek\+First\+Value}!Collector\+Datafile\+\_\+if@{Collector\+Datafile\+\_\+if}}
+\subsubsection[{\texorpdfstring{seek\+First\+Value()=0}{seekFirstValue()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Collector\+Datafile\+\_\+if\+::seek\+First\+Value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_collector_datafile__if_af5d33f603cf60214387a4303adc88969}{}\label{class_collector_datafile__if_af5d33f603cf60214387a4303adc88969}
+Get a value from a specific position 
+
+Implemented in \hyperlink{class_collector_datafile_default_impl1_ad8ddefdc93c51945922ea73af95def05}{Collector\+Datafile\+Default\+Impl1}, and \hyperlink{class_collector_datafile_dummy_impl_a47f415dda26201345746697f700ef1b5}{Collector\+Datafile\+Dummy\+Impl}.
 
 \index{Collector\+Datafile\+\_\+if@{Collector\+Datafile\+\_\+if}!set\+Data\+Filename@{set\+Data\+Filename}}
 \index{set\+Data\+Filename@{set\+Data\+Filename}!Collector\+Datafile\+\_\+if@{Collector\+Datafile\+\_\+if}}
@@ -70,7 +105,18 @@ Implemented in \hyperlink{class_collector_datafile_dummy_impl_a84eb10b49223b4028
 )\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_collector_datafile__if_ab826bbf5472a5cfdbf2f2c30273da8eb}{}\label{class_collector_datafile__if_ab826bbf5472a5cfdbf2f2c30273da8eb}
 
 
-Implemented in \hyperlink{class_collector_datafile_dummy_impl_aa2f236e5351f9a438aa7cf8734623758}{Collector\+Datafile\+Dummy\+Impl}.
+Implemented in \hyperlink{class_collector_datafile_default_impl1_a62352f75a7635654108bb2b8b9604e1d}{Collector\+Datafile\+Default\+Impl1}, and \hyperlink{class_collector_datafile_dummy_impl_aa2f236e5351f9a438aa7cf8734623758}{Collector\+Datafile\+Dummy\+Impl}.
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_collector_datafile__if_ab826bbf5472a5cfdbf2f2c30273da8eb_icgraph}
+\end{center}
+\end{figure}
+
 
 
 

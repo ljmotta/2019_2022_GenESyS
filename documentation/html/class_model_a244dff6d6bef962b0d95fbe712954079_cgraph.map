@@ -1,16 +1,16 @@
 <map id="Model::sendEntityToComponent" name="Model::sendEntityToComponent">
-<area shape="rect" id="node2" href="$class_model.html#a217487c8193eb6c0afd95a9315cd51bb" title="Model::getSimulation" alt="" coords="283,5,427,32"/>
-<area shape="rect" id="node3" href="$class_model.html#a841c78bda0eb27c652c6921094dc5921" title="Model::getEvents" alt="" coords="293,56,417,83"/>
-<area shape="rect" id="node4" href="$class_list.html#a518d00fd77740525522949d4316e8826" title="List::insert" alt="" coords="313,107,396,133"/>
-<area shape="rect" id="node5" href="$class_util.html#a702d44544c3dd604b81e578ee9ee713f" title="Util::DecIndent" alt="" coords="531,19,642,45"/>
-<area shape="rect" id="node6" href="$class_model_component.html#a08c5312c2f94f6621577cc1836c2d3e0" title="ModelComponent::Execute" alt="" coords="265,208,445,235"/>
-<area shape="rect" id="node11" href="$class_util.html#a8110241a80979c8fbecca95eef59e9ad" title="Util::IncIndent" alt="" coords="535,389,639,416"/>
-<area shape="rect" id="node7" href="$class_model.html#adc0de22631d77864b7956591c39ebc60" title="Model::getTracer" alt="" coords="527,69,647,96"/>
-<area shape="rect" id="node8" href="$class_trace_manager.html#a242d77829b85a436fd2aab2092bfa50c" title="TraceManager::trace" alt="" coords="515,120,658,147"/>
-<area shape="rect" id="node10" href="$class_model_infrastructure.html#aa4d3fa8f302cc6dc4fccdd3187e6a168" title="ModelInfrastructure\l::getId" alt="" coords="519,171,654,213"/>
-<area shape="rect" id="node12" href="$class_model_component.html#ae3fcf8bbdd8368c882438424aa73f714" title="ModelComponent::_execute" alt="" coords="494,237,679,264"/>
-<area shape="rect" id="node13" href="$class_trace_manager.html#a774a8549d24361fa2a8f8722de0084ef" title="TraceManager::traceError" alt="" coords="501,288,672,315"/>
-<area shape="rect" id="node14" href="$class_model_component.html#ad8bc846e36b028eab7efb7da6c549eca" title="ModelComponent::show" alt="" coords="505,339,668,365"/>
-<area shape="rect" id="node9" href="$class_util.html#a13a4cb5dbc88ef5e2c3a127362b956d6" title="Util::Indent" alt="" coords="753,120,839,147"/>
-<area shape="rect" id="node15" href="$class_model_infrastructure.html#a649a5a89a0c9931783d3c51de2acf266" title="ModelInfrastructure\l::show" alt="" coords="729,331,863,373"/>
+<area shape="rect" id="node2" href="$class_model.html#a217487c8193eb6c0afd95a9315cd51bb" title="Provides access to the class that manages the model simulation. " alt="" coords="281,5,425,32"/>
+<area shape="rect" id="node3" href="$class_model.html#a841c78bda0eb27c652c6921094dc5921" title="The future events list chronologically sorted; Events are scheduled by components when processing oth..." alt="" coords="291,56,415,83"/>
+<area shape="rect" id="node4" href="$class_list.html#a518d00fd77740525522949d4316e8826" title="List::insert" alt="" coords="311,107,394,133"/>
+<area shape="rect" id="node5" href="$class_util.html#a702d44544c3dd604b81e578ee9ee713f" title="Util::DecIndent" alt="" coords="528,31,639,57"/>
+<area shape="rect" id="node6" href="$class_model_component.html#a08c5312c2f94f6621577cc1836c2d3e0" title="This method triggers the simulation of the behavior of the component. It is invoked when an event (co..." alt="" coords="263,208,443,235"/>
+<area shape="rect" id="node11" href="$class_util.html#a8110241a80979c8fbecca95eef59e9ad" title="Util::IncIndent" alt="" coords="531,385,635,412"/>
+<area shape="rect" id="node7" href="$class_model.html#adc0de22631d77864b7956591c39ebc60" title="Provides access to the class that performs the trace of simulation and replications. " alt="" coords="523,81,643,108"/>
+<area shape="rect" id="node8" href="$class_trace_manager.html#a242d77829b85a436fd2aab2092bfa50c" title="TraceManager::trace" alt="" coords="512,132,655,159"/>
+<area shape="rect" id="node10" href="$class_model_element.html#af03e72d71099042c2bda655931ff1676" title="ModelElement::getId" alt="" coords="512,183,655,209"/>
+<area shape="rect" id="node12" href="$class_model_component.html#ae3fcf8bbdd8368c882438424aa73f714" title="ModelComponent::_execute" alt="" coords="491,233,676,260"/>
+<area shape="rect" id="node13" href="$class_trace_manager.html#a774a8549d24361fa2a8f8722de0084ef" title="TraceManager::traceError" alt="" coords="498,284,669,311"/>
+<area shape="rect" id="node14" href="$class_model_component.html#ad8bc846e36b028eab7efb7da6c549eca" title="ModelComponent::show" alt="" coords="502,335,665,361"/>
+<area shape="rect" id="node9" href="$class_util.html#a13a4cb5dbc88ef5e2c3a127362b956d6" title="Util::Indent" alt="" coords="753,132,839,159"/>
+<area shape="rect" id="node15" href="$class_model_element.html#af084d684e8effe5cd4c2265abc98896c" title="ModelElement::show" alt="" coords="724,335,868,361"/>
 </map>

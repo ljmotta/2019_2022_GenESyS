@@ -14,15 +14,21 @@ var files =
     [ "BuildSimulationModel.h", "_build_simulation_model_8h.html", [
       [ "BuildSimulationModel", "class_build_simulation_model.html", "class_build_simulation_model" ]
     ] ],
-    [ "Collector_if.h", "_collector__if_8h.html", [
-      [ "Collector_if", "class_collector__if.html", "class_collector__if" ]
-    ] ],
+    [ "Collector_if.h", "_collector__if_8h.html", "_collector__if_8h" ],
     [ "CollectorDatafile_if.h", "_collector_datafile__if_8h.html", [
       [ "CollectorDatafile_if", "class_collector_datafile__if.html", "class_collector_datafile__if" ]
+    ] ],
+    [ "CollectorDatafileDefaultImpl1.cpp", "_collector_datafile_default_impl1_8cpp.html", null ],
+    [ "CollectorDatafileDefaultImpl1.h", "_collector_datafile_default_impl1_8h.html", [
+      [ "CollectorDatafileDefaultImpl1", "class_collector_datafile_default_impl1.html", "class_collector_datafile_default_impl1" ]
     ] ],
     [ "CollectorDatafileDummyImpl.cpp", "_collector_datafile_dummy_impl_8cpp.html", null ],
     [ "CollectorDatafileDummyImpl.h", "_collector_datafile_dummy_impl_8h.html", [
       [ "CollectorDatafileDummyImpl", "class_collector_datafile_dummy_impl.html", "class_collector_datafile_dummy_impl" ]
+    ] ],
+    [ "CollectorDefaultImpl1.cpp", "_collector_default_impl1_8cpp.html", null ],
+    [ "CollectorDefaultImpl1.h", "_collector_default_impl1_8h.html", [
+      [ "CollectorDefaultImpl1", "class_collector_default_impl1.html", "class_collector_default_impl1" ]
     ] ],
     [ "CollectorDummyImpl.cpp", "_collector_dummy_impl_8cpp.html", null ],
     [ "CollectorDummyImpl.h", "_collector_dummy_impl_8h.html", [
@@ -32,6 +38,11 @@ var files =
     [ "Create.h", "_create_8h.html", [
       [ "Create", "class_create.html", "class_create" ]
     ] ],
+    [ "Decide.cpp", "_decide_8cpp.html", null ],
+    [ "Decide.h", "_decide_8h.html", [
+      [ "Decide", "class_decide.html", "class_decide" ]
+    ] ],
+    [ "DefineGetterSetter.h", "_define_getter_setter_8h.html", "_define_getter_setter_8h" ],
     [ "Delay.cpp", "_delay_8cpp.html", null ],
     [ "Delay.h", "_delay_8h.html", [
       [ "Delay", "class_delay.html", "class_delay" ]
@@ -39,6 +50,13 @@ var files =
     [ "Dispose.cpp", "_dispose_8cpp.html", null ],
     [ "Dispose.h", "_dispose_8h.html", [
       [ "Dispose", "class_dispose.html", "class_dispose" ]
+    ] ],
+    [ "ElementManager.cpp", "_element_manager_8cpp.html", null ],
+    [ "ElementManager.h", "_element_manager_8h.html", [
+      [ "ElementManager", "class_element_manager.html", "class_element_manager" ]
+    ] ],
+    [ "ElementManager_if.h", "_element_manager__if_8h.html", [
+      [ "ElementManager_if", "class_element_manager__if.html", "class_element_manager__if" ]
     ] ],
     [ "Entity.cpp", "_entity_8cpp.html", null ],
     [ "Entity.h", "_entity_8h.html", [
@@ -55,6 +73,10 @@ var files =
     [ "ExperimentDesign_if.h", "_experiment_design__if_8h.html", [
       [ "ExperimentDesign_if", "class_experiment_design__if.html", "class_experiment_design__if" ]
     ] ],
+    [ "ExperimentDesignDefaultImpl1.cpp", "_experiment_design_default_impl1_8cpp.html", null ],
+    [ "ExperimentDesignDefaultImpl1.h", "_experiment_design_default_impl1_8h.html", [
+      [ "ExperimentDesignDefaultImpl1", "class_experiment_design_default_impl1.html", "class_experiment_design_default_impl1" ]
+    ] ],
     [ "ExperimentDesignDummyImpl.cpp", "_experiment_design_dummy_impl_8cpp.html", null ],
     [ "ExperimentDesignDummyImpl.h", "_experiment_design_dummy_impl_8h.html", [
       [ "ExperimentDesignDummyImpl", "class_experiment_design_dummy_impl.html", "class_experiment_design_dummy_impl" ]
@@ -70,23 +92,27 @@ var files =
     [ "FitterDummyImpl.h", "_fitter_dummy_impl_8h.html", [
       [ "FitterDummyImpl", "class_fitter_dummy_impl.html", "class_fitter_dummy_impl" ]
     ] ],
-    [ "Functor.h", "_functor_8h.html", "_functor_8h" ],
+    [ "Functor.h", "_functor_8h.html", null ],
     [ "GenesysApplication_if.h", "_genesys_application__if_8h.html", [
       [ "GenesysApplication_if", "class_genesys_application__if.html", "class_genesys_application__if" ]
     ] ],
     [ "HypothesisTester_if.h", "_hypothesis_tester__if_8h.html", [
       [ "HypothesisTester_if", "class_hypothesis_tester__if.html", "class_hypothesis_tester__if" ]
     ] ],
+    [ "HypothesisTesterDefaultImpl1.cpp", "_hypothesis_tester_default_impl1_8cpp.html", null ],
+    [ "HypothesisTesterDefaultImpl1.h", "_hypothesis_tester_default_impl1_8h.html", [
+      [ "HypothesisTesterDefaultImpl1", "class_hypothesis_tester_default_impl1.html", "class_hypothesis_tester_default_impl1" ]
+    ] ],
     [ "HypothesisTesterDummyImpl.cpp", "_hypothesis_tester_dummy_impl_8cpp.html", null ],
     [ "HypothesisTesterDummyImpl.h", "_hypothesis_tester_dummy_impl_8h.html", [
       [ "HypothesisTesterDummyImpl", "class_hypothesis_tester_dummy_impl.html", "class_hypothesis_tester_dummy_impl" ]
     ] ],
-    [ "InfrastructureManager.cpp", "_infrastructure_manager_8cpp.html", null ],
-    [ "InfrastructureManager.h", "_infrastructure_manager_8h.html", [
-      [ "InfrastructureManager", "class_infrastructure_manager.html", "class_infrastructure_manager" ]
-    ] ],
     [ "Integrator_if.h", "_integrator__if_8h.html", [
       [ "Integrator_if", "class_integrator__if.html", "class_integrator__if" ]
+    ] ],
+    [ "IntegratorDefaultImpl1.cpp", "_integrator_default_impl1_8cpp.html", null ],
+    [ "IntegratorDefaultImpl1.h", "_integrator_default_impl1_8h.html", [
+      [ "IntegratorDefaultImpl1", "class_integrator_default_impl1.html", "class_integrator_default_impl1" ]
     ] ],
     [ "IntegratorDummyImpl.cpp", "_integrator_dummy_impl_8cpp.html", null ],
     [ "IntegratorDummyImpl.h", "_integrator_dummy_impl_8h.html", [
@@ -107,6 +133,10 @@ var files =
     [ "ModelChecker_if.h", "_model_checker__if_8h.html", [
       [ "ModelChecker_if", "class_model_checker__if.html", "class_model_checker__if" ]
     ] ],
+    [ "ModelCheckerDefaultImpl1.cpp", "_model_checker_default_impl1_8cpp.html", null ],
+    [ "ModelCheckerDefaultImpl1.h", "_model_checker_default_impl1_8h.html", [
+      [ "ModelCheckerDefaultImpl1", "class_model_checker_default_impl1.html", "class_model_checker_default_impl1" ]
+    ] ],
     [ "ModelCheckerDummyImpl.cpp", "_model_checker_dummy_impl_8cpp.html", null ],
     [ "ModelCheckerDummyImpl.h", "_model_checker_dummy_impl_8h.html", [
       [ "ModelCheckerDummyImpl", "class_model_checker_dummy_impl.html", "class_model_checker_dummy_impl" ]
@@ -115,13 +145,16 @@ var files =
     [ "ModelComponent.h", "_model_component_8h.html", [
       [ "ModelComponent", "class_model_component.html", "class_model_component" ]
     ] ],
+    [ "ModelComponentManager_if.h", "_model_component_manager__if_8h.html", [
+      [ "ModelComponentManager_if", "class_model_component_manager__if.html", "class_model_component_manager__if" ]
+    ] ],
+    [ "ModelElement.cpp", "_model_element_8cpp.html", null ],
+    [ "ModelElement.h", "_model_element_8h.html", [
+      [ "ModelElement", "class_model_element.html", "class_model_element" ]
+    ] ],
     [ "ModelInfo.cpp", "_model_info_8cpp.html", null ],
     [ "ModelInfo.h", "_model_info_8h.html", [
       [ "ModelInfo", "class_model_info.html", "class_model_info" ]
-    ] ],
-    [ "ModelInfrastructure.cpp", "_model_infrastructure_8cpp.html", null ],
-    [ "ModelInfrastructure.h", "_model_infrastructure_8h.html", [
-      [ "ModelInfrastructure", "class_model_infrastructure.html", "class_model_infrastructure" ]
     ] ],
     [ "ModelPersistence_if.h", "_model_persistence__if_8h.html", [
       [ "ModelPersistence_if", "class_model_persistence__if.html", "class_model_persistence__if" ]
@@ -138,6 +171,10 @@ var files =
     [ "OnEventManager.h", "_on_event_manager_8h.html", "_on_event_manager_8h" ],
     [ "Parser_if.h", "_parser__if_8h.html", [
       [ "Parser_if", "class_parser__if.html", "class_parser__if" ]
+    ] ],
+    [ "ParserDefaultImpl1.cpp", "_parser_default_impl1_8cpp.html", null ],
+    [ "ParserDefaultImpl1.h", "_parser_default_impl1_8h.html", [
+      [ "ParserDefaultImpl1", "class_parser_default_impl1.html", "class_parser_default_impl1" ]
     ] ],
     [ "ParserDummyImpl.cpp", "_parser_dummy_impl_8cpp.html", null ],
     [ "ParserDummyImpl.h", "_parser_dummy_impl_8h.html", [
@@ -162,6 +199,10 @@ var files =
     [ "Queue.h", "_queue_8h.html", [
       [ "Queue", "class_queue.html", "class_queue" ]
     ] ],
+    [ "Record.cpp", "_record_8cpp.html", null ],
+    [ "Record.h", "_record_8h.html", [
+      [ "Record", "class_record.html", "class_record" ]
+    ] ],
     [ "Release.cpp", "_release_8cpp.html", null ],
     [ "Release.h", "_release_8h.html", [
       [ "Release", "class_release.html", "class_release" ]
@@ -173,6 +214,11 @@ var files =
     [ "Sampler_if.h", "_sampler__if_8h.html", [
       [ "Sampler_if", "class_sampler__if.html", "class_sampler__if" ],
       [ "RNG_Parameters", "class_sampler__if_1_1_r_n_g___parameters.html", null ]
+    ] ],
+    [ "SamplerDefaultImpl1.cpp", "_sampler_default_impl1_8cpp.html", null ],
+    [ "SamplerDefaultImpl1.h", "_sampler_default_impl1_8h.html", [
+      [ "SamplerDefaultImpl1", "class_sampler_default_impl1.html", "class_sampler_default_impl1" ],
+      [ "DefaultImpl1RNG_Parameters", "class_sampler_default_impl1_1_1_default_impl1_r_n_g___parameters.html", "class_sampler_default_impl1_1_1_default_impl1_r_n_g___parameters" ]
     ] ],
     [ "SamplerDummyImpl.cpp", "_sampler_dummy_impl_8cpp.html", null ],
     [ "SamplerDummyImpl.h", "_sampler_dummy_impl_8h.html", [
@@ -189,6 +235,13 @@ var files =
     [ "SimulationControl.cpp", "_simulation_control_8cpp.html", null ],
     [ "SimulationControl.h", "_simulation_control_8h.html", [
       [ "SimulationControl", "class_simulation_control.html", "class_simulation_control" ]
+    ] ],
+    [ "SimulationReporter_if.h", "_simulation_reporter__if_8h.html", [
+      [ "SimulationReporter_if", "class_simulation_reporter__if.html", "class_simulation_reporter__if" ]
+    ] ],
+    [ "SimulationReporterDefaultImpl1.cpp", "_simulation_reporter_default_impl1_8cpp.html", null ],
+    [ "SimulationReporterDefaultImpl1.h", "_simulation_reporter_default_impl1_8h.html", [
+      [ "SimulationReporterDefaultImpl1", "class_simulation_reporter_default_impl1.html", "class_simulation_reporter_default_impl1" ]
     ] ],
     [ "SimulationResponse.cpp", "_simulation_response_8cpp.html", null ],
     [ "SimulationResponse.h", "_simulation_response_8h.html", [
@@ -217,6 +270,17 @@ var files =
     [ "StatisticsCollector.h", "_statistics_collector_8h.html", [
       [ "StatisticsCollector", "class_statistics_collector.html", "class_statistics_collector" ]
     ] ],
+    [ "StatisticsDataFile_if.h", "_statistics_data_file__if_8h.html", [
+      [ "StatisticsDatafile_if", "class_statistics_datafile__if.html", "class_statistics_datafile__if" ]
+    ] ],
+    [ "StatisticsDataFileDummyImpl.cpp", "_statistics_data_file_dummy_impl_8cpp.html", null ],
+    [ "StatisticsDataFileDummyImpl.h", "_statistics_data_file_dummy_impl_8h.html", [
+      [ "StatisticsDataFileDummyImpl", "class_statistics_data_file_dummy_impl.html", "class_statistics_data_file_dummy_impl" ]
+    ] ],
+    [ "StatisticsDefaultImpl1.cpp", "_statistics_default_impl1_8cpp.html", null ],
+    [ "StatisticsDefaultImpl1.h", "_statistics_default_impl1_8h.html", [
+      [ "StatisticsDefaultImpl1", "class_statistics_default_impl1.html", "class_statistics_default_impl1" ]
+    ] ],
     [ "StatisticsDummyImpl.cpp", "_statistics_dummy_impl_8cpp.html", null ],
     [ "StatisticsDummyImpl.h", "_statistics_dummy_impl_8h.html", [
       [ "StatisticsDummyImpl", "class_statistics_dummy_impl.html", "class_statistics_dummy_impl" ]
@@ -229,22 +293,27 @@ var files =
     [ "TestParser.h", "_test_parser_8h.html", [
       [ "TestParser", "class_test_parser.html", "class_test_parser" ]
     ] ],
+    [ "TestStatistics.cpp", "_test_statistics_8cpp.html", null ],
+    [ "TestStatistics.h", "_test_statistics_8h.html", [
+      [ "TestStatistics", "class_test_statistics.html", "class_test_statistics" ]
+    ] ],
     [ "TraceManager.cpp", "_trace_manager_8cpp.html", null ],
     [ "TraceManager.h", "_trace_manager_8h.html", "_trace_manager_8h" ],
     [ "Traits.h", "_traits_8h.html", [
       [ "Traits", "struct_traits.html", null ],
       [ "Traits< GenesysApplication_if >", "struct_traits_3_01_genesys_application__if_01_4.html", "struct_traits_3_01_genesys_application__if_01_4" ],
       [ "Traits< Model >", "struct_traits_3_01_model_01_4.html", null ],
+      [ "Traits< ModelPersistence_if >", "struct_traits_3_01_model_persistence__if_01_4.html", "struct_traits_3_01_model_persistence__if_01_4" ],
+      [ "Traits< SimulationReporter_if >", "struct_traits_3_01_simulation_reporter__if_01_4.html", "struct_traits_3_01_simulation_reporter__if_01_4" ],
       [ "Traits< ModelComponent >", "struct_traits_3_01_model_component_01_4.html", "struct_traits_3_01_model_component_01_4" ],
-      [ "Traits< Sampler_if >", "struct_traits_3_01_sampler__if_01_4.html", "struct_traits_3_01_sampler__if_01_4" ],
-      [ "Traits< Fitter_if >", "struct_traits_3_01_fitter__if_01_4.html", "struct_traits_3_01_fitter__if_01_4" ],
-      [ "Traits< Collector_if >", "struct_traits_3_01_collector__if_01_4.html", "struct_traits_3_01_collector__if_01_4" ],
       [ "Traits< ModelChecker_if >", "struct_traits_3_01_model_checker__if_01_4.html", "struct_traits_3_01_model_checker__if_01_4" ],
       [ "Traits< Parser_if >", "struct_traits_3_01_parser__if_01_4.html", "struct_traits_3_01_parser__if_01_4" ],
+      [ "Traits< Collector_if >", "struct_traits_3_01_collector__if_01_4.html", "struct_traits_3_01_collector__if_01_4" ],
       [ "Traits< Statistics_if >", "struct_traits_3_01_statistics__if_01_4.html", "struct_traits_3_01_statistics__if_01_4" ],
       [ "Traits< Integrator_if >", "struct_traits_3_01_integrator__if_01_4.html", "struct_traits_3_01_integrator__if_01_4" ],
+      [ "Traits< Sampler_if >", "struct_traits_3_01_sampler__if_01_4.html", "struct_traits_3_01_sampler__if_01_4" ],
+      [ "Traits< Fitter_if >", "struct_traits_3_01_fitter__if_01_4.html", "struct_traits_3_01_fitter__if_01_4" ],
       [ "Traits< HypothesisTester_if >", "struct_traits_3_01_hypothesis_tester__if_01_4.html", "struct_traits_3_01_hypothesis_tester__if_01_4" ],
-      [ "Traits< ModelPersistence_if >", "struct_traits_3_01_model_persistence__if_01_4.html", "struct_traits_3_01_model_persistence__if_01_4" ],
       [ "Traits< ExperimentDesign_if >", "struct_traits_3_01_experiment_design__if_01_4.html", "struct_traits_3_01_experiment_design__if_01_4" ],
       [ "Traits< ProcessAnalyser_if >", "struct_traits_3_01_process_analyser__if_01_4.html", "struct_traits_3_01_process_analyser__if_01_4" ]
     ] ],

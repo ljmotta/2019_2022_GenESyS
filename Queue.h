@@ -6,7 +6,7 @@
 
 /* 
  * File:   Queue.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 21 de Agosto de 2018, 17:12
  */
@@ -14,7 +14,7 @@
 #ifndef QUEUE_H
 #define QUEUE_H
 
-#include "ModelInfrastructure.h"
+#include "ModelElement.h"
 #include "LinkedBy.h"
 
 #include "List.h"
@@ -23,34 +23,48 @@
 
 #include "StatisticsCollector.h"
 
-class Queue : public ModelInfrastructure, public LinkedBy {
+class Queue : public ModelElement, public LinkedBy {
 public:
-	Queue(Model* model);
-	Queue(const Queue& orig);
-	virtual ~Queue();
+
+    enum class OrderRule : int {
+        FIFO = 1, LIFO = 2, HIGHESTVALUE = 3, SMALLESTVALUE = 4
+    };
+
 public:
-	virtual std::string show();
+    Queue(ElementManager* elems);
+    Queue(ElementManager* elems, std::string name);
+    Queue(const Queue& orig);
+    virtual ~Queue();
 public:
-	void insertElement(Waiting* element);
-	void removeElement(Waiting* element, double tnow);
-	unsigned int size();
-	Waiting* first();
-	//List<Waiting*>* getList() const; // can't give direct access so Queue can collect statistics
+    virtual std::string show();
+public:
+    void insertElement(Waiting* element);
+    void removeElement(Waiting* element, double tnow);
+    unsigned int size();
+    Waiting* first();
+    void setAttributeName(std::string _attributeName);
+    std::string getAttributeName() const;
+    void setOrderRule(OrderRule _orderRule);
+    Queue::OrderRule getOrderRule() const;
+    //List<Waiting*>* getList() const; // can't give direct access so Queue can collect statistics
 public: //g&s
 
 
 protected:
-	virtual void _loadInstance(std::list<std::string> words);
-	virtual std::list<std::string>* _saveInstance();
-	virtual bool _verifySymbols(std::string* errorMessage);
-
+    virtual void _loadInstance(std::list<std::string> words);
+    virtual std::list<std::string>* _saveInstance();
+    virtual bool _verifySymbols(std::string* errorMessage);
 private:
-	Model* _model;
+    void _initCStats();
+private:
+    ElementManager* _elems;
 private: //1::n
-	List<Waiting*>* _list = new List<Waiting*>();
+    List<Waiting*>* _list = new List<Waiting*>();
 private: //1::1
-	StatisticsCollector* _cstatNumberInQueue; // = new StatisticsCollector("Number In Queue");
-	StatisticsCollector* _cstatTimeInQueue; // = new StatisticsCollector("Time In Queue ");
+    StatisticsCollector* _cstatNumberInQueue; // = new StatisticsCollector("Number In Queue");
+    StatisticsCollector* _cstatTimeInQueue; // = new StatisticsCollector("Time In Queue ");
+    OrderRule _orderRule = OrderRule::FIFO;
+    std::string _attributeName = "";
 };
 
 #endif /* QUEUE_H */

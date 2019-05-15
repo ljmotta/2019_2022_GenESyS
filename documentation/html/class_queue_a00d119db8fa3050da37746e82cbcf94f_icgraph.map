@@ -1,7 +1,0 @@
-<map id="Queue::~Queue" name="Queue::~Queue">
-<area shape="rect" id="node2" href="$class_release.html#ae845be9db739fbb317bd05f0b0fe21c5" title="Release::setQueueName" alt="" coords="169,12,338,39"/>
-<area shape="rect" id="node6" href="$class_seize.html#a4d24a3326db05e92439379e1c4efa940" title="Seize::setQueueName" alt="" coords="176,63,331,89"/>
-<area shape="rect" id="node3" href="$_build_simulation_model_8cpp.html#aeea741000e292b33dca181a0a8a6106f" title="buildModel" alt="" coords="387,12,471,39"/>
-<area shape="rect" id="node4" href="$_build_simulation_model_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="520,12,675,39"/>
-<area shape="rect" id="node5" href="$class_build_simulation_model.html#a8c50f55d7293860e5e7bc7e7e74f8d4a" title="BuildSimulationModel\l::main" alt="" coords="723,5,869,46"/>
-</map>

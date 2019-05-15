@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>ReGenESyS - Reborn Generic and Expansible System Simulator: StatisticsCollector.h File Reference</title>
+<title>ReGenESyS - Reborned GENeric and Expansible SYstem Simulator: StatisticsCollector.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,10 +32,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="software_genesys.gif"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">ReGenESyS - Reborn Generic and Expansible System Simulator
-   &#160;<span id="projectnumber">2018.4</span>
+   <div id="projectname">ReGenESyS - Reborned GENeric and Expansible SYstem Simulator
+   &#160;<span id="projectnumber">2019.0509</span>
    </div>
-   <div id="projectbrief">ReGenESyS - Reborn Generic and Expansible System Simulator</div>
+   <div id="projectbrief">Genesys is the product of Professor Rafael Luiz Cancian&#39;s teaching and research activities. It began in early 2002 as a way to teach students the basics and simulation techniques of systems used by business tools. With his development, he replicated all the SIMAN language, used by Arena software, and has become a clone of that tool, including its graphical interface. Genesys allowed the inclusion of new simulation components through dynamic link libraries and also the parallel execution of simulation models in a distributed environment. The development of Genesys continued until 2007, when the professor stopped teaching systems simulation classes. Ten years later the professor starts again to teach systems simulation classes and to carry out scientific research in the area. So in 2018 Genesys is reborn as ReGenesys, with new language and programming techniques, and even more ambitious goals.</div>
   </td>
  </tr>
  </tbody>
@@ -112,20 +112,17 @@ $(document).ready(function(){initNavTree('_statistics_collector_8h.html','');});
 <div class="title">StatisticsCollector.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="_statistics_dummy_impl_8h_source.html">StatisticsDummyImpl.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_collector_dummy_impl_8h_source.html">CollectorDummyImpl.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_model_infrastructure_8h_source.html">ModelInfrastructure.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="_model_element_8h_source.html">ModelElement.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_statistics__if_8h_source.html">Statistics_if.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for StatisticsCollector.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="_statistics_collector_8h__incl.png" border="0" usemap="#_statistics_collector_8h" alt=""/></div>
 <map name="_statistics_collector_8h" id="_statistics_collector_8h">
-<area shape="rect" id="node2" href="_statistics_dummy_impl_8h.html" title="StatisticsDummyImpl.h" alt="" coords="44,80,203,107"/>
-<area shape="rect" id="node6" href="_collector_dummy_impl_8h.html" title="CollectorDummyImpl.h" alt="" coords="132,155,288,181"/>
-<area shape="rect" id="node7" href="_model_infrastructure_8h.html" title="ModelInfrastructure.h" alt="" coords="312,155,457,181"/>
-<area shape="rect" id="node3" href="_statistics__if_8h.html" title="Statistics_if.h" alt="" coords="5,155,108,181"/>
-<area shape="rect" id="node5" href="_collector__if_8h.html" title="Collector_if.h" alt="" coords="94,229,193,256"/>
-<area shape="rect" id="node9" href="_util_8h.html" title="Util.h" alt="" coords="382,229,435,256"/>
+<area shape="rect" id="node2" href="_model_element_8h.html" title="ModelElement.h" alt="" coords="135,80,251,107"/>
+<area shape="rect" id="node9" href="_statistics__if_8h.html" title="Statistics_if.h" alt="" coords="275,80,377,107"/>
+<area shape="rect" id="node5" href="_util_8h.html" title="Util.h" alt="" coords="102,155,155,181"/>
+<area shape="rect" id="node10" href="_collector__if_8h.html" title="Collector_if.h" alt="" coords="345,155,443,181"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -133,22 +130,55 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="_statistics_collector_8h__dep__incl.png" border="0" usemap="#_statistics_collector_8hdep" alt=""/></div>
 <map name="_statistics_collector_8hdep" id="_statistics_collector_8hdep">
-<area shape="rect" id="node2" href="_resource_8h.html" title="Resource.h" alt="" coords="251,80,340,107"/>
-<area shape="rect" id="node10" href="_queue_8h.html" title="Queue.h" alt="" coords="449,80,520,107"/>
-<area shape="rect" id="node12" href="_entity_type_8h.html" title="EntityType.h" alt="" coords="602,80,698,107"/>
-<area shape="rect" id="node15" href="_model_8cpp.html" title="Model.cpp" alt="" coords="722,80,805,107"/>
-<area shape="rect" id="node16" href="_model_simulation_8cpp.html" title="ModelSimulation.cpp" alt="" coords="828,80,971,107"/>
-<area shape="rect" id="node17" href="_statistics_collector_8cpp.html" title="StatisticsCollector.cpp" alt="" coords="995,80,1150,107"/>
-<area shape="rect" id="node3" href="_assign_8cpp.html" title="Assign.cpp" alt="" coords="5,155,92,181"/>
-<area shape="rect" id="node4" href="_seize_8h.html" title="Seize.h" alt="" coords="451,155,518,181"/>
-<area shape="rect" id="node7" href="_release_8h.html" title="Release.h" alt="" coords="295,155,376,181"/>
-<area shape="rect" id="node8" href="_release_8cpp.html" title="Release.cpp" alt="" coords="244,229,339,256"/>
-<area shape="rect" id="node9" href="_resource_8cpp.html" title="Resource.cpp" alt="" coords="116,155,219,181"/>
-<area shape="rect" id="node5" href="_build_simulation_model_8cpp.html" title="BuildSimulationModel.cpp" alt="" coords="363,229,535,256"/>
-<area shape="rect" id="node6" href="_seize_8cpp.html" title="Seize.cpp" alt="" coords="559,229,639,256"/>
-<area shape="rect" id="node11" href="_queue_8cpp.html" title="Queue.cpp" alt="" coords="542,155,627,181"/>
-<area shape="rect" id="node13" href="_create_8cpp.html" title="Create.cpp" alt="" coords="787,155,873,181"/>
-<area shape="rect" id="node14" href="_entity_type_8cpp.html" title="EntityType.cpp" alt="" coords="652,155,763,181"/>
+<area shape="rect" id="node2" href="_entity_type_8h.html" title="EntityType.h" alt="" coords="208,80,304,107"/>
+<area shape="rect" id="node13" href="_model_8cpp.html" title="Model.cpp" alt="" coords="1287,707,1369,733"/>
+<area shape="rect" id="node14" href="_model_simulation_8cpp.html" title="ModelSimulation.cpp" alt="" coords="1393,707,1535,733"/>
+<area shape="rect" id="node16" href="_statistics_collector_8cpp.html" title="StatisticsCollector.cpp" alt="" coords="3396,707,3551,733"/>
+<area shape="rect" id="node36" href="_queue_8h.html" title="Queue.h" alt="" coords="1231,379,1302,405"/>
+<area shape="rect" id="node48" href="_simulation_reporter__if_8h.html" title="SimulationReporter_if.h" alt="" coords="1983,304,2142,331"/>
+<area shape="rect" id="node49" href="_resource_8h.html" title="Resource.h" alt="" coords="919,453,1009,480"/>
+<area shape="rect" id="node3" href="_entity_8h.html" title="Entity.h" alt="" coords="1324,155,1391,181"/>
+<area shape="rect" id="node7" href="_build_simulation_model_8cpp.html" title="BuildSimulationModel.cpp" alt="" coords="266,707,438,733"/>
+<area shape="rect" id="node27" href="_create_8cpp.html" title="Create.cpp" alt="" coords="177,535,263,562"/>
+<area shape="rect" id="node39" href="_create_8h.html" title="Create.h" alt="" coords="192,453,264,480"/>
+<area shape="rect" id="node47" href="_entity_type_8cpp.html" title="EntityType.cpp" alt="" coords="247,155,358,181"/>
+<area shape="rect" id="node4" href="_model_component_8h.html" title="ModelComponent.h" alt="" coords="702,229,837,256"/>
+<area shape="rect" id="node31" href="_event_8h.html" title="Event.h" alt="" coords="1535,304,1601,331"/>
+<area shape="rect" id="node33" href="_model_simulation_8h.html" title="ModelSimulation.h" alt="" coords="1799,379,1929,405"/>
+<area shape="rect" id="node35" href="_waiting_8h.html" title="Waiting.h" alt="" coords="1332,304,1409,331"/>
+<area shape="rect" id="node46" href="_entity_8cpp.html" title="Entity.cpp" alt="" coords="1395,229,1477,256"/>
+<area shape="rect" id="node5" href="_assign_8h.html" title="Assign.h" alt="" coords="1339,535,1413,562"/>
+<area shape="rect" id="node8" href="_model_8h.html" title="Model.h" alt="" coords="1526,453,1594,480"/>
+<area shape="rect" id="node25" href="_seize_8h.html" title="Seize.h" alt="" coords="480,535,547,562"/>
+<area shape="rect" id="node28" href="_model_component_8cpp.html" title="ModelComponent.cpp" alt="" coords="1165,535,1315,562"/>
+<area shape="rect" id="node38" href="_source_model_component_8h.html" title="SourceModelComponent.h" alt="" coords="396,379,572,405"/>
+<area shape="rect" id="node40" href="_delay_8h.html" title="Delay.h" alt="" coords="339,453,405,480"/>
+<area shape="rect" id="node41" href="_sink_model_component_8h.html" title="SinkModelComponent.h" alt="" coords="749,304,910,331"/>
+<area shape="rect" id="node42" href="_release_8h.html" title="Release.h" alt="" coords="571,535,653,562"/>
+<area shape="rect" id="node43" href="_record_8h.html" title="Record.h" alt="" coords="43,453,117,480"/>
+<area shape="rect" id="node44" href="_decide_8h.html" title="Decide.h" alt="" coords="247,379,321,405"/>
+<area shape="rect" id="node45" href="_model_persistence_dummy_impl_8cpp.html" title="ModelPersistenceDummyImpl.cpp" alt="" coords="934,304,1157,331"/>
+<area shape="rect" id="node6" href="_assign_8cpp.html" title="Assign.cpp" alt="" coords="1333,625,1419,651"/>
+<area shape="rect" id="node9" href="_traits_8h.html" title="Traits.h" alt="" coords="2152,625,2219,651"/>
+<area shape="rect" id="node23" href="_simulation_reporter_default_impl1_8h.html" title="SimulationReporterDefault\lImpl1.h" alt="" coords="1851,528,2026,569"/>
+<area shape="rect" id="node29" href="_queue_8cpp.html" title="Queue.cpp" alt="" coords="1437,535,1523,562"/>
+<area shape="rect" id="node30" href="_release_8cpp.html" title="Release.cpp" alt="" coords="803,625,898,651"/>
+<area shape="rect" id="node10" href="_hypothesis_tester_default_impl1_8cpp.html" title="HypothesisTesterDefaultImpl1.cpp" alt="" coords="2275,707,2499,733"/>
+<area shape="rect" id="node11" href="_integrator_default_impl1_8cpp.html" title="IntegratorDefaultImpl1.cpp" alt="" coords="2523,707,2699,733"/>
+<area shape="rect" id="node12" href="main_8cpp.html" title="main.cpp" alt="" coords="2723,707,2797,733"/>
+<area shape="rect" id="node15" href="_simulator_8cpp.html" title="Simulator.cpp" alt="" coords="2822,707,2925,733"/>
+<area shape="rect" id="node17" href="_statistics_data_file_dummy_impl_8cpp.html" title="StatisticsDataFileDummyImpl.cpp" alt="" coords="2949,707,3171,733"/>
+<area shape="rect" id="node18" href="_statistics_default_impl1_8cpp.html" title="StatisticsDefaultImpl1.cpp" alt="" coords="3196,707,3372,733"/>
+<area shape="rect" id="node19" href="_statistics_dummy_impl_8cpp.html" title="StatisticsDummyImpl.cpp" alt="" coords="1560,707,1733,733"/>
+<area shape="rect" id="node20" href="_test_input_analyser_tools_8cpp.html" title="TestInputAnalyserTools.cpp" alt="" coords="1758,707,1943,733"/>
+<area shape="rect" id="node21" href="_test_statistics_8cpp.html" title="TestStatistics.cpp" alt="" coords="1968,707,2096,733"/>
+<area shape="rect" id="node22" href="_trace_manager_8cpp.html" title="TraceManager.cpp" alt="" coords="2120,707,2251,733"/>
+<area shape="rect" id="node24" href="_simulation_reporter_default_impl1_8cpp.html" title="SimulationReporterDefault\lImpl1.cpp" alt="" coords="1851,617,2026,659"/>
+<area shape="rect" id="node26" href="_seize_8cpp.html" title="Seize.cpp" alt="" coords="651,625,731,651"/>
+<area shape="rect" id="node32" href="_on_event_manager_8h.html" title="OnEventManager.h" alt="" coords="1641,379,1775,405"/>
+<area shape="rect" id="node34" href="_event_8cpp.html" title="Event.cpp" alt="" coords="1535,379,1617,405"/>
+<area shape="rect" id="node37" href="_waiting_resource_8h.html" title="WaitingResource.h" alt="" coords="728,535,861,562"/>
+<area shape="rect" id="node50" href="_resource_8cpp.html" title="Resource.cpp" alt="" coords="987,535,1090,562"/>
 </map>
 </div>
 </div>

@@ -6,8 +6,7 @@
 
 
 
-Inheritance diagram for Model\+Checker\+Dummy\+Impl\+:
-\nopagebreak
+Inheritance diagram for Model\+Checker\+Dummy\+Impl\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -16,8 +15,7 @@ Inheritance diagram for Model\+Checker\+Dummy\+Impl\+:
 \end{figure}
 
 
-Collaboration diagram for Model\+Checker\+Dummy\+Impl\+:
-\nopagebreak
+Collaboration diagram for Model\+Checker\+Dummy\+Impl\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -33,19 +31,19 @@ Collaboration diagram for Model\+Checker\+Dummy\+Impl\+:
 \item 
 \hyperlink{class_model_checker_dummy_impl_a67466924e4c6b112576193215e5dc908}{$\sim$\+Model\+Checker\+Dummy\+Impl} ()
 \item 
-bool \hyperlink{class_model_checker_dummy_impl_a2e7cd50b851b68f18270316f7ac19360}{check\+All} ()
+virtual bool \hyperlink{class_model_checker_dummy_impl_a2e7cd50b851b68f18270316f7ac19360}{check\+All} ()
 \item 
-bool \hyperlink{class_model_checker_dummy_impl_a1e4c7d6c7adbc85c34e66be662199cae}{check\+And\+Add\+Internal\+Literals} ()
+virtual bool \hyperlink{class_model_checker_dummy_impl_a1e4c7d6c7adbc85c34e66be662199cae}{check\+And\+Add\+Internal\+Literals} ()
 \item 
-bool \hyperlink{class_model_checker_dummy_impl_a04c496601085ec1736b5937cb4360bfb}{check\+Connected} ()
+virtual bool \hyperlink{class_model_checker_dummy_impl_a04c496601085ec1736b5937cb4360bfb}{check\+Connected} ()
 \item 
-bool \hyperlink{class_model_checker_dummy_impl_a773a4924a7603f6b931a53e58190cda0}{check\+Symbols} ()
+virtual bool \hyperlink{class_model_checker_dummy_impl_a773a4924a7603f6b931a53e58190cda0}{check\+Symbols} ()
 \item 
-bool \hyperlink{class_model_checker_dummy_impl_a83fa84deee3cbc3e8888236c50d729c9}{check\+Pathway} ()
+virtual bool \hyperlink{class_model_checker_dummy_impl_a83fa84deee3cbc3e8888236c50d729c9}{check\+Pathway} ()
 \item 
-bool \hyperlink{class_model_checker_dummy_impl_a0ad95531ae6a9d2693914f5825e0f6d5}{check\+Activation\+Code} ()
+virtual bool \hyperlink{class_model_checker_dummy_impl_a0ad95531ae6a9d2693914f5825e0f6d5}{check\+Activation\+Code} ()
 \item 
-bool \hyperlink{class_model_checker_dummy_impl_af02c0747aa03a726f506be15aaa4ff10}{verify\+Symbol} (std\+::string component\+Name, std\+::string expression\+Name, std\+::string expression, std\+::string expression\+Result, bool mandatory)
+virtual bool \hyperlink{class_model_checker_dummy_impl_af02c0747aa03a726f506be15aaa4ff10}{verify\+Symbol} (std\+::string component\+Name, std\+::string expression\+Name, std\+::string expression, std\+::string expression\+Result, bool mandatory)
 \end{DoxyCompactItemize}
 
 
@@ -88,6 +86,17 @@ Check if components forms a valid pathway, including logical connections, such a
 
 Implements \hyperlink{class_model_checker__if_af5be5d01ea1c549eee6b94907f5ccb74}{Model\+Checker\+\_\+if}.
 
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_checker_dummy_impl_a0ad95531ae6a9d2693914f5825e0f6d5_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Model\+Checker\+Dummy\+Impl@{Model\+Checker\+Dummy\+Impl}!check\+All@{check\+All}}
 \index{check\+All@{check\+All}!Model\+Checker\+Dummy\+Impl@{Model\+Checker\+Dummy\+Impl}}
 \subsubsection[{\texorpdfstring{check\+All()}{checkAll()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Model\+Checker\+Dummy\+Impl\+::check\+All (
@@ -98,6 +107,17 @@ Implements \hyperlink{class_model_checker__if_af5be5d01ea1c549eee6b94907f5ccb74}
 
 
 Implements \hyperlink{class_model_checker__if_a83bc988696c49a17e0e7668e24743251}{Model\+Checker\+\_\+if}.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_checker_dummy_impl_a2e7cd50b851b68f18270316f7ac19360_cgraph}
+\end{center}
+\end{figure}
+
 
 \index{Model\+Checker\+Dummy\+Impl@{Model\+Checker\+Dummy\+Impl}!check\+And\+Add\+Internal\+Literals@{check\+And\+Add\+Internal\+Literals}}
 \index{check\+And\+Add\+Internal\+Literals@{check\+And\+Add\+Internal\+Literals}!Model\+Checker\+Dummy\+Impl@{Model\+Checker\+Dummy\+Impl}}
@@ -110,6 +130,17 @@ Invoques all other checks and returns true only if all of them returned true
 
 Implements \hyperlink{class_model_checker__if_a22989b69e688a96fd200e740d33181a5}{Model\+Checker\+\_\+if}.
 
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_checker_dummy_impl_a1e4c7d6c7adbc85c34e66be662199cae_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Model\+Checker\+Dummy\+Impl@{Model\+Checker\+Dummy\+Impl}!check\+Connected@{check\+Connected}}
 \index{check\+Connected@{check\+Connected}!Model\+Checker\+Dummy\+Impl@{Model\+Checker\+Dummy\+Impl}}
 \subsubsection[{\texorpdfstring{check\+Connected()}{checkConnected()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Model\+Checker\+Dummy\+Impl\+::check\+Connected (
@@ -121,6 +152,17 @@ Implements \hyperlink{class_model_checker__if_a22989b69e688a96fd200e740d33181a5}
 
 Implements \hyperlink{class_model_checker__if_a0d527f054d705b5527bb6521e51c34a7}{Model\+Checker\+\_\+if}.
 
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_checker_dummy_impl_a04c496601085ec1736b5937cb4360bfb_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Model\+Checker\+Dummy\+Impl@{Model\+Checker\+Dummy\+Impl}!check\+Pathway@{check\+Pathway}}
 \index{check\+Pathway@{check\+Pathway}!Model\+Checker\+Dummy\+Impl@{Model\+Checker\+Dummy\+Impl}}
 \subsubsection[{\texorpdfstring{check\+Pathway()}{checkPathway()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Model\+Checker\+Dummy\+Impl\+::check\+Pathway (
@@ -128,9 +170,20 @@ Implements \hyperlink{class_model_checker__if_a0d527f054d705b5527bb6521e51c34a7}
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_model_checker_dummy_impl_a83fa84deee3cbc3e8888236c50d729c9}{}\label{class_model_checker_dummy_impl_a83fa84deee3cbc3e8888236c50d729c9}
-Checks if user-\/defined strings for symbols required by components, usually expressions or functions, are valid or references existing and valid infrastructures. 
+Checks if user-\/defined strings for symbols required by components, usually expressions or functions, are valid or references existing and valid elements. 
 
 Implements \hyperlink{class_model_checker__if_a1d1e71dcfd02500cf2a844a62395ac36}{Model\+Checker\+\_\+if}.
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_checker_dummy_impl_a83fa84deee3cbc3e8888236c50d729c9_icgraph}
+\end{center}
+\end{figure}
+
 
 \index{Model\+Checker\+Dummy\+Impl@{Model\+Checker\+Dummy\+Impl}!check\+Symbols@{check\+Symbols}}
 \index{check\+Symbols@{check\+Symbols}!Model\+Checker\+Dummy\+Impl@{Model\+Checker\+Dummy\+Impl}}
@@ -142,6 +195,28 @@ Implements \hyperlink{class_model_checker__if_a1d1e71dcfd02500cf2a844a62395ac36}
 Checks if components are consistently connected to other to form a valid process-\/oriented model, describing how entities proceed to the flow 
 
 Implements \hyperlink{class_model_checker__if_a92ab650708e675a1818b41fe4eb93a59}{Model\+Checker\+\_\+if}.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_checker_dummy_impl_a773a4924a7603f6b931a53e58190cda0_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_checker_dummy_impl_a773a4924a7603f6b931a53e58190cda0_icgraph}
+\end{center}
+\end{figure}
+
 
 \index{Model\+Checker\+Dummy\+Impl@{Model\+Checker\+Dummy\+Impl}!verify\+Symbol@{verify\+Symbol}}
 \index{verify\+Symbol@{verify\+Symbol}!Model\+Checker\+Dummy\+Impl@{Model\+Checker\+Dummy\+Impl}}
@@ -157,6 +232,17 @@ Implements \hyperlink{class_model_checker__if_a92ab650708e675a1818b41fe4eb93a59}
 unnecessary 
 
 Implements \hyperlink{class_model_checker__if_a36eada12fe9753f5c89099c572e27426}{Model\+Checker\+\_\+if}.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_model_checker_dummy_impl_af02c0747aa03a726f506be15aaa4ff10_cgraph}
+\end{center}
+\end{figure}
+
 
 
 

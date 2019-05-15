@@ -6,34 +6,39 @@
 
 /* 
  * File:   Attribute.cpp
- * Author: cancian
+ * Author: rafael.luiz.cancian
  * 
  * Created on 25 de Setembro de 2018, 16:37
  */
 
 #include "Attribute.h"
 
-Attribute::Attribute() : ModelInfrastructure(Util::TypeOf<Attribute>()) {
+Attribute::Attribute() : ModelElement(Util::TypeOf<Attribute>()) {
 }
 
-Attribute::Attribute(const Attribute& orig) : ModelInfrastructure(orig) {
+
+Attribute::Attribute(std::string name) : ModelElement(Util::TypeOf<Attribute>()) {
+    _name = name;
+}
+
+Attribute::Attribute(const Attribute& orig) : ModelElement(orig) {
 }
 
 Attribute::~Attribute() {
 }
 
 std::string Attribute::show() {
-	return ModelInfrastructure::show(); 
+    return ModelElement::show();
 }
 
 void Attribute::_loadInstance(std::list<std::string> words) {
 }
 
 std::list<std::string>* Attribute::_saveInstance() {
-	std::list<std::string>* words = ModelInfrastructure::_saveInstance(Util::TypeOf<Attribute>());
-	return words;
+    std::list<std::string>* words = ModelElement::_saveInstance(Util::TypeOf<Attribute>());
+    return words;
 }
 
 bool Attribute::_verifySymbols(std::string* errorMessage) {
-	return true;
+    return true;
 }

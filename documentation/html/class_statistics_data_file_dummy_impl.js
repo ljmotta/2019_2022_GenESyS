@@ -1,0 +1,26 @@
+var class_statistics_data_file_dummy_impl =
+[
+    [ "StatisticsDataFileDummyImpl", "class_statistics_data_file_dummy_impl.html#abcbb93f45cbfc16cc41b8e769532ef85", null ],
+    [ "StatisticsDataFileDummyImpl", "class_statistics_data_file_dummy_impl.html#aac6a71814e05b32acfd8c9ec5d78ffc8", null ],
+    [ "~StatisticsDataFileDummyImpl", "class_statistics_data_file_dummy_impl.html#aeefca6aa2a461d221ef4da35ca86e536", null ],
+    [ "average", "class_statistics_data_file_dummy_impl.html#a841db1f62ab7e20e5dbc7f943c4bd204", null ],
+    [ "centil", "class_statistics_data_file_dummy_impl.html#a6eeda99bcdd189a59791620082276ebd", null ],
+    [ "decil", "class_statistics_data_file_dummy_impl.html#abbd9ae1aa84f608c110dcd47f181a62b", null ],
+    [ "getCollector", "class_statistics_data_file_dummy_impl.html#a918e9a2af69abdf66ed90fbacfd5d67d", null ],
+    [ "halfWidthConfidenceInterval", "class_statistics_data_file_dummy_impl.html#a514b30f27707a031788b31b37e7d5cc6", null ],
+    [ "histogramClassFrequency", "class_statistics_data_file_dummy_impl.html#a405fbbce36b568881228e9cd3b8d3104", null ],
+    [ "histogramClassLowerLimit", "class_statistics_data_file_dummy_impl.html#ac4f3ece197081ce2759ac5ff3a5e801f", null ],
+    [ "histogramNumClasses", "class_statistics_data_file_dummy_impl.html#a872264d63fe904c48d0698a6ce147b37", null ],
+    [ "max", "class_statistics_data_file_dummy_impl.html#a3b01b94c593e1a4bed17dc70b79d8f5b", null ],
+    [ "mediane", "class_statistics_data_file_dummy_impl.html#a33bc3e5354c8bd5a877337b25c81cebb", null ],
+    [ "min", "class_statistics_data_file_dummy_impl.html#afb326f24142b0d2647cd2dc399555d89", null ],
+    [ "mode", "class_statistics_data_file_dummy_impl.html#a0822dbf015743b0ea9eab348eaeba72f", null ],
+    [ "newSampleSize", "class_statistics_data_file_dummy_impl.html#a1e1ef519e92e4ebbc377ea2ad260594f", null ],
+    [ "numElements", "class_statistics_data_file_dummy_impl.html#a0931af6cd8a0852c5682fdbe6f6c5a77", null ],
+    [ "quartil", "class_statistics_data_file_dummy_impl.html#a19a143111fbf8c9cef386f0a0400b81d", null ],
+    [ "setCollector", "class_statistics_data_file_dummy_impl.html#a3d149d314ea88c3136754e0a4c182b49", null ],
+    [ "setHistogramNumClasses", "class_statistics_data_file_dummy_impl.html#a72bdcd13aa3af7b86352d988de30d710", null ],
+    [ "stddeviation", "class_statistics_data_file_dummy_impl.html#a098b76d88a1ba4fdb07d29d8927c6c5b", null ],
+    [ "variance", "class_statistics_data_file_dummy_impl.html#ae34ab679014e047ad22020dc6ed258e3", null ],
+    [ "variationCoef", "class_statistics_data_file_dummy_impl.html#a9efec5bc302c6fb09a67dde03f2b2ebc", null ]
+];

@@ -6,7 +6,7 @@
 
 /* 
  * File:   Delay.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 21 de Junho de 2018, 19:49
  */
@@ -19,23 +19,24 @@
 
 class Delay : public ModelComponent {
 public:
-	Delay(Model* model);
-	Delay(const Delay& orig);
-	virtual ~Delay();
-	void setDelayExpression(std::string _delayExpression);
-	std::string getDelayExpression() const;
-	void setDelayTimeUnit(Util::TimeUnit _delayTimeUnit);
-	Util::TimeUnit getDelayTimeUnit() const;
+    Delay(Model* model);
+    Delay(const Delay& orig);
+    virtual ~Delay();
+    public:
+    void setDelayExpression(std::string _delayExpression);
+    std::string getDelayExpression() const;
+    void setDelayTimeUnit(Util::TimeUnit _delayTimeUnit);
+    Util::TimeUnit getDelayTimeUnit() const;
 public:
-	virtual std::string show();
+    virtual std::string show();
 protected:
-	virtual void _execute(Entity* entity);
-	virtual void _loadInstance(std::list<std::string> words);
-	virtual std::list<std::string>* _saveInstance();
-	virtual bool _verifySymbols(std::string* errorMessage);
+    virtual void _execute(Entity* entity);
+    virtual void _loadInstance(std::list<std::string> words);
+    virtual std::list<std::string>* _saveInstance();
+    virtual bool _verifySymbols(std::string* errorMessage);
 private:
-	std::string _delayExpression = "1.0";
-	Util::TimeUnit _delayTimeUnit = Util::TimeUnit::second;
+    std::string _delayExpression = "1.0";
+    Util::TimeUnit _delayTimeUnit = Util::TimeUnit::second;
 };
 
 #endif /* DELAY_H */

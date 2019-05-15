@@ -1,14 +1,4 @@
 <map id="Collector_if::numElements" name="Collector_if::numElements">
-<area shape="rect" id="node2" href="$class_statistics_daniel_boso.html#a5a5988fd21e4cc41cf4e1ed87c6b7e15" title="StatisticsDanielBoso\l::numElements" alt="" coords="249,5,393,46"/>
-<area shape="rect" id="node3" href="$class_statistics_daniel_boso.html#aa9fe6050712928218361095327527ee6" title="StatisticsDanielBoso\l::average" alt="" coords="249,177,393,218"/>
-<area shape="rect" id="node4" href="$class_statistics_daniel_boso.html#ac228a5a8a8a866d34d6d8f5e7b9ede15" title="StatisticsDanielBoso\l::variance" alt="" coords="461,122,605,163"/>
-<area shape="rect" id="node5" href="$class_statistics_daniel_boso.html#ac7cf2864a85369dad7e2d8f214e98ff7" title="StatisticsDanielBoso\l::stddeviation" alt="" coords="679,50,823,91"/>
-<area shape="rect" id="node7" href="$class_statistics_daniel_boso.html#a1402b5e3abad2247a5ebd3a3797022c2" title="StatisticsDanielBoso\l::halfWidthConfidenceInterval" alt="" coords="653,246,848,287"/>
-<area shape="rect" id="node9" href="$class_statistics_daniel_boso.html#ab587a37e916c51b02c2418775d28701e" title="StatisticsDanielBoso\l::quartil" alt="" coords="249,294,393,335"/>
-<area shape="rect" id="node10" href="$class_statistics_daniel_boso.html#a95ed14261af6328daa1552167ec7a102" title="StatisticsDanielBoso\l::decil" alt="" coords="249,359,393,401"/>
-<area shape="rect" id="node11" href="$class_statistics_daniel_boso.html#a3e2e880557836b36b9acc2d77d4e8cf7" title="StatisticsDanielBoso\l::centil" alt="" coords="249,425,393,466"/>
-<area shape="rect" id="node12" href="$class_statistics_daniel_boso.html#ade9cfc25ca07bb7454be97526e96896a" title="StatisticsDanielBoso\l::histogramNumClasses" alt="" coords="240,490,403,531"/>
-<area shape="rect" id="node13" href="$class_statistics_daniel_boso.html#a044752eb543dee95f0589bfad236d987" title="StatisticsDanielBoso\l::histogramClassFrequency" alt="" coords="230,555,413,597"/>
-<area shape="rect" id="node6" href="$class_statistics_daniel_boso.html#a386746d73807d14c559e1375bd9b48e9" title="StatisticsDanielBoso\l::variationCoef" alt="" coords="679,181,823,222"/>
-<area shape="rect" id="node8" href="$class_statistics_daniel_boso.html#a6ffdcdcee9f65a8232b7e5a2c6e0259d" title="StatisticsDanielBoso\l::newSampleSize" alt="" coords="679,115,823,157"/>
+<area shape="rect" id="node2" href="$class_statistics_default_impl1.html#a0d2847b2fa7c7469d25c3359a9995d6c" title="StatisticsDefaultImpl1\l::~StatisticsDefaultImpl1" alt="" coords="229,5,396,47"/>
+<area shape="rect" id="node3" href="$class_statistics_default_impl1.html#a3ad348a8f7f6c787bae7bd047778732f" title="StatisticsDefaultImpl1\l::numElements" alt="" coords="237,71,388,112"/>
 </map>

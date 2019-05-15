@@ -1,4 +1,5 @@
 var struct_traits_3_01_statistics__if_01_4 =
 [
-    [ "Implementation", "struct_traits_3_01_statistics__if_01_4.html#abce13a8c09bd9a16ea17ce128f08440b", null ]
+    [ "CollectorImplementation", "struct_traits_3_01_statistics__if_01_4.html#a8fbc8780648bb2ee89c76cc9c2a3a62b", null ],
+    [ "Implementation", "struct_traits_3_01_statistics__if_01_4.html#a885cb965f65b240ad3ff46bb1278bb2d", null ]
 ];

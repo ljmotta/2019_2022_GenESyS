@@ -6,7 +6,7 @@
 
 /* 
  * File:   OnEventManager.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 7 de Novembro de 2018, 12:28
  */
@@ -21,28 +21,31 @@
  * used to get and set values no matter the class (for process analyser)
  * should be a wait to invoke a getter or setter no matter the class (a pointer to a member function without specifying the class 
  */
-typedef double (*memberFunctionGetDoubleVarHandler)(); //template<> ... typedef double (T::*getDoubleVarHandler)() or something like that
-typedef void (*memberFunctionSetDoubleVarHandler)(double);
+//typedef double (*memberFunctionGetDoubleVarHandler)(); //template<> ... typedef double (T::*getDoubleVarHandler)() or something like that
+//typedef void (*memberFunctionSetDoubleVarHandler)(double);
 
 class SimulationEvent {
 public:
-	SimulationEvent(unsigned int replicationNumber, Event* event) {
-		_replicationNumber = replicationNumber;
-		_event = event;
-	}
+
+    SimulationEvent(unsigned int replicationNumber, Event* event) {
+        _replicationNumber = replicationNumber;
+        _event = event;
+    }
 public:
-	unsigned int getReplicationNumber() const {
-		return _replicationNumber;
-	}
-	Event* getEventProcessed() const {
-		return _event;
-	}
+
+    unsigned int getReplicationNumber() const {
+        return _replicationNumber;
+    }
+
+    Event* getEventProcessed() const {
+        return _event;
+    }
 private:
-	unsigned int _replicationNumber;
-	Event* _event;
+    unsigned int _replicationNumber;
+    Event* _event;
 };
 
-typedef void (*simulationEventListener)(SimulationEvent*);
+typedef void (*simulationEventHandler)(SimulationEvent*);
 
 /*!
  * OnEventManager allows external methods to hook interval simulation events as listeners (or observers) of pecific events.
@@ -50,32 +53,33 @@ typedef void (*simulationEventListener)(SimulationEvent*);
  */
 class OnEventManager {
 public:
-	OnEventManager();
-	OnEventManager(const OnEventManager& orig);
-	virtual ~OnEventManager();
+    OnEventManager();
+    OnEventManager(const OnEventManager& orig);
+    virtual ~OnEventManager();
 public: // event listeners (handlers)
-	void addOnReplicationStartListener(simulationEventListener eventListener);
-	void addOnReplicationStepListener(simulationEventListener eventListener);
-	void addOnReplicationEndListener(simulationEventListener eventListener);
-	void addOnProcessEventListener(simulationEventListener eventListener);
-	void addOnSimulationStartListener(simulationEventListener eventListener);
-	void addOnSimulationEndListener(simulationEventListener eventListener);
+    void addOnReplicationStartHandler(simulationEventHandler EventHandler);
+    void addOnReplicationStepHandler(simulationEventHandler EventHandler);
+    void addOnReplicationEndHandler(simulationEventHandler EventHandler);
+    void addOnProcessEventHandler(simulationEventHandler EventHandler);
+    void addOnSimulationStartHandler(simulationEventHandler EventHandler);
+    void addOnSimulationEndHandler(simulationEventHandler EventHandler);
+    void addOnEntityRemoveHandler(simulationEventHandler EventHandler);
 public:
-	void NotifyReplicationStartListeners(SimulationEvent* se);
-	void NotifyReplicationStepListeners(SimulationEvent* se);
-	void NotifyReplicationEndListeners(SimulationEvent* se);
-	void NotifyProcessEventListeners(SimulationEvent* se);
-	void NotifySimulationStartListeners(SimulationEvent* se);
-	void NotifySimulationEndListeners(SimulationEvent* se);
+    void NotifyReplicationStartHandlers(SimulationEvent* se);
+    void NotifyReplicationStepHandlers(SimulationEvent* se);
+    void NotifyReplicationEndHandlers(SimulationEvent* se);
+    void NotifyProcessEventHandlers(SimulationEvent* se);
+    void NotifySimulationStartHandlers(SimulationEvent* se);
+    void NotifySimulationEndHandlers(SimulationEvent* se);
 private:
-	void _NotifyListeners(std::list<simulationEventListener>* list, SimulationEvent* se);
+    void _NotifyHandlers(std::list<simulationEventHandler>* list, SimulationEvent* se);
 private: // events listener
-	std::list<simulationEventListener>* _onReplicationStartListeners = new std::list<simulationEventListener>();
-	std::list<simulationEventListener>* _onReplicationStepListeners = new std::list<simulationEventListener>();
-	std::list<simulationEventListener>* _onReplicationEndListeners = new std::list<simulationEventListener>();
-	std::list<simulationEventListener>* _onProcessEventListeners = new std::list<simulationEventListener>();
-	std::list<simulationEventListener>* _onSimulationStartListeners = new std::list<simulationEventListener>();
-	std::list<simulationEventListener>* _onSimulationEndListeners = new std::list<simulationEventListener>();
+    std::list<simulationEventHandler>* _onReplicationStartHandlers = new std::list<simulationEventHandler>();
+    std::list<simulationEventHandler>* _onReplicationStepHandlers = new std::list<simulationEventHandler>();
+    std::list<simulationEventHandler>* _onReplicationEndHandlers = new std::list<simulationEventHandler>();
+    std::list<simulationEventHandler>* _onProcessEventHandlers = new std::list<simulationEventHandler>();
+    std::list<simulationEventHandler>* _onSimulationStartHandlers = new std::list<simulationEventHandler>();
+    std::list<simulationEventHandler>* _onSimulationEndHandlers = new std::list<simulationEventHandler>();
 private:
 };
 

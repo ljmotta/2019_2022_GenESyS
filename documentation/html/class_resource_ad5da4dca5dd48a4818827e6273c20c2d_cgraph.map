@@ -1,4 +1,5 @@
 <map id="Resource::release" name="Resource::release">
-<area shape="rect" id="node2" href="$class_statistics_my_impl1.html#a7c01fbd99fabf6edd4e039c125a6eb3d" title="StatisticsMyImpl1::\lgetCollector" alt="" coords="190,5,325,46"/>
-<area shape="rect" id="node3" href="$class_collector__if.html#ac7b83bce8ddb4903d247c1eddd656171" title="Collector_if::addValue" alt="" coords="182,71,333,97"/>
+<area shape="rect" id="node2" href="$class_statistics_collector.html#a8150e75713026e48f5add4d941a1cd34" title="StatisticsCollector\l::getStatistics" alt="" coords="201,5,331,47"/>
+<area shape="rect" id="node3" href="$class_statistics__if.html#a49a730541ca9a3d8272f39f4000485c4" title="Statistics_if::getCollector" alt="" coords="181,71,351,98"/>
+<area shape="rect" id="node4" href="$class_collector__if.html#ac7b83bce8ddb4903d247c1eddd656171" title="Collector_if::addValue" alt="" coords="191,122,341,149"/>
 </map>

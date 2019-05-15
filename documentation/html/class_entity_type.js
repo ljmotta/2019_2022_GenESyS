@@ -1,6 +1,7 @@
 var class_entity_type =
 [
-    [ "EntityType", "class_entity_type.html#a76c09c732793a586dc3b474485e9824f", null ],
+    [ "EntityType", "class_entity_type.html#aad6252c3ff73df057822a8e6f78d0736", null ],
+    [ "EntityType", "class_entity_type.html#acdbf39a5a5b55adccc845cbf9d1f0363", null ],
     [ "EntityType", "class_entity_type.html#a34b9576e2453ed309c75840319bbb2f8", null ],
     [ "~EntityType", "class_entity_type.html#aee11e4242d000965f06018723bdf0946", null ],
     [ "_loadInstance", "class_entity_type.html#af88c3d67f9eb8b92b4e32e04bed6730f", null ],
@@ -8,7 +9,7 @@ var class_entity_type =
     [ "_verifySymbols", "class_entity_type.html#a50e21c4807823132e777529c70bf7cef", null ],
     [ "getCstatNVATime", "class_entity_type.html#a48e1dedd3e7d7b198ee4e7a61c6afb7e", null ],
     [ "getCstatOtherTime", "class_entity_type.html#a8b6a8b11d428c9e23800d01701e7fbd1", null ],
-    [ "getCstatTimeInSystem", "class_entity_type.html#acdcb00168a8fc2e23cf8bf3302464ce3", null ],
+    [ "getCstatTotalTime", "class_entity_type.html#a26d54afffb7437890cccd4b5447bb7e4", null ],
     [ "getCstatTransferTime", "class_entity_type.html#a2604288226dd7fc0c6c322d415b891cc", null ],
     [ "getCstatVATime", "class_entity_type.html#aafb65d3cdceae776da454989b7b4a874", null ],
     [ "getCstatWaitingTime", "class_entity_type.html#ae43feed54cd8661efb317ef4891bcfcf", null ],

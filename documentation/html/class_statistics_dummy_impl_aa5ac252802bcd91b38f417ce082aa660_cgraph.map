@@ -1,0 +1,6 @@
+<map id="StatisticsDummyImpl::StatisticsDummyImpl" name="StatisticsDummyImpl::StatisticsDummyImpl">
+<area shape="rect" id="node2" href="$class_collector__if.html#a71e66a9bb8a91832ec7a05a1fe00519e" title="Collector_if::setAddValue\lHandler" alt="" coords="221,5,392,47"/>
+<area shape="rect" id="node3" href="$_collector__if_8h.html#a7f3c1353de9d15f934a346fa39dcb089" title="SetCollectorAddValueHandler" alt="" coords="209,71,404,98"/>
+<area shape="rect" id="node4" href="$class_collector__if.html#ac03e3c41ccfe3aff6f6a0b3aca8c885b" title="Collector_if::setClearHandler" alt="" coords="211,122,402,149"/>
+<area shape="rect" id="node5" href="$_collector__if_8h.html#a7ced0788461ea56a4030fc017471a682" title="SetCollectorClearHandler" alt="" coords="221,173,392,199"/>
+</map>

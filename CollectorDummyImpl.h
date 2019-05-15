@@ -6,7 +6,7 @@
 
 /* 
  * File:   CollectorDummyImpl.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 14 de Agosto de 2018, 19:43
  */
@@ -19,18 +19,22 @@
 
 class CollectorDummyImpl : public Collector_if {
 public:
-	CollectorDummyImpl();
-	CollectorDummyImpl(const CollectorDummyImpl& orig);
-	~CollectorDummyImpl();
+    CollectorDummyImpl();
+    CollectorDummyImpl(const CollectorDummyImpl& orig);
+    ~CollectorDummyImpl();
 public:
-	void clear();
-	void addValue(double value);
-	double getLastValue();
-	unsigned long numElements();
-
+    void clear();
+    void addValue(double value);
+    double getLastValue();
+    unsigned long numElements();
+public:
+    void setAddValueHandler(CollectorAddValueHandler addValueHandler);
+    void setClearHandler(CollectorClearHandler clearHandler);
 private:
-	double _lastValue;
-	unsigned long _numElements = 0;
+    double _lastValue;
+    unsigned long _numElements = 0;
+    CollectorAddValueHandler _addValueHandler = nullptr;
+    CollectorClearHandler _clearHandler = nullptr;
 };
 
 #endif /* COLLECTORDUMMYIMPL_H */

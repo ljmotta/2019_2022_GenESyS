@@ -6,7 +6,7 @@
 
 /* 
  * File:   SourceModelCOmponent.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 21 de Junho de 2018, 19:50
  */
@@ -20,41 +20,43 @@
 //#include <numeric_limits>
 
 /*!
- * A source component implements the base for inserting entities into the model when its simulation is initialized. During the initialization, the new and empty future events list is populated by events of creating entities and sending them to the source components existing in the model
+ * A source component implements the base for inserting entities into the model when its simulation is initialized. 
+ * During the initialization, the new and empty future events list is populated by events of creating entities and 
+ * sending them to the source components existing in the model
  */
 class SourceModelComponent : public ModelComponent {
 public:
-	SourceModelComponent(Model* model);
-	SourceModelComponent(const SourceModelComponent& orig);
-	virtual ~SourceModelComponent();
+    SourceModelComponent(Model* model, std::string componentTypename);
+    SourceModelComponent(const SourceModelComponent& orig);
+    virtual ~SourceModelComponent();
 public: // get & set
-	void setFirstCreation(double _firstCreation);
-	double getFirstCreation() const;
-	void setCollectStatistics(bool _collectStatistics);
-	bool isCollectStatistics() const;
-	void setEntityType(std::string _entityType);
-	std::string getEntityType() const;
-	void setTimeUnit(Util::TimeUnit _timeUnit);
-	Util::TimeUnit getTimeUnit() const;
-	void setTimeBetweenCreationsExpression(std::string _timeBetweenCreations);
-	std::string getTimeBetweenCreationsExpression() const;
-	void setMaxCreations(unsigned int _maxCreations);
-	unsigned int getMaxCreations() const;
-	unsigned int getEntitiesCreated() const;
-	void setEntitiesCreated(unsigned int _entitiesCreated);
-	void setEntitiesPerCreation(unsigned int _entitiesPerCreation);
-	unsigned int getEntitiesPerCreation() const;
+    void setFirstCreation(double _firstCreation);
+    double getFirstCreation() const;
+    void setCollectStatistics(bool _collectStatistics);
+    bool isCollectStatistics() const;
+    void setEntityType(EntityType* _entityType);
+    EntityType* getEntityType() const;
+    void setTimeUnit(Util::TimeUnit _timeUnit);
+    Util::TimeUnit getTimeUnit() const;
+    void setTimeBetweenCreationsExpression(std::string _timeBetweenCreations);
+    std::string getTimeBetweenCreationsExpression() const;
+    void setMaxCreations(unsigned int _maxCreations);
+    unsigned int getMaxCreations() const;
+    unsigned int getEntitiesCreated() const;
+    void setEntitiesCreated(unsigned int _entitiesCreated);
+    void setEntitiesPerCreation(unsigned int _entitiesPerCreation);
+    unsigned int getEntitiesPerCreation() const;
 public:
-	virtual std::string show();
+    virtual std::string show();
 protected: // get & set
-	std::string _entityType = "Entity Type 1";
-	double _firstCreation = 0.0;
-	unsigned int _entitiesPerCreation = 1;
-	unsigned int _maxCreations = std::numeric_limits<unsigned int>::max(); // std::numeric_limits<unsigned int>::max();
-	std::string _timeBetweenCreationsExpression = "10"; ////
-	Util::TimeUnit _timeBetweenCreationsTimeUnit = Util::TimeUnit::second;
-	bool _collectStatistics = true;
-	unsigned int _entitiesCreatedSoFar = 0;
+    EntityType* _entityType;
+    double _firstCreation = 0.0;
+    unsigned int _entitiesPerCreation = 1;
+    unsigned int _maxCreations = std::numeric_limits<unsigned int>::max(); // std::numeric_limits<unsigned int>::max();
+    std::string _timeBetweenCreationsExpression = "10"; ////
+    Util::TimeUnit _timeBetweenCreationsTimeUnit = Util::TimeUnit::second;
+    bool _collectStatistics = true;
+    unsigned int _entitiesCreatedSoFar = 0;
 };
 
 #endif /* SOURCEMODELCOMPONENT_H */

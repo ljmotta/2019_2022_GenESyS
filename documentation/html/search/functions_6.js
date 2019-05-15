@@ -11,5 +11,6 @@ var searchData=
   ['fitterdummyimpl',['FitterDummyImpl',['../class_fitter_dummy_impl.html#ac2060d75934be396c6b050facc0f8287',1,'FitterDummyImpl::FitterDummyImpl()'],['../class_fitter_dummy_impl.html#aae635bda7d5e50eb86a42fa939e21316',1,'FitterDummyImpl::FitterDummyImpl(const FitterDummyImpl &amp;orig)']]],
   ['fittriangular',['fitTriangular',['../class_fitter__if.html#a2bfc41c6a8044520aeafb2c5c71fe570',1,'Fitter_if::fitTriangular()'],['../class_fitter_dummy_impl.html#a7f658b606a7a60870e75314c13cdc137',1,'FitterDummyImpl::fitTriangular()']]],
   ['fituniform',['fitUniform',['../class_fitter__if.html#adec53dfede4bdb31b175e57e6a2c2fc7',1,'Fitter_if::fitUniform()'],['../class_fitter_dummy_impl.html#aa9022eab5092e986d51d222d0f6b83df',1,'FitterDummyImpl::fitUniform()']]],
-  ['fitweibull',['fitWeibull',['../class_fitter__if.html#a40c5bc2e953e683751743cf06df077c6',1,'Fitter_if::fitWeibull()'],['../class_fitter_dummy_impl.html#ac6365f0ca4f7a488c827885c7e174470',1,'FitterDummyImpl::fitWeibull()']]]
+  ['fitweibull',['fitWeibull',['../class_fitter__if.html#a40c5bc2e953e683751743cf06df077c6',1,'Fitter_if::fitWeibull()'],['../class_fitter_dummy_impl.html#ac6365f0ca4f7a488c827885c7e174470',1,'FitterDummyImpl::fitWeibull()']]],
+  ['fsnedecor',['fSnedecor',['../class_prob_distrib.html#ab9b9b1e3dd7ace961991f67e73bee3e5',1,'ProbDistrib']]]
 ];

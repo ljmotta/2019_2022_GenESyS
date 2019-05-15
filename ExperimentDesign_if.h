@@ -6,7 +6,7 @@
 
 /* 
  * File:   ExperimentDesign.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 2 de Outubro de 2018, 22:47
  */
@@ -20,12 +20,12 @@
 /*!
  * It designs a set of experiments (SimulationScenario) where que level of factors (SimulationControl) are set automatically to create a 2^k.r experiment design, and where the contributions of the factors and their interactions (just a set of SimulationControl) can be obtained.
  */
-class ExperimentDesign_if {	
+class ExperimentDesign_if {
 public:
-	virtual ProcessAnalyser_if* getProcessAnalyser() const = 0;
-	virtual bool generate2krScenarioExperiments() = 0;
-	virtual bool calculateContributionAndCoefficients() = 0;
-	virtual std::list<FactorOrInteractionContribution*>* getContributions() const = 0;
+    virtual ProcessAnalyser_if* getProcessAnalyser() const = 0;
+    virtual bool generate2krScenarioExperiments() = 0;
+    virtual bool calculateContributionAndCoefficients() = 0;
+    virtual std::list<FactorOrInteractionContribution*>* getContributions() const = 0;
 };
 
 #endif /* EXPERIMENTDESIGN_IF_H */

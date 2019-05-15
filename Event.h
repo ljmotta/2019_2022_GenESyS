@@ -6,7 +6,7 @@
 
 /* 
  * File:   Event.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 21 de Junho de 2018, 19:41
  */
@@ -14,25 +14,26 @@
 #ifndef EVENT_H
 #define EVENT_H
 
-#include "ModelInfrastructure.h"
-#include "Entity.h"
-#include "ModelComponent.h"
 #include <string>
 
-class Event {//: public ModelInfrastructure {
+#include "ModelElement.h"
+#include "Entity.h"
+#include "ModelComponent.h"
+
+class Event {//: public ModelElement {
 public:
-	Event(double time, Entity* entity, ModelComponent* component);
-	Event(const Event& orig);
-	virtual ~Event();
+    Event(double time, Entity* entity, ModelComponent* component);
+    Event(const Event& orig);
+    virtual ~Event();
 public:
     double getTime() const;
     ModelComponent* getComponent() const;
     Entity* getEntity() const;
-	std::string show();
+    std::string show();
 private:
-	double _time;
-	Entity* _entity;
-	ModelComponent* _component;
+    double _time;
+    Entity* _entity;
+    ModelComponent* _component;
 };
 
 #endif /* EVENT_H */

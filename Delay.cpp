@@ -6,16 +6,17 @@
 
 /* 
  * File:   Delay.cpp
- * Author: cancian
+ * Author: rafael.luiz.cancian
  * 
  * Created on 21 de Junho de 2018, 19:49
  */
 
 #include "Delay.h"
 #include "Model.h"
+#include "Attribute.h"
 
-Delay::Delay(Model* model) : ModelComponent(model) {
-	_name = "Delay "+std::to_string(Util::GenerateNewIdOfType<Delay>());
+Delay::Delay(Model* model) : ModelComponent(model, Util::TypeOf<Delay>()) {
+    //_name = "Delay " + std::to_string(Util::GenerateNewIdOfType<Delay>());
 }
 
 Delay::Delay(const Delay& orig) : ModelComponent(orig) {
@@ -25,48 +26,60 @@ Delay::~Delay() {
 }
 
 std::string Delay::show() {
-	return ModelComponent::show() + 
-			",delayExpression=" + this->_delayExpression +
-			",timeUnit=" + std::to_string(static_cast<int>(this->_delayTimeUnit));
+    return ModelComponent::show() +
+            ",delayExpression=" + this->_delayExpression +
+            ",timeUnit=" + std::to_string(static_cast<int> (this->_delayTimeUnit));
 }
 
 void Delay::setDelayExpression(std::string _delayExpression) {
-	this->_delayExpression = _delayExpression;
+    this->_delayExpression = _delayExpression;
 }
 
 std::string Delay::getDelayExpression() const {
-	return _delayExpression;
+    return _delayExpression;
 }
 
 void Delay::setDelayTimeUnit(Util::TimeUnit _delayTimeUnit) {
-	this->_delayTimeUnit = _delayTimeUnit;
+    this->_delayTimeUnit = _delayTimeUnit;
 }
 
 Util::TimeUnit Delay::getDelayTimeUnit() const {
-	return _delayTimeUnit;
+    return _delayTimeUnit;
 }
 
 void Delay::_execute(Entity* entity) {
-	double delayEndTime = _model->getSimulation()->getSimulatedTime() + _model->parseExpression(_delayExpression) * Util::TimeUnitConvert(_delayTimeUnit, _model->getInfos()->getReplicationLengthTimeUnit());
-	Event* newEvent = new Event(delayEndTime, entity, this->getNextComponents()->first());
-	_model->getEvents()->insert(newEvent);
-	_model->getTracer()->trace(Util::TraceLevel::blockInternal, "End of delay of entity " + std::to_string(entity->getId()) + " scheduled to time " + std::to_string(delayEndTime));
+    double waitTime = _model->parseExpression(_delayExpression) * Util::TimeUnitConvert(_delayTimeUnit, _model->getInfos()->getReplicationLengthTimeUnit());
+    entity->getEntityType()->getCstatWaitingTime()->getStatistics()->getCollector()->addValue(waitTime);
+    double delayEndTime = _model->getSimulation()->getSimulatedTime() + waitTime;
+    Event* newEvent = new Event(delayEndTime, entity, this->getNextComponents()->first());
+    _model->getEvents()->insert(newEvent);
+    _model->getTracer()->trace(Util::TraceLevel::blockInternal, "End of delay of entity " + std::to_string(entity->getId()) + " scheduled to time " + std::to_string(delayEndTime));
 }
-
-
 
 void Delay::_loadInstance(std::list<std::string> words) {
 
 }
 
 std::list<std::string>* Delay::_saveInstance() {
-	std::list<std::string>* words = ModelComponent::_saveInstance(Util::TypeOf<Delay>());
-	return words;
+    std::list<std::string>* words = ModelComponent::_saveInstance(Util::TypeOf<Delay>());
+    return words;
 
 }
 
 bool Delay::_verifySymbols(std::string* errorMessage) {
     bool result = true;
     this->_model->parseExpression(getDelayExpression(), &result, errorMessage);
+        //include attributes needed
+    ElementManager* elements = _model->getElementManager();
+    std::vector<std::string> neededNames = {"Entity.WaitTime"};
+    std::string neededName;
+    for (int i = 0; i < neededNames.size(); i++) {
+        neededName = neededNames[i];
+        if (elements->getElement(Util::TypeOf<Attribute>(), neededName) == nullptr) {
+            Attribute* attr1 = new Attribute(neededName);
+            elements->insertElement(Util::TypeOf<Attribute>(), attr1);
+        }
+    }
+
     return result;
 }

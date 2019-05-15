@@ -4,6 +4,7 @@ var searchData=
   ['factororinteractioncontribution_2ecpp',['FactorOrInteractionContribution.cpp',['../_factor_or_interaction_contribution_8cpp.html',1,'']]],
   ['factororinteractioncontribution_2eh',['FactorOrInteractionContribution.h',['../_factor_or_interaction_contribution_8h.html',1,'']]],
   ['failed',['FAILED',['../class_resource.html#af2224610b59962683d3cafbdac10621aab9e14d9b2886bcff408b85aefa780419',1,'Resource']]],
+  ['fifo',['FIFO',['../class_queue.html#ad95b032373998be7300d630784246aaeac589858dbe1d06c46544266ae4cd2c6f',1,'Queue']]],
   ['find',['find',['../class_list.html#a2f50d3342e016ec57876798ad4e8bf31',1,'List']]],
   ['first',['first',['../class_list.html#a42761114ff6730da1402089d4bd3f795',1,'List::first()'],['../class_queue.html#a39a1f5a1733f61634339ecee7aac7907',1,'Queue::first()']]],
   ['fitall',['fitAll',['../class_fitter__if.html#a819a5ca8715ba4be30d2c7a3957aa467',1,'Fitter_if::fitAll()'],['../class_fitter_dummy_impl.html#ad3330dc378a15f51cf4755e014933bfd',1,'FitterDummyImpl::fitAll()']]],
@@ -19,5 +20,6 @@ var searchData=
   ['fittriangular',['fitTriangular',['../class_fitter__if.html#a2bfc41c6a8044520aeafb2c5c71fe570',1,'Fitter_if::fitTriangular()'],['../class_fitter_dummy_impl.html#a7f658b606a7a60870e75314c13cdc137',1,'FitterDummyImpl::fitTriangular()']]],
   ['fituniform',['fitUniform',['../class_fitter__if.html#adec53dfede4bdb31b175e57e6a2c2fc7',1,'Fitter_if::fitUniform()'],['../class_fitter_dummy_impl.html#aa9022eab5092e986d51d222d0f6b83df',1,'FitterDummyImpl::fitUniform()']]],
   ['fitweibull',['fitWeibull',['../class_fitter__if.html#a40c5bc2e953e683751743cf06df077c6',1,'Fitter_if::fitWeibull()'],['../class_fitter_dummy_impl.html#ac6365f0ca4f7a488c827885c7e174470',1,'FitterDummyImpl::fitWeibull()']]],
+  ['fsnedecor',['fSnedecor',['../class_prob_distrib.html#ab9b9b1e3dd7ace961991f67e73bee3e5',1,'ProbDistrib']]],
   ['functor_2eh',['Functor.h',['../_functor_8h.html',1,'']]]
 ];

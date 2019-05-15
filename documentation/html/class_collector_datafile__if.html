@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>ReGenESyS - Reborn Generic and Expansible System Simulator: CollectorDatafile_if Class Reference</title>
+<title>ReGenESyS - Reborned GENeric and Expansible SYstem Simulator: CollectorDatafile_if Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,10 +32,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="software_genesys.gif"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">ReGenESyS - Reborn Generic and Expansible System Simulator
-   &#160;<span id="projectnumber">2018.4</span>
+   <div id="projectname">ReGenESyS - Reborned GENeric and Expansible SYstem Simulator
+   &#160;<span id="projectnumber">2019.0509</span>
    </div>
-   <div id="projectbrief">ReGenESyS - Reborn Generic and Expansible System Simulator</div>
+   <div id="projectbrief">Genesys is the product of Professor Rafael Luiz Cancian&#39;s teaching and research activities. It began in early 2002 as a way to teach students the basics and simulation techniques of systems used by business tools. With his development, he replicated all the SIMAN language, used by Arena software, and has become a clone of that tool, including its graphical interface. Genesys allowed the inclusion of new simulation components through dynamic link libraries and also the parallel execution of simulation models in a distributed environment. The development of Genesys continued until 2007, when the professor stopped teaching systems simulation classes. Ten years later the professor starts again to teach systems simulation classes and to carry out scientific research in the area. So in 2018 Genesys is reborn as ReGenesys, with new language and programming techniques, and even more ambitious goals.</div>
   </td>
  </tr>
  </tbody>
@@ -122,8 +122,9 @@ Inheritance diagram for CollectorDatafile_if:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_collector_datafile__if__inherit__graph.png" border="0" usemap="#_collector_datafile__if_inherit__map" alt="Inheritance graph"/></div>
 <map name="_collector_datafile__if_inherit__map" id="_collector_datafile__if_inherit__map">
-<area shape="rect" id="node3" href="class_collector_datafile_dummy_impl.html" title="CollectorDatafileDummyImpl" alt="" coords="5,155,196,181"/>
-<area shape="rect" id="node2" href="class_collector__if.html" title="Collector_if" alt="" coords="57,5,145,32"/>
+<area shape="rect" id="node3" href="class_collector_datafile_default_impl1.html" title="CollectorDatafileDefault\lImpl1" alt="" coords="5,155,167,196"/>
+<area shape="rect" id="node4" href="class_collector_datafile_dummy_impl.html" title="CollectorDatafileDummyImpl" alt="" coords="191,162,381,189"/>
+<area shape="rect" id="node2" href="class_collector__if.html" title="Collector_if" alt="" coords="142,5,230,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <div class="dynheader">
@@ -137,8 +138,12 @@ Collaboration diagram for CollectorDatafile_if:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa790efe68dfa16cebd66b481bbda8411"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collector_datafile__if.html#aa790efe68dfa16cebd66b481bbda8411">getValue</a> (unsigned int num)=0</td></tr>
-<tr class="separator:aa790efe68dfa16cebd66b481bbda8411"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f10deeaa49fad2ecf4a4fa4ea262b5c"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collector_datafile__if.html#a1f10deeaa49fad2ecf4a4fa4ea262b5c">getValue</a> (unsigned int rank)=0</td></tr>
+<tr class="separator:a1f10deeaa49fad2ecf4a4fa4ea262b5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5d33f603cf60214387a4303adc88969"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collector_datafile__if.html#af5d33f603cf60214387a4303adc88969">seekFirstValue</a> ()=0</td></tr>
+<tr class="separator:af5d33f603cf60214387a4303adc88969"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0064b4a740e3590c52ea15790b976dad"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collector_datafile__if.html#a0064b4a740e3590c52ea15790b976dad">getNextValue</a> ()=0</td></tr>
+<tr class="separator:a0064b4a740e3590c52ea15790b976dad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81d109f34c25f5295f76ba13f4234a3c"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collector_datafile__if.html#a81d109f34c25f5295f76ba13f4234a3c">getDataFilename</a> ()=0</td></tr>
 <tr class="separator:a81d109f34c25f5295f76ba13f4234a3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab826bbf5472a5cfdbf2f2c30273da8eb"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collector_datafile__if.html#ab826bbf5472a5cfdbf2f2c30273da8eb">setDataFilename</a> (std::string filename)=0</td></tr>
@@ -152,6 +157,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa14f7e1065af8fd38ab592e224fb7e43 inherit pub_methods_class_collector__if"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97fa632508ffdfad1365b3a949acf745 inherit pub_methods_class_collector__if"><td class="memItemLeft" align="right" valign="top">virtual unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collector__if.html#a97fa632508ffdfad1365b3a949acf745">numElements</a> ()=0</td></tr>
 <tr class="separator:a97fa632508ffdfad1365b3a949acf745 inherit pub_methods_class_collector__if"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71e66a9bb8a91832ec7a05a1fe00519e inherit pub_methods_class_collector__if"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collector__if.html#a71e66a9bb8a91832ec7a05a1fe00519e">setAddValueHandler</a> (<a class="el" href="_collector__if_8h.html#ab97c9a368c50eb9e00cb4772e46ff38a">CollectorAddValueHandler</a> addValueHandler)=0</td></tr>
+<tr class="separator:a71e66a9bb8a91832ec7a05a1fe00519e inherit pub_methods_class_collector__if"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac03e3c41ccfe3aff6f6a0b3aca8c885b inherit pub_methods_class_collector__if"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collector__if.html#ac03e3c41ccfe3aff6f6a0b3aca8c885b">setClearHandler</a> (<a class="el" href="_collector__if_8h.html#ad22205bb584ed3e0db55fc265a5fe1f4">CollectorClearHandler</a> clearHandler)=0</td></tr>
+<tr class="separator:ac03e3c41ccfe3aff6f6a0b3aca8c885b inherit pub_methods_class_collector__if"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interface for collecting values of a stochastic variable that will be stores in a datafile. </p>
@@ -176,12 +185,50 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Get the next value in the file and advances the pointer </p>
 
-<p>Implemented in <a class="el" href="class_collector_datafile_dummy_impl.html#a33a261f553b05c9c39aa46e1222e4918">CollectorDatafileDummyImpl</a>.</p>
+<p>Implemented in <a class="el" href="class_collector_datafile_default_impl1.html#afe570b0792bf13a06ff1dea12d7593b7">CollectorDatafileDefaultImpl1</a>, and <a class="el" href="class_collector_datafile_dummy_impl.html#a33a261f553b05c9c39aa46e1222e4918">CollectorDatafileDummyImpl</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_collector_datafile__if_a81d109f34c25f5295f76ba13f4234a3c_icgraph.png" border="0" usemap="#class_collector_datafile__if_a81d109f34c25f5295f76ba13f4234a3c_icgraph" alt=""/></div>
+<map name="class_collector_datafile__if_a81d109f34c25f5295f76ba13f4234a3c_icgraph" id="class_collector_datafile__if_a81d109f34c25f5295f76ba13f4234a3c_icgraph">
+<area shape="rect" id="node2" href="_test_input_analyser_tools_8cpp.html#af7011a62619acc9f81bcb4c5a5fafbe8" title="testStudentSoftwareDevelopments" alt="" coords="187,13,412,39"/>
+<area shape="rect" id="node3" href="class_test_input_analyser_tools.html#a8015a3024f29bddc865cb0b419214cd7" title="TestInputAnalyserTools\l::main" alt="" coords="460,5,620,47"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="aa790efe68dfa16cebd66b481bbda8411"></a>
+<a class="anchor" id="a0064b4a740e3590c52ea15790b976dad"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double CollectorDatafile_if::getNextValue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Set the pointer to the first value in the file </p>
+
+<p>Implemented in <a class="el" href="class_collector_datafile_default_impl1.html#a615090f649ddd8260b1f058f6cd29668">CollectorDatafileDefaultImpl1</a>, and <a class="el" href="class_collector_datafile_dummy_impl.html#a362d8bf7fee03c319239c994a01cf1ae">CollectorDatafileDummyImpl</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1f10deeaa49fad2ecf4a4fa4ea262b5c"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -192,7 +239,7 @@ Public Member Functions</h2></td></tr>
           <td class="memname">virtual double CollectorDatafile_if::getValue </td>
           <td>(</td>
           <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>num</em></td><td>)</td>
+          <td class="paramname"><em>rank</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -203,7 +250,33 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_collector_datafile_dummy_impl.html#a84eb10b49223b402897c466f93dc1bcf">CollectorDatafileDummyImpl</a>.</p>
+<p>Implemented in <a class="el" href="class_collector_datafile_default_impl1.html#ac40e05b78e9fcc41c648664a9597d30c">CollectorDatafileDefaultImpl1</a>, and <a class="el" href="class_collector_datafile_dummy_impl.html#a84eb10b49223b402897c466f93dc1bcf">CollectorDatafileDummyImpl</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af5d33f603cf60214387a4303adc88969"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void CollectorDatafile_if::seekFirstValue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get a value from a specific position </p>
+
+<p>Implemented in <a class="el" href="class_collector_datafile_default_impl1.html#ad8ddefdc93c51945922ea73af95def05">CollectorDatafileDefaultImpl1</a>, and <a class="el" href="class_collector_datafile_dummy_impl.html#a47f415dda26201345746697f700ef1b5">CollectorDatafileDummyImpl</a>.</p>
 
 </div>
 </div>
@@ -229,7 +302,18 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_collector_datafile_dummy_impl.html#aa2f236e5351f9a438aa7cf8734623758">CollectorDatafileDummyImpl</a>.</p>
+<p>Implemented in <a class="el" href="class_collector_datafile_default_impl1.html#a62352f75a7635654108bb2b8b9604e1d">CollectorDatafileDefaultImpl1</a>, and <a class="el" href="class_collector_datafile_dummy_impl.html#aa2f236e5351f9a438aa7cf8734623758">CollectorDatafileDummyImpl</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_collector_datafile__if_ab826bbf5472a5cfdbf2f2c30273da8eb_icgraph.png" border="0" usemap="#class_collector_datafile__if_ab826bbf5472a5cfdbf2f2c30273da8eb_icgraph" alt=""/></div>
+<map name="class_collector_datafile__if_ab826bbf5472a5cfdbf2f2c30273da8eb_icgraph" id="class_collector_datafile__if_ab826bbf5472a5cfdbf2f2c30273da8eb_icgraph">
+<area shape="rect" id="node2" href="_test_input_analyser_tools_8cpp.html#af7011a62619acc9f81bcb4c5a5fafbe8" title="testStudentSoftwareDevelopments" alt="" coords="187,13,412,39"/>
+<area shape="rect" id="node3" href="class_test_input_analyser_tools.html#a8015a3024f29bddc865cb0b419214cd7" title="TestInputAnalyserTools\l::main" alt="" coords="460,5,620,47"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>

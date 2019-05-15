@@ -1,6 +1,8 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_collector__if.html" title="Collector_if" alt="" coords="5,31,93,57"/>
-<area shape="rect" id="node2" href="$class_collector_datafile__if.html" title="CollectorDatafile_if" alt="" coords="147,5,281,32"/>
-<area shape="rect" id="node4" href="$class_collector_dummy_impl.html" title="CollectorDummyImpl" alt="" coords="141,56,287,83"/>
-<area shape="rect" id="node3" href="$class_collector_datafile_dummy_impl.html" title="CollectorDatafileDummyImpl" alt="" coords="335,5,525,32"/>
+<area shape="rect" id="node1" href="$class_collector__if.html" title="Collector_if" alt="" coords="5,93,93,119"/>
+<area shape="rect" id="node2" href="$class_collector_datafile__if.html" title="CollectorDatafile_if" alt="" coords="149,42,282,69"/>
+<area shape="rect" id="node5" href="$class_collector_default_impl1.html" title="CollectorDefaultImpl1" alt="" coords="141,93,289,119"/>
+<area shape="rect" id="node6" href="$class_collector_dummy_impl.html" title="CollectorDummyImpl" alt="" coords="143,143,288,170"/>
+<area shape="rect" id="node3" href="$class_collector_datafile_default_impl1.html" title="CollectorDatafileDefault\lImpl1" alt="" coords="352,5,513,47"/>
+<area shape="rect" id="node4" href="$class_collector_datafile_dummy_impl.html" title="CollectorDatafileDummyImpl" alt="" coords="337,71,528,98"/>
 </map>

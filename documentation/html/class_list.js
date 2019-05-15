@@ -1,6 +1,6 @@
 var class_list =
 [
-    [ "CompFunct", "class_list.html#ae43380038701ec3a2fbecaf31f37dd19", null ],
+    [ "CompFunct", "class_list.html#a9e9db1a7f0275e9b4ca5a46e3d0874ff", null ],
     [ "List", "class_list.html#a5c5e27671b21b3815d4e25b953c69454", null ],
     [ "List", "class_list.html#a46e402e625d805b8ccb565129d4d9680", null ],
     [ "~List", "class_list.html#a2b58189090f6e5ce52939c9195e59e85", null ],
@@ -11,6 +11,7 @@ var class_list =
     [ "empty", "class_list.html#a3737ca60365287ce663393d8c07d1a41", null ],
     [ "find", "class_list.html#a2f50d3342e016ec57876798ad4e8bf31", null ],
     [ "first", "class_list.html#a42761114ff6730da1402089d4bd3f795", null ],
+    [ "getAtRank", "class_list.html#a8cb47b18ef3c8e1496ed0e668c07c188", null ],
     [ "getList", "class_list.html#a570498345450f635b72d1ca2675145cc", null ],
     [ "insert", "class_list.html#a518d00fd77740525522949d4316e8826", null ],
     [ "last", "class_list.html#a9944c09ee1bd6390bbf017be5c858063", null ],
@@ -18,6 +19,7 @@ var class_list =
     [ "pop_front", "class_list.html#a024af4543f71544345351a45850c42d8", null ],
     [ "previous", "class_list.html#ab43f87321c901694807e6c9315a72cd0", null ],
     [ "remove", "class_list.html#a0ac08f7f3dad900b99e9a73e76d2beee", null ],
+    [ "setAtRank", "class_list.html#af7370c56bb6396b7ed26ab20a81eff6d", null ],
     [ "setSortFunc", "class_list.html#a31a37746c0d960f2f2bb4071b2735c5e", null ],
     [ "show", "class_list.html#a8f30a708a550bcca33f64dc6fea8affa", null ],
     [ "size", "class_list.html#ad908ab5cf19370fcdf61cf1927e5e8f5", null ],

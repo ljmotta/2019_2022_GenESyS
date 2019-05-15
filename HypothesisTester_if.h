@@ -6,7 +6,7 @@
 
 /* 
  * File:   HypothesisTester_if.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 23 de Agosto de 2018, 19:04
  */
@@ -22,22 +22,21 @@
 class HypothesisTester_if {
 public:
 
-	enum H1Comparition {
-		LESS_THAN = 1,
-		EQUAL = 2,
-		DIFFERENT = 3,
-		GREATER_THAN = 4
-	};
+    enum H1Comparition {
+        DIFFERENT = 1,
+        LESS_THAN = 2,
+        GREATER_THAN = 3
+    };
 public:
-	/* TODO: all "test" methods should return double p-value, not bool */
-	virtual bool testAverage(double confidencelevel, double avg, H1Comparition comp) = 0;
-	virtual bool testProportion(double confidencelevel, double prop, H1Comparition comp) = 0;
-	virtual bool testVariance(double confidencelevel, double var, H1Comparition comp) = 0;
-	virtual bool testAverage(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) = 0;
-	virtual bool testProportion(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) = 0;
-	virtual bool testVariance(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) = 0;
-	virtual void setDataFilename(std::string dataFilename) = 0;
-	virtual std::string getDataFilename() = 0;
+    /* TODO: all "test" methods should return double p-value, not bool */
+    virtual double testAverage(double confidencelevel, double avg, H1Comparition comp) = 0;
+    virtual double testProportion(double confidencelevel, double prop, H1Comparition comp) = 0;
+    virtual double testVariance(double confidencelevel, double var, H1Comparition comp) = 0;
+    virtual double testAverage(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) = 0;
+    virtual double testProportion(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) = 0;
+    virtual double testVariance(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) = 0;
+    virtual void setDataFilename(std::string dataFilename) = 0;
+    virtual std::string getDataFilename() = 0;
 };
 
 #endif /* HYPOTHESISTESTER_IF_H */

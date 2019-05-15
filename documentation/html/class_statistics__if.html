@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>ReGenESyS - Reborn Generic and Expansible System Simulator: Statistics_if Class Reference</title>
+<title>ReGenESyS - Reborned GENeric and Expansible SYstem Simulator: Statistics_if Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,10 +32,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="software_genesys.gif"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">ReGenESyS - Reborn Generic and Expansible System Simulator
-   &#160;<span id="projectnumber">2018.4</span>
+   <div id="projectname">ReGenESyS - Reborned GENeric and Expansible SYstem Simulator
+   &#160;<span id="projectnumber">2019.0509</span>
    </div>
-   <div id="projectbrief">ReGenESyS - Reborn Generic and Expansible System Simulator</div>
+   <div id="projectbrief">Genesys is the product of Professor Rafael Luiz Cancian&#39;s teaching and research activities. It began in early 2002 as a way to teach students the basics and simulation techniques of systems used by business tools. With his development, he replicated all the SIMAN language, used by Arena software, and has become a clone of that tool, including its graphical interface. Genesys allowed the inclusion of new simulation components through dynamic link libraries and also the parallel execution of simulation models in a distributed environment. The development of Genesys continued until 2007, when the professor stopped teaching systems simulation classes. Ten years later the professor starts again to teach systems simulation classes and to carry out scientific research in the area. So in 2018 Genesys is reborn as ReGenesys, with new language and programming techniques, and even more ambitious goals.</div>
   </td>
  </tr>
  </tbody>
@@ -122,8 +122,10 @@ Inheritance diagram for Statistics_if:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_statistics__if__inherit__graph.png" border="0" usemap="#_statistics__if_inherit__map" alt="Inheritance graph"/></div>
 <map name="_statistics__if_inherit__map" id="_statistics__if_inherit__map">
-<area shape="rect" id="node2" href="class_statistics_dummy_impl.html" title="StatisticsDummyImpl" alt="" coords="5,80,153,107"/>
-<area shape="rect" id="node3" href="class_statistics_collector.html" title="StatisticsCollector" alt="" coords="15,155,144,181"/>
+<area shape="rect" id="node2" href="class_statistics_datafile__if.html" title="StatisticsDatafile_if" alt="" coords="36,80,172,107"/>
+<area shape="rect" id="node4" href="class_statistics_default_impl1.html" title="StatisticsDefaultImpl1" alt="" coords="197,80,347,107"/>
+<area shape="rect" id="node5" href="class_statistics_dummy_impl.html" title="StatisticsDummyImpl" alt="" coords="371,80,519,107"/>
+<area shape="rect" id="node3" href="class_statistics_data_file_dummy_impl.html" title="StatisticsDataFileDummyImpl" alt="" coords="5,155,203,181"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -141,34 +143,20 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a24e3652122f2ec649b4c7d3accc43da0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a791ab6bbd166254429a3131bdf6e8dd6"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics__if.html#a791ab6bbd166254429a3131bdf6e8dd6">average</a> ()=0</td></tr>
 <tr class="separator:a791ab6bbd166254429a3131bdf6e8dd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43b850db407a9a64ab3e2f4d06eab350"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics__if.html#a43b850db407a9a64ab3e2f4d06eab350">mode</a> ()=0</td></tr>
-<tr class="separator:a43b850db407a9a64ab3e2f4d06eab350"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0414c1df9272ca674cba6fc30f027684"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics__if.html#a0414c1df9272ca674cba6fc30f027684">mediane</a> ()=0</td></tr>
-<tr class="separator:a0414c1df9272ca674cba6fc30f027684"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b563f7e92eda3cf3a8f47f07824b96b"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics__if.html#a1b563f7e92eda3cf3a8f47f07824b96b">variance</a> ()=0</td></tr>
 <tr class="separator:a1b563f7e92eda3cf3a8f47f07824b96b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88d2478c6dfd8de19436ab248080a509"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics__if.html#a88d2478c6dfd8de19436ab248080a509">stddeviation</a> ()=0</td></tr>
 <tr class="separator:a88d2478c6dfd8de19436ab248080a509"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0ad6bf18f8263003b0ac7552318be57"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics__if.html#ae0ad6bf18f8263003b0ac7552318be57">variationCoef</a> ()=0</td></tr>
 <tr class="separator:ae0ad6bf18f8263003b0ac7552318be57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a093e08a43aefa0738f94ea4f68eaa40d"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics__if.html#a093e08a43aefa0738f94ea4f68eaa40d">halfWidthConfidenceInterval</a> (double confidencelevel)=0</td></tr>
-<tr class="separator:a093e08a43aefa0738f94ea4f68eaa40d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a041cafef3eb831901296987871f707f0"><td class="memItemLeft" align="right" valign="top">virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics__if.html#a041cafef3eb831901296987871f707f0">newSampleSize</a> (double confidencelevel, double halfWidth)=0</td></tr>
-<tr class="separator:a041cafef3eb831901296987871f707f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af85daafcb428420ceeacdd4807c045eb"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics__if.html#af85daafcb428420ceeacdd4807c045eb">quartil</a> (unsigned short num)=0</td></tr>
-<tr class="separator:af85daafcb428420ceeacdd4807c045eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a562230cad7a31c8af403217743b156f3"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics__if.html#a562230cad7a31c8af403217743b156f3">decil</a> (unsigned short num)=0</td></tr>
-<tr class="separator:a562230cad7a31c8af403217743b156f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a906e7f2428e5e6482daf5dd1b2d54bfc"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics__if.html#a906e7f2428e5e6482daf5dd1b2d54bfc">centil</a> (unsigned short num)=0</td></tr>
-<tr class="separator:a906e7f2428e5e6482daf5dd1b2d54bfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82349cd351436591c909d39f580c2f63"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics__if.html#a82349cd351436591c909d39f580c2f63">setHistogramNumClasses</a> (unsigned short num)=0</td></tr>
-<tr class="separator:a82349cd351436591c909d39f580c2f63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab86db530e84375431be9d13c88424de3"><td class="memItemLeft" align="right" valign="top">virtual unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics__if.html#ab86db530e84375431be9d13c88424de3">histogramNumClasses</a> ()=0</td></tr>
-<tr class="separator:ab86db530e84375431be9d13c88424de3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abedad81a78b2c04ade10994e5503825c"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics__if.html#abedad81a78b2c04ade10994e5503825c">histogramClassLowerLimit</a> (unsigned short classNum)=0</td></tr>
-<tr class="separator:abedad81a78b2c04ade10994e5503825c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b72e8473ff71da5f8b77e4f2c15a407"><td class="memItemLeft" align="right" valign="top">virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics__if.html#a7b72e8473ff71da5f8b77e4f2c15a407">histogramClassFrequency</a> (unsigned short classNum)=0</td></tr>
-<tr class="separator:a7b72e8473ff71da5f8b77e4f2c15a407"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d4ab727b54825cb55b3b9bd00b4b88d"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics__if.html#a5d4ab727b54825cb55b3b9bd00b4b88d">halfWidthConfidenceInterval</a> ()=0</td></tr>
+<tr class="separator:a5d4ab727b54825cb55b3b9bd00b4b88d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a926ff99efcecb3609918b70e495057fd"><td class="memItemLeft" align="right" valign="top">virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics__if.html#a926ff99efcecb3609918b70e495057fd">newSampleSize</a> (double halfWidth)=0</td></tr>
+<tr class="separator:a926ff99efcecb3609918b70e495057fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1533540d1977c62b0024d6d571a994d9"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics__if.html#a1533540d1977c62b0024d6d571a994d9">getConfidenceLevel</a> ()=0</td></tr>
+<tr class="separator:a1533540d1977c62b0024d6d571a994d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af40ee46b5ea90979439edc6aa26179c8"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_statistics__if.html#af40ee46b5ea90979439edc6aa26179c8">setConfidenceLevel</a> (double confidencelevel)=0</td></tr>
+<tr class="separator:af40ee46b5ea90979439edc6aa26179c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interface for statisct synthesis of a stochastic variable collected by a <a class="el" href="class_collector__if.html">Collector_if</a>. The statistics generated may be updated based only on the previous statistics and the single newest added value or they may be updated based on a datafile, depending on the Collector implementation. </p>
@@ -194,59 +182,24 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_statistics_dummy_impl.html#a6a92fc5fc549b4e674e95d03e0adf6e3">StatisticsDummyImpl</a>.</p>
+<p>Implemented in <a class="el" href="class_statistics_default_impl1.html#a9d455901cf69ec5acb7f8d22f6cf6e7d">StatisticsDefaultImpl1</a>, <a class="el" href="class_statistics_dummy_impl.html#a6a92fc5fc549b4e674e95d03e0adf6e3">StatisticsDummyImpl</a>, and <a class="el" href="class_statistics_data_file_dummy_impl.html#a841db1f62ab7e20e5dbc7f943c4bd204">StatisticsDataFileDummyImpl</a>.</p>
 
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_statistics__if_a791ab6bbd166254429a3131bdf6e8dd6_icgraph.png" border="0" usemap="#class_statistics__if_a791ab6bbd166254429a3131bdf6e8dd6_icgraph" alt=""/></div>
+<map name="class_statistics__if_a791ab6bbd166254429a3131bdf6e8dd6_icgraph" id="class_statistics__if_a791ab6bbd166254429a3131bdf6e8dd6_icgraph">
+<area shape="rect" id="node2" href="class_model_simulation.html#a22ea961f3242d4466dc0cf392c66d5e9" title="Starts a sequential execution of a simulation, ie, a set of replications of this model. " alt="" coords="205,13,418,39"/>
+<area shape="rect" id="node5" href="class_simulation_reporter_default_impl1.html#a14e81b56d8a18ec929aa34db4e59cfa8" title="SimulationReporterDefault\lImpl1::showReplicationStatistics" alt="" coords="205,64,418,105"/>
+<area shape="rect" id="node6" href="class_simulation_reporter_default_impl1.html#aa8d94c9912cbaeb276bb7b1569c9bcaf" title="SimulationReporterDefault\lImpl1::showSimulationStatistics" alt="" coords="207,129,416,171"/>
+<area shape="rect" id="node7" href="_test_input_analyser_tools_8cpp.html#af7011a62619acc9f81bcb4c5a5fafbe8" title="testStudentSoftwareDevelopments" alt="" coords="199,195,424,222"/>
+<area shape="rect" id="node9" href="class_test_statistics.html#a5311e246afefb4778d3fcf06c5c4c756" title="TestStatistics::main" alt="" coords="242,246,381,273"/>
+<area shape="rect" id="node3" href="_build_simulation_model_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="475,13,629,39"/>
+<area shape="rect" id="node4" href="class_build_simulation_model.html#a8c50f55d7293860e5e7bc7e7e74f8d4a" title="BuildSimulationModel\l::main" alt="" coords="680,5,827,47"/>
+<area shape="rect" id="node8" href="class_test_input_analyser_tools.html#a8015a3024f29bddc865cb0b419214cd7" title="TestInputAnalyserTools\l::main" alt="" coords="472,188,632,229"/>
+</map>
 </div>
-</div>
-<a class="anchor" id="a906e7f2428e5e6482daf5dd1b2d54bfc"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual double Statistics_if::centil </td>
-          <td>(</td>
-          <td class="paramtype">unsigned short&#160;</td>
-          <td class="paramname"><em>num</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="class_statistics_dummy_impl.html#a72a39c441803615318e1fdcb005600cb">StatisticsDummyImpl</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a562230cad7a31c8af403217743b156f3"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual double Statistics_if::decil </td>
-          <td>(</td>
-          <td class="paramtype">unsigned short&#160;</td>
-          <td class="paramname"><em>num</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="class_statistics_dummy_impl.html#a8bf7d2641c3bfcddfeeefbb7cb62d2fe">StatisticsDummyImpl</a>.</p>
+</p>
 
 </div>
 </div>
@@ -271,11 +224,34 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_statistics_dummy_impl.html#ac17e897d6131550bcdf5b2243c26a43b">StatisticsDummyImpl</a>.</p>
+<p>Implemented in <a class="el" href="class_statistics_default_impl1.html#aaded347086e5510d2b429aabd4b29117">StatisticsDefaultImpl1</a>, <a class="el" href="class_statistics_dummy_impl.html#ac17e897d6131550bcdf5b2243c26a43b">StatisticsDummyImpl</a>, and <a class="el" href="class_statistics_data_file_dummy_impl.html#a918e9a2af69abdf66ed90fbacfd5d67d">StatisticsDataFileDummyImpl</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_statistics__if_a49a730541ca9a3d8272f39f4000485c4_icgraph.png" border="0" usemap="#class_statistics__if_a49a730541ca9a3d8272f39f4000485c4_icgraph" alt=""/></div>
+<map name="class_statistics__if_a49a730541ca9a3d8272f39f4000485c4_icgraph" id="class_statistics__if_a49a730541ca9a3d8272f39f4000485c4_icgraph">
+<area shape="rect" id="node2" href="class_delay.html#a029d91a2cd736ff9c361c69336e6ab41" title="Delay::_execute" alt="" coords="271,5,388,32"/>
+<area shape="rect" id="node3" href="class_model.html#ae62bb3a21cd56fbf9d34195edf2fb9e0" title="Model::removeEntity" alt="" coords="258,56,401,83"/>
+<area shape="rect" id="node5" href="class_model_simulation.html#a22ea961f3242d4466dc0cf392c66d5e9" title="Starts a sequential execution of a simulation, ie, a set of replications of this model. " alt="" coords="223,107,436,133"/>
+<area shape="rect" id="node8" href="class_queue.html#a961b5b7ca80317aa69f958612fb988ad" title="Queue::insertElement" alt="" coords="255,157,403,184"/>
+<area shape="rect" id="node10" href="class_queue.html#a114d5144b3026b57cca9cf481b1f0d65" title="Queue::removeElement" alt="" coords="250,208,409,235"/>
+<area shape="rect" id="node12" href="class_record.html#a036df9e81131cf36de20079c95d55151" title="Record::_execute" alt="" coords="267,259,392,285"/>
+<area shape="rect" id="node13" href="class_resource.html#ad5da4dca5dd48a4818827e6273c20c2d" title="Resource::release" alt="" coords="265,309,393,336"/>
+<area shape="rect" id="node15" href="class_test_statistics.html#a5311e246afefb4778d3fcf06c5c4c756" title="TestStatistics::main" alt="" coords="260,360,399,387"/>
+<area shape="rect" id="node4" href="class_dispose.html#a342eb428496534cdfd17524ad78b0c08" title="Dispose::_execute" alt="" coords="496,56,627,83"/>
+<area shape="rect" id="node6" href="_build_simulation_model_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="484,107,639,133"/>
+<area shape="rect" id="node7" href="class_build_simulation_model.html#a8c50f55d7293860e5e7bc7e7e74f8d4a" title="BuildSimulationModel\l::main" alt="" coords="687,99,833,141"/>
+<area shape="rect" id="node9" href="class_seize.html#a96f6517a40b3bfd0d5ea753d59cef797" title="Seize::_execute" alt="" coords="503,157,619,184"/>
+<area shape="rect" id="node11" href="class_seize.html#adadd376a826f2b3a84176242dd9a15ca" title="Seize::setQueueName" alt="" coords="484,208,639,235"/>
+<area shape="rect" id="node14" href="class_release.html#a63c3cd89082e7f6c1fb61646b93a5c32" title="Release::_execute" alt="" coords="496,309,627,336"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="a093e08a43aefa0738f94ea4f68eaa40d"></a>
+<a class="anchor" id="a1533540d1977c62b0024d6d571a994d9"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -283,85 +259,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual double Statistics_if::halfWidthConfidenceInterval </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>confidencelevel</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="class_statistics_dummy_impl.html#a1c4042f54bf3c420da0b6fdca482e474">StatisticsDummyImpl</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7b72e8473ff71da5f8b77e4f2c15a407"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual unsigned int Statistics_if::histogramClassFrequency </td>
-          <td>(</td>
-          <td class="paramtype">unsigned short&#160;</td>
-          <td class="paramname"><em>classNum</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="class_statistics_dummy_impl.html#ac540e251f446d113ed332a3fb0c02ad9">StatisticsDummyImpl</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="abedad81a78b2c04ade10994e5503825c"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual double Statistics_if::histogramClassLowerLimit </td>
-          <td>(</td>
-          <td class="paramtype">unsigned short&#160;</td>
-          <td class="paramname"><em>classNum</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="class_statistics_dummy_impl.html#aaa9e994f5b80ec6f5def79054d7527b8">StatisticsDummyImpl</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ab86db530e84375431be9d13c88424de3"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual unsigned short Statistics_if::histogramNumClasses </td>
+          <td class="memname">virtual double Statistics_if::getConfidenceLevel </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -374,7 +272,56 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_statistics_dummy_impl.html#a977ebf1184b3aef665b5c6eee682d8d8">StatisticsDummyImpl</a>.</p>
+<p>Implemented in <a class="el" href="class_statistics_default_impl1.html#a6b7260a7dc9064a59c21d2812cdba4a7">StatisticsDefaultImpl1</a>, and <a class="el" href="class_statistics_dummy_impl.html#a0705395b51a406e1d90664ba2c95d037">StatisticsDummyImpl</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_statistics__if_a1533540d1977c62b0024d6d571a994d9_icgraph.png" border="0" usemap="#class_statistics__if_a1533540d1977c62b0024d6d571a994d9_icgraph" alt=""/></div>
+<map name="class_statistics__if_a1533540d1977c62b0024d6d571a994d9_icgraph" id="class_statistics__if_a1533540d1977c62b0024d6d571a994d9_icgraph">
+<area shape="rect" id="node2" href="class_simulation_reporter_default_impl1.html#a14e81b56d8a18ec929aa34db4e59cfa8" title="SimulationReporterDefault\lImpl1::showReplicationStatistics" alt="" coords="236,5,449,47"/>
+<area shape="rect" id="node3" href="class_simulation_reporter_default_impl1.html#aa8d94c9912cbaeb276bb7b1569c9bcaf" title="SimulationReporterDefault\lImpl1::showSimulationStatistics" alt="" coords="238,71,447,112"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a5d4ab727b54825cb55b3b9bd00b4b88d"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double Statistics_if::halfWidthConfidenceInterval </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_statistics_default_impl1.html#a6305be6a663af6d01bcf8b1517be06a0">StatisticsDefaultImpl1</a>, and <a class="el" href="class_statistics_dummy_impl.html#a544a2899b078f8a81199204870de61d0">StatisticsDummyImpl</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_statistics__if_a5d4ab727b54825cb55b3b9bd00b4b88d_icgraph.png" border="0" usemap="#class_statistics__if_a5d4ab727b54825cb55b3b9bd00b4b88d_icgraph" alt=""/></div>
+<map name="class_statistics__if_a5d4ab727b54825cb55b3b9bd00b4b88d_icgraph" id="class_statistics__if_a5d4ab727b54825cb55b3b9bd00b4b88d_icgraph">
+<area shape="rect" id="node2" href="class_simulation_reporter_default_impl1.html#a14e81b56d8a18ec929aa34db4e59cfa8" title="SimulationReporterDefault\lImpl1::showReplicationStatistics" alt="" coords="214,5,427,47"/>
+<area shape="rect" id="node3" href="class_simulation_reporter_default_impl1.html#aa8d94c9912cbaeb276bb7b1569c9bcaf" title="SimulationReporterDefault\lImpl1::showSimulationStatistics" alt="" coords="216,71,425,112"/>
+<area shape="rect" id="node4" href="_test_input_analyser_tools_8cpp.html#af7011a62619acc9f81bcb4c5a5fafbe8" title="testStudentSoftwareDevelopments" alt="" coords="208,137,433,163"/>
+<area shape="rect" id="node5" href="class_test_input_analyser_tools.html#a8015a3024f29bddc865cb0b419214cd7" title="TestInputAnalyserTools\l::main" alt="" coords="481,129,641,171"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
@@ -399,32 +346,19 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_statistics_dummy_impl.html#a5aa9311e22a79c8287ce77a5be16902b">StatisticsDummyImpl</a>.</p>
+<p>Implemented in <a class="el" href="class_statistics_default_impl1.html#ac5880adb2aa226ca0049619d4c8f9055">StatisticsDefaultImpl1</a>, <a class="el" href="class_statistics_dummy_impl.html#a5aa9311e22a79c8287ce77a5be16902b">StatisticsDummyImpl</a>, and <a class="el" href="class_statistics_data_file_dummy_impl.html#a3b01b94c593e1a4bed17dc70b79d8f5b">StatisticsDataFileDummyImpl</a>.</p>
 
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_statistics__if_a24e3652122f2ec649b4c7d3accc43da0_icgraph.png" border="0" usemap="#class_statistics__if_a24e3652122f2ec649b4c7d3accc43da0_icgraph" alt=""/></div>
+<map name="class_statistics__if_a24e3652122f2ec649b4c7d3accc43da0_icgraph" id="class_statistics__if_a24e3652122f2ec649b4c7d3accc43da0_icgraph">
+<area shape="rect" id="node2" href="class_simulation_reporter_default_impl1.html#a14e81b56d8a18ec929aa34db4e59cfa8" title="SimulationReporterDefault\lImpl1::showReplicationStatistics" alt="" coords="177,5,391,47"/>
+<area shape="rect" id="node3" href="class_simulation_reporter_default_impl1.html#aa8d94c9912cbaeb276bb7b1569c9bcaf" title="SimulationReporterDefault\lImpl1::showSimulationStatistics" alt="" coords="179,71,389,112"/>
+<area shape="rect" id="node4" href="class_test_statistics.html#a5311e246afefb4778d3fcf06c5c4c756" title="TestStatistics::main" alt="" coords="215,137,353,163"/>
+</map>
 </div>
-</div>
-<a class="anchor" id="a0414c1df9272ca674cba6fc30f027684"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual double Statistics_if::mediane </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="class_statistics_dummy_impl.html#a464109b84c8994089f3a288be6c8ee77">StatisticsDummyImpl</a>.</p>
+</p>
 
 </div>
 </div>
@@ -449,36 +383,23 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_statistics_dummy_impl.html#afa54fbcf5b2cd94cd31144ceea0d3617">StatisticsDummyImpl</a>.</p>
+<p>Implemented in <a class="el" href="class_statistics_default_impl1.html#abe3c2ecfecf1f41c3e234c4837ebf958">StatisticsDefaultImpl1</a>, <a class="el" href="class_statistics_dummy_impl.html#afa54fbcf5b2cd94cd31144ceea0d3617">StatisticsDummyImpl</a>, and <a class="el" href="class_statistics_data_file_dummy_impl.html#afb326f24142b0d2647cd2dc399555d89">StatisticsDataFileDummyImpl</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_statistics__if_acdeb9880a7362e9105871c7fb3f65db6_icgraph.png" border="0" usemap="#class_statistics__if_acdeb9880a7362e9105871c7fb3f65db6_icgraph" alt=""/></div>
+<map name="class_statistics__if_acdeb9880a7362e9105871c7fb3f65db6_icgraph" id="class_statistics__if_acdeb9880a7362e9105871c7fb3f65db6_icgraph">
+<area shape="rect" id="node2" href="class_simulation_reporter_default_impl1.html#a14e81b56d8a18ec929aa34db4e59cfa8" title="SimulationReporterDefault\lImpl1::showReplicationStatistics" alt="" coords="173,5,387,47"/>
+<area shape="rect" id="node3" href="class_simulation_reporter_default_impl1.html#aa8d94c9912cbaeb276bb7b1569c9bcaf" title="SimulationReporterDefault\lImpl1::showSimulationStatistics" alt="" coords="175,71,385,112"/>
+<area shape="rect" id="node4" href="class_test_statistics.html#a5311e246afefb4778d3fcf06c5c4c756" title="TestStatistics::main" alt="" coords="211,137,349,163"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="a43b850db407a9a64ab3e2f4d06eab350"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual double Statistics_if::mode </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="class_statistics_dummy_impl.html#acd482a6fa39b3ada3df4d2f2720896eb">StatisticsDummyImpl</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a041cafef3eb831901296987871f707f0"></a>
+<a class="anchor" id="a926ff99efcecb3609918b70e495057fd"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -489,18 +410,8 @@ Public Member Functions</h2></td></tr>
           <td class="memname">virtual unsigned int Statistics_if::newSampleSize </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>confidencelevel</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>halfWidth</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>halfWidth</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -510,7 +421,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_statistics_dummy_impl.html#a066b0df170c50c08e52205eb312b838c">StatisticsDummyImpl</a>.</p>
+<p>Implemented in <a class="el" href="class_statistics_default_impl1.html#a08a59890f738459d9b822d948b02b23c">StatisticsDefaultImpl1</a>, and <a class="el" href="class_statistics_dummy_impl.html#abb437988ddf2f5d75d3b62aa971da2e6">StatisticsDummyImpl</a>.</p>
 
 </div>
 </div>
@@ -535,33 +446,22 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_statistics_dummy_impl.html#a6669b3555223a6104fb31edacf577553">StatisticsDummyImpl</a>.</p>
+<p>Implemented in <a class="el" href="class_statistics_default_impl1.html#a3ad348a8f7f6c787bae7bd047778732f">StatisticsDefaultImpl1</a>, <a class="el" href="class_statistics_dummy_impl.html#a6669b3555223a6104fb31edacf577553">StatisticsDummyImpl</a>, and <a class="el" href="class_statistics_data_file_dummy_impl.html#a0931af6cd8a0852c5682fdbe6f6c5a77">StatisticsDataFileDummyImpl</a>.</p>
 
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_statistics__if_a1e76d98f8a61fe03df9e36194eaa5722_icgraph.png" border="0" usemap="#class_statistics__if_a1e76d98f8a61fe03df9e36194eaa5722_icgraph" alt=""/></div>
+<map name="class_statistics__if_a1e76d98f8a61fe03df9e36194eaa5722_icgraph" id="class_statistics__if_a1e76d98f8a61fe03df9e36194eaa5722_icgraph">
+<area shape="rect" id="node2" href="class_simulation_reporter_default_impl1.html#a14e81b56d8a18ec929aa34db4e59cfa8" title="SimulationReporterDefault\lImpl1::showReplicationStatistics" alt="" coords="238,5,451,47"/>
+<area shape="rect" id="node3" href="class_simulation_reporter_default_impl1.html#aa8d94c9912cbaeb276bb7b1569c9bcaf" title="SimulationReporterDefault\lImpl1::showSimulationStatistics" alt="" coords="240,71,449,112"/>
+<area shape="rect" id="node4" href="class_statistics_collector.html#a7ce8dad7e29d06c73a01d2ddee93fe00" title="StatisticsCollector\l::show" alt="" coords="280,136,409,177"/>
+<area shape="rect" id="node5" href="_test_input_analyser_tools_8cpp.html#af7011a62619acc9f81bcb4c5a5fafbe8" title="testStudentSoftwareDevelopments" alt="" coords="232,202,457,229"/>
+<area shape="rect" id="node7" href="class_test_statistics.html#a5311e246afefb4778d3fcf06c5c4c756" title="TestStatistics::main" alt="" coords="275,253,414,279"/>
+<area shape="rect" id="node6" href="class_test_input_analyser_tools.html#a8015a3024f29bddc865cb0b419214cd7" title="TestInputAnalyserTools\l::main" alt="" coords="505,195,665,236"/>
+</map>
 </div>
-</div>
-<a class="anchor" id="af85daafcb428420ceeacdd4807c045eb"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual double Statistics_if::quartil </td>
-          <td>(</td>
-          <td class="paramtype">unsigned short&#160;</td>
-          <td class="paramname"><em>num</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="class_statistics_dummy_impl.html#abf36d630332a91f95fef2ab6056813ab">StatisticsDummyImpl</a>.</p>
+</p>
 
 </div>
 </div>
@@ -587,11 +487,22 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_statistics_dummy_impl.html#a6a6d3fc91a7afe22cb66d10760891fa0">StatisticsDummyImpl</a>.</p>
+<p>Implemented in <a class="el" href="class_statistics_default_impl1.html#a356b96434f96963340ad6a64e72d2287">StatisticsDefaultImpl1</a>, <a class="el" href="class_statistics_dummy_impl.html#a6a6d3fc91a7afe22cb66d10760891fa0">StatisticsDummyImpl</a>, and <a class="el" href="class_statistics_data_file_dummy_impl.html#a3d149d314ea88c3136754e0a4c182b49">StatisticsDataFileDummyImpl</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_statistics__if_a203ffe8e5215e887b716b7810023adc6_icgraph.png" border="0" usemap="#class_statistics__if_a203ffe8e5215e887b716b7810023adc6_icgraph" alt=""/></div>
+<map name="class_statistics__if_a203ffe8e5215e887b716b7810023adc6_icgraph" id="class_statistics__if_a203ffe8e5215e887b716b7810023adc6_icgraph">
+<area shape="rect" id="node2" href="_test_input_analyser_tools_8cpp.html#af7011a62619acc9f81bcb4c5a5fafbe8" title="testStudentSoftwareDevelopments" alt="" coords="223,13,448,39"/>
+<area shape="rect" id="node3" href="class_test_input_analyser_tools.html#a8015a3024f29bddc865cb0b419214cd7" title="TestInputAnalyserTools\l::main" alt="" coords="496,5,656,47"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
-<a class="anchor" id="a82349cd351436591c909d39f580c2f63"></a>
+<a class="anchor" id="af40ee46b5ea90979439edc6aa26179c8"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -599,10 +510,10 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void Statistics_if::setHistogramNumClasses </td>
+          <td class="memname">virtual void Statistics_if::setConfidenceLevel </td>
           <td>(</td>
-          <td class="paramtype">unsigned short&#160;</td>
-          <td class="paramname"><em>num</em></td><td>)</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>confidencelevel</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -613,7 +524,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_statistics_dummy_impl.html#a6c88ebef76311957f2c83e9d420f1f75">StatisticsDummyImpl</a>.</p>
+<p>Implemented in <a class="el" href="class_statistics_default_impl1.html#a180488f21098944d1bc64233bf7aba6d">StatisticsDefaultImpl1</a>, and <a class="el" href="class_statistics_dummy_impl.html#a73e9769979bfb2aa79eb40cf8a5572a1">StatisticsDummyImpl</a>.</p>
 
 </div>
 </div>
@@ -638,7 +549,21 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_statistics_dummy_impl.html#aecd1ae947272fe51658fbac3cb3647e8">StatisticsDummyImpl</a>.</p>
+<p>Implemented in <a class="el" href="class_statistics_default_impl1.html#a4f456241bc3340e04e688652fcad8037">StatisticsDefaultImpl1</a>, <a class="el" href="class_statistics_dummy_impl.html#aecd1ae947272fe51658fbac3cb3647e8">StatisticsDummyImpl</a>, and <a class="el" href="class_statistics_data_file_dummy_impl.html#a098b76d88a1ba4fdb07d29d8927c6c5b">StatisticsDataFileDummyImpl</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_statistics__if_a88d2478c6dfd8de19436ab248080a509_icgraph.png" border="0" usemap="#class_statistics__if_a88d2478c6dfd8de19436ab248080a509_icgraph" alt=""/></div>
+<map name="class_statistics__if_a88d2478c6dfd8de19436ab248080a509_icgraph" id="class_statistics__if_a88d2478c6dfd8de19436ab248080a509_icgraph">
+<area shape="rect" id="node2" href="class_simulation_reporter_default_impl1.html#a14e81b56d8a18ec929aa34db4e59cfa8" title="SimulationReporterDefault\lImpl1::showReplicationStatistics" alt="" coords="229,5,442,47"/>
+<area shape="rect" id="node3" href="class_simulation_reporter_default_impl1.html#aa8d94c9912cbaeb276bb7b1569c9bcaf" title="SimulationReporterDefault\lImpl1::showSimulationStatistics" alt="" coords="231,71,440,112"/>
+<area shape="rect" id="node4" href="_test_input_analyser_tools_8cpp.html#af7011a62619acc9f81bcb4c5a5fafbe8" title="testStudentSoftwareDevelopments" alt="" coords="223,137,448,163"/>
+<area shape="rect" id="node6" href="class_test_statistics.html#a5311e246afefb4778d3fcf06c5c4c756" title="TestStatistics::main" alt="" coords="266,187,405,214"/>
+<area shape="rect" id="node5" href="class_test_input_analyser_tools.html#a8015a3024f29bddc865cb0b419214cd7" title="TestInputAnalyserTools\l::main" alt="" coords="496,129,656,171"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
@@ -663,7 +588,18 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_statistics_dummy_impl.html#a205e3cb135b3bea12d03826964930069">StatisticsDummyImpl</a>.</p>
+<p>Implemented in <a class="el" href="class_statistics_default_impl1.html#af4f4f87081443d4316db24d41b1815ea">StatisticsDefaultImpl1</a>, <a class="el" href="class_statistics_dummy_impl.html#a205e3cb135b3bea12d03826964930069">StatisticsDummyImpl</a>, and <a class="el" href="class_statistics_data_file_dummy_impl.html#ae34ab679014e047ad22020dc6ed258e3">StatisticsDataFileDummyImpl</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_statistics__if_a1b563f7e92eda3cf3a8f47f07824b96b_icgraph.png" border="0" usemap="#class_statistics__if_a1b563f7e92eda3cf3a8f47f07824b96b_icgraph" alt=""/></div>
+<map name="class_statistics__if_a1b563f7e92eda3cf3a8f47f07824b96b_icgraph" id="class_statistics__if_a1b563f7e92eda3cf3a8f47f07824b96b_icgraph">
+<area shape="rect" id="node2" href="class_simulation_reporter_default_impl1.html#a14e81b56d8a18ec929aa34db4e59cfa8" title="SimulationReporterDefault\lImpl1::showReplicationStatistics" alt="" coords="201,5,415,47"/>
+<area shape="rect" id="node3" href="class_simulation_reporter_default_impl1.html#aa8d94c9912cbaeb276bb7b1569c9bcaf" title="SimulationReporterDefault\lImpl1::showSimulationStatistics" alt="" coords="203,71,413,112"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
@@ -688,7 +624,19 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_statistics_dummy_impl.html#af1dff0a22b596cfca7aa123757f35d05">StatisticsDummyImpl</a>.</p>
+<p>Implemented in <a class="el" href="class_statistics_default_impl1.html#a6cf660daca8ad4144e080dccaf33a282">StatisticsDefaultImpl1</a>, <a class="el" href="class_statistics_dummy_impl.html#af1dff0a22b596cfca7aa123757f35d05">StatisticsDummyImpl</a>, and <a class="el" href="class_statistics_data_file_dummy_impl.html#a9efec5bc302c6fb09a67dde03f2b2ebc">StatisticsDataFileDummyImpl</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_statistics__if_ae0ad6bf18f8263003b0ac7552318be57_icgraph.png" border="0" usemap="#class_statistics__if_ae0ad6bf18f8263003b0ac7552318be57_icgraph" alt=""/></div>
+<map name="class_statistics__if_ae0ad6bf18f8263003b0ac7552318be57_icgraph" id="class_statistics__if_ae0ad6bf18f8263003b0ac7552318be57_icgraph">
+<area shape="rect" id="node2" href="class_simulation_reporter_default_impl1.html#a14e81b56d8a18ec929aa34db4e59cfa8" title="SimulationReporterDefault\lImpl1::showReplicationStatistics" alt="" coords="229,5,443,47"/>
+<area shape="rect" id="node3" href="class_simulation_reporter_default_impl1.html#aa8d94c9912cbaeb276bb7b1569c9bcaf" title="SimulationReporterDefault\lImpl1::showSimulationStatistics" alt="" coords="231,71,441,112"/>
+<area shape="rect" id="node4" href="class_test_statistics.html#a5311e246afefb4778d3fcf06c5c4c756" title="TestStatistics::main" alt="" coords="267,137,405,163"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>

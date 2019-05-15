@@ -1,5 +1,6 @@
 <map id="ModelInfo::setReplicationLength" name="ModelInfo::setReplicationLength">
-<area shape="rect" id="node2" href="$_build_simulation_model_8cpp.html#aeea741000e292b33dca181a0a8a6106f" title="buildModel" alt="" coords="225,12,309,39"/>
-<area shape="rect" id="node3" href="$_build_simulation_model_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="357,12,512,39"/>
-<area shape="rect" id="node4" href="$class_build_simulation_model.html#a8c50f55d7293860e5e7bc7e7e74f8d4a" title="BuildSimulationModel\l::main" alt="" coords="560,5,707,46"/>
+<area shape="rect" id="node2" href="$_build_simulation_model_8cpp.html#aeea741000e292b33dca181a0a8a6106f" title="buildModel" alt="" coords="232,13,316,39"/>
+<area shape="rect" id="node5" href="$class_model.html#ae86e1403523e8036ba6366d1967ecac0" title="Model::Model" alt="" coords="224,63,324,90"/>
+<area shape="rect" id="node3" href="$_build_simulation_model_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="372,13,527,39"/>
+<area shape="rect" id="node4" href="$class_build_simulation_model.html#a8c50f55d7293860e5e7bc7e7e74f8d4a" title="BuildSimulationModel\l::main" alt="" coords="575,5,721,47"/>
 </map>

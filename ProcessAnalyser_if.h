@@ -6,7 +6,7 @@
 
 /* 
  * File:   ProcessAnalyser_if.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 10 de Outubro de 2018, 14:26
  */
@@ -25,15 +25,15 @@
  */
 class ProcessAnalyser_if {
 public:
-	virtual List<SimulationScenario*>* getScenarios() const = 0;
-	virtual List<SimulationControl*>* getControls() const = 0;
-	virtual List<SimulationResponse*>* getResponses() const = 0;
-	virtual List<SimulationControl*>* extractControlsFromModel(std::string modelFilename) const = 0;
-	virtual List<SimulationResponse*>* extractResponsesFromModel(std::string modelFilename) const = 0;
-	virtual void startSimulationOfScenario(SimulationScenario* scenario) = 0;
-	virtual void startSimulation() = 0;
-	virtual void stopSimulation() = 0;
-	virtual void addTraceSimulationListener(traceSimulationProcessListener traceSimulationProcessListener) = 0;
+    virtual List<SimulationScenario*>* getScenarios() const = 0;
+    virtual List<SimulationControl*>* getControls() const = 0;
+    virtual List<SimulationResponse*>* getResponses() const = 0;
+    virtual List<SimulationControl*>* extractControlsFromModel(std::string modelFilename) const = 0;
+    virtual List<SimulationResponse*>* extractResponsesFromModel(std::string modelFilename) const = 0;
+    virtual void startSimulationOfScenario(SimulationScenario* scenario) = 0;
+    virtual void startSimulation() = 0;
+    virtual void stopSimulation() = 0;
+    virtual void addTraceSimulationHandler(traceSimulationProcessListener traceSimulationProcessListener) = 0;
 };
 
 #endif /* PROCESSANALYSER_IF_H */

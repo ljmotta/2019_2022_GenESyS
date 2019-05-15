@@ -1,4 +1,5 @@
 <map id="SourceModelComponent::show" name="SourceModelComponent::show">
-<area shape="rect" id="node2" href="$class_model_component.html#ad8bc846e36b028eab7efb7da6c549eca" title="ModelComponent::show" alt="" coords="219,12,381,39"/>
-<area shape="rect" id="node3" href="$class_model_infrastructure.html#a649a5a89a0c9931783d3c51de2acf266" title="ModelInfrastructure\l::show" alt="" coords="430,5,565,46"/>
+<area shape="rect" id="node2" href="$class_model_component.html#ad8bc846e36b028eab7efb7da6c549eca" title="ModelComponent::show" alt="" coords="221,5,383,32"/>
+<area shape="rect" id="node4" href="$class_model_element.html#afd840f06567a2b5621464f5314ae066e" title="ModelElement::getName" alt="" coords="219,56,385,83"/>
+<area shape="rect" id="node3" href="$class_model_element.html#af084d684e8effe5cd4c2265abc98896c" title="ModelElement::show" alt="" coords="433,5,577,32"/>
 </map>

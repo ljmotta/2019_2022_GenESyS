@@ -1,5 +1,0 @@
-<map id="yy_scan_string" name="yy_scan_string">
-<area shape="rect" id="node2" href="$classgenesyspp__driver.html#a40341e19c618eadfd15fe7333cd9bf48" title="genesyspp_driver::scan\l_begin_str" alt="" coords="165,5,325,46"/>
-<area shape="rect" id="node3" href="$classgenesyspp__driver.html#a5e63bd1621e53aa24cf2dee47d53ebdc" title="genesyspp_driver::parse_str" alt="" coords="373,12,560,39"/>
-<area shape="rect" id="node4" href="$class_parser_flex_bison_impl.html#ae8cd1179a3fad2bf11e1ec513d9e45bb" title="ParserFlexBisonImpl\l::parse" alt="" coords="609,5,751,46"/>
-</map>

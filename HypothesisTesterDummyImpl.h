@@ -6,7 +6,7 @@
 
 /* 
  * File:   HypothesisTester.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 7 de Agosto de 2018, 19:03
  */
@@ -16,20 +16,20 @@
 
 #include "HypothesisTester_if.h"
 
-class HypothesisTesterDummyImpl: public HypothesisTester_if {
+class HypothesisTesterDummyImpl : public HypothesisTester_if {
 public:
-	HypothesisTesterDummyImpl();
-	HypothesisTesterDummyImpl(const HypothesisTesterDummyImpl& orig);
-	~HypothesisTesterDummyImpl();
+    HypothesisTesterDummyImpl();
+    HypothesisTesterDummyImpl(const HypothesisTesterDummyImpl& orig);
+    ~HypothesisTesterDummyImpl();
 public:
-	bool testAverage(double confidencelevel, double avg, H1Comparition comp);
-	bool testProportion(double confidencelevel, double prop, H1Comparition comp);
-	bool testVariance(double confidencelevel, double var, H1Comparition comp);
-	bool testAverage(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp);
-	bool testProportion(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp);
-	bool testVariance(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp);
-	void setDataFilename(std::string dataFilename);
-	std::string getDataFilename();
+    virtual double testAverage(double confidencelevel, double avg, H1Comparition comp);
+    virtual double testProportion(double confidencelevel, double prop, H1Comparition comp);
+    virtual double testVariance(double confidencelevel, double var, H1Comparition comp);
+    virtual double testAverage(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp);
+    virtual double testProportion(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp);
+    virtual double testVariance(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp);
+    virtual void setDataFilename(std::string dataFilename);
+    virtual std::string getDataFilename();
 private:
 };
 

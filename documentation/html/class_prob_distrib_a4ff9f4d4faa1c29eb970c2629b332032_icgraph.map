@@ -1,12 +1,4 @@
 <map id="ProbDistrib::uniform" name="ProbDistrib::uniform">
-<area shape="rect" id="node2" href="$class_fitter_fabiola.html#aa4301083831a54b660a172e0ee5c9c76" title="FitterFabiola::fitUniform" alt="" coords="226,5,385,32"/>
-<area shape="rect" id="node4" href="$class_fitter_joao_souto.html#ae22eb8c3c56c8b1253261652ae5ad152" title="FitterJoaoSouto::fitUniform" alt="" coords="216,56,395,83"/>
-<area shape="rect" id="node6" href="$classyy_1_1genesyspp__parser.html#ab2fad51435ec4f28dfee2d5e4611f309" title="yy::genesyspp_parser\l::parse" alt="" coords="230,107,381,149"/>
-<area shape="rect" id="node10" href="$_test_input_analyser_tools_8cpp.html#af7011a62619acc9f81bcb4c5a5fafbe8" title="testStudentSoftwareDevelopments" alt="" coords="193,195,418,221"/>
-<area shape="rect" id="node3" href="$class_fitter_fabiola.html#ac15542ce538d83e78577e81d1667ff96" title="FitterFabiola::fitAll" alt="" coords="497,5,625,32"/>
-<area shape="rect" id="node5" href="$class_fitter_joao_souto.html#a83e95985c9bc5d419803b12a572ac743" title="FitterJoaoSouto::fitAll" alt="" coords="487,56,635,83"/>
-<area shape="rect" id="node7" href="$classgenesyspp__driver.html#a2f58e23b084877eee330915c2f4fc71f" title="genesyspp_driver::parse_file" alt="" coords="467,107,655,133"/>
-<area shape="rect" id="node8" href="$classgenesyspp__driver.html#a5e63bd1621e53aa24cf2dee47d53ebdc" title="genesyspp_driver::parse_str" alt="" coords="468,157,655,184"/>
-<area shape="rect" id="node9" href="$class_parser_flex_bison_impl.html#ae8cd1179a3fad2bf11e1ec513d9e45bb" title="ParserFlexBisonImpl\l::parse" alt="" coords="705,150,847,191"/>
-<area shape="rect" id="node11" href="$class_test_input_analyser_tools.html#a8015a3024f29bddc865cb0b419214cd7" title="TestInputAnalyserTools\l::main" alt="" coords="481,209,641,250"/>
+<area shape="rect" id="node2" href="$_test_input_analyser_tools_8cpp.html#af7011a62619acc9f81bcb4c5a5fafbe8" title="testStudentSoftwareDevelopments" alt="" coords="192,13,417,39"/>
+<area shape="rect" id="node3" href="$class_test_input_analyser_tools.html#a8015a3024f29bddc865cb0b419214cd7" title="TestInputAnalyserTools\l::main" alt="" coords="465,5,625,47"/>
 </map>

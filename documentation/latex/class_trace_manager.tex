@@ -13,13 +13,13 @@
 \item 
 virtual \hyperlink{class_trace_manager_a0f0988540948118357e571343d8fc48f}{$\sim$\+Trace\+Manager} ()
 \item 
-void \hyperlink{class_trace_manager_a73ff0914b70780d4a7ef6336a7cf75d8}{add\+Trace\+Listener} (\hyperlink{_trace_manager_8h_a1136585847f84bdff0c8d3e7fef53d50}{trace\+Listener} \hyperlink{_trace_manager_8h_a1136585847f84bdff0c8d3e7fef53d50}{trace\+Listener})
+void \hyperlink{class_trace_manager_a2eecf24da6bb5a61fb423b3f7479abb1}{add\+Trace\+Handler} (\hyperlink{_trace_manager_8h_a1136585847f84bdff0c8d3e7fef53d50}{trace\+Listener} \hyperlink{_trace_manager_8h_a1136585847f84bdff0c8d3e7fef53d50}{trace\+Listener})
 \item 
-void \hyperlink{class_trace_manager_a55c6d2c1ba87272b81a6384e3b39ddba}{add\+Trace\+Error\+Listener} (\hyperlink{_trace_manager_8h_acbbf973df10808566f22d73581076abd}{trace\+Error\+Listener} \hyperlink{_trace_manager_8h_acbbf973df10808566f22d73581076abd}{trace\+Error\+Listener})
+void \hyperlink{class_trace_manager_a73e155f9b07c9de7d4b1a5d4689fd554}{add\+Trace\+Error\+Handler} (\hyperlink{_trace_manager_8h_acbbf973df10808566f22d73581076abd}{trace\+Error\+Listener} \hyperlink{_trace_manager_8h_acbbf973df10808566f22d73581076abd}{trace\+Error\+Listener})
 \item 
-void \hyperlink{class_trace_manager_a5479d4665fdf4f11d54c718d4ce84ffe}{add\+Trace\+Report\+Listener} (\hyperlink{_trace_manager_8h_a1136585847f84bdff0c8d3e7fef53d50}{trace\+Listener} trace\+Report\+Listener)
+void \hyperlink{class_trace_manager_a5c28a84a8b4a00d5aaa465ccdbf7e7b9}{add\+Trace\+Report\+Handler} (\hyperlink{_trace_manager_8h_a1136585847f84bdff0c8d3e7fef53d50}{trace\+Listener} trace\+Report\+Listener)
 \item 
-void \hyperlink{class_trace_manager_a75f2f2e8aaf4f69767a51c0b5d261233}{add\+Trace\+Simulation\+Listener} (\hyperlink{_trace_manager_8h_a103daf352a5c1b34d88af32d716bce7e}{trace\+Simulation\+Listener} \hyperlink{_trace_manager_8h_a103daf352a5c1b34d88af32d716bce7e}{trace\+Simulation\+Listener})
+void \hyperlink{class_trace_manager_af39ddecdcbb84c6aa62bfefcded7bf69}{add\+Trace\+Simulation\+Handler} (\hyperlink{_trace_manager_8h_a103daf352a5c1b34d88af32d716bce7e}{trace\+Simulation\+Listener} \hyperlink{_trace_manager_8h_a103daf352a5c1b34d88af32d716bce7e}{trace\+Simulation\+Listener})
 \item 
 void \hyperlink{class_trace_manager_a242d77829b85a436fd2aab2092bfa50c}{trace} (\hyperlink{class_util_a0a3482cfa2d915e261c0cf528fdc7afc}{Util\+::\+Trace\+Level} tracelevel, std\+::string text)
 \item 
@@ -65,34 +65,67 @@ The \hyperlink{class_trace_manager}{Trace\+Manager} is used to trace back model 
 
 
 \subsection{Member Function Documentation}
-\index{Trace\+Manager@{Trace\+Manager}!add\+Trace\+Error\+Listener@{add\+Trace\+Error\+Listener}}
-\index{add\+Trace\+Error\+Listener@{add\+Trace\+Error\+Listener}!Trace\+Manager@{Trace\+Manager}}
-\subsubsection[{\texorpdfstring{add\+Trace\+Error\+Listener(trace\+Error\+Listener trace\+Error\+Listener)}{addTraceErrorListener(traceErrorListener traceErrorListener)}}]{\setlength{\rightskip}{0pt plus 5cm}void Trace\+Manager\+::add\+Trace\+Error\+Listener (
+\index{Trace\+Manager@{Trace\+Manager}!add\+Trace\+Error\+Handler@{add\+Trace\+Error\+Handler}}
+\index{add\+Trace\+Error\+Handler@{add\+Trace\+Error\+Handler}!Trace\+Manager@{Trace\+Manager}}
+\subsubsection[{\texorpdfstring{add\+Trace\+Error\+Handler(trace\+Error\+Listener trace\+Error\+Listener)}{addTraceErrorHandler(traceErrorListener traceErrorListener)}}]{\setlength{\rightskip}{0pt plus 5cm}void Trace\+Manager\+::add\+Trace\+Error\+Handler (
 \begin{DoxyParamCaption}
 \item[{{\bf trace\+Error\+Listener}}]{trace\+Error\+Listener}
 \end{DoxyParamCaption}
-)}\hypertarget{class_trace_manager_a55c6d2c1ba87272b81a6384e3b39ddba}{}\label{class_trace_manager_a55c6d2c1ba87272b81a6384e3b39ddba}
-\index{Trace\+Manager@{Trace\+Manager}!add\+Trace\+Listener@{add\+Trace\+Listener}}
-\index{add\+Trace\+Listener@{add\+Trace\+Listener}!Trace\+Manager@{Trace\+Manager}}
-\subsubsection[{\texorpdfstring{add\+Trace\+Listener(trace\+Listener trace\+Listener)}{addTraceListener(traceListener traceListener)}}]{\setlength{\rightskip}{0pt plus 5cm}void Trace\+Manager\+::add\+Trace\+Listener (
+)}\hypertarget{class_trace_manager_a73e155f9b07c9de7d4b1a5d4689fd554}{}\label{class_trace_manager_a73e155f9b07c9de7d4b1a5d4689fd554}
+\index{Trace\+Manager@{Trace\+Manager}!add\+Trace\+Handler@{add\+Trace\+Handler}}
+\index{add\+Trace\+Handler@{add\+Trace\+Handler}!Trace\+Manager@{Trace\+Manager}}
+\subsubsection[{\texorpdfstring{add\+Trace\+Handler(trace\+Listener trace\+Listener)}{addTraceHandler(traceListener traceListener)}}]{\setlength{\rightskip}{0pt plus 5cm}void Trace\+Manager\+::add\+Trace\+Handler (
 \begin{DoxyParamCaption}
 \item[{{\bf trace\+Listener}}]{trace\+Listener}
 \end{DoxyParamCaption}
-)}\hypertarget{class_trace_manager_a73ff0914b70780d4a7ef6336a7cf75d8}{}\label{class_trace_manager_a73ff0914b70780d4a7ef6336a7cf75d8}
-\index{Trace\+Manager@{Trace\+Manager}!add\+Trace\+Report\+Listener@{add\+Trace\+Report\+Listener}}
-\index{add\+Trace\+Report\+Listener@{add\+Trace\+Report\+Listener}!Trace\+Manager@{Trace\+Manager}}
-\subsubsection[{\texorpdfstring{add\+Trace\+Report\+Listener(trace\+Listener trace\+Report\+Listener)}{addTraceReportListener(traceListener traceReportListener)}}]{\setlength{\rightskip}{0pt plus 5cm}void Trace\+Manager\+::add\+Trace\+Report\+Listener (
+)}\hypertarget{class_trace_manager_a2eecf24da6bb5a61fb423b3f7479abb1}{}\label{class_trace_manager_a2eecf24da6bb5a61fb423b3f7479abb1}
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_trace_manager_a2eecf24da6bb5a61fb423b3f7479abb1_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{Trace\+Manager@{Trace\+Manager}!add\+Trace\+Report\+Handler@{add\+Trace\+Report\+Handler}}
+\index{add\+Trace\+Report\+Handler@{add\+Trace\+Report\+Handler}!Trace\+Manager@{Trace\+Manager}}
+\subsubsection[{\texorpdfstring{add\+Trace\+Report\+Handler(trace\+Listener trace\+Report\+Listener)}{addTraceReportHandler(traceListener traceReportListener)}}]{\setlength{\rightskip}{0pt plus 5cm}void Trace\+Manager\+::add\+Trace\+Report\+Handler (
 \begin{DoxyParamCaption}
 \item[{{\bf trace\+Listener}}]{trace\+Report\+Listener}
 \end{DoxyParamCaption}
-)}\hypertarget{class_trace_manager_a5479d4665fdf4f11d54c718d4ce84ffe}{}\label{class_trace_manager_a5479d4665fdf4f11d54c718d4ce84ffe}
-\index{Trace\+Manager@{Trace\+Manager}!add\+Trace\+Simulation\+Listener@{add\+Trace\+Simulation\+Listener}}
-\index{add\+Trace\+Simulation\+Listener@{add\+Trace\+Simulation\+Listener}!Trace\+Manager@{Trace\+Manager}}
-\subsubsection[{\texorpdfstring{add\+Trace\+Simulation\+Listener(trace\+Simulation\+Listener trace\+Simulation\+Listener)}{addTraceSimulationListener(traceSimulationListener traceSimulationListener)}}]{\setlength{\rightskip}{0pt plus 5cm}void Trace\+Manager\+::add\+Trace\+Simulation\+Listener (
+)}\hypertarget{class_trace_manager_a5c28a84a8b4a00d5aaa465ccdbf7e7b9}{}\label{class_trace_manager_a5c28a84a8b4a00d5aaa465ccdbf7e7b9}
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_trace_manager_a5c28a84a8b4a00d5aaa465ccdbf7e7b9_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{Trace\+Manager@{Trace\+Manager}!add\+Trace\+Simulation\+Handler@{add\+Trace\+Simulation\+Handler}}
+\index{add\+Trace\+Simulation\+Handler@{add\+Trace\+Simulation\+Handler}!Trace\+Manager@{Trace\+Manager}}
+\subsubsection[{\texorpdfstring{add\+Trace\+Simulation\+Handler(trace\+Simulation\+Listener trace\+Simulation\+Listener)}{addTraceSimulationHandler(traceSimulationListener traceSimulationListener)}}]{\setlength{\rightskip}{0pt plus 5cm}void Trace\+Manager\+::add\+Trace\+Simulation\+Handler (
 \begin{DoxyParamCaption}
 \item[{{\bf trace\+Simulation\+Listener}}]{trace\+Simulation\+Listener}
 \end{DoxyParamCaption}
-)}\hypertarget{class_trace_manager_a75f2f2e8aaf4f69767a51c0b5d261233}{}\label{class_trace_manager_a75f2f2e8aaf4f69767a51c0b5d261233}
+)}\hypertarget{class_trace_manager_af39ddecdcbb84c6aa62bfefcded7bf69}{}\label{class_trace_manager_af39ddecdcbb84c6aa62bfefcded7bf69}
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_trace_manager_af39ddecdcbb84c6aa62bfefcded7bf69_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Trace\+Manager@{Trace\+Manager}!get\+Error\+Messages@{get\+Error\+Messages}}
 \index{get\+Error\+Messages@{get\+Error\+Messages}!Trace\+Manager@{Trace\+Manager}}
 \subsubsection[{\texorpdfstring{get\+Error\+Messages() const }{getErrorMessages() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf List}$<$ std\+::string $>$ $\ast$ Trace\+Manager\+::get\+Error\+Messages (
@@ -100,6 +133,17 @@ The \hyperlink{class_trace_manager}{Trace\+Manager} is used to trace back model 
 {}
 \end{DoxyParamCaption}
 ) const}\hypertarget{class_trace_manager_aa7f2b721c237326d999357d00b1674c4}{}\label{class_trace_manager_aa7f2b721c237326d999357d00b1674c4}
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_trace_manager_aa7f2b721c237326d999357d00b1674c4_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Trace\+Manager@{Trace\+Manager}!get\+Trace\+Level@{get\+Trace\+Level}}
 \index{get\+Trace\+Level@{get\+Trace\+Level}!Trace\+Manager@{Trace\+Manager}}
 \subsubsection[{\texorpdfstring{get\+Trace\+Level() const }{getTraceLevel() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Util\+::\+Trace\+Level} Trace\+Manager\+::get\+Trace\+Level (
@@ -122,6 +166,28 @@ The \hyperlink{class_trace_manager}{Trace\+Manager} is used to trace back model 
 \item[{std\+::string}]{text}
 \end{DoxyParamCaption}
 )}\hypertarget{class_trace_manager_a242d77829b85a436fd2aab2092bfa50c}{}\label{class_trace_manager_a242d77829b85a436fd2aab2092bfa50c}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=288pt]{class_trace_manager_a242d77829b85a436fd2aab2092bfa50c_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_trace_manager_a242d77829b85a436fd2aab2092bfa50c_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Trace\+Manager@{Trace\+Manager}!trace\+Error@{trace\+Error}}
 \index{trace\+Error@{trace\+Error}!Trace\+Manager@{Trace\+Manager}}
 \subsubsection[{\texorpdfstring{trace\+Error(std\+::exception e, std\+::string text)}{traceError(std::exception e, std::string text)}}]{\setlength{\rightskip}{0pt plus 5cm}void Trace\+Manager\+::trace\+Error (
@@ -130,6 +196,17 @@ The \hyperlink{class_trace_manager}{Trace\+Manager} is used to trace back model 
 \item[{std\+::string}]{text}
 \end{DoxyParamCaption}
 )}\hypertarget{class_trace_manager_a774a8549d24361fa2a8f8722de0084ef}{}\label{class_trace_manager_a774a8549d24361fa2a8f8722de0084ef}
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_trace_manager_a774a8549d24361fa2a8f8722de0084ef_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Trace\+Manager@{Trace\+Manager}!trace\+Report@{trace\+Report}}
 \index{trace\+Report@{trace\+Report}!Trace\+Manager@{Trace\+Manager}}
 \subsubsection[{\texorpdfstring{trace\+Report(\+Util\+::\+Trace\+Level tracelevel, std\+::string text)}{traceReport(Util::TraceLevel tracelevel, std::string text)}}]{\setlength{\rightskip}{0pt plus 5cm}void Trace\+Manager\+::trace\+Report (
@@ -138,6 +215,29 @@ The \hyperlink{class_trace_manager}{Trace\+Manager} is used to trace back model 
 \item[{std\+::string}]{text}
 \end{DoxyParamCaption}
 )}\hypertarget{class_trace_manager_a2f6882a0c61b991a85b54162573c93be}{}\label{class_trace_manager_a2f6882a0c61b991a85b54162573c93be}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=317pt]{class_trace_manager_a2f6882a0c61b991a85b54162573c93be_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_trace_manager_a2f6882a0c61b991a85b54162573c93be_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Trace\+Manager@{Trace\+Manager}!trace\+Simulation@{trace\+Simulation}}
 \index{trace\+Simulation@{trace\+Simulation}!Trace\+Manager@{Trace\+Manager}}
 \subsubsection[{\texorpdfstring{trace\+Simulation(\+Util\+::\+Trace\+Level tracelevel, double time, Entity $\ast$entity, Model\+Component $\ast$component, std\+::string text)}{traceSimulation(Util::TraceLevel tracelevel, double time, Entity *entity, ModelComponent *component, std::string text)}}]{\setlength{\rightskip}{0pt plus 5cm}void Trace\+Manager\+::trace\+Simulation (
@@ -149,6 +249,28 @@ The \hyperlink{class_trace_manager}{Trace\+Manager} is used to trace back model 
 \item[{std\+::string}]{text}
 \end{DoxyParamCaption}
 )}\hypertarget{class_trace_manager_a5ee0bbb874cc0ad40ff5b1a130a0699f}{}\label{class_trace_manager_a5ee0bbb874cc0ad40ff5b1a130a0699f}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{class_trace_manager_a5ee0bbb874cc0ad40ff5b1a130a0699f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_trace_manager_a5ee0bbb874cc0ad40ff5b1a130a0699f_icgraph}
+\end{center}
+\end{figure}
+
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

@@ -1,3 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_simulation_scenario.html" title="SimulationScenario" alt="" coords="5,5,140,32"/>
+<area shape="rect" id="node1" href="$class_sampler__if.html" title="Sampler_if" alt="" coords="5,31,89,57"/>
+<area shape="rect" id="node2" href="$class_sampler_default_impl1.html" title="SamplerDefaultImpl1" alt="" coords="137,5,281,32"/>
+<area shape="rect" id="node3" href="$class_sampler_dummy_impl.html" title="SamplerDummyImpl" alt="" coords="139,56,280,83"/>
 </map>

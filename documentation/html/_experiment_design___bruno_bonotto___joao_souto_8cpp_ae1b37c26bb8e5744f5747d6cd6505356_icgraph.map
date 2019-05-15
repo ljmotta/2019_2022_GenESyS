@@ -1,6 +1,0 @@
-<map id="factorial" name="factorial">
-<area shape="rect" id="node2" href="$_experiment_design___bruno_bonotto___joao_souto_8cpp.html#aa5820e0c34d7fcbb0c4e8b99ec3a72fa" title="combination" alt="" coords="123,71,215,97"/>
-<area shape="rect" id="node3" href="$class_experiment_design___bruno_bonotto___joao_souto.html#a0feb20dd354e94d17ae2689546233a98" title="ExperimentDesign_BrunoBonotto\l_JoaoSouto::generate2krScenarioExperiments" alt="" coords="264,5,555,46"/>
-<area shape="rect" id="node4" href="$_experiment_design___bruno_bonotto___joao_souto_8cpp.html#ad30857735fc4fd21dc30006656b9b20a" title="total_combination" alt="" coords="347,71,471,97"/>
-<area shape="rect" id="node5" href="$class_experiment_design___bruno_bonotto___joao_souto.html#a1afd5f05fa9fc12e8a391cfe60850ee1" title="ExperimentDesign_BrunoBonotto\l_JoaoSouto::calculateContribution\lAndCoefficients" alt="" coords="299,121,520,177"/>
-</map>

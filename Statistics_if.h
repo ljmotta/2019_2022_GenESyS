@@ -6,7 +6,7 @@
 
 /* 
  * File:   Statistics_if.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 14 de Agosto de 2018, 13:47
  */
@@ -22,27 +22,20 @@
  */
 class Statistics_if {
 public:
-	virtual Collector_if* getCollector() = 0;
-	virtual void setCollector(Collector_if* collector) = 0;
+    virtual Collector_if* getCollector() = 0;
+    virtual void setCollector(Collector_if* collector) = 0;
 public:
-	virtual unsigned int numElements() = 0;
-	virtual double min() = 0;
-	virtual double max() = 0;
-	virtual double average() = 0;
-	virtual double mode() = 0;
-	virtual double mediane() = 0;
-	virtual double variance() = 0;
-	virtual double stddeviation() = 0;
-	virtual double variationCoef() = 0;
-	virtual double halfWidthConfidenceInterval(double confidencelevel) = 0;
-	virtual unsigned int newSampleSize(double confidencelevel, double halfWidth) = 0;
-	virtual double quartil(unsigned short num) = 0;
-	virtual double decil(unsigned short num) = 0;
-	virtual double centil(unsigned short num) = 0;
-	virtual void setHistogramNumClasses(unsigned short num) = 0;
-	virtual unsigned short histogramNumClasses() = 0;
-	virtual double histogramClassLowerLimit(unsigned short classNum) = 0;
-	virtual unsigned int histogramClassFrequency(unsigned short classNum) = 0;
+    virtual unsigned int numElements() = 0;
+    virtual double min() = 0;
+    virtual double max() = 0;
+    virtual double average() = 0;
+    virtual double variance() = 0;
+    virtual double stddeviation() = 0;
+    virtual double variationCoef() = 0;
+    virtual double halfWidthConfidenceInterval() = 0;
+    virtual unsigned int newSampleSize(double halfWidth) = 0;
+    virtual double getConfidenceLevel() = 0;
+    virtual void setConfidenceLevel(double confidencelevel) = 0;
 };
 
 #endif /* STATISTICS_IF_H */

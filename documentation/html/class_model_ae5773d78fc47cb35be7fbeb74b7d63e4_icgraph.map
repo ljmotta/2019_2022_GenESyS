@@ -1,9 +1,13 @@
 <map id="Model::getComponents" name="Model::getComponents">
-<area shape="rect" id="node2" href="$_build_simulation_model_8cpp.html#aeea741000e292b33dca181a0a8a6106f" title="buildModel" alt="" coords="257,12,341,39"/>
-<area shape="rect" id="node5" href="$class_model_checker_my_impl1.html#a37856818d6597563f079401bf6652cbb" title="ModelCheckerMyImpl1\l::checkSymbols" alt="" coords="221,63,377,105"/>
-<area shape="rect" id="node7" href="$class_model_persistence_my_impl1.html#a367b40dfac801508f75a3176f7b40c6a" title="ModelPersistenceMyImpl1\l::saveAsTXT" alt="" coords="211,129,387,170"/>
-<area shape="rect" id="node3" href="$_build_simulation_model_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="445,12,600,39"/>
-<area shape="rect" id="node4" href="$class_build_simulation_model.html#a8c50f55d7293860e5e7bc7e7e74f8d4a" title="BuildSimulationModel\l::main" alt="" coords="659,5,805,46"/>
-<area shape="rect" id="node6" href="$class_model_checker_my_impl1.html#adbed52d807b882ee75f10372b8b379e1" title="ModelCheckerMyImpl1\l::checkAll" alt="" coords="445,63,601,105"/>
-<area shape="rect" id="node8" href="$class_model_persistence_my_impl1.html#ab24f2e3aea25d628748dd8b9e63d326a" title="ModelPersistenceMyImpl1\l::save" alt="" coords="435,129,611,170"/>
+<area shape="rect" id="node2" href="$_build_simulation_model_8cpp.html#aeea741000e292b33dca181a0a8a6106f" title="buildModel" alt="" coords="275,5,359,32"/>
+<area shape="rect" id="node5" href="$class_model.html#a408ddfa761fcd04ec1211ae6c1526ab3" title="Model::parseExpression" alt="" coords="236,56,399,83"/>
+<area shape="rect" id="node6" href="$class_model_checker_default_impl1.html#a2088315a12f9cc019306427e439541c6" title="ModelCheckerDefaultImpl1\l::checkSymbols" alt="" coords="227,158,407,199"/>
+<area shape="rect" id="node8" href="$class_model_checker_dummy_impl.html#a773a4924a7603f6b931a53e58190cda0" title="ModelCheckerDummyImpl\l::checkSymbols" alt="" coords="229,223,406,265"/>
+<area shape="rect" id="node10" href="$class_model_persistence_dummy_impl.html#ae2a32d73317bb04150c10f1076f378df" title="ModelPersistenceDummyImpl\l::saveAsTXT" alt="" coords="219,289,416,330"/>
+<area shape="rect" id="node12" href="$class_model_simulation.html#a22ea961f3242d4466dc0cf392c66d5e9" title="Starts a sequential execution of a simulation, ie, a set of replications of this model. " alt="" coords="211,107,424,133"/>
+<area shape="rect" id="node3" href="$_build_simulation_model_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="493,56,648,83"/>
+<area shape="rect" id="node4" href="$class_build_simulation_model.html#a8c50f55d7293860e5e7bc7e7e74f8d4a" title="BuildSimulationModel\l::main" alt="" coords="717,49,864,90"/>
+<area shape="rect" id="node7" href="$class_model_checker_default_impl1.html#a4d092a82540b0f4942c1456dfaebde4f" title="ModelCheckerDefaultImpl1\l::checkAll" alt="" coords="481,158,661,199"/>
+<area shape="rect" id="node9" href="$class_model_checker_dummy_impl.html#a2e7cd50b851b68f18270316f7ac19360" title="ModelCheckerDummyImpl\l::checkAll" alt="" coords="482,223,659,265"/>
+<area shape="rect" id="node11" href="$class_model_persistence_dummy_impl.html#abb93912e7f14e633a501ed83c33d6691" title="ModelPersistenceDummyImpl\l::save" alt="" coords="472,289,669,330"/>
 </map>

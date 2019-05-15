@@ -6,7 +6,7 @@
 
 /* 
  * File:   SimulationScenario.cpp
- * Author: cancian
+ * Author: rafael.luiz.cancian
  * 
  * Created on 10 de Outubro de 2018, 18:21
  */
@@ -23,35 +23,35 @@ SimulationScenario::~SimulationScenario() {
 }
 
 void SimulationScenario::setName(std::string _name) {
-	this->_name = _name;
+    this->_name = _name;
 }
 
 std::string SimulationScenario::getName() const {
-	return _name;
+    return _name;
 }
 
 std::list<double>* SimulationScenario::getResponseValues() const {
-	return _responseValues;
+    return _responseValues;
 }
 
 std::list<double>* SimulationScenario::getControlValues() const {
-	return _controlValues;
+    return _controlValues;
 }
 
 void SimulationScenario::setModelFilename(std::string _modelFilename) {
-	this->_modelFilename = _modelFilename;
+    this->_modelFilename = _modelFilename;
 }
 
 std::string SimulationScenario::getModelFilename() const {
-	return _modelFilename;
+    return _modelFilename;
 }
 
 double SimulationScenario::getResponseValue(SimulationResponse* value) {
-	return 0.0;
+    return 0.0;
 }
 
 double SimulationScenario::getControlValue(SimulationControl* control) {
-	return 0.0;
+    return 0.0;
 }
 
 void SimulationScenario::setControlValue(SimulationControl* control, double value) {

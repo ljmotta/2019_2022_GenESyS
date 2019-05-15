@@ -1,4 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_simulation_response.html" title="SimulationResponse" alt="" coords="5,5,148,32"/>
-<area shape="rect" id="node2" href="$class_simulation_control.html" title="SimulationControl" alt="" coords="196,5,321,32"/>
+<area shape="rect" id="node1" href="$class_process_analyser__if.html" title="ProcessAnalyser_if" alt="" coords="5,5,140,32"/>
+<area shape="rect" id="node2" href="$class_process_analyser_dummy_impl.html" title="ProcessAnalyserDummyImpl" alt="" coords="188,5,380,32"/>
 </map>

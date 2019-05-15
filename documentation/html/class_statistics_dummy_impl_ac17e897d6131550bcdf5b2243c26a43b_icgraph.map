@@ -1,0 +1,10 @@
+<map id="StatisticsDummyImpl::getCollector" name="StatisticsDummyImpl::getCollector">
+<area shape="rect" id="node2" href="$class_model_simulation.html#a22ea961f3242d4466dc0cf392c66d5e9" title="Starts a sequential execution of a simulation, ie, a set of replications of this model. " alt="" coords="201,13,415,39"/>
+<area shape="rect" id="node5" href="$class_queue.html#a961b5b7ca80317aa69f958612fb988ad" title="Queue::insertElement" alt="" coords="234,63,382,90"/>
+<area shape="rect" id="node7" href="$class_queue.html#a114d5144b3026b57cca9cf481b1f0d65" title="Queue::removeElement" alt="" coords="229,114,387,141"/>
+<area shape="rect" id="node9" href="$class_resource.html#ad5da4dca5dd48a4818827e6273c20c2d" title="Resource::release" alt="" coords="244,165,372,191"/>
+<area shape="rect" id="node3" href="$_build_simulation_model_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="463,13,617,39"/>
+<area shape="rect" id="node4" href="$class_build_simulation_model.html#a8c50f55d7293860e5e7bc7e7e74f8d4a" title="BuildSimulationModel\l::main" alt="" coords="665,5,812,47"/>
+<area shape="rect" id="node6" href="$class_seize.html#a96f6517a40b3bfd0d5ea753d59cef797" title="Seize::_execute" alt="" coords="482,63,598,90"/>
+<area shape="rect" id="node8" href="$class_release.html#a63c3cd89082e7f6c1fb61646b93a5c32" title="Release::_execute" alt="" coords="475,139,605,166"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="StatisticsDefaultImpl1::StatisticsDefaultImpl1" name="StatisticsDefaultImpl1::StatisticsDefaultImpl1">
+<area shape="rect" id="node2" href="$class_collector__if.html#a71e66a9bb8a91832ec7a05a1fe00519e" title="Collector_if::setAddValue\lHandler" alt="" coords="224,5,395,47"/>
+<area shape="rect" id="node3" href="$_collector__if_8h.html#a7f3c1353de9d15f934a346fa39dcb089" title="SetCollectorAddValueHandler" alt="" coords="212,71,407,98"/>
+<area shape="rect" id="node4" href="$class_collector__if.html#ac03e3c41ccfe3aff6f6a0b3aca8c885b" title="Collector_if::setClearHandler" alt="" coords="214,122,405,149"/>
+<area shape="rect" id="node5" href="$_collector__if_8h.html#a7ced0788461ea56a4030fc017471a682" title="SetCollectorClearHandler" alt="" coords="224,173,395,199"/>
+</map>

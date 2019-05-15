@@ -6,7 +6,7 @@
 
 /* 
  * File:   ExperimentDesignDummyImpl.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 10 de Outubro de 2018, 18:32
  */
@@ -21,17 +21,17 @@
  */
 class ExperimentDesignDummyImpl : public ExperimentDesign_if {
 public:
-	ExperimentDesignDummyImpl();
-	ExperimentDesignDummyImpl(const ExperimentDesignDummyImpl& orig);
-	virtual ~ExperimentDesignDummyImpl();
+    ExperimentDesignDummyImpl();
+    ExperimentDesignDummyImpl(const ExperimentDesignDummyImpl& orig);
+    virtual ~ExperimentDesignDummyImpl();
 public:
-	ProcessAnalyser_if* getProcessAnalyser() const;
+    virtual ProcessAnalyser_if* getProcessAnalyser() const;
 public:
-	bool generate2krScenarioExperiments();
-	bool calculateContributionAndCoefficients();
-	std::list<FactorOrInteractionContribution*>* getContributions() const;
+    virtual bool generate2krScenarioExperiments();
+    virtual bool calculateContributionAndCoefficients();
+    virtual std::list<FactorOrInteractionContribution*>* getContributions() const;
 private:
-	ProcessAnalyser_if* _processAnalyser; //= new Traits<ExperimentDesign_if>::ProcessAnalyserImplementation();
-	std::list<FactorOrInteractionContribution*>* _contributions = new std::list<FactorOrInteractionContribution*>();
+    ProcessAnalyser_if* _processAnalyser; //= new Traits<ExperimentDesign_if>::ProcessAnalyserImplementation();
+    std::list<FactorOrInteractionContribution*>* _contributions = new std::list<FactorOrInteractionContribution*>();
 };
 #endif /* EXPERIMENTDESIGNDUMMYIMPL_H */

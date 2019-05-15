@@ -40,17 +40,21 @@ typedef unsigned int \hyperlink{class_util_a2a402b3a3a889d699bb3a1a87cbe6d1e}{ra
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+static void \hyperlink{class_util_aa64d3d725f85285a09c980a676ff67aa}{Set\+Indent} (unsigned short indent)
+\item 
 static void \hyperlink{class_util_a8110241a80979c8fbecca95eef59e9ad}{Inc\+Indent} ()
 \item 
 static void \hyperlink{class_util_a702d44544c3dd604b81e578ee9ee713f}{Dec\+Indent} ()
 \item 
 static std\+::string \hyperlink{class_util_a13a4cb5dbc88ef5e2c3a127362b956d6}{Indent} ()
 \item 
+static std\+::string \hyperlink{class_util_abd6d5e144fa1e2b8327cf5cda68f7b7c}{SetW} (std\+::string text, unsigned short width)
+\item 
 static \hyperlink{class_util_ad17d458d9344b10bba64347e514d6d71}{Util\+::identitifcation} \hyperlink{class_util_a59ecba8027c38a9d0a3a0e9e9dc94ad7}{Generate\+New\+Id} ()
 \item 
-static double \hyperlink{class_util_a5f537febaa83db4721745a4730657bab}{Time\+Unit\+Convert} (\hyperlink{class_util_a28504cc2fecc9aa47154cba4e625ec6f}{Util\+::\+Time\+Unit} time\+Unit1, \hyperlink{class_util_a28504cc2fecc9aa47154cba4e625ec6f}{Util\+::\+Time\+Unit} time\+Unit2)
-\item 
 static \hyperlink{class_util_ad17d458d9344b10bba64347e514d6d71}{Util\+::identitifcation} \hyperlink{class_util_a96dd76236d7f5888b8dac562e93f9278}{Generate\+New\+Id\+Of\+Type} (std\+::string objtyp)
+\item 
+static double \hyperlink{class_util_a5f537febaa83db4721745a4730657bab}{Time\+Unit\+Convert} (\hyperlink{class_util_a28504cc2fecc9aa47154cba4e625ec6f}{Util\+::\+Time\+Unit} time\+Unit1, \hyperlink{class_util_a28504cc2fecc9aa47154cba4e625ec6f}{Util\+::\+Time\+Unit} time\+Unit2)
 \item 
 {\footnotesize template$<$class T $>$ }\\static std\+::string \hyperlink{class_util_a1010d1207367e48e1d417381f32abf1f}{Type\+Of} ()
 \item 
@@ -128,6 +132,18 @@ most\+Detailed\hypertarget{class_util_a0a3482cfa2d915e261c0cf528fdc7afcaac18d2ea
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_util_a702d44544c3dd604b81e578ee9ee713f}{}\label{class_util_a702d44544c3dd604b81e578ee9ee713f}
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_util_a702d44544c3dd604b81e578ee9ee713f_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Util@{Util}!Generate\+New\+Id@{Generate\+New\+Id}}
 \index{Generate\+New\+Id@{Generate\+New\+Id}!Util@{Util}}
 \subsubsection[{\texorpdfstring{Generate\+New\+Id()}{GenerateNewId()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Util\+::identitifcation} Util\+::\+Generate\+New\+Id (
@@ -149,13 +165,36 @@ most\+Detailed\hypertarget{class_util_a0a3482cfa2d915e261c0cf528fdc7afcaac18d2ea
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{class_util_aec5f31f4f467113c25a6aef7bb5f4a40}{}\label{class_util_aec5f31f4f467113c25a6aef7bb5f4a40}
-Every component or infrastructure has a unique ID for its class, but not unique for other classes. I\+Ds are generated sequentially for each class. \index{Util@{Util}!Inc\+Indent@{Inc\+Indent}}
+Every component or element has a unique ID for its class, but not unique for other classes. I\+Ds are generated sequentially for each class. 
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_util_aec5f31f4f467113c25a6aef7bb5f4a40_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{Util@{Util}!Inc\+Indent@{Inc\+Indent}}
 \index{Inc\+Indent@{Inc\+Indent}!Util@{Util}}
 \subsubsection[{\texorpdfstring{Inc\+Indent()}{IncIndent()}}]{\setlength{\rightskip}{0pt plus 5cm}void Util\+::\+Inc\+Indent (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_util_a8110241a80979c8fbecca95eef59e9ad}{}\label{class_util_a8110241a80979c8fbecca95eef59e9ad}
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_util_a8110241a80979c8fbecca95eef59e9ad_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Util@{Util}!Indent@{Indent}}
 \index{Indent@{Indent}!Util@{Util}}
 \subsubsection[{\texorpdfstring{Indent()}{Indent()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Util\+::\+Indent (
@@ -163,6 +202,57 @@ Every component or infrastructure has a unique ID for its class, but not unique 
 {}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_util_a13a4cb5dbc88ef5e2c3a127362b956d6}{}\label{class_util_a13a4cb5dbc88ef5e2c3a127362b956d6}
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_util_a13a4cb5dbc88ef5e2c3a127362b956d6_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{Util@{Util}!Set\+Indent@{Set\+Indent}}
+\index{Set\+Indent@{Set\+Indent}!Util@{Util}}
+\subsubsection[{\texorpdfstring{Set\+Indent(unsigned short indent)}{SetIndent(unsigned short indent)}}]{\setlength{\rightskip}{0pt plus 5cm}void Util\+::\+Set\+Indent (
+\begin{DoxyParamCaption}
+\item[{unsigned short}]{indent}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_util_aa64d3d725f85285a09c980a676ff67aa}{}\label{class_util_aa64d3d725f85285a09c980a676ff67aa}
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_util_aa64d3d725f85285a09c980a676ff67aa_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{Util@{Util}!SetW@{SetW}}
+\index{SetW@{SetW}!Util@{Util}}
+\subsubsection[{\texorpdfstring{Set\+W(std\+::string text, unsigned short width)}{SetW(std::string text, unsigned short width)}}]{\setlength{\rightskip}{0pt plus 5cm}static std\+::string Util\+::\+SetW (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{text, }
+\item[{unsigned short}]{width}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_util_abd6d5e144fa1e2b8327cf5cda68f7b7c}{}\label{class_util_abd6d5e144fa1e2b8327cf5cda68f7b7c}
+
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{class_util_abd6d5e144fa1e2b8327cf5cda68f7b7c_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Util@{Util}!Time\+Unit\+Convert@{Time\+Unit\+Convert}}
 \index{Time\+Unit\+Convert@{Time\+Unit\+Convert}!Util@{Util}}
 \subsubsection[{\texorpdfstring{Time\+Unit\+Convert(\+Util\+::\+Time\+Unit time\+Unit1, Util\+::\+Time\+Unit time\+Unit2)}{TimeUnitConvert(Util::TimeUnit timeUnit1, Util::TimeUnit timeUnit2)}}]{\setlength{\rightskip}{0pt plus 5cm}double Util\+::\+Time\+Unit\+Convert (
@@ -171,6 +261,17 @@ Every component or infrastructure has a unique ID for its class, but not unique 
 \item[{{\bf Util\+::\+Time\+Unit}}]{time\+Unit2}
 \end{DoxyParamCaption}
 )\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{class_util_a5f537febaa83db4721745a4730657bab}{}\label{class_util_a5f537febaa83db4721745a4730657bab}
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{class_util_a5f537febaa83db4721745a4730657bab_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Util@{Util}!Type\+Of@{Type\+Of}}
 \index{Type\+Of@{Type\+Of}!Util@{Util}}
 \subsubsection[{\texorpdfstring{Type\+Of()}{TypeOf()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ static std\+::string Util\+::\+Type\+Of (

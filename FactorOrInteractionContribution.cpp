@@ -6,18 +6,17 @@
 
 /* 
  * File:   FactorOrInteractionContribution.cpp
- * Author: cancian
+ * Author: rafael.luiz.cancian
  * 
  * Created on 10 de Outubro de 2018, 20:08
  */
 
 #include "FactorOrInteractionContribution.h"
 
-
 FactorOrInteractionContribution::FactorOrInteractionContribution(double contribution, double modelCoefficient, std::list<SimulationControl*>* controls) {
-	_contribution = contribution;
-	_modelCoefficient = modelCoefficient;
-	_controls = controls;
+    _contribution = contribution;
+    _modelCoefficient = modelCoefficient;
+    _controls = controls;
 }
 
 FactorOrInteractionContribution::FactorOrInteractionContribution(const FactorOrInteractionContribution& orig) {
@@ -27,13 +26,13 @@ FactorOrInteractionContribution::~FactorOrInteractionContribution() {
 }
 
 double FactorOrInteractionContribution::getModelCoefficient() const {
-	return _modelCoefficient;
+    return _modelCoefficient;
 }
 
 std::list<SimulationControl*>* FactorOrInteractionContribution::getControls() const {
-	return _controls;
+    return _controls;
 }
 
 double FactorOrInteractionContribution::getContribution() const {
-	return _contribution;
+    return _contribution;
 }

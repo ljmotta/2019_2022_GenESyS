@@ -6,7 +6,7 @@
 
 /* 
  * File:   SamplerDummyImpl.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 23 de Agosto de 2018, 13:08
  */
@@ -19,33 +19,33 @@
 class SamplerDummyImpl : public Sampler_if {
 public:
 
-	class MyRNG_Parameters : public RNG_Parameters {
-	public:
-		unsigned int seed;
-		unsigned int module;
-		unsigned int multiplier;
-	};
+    class MyRNG_Parameters : public RNG_Parameters {
+    public:
+        unsigned int seed;
+        unsigned int module;
+        unsigned int multiplier;
+    };
 public:
-	SamplerDummyImpl();
-	SamplerDummyImpl(const SamplerDummyImpl& orig);
-	~SamplerDummyImpl();
+    SamplerDummyImpl();
+    SamplerDummyImpl(const SamplerDummyImpl& orig);
+    ~SamplerDummyImpl();
 public: // probability distributions
-	double random();
-	double sampleUniform(double min, double max);
-	double sampleExponential(double mean);
-	double sampleErlang(double mean, int M);
-	double sampleNormal(double mean, double stddev);
-	double sampleGamma(double mean, double alpha);
-	double sampleBeta(double alpha, double beta, double infLimit, double supLimit);
-	double sampleWeibull(double alpha, double scale);
-	double sampleLogNormal(double mean, double stddev);
-	double sampleTriangular(double min, double mode, double max);
-	double sampleDiscrete(double value, double acumProb, ...);
+    double random();
+    double sampleUniform(double min, double max);
+    double sampleExponential(double mean);
+    double sampleErlang(double mean, int M);
+    double sampleNormal(double mean, double stddev);
+    double sampleGamma(double mean, double alpha);
+    double sampleBeta(double alpha, double beta, double infLimit, double supLimit);
+    double sampleWeibull(double alpha, double scale);
+    double sampleLogNormal(double mean, double stddev);
+    double sampleTriangular(double min, double mode, double max);
+    double sampleDiscrete(double value, double acumProb, ...);
 public:
-	void setRNGparameters(RNG_Parameters* param);
-	RNG_Parameters* getRNGparameters() const;
+    void setRNGparameters(RNG_Parameters* param);
+    RNG_Parameters* getRNGparameters() const;
 private:
-	MyRNG_Parameters* _param = new MyRNG_Parameters();
+    MyRNG_Parameters* _param = new MyRNG_Parameters();
 
 };
 

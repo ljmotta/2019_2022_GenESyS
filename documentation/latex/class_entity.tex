@@ -6,28 +6,26 @@
 
 
 
-Inheritance diagram for Entity\+:
-\nopagebreak
+Inheritance diagram for Entity\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=181pt]{class_entity__inherit__graph}
+\includegraphics[width=159pt]{class_entity__inherit__graph}
 \end{center}
 \end{figure}
 
 
-Collaboration diagram for Entity\+:
-\nopagebreak
+Collaboration diagram for Entity\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=181pt]{class_entity__coll__graph}
+\includegraphics[width=159pt]{class_entity__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_entity_a980f368aa07ce358583982821533a54a}{Entity} ()
+\hyperlink{class_entity_a4e83017c50e1b0fd5d3bd5a915e1e1a5}{Entity} (\hyperlink{class_element_manager}{Element\+Manager} $\ast$elements)
 \item 
 \hyperlink{class_entity_a9de139ff12775dd95fb80bec08247de7}{Entity} (const \hyperlink{class_entity}{Entity} \&orig)
 \item 
@@ -35,9 +33,13 @@ virtual \hyperlink{class_entity_adf6d3f7cb1b2ba029b6b048a395cc8ae}{$\sim$\+Entit
 \item 
 virtual std\+::string \hyperlink{class_entity_a86cc324050b451b31b134943e7978e36}{show} ()
 \item 
-void \hyperlink{class_entity_a40053760a2c84dd72fd5aeb425f6781d}{set\+Entity\+Type\+Name} (std\+::string \+\_\+entity\+Type\+Name)
+void \hyperlink{class_entity_a920ed2c77ccc8726aeecd9fd9ff8955c}{set\+Entity\+Type\+Name} (std\+::string entity\+Type\+Name)  throw ()
 \item 
 std\+::string \hyperlink{class_entity_a860a6385aa2af6b8d205a8e3ea912c38}{get\+Entity\+Type\+Name} () const 
+\item 
+void \hyperlink{class_entity_a4f0e7975687368ca429a9ec94884350f}{set\+Entity\+Type} (\hyperlink{class_entity_type}{Entity\+Type} $\ast$entity\+Type)
+\item 
+\hyperlink{class_entity_type}{Entity\+Type} $\ast$ \hyperlink{class_entity_af95c4453cffb8817e5bdc17068714885}{get\+Entity\+Type} () const 
 \item 
 double \hyperlink{class_entity_aed93eae1f252705e713dd7f8019ace35}{get\+Attribute\+Value} (std\+::string attribute\+Name)
 \item 
@@ -58,11 +60,22 @@ virtual bool \hyperlink{class_entity_a5a5fc79267b3671839597c99f8630a87}{\+\_\+ve
 \subsection{Constructor \& Destructor Documentation}
 \index{Entity@{Entity}!Entity@{Entity}}
 \index{Entity@{Entity}!Entity@{Entity}}
-\subsubsection[{\texorpdfstring{Entity()}{Entity()}}]{\setlength{\rightskip}{0pt plus 5cm}Entity\+::\+Entity (
+\subsubsection[{\texorpdfstring{Entity(\+Element\+Manager $\ast$elements)}{Entity(ElementManager *elements)}}]{\setlength{\rightskip}{0pt plus 5cm}Entity\+::\+Entity (
 \begin{DoxyParamCaption}
-{}
+\item[{{\bf Element\+Manager} $\ast$}]{elements}
 \end{DoxyParamCaption}
-)}\hypertarget{class_entity_a980f368aa07ce358583982821533a54a}{}\label{class_entity_a980f368aa07ce358583982821533a54a}
+)}\hypertarget{class_entity_a4e83017c50e1b0fd5d3bd5a915e1e1a5}{}\label{class_entity_a4e83017c50e1b0fd5d3bd5a915e1e1a5}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_entity_a4e83017c50e1b0fd5d3bd5a915e1e1a5_cgraph}
+\end{center}
+\end{figure}
+
+
 \index{Entity@{Entity}!Entity@{Entity}}
 \index{Entity@{Entity}!Entity@{Entity}}
 \subsubsection[{\texorpdfstring{Entity(const Entity \&orig)}{Entity(const Entity &orig)}}]{\setlength{\rightskip}{0pt plus 5cm}Entity\+::\+Entity (
@@ -89,7 +102,7 @@ virtual bool \hyperlink{class_entity_a5a5fc79267b3671839597c99f8630a87}{\+\_\+ve
 )\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{class_entity_a51972e626aef5f92a10d5f800e323237}{}\label{class_entity_a51972e626aef5f92a10d5f800e323237}
 
 
-Implements \hyperlink{class_model_infrastructure_ae118c8ad2ac9d4397c40d004af51b2dc}{Model\+Infrastructure}.
+Implements \hyperlink{class_model_element_a8208ee1dbd8b15acf7c2a0a85b218d56}{Model\+Element}.
 
 \index{Entity@{Entity}!\+\_\+save\+Instance@{\+\_\+save\+Instance}}
 \index{\+\_\+save\+Instance@{\+\_\+save\+Instance}!Entity@{Entity}}
@@ -100,7 +113,18 @@ Implements \hyperlink{class_model_infrastructure_ae118c8ad2ac9d4397c40d004af51b2
 )\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{class_entity_a1569ba1b09e70e4769c5f02f611a8c61}{}\label{class_entity_a1569ba1b09e70e4769c5f02f611a8c61}
 
 
-Reimplemented from \hyperlink{class_model_infrastructure_a991f46601d9e865f2e27c6cd7a2b702d}{Model\+Infrastructure}.
+Reimplemented from \hyperlink{class_model_element_af20dbba778ca07b23b299f2be73dc964}{Model\+Element}.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_entity_a1569ba1b09e70e4769c5f02f611a8c61_cgraph}
+\end{center}
+\end{figure}
+
 
 \index{Entity@{Entity}!\+\_\+verify\+Symbols@{\+\_\+verify\+Symbols}}
 \index{\+\_\+verify\+Symbols@{\+\_\+verify\+Symbols}!Entity@{Entity}}
@@ -111,7 +135,7 @@ Reimplemented from \hyperlink{class_model_infrastructure_a991f46601d9e865f2e27c6
 )\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{class_entity_a5a5fc79267b3671839597c99f8630a87}{}\label{class_entity_a5a5fc79267b3671839597c99f8630a87}
 
 
-Implements \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a388}{Model\+Infrastructure}.
+Implements \hyperlink{class_model_element_a42d23a83672cf746c709a031966484b2}{Model\+Element}.
 
 \index{Entity@{Entity}!get\+Attribute\+Value@{get\+Attribute\+Value}}
 \index{get\+Attribute\+Value@{get\+Attribute\+Value}!Entity@{Entity}}
@@ -120,6 +144,46 @@ Implements \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a3
 \item[{std\+::string}]{attribute\+Name}
 \end{DoxyParamCaption}
 )}\hypertarget{class_entity_aed93eae1f252705e713dd7f8019ace35}{}\label{class_entity_aed93eae1f252705e713dd7f8019ace35}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_entity_aed93eae1f252705e713dd7f8019ace35_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_entity_aed93eae1f252705e713dd7f8019ace35_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{Entity@{Entity}!get\+Entity\+Type@{get\+Entity\+Type}}
+\index{get\+Entity\+Type@{get\+Entity\+Type}!Entity@{Entity}}
+\subsubsection[{\texorpdfstring{get\+Entity\+Type() const }{getEntityType() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Entity\+Type} $\ast$ Entity\+::get\+Entity\+Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{class_entity_af95c4453cffb8817e5bdc17068714885}{}\label{class_entity_af95c4453cffb8817e5bdc17068714885}
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_entity_af95c4453cffb8817e5bdc17068714885_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Entity@{Entity}!get\+Entity\+Type\+Name@{get\+Entity\+Type\+Name}}
 \index{get\+Entity\+Type\+Name@{get\+Entity\+Type\+Name}!Entity@{Entity}}
 \subsubsection[{\texorpdfstring{get\+Entity\+Type\+Name() const }{getEntityTypeName() const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Entity\+::get\+Entity\+Type\+Name (
@@ -127,6 +191,17 @@ Implements \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a3
 {}
 \end{DoxyParamCaption}
 ) const}\hypertarget{class_entity_a860a6385aa2af6b8d205a8e3ea912c38}{}\label{class_entity_a860a6385aa2af6b8d205a8e3ea912c38}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_entity_a860a6385aa2af6b8d205a8e3ea912c38_cgraph}
+\end{center}
+\end{figure}
+
+
 \index{Entity@{Entity}!set\+Attribute\+Value@{set\+Attribute\+Value}}
 \index{set\+Attribute\+Value@{set\+Attribute\+Value}!Entity@{Entity}}
 \subsubsection[{\texorpdfstring{set\+Attribute\+Value(std\+::string attribute\+Name, double value)}{setAttributeValue(std::string attributeName, double value)}}]{\setlength{\rightskip}{0pt plus 5cm}void Entity\+::set\+Attribute\+Value (
@@ -135,13 +210,64 @@ Implements \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a3
 \item[{double}]{value}
 \end{DoxyParamCaption}
 )}\hypertarget{class_entity_ad1a2bc190ef151a4a5c7eff902ee468d}{}\label{class_entity_ad1a2bc190ef151a4a5c7eff902ee468d}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_entity_ad1a2bc190ef151a4a5c7eff902ee468d_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_entity_ad1a2bc190ef151a4a5c7eff902ee468d_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{Entity@{Entity}!set\+Entity\+Type@{set\+Entity\+Type}}
+\index{set\+Entity\+Type@{set\+Entity\+Type}!Entity@{Entity}}
+\subsubsection[{\texorpdfstring{set\+Entity\+Type(\+Entity\+Type $\ast$entity\+Type)}{setEntityType(EntityType *entityType)}}]{\setlength{\rightskip}{0pt plus 5cm}void Entity\+::set\+Entity\+Type (
+\begin{DoxyParamCaption}
+\item[{{\bf Entity\+Type} $\ast$}]{entity\+Type}
+\end{DoxyParamCaption}
+)}\hypertarget{class_entity_a4f0e7975687368ca429a9ec94884350f}{}\label{class_entity_a4f0e7975687368ca429a9ec94884350f}
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_entity_a4f0e7975687368ca429a9ec94884350f_icgraph}
+\end{center}
+\end{figure}
+
+
 \index{Entity@{Entity}!set\+Entity\+Type\+Name@{set\+Entity\+Type\+Name}}
 \index{set\+Entity\+Type\+Name@{set\+Entity\+Type\+Name}!Entity@{Entity}}
-\subsubsection[{\texorpdfstring{set\+Entity\+Type\+Name(std\+::string \+\_\+entity\+Type\+Name)}{setEntityTypeName(std::string _entityTypeName)}}]{\setlength{\rightskip}{0pt plus 5cm}void Entity\+::set\+Entity\+Type\+Name (
+\subsubsection[{\texorpdfstring{set\+Entity\+Type\+Name(std\+::string entity\+Type\+Name)}{setEntityTypeName(std::string entityTypeName)}}]{\setlength{\rightskip}{0pt plus 5cm}void Entity\+::set\+Entity\+Type\+Name (
 \begin{DoxyParamCaption}
-\item[{std\+::string}]{\+\_\+entity\+Type\+Name}
+\item[{std\+::string}]{entity\+Type\+Name}
 \end{DoxyParamCaption}
-)}\hypertarget{class_entity_a40053760a2c84dd72fd5aeb425f6781d}{}\label{class_entity_a40053760a2c84dd72fd5aeb425f6781d}
+) throw  ) }\hypertarget{class_entity_a920ed2c77ccc8726aeecd9fd9ff8955c}{}\label{class_entity_a920ed2c77ccc8726aeecd9fd9ff8955c}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_entity_a920ed2c77ccc8726aeecd9fd9ff8955c_cgraph}
+\end{center}
+\end{figure}
+
+
 \index{Entity@{Entity}!show@{show}}
 \index{show@{show}!Entity@{Entity}}
 \subsubsection[{\texorpdfstring{show()}{show()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Entity\+::show (
@@ -151,7 +277,29 @@ Implements \hyperlink{class_model_infrastructure_a43de089b35b96c32dd24ca4f9636a3
 )\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_entity_a86cc324050b451b31b134943e7978e36}{}\label{class_entity_a86cc324050b451b31b134943e7978e36}
 
 
-Reimplemented from \hyperlink{class_model_infrastructure_a649a5a89a0c9931783d3c51de2acf266}{Model\+Infrastructure}.
+Reimplemented from \hyperlink{class_model_element_af084d684e8effe5cd4c2265abc98896c}{Model\+Element}.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{class_entity_a86cc324050b451b31b134943e7978e36_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_entity_a86cc324050b451b31b134943e7978e36_icgraph}
+\end{center}
+\end{figure}
+
 
 
 

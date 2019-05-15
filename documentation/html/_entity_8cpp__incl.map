@@ -1,6 +1,12 @@
 <map id="Entity.cpp" name="Entity.cpp">
-<area shape="rect" id="node3" href="$_entity_8h.html" title="Entity.h" alt="" coords="253,80,319,107"/>
-<area shape="rect" id="node6" href="$_util_8h.html" title="Util.h" alt="" coords="77,229,130,256"/>
-<area shape="rect" id="node8" href="$_model_infrastructure_8h.html" title="ModelInfrastructure.h" alt="" coords="149,155,295,181"/>
-<area shape="rect" id="node10" href="$_list_8h.html" title="List.h" alt="" coords="324,155,379,181"/>
+<area shape="rect" id="node3" href="$_entity_8h.html" title="Entity.h" alt="" coords="543,80,609,107"/>
+<area shape="rect" id="node19" href="$_attribute_8h.html" title="Attribute.h" alt="" coords="789,229,872,256"/>
+<area shape="rect" id="node6" href="$_util_8h.html" title="Util.h" alt="" coords="245,453,299,480"/>
+<area shape="rect" id="node8" href="$_list_8h.html" title="List.h" alt="" coords="469,304,523,331"/>
+<area shape="rect" id="node13" href="$_model_element_8h.html" title="ModelElement.h" alt="" coords="686,379,802,405"/>
+<area shape="rect" id="node14" href="$_entity_type_8h.html" title="EntityType.h" alt="" coords="716,155,812,181"/>
+<area shape="rect" id="node15" href="$_statistics_collector_8h.html" title="StatisticsCollector.h" alt="" coords="869,304,1009,331"/>
+<area shape="rect" id="node18" href="$_element_manager_8h.html" title="ElementManager.h" alt="" coords="511,229,641,256"/>
+<area shape="rect" id="node16" href="$_statistics__if_8h.html" title="Statistics_if.h" alt="" coords="883,379,986,405"/>
+<area shape="rect" id="node17" href="$_collector__if_8h.html" title="Collector_if.h" alt="" coords="799,453,897,480"/>
 </map>

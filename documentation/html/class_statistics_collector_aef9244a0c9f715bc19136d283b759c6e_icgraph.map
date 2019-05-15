@@ -1,11 +1,3 @@
 <map id="StatisticsCollector::~StatisticsCollector" name="StatisticsCollector::~StatisticsCollector">
-<area shape="rect" id="node2" href="$class_queue.html#a00d119db8fa3050da37746e82cbcf94f" title="Queue::~Queue" alt="" coords="219,56,333,83"/>
-<area shape="rect" id="node8" href="$class_resource.html#a0e5ec475e2601bdb33644468e86f6f10" title="Resource::~Resource" alt="" coords="201,107,351,133"/>
-<area shape="rect" id="node3" href="$class_release.html#ae845be9db739fbb317bd05f0b0fe21c5" title="Release::setQueueName" alt="" coords="409,5,578,32"/>
-<area shape="rect" id="node7" href="$class_seize.html#a4d24a3326db05e92439379e1c4efa940" title="Seize::setQueueName" alt="" coords="416,56,571,83"/>
-<area shape="rect" id="node4" href="$_build_simulation_model_8cpp.html#aeea741000e292b33dca181a0a8a6106f" title="buildModel" alt="" coords="635,107,719,133"/>
-<area shape="rect" id="node5" href="$_build_simulation_model_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="768,107,923,133"/>
-<area shape="rect" id="node6" href="$class_build_simulation_model.html#a8c50f55d7293860e5e7bc7e7e74f8d4a" title="BuildSimulationModel\l::main" alt="" coords="971,99,1117,141"/>
-<area shape="rect" id="node9" href="$class_release.html#a26fda460abe6f9a92872027014c41d4a" title="Release::setResourceName" alt="" coords="400,107,587,133"/>
-<area shape="rect" id="node10" href="$class_seize.html#a2bdaa616c4fd499f754099eb59729547" title="Seize::setResourceName" alt="" coords="407,157,579,184"/>
+<area shape="rect" id="node2" href="$class_resource.html#a0e5ec475e2601bdb33644468e86f6f10" title="Resource::~Resource" alt="" coords="199,13,349,39"/>
 </map>

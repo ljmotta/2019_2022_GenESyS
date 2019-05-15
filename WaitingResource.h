@@ -6,7 +6,7 @@
 
 /* 
  * File:   WaitingResource.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 29 de Agosto de 2018, 17:10
  */
@@ -18,15 +18,15 @@
 
 class WaitingResource : public Waiting {
 public:
-	WaitingResource(Entity* entity, ModelComponent* component, double timeStartedWaiting, unsigned int quantity);
-	WaitingResource(const WaitingResource& orig);
-	virtual ~WaitingResource();
+    WaitingResource(Entity* entity, ModelComponent* component, double timeStartedWaiting, unsigned int quantity);
+    WaitingResource(const WaitingResource& orig);
+    virtual ~WaitingResource();
 public:
-	virtual std::string show();
+    virtual std::string show();
 public:
-	unsigned int getQuantity() const;
+    unsigned int getQuantity() const;
 private:
-	unsigned int _quantity;
+    unsigned int _quantity;
 };
 
 #endif /* WAITINGRESOURCE_H */

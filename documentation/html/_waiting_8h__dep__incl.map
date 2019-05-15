@@ -1,12 +1,11 @@
 <map id="Waiting.h" name="Waiting.h">
-<area shape="rect" id="node2" href="$_queue_8h.html" title="Queue.h" alt="" coords="211,80,282,107"/>
-<area shape="rect" id="node9" href="$_waiting_resource_8h.html" title="WaitingResource.h" alt="" coords="363,155,496,181"/>
-<area shape="rect" id="node11" href="$_waiting_8cpp.html" title="Waiting.cpp" alt="" coords="412,80,503,107"/>
-<area shape="rect" id="node3" href="$_seize_8h.html" title="Seize.h" alt="" coords="115,155,181,181"/>
-<area shape="rect" id="node6" href="$_release_8h.html" title="Release.h" alt="" coords="206,155,287,181"/>
-<area shape="rect" id="node7" href="$_release_8cpp.html" title="Release.cpp" alt="" coords="321,229,415,256"/>
-<area shape="rect" id="node8" href="$_queue_8cpp.html" title="Queue.cpp" alt="" coords="5,155,91,181"/>
-<area shape="rect" id="node4" href="$_build_simulation_model_8cpp.html" title="BuildSimulationModel.cpp" alt="" coords="19,229,191,256"/>
-<area shape="rect" id="node5" href="$_seize_8cpp.html" title="Seize.cpp" alt="" coords="216,229,296,256"/>
-<area shape="rect" id="node10" href="$_waiting_resource_8cpp.html" title="WaitingResource.cpp" alt="" coords="440,229,587,256"/>
+<area shape="rect" id="node2" href="$_queue_8h.html" title="Queue.h" alt="" coords="156,80,227,107"/>
+<area shape="rect" id="node7" href="$_waiting_resource_8h.html" title="WaitingResource.h" alt="" coords="270,80,403,107"/>
+<area shape="rect" id="node10" href="$_waiting_8cpp.html" title="Waiting.cpp" alt="" coords="427,80,518,107"/>
+<area shape="rect" id="node3" href="$_seize_8h.html" title="Seize.h" alt="" coords="58,155,125,181"/>
+<area shape="rect" id="node6" href="$_queue_8cpp.html" title="Queue.cpp" alt="" coords="149,155,234,181"/>
+<area shape="rect" id="node4" href="$_build_simulation_model_8cpp.html" title="BuildSimulationModel.cpp" alt="" coords="5,229,177,256"/>
+<area shape="rect" id="node5" href="$_seize_8cpp.html" title="Seize.cpp" alt="" coords="217,229,297,256"/>
+<area shape="rect" id="node8" href="$_release_8cpp.html" title="Release.cpp" alt="" coords="309,155,404,181"/>
+<area shape="rect" id="node9" href="$_waiting_resource_8cpp.html" title="WaitingResource.cpp" alt="" coords="429,155,575,181"/>
 </map>

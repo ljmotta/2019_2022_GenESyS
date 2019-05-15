@@ -6,7 +6,7 @@
 
 /* 
  * File:   Element.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 21 de Junho de 2018, 15:56
  */
@@ -20,48 +20,37 @@
 #include "Plugin.h"
 #include "List.h"
 #include "Entity.h"
-#include "ModelInfrastructure.h"
+#include "ModelElement.h"
 
 class Model;
 
-class ModelComponent : public ModelInfrastructure {
-/*
-	class ModelComponentDescription {
-		std::string COMPONENT_KIND = "";
-		std::string COMPONENT_AUTHOR = "";
-		std::string COMPONENT_VERSION = "";
-		std::string COMPONENT_DESCRIPTION = "";
-		std::string COMPONENT_IS_VISUAL = "";
-		std::string COMPONENT_IS_SOURCE = "";
-		std::string COMPONENT_IS_SINK = "";
-		std::string COMPONENT_DEPENDENCES = "";
-	}
-*/
+/**
+ * Um componente do modelo é um bloco que representa um comportamento específico a ser simulado. O comportamento é disparado quando uma entidade chega ao componente, o que corresponde à ocorrência de um evento. Um modelo de simulação corresponde a um conjunto de componentes interconectados para formar o processo pelo qual a entidade é submetida.
+ * @param model The model this component belongs to
+ */
+class ModelComponent : public ModelElement {
 public:
-	ModelComponent(Model* model);
-	ModelComponent(const ModelComponent& orig);
-	virtual ~ModelComponent();
+    ModelComponent(Model* model, std::string componentTypename);
+    ModelComponent(const ModelComponent& orig);
+    virtual ~ModelComponent();
 public:
-	virtual std::string show();
-	List<ModelComponent*>* getNextComponents() const;
-        bool getCheckedConnection() ;
-        void setCheckedConnection(bool _checkedConnection);
+    virtual std::string show();
+    List<ModelComponent*>* getNextComponents() const; ///< Returns a list of components directly connected to the output. Usually the components have a single output, but they may have none (such as Dispose) or more than one (as Decide).
 public:
-	static void Execute(Entity* entity, ModelComponent* component);
-	static bool VerifySymbols(ModelComponent* component, std::string* errorMessage);
-	static std::list<std::string>* SaveInstance(ModelComponent* component);
+    static void Execute(Entity* entity, ModelComponent* component); ///< This method triggers the simulation of the behavior of the component. It is invoked when an event (corresponding to this component) is taken from the list of future events or when an entity arrives at this component by connection.
+    static bool VerifySymbols(ModelComponent* component, std::string* errorMessage);
+    static std::list<std::string>* SaveInstance(ModelComponent* component);
 private:
-	List<ModelComponent*>* _nextComponents;
-        bool _checkedConnection;
+    List<ModelComponent*>* _nextComponents;
 protected:
-	virtual void _execute(Entity* entity) = 0;
-
-protected: 
-	virtual std::list<std::string>* _saveInstance();
-	virtual std::list<std::string>* _saveInstance(std::string type);
+    virtual void _execute(Entity* entity) = 0;
 
 protected:
-	Model* _model;
+    virtual std::list<std::string>* _saveInstance();
+    virtual std::list<std::string>* _saveInstance(std::string type);
+
+protected:
+    Model* _model;
 };
 
 #endif /* MODELCOMPONENT_H */

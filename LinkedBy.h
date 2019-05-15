@@ -6,7 +6,7 @@
 
 /* 
  * File:   LinkedBy.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 22 de Agosto de 2018, 07:35
  */
@@ -16,15 +16,15 @@
 
 class LinkedBy {
 public:
-	LinkedBy();
-	LinkedBy(const LinkedBy& orig);
-	virtual ~LinkedBy();
+    LinkedBy();
+    LinkedBy(const LinkedBy& orig);
+    virtual ~LinkedBy();
 public:
-	void addLink();
-	void removeLink();
-	bool isLinked();
+    void addLink();
+    void removeLink();
+    bool isLinked();
 private:
-	unsigned int _linkedBy = 0;
+    unsigned int _linkedBy = 0;
 };
 
 #endif /* LINKEDBYCOMPONENT_H */

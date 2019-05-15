@@ -1,7 +1,0 @@
-<map id="yylex_destroy" name="yylex_destroy">
-<area shape="rect" id="node2" href="$_genesys_09_09-scanner_8cpp.html#ae6ac796aa6c45d433a4b89bf45e6e9dc" title="yy_delete_buffer" alt="" coords="351,31,470,57"/>
-<area shape="rect" id="node3" href="$_genesys_09_09-scanner_8cpp.html#a70f82d43d4797bb2a50f7678ddbfbda5" title="yyfree" alt="" coords="531,5,589,32"/>
-<area shape="rect" id="node4" href="$_genesys_09_09-scanner_8cpp.html#a6201ab6be4687a1ebc3120602d05e35a" title="yypop_buffer_state" alt="" coords="157,81,291,108"/>
-<area shape="rect" id="node6" href="$_genesys_09_09-scanner_8cpp.html#a599b60cd059cf60e89cc49953dc708d0" title="yy_init_globals" alt="" coords="170,132,278,159"/>
-<area shape="rect" id="node5" href="$_genesys_09_09-scanner_8cpp.html#ac6bf96bd2d347c04367b8111abcd0dca" title="yy_load_buffer_state" alt="" coords="339,81,482,108"/>
-</map>

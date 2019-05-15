@@ -6,7 +6,7 @@
 
 /* 
  * File:   TestParser.cpp
- * Author: cancian
+ * Author: rafael.luiz.cancian
  * 
  * Created on 7 de Novembro de 2018, 20:17
  */
@@ -26,16 +26,16 @@ TestParser::~TestParser() {
 }
 
 int TestParser::main(int argc, char** argv) {
-	Simulator* simulator = new Simulator();
-	Model* model = new Model(simulator);
-	simulator->getModels()->insert(model);
-	double value;
-	bool success;
-	std::string errorMsg = "";
-	value = model->parseExpression("NORM(20,10)", &success, &errorMsg);
-	std::cout << value << std::endl;
-	value = model->parseExpression("-10+1+2+3", &success, &errorMsg);
-	std::cout << value << std::endl;
-	value = model->parseExpression("1+2+3-10", &success, &errorMsg);
-	std::cout << value << std::endl;
+    Simulator* simulator = new Simulator();
+    Model* model = new Model(simulator);
+    simulator->getModels()->insert(model);
+    double value;
+    bool success;
+    std::string errorMsg = "";
+    value = model->parseExpression("NORM(20,10)", &success, &errorMsg);
+    std::cout << value << std::endl;
+    value = model->parseExpression("-10+1+2+3", &success, &errorMsg);
+    std::cout << value << std::endl;
+    value = model->parseExpression("1+2+3-10", &success, &errorMsg);
+    std::cout << value << std::endl;
 }

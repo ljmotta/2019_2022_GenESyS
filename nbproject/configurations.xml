@@ -8,7 +8,6 @@
     <logicalFolder name="SourceFiles"
                    displayName="Arquivos de Código-Fonte"
                    projectFiles="true">
-      <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Arquivos de Recurso"
@@ -19,10 +18,14 @@
       <itemPath>Assign.h</itemPath>
       <itemPath>Create.cpp</itemPath>
       <itemPath>Create.h</itemPath>
+      <itemPath>Decide.cpp</itemPath>
+      <itemPath>Decide.h</itemPath>
       <itemPath>Delay.cpp</itemPath>
       <itemPath>Delay.h</itemPath>
       <itemPath>Dispose.cpp</itemPath>
       <itemPath>Dispose.h</itemPath>
+      <itemPath>Record.cpp</itemPath>
+      <itemPath>Record.h</itemPath>
       <itemPath>Release.cpp</itemPath>
       <itemPath>Release.h</itemPath>
       <itemPath>Seize.cpp</itemPath>
@@ -32,9 +35,21 @@
       <itemPath>Traits.h</itemPath>
     </logicalFolder>
     <logicalFolder name="f1" displayName="Kernel" projectFiles="true">
-      <logicalFolder name="f3" displayName="ModelElements" projectFiles="true">
-        <logicalFolder name="f4" displayName="Infrastructure" projectFiles="true">
-          <logicalFolder name="f1" displayName="Element" projectFiles="true">
+      <logicalFolder name="f1" displayName="Impl" projectFiles="true">
+        <itemPath>ParserDefaultImpl1.cpp</itemPath>
+        <itemPath>ParserDefaultImpl1.h</itemPath>
+        <itemPath>ParserDummyImpl.cpp</itemPath>
+        <itemPath>ParserDummyImpl.h</itemPath>
+        <itemPath>SamplerDefaultImpl1.cpp</itemPath>
+        <itemPath>SamplerDefaultImpl1.h</itemPath>
+        <itemPath>SamplerDummyImpl.cpp</itemPath>
+        <itemPath>SamplerDummyImpl.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f3" displayName="ModelParts" projectFiles="true">
+        <logicalFolder name="f4" displayName="Elements" projectFiles="true">
+          <logicalFolder name="f2" displayName="Impl" projectFiles="true">
+          </logicalFolder>
+          <logicalFolder name="f1" displayName="SubElement" projectFiles="true">
             <itemPath>Waiting.cpp</itemPath>
             <itemPath>Waiting.h</itemPath>
             <itemPath>WaitingResource.cpp</itemPath>
@@ -55,24 +70,49 @@
           <itemPath>Variable.cpp</itemPath>
           <itemPath>Variable.h</itemPath>
         </logicalFolder>
-        <itemPath>InfrastructureManager.cpp</itemPath>
-        <itemPath>InfrastructureManager.h</itemPath>
-        <itemPath>ModelCheckerDummyImpl.cpp</itemPath>
-        <itemPath>ModelCheckerDummyImpl.h</itemPath>
+        <logicalFolder name="f1" displayName="Impl" projectFiles="true">
+          <itemPath>ModelCheckerDefaultImpl1.cpp</itemPath>
+          <itemPath>ModelCheckerDefaultImpl1.h</itemPath>
+          <itemPath>ModelCheckerDummyImpl.cpp</itemPath>
+          <itemPath>ModelCheckerDummyImpl.h</itemPath>
+          <itemPath>ModelPersistenceDummyImpl.cpp</itemPath>
+          <itemPath>ModelPersistenceDummyImpl.h</itemPath>
+          <itemPath>SimulationReporterDefaultImpl1.cpp</itemPath>
+          <itemPath>SimulationReporterDefaultImpl1.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="f2" displayName="Parser" projectFiles="true">
+          <itemPath>parserBisonFlex/Genesys++-driver.cpp</itemPath>
+          <itemPath>parserBisonFlex/Genesys++-driver.h</itemPath>
+          <itemPath>parserBisonFlex/Genesys++-parser.cpp</itemPath>
+          <itemPath>Genesys++-parser.h</itemPath>
+          <itemPath>parserBisonFlex/parser/Genesys++-parser.yy</itemPath>
+          <itemPath>parserBisonFlex/Genesys++-scanner.cpp</itemPath>
+          <itemPath>parserBisonFlex/parser/Genesys++-scanner.ll</itemPath>
+          <itemPath>parserBisonFlex/ParserFlexBisonImpl.cpp</itemPath>
+          <itemPath>parserBisonFlex/ParserFlexBisonImpl.h</itemPath>
+          <itemPath>parserBisonFlex/location.hh</itemPath>
+          <itemPath>parserBisonFlex/obj_t.cpp</itemPath>
+          <itemPath>parserBisonFlex/obj_t.h</itemPath>
+          <itemPath>parserBisonFlex/position.hh</itemPath>
+          <itemPath>parserBisonFlex/stack.hh</itemPath>
+        </logicalFolder>
+        <itemPath>ElementManager.cpp</itemPath>
+        <itemPath>ElementManager.h</itemPath>
+        <itemPath>ElementManager_if.h</itemPath>
         <itemPath>ModelChecker_if.h</itemPath>
         <itemPath>ModelComponent.cpp</itemPath>
         <itemPath>ModelComponent.h</itemPath>
+        <itemPath>ModelComponentManager_if.h</itemPath>
+        <itemPath>ModelElement.cpp</itemPath>
+        <itemPath>ModelElement.h</itemPath>
         <itemPath>ModelInfo.cpp</itemPath>
         <itemPath>ModelInfo.h</itemPath>
-        <itemPath>ModelInfrastructure.cpp</itemPath>
-        <itemPath>ModelInfrastructure.h</itemPath>
-        <itemPath>ModelPersistenceDummyImpl.cpp</itemPath>
-        <itemPath>ModelPersistenceDummyImpl.h</itemPath>
         <itemPath>ModelPersistence_if.h</itemPath>
         <itemPath>ModelSimulation.cpp</itemPath>
         <itemPath>ModelSimulation.h</itemPath>
         <itemPath>OnEventManager.cpp</itemPath>
         <itemPath>OnEventManager.h</itemPath>
+        <itemPath>SimulationReporter_if.h</itemPath>
         <itemPath>SinkModelComponent.cpp</itemPath>
         <itemPath>SinkModelComponent.h</itemPath>
         <itemPath>SourceModelComponent.cpp</itemPath>
@@ -80,44 +120,58 @@
         <itemPath>TraceManager.cpp</itemPath>
         <itemPath>TraceManager.h</itemPath>
       </logicalFolder>
-      <logicalFolder name="f2" displayName="Statistics" projectFiles="true">
-        <itemPath>CollectorDatafileDummyImpl.cpp</itemPath>
-        <itemPath>CollectorDatafileDummyImpl.h</itemPath>
-        <itemPath>CollectorDatafile_if.h</itemPath>
-        <itemPath>CollectorDummyImpl.cpp</itemPath>
-        <itemPath>CollectorDummyImpl.h</itemPath>
-        <itemPath>Collector_if.h</itemPath>
-        <itemPath>HypothesisTesterDummyImpl.cpp</itemPath>
-        <itemPath>HypothesisTesterDummyImpl.h</itemPath>
-        <itemPath>HypothesisTester_if.h</itemPath>
-        <itemPath>IntegratorDummyImpl.cpp</itemPath>
-        <itemPath>IntegratorDummyImpl.h</itemPath>
-        <itemPath>Integrator_if.h</itemPath>
-        <itemPath>ProbDistrib.cpp</itemPath>
-        <itemPath>ProbDistrib.h</itemPath>
-        <itemPath>StatisticsDummyImpl.cpp</itemPath>
-        <itemPath>StatisticsDummyImpl.h</itemPath>
-        <itemPath>Statistics_if.h</itemPath>
-      </logicalFolder>
+      <itemPath>DefineGetterSetter.h</itemPath>
       <itemPath>Event.cpp</itemPath>
       <itemPath>Event.h</itemPath>
       <itemPath>Model.cpp</itemPath>
       <itemPath>Model.h</itemPath>
+      <itemPath>Parser_if.h</itemPath>
       <itemPath>Plugin.cpp</itemPath>
       <itemPath>Plugin.h</itemPath>
+      <itemPath>Sampler_if.h</itemPath>
       <itemPath>SimulationControl.cpp</itemPath>
       <itemPath>SimulationControl.h</itemPath>
       <itemPath>SimulationResponse.cpp</itemPath>
       <itemPath>SimulationResponse.h</itemPath>
       <itemPath>Simulator.cpp</itemPath>
-      <itemPath>Simulator.h</itemPath>
-    </logicalFolder>
-    <logicalFolder name="f3" displayName="Parser" projectFiles="true">
-      <itemPath>ParserDummyImpl.cpp</itemPath>
-      <itemPath>ParserDummyImpl.h</itemPath>
-      <itemPath>Parser_if.h</itemPath>
     </logicalFolder>
     <logicalFolder name="f5" displayName="Shell" projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="f4" displayName="Statistics" projectFiles="true">
+      <logicalFolder name="f1" displayName="Impl" projectFiles="true">
+        <itemPath>CollectorDatafileDefaultImpl1.cpp</itemPath>
+        <itemPath>CollectorDatafileDefaultImpl1.h</itemPath>
+        <itemPath>CollectorDatafileDummyImpl.cpp</itemPath>
+        <itemPath>CollectorDatafileDummyImpl.h</itemPath>
+        <itemPath>CollectorDefaultImpl1.cpp</itemPath>
+        <itemPath>CollectorDefaultImpl1.h</itemPath>
+        <itemPath>CollectorDummyImpl.cpp</itemPath>
+        <itemPath>CollectorDummyImpl.h</itemPath>
+        <itemPath>HypothesisTesterDefaultImpl1.cpp</itemPath>
+        <itemPath>HypothesisTesterDefaultImpl1.h</itemPath>
+        <itemPath>HypothesisTesterDummyImpl.cpp</itemPath>
+        <itemPath>HypothesisTesterDummyImpl.h</itemPath>
+        <itemPath>IntegratorDefaultImpl1.cpp</itemPath>
+        <itemPath>IntegratorDefaultImpl1.h</itemPath>
+        <itemPath>IntegratorDummyImpl.cpp</itemPath>
+        <itemPath>IntegratorDummyImpl.h</itemPath>
+        <itemPath>Rosetta.h</itemPath>
+        <itemPath>StatisticsDataFileDummyImpl.cpp</itemPath>
+        <itemPath>StatisticsDataFileDummyImpl.h</itemPath>
+        <itemPath>StatisticsDefaultImpl1.cpp</itemPath>
+        <itemPath>StatisticsDefaultImpl1.h</itemPath>
+        <itemPath>StatisticsDummyImpl.cpp</itemPath>
+        <itemPath>StatisticsDummyImpl.h</itemPath>
+      </logicalFolder>
+      <itemPath>CollectorDatafile_if.h</itemPath>
+      <itemPath>Collector_if.h</itemPath>
+      <itemPath>HypothesisTester_if.h</itemPath>
+      <itemPath>Integrator_if.h</itemPath>
+      <itemPath>ProbDistrib.cpp</itemPath>
+      <itemPath>ProbDistrib.h</itemPath>
+      <itemPath>Simulator.h</itemPath>
+      <itemPath>StatisticsDataFile_if.h</itemPath>
+      <itemPath>Statistics_if.h</itemPath>
     </logicalFolder>
     <logicalFolder name="f8" displayName="Tools" projectFiles="true">
       <logicalFolder name="f1"
@@ -125,23 +179,26 @@
                      projectFiles="true">
       </logicalFolder>
       <logicalFolder name="f1" displayName="Input Analyser" projectFiles="true">
-        <itemPath>FitterDummyImpl.cpp</itemPath>
-        <itemPath>FitterDummyImpl.h</itemPath>
+        <logicalFolder name="f1" displayName="Impl" projectFiles="true">
+          <itemPath>FitterDummyImpl.cpp</itemPath>
+          <itemPath>FitterDummyImpl.h</itemPath>
+        </logicalFolder>
         <itemPath>Fitter_if.h</itemPath>
-        <itemPath>SamplerDummyImpl.cpp</itemPath>
-        <itemPath>SamplerDummyImpl.h</itemPath>
-        <itemPath>Sampler_if.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="Output Analyser" projectFiles="true">
       </logicalFolder>
       <logicalFolder name="f4" displayName="Process Analyser" projectFiles="true">
-        <itemPath>ExperimentDesignDummyImpl.cpp</itemPath>
-        <itemPath>ExperimentDesignDummyImpl.h</itemPath>
+        <logicalFolder name="f1" displayName="Impl" projectFiles="true">
+          <itemPath>ExperimentDesignDefaultImpl1.cpp</itemPath>
+          <itemPath>ExperimentDesignDefaultImpl1.h</itemPath>
+          <itemPath>ExperimentDesignDummyImpl.cpp</itemPath>
+          <itemPath>ExperimentDesignDummyImpl.h</itemPath>
+          <itemPath>ProcessAnalyserDummyImpl.cpp</itemPath>
+          <itemPath>ProcessAnalyserDummyImpl.h</itemPath>
+        </logicalFolder>
         <itemPath>ExperimentDesign_if.h</itemPath>
         <itemPath>FactorOrInteractionContribution.cpp</itemPath>
         <itemPath>FactorOrInteractionContribution.h</itemPath>
-        <itemPath>ProcessAnalyserDummyImpl.cpp</itemPath>
-        <itemPath>ProcessAnalyserDummyImpl.h</itemPath>
         <itemPath>ProcessAnalyser_if.h</itemPath>
         <itemPath>ScenarioExperiment_if.h</itemPath>
         <itemPath>SimulationScenario.cpp</itemPath>
@@ -153,13 +210,18 @@
     <logicalFolder name="f10"
                    displayName="User Program Interfaces"
                    projectFiles="true">
+      <logicalFolder name="f1" displayName="Tests" projectFiles="true">
+        <itemPath>TestInputAnalyserTools.cpp</itemPath>
+        <itemPath>TestInputAnalyserTools.h</itemPath>
+        <itemPath>TestParser.cpp</itemPath>
+        <itemPath>TestParser.h</itemPath>
+        <itemPath>TestStatistics.cpp</itemPath>
+        <itemPath>TestStatistics.h</itemPath>
+        <itemPath>main.cpp</itemPath>
+      </logicalFolder>
       <itemPath>BuildSimulationModel.cpp</itemPath>
       <itemPath>BuildSimulationModel.h</itemPath>
       <itemPath>GenesysApplication_if.h</itemPath>
-      <itemPath>TestInputAnalyserTools.cpp</itemPath>
-      <itemPath>TestInputAnalyserTools.h</itemPath>
-      <itemPath>TestParser.cpp</itemPath>
-      <itemPath>TestParser.h</itemPath>
     </logicalFolder>
     <logicalFolder name="f6" displayName="Util" projectFiles="true">
       <itemPath>LinkedBy.cpp</itemPath>
@@ -190,7 +252,8 @@
       </toolsSet>
       <compileType>
         <ccTool>
-          <commandLine>-std=c++11 -fpermissive</commandLine>
+          <standard>8</standard>
+          <commandLine>-fpermissive</commandLine>
         </ccTool>
       </compileType>
       <item path="Assign.cpp" ex="false" tool="1" flavor2="0">
@@ -205,11 +268,19 @@
       </item>
       <item path="BuildSimulationModel.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="CollectorDatafileDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="CollectorDatafileDefaultImpl1.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="CollectorDatafileDummyImpl.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="CollectorDatafileDummyImpl.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="CollectorDatafile_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="CollectorDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="CollectorDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="CollectorDummyImpl.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -221,6 +292,12 @@
       </item>
       <item path="Create.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Decide.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Decide.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DefineGetterSetter.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Delay.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Delay.h" ex="false" tool="3" flavor2="0">
@@ -228,6 +305,12 @@
       <item path="Dispose.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Dispose.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ElementManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ElementManager.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ElementManager_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Entity.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -240,6 +323,10 @@
       <item path="Event.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Event.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ExperimentDesignDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ExperimentDesignDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ExperimentDesignDummyImpl.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -260,7 +347,13 @@
       </item>
       <item path="Fitter_if.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Genesys++-parser.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="GenesysApplication_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="HypothesisTesterDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="HypothesisTesterDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="HypothesisTesterDummyImpl.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -268,9 +361,9 @@
       </item>
       <item path="HypothesisTester_if.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="InfrastructureManager.cpp" ex="false" tool="1" flavor2="0">
+      <item path="IntegratorDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="InfrastructureManager.h" ex="false" tool="3" flavor2="0">
+      <item path="IntegratorDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="IntegratorDummyImpl.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -288,6 +381,10 @@
       </item>
       <item path="Model.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="ModelCheckerDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ModelCheckerDefaultImpl1.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="ModelCheckerDummyImpl.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ModelCheckerDummyImpl.h" ex="false" tool="3" flavor2="0">
@@ -298,13 +395,15 @@
       </item>
       <item path="ModelComponent.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="ModelComponentManager_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ModelElement.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ModelElement.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="ModelInfo.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ModelInfo.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ModelInfrastructure.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ModelInfrastructure.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ModelPersistenceDummyImpl.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -319,6 +418,10 @@
       <item path="OnEventManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="OnEventManager.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ParserDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ParserDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ParserDummyImpl.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -344,6 +447,10 @@
       </item>
       <item path="Queue.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Record.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Record.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Release.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Release.h" ex="false" tool="3" flavor2="0">
@@ -351,6 +458,12 @@
       <item path="Resource.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Resource.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Rosetta.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SamplerDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SamplerDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="SamplerDummyImpl.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -367,6 +480,12 @@
       <item path="SimulationControl.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="SimulationControl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SimulationReporterDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SimulationReporterDefaultImpl1.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SimulationReporter_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="SimulationResponse.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -392,6 +511,16 @@
       </item>
       <item path="StatisticsCollector.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="StatisticsDataFileDummyImpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="StatisticsDataFileDummyImpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="StatisticsDataFile_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="StatisticsDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="StatisticsDefaultImpl1.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="StatisticsDummyImpl.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="StatisticsDummyImpl.h" ex="false" tool="3" flavor2="0">
@@ -405,6 +534,10 @@
       <item path="TestParser.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="TestParser.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="TestStatistics.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="TestStatistics.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="TraceManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -429,6 +562,53 @@
       <item path="WaitingResource.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="parserBisonFlex/Genesys++-driver.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="parserBisonFlex/Genesys++-driver.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="parserBisonFlex/Genesys++-parser.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="parserBisonFlex/Genesys++-scanner.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="parserBisonFlex/ParserFlexBisonImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="parserBisonFlex/ParserFlexBisonImpl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="parserBisonFlex/location.hh" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="parserBisonFlex/obj_t.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="parserBisonFlex/obj_t.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="parserBisonFlex/parser/Genesys++-parser.yy"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="parserBisonFlex/parser/Genesys++-scanner.ll"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="parserBisonFlex/position.hh" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="parserBisonFlex/stack.hh" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -463,11 +643,19 @@
       </item>
       <item path="BuildSimulationModel.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="CollectorDatafileDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="CollectorDatafileDefaultImpl1.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="CollectorDatafileDummyImpl.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="CollectorDatafileDummyImpl.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="CollectorDatafile_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="CollectorDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="CollectorDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="CollectorDummyImpl.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -479,6 +667,12 @@
       </item>
       <item path="Create.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Decide.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Decide.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DefineGetterSetter.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Delay.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Delay.h" ex="false" tool="3" flavor2="0">
@@ -486,6 +680,12 @@
       <item path="Dispose.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Dispose.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ElementManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ElementManager.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ElementManager_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Entity.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -498,6 +698,10 @@
       <item path="Event.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Event.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ExperimentDesignDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ExperimentDesignDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ExperimentDesignDummyImpl.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -518,7 +722,13 @@
       </item>
       <item path="Fitter_if.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Genesys++-parser.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="GenesysApplication_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="HypothesisTesterDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="HypothesisTesterDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="HypothesisTesterDummyImpl.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -526,9 +736,9 @@
       </item>
       <item path="HypothesisTester_if.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="InfrastructureManager.cpp" ex="false" tool="1" flavor2="0">
+      <item path="IntegratorDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="InfrastructureManager.h" ex="false" tool="3" flavor2="0">
+      <item path="IntegratorDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="IntegratorDummyImpl.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -546,6 +756,10 @@
       </item>
       <item path="Model.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="ModelCheckerDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ModelCheckerDefaultImpl1.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="ModelCheckerDummyImpl.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ModelCheckerDummyImpl.h" ex="false" tool="3" flavor2="0">
@@ -556,13 +770,15 @@
       </item>
       <item path="ModelComponent.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="ModelComponentManager_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ModelElement.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ModelElement.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="ModelInfo.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ModelInfo.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ModelInfrastructure.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ModelInfrastructure.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ModelPersistenceDummyImpl.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -577,6 +793,10 @@
       <item path="OnEventManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="OnEventManager.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ParserDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ParserDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ParserDummyImpl.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -602,6 +822,10 @@
       </item>
       <item path="Queue.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Record.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Record.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Release.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Release.h" ex="false" tool="3" flavor2="0">
@@ -609,6 +833,12 @@
       <item path="Resource.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Resource.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Rosetta.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SamplerDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SamplerDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="SamplerDummyImpl.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -625,6 +855,12 @@
       <item path="SimulationControl.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="SimulationControl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SimulationReporterDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SimulationReporterDefaultImpl1.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SimulationReporter_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="SimulationResponse.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -650,6 +886,16 @@
       </item>
       <item path="StatisticsCollector.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="StatisticsDataFileDummyImpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="StatisticsDataFileDummyImpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="StatisticsDataFile_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="StatisticsDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="StatisticsDefaultImpl1.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="StatisticsDummyImpl.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="StatisticsDummyImpl.h" ex="false" tool="3" flavor2="0">
@@ -663,6 +909,10 @@
       <item path="TestParser.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="TestParser.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="TestStatistics.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="TestStatistics.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="TraceManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -687,6 +937,53 @@
       <item path="WaitingResource.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="parserBisonFlex/Genesys++-driver.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="parserBisonFlex/Genesys++-driver.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="parserBisonFlex/Genesys++-parser.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="parserBisonFlex/Genesys++-scanner.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="parserBisonFlex/ParserFlexBisonImpl.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="parserBisonFlex/ParserFlexBisonImpl.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="parserBisonFlex/location.hh" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="parserBisonFlex/obj_t.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="parserBisonFlex/obj_t.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="parserBisonFlex/parser/Genesys++-parser.yy"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="parserBisonFlex/parser/Genesys++-scanner.ll"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="parserBisonFlex/position.hh" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="parserBisonFlex/stack.hh" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>

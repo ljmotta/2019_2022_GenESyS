@@ -6,7 +6,7 @@
 
 /* 
  * File:   SamplerDummyImpl.cpp
- * Author: cancian
+ * Author: rafael.luiz.cancian
  * 
  * Created on 23 de Agosto de 2018, 13:08
  */
@@ -37,7 +37,7 @@ double SamplerDummyImpl::sampleErlang(double mean, int M) {
 }
 
 double SamplerDummyImpl::sampleNormal(double mean, double stddev) {
-	return 21;
+    return 21;
 }
 
 double SamplerDummyImpl::sampleGamma(double mean, double alpha) {
@@ -58,10 +58,10 @@ double SamplerDummyImpl::sampleTriangular(double min, double mode, double max) {
 double SamplerDummyImpl::sampleDiscrete(double value, double acumProb, ...) {
 }
 
-void SamplerDummyImpl::setRNGparameters(Sampler_if::RNG_Parameters* param){
-	_param =  param;
+void SamplerDummyImpl::setRNGparameters(Sampler_if::RNG_Parameters* param) {
+    _param = param;
 }
 
 Sampler_if::RNG_Parameters* SamplerDummyImpl::getRNGparameters() const {
-	return _param; 
+    return _param;
 }

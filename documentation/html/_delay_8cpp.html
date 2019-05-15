@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>ReGenESyS - Reborn Generic and Expansible System Simulator: Delay.cpp File Reference</title>
+<title>ReGenESyS - Reborned GENeric and Expansible SYstem Simulator: Delay.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,10 +32,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="software_genesys.gif"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">ReGenESyS - Reborn Generic and Expansible System Simulator
-   &#160;<span id="projectnumber">2018.4</span>
+   <div id="projectname">ReGenESyS - Reborned GENeric and Expansible SYstem Simulator
+   &#160;<span id="projectnumber">2019.0509</span>
    </div>
-   <div id="projectbrief">ReGenESyS - Reborn Generic and Expansible System Simulator</div>
+   <div id="projectbrief">Genesys is the product of Professor Rafael Luiz Cancian&#39;s teaching and research activities. It began in early 2002 as a way to teach students the basics and simulation techniques of systems used by business tools. With his development, he replicated all the SIMAN language, used by Arena software, and has become a clone of that tool, including its graphical interface. Genesys allowed the inclusion of new simulation components through dynamic link libraries and also the parallel execution of simulation models in a distributed environment. The development of Genesys continued until 2007, when the professor stopped teaching systems simulation classes. Ten years later the professor starts again to teach systems simulation classes and to carry out scientific research in the area. So in 2018 Genesys is reborn as ReGenesys, with new language and programming techniques, and even more ambitious goals.</div>
   </td>
  </tr>
  </tbody>
@@ -112,31 +112,38 @@ $(document).ready(function(){initNavTree('_delay_8cpp.html','');});
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="_delay_8h_source.html">Delay.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_model_8h_source.html">Model.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_attribute_8h_source.html">Attribute.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Delay.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="_delay_8cpp__incl.png" border="0" usemap="#_delay_8cpp" alt=""/></div>
 <map name="_delay_8cpp" id="_delay_8cpp">
-<area shape="rect" id="node2" href="_delay_8h.html" title="Delay.h" alt="" coords="43,229,109,256"/>
-<area shape="rect" id="node17" href="_model_8h.html" title="Model.h" alt="" coords="671,80,739,107"/>
-<area shape="rect" id="node4" href="_model_component_8h.html" title="ModelComponent.h" alt="" coords="334,304,469,331"/>
-<area shape="rect" id="node6" href="_plugin_8h.html" title="Plugin.h" alt="" coords="612,453,681,480"/>
-<area shape="rect" id="node11" href="_list_8h.html" title="List.h" alt="" coords="1010,453,1065,480"/>
-<area shape="rect" id="node15" href="_entity_8h.html" title="Entity.h" alt="" coords="929,379,996,405"/>
-<area shape="rect" id="node16" href="_model_infrastructure_8h.html" title="ModelInfrastructure.h" alt="" coords="442,453,587,480"/>
-<area shape="rect" id="node7" href="_util_8h.html" title="Util.h" alt="" coords="864,528,917,555"/>
-<area shape="rect" id="node18" href="_event_8h.html" title="Event.h" alt="" coords="672,229,739,256"/>
-<area shape="rect" id="node19" href="_model_checker__if_8h.html" title="ModelChecker_if.h" alt="" coords="1435,528,1565,555"/>
-<area shape="rect" id="node20" href="_parser__if_8h.html" title="Parser_if.h" alt="" coords="104,304,189,331"/>
-<area shape="rect" id="node21" href="_model_persistence__if_8h.html" title="ModelPersistence_if.h" alt="" coords="185,229,335,256"/>
-<area shape="rect" id="node22" href="_infrastructure_manager_8h.html" title="InfrastructureManager.h" alt="" coords="543,379,703,405"/>
-<area shape="rect" id="node23" href="_trace_manager_8h.html" title="TraceManager.h" alt="" coords="1051,155,1167,181"/>
-<area shape="rect" id="node24" href="_on_event_manager_8h.html" title="OnEventManager.h" alt="" coords="462,155,597,181"/>
-<area shape="rect" id="node25" href="_model_info_8h.html" title="ModelInfo.h" alt="" coords="832,304,923,331"/>
-<area shape="rect" id="node26" href="_model_simulation_8h.html" title="ModelSimulation.h" alt="" coords="814,155,943,181"/>
-<area shape="rect" id="node27" href="_simulation_response_8h.html" title="SimulationResponse.h" alt="" coords="1241,379,1394,405"/>
-<area shape="rect" id="node29" href="_simulation_control_8h.html" title="SimulationControl.h" alt="" coords="1137,304,1273,331"/>
-<area shape="rect" id="node28" href="_functor_8h.html" title="Functor.h" alt="" coords="1169,453,1247,480"/>
+<area shape="rect" id="node2" href="_delay_8h.html" title="Delay.h" alt="" coords="949,229,1016,256"/>
+<area shape="rect" id="node22" href="_model_8h.html" title="Model.h" alt="" coords="726,80,794,107"/>
+<area shape="rect" id="node35" href="_attribute_8h.html" title="Attribute.h" alt="" coords="1584,528,1667,555"/>
+<area shape="rect" id="node4" href="_model_component_8h.html" title="ModelComponent.h" alt="" coords="1001,304,1135,331"/>
+<area shape="rect" id="node6" href="_plugin_8h.html" title="Plugin.h" alt="" coords="848,677,917,704"/>
+<area shape="rect" id="node11" href="_list_8h.html" title="List.h" alt="" coords="1099,603,1154,629"/>
+<area shape="rect" id="node15" href="_model_element_8h.html" title="ModelElement.h" alt="" coords="1534,677,1650,704"/>
+<area shape="rect" id="node16" href="_entity_8h.html" title="Entity.h" alt="" coords="1225,379,1292,405"/>
+<area shape="rect" id="node7" href="_util_8h.html" title="Util.h" alt="" coords="1368,752,1421,779"/>
+<area shape="rect" id="node17" href="_entity_type_8h.html" title="EntityType.h" alt="" coords="1211,453,1307,480"/>
+<area shape="rect" id="node18" href="_statistics_collector_8h.html" title="StatisticsCollector.h" alt="" coords="913,528,1053,555"/>
+<area shape="rect" id="node21" href="_element_manager_8h.html" title="ElementManager.h" alt="" coords="1691,528,1821,555"/>
+<area shape="rect" id="node19" href="_statistics__if_8h.html" title="Statistics_if.h" alt="" coords="483,603,586,629"/>
+<area shape="rect" id="node20" href="_collector__if_8h.html" title="Collector_if.h" alt="" coords="456,677,555,704"/>
+<area shape="rect" id="node23" href="_event_8h.html" title="Event.h" alt="" coords="1140,229,1207,256"/>
+<area shape="rect" id="node24" href="_model_checker__if_8h.html" title="ModelChecker_if.h" alt="" coords="2040,752,2171,779"/>
+<area shape="rect" id="node25" href="_parser__if_8h.html" title="Parser_if.h" alt="" coords="43,379,128,405"/>
+<area shape="rect" id="node26" href="_model_persistence__if_8h.html" title="ModelPersistence_if.h" alt="" coords="94,229,245,256"/>
+<area shape="rect" id="node27" href="_trace_manager_8h.html" title="TraceManager.h" alt="" coords="593,304,709,331"/>
+<area shape="rect" id="node28" href="_on_event_manager_8h.html" title="OnEventManager.h" alt="" coords="1193,155,1327,181"/>
+<area shape="rect" id="node29" href="_model_info_8h.html" title="ModelInfo.h" alt="" coords="733,304,824,331"/>
+<area shape="rect" id="node30" href="_model_simulation_8h.html" title="ModelSimulation.h" alt="" coords="798,155,927,181"/>
+<area shape="rect" id="node32" href="_simulation_response_8h.html" title="SimulationResponse.h" alt="" coords="254,603,407,629"/>
+<area shape="rect" id="node34" href="_simulation_control_8h.html" title="SimulationControl.h" alt="" coords="311,528,447,555"/>
+<area shape="rect" id="node31" href="_simulation_reporter__if_8h.html" title="SimulationReporter_if.h" alt="" coords="862,453,1021,480"/>
+<area shape="rect" id="node33" href="_define_getter_setter_8h.html" title="DefineGetterSetter.h" alt="" coords="579,677,722,704"/>
 </map>
 </div>
 </div></div><!-- contents -->

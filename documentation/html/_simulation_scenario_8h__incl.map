@@ -1,6 +1,6 @@
 <map id="SimulationScenario.h" name="SimulationScenario.h">
 <area shape="rect" id="node4" href="$_simulation_response_8h.html" title="SimulationResponse.h" alt="" coords="43,155,197,181"/>
 <area shape="rect" id="node11" href="$_simulation_control_8h.html" title="SimulationControl.h" alt="" coords="157,80,293,107"/>
-<area shape="rect" id="node5" href="$_functor_8h.html" title="Functor.h" alt="" coords="168,229,245,256"/>
-<area shape="rect" id="node7" href="$_util_8h.html" title="Util.h" alt="" coords="225,304,279,331"/>
+<area shape="rect" id="node5" href="$_define_getter_setter_8h.html" title="DefineGetterSetter.h" alt="" coords="143,229,286,256"/>
+<area shape="rect" id="node7" href="$_util_8h.html" title="Util.h" alt="" coords="217,304,271,331"/>
 </map>

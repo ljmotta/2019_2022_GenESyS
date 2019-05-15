@@ -1,12 +1,12 @@
 \hypertarget{_collector__if_8h}{}\section{Collector\+\_\+if.\+h File Reference}
 \label{_collector__if_8h}\index{Collector\+\_\+if.\+h@{Collector\+\_\+if.\+h}}
 {\ttfamily \#include $<$string$>$}\\*
-Include dependency graph for Collector\+\_\+if.\+h\+:
-\nopagebreak
+{\ttfamily \#include $<$functional$>$}\\*
+Include dependency graph for Collector\+\_\+if.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=154pt]{_collector__if_8h__incl}
+\includegraphics[width=198pt]{_collector__if_8h__incl}
 \end{center}
 \end{figure}
 This graph shows which files directly or indirectly include this file\+:
@@ -22,3 +22,67 @@ This graph shows which files directly or indirectly include this file\+:
 \item 
 class \hyperlink{class_collector__if}{Collector\+\_\+if}
 \end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::function$<$ void(double) $>$ \hyperlink{_collector__if_8h_ab97c9a368c50eb9e00cb4772e46ff38a}{Collector\+Add\+Value\+Handler}
+\item 
+typedef std\+::function$<$ void() $>$ \hyperlink{_collector__if_8h_ad22205bb584ed3e0db55fc265a5fe1f4}{Collector\+Clear\+Handler}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Class $>$ }\\\hyperlink{_collector__if_8h_ab97c9a368c50eb9e00cb4772e46ff38a}{Collector\+Add\+Value\+Handler} \hyperlink{_collector__if_8h_a7f3c1353de9d15f934a346fa39dcb089}{Set\+Collector\+Add\+Value\+Handler} (void(Class\+::$\ast$function)(double), Class $\ast$object)
+\item 
+{\footnotesize template$<$typename Class $>$ }\\\hyperlink{_collector__if_8h_ad22205bb584ed3e0db55fc265a5fe1f4}{Collector\+Clear\+Handler} \hyperlink{_collector__if_8h_a7ced0788461ea56a4030fc017471a682}{Set\+Collector\+Clear\+Handler} (void(Class\+::$\ast$function)(), Class $\ast$object)
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\index{Collector\+\_\+if.\+h@{Collector\+\_\+if.\+h}!Collector\+Add\+Value\+Handler@{Collector\+Add\+Value\+Handler}}
+\index{Collector\+Add\+Value\+Handler@{Collector\+Add\+Value\+Handler}!Collector\+\_\+if.\+h@{Collector\+\_\+if.\+h}}
+\subsubsection[{\texorpdfstring{Collector\+Add\+Value\+Handler}{CollectorAddValueHandler}}]{\setlength{\rightskip}{0pt plus 5cm}typedef std\+::function$<$void(double) $>$ {\bf Collector\+Add\+Value\+Handler}}\hypertarget{_collector__if_8h_ab97c9a368c50eb9e00cb4772e46ff38a}{}\label{_collector__if_8h_ab97c9a368c50eb9e00cb4772e46ff38a}
+\index{Collector\+\_\+if.\+h@{Collector\+\_\+if.\+h}!Collector\+Clear\+Handler@{Collector\+Clear\+Handler}}
+\index{Collector\+Clear\+Handler@{Collector\+Clear\+Handler}!Collector\+\_\+if.\+h@{Collector\+\_\+if.\+h}}
+\subsubsection[{\texorpdfstring{Collector\+Clear\+Handler}{CollectorClearHandler}}]{\setlength{\rightskip}{0pt plus 5cm}typedef std\+::function$<$void() $>$ {\bf Collector\+Clear\+Handler}}\hypertarget{_collector__if_8h_ad22205bb584ed3e0db55fc265a5fe1f4}{}\label{_collector__if_8h_ad22205bb584ed3e0db55fc265a5fe1f4}
+
+
+\subsection{Function Documentation}
+\index{Collector\+\_\+if.\+h@{Collector\+\_\+if.\+h}!Set\+Collector\+Add\+Value\+Handler@{Set\+Collector\+Add\+Value\+Handler}}
+\index{Set\+Collector\+Add\+Value\+Handler@{Set\+Collector\+Add\+Value\+Handler}!Collector\+\_\+if.\+h@{Collector\+\_\+if.\+h}}
+\subsubsection[{\texorpdfstring{Set\+Collector\+Add\+Value\+Handler(void(\+Class\+::$\ast$function)(double), Class $\ast$object)}{SetCollectorAddValueHandler(void(Class::*function)(double), Class *object)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Class $>$ {\bf Collector\+Add\+Value\+Handler} Set\+Collector\+Add\+Value\+Handler (
+\begin{DoxyParamCaption}
+\item[{void(Class\+::$\ast$)(double)}]{function, }
+\item[{Class $\ast$}]{object}
+\end{DoxyParamCaption}
+)}\hypertarget{_collector__if_8h_a7f3c1353de9d15f934a346fa39dcb089}{}\label{_collector__if_8h_a7f3c1353de9d15f934a346fa39dcb089}
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_collector__if_8h_a7f3c1353de9d15f934a346fa39dcb089_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{Collector\+\_\+if.\+h@{Collector\+\_\+if.\+h}!Set\+Collector\+Clear\+Handler@{Set\+Collector\+Clear\+Handler}}
+\index{Set\+Collector\+Clear\+Handler@{Set\+Collector\+Clear\+Handler}!Collector\+\_\+if.\+h@{Collector\+\_\+if.\+h}}
+\subsubsection[{\texorpdfstring{Set\+Collector\+Clear\+Handler(void(\+Class\+::$\ast$function)(), Class $\ast$object)}{SetCollectorClearHandler(void(Class::*function)(), Class *object)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Class $>$ {\bf Collector\+Clear\+Handler} Set\+Collector\+Clear\+Handler (
+\begin{DoxyParamCaption}
+\item[{void(Class\+::$\ast$)()}]{function, }
+\item[{Class $\ast$}]{object}
+\end{DoxyParamCaption}
+)}\hypertarget{_collector__if_8h_a7ced0788461ea56a4030fc017471a682}{}\label{_collector__if_8h_a7ced0788461ea56a4030fc017471a682}
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_collector__if_8h_a7ced0788461ea56a4030fc017471a682_icgraph}
+\end{center}
+\end{figure}
+
+

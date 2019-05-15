@@ -1,5 +1,6 @@
 var class_resource =
 [
+    [ "ResourceEventHandler", "class_resource.html#a3a8c56cef21f639c17ccf95b8b6782e6", null ],
     [ "ResourceRule", "class_resource.html#afa28dce79d48cbaf6b10f899f2dedfb7", [
       [ "RANDOM", "class_resource.html#afa28dce79d48cbaf6b10f899f2dedfb7a170e02e86972c2be8559884cc3c12254", null ],
       [ "CICLICAL", "class_resource.html#afa28dce79d48cbaf6b10f899f2dedfb7a799276ee6dde6c0ae5c9fb1cacf14531", null ],
@@ -18,12 +19,14 @@ var class_resource =
       [ "SET", "class_resource.html#aa607c54bf52a9c36b331888ee936a52ca8c52684db8f49511e9b44471716bf164", null ],
       [ "RESOURCE", "class_resource.html#aa607c54bf52a9c36b331888ee936a52ca4f49da9035f276c0947466eb7c42249a", null ]
     ] ],
-    [ "Resource", "class_resource.html#a1a8ae095067797fa47b0241ee278536c", null ],
+    [ "Resource", "class_resource.html#aa0103f22bb6e7f5e85a5cf41f6040103", null ],
+    [ "Resource", "class_resource.html#ae0c082231cd64485af560b51b025d8fe", null ],
     [ "Resource", "class_resource.html#a30f2ca8f0617a6628ebd246b14b50566", null ],
     [ "~Resource", "class_resource.html#a0e5ec475e2601bdb33644468e86f6f10", null ],
     [ "_loadInstance", "class_resource.html#a5c4aedea65e6800cf44fb3620d559148", null ],
     [ "_saveInstance", "class_resource.html#a546f61a6f5f57f0c41c722b9b9dc7478", null ],
     [ "_verifySymbols", "class_resource.html#a3b282a34c4c706ca63716cb74e7f8183", null ],
+    [ "addResourceEventHandler", "class_resource.html#afc3651546b83c8953306d7958c4ac179", null ],
     [ "getCapacity", "class_resource.html#a0aa3a9287571af52be298611580e661e", null ],
     [ "getCostBusyHour", "class_resource.html#a66bd7e365c6ccb088afad2a6f24afdae", null ],
     [ "getCostIdleHour", "class_resource.html#a8033fb963bed0116f01af2b637bd4cad", null ],

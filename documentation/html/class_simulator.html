@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>ReGenESyS - Reborn Generic and Expansible System Simulator: Simulator Class Reference</title>
+<title>ReGenESyS - Reborned GENeric and Expansible SYstem Simulator: Simulator Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,10 +32,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="software_genesys.gif"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">ReGenESyS - Reborn Generic and Expansible System Simulator
-   &#160;<span id="projectnumber">2018.4</span>
+   <div id="projectname">ReGenESyS - Reborned GENeric and Expansible SYstem Simulator
+   &#160;<span id="projectnumber">2019.0509</span>
    </div>
-   <div id="projectbrief">ReGenESyS - Reborn Generic and Expansible System Simulator</div>
+   <div id="projectbrief">Genesys is the product of Professor Rafael Luiz Cancian&#39;s teaching and research activities. It began in early 2002 as a way to teach students the basics and simulation techniques of systems used by business tools. With his development, he replicated all the SIMAN language, used by Arena software, and has become a clone of that tool, including its graphical interface. Genesys allowed the inclusion of new simulation components through dynamic link libraries and also the parallel execution of simulation models in a distributed environment. The development of Genesys continued until 2007, when the professor stopped teaching systems simulation classes. Ten years later the professor starts again to teach systems simulation classes and to carry out scientific research in the area. So in 2018 Genesys is reborn as ReGenesys, with new language and programming techniques, and even more ambitious goals.</div>
   </td>
  </tr>
  </tbody>
@@ -127,6 +127,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0f49aa04f42060a785adf77346b9de9f"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulator.html#a0f49aa04f42060a785adf77346b9de9f">~Simulator</a> ()</td></tr>
 <tr class="separator:a0f49aa04f42060a785adf77346b9de9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf2949b99c40c3c94c790786de1a038f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_model.html">Model</a> * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulator.html#adf2949b99c40c3c94c790786de1a038f">getModels</a> () const </td></tr>
+<tr class="memdesc:adf2949b99c40c3c94c790786de1a038f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the list of open models in the simulator.  <a href="#adf2949b99c40c3c94c790786de1a038f">More...</a><br /></td></tr>
 <tr class="separator:adf2949b99c40c3c94c790786de1a038f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e68b96d9af4bb7cf3f0b8a5c2e66d31"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_list.html">List</a>&lt; <a class="el" href="class_plugin.html">Plugin</a> * &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulator.html#a0e68b96d9af4bb7cf3f0b8a5c2e66d31">getPlugins</a> () const </td></tr>
 <tr class="separator:a0e68b96d9af4bb7cf3f0b8a5c2e66d31"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -137,12 +138,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a767a6811df08f6327524ab6ccb715672"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulator.html#a767a6811df08f6327524ab6ccb715672">getName</a> () const </td></tr>
 <tr class="separator:a767a6811df08f6327524ab6ccb715672"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7477e74d6751ea9e4b841178b0c42f34"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_sampler__if.html">Sampler_if</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulator.html#a7477e74d6751ea9e4b841178b0c42f34">getSampler</a> () const </td></tr>
+<tr class="memdesc:a7477e74d6751ea9e4b841178b0c42f34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the Sampler, used to generate samples accordingly to a probability distribution.  <a href="#a7477e74d6751ea9e4b841178b0c42f34">More...</a><br /></td></tr>
 <tr class="separator:a7477e74d6751ea9e4b841178b0c42f34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7498ab51b3112e487f73eefb6d384b74"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_fitter__if.html">Fitter_if</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_simulator.html#a7498ab51b3112e487f73eefb6d384b74">getFitter</a> () const </td></tr>
+<tr class="memdesc:a7498ab51b3112e487f73eefb6d384b74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the fitter, responsible for carrying out tests of adherence of theoretical distributions of probability with sampled data.  <a href="#a7498ab51b3112e487f73eefb6d384b74">More...</a><br /></td></tr>
 <tr class="separator:a7498ab51b3112e487f73eefb6d384b74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The main class of the Genesys KERNEL simulation. It gives access to simulation models and tools. </p>
+<div class="textblock"><p>The main class of the ReGenesys KERNEL simulation. It gives access to simulation models and tools. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a031573bfcfe2e0f5c9539bcc1c7fc5d9"></a>
 <div class="memitem">
@@ -212,6 +215,19 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the fitter, responsible for carrying out tests of adherence of theoretical distributions of probability with sampled data. </p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_simulator_a7498ab51b3112e487f73eefb6d384b74_icgraph.png" border="0" usemap="#class_simulator_a7498ab51b3112e487f73eefb6d384b74_icgraph" alt=""/></div>
+<map name="class_simulator_a7498ab51b3112e487f73eefb6d384b74_icgraph" id="class_simulator_a7498ab51b3112e487f73eefb6d384b74_icgraph">
+<area shape="rect" id="node2" href="_test_input_analyser_tools_8cpp.html#af7011a62619acc9f81bcb4c5a5fafbe8" title="testStudentSoftwareDevelopments" alt="" coords="187,13,412,39"/>
+<area shape="rect" id="node3" href="class_test_input_analyser_tools.html#a8015a3024f29bddc865cb0b419214cd7" title="TestInputAnalyserTools\l::main" alt="" coords="460,5,620,47"/>
+</map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="ae180aeffe94a7b0af5fb64ce8ad29810"></a>
@@ -226,6 +242,18 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_simulator_ae180aeffe94a7b0af5fb64ce8ad29810_icgraph.png" border="0" usemap="#class_simulator_ae180aeffe94a7b0af5fb64ce8ad29810_icgraph" alt=""/></div>
+<map name="class_simulator_ae180aeffe94a7b0af5fb64ce8ad29810_icgraph" id="class_simulator_ae180aeffe94a7b0af5fb64ce8ad29810_icgraph">
+<area shape="rect" id="node2" href="class_model_simulation.html#a22ea961f3242d4466dc0cf392c66d5e9" title="Starts a sequential execution of a simulation, ie, a set of replications of this model. " alt="" coords="201,13,415,39"/>
+<area shape="rect" id="node3" href="_build_simulation_model_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="463,13,617,39"/>
+<area shape="rect" id="node4" href="class_build_simulation_model.html#a8c50f55d7293860e5e7bc7e7e74f8d4a" title="BuildSimulationModel\l::main" alt="" coords="665,5,812,47"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
@@ -242,6 +270,20 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the list of open models in the simulator. </p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_simulator_adf2949b99c40c3c94c790786de1a038f_icgraph.png" border="0" usemap="#class_simulator_adf2949b99c40c3c94c790786de1a038f_icgraph" alt=""/></div>
+<map name="class_simulator_adf2949b99c40c3c94c790786de1a038f_icgraph" id="class_simulator_adf2949b99c40c3c94c790786de1a038f_icgraph">
+<area shape="rect" id="node2" href="_build_simulation_model_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="199,13,353,39"/>
+<area shape="rect" id="node4" href="class_test_parser.html#ae1421b04c5b7420e8d542ebefe46f70e" title="TestParser::main" alt="" coords="215,63,337,90"/>
+<area shape="rect" id="node3" href="class_build_simulation_model.html#a8c50f55d7293860e5e7bc7e7e74f8d4a" title="BuildSimulationModel\l::main" alt="" coords="401,5,548,47"/>
+</map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a767a6811df08f6327524ab6ccb715672"></a>
@@ -256,6 +298,18 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_simulator_a767a6811df08f6327524ab6ccb715672_icgraph.png" border="0" usemap="#class_simulator_a767a6811df08f6327524ab6ccb715672_icgraph" alt=""/></div>
+<map name="class_simulator_a767a6811df08f6327524ab6ccb715672_icgraph" id="class_simulator_a767a6811df08f6327524ab6ccb715672_icgraph">
+<area shape="rect" id="node2" href="class_model_simulation.html#a22ea961f3242d4466dc0cf392c66d5e9" title="Starts a sequential execution of a simulation, ie, a set of replications of this model. " alt="" coords="192,13,405,39"/>
+<area shape="rect" id="node3" href="_build_simulation_model_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="453,13,608,39"/>
+<area shape="rect" id="node4" href="class_build_simulation_model.html#a8c50f55d7293860e5e7bc7e7e74f8d4a" title="BuildSimulationModel\l::main" alt="" coords="656,5,803,47"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
@@ -286,6 +340,19 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the Sampler, used to generate samples accordingly to a probability distribution. </p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_simulator_a7477e74d6751ea9e4b841178b0c42f34_icgraph.png" border="0" usemap="#class_simulator_a7477e74d6751ea9e4b841178b0c42f34_icgraph" alt=""/></div>
+<map name="class_simulator_a7477e74d6751ea9e4b841178b0c42f34_icgraph" id="class_simulator_a7477e74d6751ea9e4b841178b0c42f34_icgraph">
+<area shape="rect" id="node2" href="_test_input_analyser_tools_8cpp.html#af7011a62619acc9f81bcb4c5a5fafbe8" title="testStudentSoftwareDevelopments" alt="" coords="204,13,429,39"/>
+<area shape="rect" id="node3" href="class_test_input_analyser_tools.html#a8015a3024f29bddc865cb0b419214cd7" title="TestInputAnalyserTools\l::main" alt="" coords="477,5,637,47"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>

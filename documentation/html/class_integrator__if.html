@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>ReGenESyS - Reborn Generic and Expansible System Simulator: Integrator_if Class Reference</title>
+<title>ReGenESyS - Reborned GENeric and Expansible SYstem Simulator: Integrator_if Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,10 +32,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="software_genesys.gif"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">ReGenESyS - Reborn Generic and Expansible System Simulator
-   &#160;<span id="projectnumber">2018.4</span>
+   <div id="projectname">ReGenESyS - Reborned GENeric and Expansible SYstem Simulator
+   &#160;<span id="projectnumber">2019.0509</span>
    </div>
-   <div id="projectbrief">ReGenESyS - Reborn Generic and Expansible System Simulator</div>
+   <div id="projectbrief">Genesys is the product of Professor Rafael Luiz Cancian&#39;s teaching and research activities. It began in early 2002 as a way to teach students the basics and simulation techniques of systems used by business tools. With his development, he replicated all the SIMAN language, used by Arena software, and has become a clone of that tool, including its graphical interface. Genesys allowed the inclusion of new simulation components through dynamic link libraries and also the parallel execution of simulation models in a distributed environment. The development of Genesys continued until 2007, when the professor stopped teaching systems simulation classes. Ten years later the professor starts again to teach systems simulation classes and to carry out scientific research in the area. So in 2018 Genesys is reborn as ReGenesys, with new language and programming techniques, and even more ambitious goals.</div>
   </td>
  </tr>
  </tbody>
@@ -122,7 +122,8 @@ Inheritance diagram for Integrator_if:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_integrator__if__inherit__graph.png" border="0" usemap="#_integrator__if_inherit__map" alt="Inheritance graph"/></div>
 <map name="_integrator__if_inherit__map" id="_integrator__if_inherit__map">
-<area shape="rect" id="node2" href="class_integrator_dummy_impl.html" title="IntegratorDummyImpl" alt="" coords="5,80,153,107"/>
+<area shape="rect" id="node2" href="class_integrator_default_impl1.html" title="IntegratorDefaultImpl1" alt="" coords="5,80,156,107"/>
+<area shape="rect" id="node3" href="class_integrator_dummy_impl.html" title="IntegratorDummyImpl" alt="" coords="180,80,328,107"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -141,7 +142,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abaeac01142a4da07ba0f07a52732ac79"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_integrator__if.html#abaeac01142a4da07ba0f07a52732ac79">integrate</a> (double min, double max, double(*f)(double, double, double, double, double), double p2, double p3, double p4, double p5)=0</td></tr>
 <tr class="separator:abaeac01142a4da07ba0f07a52732ac79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Interface used by classes that perform the numerical integration of functions with one to four parameters. It is mainly used for calculating the probability of theoretical distributions, from its probability distribution functions. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="af3ab4e8ffa96c8970b2e3c980f84e89d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -163,7 +166,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_integrator_dummy_impl.html#a5c84a3117db426808d9488b67b60889d">IntegratorDummyImpl</a>.</p>
+<p>Implemented in <a class="el" href="class_integrator_default_impl1.html#aca5c537739f2fd62e8777496f891f171">IntegratorDefaultImpl1</a>, and <a class="el" href="class_integrator_dummy_impl.html#a5c84a3117db426808d9488b67b60889d">IntegratorDummyImpl</a>.</p>
 
 </div>
 </div>
@@ -211,7 +214,18 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_integrator_dummy_impl.html#a4a7b142f7c94077b8bb6e4bcf8071b4b">IntegratorDummyImpl</a>.</p>
+<p>Implemented in <a class="el" href="class_integrator_default_impl1.html#a46e67c9c31df0ca3999f2b0645ef9999">IntegratorDefaultImpl1</a>, and <a class="el" href="class_integrator_dummy_impl.html#a4a7b142f7c94077b8bb6e4bcf8071b4b">IntegratorDummyImpl</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_integrator__if_a841c836fd72d4c428178d1e28a999ec9_icgraph.png" border="0" usemap="#class_integrator__if_a841c836fd72d4c428178d1e28a999ec9_icgraph" alt=""/></div>
+<map name="class_integrator__if_a841c836fd72d4c428178d1e28a999ec9_icgraph" id="class_integrator__if_a841c836fd72d4c428178d1e28a999ec9_icgraph">
+<area shape="rect" id="node2" href="_test_input_analyser_tools_8cpp.html#af7011a62619acc9f81bcb4c5a5fafbe8" title="testStudentSoftwareDevelopments" alt="" coords="203,13,428,39"/>
+<area shape="rect" id="node3" href="class_test_input_analyser_tools.html#a8015a3024f29bddc865cb0b419214cd7" title="TestInputAnalyserTools\l::main" alt="" coords="476,5,636,47"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
@@ -265,7 +279,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_integrator_dummy_impl.html#a19285353d908f47c1b76a8aedb3a16f1">IntegratorDummyImpl</a>.</p>
+<p>Implemented in <a class="el" href="class_integrator_default_impl1.html#ad7c402421fa8a9b7d38da9b255aacc88">IntegratorDefaultImpl1</a>, and <a class="el" href="class_integrator_dummy_impl.html#a19285353d908f47c1b76a8aedb3a16f1">IntegratorDummyImpl</a>.</p>
 
 </div>
 </div>
@@ -325,7 +339,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_integrator_dummy_impl.html#a7970145911ce0fc0ab990128bda5efde">IntegratorDummyImpl</a>.</p>
+<p>Implemented in <a class="el" href="class_integrator_default_impl1.html#ab029ba1412a8476753af2039ef2a242a">IntegratorDefaultImpl1</a>, and <a class="el" href="class_integrator_dummy_impl.html#a7970145911ce0fc0ab990128bda5efde">IntegratorDummyImpl</a>.</p>
 
 </div>
 </div>
@@ -391,7 +405,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_integrator_dummy_impl.html#af78c8e47fa17cef32d02f79e47845bd3">IntegratorDummyImpl</a>.</p>
+<p>Implemented in <a class="el" href="class_integrator_default_impl1.html#a973a8ba5c37fedb80278fd6d09770c46">IntegratorDefaultImpl1</a>, and <a class="el" href="class_integrator_dummy_impl.html#af78c8e47fa17cef32d02f79e47845bd3">IntegratorDummyImpl</a>.</p>
 
 </div>
 </div>
@@ -417,7 +431,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_integrator_dummy_impl.html#a8d246dd846c280ae6475ab753ee0cb53">IntegratorDummyImpl</a>.</p>
+<p>Implemented in <a class="el" href="class_integrator_default_impl1.html#a1011520ed0219b33a68746e9d740e346">IntegratorDefaultImpl1</a>, and <a class="el" href="class_integrator_dummy_impl.html#a8d246dd846c280ae6475ab753ee0cb53">IntegratorDummyImpl</a>.</p>
 
 </div>
 </div>

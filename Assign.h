@@ -6,7 +6,7 @@
 
 /* 
  * File:   Assign.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 31 de Agosto de 2018, 10:10
  */
@@ -20,61 +20,72 @@
 class Assign : public ModelComponent {
 public:
 
-	enum class DestinationType { /* TODO: +- an enun is not a good idea. Should be a list of possible classes, so TypeOf could be set */
-		Attribute, Variable
-	};
+    /* TODO: +- an enun is not a good idea. Should be a list of possible classes, so TypeOf could be set */
+    enum class DestinationType : int { 
+        Attribute, Variable
+    };
 
-	class Assignment {
-	public:
-		Assignment(DestinationType destinationType, std::string destination, std::string expression) {
-			this->_destinationType = destinationType;
-			this->_destination = destination;
-			this->_expression = expression;
-			// an assignment is always in the form:
-			// (destinationType) destination = expression
-		};
-	public:
-		void setDestination(std::string _destination) {
-			this->_destination = _destination;
-		}
-		std::string getDestination() const {
-			return _destination;
-		}
-		void setDestinationType(DestinationType _destinationType) {
-			this->_destinationType = _destinationType;
-		}
-		DestinationType getDestinationType() const {
-			return _destinationType;
-		}
-		void setExpression(std::string _expression) {
-			this->_expression = _expression;
-		}
-		std::string getExpression() const {
-			return _expression;
-		}
-	private:
-		DestinationType _destinationType = DestinationType::Attribute;
-		std::string _destination = "";
-		std::string _expression = "";
+    /*!
+     * While the assign class allows you to perform multiple assignments, the assignment class defines an assignment itself.
+     */
+    class Assignment {
+    public:
 
-	};
+        Assignment(DestinationType destinationType, std::string destination, std::string expression) {
+            this->_destinationType = destinationType;
+            this->_destination = destination;
+            this->_expression = expression;
+            // an assignment is always in the form:
+            // (destinationType) destination = expression
+        };
+    public:
+
+        void setDestination(std::string _destination) {
+            this->_destination = _destination;
+        }
+
+        std::string getDestination() const {
+            return _destination;
+        }
+
+        void setDestinationType(DestinationType _destinationType) {
+            this->_destinationType = _destinationType;
+        }
+
+        DestinationType getDestinationType() const {
+            return _destinationType;
+        }
+
+        void setExpression(std::string _expression) {
+            this->_expression = _expression;
+        }
+
+        std::string getExpression() const {
+            return _expression;
+        }
+    private:
+        DestinationType _destinationType = DestinationType::Attribute;
+        std::string _destination = "";
+        std::string _expression = "";
+
+    };
 public:
-	Assign(Model* model);
-	Assign(const Assign& orig);
-	virtual ~Assign();
+    Assign(Model* model);
+    Assign(const Assign& orig);
+    virtual ~Assign();
 public:
-	virtual std::string show();
+    virtual std::string show();
 public:
-	List<Assignment*>* getAssignments() const;
+    List<Assignment*>* getAssignments() const;
 
 protected:
-	virtual void _execute(Entity* entity);
-	virtual void _loadInstance(std::list<std::string> words);
-	virtual std::list<std::string>* _saveInstance();
-	virtual bool _verifySymbols(std::string* errorMessage);
+    virtual void _execute(Entity* entity);
+    virtual void _loadInstance(std::list<std::string> words);
+    virtual std::list<std::string>* _saveInstance();
+    virtual bool _verifySymbols(std::string* errorMessage);
 private:
 private:
-	List<Assignment*>* _assignments = new List<Assignment*>();
+    List<Assignment*>* _assignments = new List<Assignment*>();
 };
 
 #endif /* ASSIGN_H */

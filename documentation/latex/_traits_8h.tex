@@ -13,21 +13,24 @@
 {\ttfamily \#include \char`\"{}Genesys\+Application\+\_\+if.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}Process\+Analyser\+\_\+if.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}Experiment\+Design\+\_\+if.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Simulation\+Reporter\+\_\+if.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}Build\+Simulation\+Model.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}Test\+Input\+Analyser\+Tools.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}Test\+Parser.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}Collector\+Dummy\+Impl.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}Sampler\+Dummy\+Impl.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Test\+Statistics.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}Fitter\+Dummy\+Impl.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}Parser\+Dummy\+Impl.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}Model\+Checker\+Dummy\+Impl.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}Integrator\+Dummy\+Impl.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}Experiment\+Design\+Dummy\+Impl.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}Statistics\+Dummy\+Impl.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}Process\+Analyser\+Dummy\+Impl.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}Collector\+Datafile\+Dummy\+Impl.\+h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}Hypothesis\+Tester\+Dummy\+Impl.\+h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}Model\+Persistence\+Dummy\+Impl.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Collector\+Default\+Impl1.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Collector\+Datafile\+Default\+Impl1.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Statistics\+Default\+Impl1.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Integrator\+Default\+Impl1.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Hypothesis\+Tester\+Default\+Impl1.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Sampler\+Default\+Impl1.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}parser\+Bison\+Flex/\+Parser\+Flex\+Bison\+Impl.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Simulation\+Reporter\+Default\+Impl1.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Model\+Checker\+Default\+Impl1.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Experiment\+Design\+Default\+Impl1.\+h\char`\"{}}\\*
 Include dependency graph for Traits.\+h\+:
 \nopagebreak
 \begin{figure}[H]
@@ -53,25 +56,27 @@ struct \hyperlink{struct_traits_3_01_genesys_application__if_01_4}{Traits$<$ Gen
 \item 
 struct \hyperlink{struct_traits_3_01_model_01_4}{Traits$<$ Model $>$}
 \item 
+struct \hyperlink{struct_traits_3_01_model_persistence__if_01_4}{Traits$<$ Model\+Persistence\+\_\+if $>$}
+\item 
+struct \hyperlink{struct_traits_3_01_simulation_reporter__if_01_4}{Traits$<$ Simulation\+Reporter\+\_\+if $>$}
+\item 
 struct \hyperlink{struct_traits_3_01_model_component_01_4}{Traits$<$ Model\+Component $>$}
-\item 
-struct \hyperlink{struct_traits_3_01_sampler__if_01_4}{Traits$<$ Sampler\+\_\+if $>$}
-\item 
-struct \hyperlink{struct_traits_3_01_fitter__if_01_4}{Traits$<$ Fitter\+\_\+if $>$}
-\item 
-struct \hyperlink{struct_traits_3_01_collector__if_01_4}{Traits$<$ Collector\+\_\+if $>$}
 \item 
 struct \hyperlink{struct_traits_3_01_model_checker__if_01_4}{Traits$<$ Model\+Checker\+\_\+if $>$}
 \item 
 struct \hyperlink{struct_traits_3_01_parser__if_01_4}{Traits$<$ Parser\+\_\+if $>$}
 \item 
+struct \hyperlink{struct_traits_3_01_collector__if_01_4}{Traits$<$ Collector\+\_\+if $>$}
+\item 
 struct \hyperlink{struct_traits_3_01_statistics__if_01_4}{Traits$<$ Statistics\+\_\+if $>$}
 \item 
 struct \hyperlink{struct_traits_3_01_integrator__if_01_4}{Traits$<$ Integrator\+\_\+if $>$}
 \item 
-struct \hyperlink{struct_traits_3_01_hypothesis_tester__if_01_4}{Traits$<$ Hypothesis\+Tester\+\_\+if $>$}
+struct \hyperlink{struct_traits_3_01_sampler__if_01_4}{Traits$<$ Sampler\+\_\+if $>$}
 \item 
-struct \hyperlink{struct_traits_3_01_model_persistence__if_01_4}{Traits$<$ Model\+Persistence\+\_\+if $>$}
+struct \hyperlink{struct_traits_3_01_fitter__if_01_4}{Traits$<$ Fitter\+\_\+if $>$}
+\item 
+struct \hyperlink{struct_traits_3_01_hypothesis_tester__if_01_4}{Traits$<$ Hypothesis\+Tester\+\_\+if $>$}
 \item 
 struct \hyperlink{struct_traits_3_01_experiment_design__if_01_4}{Traits$<$ Experiment\+Design\+\_\+if $>$}
 \item 

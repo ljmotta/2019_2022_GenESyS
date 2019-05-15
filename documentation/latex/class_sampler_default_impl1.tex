@@ -1,0 +1,332 @@
+\hypertarget{class_sampler_default_impl1}{}\section{Sampler\+Default\+Impl1 Class Reference}
+\label{class_sampler_default_impl1}\index{Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}}
+
+
+{\ttfamily \#include $<$Sampler\+Default\+Impl1.\+h$>$}
+
+
+
+Inheritance diagram for Sampler\+Default\+Impl1\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=188pt]{class_sampler_default_impl1__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Sampler\+Default\+Impl1\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=188pt]{class_sampler_default_impl1__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_sampler_default_impl1_1_1_default_impl1_r_n_g___parameters}{Default\+Impl1\+R\+N\+G\+\_\+\+Parameters}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_sampler_default_impl1_afc174d33e8a21000aae83f1cd7b20485}{Sampler\+Default\+Impl1} ()
+\item 
+\hyperlink{class_sampler_default_impl1_a0d9909ee49e555874300fe4e625716d2}{Sampler\+Default\+Impl1} (const \hyperlink{class_sampler_default_impl1}{Sampler\+Default\+Impl1} \&orig)
+\item 
+virtual \hyperlink{class_sampler_default_impl1_a2ce9183218d642a4806c314c7eec2b71}{$\sim$\+Sampler\+Default\+Impl1} ()
+\item 
+double \hyperlink{class_sampler_default_impl1_a035aa0704204ca8b4633be2fa013b31a}{random} ()
+\item 
+double \hyperlink{class_sampler_default_impl1_a83a193b590f3c4ac577a7afb25c781b5}{sample\+Uniform} (double min, double max)
+\item 
+double \hyperlink{class_sampler_default_impl1_ac467ff4dcc21a47fdc0988d5f0a097e7}{sample\+Exponential} (double mean)
+\item 
+double \hyperlink{class_sampler_default_impl1_a8a6d2d9f410d5836af44bfe270544ff4}{sample\+Erlang} (double mean, int M)
+\item 
+double \hyperlink{class_sampler_default_impl1_a08b9a57ef18e04af6ae84fc4bf0811fb}{sample\+Normal} (double mean, double stddev)
+\item 
+double \hyperlink{class_sampler_default_impl1_a5d3511009bd1ac4aa69240437830eefc}{sample\+Gamma} (double mean, double alpha)
+\item 
+double \hyperlink{class_sampler_default_impl1_a43a1ac8a435a0d98966ae18b17a04edb}{sample\+Beta} (double alpha, double beta, double inf\+Limit, double sup\+Limit)
+\item 
+double \hyperlink{class_sampler_default_impl1_a175f89bbf0ec4d52d89b44d390ce5980}{sample\+Weibull} (double alpha, double scale)
+\item 
+double \hyperlink{class_sampler_default_impl1_a53172f08f1963a3b3ea9b70f79131a7c}{sample\+Log\+Normal} (double mean, double stddev)
+\item 
+double \hyperlink{class_sampler_default_impl1_a08bad7450164364c754b03bf7fa87abc}{sample\+Triangular} (double min, double mode, double max)
+\item 
+double \hyperlink{class_sampler_default_impl1_afbdc37c5c419c9e684042cc497c4143a}{sample\+Discrete} (double value, double acum\+Prob,...)
+\item 
+void \hyperlink{class_sampler_default_impl1_ae681008e9d2cca87a54b108e089538c0}{reset} ()
+\begin{DoxyCompactList}\small\item\em reinitialize seed and other parameters so (pseudo) random number sequence will be generated again. \end{DoxyCompactList}\item 
+void \hyperlink{class_sampler_default_impl1_a1cfdd1ae3318acfeca1786046aa7a79a}{set\+R\+N\+Gparameters} (\hyperlink{class_sampler__if_1_1_r_n_g___parameters}{R\+N\+G\+\_\+\+Parameters} $\ast$param)
+\item 
+\hyperlink{class_sampler__if_1_1_r_n_g___parameters}{R\+N\+G\+\_\+\+Parameters} $\ast$ \hyperlink{class_sampler_default_impl1_aa7f6847a370d93fec953b6fa741c8998}{get\+R\+N\+Gparameters} () const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}!Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}}
+\index{Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}!Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}}
+\subsubsection[{\texorpdfstring{Sampler\+Default\+Impl1()}{SamplerDefaultImpl1()}}]{\setlength{\rightskip}{0pt plus 5cm}Sampler\+Default\+Impl1\+::\+Sampler\+Default\+Impl1 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_sampler_default_impl1_afc174d33e8a21000aae83f1cd7b20485}{}\label{class_sampler_default_impl1_afc174d33e8a21000aae83f1cd7b20485}
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{class_sampler_default_impl1_afc174d33e8a21000aae83f1cd7b20485_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}!Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}}
+\index{Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}!Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}}
+\subsubsection[{\texorpdfstring{Sampler\+Default\+Impl1(const Sampler\+Default\+Impl1 \&orig)}{SamplerDefaultImpl1(const SamplerDefaultImpl1 &orig)}}]{\setlength{\rightskip}{0pt plus 5cm}Sampler\+Default\+Impl1\+::\+Sampler\+Default\+Impl1 (
+\begin{DoxyParamCaption}
+\item[{const {\bf Sampler\+Default\+Impl1} \&}]{orig}
+\end{DoxyParamCaption}
+)}\hypertarget{class_sampler_default_impl1_a0d9909ee49e555874300fe4e625716d2}{}\label{class_sampler_default_impl1_a0d9909ee49e555874300fe4e625716d2}
+\index{Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}!````~Sampler\+Default\+Impl1@{$\sim$\+Sampler\+Default\+Impl1}}
+\index{````~Sampler\+Default\+Impl1@{$\sim$\+Sampler\+Default\+Impl1}!Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}}
+\subsubsection[{\texorpdfstring{$\sim$\+Sampler\+Default\+Impl1()}{~SamplerDefaultImpl1()}}]{\setlength{\rightskip}{0pt plus 5cm}Sampler\+Default\+Impl1\+::$\sim$\+Sampler\+Default\+Impl1 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_sampler_default_impl1_a2ce9183218d642a4806c314c7eec2b71}{}\label{class_sampler_default_impl1_a2ce9183218d642a4806c314c7eec2b71}
+
+
+\subsection{Member Function Documentation}
+\index{Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}!get\+R\+N\+Gparameters@{get\+R\+N\+Gparameters}}
+\index{get\+R\+N\+Gparameters@{get\+R\+N\+Gparameters}!Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}}
+\subsubsection[{\texorpdfstring{get\+R\+N\+Gparameters() const }{getRNGparameters() const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sampler\+\_\+if\+::\+R\+N\+G\+\_\+\+Parameters} $\ast$ Sampler\+Default\+Impl1\+::get\+R\+N\+Gparameters (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_sampler_default_impl1_aa7f6847a370d93fec953b6fa741c8998}{}\label{class_sampler_default_impl1_aa7f6847a370d93fec953b6fa741c8998}
+
+
+Implements \hyperlink{class_sampler__if_adb21edf9170ad5d9b27f4788db74bafa}{Sampler\+\_\+if}.
+
+\index{Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}!random@{random}}
+\index{random@{random}!Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}}
+\subsubsection[{\texorpdfstring{random()}{random()}}]{\setlength{\rightskip}{0pt plus 5cm}double Sampler\+Default\+Impl1\+::random (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_sampler_default_impl1_a035aa0704204ca8b4633be2fa013b31a}{}\label{class_sampler_default_impl1_a035aa0704204ca8b4633be2fa013b31a}
+
+
+Implements \hyperlink{class_sampler__if_a8136ccd467ee5621813269fa23791423}{Sampler\+\_\+if}.
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{class_sampler_default_impl1_a035aa0704204ca8b4633be2fa013b31a_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}!reset@{reset}}
+\index{reset@{reset}!Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}}
+\subsubsection[{\texorpdfstring{reset()}{reset()}}]{\setlength{\rightskip}{0pt plus 5cm}void Sampler\+Default\+Impl1\+::reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_sampler_default_impl1_ae681008e9d2cca87a54b108e089538c0}{}\label{class_sampler_default_impl1_ae681008e9d2cca87a54b108e089538c0}
+
+
+reinitialize seed and other parameters so (pseudo) random number sequence will be generated again. 
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{class_sampler_default_impl1_ae681008e9d2cca87a54b108e089538c0_icgraph}
+\end{center}
+\end{figure}
+
+
+\index{Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}!sample\+Beta@{sample\+Beta}}
+\index{sample\+Beta@{sample\+Beta}!Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}}
+\subsubsection[{\texorpdfstring{sample\+Beta(double alpha, double beta, double inf\+Limit, double sup\+Limit)}{sampleBeta(double alpha, double beta, double infLimit, double supLimit)}}]{\setlength{\rightskip}{0pt plus 5cm}double Sampler\+Default\+Impl1\+::sample\+Beta (
+\begin{DoxyParamCaption}
+\item[{double}]{alpha, }
+\item[{double}]{beta, }
+\item[{double}]{inf\+Limit, }
+\item[{double}]{sup\+Limit}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_sampler_default_impl1_a43a1ac8a435a0d98966ae18b17a04edb}{}\label{class_sampler_default_impl1_a43a1ac8a435a0d98966ae18b17a04edb}
+
+
+Implements \hyperlink{class_sampler__if_a1081daf677b12de42f0abfcbe5ba9301}{Sampler\+\_\+if}.
+
+\index{Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}!sample\+Discrete@{sample\+Discrete}}
+\index{sample\+Discrete@{sample\+Discrete}!Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}}
+\subsubsection[{\texorpdfstring{sample\+Discrete(double value, double acum\+Prob,...)}{sampleDiscrete(double value, double acumProb,...)}}]{\setlength{\rightskip}{0pt plus 5cm}double Sampler\+Default\+Impl1\+::sample\+Discrete (
+\begin{DoxyParamCaption}
+\item[{double}]{value, }
+\item[{double}]{acum\+Prob, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_sampler_default_impl1_afbdc37c5c419c9e684042cc497c4143a}{}\label{class_sampler_default_impl1_afbdc37c5c419c9e684042cc497c4143a}
+
+
+Implements \hyperlink{class_sampler__if_a2fcdf79225b5cdd023db7751655f1ceb}{Sampler\+\_\+if}.
+
+\index{Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}!sample\+Erlang@{sample\+Erlang}}
+\index{sample\+Erlang@{sample\+Erlang}!Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}}
+\subsubsection[{\texorpdfstring{sample\+Erlang(double mean, int M)}{sampleErlang(double mean, int M)}}]{\setlength{\rightskip}{0pt plus 5cm}double Sampler\+Default\+Impl1\+::sample\+Erlang (
+\begin{DoxyParamCaption}
+\item[{double}]{mean, }
+\item[{int}]{M}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_sampler_default_impl1_a8a6d2d9f410d5836af44bfe270544ff4}{}\label{class_sampler_default_impl1_a8a6d2d9f410d5836af44bfe270544ff4}
+
+
+Implements \hyperlink{class_sampler__if_acd16e61c373f5e051c5f4103848e5c8a}{Sampler\+\_\+if}.
+
+\index{Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}!sample\+Exponential@{sample\+Exponential}}
+\index{sample\+Exponential@{sample\+Exponential}!Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}}
+\subsubsection[{\texorpdfstring{sample\+Exponential(double mean)}{sampleExponential(double mean)}}]{\setlength{\rightskip}{0pt plus 5cm}double Sampler\+Default\+Impl1\+::sample\+Exponential (
+\begin{DoxyParamCaption}
+\item[{double}]{mean}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_sampler_default_impl1_ac467ff4dcc21a47fdc0988d5f0a097e7}{}\label{class_sampler_default_impl1_ac467ff4dcc21a47fdc0988d5f0a097e7}
+
+
+Implements \hyperlink{class_sampler__if_aeb17b9d84bc05c14f0be2ce0b60ed263}{Sampler\+\_\+if}.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{class_sampler_default_impl1_ac467ff4dcc21a47fdc0988d5f0a097e7_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}!sample\+Gamma@{sample\+Gamma}}
+\index{sample\+Gamma@{sample\+Gamma}!Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}}
+\subsubsection[{\texorpdfstring{sample\+Gamma(double mean, double alpha)}{sampleGamma(double mean, double alpha)}}]{\setlength{\rightskip}{0pt plus 5cm}double Sampler\+Default\+Impl1\+::sample\+Gamma (
+\begin{DoxyParamCaption}
+\item[{double}]{mean, }
+\item[{double}]{alpha}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_sampler_default_impl1_a5d3511009bd1ac4aa69240437830eefc}{}\label{class_sampler_default_impl1_a5d3511009bd1ac4aa69240437830eefc}
+
+
+Implements \hyperlink{class_sampler__if_aafcceb6ad73790ddca45af1ea7f2088d}{Sampler\+\_\+if}.
+
+\index{Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}!sample\+Log\+Normal@{sample\+Log\+Normal}}
+\index{sample\+Log\+Normal@{sample\+Log\+Normal}!Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}}
+\subsubsection[{\texorpdfstring{sample\+Log\+Normal(double mean, double stddev)}{sampleLogNormal(double mean, double stddev)}}]{\setlength{\rightskip}{0pt plus 5cm}double Sampler\+Default\+Impl1\+::sample\+Log\+Normal (
+\begin{DoxyParamCaption}
+\item[{double}]{mean, }
+\item[{double}]{stddev}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_sampler_default_impl1_a53172f08f1963a3b3ea9b70f79131a7c}{}\label{class_sampler_default_impl1_a53172f08f1963a3b3ea9b70f79131a7c}
+
+
+Implements \hyperlink{class_sampler__if_a031e1170c529e2cc67131d4da6ee683e}{Sampler\+\_\+if}.
+
+\index{Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}!sample\+Normal@{sample\+Normal}}
+\index{sample\+Normal@{sample\+Normal}!Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}}
+\subsubsection[{\texorpdfstring{sample\+Normal(double mean, double stddev)}{sampleNormal(double mean, double stddev)}}]{\setlength{\rightskip}{0pt plus 5cm}double Sampler\+Default\+Impl1\+::sample\+Normal (
+\begin{DoxyParamCaption}
+\item[{double}]{mean, }
+\item[{double}]{stddev}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_sampler_default_impl1_a08b9a57ef18e04af6ae84fc4bf0811fb}{}\label{class_sampler_default_impl1_a08b9a57ef18e04af6ae84fc4bf0811fb}
+
+
+Implements \hyperlink{class_sampler__if_a559f1f29b5e4455c9e59cf00d622da47}{Sampler\+\_\+if}.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{class_sampler_default_impl1_a08b9a57ef18e04af6ae84fc4bf0811fb_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}!sample\+Triangular@{sample\+Triangular}}
+\index{sample\+Triangular@{sample\+Triangular}!Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}}
+\subsubsection[{\texorpdfstring{sample\+Triangular(double min, double mode, double max)}{sampleTriangular(double min, double mode, double max)}}]{\setlength{\rightskip}{0pt plus 5cm}double Sampler\+Default\+Impl1\+::sample\+Triangular (
+\begin{DoxyParamCaption}
+\item[{double}]{min, }
+\item[{double}]{mode, }
+\item[{double}]{max}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_sampler_default_impl1_a08bad7450164364c754b03bf7fa87abc}{}\label{class_sampler_default_impl1_a08bad7450164364c754b03bf7fa87abc}
+
+
+Implements \hyperlink{class_sampler__if_a02d68c26089c6dd53b99882da79c88ca}{Sampler\+\_\+if}.
+
+\index{Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}!sample\+Uniform@{sample\+Uniform}}
+\index{sample\+Uniform@{sample\+Uniform}!Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}}
+\subsubsection[{\texorpdfstring{sample\+Uniform(double min, double max)}{sampleUniform(double min, double max)}}]{\setlength{\rightskip}{0pt plus 5cm}double Sampler\+Default\+Impl1\+::sample\+Uniform (
+\begin{DoxyParamCaption}
+\item[{double}]{min, }
+\item[{double}]{max}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_sampler_default_impl1_a83a193b590f3c4ac577a7afb25c781b5}{}\label{class_sampler_default_impl1_a83a193b590f3c4ac577a7afb25c781b5}
+
+
+Implements \hyperlink{class_sampler__if_a0643f4ca1d770d01afefa956e9f78edf}{Sampler\+\_\+if}.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{class_sampler_default_impl1_a83a193b590f3c4ac577a7afb25c781b5_cgraph}
+\end{center}
+\end{figure}
+
+
+\index{Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}!sample\+Weibull@{sample\+Weibull}}
+\index{sample\+Weibull@{sample\+Weibull}!Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}}
+\subsubsection[{\texorpdfstring{sample\+Weibull(double alpha, double scale)}{sampleWeibull(double alpha, double scale)}}]{\setlength{\rightskip}{0pt plus 5cm}double Sampler\+Default\+Impl1\+::sample\+Weibull (
+\begin{DoxyParamCaption}
+\item[{double}]{alpha, }
+\item[{double}]{scale}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_sampler_default_impl1_a175f89bbf0ec4d52d89b44d390ce5980}{}\label{class_sampler_default_impl1_a175f89bbf0ec4d52d89b44d390ce5980}
+
+
+Implements \hyperlink{class_sampler__if_ac02b82a18e78c4bbaea1bc90c617857b}{Sampler\+\_\+if}.
+
+\index{Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}!set\+R\+N\+Gparameters@{set\+R\+N\+Gparameters}}
+\index{set\+R\+N\+Gparameters@{set\+R\+N\+Gparameters}!Sampler\+Default\+Impl1@{Sampler\+Default\+Impl1}}
+\subsubsection[{\texorpdfstring{set\+R\+N\+Gparameters(\+R\+N\+G\+\_\+\+Parameters $\ast$param)}{setRNGparameters(RNG_Parameters *param)}}]{\setlength{\rightskip}{0pt plus 5cm}void Sampler\+Default\+Impl1\+::set\+R\+N\+Gparameters (
+\begin{DoxyParamCaption}
+\item[{{\bf Sampler\+\_\+if\+::\+R\+N\+G\+\_\+\+Parameters} $\ast$}]{param}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{class_sampler_default_impl1_a1cfdd1ae3318acfeca1786046aa7a79a}{}\label{class_sampler_default_impl1_a1cfdd1ae3318acfeca1786046aa7a79a}
+
+
+Implements \hyperlink{class_sampler__if_a630a0cbbef6e49869063530b03d3bb35}{Sampler\+\_\+if}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_sampler_default_impl1_8h}{Sampler\+Default\+Impl1.\+h}\item 
+\hyperlink{_sampler_default_impl1_8cpp}{Sampler\+Default\+Impl1.\+cpp}\end{DoxyCompactItemize}

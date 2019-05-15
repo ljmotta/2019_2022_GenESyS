@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_prob_distrib.html" title="ProbDistrib" alt="" coords="5,5,92,32"/>
+<area shape="rect" id="node1" href="$class_model_persistence__if.html" title="ModelPersistence_if" alt="" coords="5,5,145,32"/>
+<area shape="rect" id="node2" href="$class_model_persistence_dummy_impl.html" title="ModelPersistenceDummyImpl" alt="" coords="193,5,391,32"/>
 </map>

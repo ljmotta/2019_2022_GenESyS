@@ -6,7 +6,7 @@
 
 /* 
  * File:   Waiting.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 29 de Agosto de 2018, 17:09
  */
@@ -19,19 +19,19 @@
 
 class Waiting {
 public:
-	Waiting(Entity* entity, ModelComponent* component, double timeStartedWaiting);
-	Waiting(const Waiting& orig);
-	virtual ~Waiting();
+    Waiting(Entity* entity, ModelComponent* component, double timeStartedWaiting);
+    Waiting(const Waiting& orig);
+    virtual ~Waiting();
 public:
-	virtual std::string show();
+    virtual std::string show();
 public:
-	double getTimeStartedWaiting() const;
-	ModelComponent* getComponent() const;
-	Entity* getEntity() const;
+    double getTimeStartedWaiting() const;
+    ModelComponent* getComponent() const;
+    Entity* getEntity() const;
 private:
-	Entity* _entity;
-	ModelComponent* _component;
-	double _timeStartedWaiting;
+    Entity* _entity;
+    ModelComponent* _component;
+    double _timeStartedWaiting;
 };
 
 #endif /* WAITING_H */

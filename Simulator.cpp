@@ -6,7 +6,7 @@
 
 /* 
  * File:   Genesys.cpp
- * Author: cancian
+ * Author: rafael.luiz.cancian
  * 
  * Created on 21 de Junho de 2018, 12:48
  */
@@ -15,14 +15,14 @@
 #include "Traits.h"
 
 Simulator::Simulator() {
-	// 1:1
-	_fitter = new Traits<Fitter_if>::Implementation();
-	_sampler = new Traits<Sampler_if>::Implementation();
+    std::cout << "Now running " << _name << std::endl << _license << std::endl << std::endl; // The ONLY cout allowed "inside" the simulator (including model and other classes, pls
+    // 1:1
+    _fitter = new Traits<Fitter_if>::Implementation(); 
+    _sampler = new Traits<Sampler_if>::Implementation();
 
-	// instanciate 1:n attributes 
-	_plugins = new List<Plugin*>();
-	_models = new List<Model*>();
-	std::cout << _name << std::endl << _license << std::endl << std::endl; // The ONLY cout allowed "inside" the simulator (including model and other classes, pls
+    // instanciate 1:n attributes 
+    _plugins = new List<Plugin*>();
+    _models = new List<Model*>();
 }
 
 Simulator::Simulator(const Simulator& orig) {
@@ -32,30 +32,30 @@ Simulator::~Simulator() {
 }
 
 List<Model*>* Simulator::getModels() const {
-	return _models;
+    return _models;
 }
 
 List<Plugin*>* Simulator::getPlugins() const {
-	return _plugins;
+    return _plugins;
 }
 
 std::string Simulator::getVersion() const {
-	return _version;
+    return _version;
 }
 
 std::string Simulator::getLicense() const {
-	return _license;
+    return _license;
 }
 
 std::string Simulator::getName() const {
-	return _name;
+    return _name;
 }
 
 Sampler_if* Simulator::getSampler() const {
-	return _sampler;
+    return _sampler;
 }
 
 Fitter_if* Simulator::getFitter() const {
-	return _fitter;
+    return _fitter;
 }
 

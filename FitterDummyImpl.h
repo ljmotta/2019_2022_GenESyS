@@ -6,7 +6,7 @@
 
 /* 
  * File:   FitterDummyImpl.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 23 de Agosto de 2018, 15:36
  */
@@ -16,26 +16,26 @@
 
 #include "Fitter_if.h"
 
-class FitterDummyImpl: public Fitter_if {
+class FitterDummyImpl : public Fitter_if {
 public:
-	FitterDummyImpl();
-	FitterDummyImpl(const FitterDummyImpl& orig);
-	~FitterDummyImpl();
+    FitterDummyImpl();
+    FitterDummyImpl(const FitterDummyImpl& orig);
+    ~FitterDummyImpl();
 public:
-	bool isNormalDistributed(double confidencelevel);
-	void fitUniform (double *sqrerror, double *min, double *max);
-	void fitTriangular (double *sqrerror, double *min, double *mo, double *max);
-	void fitNormal (double *sqrerror, double *avg, double *stddev);
-	void fitExpo (double *sqrerror, double *avg1);
-	void fitErlang (double *sqrerror, double *avg, double *m);
-	void fitBeta (double *sqrerror, double *alpha, double *beta, double *infLimit,double *supLimit);
-	void fitWeibull (double *sqrerror, double *alpha, double *scale);
-	void fitAll (double *sqrerror, std::string *name);
+    bool isNormalDistributed(double confidencelevel);
+    void fitUniform(double *sqrerror, double *min, double *max);
+    void fitTriangular(double *sqrerror, double *min, double *mo, double *max);
+    void fitNormal(double *sqrerror, double *avg, double *stddev);
+    void fitExpo(double *sqrerror, double *avg1);
+    void fitErlang(double *sqrerror, double *avg, double *m);
+    void fitBeta(double *sqrerror, double *alpha, double *beta, double *infLimit, double *supLimit);
+    void fitWeibull(double *sqrerror, double *alpha, double *scale);
+    void fitAll(double *sqrerror, std::string *name);
 public:
-	void setDataFilename(std::string dataFilename);
-	std::string getDataFilename();
+    void setDataFilename(std::string dataFilename);
+    std::string getDataFilename();
 private:
-	std::string _dataFilename = "";
+    std::string _dataFilename = "";
 };
 
 #endif /* FITTERDUMMYIMPL_H */

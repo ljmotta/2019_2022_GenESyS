@@ -6,7 +6,7 @@
 
 /* 
  * File:   buildSimpleModel1.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 2 de Outubro de 2018, 19:18
  */
@@ -18,10 +18,10 @@
 
 class BuildSimulationModel : public GenesysApplication_if {
 public:
-	BuildSimulationModel();
+    BuildSimulationModel();
 protected:
 public:
-	int main(int argc, char** argv);
+    int main(int argc, char** argv);
 };
 
 #endif /* BUILDSIMPLEMODEL1_H */

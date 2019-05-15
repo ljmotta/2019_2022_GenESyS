@@ -6,7 +6,7 @@
 
 /* 
  * File:   Create.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 21 de Junho de 2018, 20:12
  */
@@ -17,22 +17,25 @@
 #include <string>
 #include <limits>
 #include "SourceModelComponent.h"
+#include "EntityType.h"
 
 /*!
  * Create is the most basic component to include the first entities into the model, and therefore is a source component (derived from SourceModelComponent)
  */
 class Create : public SourceModelComponent {
 public:
-	Create(Model* model);
-	Create(const Create& orig);
-	virtual ~Create();
+    Create(Model* model);
+    Create(const Create& orig);
+    virtual ~Create();
 public:
-	virtual std::string show();
+    virtual std::string show();
 protected:
-	virtual void _execute(Entity* entity);
-	virtual void _loadInstance(std::list<std::string> words);
-	virtual std::list<std::string>* _saveInstance();
-	virtual bool _verifySymbols(std::string* errorMessage);
+    virtual void _execute(Entity* entity);
+    virtual void _loadInstance(std::list<std::string> words);
+    virtual std::list<std::string>* _saveInstance();
+    virtual bool _verifySymbols(std::string* errorMessage);
+private:
+    EntityType* _entityType;
 };
 
 #endif /* CREATE_H */

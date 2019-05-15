@@ -6,7 +6,7 @@
 
 /* 
  * File:   Attribute.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 25 de Setembro de 2018, 16:37
  */
@@ -17,22 +17,20 @@
 #include <string>
 #include <list>
 #include "List.h"
+#include "ModelElement.h"
 
-
-#include "ModelInfrastructure.h"
-
-class Attribute : public ModelInfrastructure  {
+class Attribute : public ModelElement {
 public:
-	Attribute();
-	Attribute(const Attribute& orig);
-	virtual ~Attribute();
+    Attribute();
+    Attribute(std::string name);
+    Attribute(const Attribute& orig);
+    virtual ~Attribute();
 public:
-	virtual std::string show();
-	
-protected: 
-	virtual void _loadInstance(std::list<std::string> words);
-	virtual std::list<std::string>* _saveInstance();
-	virtual bool _verifySymbols(std::string* errorMessage);
+    virtual std::string show();
+protected:
+    virtual void _loadInstance(std::list<std::string> words);
+    virtual std::list<std::string>* _saveInstance();
+    virtual bool _verifySymbols(std::string* errorMessage);
 
 };
 

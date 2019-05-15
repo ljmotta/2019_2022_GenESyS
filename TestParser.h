@@ -6,7 +6,7 @@
 
 /* 
  * File:   TestParser.h
- * Author: cancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 7 de Novembro de 2018, 20:17
  */
@@ -16,13 +16,13 @@
 
 #include "GenesysApplication_if.h"
 
-class TestParser:public GenesysApplication_if {
+class TestParser : public GenesysApplication_if {
 public:
-	TestParser();
-	TestParser(const TestParser& orig);
-	virtual ~TestParser();
+    TestParser();
+    TestParser(const TestParser& orig);
+    virtual ~TestParser();
 public:
-	virtual int main(int argc, char** argv);
+    virtual int main(int argc, char** argv);
 private:
 
 };

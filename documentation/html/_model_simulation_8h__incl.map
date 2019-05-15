@@ -1,10 +1,16 @@
 <map id="ModelSimulation.h" name="ModelSimulation.h">
-<area shape="rect" id="node2" href="$_event_8h.html" title="Event.h" alt="" coords="506,80,573,107"/>
-<area shape="rect" id="node10" href="$_entity_8h.html" title="Entity.h" alt="" coords="298,229,365,256"/>
-<area shape="rect" id="node17" href="$_model_info_8h.html" title="ModelInfo.h" alt="" coords="853,304,944,331"/>
-<area shape="rect" id="node3" href="$_model_infrastructure_8h.html" title="ModelInfrastructure.h" alt="" coords="488,304,634,331"/>
-<area shape="rect" id="node15" href="$_model_component_8h.html" title="ModelComponent.h" alt="" coords="420,155,555,181"/>
-<area shape="rect" id="node6" href="$_util_8h.html" title="Util.h" alt="" coords="534,379,588,405"/>
-<area shape="rect" id="node11" href="$_list_8h.html" title="List.h" alt="" coords="307,304,362,331"/>
-<area shape="rect" id="node16" href="$_plugin_8h.html" title="Plugin.h" alt="" coords="709,304,778,331"/>
+<area shape="rect" id="node2" href="$_event_8h.html" title="Event.h" alt="" coords="807,80,873,107"/>
+<area shape="rect" id="node10" href="$_entity_8h.html" title="Entity.h" alt="" coords="343,229,409,256"/>
+<area shape="rect" id="node22" href="$_model_info_8h.html" title="ModelInfo.h" alt="" coords="195,528,285,555"/>
+<area shape="rect" id="node23" href="$_simulation_reporter__if_8h.html" title="SimulationReporter_if.h" alt="" coords="726,379,885,405"/>
+<area shape="rect" id="node4" href="$_model_element_8h.html" title="ModelElement.h" alt="" coords="843,528,959,555"/>
+<area shape="rect" id="node20" href="$_model_component_8h.html" title="ModelComponent.h" alt="" coords="773,155,907,181"/>
+<area shape="rect" id="node6" href="$_util_8h.html" title="Util.h" alt="" coords="232,603,285,629"/>
+<area shape="rect" id="node11" href="$_list_8h.html" title="List.h" alt="" coords="419,453,474,480"/>
+<area shape="rect" id="node15" href="$_entity_type_8h.html" title="EntityType.h" alt="" coords="941,304,1037,331"/>
+<area shape="rect" id="node16" href="$_statistics_collector_8h.html" title="StatisticsCollector.h" alt="" coords="897,453,1037,480"/>
+<area shape="rect" id="node19" href="$_element_manager_8h.html" title="ElementManager.h" alt="" coords="520,379,651,405"/>
+<area shape="rect" id="node17" href="$_statistics__if_8h.html" title="Statistics_if.h" alt="" coords="1086,528,1189,555"/>
+<area shape="rect" id="node18" href="$_collector__if_8h.html" title="Collector_if.h" alt="" coords="1187,603,1285,629"/>
+<area shape="rect" id="node21" href="$_plugin_8h.html" title="Plugin.h" alt="" coords="648,528,717,555"/>
 </map>

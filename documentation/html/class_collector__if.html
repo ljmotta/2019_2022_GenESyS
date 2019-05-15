@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>ReGenESyS - Reborn Generic and Expansible System Simulator: Collector_if Class Reference</title>
+<title>ReGenESyS - Reborned GENeric and Expansible SYstem Simulator: Collector_if Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,10 +32,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="software_genesys.gif"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">ReGenESyS - Reborn Generic and Expansible System Simulator
-   &#160;<span id="projectnumber">2018.4</span>
+   <div id="projectname">ReGenESyS - Reborned GENeric and Expansible SYstem Simulator
+   &#160;<span id="projectnumber">2019.0509</span>
    </div>
-   <div id="projectbrief">ReGenESyS - Reborn Generic and Expansible System Simulator</div>
+   <div id="projectbrief">Genesys is the product of Professor Rafael Luiz Cancian&#39;s teaching and research activities. It began in early 2002 as a way to teach students the basics and simulation techniques of systems used by business tools. With his development, he replicated all the SIMAN language, used by Arena software, and has become a clone of that tool, including its graphical interface. Genesys allowed the inclusion of new simulation components through dynamic link libraries and also the parallel execution of simulation models in a distributed environment. The development of Genesys continued until 2007, when the professor stopped teaching systems simulation classes. Ten years later the professor starts again to teach systems simulation classes and to carry out scientific research in the area. So in 2018 Genesys is reborn as ReGenesys, with new language and programming techniques, and even more ambitious goals.</div>
   </td>
  </tr>
  </tbody>
@@ -122,9 +122,11 @@ Inheritance diagram for Collector_if:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_collector__if__inherit__graph.png" border="0" usemap="#_collector__if_inherit__map" alt="Inheritance graph"/></div>
 <map name="_collector__if_inherit__map" id="_collector__if_inherit__map">
-<area shape="rect" id="node2" href="class_collector_datafile__if.html" title="CollectorDatafile_if" alt="" coords="34,80,167,107"/>
-<area shape="rect" id="node4" href="class_collector_dummy_impl.html" title="CollectorDummyImpl" alt="" coords="192,80,337,107"/>
-<area shape="rect" id="node3" href="class_collector_datafile_dummy_impl.html" title="CollectorDatafileDummyImpl" alt="" coords="5,155,196,181"/>
+<area shape="rect" id="node2" href="class_collector_datafile__if.html" title="CollectorDatafile_if" alt="" coords="119,80,253,107"/>
+<area shape="rect" id="node5" href="class_collector_default_impl1.html" title="CollectorDefaultImpl1" alt="" coords="277,80,425,107"/>
+<area shape="rect" id="node6" href="class_collector_dummy_impl.html" title="CollectorDummyImpl" alt="" coords="449,80,595,107"/>
+<area shape="rect" id="node3" href="class_collector_datafile_default_impl1.html" title="CollectorDatafileDefault\lImpl1" alt="" coords="5,155,167,196"/>
+<area shape="rect" id="node4" href="class_collector_datafile_dummy_impl.html" title="CollectorDatafileDummyImpl" alt="" coords="191,162,381,189"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -138,6 +140,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa14f7e1065af8fd38ab592e224fb7e43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97fa632508ffdfad1365b3a949acf745"><td class="memItemLeft" align="right" valign="top">virtual unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collector__if.html#a97fa632508ffdfad1365b3a949acf745">numElements</a> ()=0</td></tr>
 <tr class="separator:a97fa632508ffdfad1365b3a949acf745"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71e66a9bb8a91832ec7a05a1fe00519e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collector__if.html#a71e66a9bb8a91832ec7a05a1fe00519e">setAddValueHandler</a> (<a class="el" href="_collector__if_8h.html#ab97c9a368c50eb9e00cb4772e46ff38a">CollectorAddValueHandler</a> addValueHandler)=0</td></tr>
+<tr class="separator:a71e66a9bb8a91832ec7a05a1fe00519e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac03e3c41ccfe3aff6f6a0b3aca8c885b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_collector__if.html#ac03e3c41ccfe3aff6f6a0b3aca8c885b">setClearHandler</a> (<a class="el" href="_collector__if_8h.html#ad22205bb584ed3e0db55fc265a5fe1f4">CollectorClearHandler</a> clearHandler)=0</td></tr>
+<tr class="separator:ac03e3c41ccfe3aff6f6a0b3aca8c885b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interface for collecting values of a single stochastic variable. Values collected can be used as base for statistical analysis. </p>
@@ -164,7 +170,32 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_collector_dummy_impl.html#a1844cfacaf10eb42bd6f370592246223">CollectorDummyImpl</a>, and <a class="el" href="class_collector_datafile_dummy_impl.html#abf282948e13154ca6a0222508b81c78b">CollectorDatafileDummyImpl</a>.</p>
+<p>Implemented in <a class="el" href="class_collector_datafile_default_impl1.html#a79de52a90a2c428ca59812f046b34ae4">CollectorDatafileDefaultImpl1</a>, <a class="el" href="class_collector_dummy_impl.html#a1844cfacaf10eb42bd6f370592246223">CollectorDummyImpl</a>, <a class="el" href="class_collector_datafile_dummy_impl.html#abf282948e13154ca6a0222508b81c78b">CollectorDatafileDummyImpl</a>, and <a class="el" href="class_collector_default_impl1.html#a2e36071e83b5b3f92633dbd1e5dcb127">CollectorDefaultImpl1</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_collector__if_ac7b83bce8ddb4903d247c1eddd656171_icgraph.png" border="0" usemap="#class_collector__if_ac7b83bce8ddb4903d247c1eddd656171_icgraph" alt=""/></div>
+<map name="class_collector__if_ac7b83bce8ddb4903d247c1eddd656171_icgraph" id="class_collector__if_ac7b83bce8ddb4903d247c1eddd656171_icgraph">
+<area shape="rect" id="node2" href="class_delay.html#a029d91a2cd736ff9c361c69336e6ab41" title="Delay::_execute" alt="" coords="258,5,375,32"/>
+<area shape="rect" id="node3" href="class_model.html#ae62bb3a21cd56fbf9d34195edf2fb9e0" title="Model::removeEntity" alt="" coords="245,56,388,83"/>
+<area shape="rect" id="node5" href="class_model_simulation.html#a22ea961f3242d4466dc0cf392c66d5e9" title="Starts a sequential execution of a simulation, ie, a set of replications of this model. " alt="" coords="210,107,423,133"/>
+<area shape="rect" id="node8" href="class_queue.html#a961b5b7ca80317aa69f958612fb988ad" title="Queue::insertElement" alt="" coords="243,157,391,184"/>
+<area shape="rect" id="node10" href="class_queue.html#a114d5144b3026b57cca9cf481b1f0d65" title="Queue::removeElement" alt="" coords="237,208,396,235"/>
+<area shape="rect" id="node12" href="class_record.html#a036df9e81131cf36de20079c95d55151" title="Record::_execute" alt="" coords="254,259,379,285"/>
+<area shape="rect" id="node13" href="class_resource.html#ad5da4dca5dd48a4818827e6273c20c2d" title="Resource::release" alt="" coords="253,309,381,336"/>
+<area shape="rect" id="node15" href="_test_input_analyser_tools_8cpp.html#af7011a62619acc9f81bcb4c5a5fafbe8" title="testStudentSoftwareDevelopments" alt="" coords="204,360,429,387"/>
+<area shape="rect" id="node17" href="class_test_statistics.html#a5311e246afefb4778d3fcf06c5c4c756" title="TestStatistics::main" alt="" coords="247,411,386,437"/>
+<area shape="rect" id="node4" href="class_dispose.html#a342eb428496534cdfd17524ad78b0c08" title="Dispose::_execute" alt="" coords="492,56,623,83"/>
+<area shape="rect" id="node6" href="_build_simulation_model_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="480,107,635,133"/>
+<area shape="rect" id="node7" href="class_build_simulation_model.html#a8c50f55d7293860e5e7bc7e7e74f8d4a" title="BuildSimulationModel\l::main" alt="" coords="685,99,832,141"/>
+<area shape="rect" id="node9" href="class_seize.html#a96f6517a40b3bfd0d5ea753d59cef797" title="Seize::_execute" alt="" coords="499,157,615,184"/>
+<area shape="rect" id="node11" href="class_seize.html#adadd376a826f2b3a84176242dd9a15ca" title="Seize::setQueueName" alt="" coords="480,208,635,235"/>
+<area shape="rect" id="node14" href="class_release.html#a63c3cd89082e7f6c1fb61646b93a5c32" title="Release::_execute" alt="" coords="492,305,623,332"/>
+<area shape="rect" id="node16" href="class_test_input_analyser_tools.html#a8015a3024f29bddc865cb0b419214cd7" title="TestInputAnalyserTools\l::main" alt="" coords="477,357,637,398"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
@@ -189,7 +220,19 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_collector_dummy_impl.html#ae46c9c7311ee0ed2cc5fb1a3489efa77">CollectorDummyImpl</a>, and <a class="el" href="class_collector_datafile_dummy_impl.html#a752997589537d0a995da508194fabf7d">CollectorDatafileDummyImpl</a>.</p>
+<p>Implemented in <a class="el" href="class_collector_datafile_default_impl1.html#aa84fa9593fd46ff37e91147aa43f71c9">CollectorDatafileDefaultImpl1</a>, <a class="el" href="class_collector_dummy_impl.html#ae46c9c7311ee0ed2cc5fb1a3489efa77">CollectorDummyImpl</a>, <a class="el" href="class_collector_datafile_dummy_impl.html#a752997589537d0a995da508194fabf7d">CollectorDatafileDummyImpl</a>, and <a class="el" href="class_collector_default_impl1.html#a82eb6c21e7810cf904710e7652559358">CollectorDefaultImpl1</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_collector__if_a035bd1300c85866870c2f6178a9528e8_icgraph.png" border="0" usemap="#class_collector__if_a035bd1300c85866870c2f6178a9528e8_icgraph" alt=""/></div>
+<map name="class_collector__if_a035bd1300c85866870c2f6178a9528e8_icgraph" id="class_collector__if_a035bd1300c85866870c2f6178a9528e8_icgraph">
+<area shape="rect" id="node2" href="class_model_simulation.html#a22ea961f3242d4466dc0cf392c66d5e9" title="Starts a sequential execution of a simulation, ie, a set of replications of this model. " alt="" coords="177,13,391,39"/>
+<area shape="rect" id="node3" href="_build_simulation_model_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="439,13,593,39"/>
+<area shape="rect" id="node4" href="class_build_simulation_model.html#a8c50f55d7293860e5e7bc7e7e74f8d4a" title="BuildSimulationModel\l::main" alt="" coords="641,5,788,47"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>
@@ -214,7 +257,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_collector_dummy_impl.html#af19161da4eb1332b1f20b3fd6e96bd85">CollectorDummyImpl</a>, and <a class="el" href="class_collector_datafile_dummy_impl.html#a8016186fea2815530de9dfa77e9d69ac">CollectorDatafileDummyImpl</a>.</p>
+<p>Implemented in <a class="el" href="class_collector_datafile_default_impl1.html#a453988253db1796199b41c28162c8009">CollectorDatafileDefaultImpl1</a>, <a class="el" href="class_collector_dummy_impl.html#af19161da4eb1332b1f20b3fd6e96bd85">CollectorDummyImpl</a>, <a class="el" href="class_collector_datafile_dummy_impl.html#a8016186fea2815530de9dfa77e9d69ac">CollectorDatafileDummyImpl</a>, and <a class="el" href="class_collector_default_impl1.html#a13bb1928b87505141d730b348cc9b7ea">CollectorDefaultImpl1</a>.</p>
 
 </div>
 </div>
@@ -239,7 +282,92 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_collector_dummy_impl.html#a92241b24f8a0017c355879a204f94266">CollectorDummyImpl</a>, and <a class="el" href="class_collector_datafile_dummy_impl.html#a08cb7f0324844c744b41068ba1bf8d7a">CollectorDatafileDummyImpl</a>.</p>
+<p>Implemented in <a class="el" href="class_collector_datafile_default_impl1.html#a485e0be4646bbde54578b145f3735983">CollectorDatafileDefaultImpl1</a>, <a class="el" href="class_collector_dummy_impl.html#a92241b24f8a0017c355879a204f94266">CollectorDummyImpl</a>, <a class="el" href="class_collector_datafile_dummy_impl.html#a08cb7f0324844c744b41068ba1bf8d7a">CollectorDatafileDummyImpl</a>, and <a class="el" href="class_collector_default_impl1.html#a29ac5b9cca189d1fc18064374a378b85">CollectorDefaultImpl1</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_collector__if_a97fa632508ffdfad1365b3a949acf745_icgraph.png" border="0" usemap="#class_collector__if_a97fa632508ffdfad1365b3a949acf745_icgraph" alt=""/></div>
+<map name="class_collector__if_a97fa632508ffdfad1365b3a949acf745_icgraph" id="class_collector__if_a97fa632508ffdfad1365b3a949acf745_icgraph">
+<area shape="rect" id="node2" href="class_statistics_default_impl1.html#a0d2847b2fa7c7469d25c3359a9995d6c" title="StatisticsDefaultImpl1\l::~StatisticsDefaultImpl1" alt="" coords="229,5,396,47"/>
+<area shape="rect" id="node3" href="class_statistics_default_impl1.html#a3ad348a8f7f6c787bae7bd047778732f" title="StatisticsDefaultImpl1\l::numElements" alt="" coords="237,71,388,112"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a71e66a9bb8a91832ec7a05a1fe00519e"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Collector_if::setAddValueHandler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_collector__if_8h.html#ab97c9a368c50eb9e00cb4772e46ff38a">CollectorAddValueHandler</a>&#160;</td>
+          <td class="paramname"><em>addValueHandler</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_collector_datafile_default_impl1.html#adad90926a028e08397aaafa05ae643c6">CollectorDatafileDefaultImpl1</a>, <a class="el" href="class_collector_datafile_dummy_impl.html#abe4a4a292ae8860d25096bf7184d4a43">CollectorDatafileDummyImpl</a>, <a class="el" href="class_collector_dummy_impl.html#ad3970cd43337abdd0ad611750003f544">CollectorDummyImpl</a>, and <a class="el" href="class_collector_default_impl1.html#ab6967cf9fdf439953cc3dd10e711fc7d">CollectorDefaultImpl1</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_collector__if_a71e66a9bb8a91832ec7a05a1fe00519e_icgraph.png" border="0" usemap="#class_collector__if_a71e66a9bb8a91832ec7a05a1fe00519e_icgraph" alt=""/></div>
+<map name="class_collector__if_a71e66a9bb8a91832ec7a05a1fe00519e_icgraph" id="class_collector__if_a71e66a9bb8a91832ec7a05a1fe00519e_icgraph">
+<area shape="rect" id="node2" href="class_statistics_default_impl1.html#a9ad8b52ec53fcfe26e8c172b0616e867" title="StatisticsDefaultImpl1\l::StatisticsDefaultImpl1" alt="" coords="224,5,383,47"/>
+<area shape="rect" id="node3" href="class_statistics_dummy_impl.html#aa5ac252802bcd91b38f417ce082aa660" title="StatisticsDummyImpl\l::StatisticsDummyImpl" alt="" coords="225,71,381,112"/>
+</map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ac03e3c41ccfe3aff6f6a0b3aca8c885b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Collector_if::setClearHandler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_collector__if_8h.html#ad22205bb584ed3e0db55fc265a5fe1f4">CollectorClearHandler</a>&#160;</td>
+          <td class="paramname"><em>clearHandler</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_collector_datafile_default_impl1.html#ae4aae3cbd96ebec268c931bd7a0a57a5">CollectorDatafileDefaultImpl1</a>, <a class="el" href="class_collector_datafile_dummy_impl.html#a1f50e119433718cdd3b3a6b1855e6117">CollectorDatafileDummyImpl</a>, <a class="el" href="class_collector_dummy_impl.html#ac63618bd0e47433afa0d3558fe0d3028">CollectorDummyImpl</a>, and <a class="el" href="class_collector_default_impl1.html#a2b64c9abd7acea19fe57eb2d6a18ea9f">CollectorDefaultImpl1</a>.</p>
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_collector__if_ac03e3c41ccfe3aff6f6a0b3aca8c885b_icgraph.png" border="0" usemap="#class_collector__if_ac03e3c41ccfe3aff6f6a0b3aca8c885b_icgraph" alt=""/></div>
+<map name="class_collector__if_ac03e3c41ccfe3aff6f6a0b3aca8c885b_icgraph" id="class_collector__if_ac03e3c41ccfe3aff6f6a0b3aca8c885b_icgraph">
+<area shape="rect" id="node2" href="class_statistics_default_impl1.html#a9ad8b52ec53fcfe26e8c172b0616e867" title="StatisticsDefaultImpl1\l::StatisticsDefaultImpl1" alt="" coords="244,5,403,47"/>
+<area shape="rect" id="node3" href="class_statistics_dummy_impl.html#aa5ac252802bcd91b38f417ce082aa660" title="StatisticsDummyImpl\l::StatisticsDummyImpl" alt="" coords="245,71,401,112"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>

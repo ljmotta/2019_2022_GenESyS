@@ -1,7 +1,0 @@
-<map id="yy_scan_buffer" name="yy_scan_buffer">
-<area shape="rect" id="node2" href="$_genesys_09_09-scanner_8cpp.html#a7da304d8ef6c688c0835d35296fe61c2" title="yyalloc" alt="" coords="561,5,623,32"/>
-<area shape="rect" id="node3" href="$_genesys_09_09-scanner_8cpp.html#a3098c48a74ef8fd852f7dd4b3331cbce" title="yy_switch_to_buffer" alt="" coords="165,56,304,83"/>
-<area shape="rect" id="node4" href="$_genesys_09_09-scanner_8cpp.html#a2e9898ec03e594f5a82387c787776ef6" title="yyensure_buffer_stack" alt="" coords="352,56,507,83"/>
-<area shape="rect" id="node6" href="$_genesys_09_09-scanner_8cpp.html#ac6bf96bd2d347c04367b8111abcd0dca" title="yy_load_buffer_state" alt="" coords="358,107,501,133"/>
-<area shape="rect" id="node5" href="$_genesys_09_09-scanner_8cpp.html#abcb4148bc13fe254059384c2fdf472b7" title="yyrealloc" alt="" coords="555,56,629,83"/>
-</map>

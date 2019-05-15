@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>ReGenESyS - Reborn Generic and Expansible System Simulator: ProbDistrib Class Reference</title>
+<title>ReGenESyS - Reborned GENeric and Expansible SYstem Simulator: ProbDistrib Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,10 +32,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="software_genesys.gif"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">ReGenESyS - Reborn Generic and Expansible System Simulator
-   &#160;<span id="projectnumber">2018.4</span>
+   <div id="projectname">ReGenESyS - Reborned GENeric and Expansible SYstem Simulator
+   &#160;<span id="projectnumber">2019.0509</span>
    </div>
-   <div id="projectbrief">ReGenESyS - Reborn Generic and Expansible System Simulator</div>
+   <div id="projectbrief">Genesys is the product of Professor Rafael Luiz Cancian&#39;s teaching and research activities. It began in early 2002 as a way to teach students the basics and simulation techniques of systems used by business tools. With his development, he replicated all the SIMAN language, used by Arena software, and has become a clone of that tool, including its graphical interface. Genesys allowed the inclusion of new simulation components through dynamic link libraries and also the parallel execution of simulation models in a distributed environment. The development of Genesys continued until 2007, when the professor stopped teaching systems simulation classes. Ten years later the professor starts again to teach systems simulation classes and to carry out scientific research in the area. So in 2018 Genesys is reborn as ReGenesys, with new language and programming techniques, and even more ambitious goals.</div>
   </td>
  </tr>
  </tbody>
@@ -138,6 +138,12 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:ad6e3ae223763aae5c2fe7d347523adbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a057f5c5a97ab296f60b1a92ec1886162"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_prob_distrib.html#a057f5c5a97ab296f60b1a92ec1886162">triangular</a> (double x, double min, double mode, double max)</td></tr>
 <tr class="separator:a057f5c5a97ab296f60b1a92ec1886162"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f202b23b735b4b76c82505145ba0f76"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_prob_distrib.html#a5f202b23b735b4b76c82505145ba0f76">tStudent</a> (double x, double mean, double stddev)</td></tr>
+<tr class="separator:a5f202b23b735b4b76c82505145ba0f76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9b9b1e3dd7ace961991f67e73bee3e5"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_prob_distrib.html#ab9b9b1e3dd7ace961991f67e73bee3e5">fSnedecor</a> (double x, double u, double v)</td></tr>
+<tr class="separator:ab9b9b1e3dd7ace961991f67e73bee3e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a410740a950910c827d61c673d0077006"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_prob_distrib.html#a410740a950910c827d61c673d0077006">chi2</a> (double x, double m)</td></tr>
+<tr class="separator:a410740a950910c827d61c673d0077006"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="af74e5c70a59727220d52a7f445992b28"></a>
@@ -164,6 +170,40 @@ Static Public Member Functions</h2></td></tr>
           <td></td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>beta</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a410740a950910c827d61c673d0077006"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static double ProbDistrib::chi2 </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>m</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -238,6 +278,46 @@ Static Public Member Functions</h2></td></tr>
           <td></td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>mean</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab9b9b1e3dd7ace961991f67e73bee3e5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static double ProbDistrib::fSnedecor </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>u</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -372,6 +452,17 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_prob_distrib_a5ca4ebda2818070339b707a880e3d1a4_icgraph.png" border="0" usemap="#class_prob_distrib_a5ca4ebda2818070339b707a880e3d1a4_icgraph" alt=""/></div>
+<map name="class_prob_distrib_a5ca4ebda2818070339b707a880e3d1a4_icgraph" id="class_prob_distrib_a5ca4ebda2818070339b707a880e3d1a4_icgraph">
+<area shape="rect" id="node2" href="_test_input_analyser_tools_8cpp.html#af7011a62619acc9f81bcb4c5a5fafbe8" title="testStudentSoftwareDevelopments" alt="" coords="188,13,413,39"/>
+<area shape="rect" id="node3" href="class_test_input_analyser_tools.html#a8015a3024f29bddc865cb0b419214cd7" title="TestInputAnalyserTools\l::main" alt="" coords="461,5,621,47"/>
+</map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="a057f5c5a97ab296f60b1a92ec1886162"></a>
@@ -404,6 +495,46 @@ Static Public Member Functions</h2></td></tr>
           <td></td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>max</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a5f202b23b735b4b76c82505145ba0f76"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double ProbDistrib::tStudent </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>mean</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>stddev</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -457,6 +588,17 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_prob_distrib_a4ff9f4d4faa1c29eb970c2629b332032_icgraph.png" border="0" usemap="#class_prob_distrib_a4ff9f4d4faa1c29eb970c2629b332032_icgraph" alt=""/></div>
+<map name="class_prob_distrib_a4ff9f4d4faa1c29eb970c2629b332032_icgraph" id="class_prob_distrib_a4ff9f4d4faa1c29eb970c2629b332032_icgraph">
+<area shape="rect" id="node2" href="_test_input_analyser_tools_8cpp.html#af7011a62619acc9f81bcb4c5a5fafbe8" title="testStudentSoftwareDevelopments" alt="" coords="192,13,417,39"/>
+<area shape="rect" id="node3" href="class_test_input_analyser_tools.html#a8015a3024f29bddc865cb0b419214cd7" title="TestInputAnalyserTools\l::main" alt="" coords="465,5,625,47"/>
+</map>
+</div>
+</p>
 
 </div>
 </div>

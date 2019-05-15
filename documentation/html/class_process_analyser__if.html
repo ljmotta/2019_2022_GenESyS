@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>ReGenESyS - Reborn Generic and Expansible System Simulator: ProcessAnalyser_if Class Reference</title>
+<title>ReGenESyS - Reborned GENeric and Expansible SYstem Simulator: ProcessAnalyser_if Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -32,10 +32,10 @@
  <tr style="height: 56px;">
   <td id="projectlogo"><img alt="Logo" src="software_genesys.gif"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">ReGenESyS - Reborn Generic and Expansible System Simulator
-   &#160;<span id="projectnumber">2018.4</span>
+   <div id="projectname">ReGenESyS - Reborned GENeric and Expansible SYstem Simulator
+   &#160;<span id="projectnumber">2019.0509</span>
    </div>
-   <div id="projectbrief">ReGenESyS - Reborn Generic and Expansible System Simulator</div>
+   <div id="projectbrief">Genesys is the product of Professor Rafael Luiz Cancian&#39;s teaching and research activities. It began in early 2002 as a way to teach students the basics and simulation techniques of systems used by business tools. With his development, he replicated all the SIMAN language, used by Arena software, and has become a clone of that tool, including its graphical interface. Genesys allowed the inclusion of new simulation components through dynamic link libraries and also the parallel execution of simulation models in a distributed environment. The development of Genesys continued until 2007, when the professor stopped teaching systems simulation classes. Ten years later the professor starts again to teach systems simulation classes and to carry out scientific research in the area. So in 2018 Genesys is reborn as ReGenesys, with new language and programming techniques, and even more ambitious goals.</div>
   </td>
  </tr>
  </tbody>
@@ -144,13 +144,13 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad0949759ce49af24bba3e8875b164675"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb292cf1587fda460b9d551bfc65c6e4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_process_analyser__if.html#aeb292cf1587fda460b9d551bfc65c6e4">stopSimulation</a> ()=0</td></tr>
 <tr class="separator:aeb292cf1587fda460b9d551bfc65c6e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abdbb0685841e8366507f77a6884451c3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_process_analyser__if.html#abdbb0685841e8366507f77a6884451c3">addTraceSimulationListener</a> (<a class="el" href="_trace_manager_8h.html#a7ff1963642ecda8c9a76991b351f0385">traceSimulationProcessListener</a> <a class="el" href="_trace_manager_8h.html#a7ff1963642ecda8c9a76991b351f0385">traceSimulationProcessListener</a>)=0</td></tr>
-<tr class="separator:abdbb0685841e8366507f77a6884451c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c05c8bb79ac9fd70b6ac114d84a9672"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_process_analyser__if.html#a7c05c8bb79ac9fd70b6ac114d84a9672">addTraceSimulationHandler</a> (<a class="el" href="_trace_manager_8h.html#a7ff1963642ecda8c9a76991b351f0385">traceSimulationProcessListener</a> <a class="el" href="_trace_manager_8h.html#a7ff1963642ecda8c9a76991b351f0385">traceSimulationProcessListener</a>)=0</td></tr>
+<tr class="separator:a7c05c8bb79ac9fd70b6ac114d84a9672"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The process analyser allows to extract controls and responses from a model, incluse some of then as controls and responses for a set of scenarios to be simulated </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="abdbb0685841e8366507f77a6884451c3"></a>
+<a class="anchor" id="a7c05c8bb79ac9fd70b6ac114d84a9672"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -158,7 +158,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void ProcessAnalyser_if::addTraceSimulationListener </td>
+          <td class="memname">virtual void ProcessAnalyser_if::addTraceSimulationHandler </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="_trace_manager_8h.html#a7ff1963642ecda8c9a76991b351f0385">traceSimulationProcessListener</a>&#160;</td>
           <td class="paramname"><em>traceSimulationProcessListener</em></td><td>)</td>
@@ -172,7 +172,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_process_analyser_dummy_impl.html#a34a57be3360cd6e8b428430e37cf9cb2">ProcessAnalyserDummyImpl</a>.</p>
+<p>Implemented in <a class="el" href="class_process_analyser_dummy_impl.html#af78d57b552952bf18490a3e4b57a5efb">ProcessAnalyserDummyImpl</a>.</p>
 
 </div>
 </div>

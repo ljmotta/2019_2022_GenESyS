@@ -1,5 +1,7 @@
 <map id="Collector_if" name="Collector_if">
-<area shape="rect" id="node2" href="$class_collector_datafile__if.html" title="CollectorDatafile_if" alt="" coords="34,80,167,107"/>
-<area shape="rect" id="node4" href="$class_collector_dummy_impl.html" title="CollectorDummyImpl" alt="" coords="192,80,337,107"/>
-<area shape="rect" id="node3" href="$class_collector_datafile_dummy_impl.html" title="CollectorDatafileDummyImpl" alt="" coords="5,155,196,181"/>
+<area shape="rect" id="node2" href="$class_collector_datafile__if.html" title="CollectorDatafile_if" alt="" coords="119,80,253,107"/>
+<area shape="rect" id="node5" href="$class_collector_default_impl1.html" title="CollectorDefaultImpl1" alt="" coords="277,80,425,107"/>
+<area shape="rect" id="node6" href="$class_collector_dummy_impl.html" title="CollectorDummyImpl" alt="" coords="449,80,595,107"/>
+<area shape="rect" id="node3" href="$class_collector_datafile_default_impl1.html" title="CollectorDatafileDefault\lImpl1" alt="" coords="5,155,167,196"/>
+<area shape="rect" id="node4" href="$class_collector_datafile_dummy_impl.html" title="CollectorDatafileDummyImpl" alt="" coords="191,162,381,189"/>
 </map>
