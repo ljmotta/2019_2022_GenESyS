@@ -22,26 +22,8 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group name="Classes"/>
         <group>
-            <file>file:/home/rlcancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/Model.cpp</file>
-            <file>file:/home/rlcancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/ProbDistrib.h</file>
-            <file>file:/home/rlcancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/Traits.h</file>
-            <file>file:/home/rlcancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/Event.cpp</file>
-            <file>file:/home/rlcancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/IntegratorDefaultImpl1.cpp</file>
-            <file>file:/home/rlcancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/ModelPersistenceDummyImpl.cpp</file>
-            <file>file:/home/rlcancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/ModelSimulation.h</file>
-            <file>file:/home/rlcancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/Seize.cpp</file>
-            <file>file:/home/rlcancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/ElementManager.cpp</file>
-            <file>file:/home/rlcancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/ModelCheckerDefaultImpl1.cpp</file>
-            <file>file:/home/rlcancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/Release.h</file>
-            <file>file:/home/rlcancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/ModelSimulation.cpp</file>
-            <file>file:/home/rlcancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/ModelComponent.cpp</file>
-            <file>file:/home/rlcancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/Resource.cpp</file>
-            <file>file:/home/rlcancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/Release.cpp</file>
-            <file>file:/home/rlcancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/Resource.h</file>
-            <file>file:/home/rlcancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/ProbDistrib.cpp</file>
-            <file>file:/home/rlcancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/main.cpp</file>
-            <file>file:/home/rlcancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/BuildSimulationModel.cpp</file>
-            <file>file:/home/rlcancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/Queue.cpp</file>
+            <file>file:/home/rlcancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/parserBisonFlex/GenesysWrapper.h</file>
+            <file>file:/home/rlcancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESyS-Reborn/parserBisonFlex/parser/GenesysParser.yy</file>
         </group>
     </open-files>
 </project-private>

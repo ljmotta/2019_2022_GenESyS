@@ -57,6 +57,6 @@ std::list<std::string>* Dispose::_saveInstance() {
 
 }
 
-bool Dispose::_verifySymbols(std::string* errorMessage) {
+bool Dispose::_check(std::string* errorMessage) {
     return true;
 }

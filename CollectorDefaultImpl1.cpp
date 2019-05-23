@@ -8,7 +8,7 @@
  * File:   CollectorDefaultImpl1.cpp
  * Author: rafael.luiz.cancian
  * 
- * Created on 1 de Maio de 2019, 20:43
+ * Created on 1 de Agosto de 2018, 20:43
  */
 
 #include "CollectorDefaultImpl1.h"

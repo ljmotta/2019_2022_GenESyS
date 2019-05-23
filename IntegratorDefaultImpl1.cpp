@@ -8,7 +8,7 @@
  * File:   IntegratorDefaultImpl1.cpp
  * Author: rafael.luiz.cancian
  * 
- * Created on 2 de Maio de 2019, 00:44
+ * Created on 2 de Agosto de 2018, 00:44
  */
 
 #include "IntegratorDefaultImpl1.h"

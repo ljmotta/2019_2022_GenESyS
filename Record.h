@@ -8,7 +8,7 @@
  * File:   Record.h
  * Author: rafael.luiz.cancian
  *
- * Created on 9 de Maio de 2019, 13:52
+ * Created on 9 de Agosto de 2018, 13:52
  */
 
 #ifndef RECORD_H
@@ -36,7 +36,7 @@ protected:
     virtual void _execute(Entity* entity);
     virtual void _loadInstance(std::list<std::string> words);
     virtual std::list<std::string>* _saveInstance();
-    virtual bool _verifySymbols(std::string* errorMessage);
+    virtual bool _check(std::string* errorMessage);
 private:
     std::string _expression = "";
     std::string _expressionName = "";

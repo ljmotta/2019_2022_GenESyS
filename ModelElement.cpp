@@ -77,17 +77,20 @@ std::list<std::string>* ModelElement::SaveInstance(ModelElement* element) {
     return words;
 }
 
-
-bool ModelElement::VerifySymbols(ModelElement* element, std::string* errorMessage) {
-    //element->_model->getTracer()->trace(Util::TraceLevel::mostDetailed, "Verifying symbols of component " + element->_name); //std::to_string(component->_id));
+bool ModelElement::Check(ModelElement* element, std::string* errorMessage) {
+    //    element->_model->getTracer()->trace(Util::TraceLevel::mostDetailed, "Checking " + element->_typename + ": " + element->_name); //std::to_string(element->_id));
     bool res = false;
-    try {
-        res = element->_verifySymbols(errorMessage);
-        if (!res) {
-            //element->_model->getTracer()->trace(Util::TraceLevel::mostDetailed, "Verification of symbols of component \"" + element->_name + "\" has failed with message " + *errorMessage);
+    Util::IncIndent();
+    {
+        try {
+            res = element->_check(errorMessage);
+            if (!res) {
+                //                element->_model->getTracer()->trace(Util::TraceLevel::errors, "Error: Checking has failed with message '" + *errorMessage + "'");
+            }
+        } catch (const std::exception& e) {
+            //            element->_model->getTracer()->traceError(e, "Error verifying element " + element->show());
         }
-    } catch (const std::exception& e) {
-        //element->_model->getTracer()->traceError(e, "Error verifying element " + element->show());
     }
+    Util::DecIndent();
     return res;
 }

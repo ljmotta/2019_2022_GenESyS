@@ -94,6 +94,6 @@ std::list<std::string>* Entity::_saveInstance() {
     return words;
 }
 
-bool Entity::_verifySymbols(std::string* errorMessage) {
+bool Entity::_check(std::string* errorMessage) {
     return true;
 }

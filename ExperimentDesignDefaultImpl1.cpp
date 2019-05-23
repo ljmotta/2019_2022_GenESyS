@@ -8,7 +8,7 @@
  * File:   ExperimentDesignDefaultImpl1.cpp
  * Author: rafael.luiz.cancian
  * 
- * Created on 10 de Maio de 2019, 10:19
+ * Created on 10 de Agosto de 2018, 10:19
  */
 
 #include "ExperimentDesignDefaultImpl1.h"

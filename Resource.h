@@ -15,11 +15,10 @@
 #define RESOURCE_H
 
 #include "ModelElement.h"
-#include "LinkedBy.h"
 #include "StatisticsCollector.h"
 #include "ElementManager.h"
 
-class Resource : public ModelElement, public LinkedBy {
+class Resource : public ModelElement { 
 public:
     typedef std::function<void(Resource*) > ResourceEventHandler;
 
@@ -69,7 +68,7 @@ public:
 protected:
     virtual void _loadInstance(std::list<std::string> words);
     virtual std::list<std::string>* _saveInstance();
-    virtual bool _verifySymbols(std::string* errorMessage);
+    virtual bool _check(std::string* errorMessage);
 
 private:
     void _initCStats();

@@ -8,7 +8,7 @@
  * File:   SamplerDefaultImpl1.h
  * Author: rafael.luiz.cancian
  *
- * Created on 2 de Maio de 2019, 01:10
+ * Created on 2 de Agosto de 2018, 01:10
  */
 
 #ifndef SAMPLERDEFAULTIMPL1_H
@@ -30,24 +30,24 @@ public:
     SamplerDefaultImpl1(const SamplerDefaultImpl1& orig);
     virtual ~SamplerDefaultImpl1();
 public: // probability distributions
-    double random();
-    double sampleUniform(double min, double max);
-    double sampleExponential(double mean);
-    double sampleErlang(double mean, int M);
-    double sampleNormal(double mean, double stddev);
-    double sampleGamma(double mean, double alpha);
-    double sampleBeta(double alpha, double beta, double infLimit, double supLimit);
-    double sampleWeibull(double alpha, double scale);
-    double sampleLogNormal(double mean, double stddev);
-    double sampleTriangular(double min, double mode, double max);
-    double sampleDiscrete(double value, double acumProb, ...);
+    virtual double random();
+    virtual double sampleUniform(double min, double max);
+    virtual double sampleExponential(double mean);
+    virtual double sampleErlang(double mean, int M);
+    virtual double sampleNormal(double mean, double stddev);
+    virtual double sampleGamma(double mean, double alpha);
+    virtual double sampleBeta(double alpha, double beta, double infLimit, double supLimit);
+    virtual double sampleWeibull(double alpha, double scale);
+    virtual double sampleLogNormal(double mean, double stddev);
+    virtual double sampleTriangular(double min, double mode, double max);
+    virtual double sampleDiscrete(double value, double acumProb, ...);
 public:
     void reset(); ///< reinitialize seed and other parameters so (pseudo) random number sequence will be generated again.
 public:
-    void setRNGparameters(RNG_Parameters* param);
-    RNG_Parameters* getRNGparameters() const;
+    virtual void setRNGparameters(RNG_Parameters* param);
+    virtual RNG_Parameters* getRNGparameters() const;
 private:
-    DefaultImpl1RNG_Parameters* _param = new DefaultImpl1RNG_Parameters();
+    RNG_Parameters* _param = new DefaultImpl1RNG_Parameters();
     unsigned int _seed;
     //bool _normalflag;
 };

@@ -53,7 +53,9 @@ OBJECTFILES= \
 	${OBJECTDIR}/ExperimentDesignDefaultImpl1.o \
 	${OBJECTDIR}/ExperimentDesignDummyImpl.o \
 	${OBJECTDIR}/FactorOrInteractionContribution.o \
-	${OBJECTDIR}/FitterDummyImpl.o \
+	${OBJECTDIR}/FitterDefaultImpl1.o \
+	${OBJECTDIR}/GenesysGUI.o \
+	${OBJECTDIR}/GenesysShell.o \
 	${OBJECTDIR}/HypothesisTesterDefaultImpl1.o \
 	${OBJECTDIR}/HypothesisTesterDummyImpl.o \
 	${OBJECTDIR}/IntegratorDefaultImpl1.o \
@@ -61,12 +63,12 @@ OBJECTFILES= \
 	${OBJECTDIR}/LinkedBy.o \
 	${OBJECTDIR}/Model.o \
 	${OBJECTDIR}/ModelCheckerDefaultImpl1.o \
-	${OBJECTDIR}/ModelCheckerDummyImpl.o \
 	${OBJECTDIR}/ModelComponent.o \
 	${OBJECTDIR}/ModelElement.o \
 	${OBJECTDIR}/ModelInfo.o \
-	${OBJECTDIR}/ModelPersistenceDummyImpl.o \
+	${OBJECTDIR}/ModelPersistenceDefaultImpl1.o \
 	${OBJECTDIR}/ModelSimulation.o \
+	${OBJECTDIR}/MyReGenESYsApplication.o \
 	${OBJECTDIR}/OnEventManager.o \
 	${OBJECTDIR}/ParserDefaultImpl1.o \
 	${OBJECTDIR}/ParserDummyImpl.o \
@@ -221,10 +223,20 @@ ${OBJECTDIR}/FactorOrInteractionContribution.o: FactorOrInteractionContribution.
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FactorOrInteractionContribution.o FactorOrInteractionContribution.cpp
 
-${OBJECTDIR}/FitterDummyImpl.o: FitterDummyImpl.cpp nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/FitterDefaultImpl1.o: FitterDefaultImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FitterDummyImpl.o FitterDummyImpl.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FitterDefaultImpl1.o FitterDefaultImpl1.cpp
+
+${OBJECTDIR}/GenesysGUI.o: GenesysGUI.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/GenesysGUI.o GenesysGUI.cpp
+
+${OBJECTDIR}/GenesysShell.o: GenesysShell.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/GenesysShell.o GenesysShell.cpp
 
 ${OBJECTDIR}/HypothesisTesterDefaultImpl1.o: HypothesisTesterDefaultImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -261,11 +273,6 @@ ${OBJECTDIR}/ModelCheckerDefaultImpl1.o: ModelCheckerDefaultImpl1.cpp nbproject/
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelCheckerDefaultImpl1.o ModelCheckerDefaultImpl1.cpp
 
-${OBJECTDIR}/ModelCheckerDummyImpl.o: ModelCheckerDummyImpl.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelCheckerDummyImpl.o ModelCheckerDummyImpl.cpp
-
 ${OBJECTDIR}/ModelComponent.o: ModelComponent.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -281,15 +288,20 @@ ${OBJECTDIR}/ModelInfo.o: ModelInfo.cpp nbproject/Makefile-${CND_CONF}.mk
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelInfo.o ModelInfo.cpp
 
-${OBJECTDIR}/ModelPersistenceDummyImpl.o: ModelPersistenceDummyImpl.cpp nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/ModelPersistenceDefaultImpl1.o: ModelPersistenceDefaultImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelPersistenceDummyImpl.o ModelPersistenceDummyImpl.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelPersistenceDefaultImpl1.o ModelPersistenceDefaultImpl1.cpp
 
 ${OBJECTDIR}/ModelSimulation.o: ModelSimulation.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelSimulation.o ModelSimulation.cpp
+
+${OBJECTDIR}/MyReGenESYsApplication.o: MyReGenESYsApplication.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/MyReGenESYsApplication.o MyReGenESYsApplication.cpp
 
 ${OBJECTDIR}/OnEventManager.o: OnEventManager.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

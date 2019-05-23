@@ -8,7 +8,7 @@
  * File:   Decide.cpp
  * Author: rafael.luiz.cancian
  * 
- * Created on 9 de Maio de 2019, 20:39
+ * Created on 9 de Agosto de 2018, 20:39
  */
 
 #include "Decide.h"
@@ -53,5 +53,12 @@ void Decide::_loadInstance(std::list<std::string> words) {
 std::list<std::string>* Decide::_saveInstance() {
 }
 
-bool Decide::_verifySymbols(std::string* errorMessage) {
+bool Decide::_check(std::string* errorMessage) {
+    bool allResult=true, result = true;
+    std::string condition;
+    for (std::list<std::string>::iterator it = _conditions->getList()->begin(); it != _conditions->getList()->end(); it++) {
+        condition = (*it);
+        allResult &= _model->checkExpression(condition, "Condition", errorMessage);
+    }
+    return allResult;    
 }

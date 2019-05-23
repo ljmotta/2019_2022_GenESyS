@@ -8,7 +8,7 @@
  * File:   StatisticsDefaultImpl1.cpp
  * Author: rafael.luiz.cancian
  * 
- * Created on 1 de Maio de 2019, 21:03
+ * Created on 1 de Agosto de 2018, 21:03
  */
 
 #include <complex>

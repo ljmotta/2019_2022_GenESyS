@@ -5,23 +5,23 @@
  */
 
 /* 
- * File:   ModelPersistence.h
- * Author: rafael.luiz.cancian
+ * File:   ModelPersistenceDefaultImpl1.h
+ * Author: rlcancian
  *
- * Created on 24 de Agosto de 2018, 19:22
+ * Created on 20 de Maio de 2019, 20:41
  */
 
-#ifndef MODELPERSISTENCEDUMMYIMPL_H
-#define MODELPERSISTENCEDUMMYIMPL_H
+#ifndef MODELPERSISTENCEDEFAULTIMPL1_H
+#define MODELPERSISTENCEDEFAULTIMPL1_H
 
 #include "ModelPersistence_if.h"
 #include "Model.h"
 
-class ModelPersistenceDummyImpl : public ModelPersistence_if {
+class ModelPersistenceDefaultImpl1 : public ModelPersistence_if{
 public:
-    ModelPersistenceDummyImpl(Model* model);
-    ModelPersistenceDummyImpl(const ModelPersistenceDummyImpl& orig);
-    ~ModelPersistenceDummyImpl();
+    ModelPersistenceDefaultImpl1(Model* model);
+    ModelPersistenceDefaultImpl1(const ModelPersistenceDefaultImpl1& orig);
+    virtual ~ModelPersistenceDefaultImpl1();
 public:
     virtual bool saveAsTXT(std::string filename);
     virtual bool loadAsTXT(std::string filename);
@@ -37,5 +37,5 @@ private:
     bool _isSaved = false;
 };
 
-#endif /* MODELPERSISTENCEDUMMYIMPL_H */
+#endif /* MODELPERSISTENCEDEFAULTIMPL1_H */
 

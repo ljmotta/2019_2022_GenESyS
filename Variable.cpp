@@ -65,6 +65,6 @@ std::list<std::string>* Variable::_saveInstance() {
     return words;
 }
 
-bool Variable::_verifySymbols(std::string* errorMessage) {
+bool Variable::_check(std::string* errorMessage) {
     return true;
 }

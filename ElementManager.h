@@ -34,6 +34,8 @@ public:
 public:
     bool insertElement(std::string infraTypename, ModelElement* infra);
     void removeElement(std::string infraTypename, ModelElement* infra);
+    bool checkElement(std::string infraTypename, ModelElement* infra, std::string expressionName, std::string* errorMessage);
+    bool checkElement(std::string infraTypename, std::string infraName, std::string expressionName, bool mandatory, std::string* errorMessage);
 public:
     ModelElement* getElement(std::string infraTypename, Util::identitifcation id);
     ModelElement* getElement(std::string infraTypename, std::string name);

@@ -10,8 +10,6 @@
 #include "ProbDistrib.h"
 #include "Traits.h"
 
-#include "Functor.h"
-
 void testStudentSoftwareDevelopments() {
     Simulator* simulator = new Simulator();
     Sampler_if* mmc = simulator->getSampler(); // Sampler is the new MMC

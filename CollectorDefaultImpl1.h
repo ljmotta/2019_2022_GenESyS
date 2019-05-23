@@ -8,7 +8,7 @@
  * File:   CollectorDefaultImpl1.h
  * Author: rafael.luiz.cancian
  *
- * Created on 1 de Maio de 2019, 20:43
+ * Created on 1 de Agosto de 2018, 20:43
  */
 
 #ifndef COLLECTORDEFAULTIMPL1_H

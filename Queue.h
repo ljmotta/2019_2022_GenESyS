@@ -15,15 +15,13 @@
 #define QUEUE_H
 
 #include "ModelElement.h"
-#include "LinkedBy.h"
-
 #include "List.h"
 #include "Entity.h"
 #include "Waiting.h"
 
 #include "StatisticsCollector.h"
 
-class Queue : public ModelElement, public LinkedBy {
+class Queue : public ModelElement {
 public:
 
     enum class OrderRule : int {
@@ -53,7 +51,7 @@ public: //g&s
 protected:
     virtual void _loadInstance(std::list<std::string> words);
     virtual std::list<std::string>* _saveInstance();
-    virtual bool _verifySymbols(std::string* errorMessage);
+    virtual bool _check(std::string* errorMessage);
 private:
     void _initCStats();
 private:

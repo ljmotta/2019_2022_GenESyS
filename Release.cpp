@@ -15,6 +15,7 @@
 #include "Model.h"
 #include "WaitingResource.h"
 #include "Resource.h"
+#include "Attribute.h"
 #include <assert.h>
 
 Release::Release(Model* model) : ModelComponent(model, Util::TypeOf<Release>()) {
@@ -89,25 +90,10 @@ void Release::_execute(Entity* entity) {
         resource = this->_resource;
     }
     unsigned int quantity = _model->parseExpression(this->_quantity);
-    assert(_resource->getNumberBusy()>= quantity);
+    assert(_resource->getNumberBusy() >= quantity);
     _model->getTracer()->traceSimulation(Util::TraceLevel::blockInternal, _model->getSimulation()->getSimulatedTime(), entity, this, "Entity frees " + std::to_string(quantity) + " units of resource \"" + resource->getName() + "\"");
     _resource->release(quantity, _model->getSimulation()->getSimulatedTime()); //{releases and sets the 'LastTimeSeized'property}
     _model->sendEntityToComponent(entity, this->getNextComponents()->first(), 0.0);
-    //Genesys.Model.SIMAN.EntityAllocationTimeAdd(entity, thisModule.aAllocationType, thisRec.LastTimeSeized);
-/*
-    if (_queue->size() > 0) { //  ->getList()->size() > 0) {
-        WaitingResource* firstWaiting = (WaitingResource*) _queue->first(); //>getList()->first();
-        if (firstWaiting->getQuantity() >= quantity) { // entity waiting can seize the resource now
-            Event* newEvent = new Event(_model->getSimulation()->getSimulatedTime(), firstWaiting->getEntity(), firstWaiting->getComponent());
-            _model->getEvents()->insert(newEvent);
-            _model->getTracer()->traceSimulation(Util::TraceLevel::blockInternal, _model->getSimulation()->getSimulatedTime(), entity, this, "Entity removes entity " + std::to_string(firstWaiting->getEntity()->getId()) + " from queue \"" + _queue->getName() + "\"");
-            _queue->removeElement(firstWaiting, _model->getSimulation()->getSimulatedTime()); //->getList()->remove(firstWaiting);
-        } else {
-            _model->getTracer()->traceSimulation(Util::TraceLevel::blockInternal, _model->getSimulation()->getSimulatedTime(), entity, this, "Entity " + std::to_string(firstWaiting->getEntity()->getId()) + " remains waiting in queue \"" + _queue->getName() + "\" for " + std::to_string(firstWaiting->getQuantity()) + " instances of resource \"" + resource->getName() + "\"");
-
-        }
-    }
-*/
 }
 
 void Release::_loadInstance(std::list<std::string> words) {
@@ -120,13 +106,18 @@ std::list<std::string>* Release::_saveInstance() {
 
 }
 
-bool Release::_verifySymbols(std::string* errorMessage) {
-    return true;
+bool Release::_check(std::string* errorMessage) {
+    bool resultAll = true;
+    resultAll &= _model->checkExpression(_quantity, "quantity", errorMessage);
+    resultAll &= _model->getElementManager()->checkElement(Util::TypeOf<Resource>(), _resource, "resource", errorMessage);
+    resultAll &= _model->getElementManager()->checkElement(Util::TypeOf<Attribute>(), _saveAttribute, "SaveAttribute", false, errorMessage);
+    return resultAll;
 }
-void Release::setResourceName(std::string resourceName) throw() {
+
+void Release::setResourceName(std::string resourceName) throw () {
     ModelElement* resource = _model->getElementManager()->getElement(Util::TypeOf<Resource>(), resourceName);
     if (resource != nullptr) {
-        this->_resource = static_cast<Resource*>(resource);
+        this->_resource = static_cast<Resource*> (resource);
     } else {
         throw std::invalid_argument("Resource does not exist");
     }

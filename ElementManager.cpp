@@ -49,6 +49,29 @@ void ElementManager::removeElement(std::string infraTypename, ModelElement* infr
     infra->~ModelElement(); /* TODO: Check: Should really destroy infra here? */
 }
 
+bool ElementManager::checkElement(std::string infraTypename, std::string infraName, std::string expressionName, bool mandatory, std::string* errorMessage) {
+    if (infraName == "" && !mandatory) {
+        return true;
+    }
+    bool result = getElement(infraTypename, infraName) != nullptr;
+    if (!result) {
+        std::string msg = infraTypename + " \"" + infraName + "\" for '" + expressionName + "' is not in the model.";
+        errorMessage->append(msg);
+    }
+    return result;
+}
+
+bool ElementManager::checkElement(std::string infraTypename, ModelElement* infra, std::string expressionName, std::string* errorMessage) {
+    bool result = infra != nullptr;
+    if (!result) {
+        std::string msg = infraTypename + " for '" + expressionName + "' is null.";
+        errorMessage->append(msg);
+    } else {
+        result = checkElement(infraTypename, infra->getName(), expressionName, true, errorMessage);
+    }
+    return result;
+}
+
 unsigned int ElementManager::getNumberOfElements(std::string infraTypename) {
     List<ModelElement*>* listElements = getElements(infraTypename);
     return listElements->size();

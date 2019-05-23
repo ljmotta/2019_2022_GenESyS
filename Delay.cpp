@@ -50,6 +50,7 @@ Util::TimeUnit Delay::getDelayTimeUnit() const {
 void Delay::_execute(Entity* entity) {
     double waitTime = _model->parseExpression(_delayExpression) * Util::TimeUnitConvert(_delayTimeUnit, _model->getInfos()->getReplicationLengthTimeUnit());
     entity->getEntityType()->getCstatWaitingTime()->getStatistics()->getCollector()->addValue(waitTime);
+    entity->setAttributeValue("Entity.WaitTime", entity->getAttributeValue("Entity.WaitTime") + waitTime);
     double delayEndTime = _model->getSimulation()->getSimulatedTime() + waitTime;
     Event* newEvent = new Event(delayEndTime, entity, this->getNextComponents()->first());
     _model->getEvents()->insert(newEvent);
@@ -66,10 +67,8 @@ std::list<std::string>* Delay::_saveInstance() {
 
 }
 
-bool Delay::_verifySymbols(std::string* errorMessage) {
-    bool result = true;
-    this->_model->parseExpression(getDelayExpression(), &result, errorMessage);
-        //include attributes needed
+bool Delay::_check(std::string* errorMessage) {
+    //include attributes needed
     ElementManager* elements = _model->getElementManager();
     std::vector<std::string> neededNames = {"Entity.WaitTime"};
     std::string neededName;
@@ -80,6 +79,5 @@ bool Delay::_verifySymbols(std::string* errorMessage) {
             elements->insertElement(Util::TypeOf<Attribute>(), attr1);
         }
     }
-
-    return result;
+    return _model->checkExpression(_delayExpression, "Delay expression", errorMessage);
 }

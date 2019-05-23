@@ -8,7 +8,7 @@
  * File:   Record.cpp
  * Author: rafael.luiz.cancian
  * 
- * Created on 9 de Maio de 2019, 13:52
+ * Created on 9 de Agosto de 2018, 13:52
  */
 
 #include "Record.h"
@@ -85,7 +85,8 @@ void Record::_loadInstance(std::list<std::string> words) {
 
 }
 
-bool Record::_verifySymbols(std::string* errorMessage) {
-    std::remove(_filename.c_str());
-    return true;
+bool Record::_check(std::string* errorMessage) {
+    // when cheking the model (before simulating it), remove the file if exists
+    std::remove(_filename.c_str()); 
+    return _model->checkExpression(_expression, "expression", errorMessage);
 }

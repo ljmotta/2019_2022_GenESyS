@@ -39,6 +39,6 @@ std::list<std::string>* Attribute::_saveInstance() {
     return words;
 }
 
-bool Attribute::_verifySymbols(std::string* errorMessage) {
+bool Attribute::_check(std::string* errorMessage) {
     return true;
 }

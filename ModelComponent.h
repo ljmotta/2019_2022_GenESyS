@@ -38,7 +38,7 @@ public:
     List<ModelComponent*>* getNextComponents() const; ///< Returns a list of components directly connected to the output. Usually the components have a single output, but they may have none (such as Dispose) or more than one (as Decide).
 public:
     static void Execute(Entity* entity, ModelComponent* component); ///< This method triggers the simulation of the behavior of the component. It is invoked when an event (corresponding to this component) is taken from the list of future events or when an entity arrives at this component by connection.
-    static bool VerifySymbols(ModelComponent* component, std::string* errorMessage);
+    static bool Check(ModelComponent* component);
     static std::list<std::string>* SaveInstance(ModelComponent* component);
 private:
     List<ModelComponent*>* _nextComponents;

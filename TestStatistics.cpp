@@ -8,7 +8,7 @@
  * File:   TestStatistics.cpp
  * Author: rafael.luiz.cancian
  * 
- * Created on 30 de Abril de 2019, 19:28
+ * Created on 30 de Agosto de 2018, 19:28
  */
 
 #include "TestStatistics.h"

@@ -73,10 +73,8 @@
         <logicalFolder name="f1" displayName="Impl" projectFiles="true">
           <itemPath>ModelCheckerDefaultImpl1.cpp</itemPath>
           <itemPath>ModelCheckerDefaultImpl1.h</itemPath>
-          <itemPath>ModelCheckerDummyImpl.cpp</itemPath>
-          <itemPath>ModelCheckerDummyImpl.h</itemPath>
-          <itemPath>ModelPersistenceDummyImpl.cpp</itemPath>
-          <itemPath>ModelPersistenceDummyImpl.h</itemPath>
+          <itemPath>ModelPersistenceDefaultImpl1.cpp</itemPath>
+          <itemPath>ModelPersistenceDefaultImpl1.h</itemPath>
           <itemPath>SimulationReporterDefaultImpl1.cpp</itemPath>
           <itemPath>SimulationReporterDefaultImpl1.h</itemPath>
         </logicalFolder>
@@ -180,8 +178,8 @@
       </logicalFolder>
       <logicalFolder name="f1" displayName="Input Analyser" projectFiles="true">
         <logicalFolder name="f1" displayName="Impl" projectFiles="true">
-          <itemPath>FitterDummyImpl.cpp</itemPath>
-          <itemPath>FitterDummyImpl.h</itemPath>
+          <itemPath>FitterDefaultImpl1.cpp</itemPath>
+          <itemPath>FitterDefaultImpl1.h</itemPath>
         </logicalFolder>
         <itemPath>Fitter_if.h</itemPath>
       </logicalFolder>
@@ -211,6 +209,10 @@
                    displayName="User Program Interfaces"
                    projectFiles="true">
       <logicalFolder name="f1" displayName="Tests" projectFiles="true">
+        <itemPath>BuildSimulationModel.cpp</itemPath>
+        <itemPath>BuildSimulationModel.h</itemPath>
+        <itemPath>MyReGenESYsApplication.cpp</itemPath>
+        <itemPath>MyReGenESYsApplication.h</itemPath>
         <itemPath>TestInputAnalyserTools.cpp</itemPath>
         <itemPath>TestInputAnalyserTools.h</itemPath>
         <itemPath>TestParser.cpp</itemPath>
@@ -219,9 +221,11 @@
         <itemPath>TestStatistics.h</itemPath>
         <itemPath>main.cpp</itemPath>
       </logicalFolder>
-      <itemPath>BuildSimulationModel.cpp</itemPath>
-      <itemPath>BuildSimulationModel.h</itemPath>
       <itemPath>GenesysApplication_if.h</itemPath>
+      <itemPath>GenesysGUI.cpp</itemPath>
+      <itemPath>GenesysGUI.h</itemPath>
+      <itemPath>GenesysShell.cpp</itemPath>
+      <itemPath>GenesysShell.h</itemPath>
     </logicalFolder>
     <logicalFolder name="f6" displayName="Util" projectFiles="true">
       <itemPath>LinkedBy.cpp</itemPath>
@@ -341,15 +345,23 @@
       </item>
       <item path="FactorOrInteractionContribution.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="FitterDummyImpl.cpp" ex="false" tool="1" flavor2="0">
+      <item path="FitterDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="FitterDummyImpl.h" ex="false" tool="3" flavor2="0">
+      <item path="FitterDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Fitter_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Genesys++-parser.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="GenesysApplication_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GenesysGUI.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="GenesysGUI.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GenesysShell.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="GenesysShell.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="HypothesisTesterDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -385,10 +397,6 @@
       </item>
       <item path="ModelCheckerDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="ModelCheckerDummyImpl.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ModelCheckerDummyImpl.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="ModelChecker_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ModelComponent.cpp" ex="false" tool="1" flavor2="0">
@@ -405,15 +413,19 @@
       </item>
       <item path="ModelInfo.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="ModelPersistenceDummyImpl.cpp" ex="false" tool="1" flavor2="0">
+      <item path="ModelPersistenceDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="ModelPersistenceDummyImpl.h" ex="false" tool="3" flavor2="0">
+      <item path="ModelPersistenceDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ModelPersistence_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ModelSimulation.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ModelSimulation.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="MyReGenESYsApplication.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="MyReGenESYsApplication.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="OnEventManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -716,15 +728,23 @@
       </item>
       <item path="FactorOrInteractionContribution.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="FitterDummyImpl.cpp" ex="false" tool="1" flavor2="0">
+      <item path="FitterDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="FitterDummyImpl.h" ex="false" tool="3" flavor2="0">
+      <item path="FitterDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Fitter_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Genesys++-parser.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="GenesysApplication_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GenesysGUI.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="GenesysGUI.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="GenesysShell.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="GenesysShell.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="HypothesisTesterDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -760,10 +780,6 @@
       </item>
       <item path="ModelCheckerDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="ModelCheckerDummyImpl.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ModelCheckerDummyImpl.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="ModelChecker_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ModelComponent.cpp" ex="false" tool="1" flavor2="0">
@@ -780,15 +796,19 @@
       </item>
       <item path="ModelInfo.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="ModelPersistenceDummyImpl.cpp" ex="false" tool="1" flavor2="0">
+      <item path="ModelPersistenceDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="ModelPersistenceDummyImpl.h" ex="false" tool="3" flavor2="0">
+      <item path="ModelPersistenceDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ModelPersistence_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ModelSimulation.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ModelSimulation.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="MyReGenESYsApplication.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="MyReGenESYsApplication.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="OnEventManager.cpp" ex="false" tool="1" flavor2="0">
       </item>

@@ -4,10 +4,14 @@
  * and open the template in the editor.
  */
 
-using namespace std;
+/* 
+ * File:   MyReGenESYsApplication.cpp
+ * Author: rlcancian
+ * 
+ * Created on 20 de Maio de 2019, 21:01
+ */
 
-
-#include "BuildSimulationModel.h"
+#include "MyReGenESYsApplication.h"
 
 // GEnSyS Simulator
 #include "Simulator.h"
@@ -31,8 +35,6 @@ using namespace std;
 #include "Attribute.h"
 #include "Variable.h"
 #include "ProbDistrib.h"
-
-/*
 
 void traceHandler(TraceEvent e) {
     std::cout << e.getText() << std::endl;
@@ -62,23 +64,19 @@ void onEntityRemoveHandler(SimulationEvent* re) {
     std::cout << "(Handler) Entity " << re->getEventProcessed()->getEntity() << " was removed." << std::endl;
 }
 
- */
-
 /**
  * This function shows an example of how to create a simulation model.
  * It creates some handlers for tracing (debug) and for events, set model infos and than creates the model itself.
  * The model is a composition of components (and elements that they use), connected to form a process/fluxogram 
  * @param model - The instance returned that will contains the built model
  */
-void BuildSimulationModel::buildModel(Model* model) { // buildModelWithAllImplementedComponents
+void builSimulationdModel(Model* model) { // buildModelWithAllImplementedComponents
     // traces handle and simulation events to output them
-    /*
     TraceManager* tm = model->getTracer();
     tm->addTraceHandler(&traceHandler);
     tm->addTraceReportHandler(&traceHandler);
     tm->addTraceSimulationHandler(&traceSimulationHandler);
-     */
-    
+
     /*
     OnEventManager* ev = model->getOnEventManager();
     ev->addOnSimulationStartHandler(&onSimulationStartHandler);
@@ -165,20 +163,21 @@ void BuildSimulationModel::buildModel(Model* model) { // buildModelWithAllImplem
     record1->getNextComponents()->insert(dispose1);
 }
 
-BuildSimulationModel::BuildSimulationModel() {
-
+MyReGenESYsApplication::MyReGenESYsApplication() {
 }
 
-/**
- * This is the main function of the BuildSimulationModel application. 
- * It instanciates the simulator, builds a simulation model and then simulate that model.
- */
-int BuildSimulationModel::main(int argc, char** argv) {
+MyReGenESYsApplication::MyReGenESYsApplication(const MyReGenESYsApplication& orig) {
+}
+
+MyReGenESYsApplication::~MyReGenESYsApplication() {
+}
+
+int MyReGenESYsApplication::main(int argc, char** argv) {
     Simulator* simulator = new Simulator();
     Model* model = new Model(simulator);
-    buildModel(model);
+    builSimulationdModel(model);
     simulator->getModels()->insert(model);
 
     //model->saveModel("./temp/genesysSimpleSimulationModel.txt");
     model->getSimulation()->startSimulation();
-};
+}

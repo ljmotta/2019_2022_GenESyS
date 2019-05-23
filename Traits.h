@@ -30,31 +30,27 @@
 #include "ExperimentDesign_if.h"
 #include "SimulationReporter_if.h"
 
-// possible implementations
-
 // genesys applications
-#include "BuildSimulationModel.h"
-#include "TestInputAnalyserTools.h"
-#include "TestParser.h"
-#include "TestStatistics.h"
-
-
-// dummy implementations
-#include "FitterDummyImpl.h"
-#include "ProcessAnalyserDummyImpl.h"
-#include "ModelPersistenceDummyImpl.h"
+#include "MyReGenESYsApplication.h"
 
 //  Default implementations
+//statistics
 #include "CollectorDefaultImpl1.h"
 #include "CollectorDatafileDefaultImpl1.h"
 #include "StatisticsDefaultImpl1.h"
 #include "IntegratorDefaultImpl1.h"
 #include "HypothesisTesterDefaultImpl1.h"
 #include "SamplerDefaultImpl1.h"
-#include "parserBisonFlex/ParserFlexBisonImpl.h"
+//model
 #include "SimulationReporterDefaultImpl1.h"
 #include "ModelCheckerDefaultImpl1.h"
+#include "ModelPersistenceDefaultImpl1.h"
+//parser
+#include "parserBisonFlex/ParserFlexBisonImpl.h"
+//tools
 #include "ExperimentDesignDefaultImpl1.h"
+#include "ProcessAnalyserDefaultImpl1.h"
+#include "FitterDefaultImpl1.h"
 
 template <typename T>
 struct Traits {
@@ -65,10 +61,7 @@ struct Traits {
  */
 
 template <> struct Traits<GenesysApplication_if> {
-    //typedef TestInputAnalyserTools Application;  
-    typedef BuildSimulationModel Application;
-    //typedef TestParser Application;  
-    //typedef TestStatistics Application;
+    typedef MyReGenESYsApplication Application;
 };
 
 
@@ -82,7 +75,7 @@ template <> struct Traits<Model> {
 };
 
 template <> struct Traits<ModelPersistence_if> {
-    typedef ModelPersistenceDummyImpl Implementation;
+    typedef ModelPersistenceDefaultImpl1 Implementation;
 };
 
 template <> struct Traits<SimulationReporter_if> {
@@ -130,7 +123,7 @@ template <> struct Traits<Sampler_if> {
 };
 
 template <> struct Traits<Fitter_if> {
-    typedef FitterDummyImpl Implementation;
+    typedef FitterDefaultImpl1 Implementation;
 };
 
 template <> struct Traits<HypothesisTester_if> {
@@ -147,7 +140,7 @@ template <> struct Traits<ExperimentDesign_if> {
 };
 
 template <> struct Traits<ProcessAnalyser_if> {
-    typedef ProcessAnalyserDummyImpl Implementation;
+    typedef ProcessAnalyserDefaultImpl1 Implementation;
 };
 
 #endif /* TRAITS_H */

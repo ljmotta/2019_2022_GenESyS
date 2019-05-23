@@ -108,6 +108,16 @@ double Model::parseExpression(const std::string expression) {
     return _parser->parse(expression);
 }
 
+bool Model::checkExpression(const std::string expression, const std::string expressionName, std::string* errorMessage) {
+    bool result;
+    parseExpression(expression, &result, errorMessage);
+    if (!result) {
+        std::string msg = "Expression \"" + expression + "\" for '" + expressionName + "' is incorrect. ";
+        errorMessage->append(msg);
+    }
+    return result;
+}
+
 double Model::parseExpression(const std::string expression, bool* success, std::string* errorMessage) {
     return _parser->parse(expression, success, errorMessage);
 }
@@ -137,9 +147,9 @@ bool Model::checkModel() {
     return res;
 }
 
-bool Model::verifySymbol(std::string componentName, std::string expressionName, std::string expression, std::string expressionResult, bool mandatory) {
-    return this->_modelChecker->verifySymbol(componentName, expressionName, expression, expressionResult, mandatory);
-}
+//bool Model::verifySymbol(std::string componentName, std::string expressionName, std::string expression, std::string expressionResult, bool mandatory) {
+//    return this->_modelChecker->verifySymbol(componentName, expressionName, expression, expressionResult, mandatory);
+//}
 
 void Model::removeEntity(Entity* entity, bool collectStatistics) {
     if (collectStatistics) {

@@ -8,7 +8,7 @@
  * File:   DefineGetterSetter.h
  * Author: rafael.luiz.cancian
  *
- * Created on 5 de Maio de 2019, 13:52
+ * Created on 5 de Agosto de 2018, 13:52
  */
 
 #ifndef DEFINEGETTERSETTER_H

@@ -48,6 +48,8 @@ public: // get & set
     unsigned int getEntitiesPerCreation() const;
 public:
     virtual std::string show();
+protected:
+    virtual bool _check(std::string* errorMessage);
 protected: // get & set
     EntityType* _entityType;
     double _firstCreation = 0.0;

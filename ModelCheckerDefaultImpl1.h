@@ -8,7 +8,7 @@
  * File:   ModelCheckerDefaultImpl1.h
  * Author: rafael.luiz.cancian
  *
- * Created on 8 de Maio de 2019, 18:44
+ * Created on 8 de Agosto de 2018, 18:44
  */
 
 #ifndef MODELCHECKERDEFAULTIMPL1_H
@@ -24,12 +24,10 @@ public:
     virtual ~ModelCheckerDefaultImpl1();
 public:
     virtual bool checkAll();
-    virtual bool checkAndAddInternalLiterals();
     virtual bool checkConnected();
     virtual bool checkSymbols();
-    virtual bool checkPathway();
     virtual bool checkActivationCode();
-    virtual bool verifySymbol(std::string componentName, std::string expressionName, std::string expression, std::string expressionResult, bool mandatory);
+    //virtual bool verifySymbol(std::string componentName, std::string expressionName, std::string expression, std::string expressionResult, bool mandatory);
 private:
     Model* _model;
 };

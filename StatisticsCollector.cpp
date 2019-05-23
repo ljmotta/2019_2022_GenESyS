@@ -72,6 +72,6 @@ std::list<std::string>* StatisticsCollector::_saveInstance() {
     return words;
 }
 
-bool StatisticsCollector::_verifySymbols(std::string* errorMessage) {
+bool StatisticsCollector::_check(std::string* errorMessage) {
     return true;
 }

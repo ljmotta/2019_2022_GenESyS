@@ -8,7 +8,7 @@
  * File:   StatisticsDefaultImpl1.h
  * Author: rafael.luiz.cancian
  *
- * Created on 1 de Maio de 2019, 21:03
+ * Created on 1 de Agosto de 2018, 21:03
  */
 
 #ifndef STATISTICSDEFAULTIMPL1_H
@@ -19,13 +19,13 @@
 
 class StatisticsDefaultImpl1 : public Statistics_if {
 public:
-    StatisticsDefaultImpl1();
+    StatisticsDefaultImpl1(); ///< When constructor is invoked without a Collector, it is taken from Traits<Statistics_if>::CollectorImplementation configuration
     StatisticsDefaultImpl1(Collector_if* collector);
     StatisticsDefaultImpl1(const StatisticsDefaultImpl1& orig);
     virtual ~StatisticsDefaultImpl1();
 public:
     virtual Collector_if* getCollector();
-    void setCollector(Collector_if* collector);
+    virtual void setCollector(Collector_if* collector);
 public:
     virtual unsigned int numElements();
     virtual double min();

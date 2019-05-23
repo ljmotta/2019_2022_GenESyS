@@ -33,7 +33,7 @@ protected:
     virtual void _execute(Entity* entity);
     virtual void _loadInstance(std::list<std::string> words);
     virtual std::list<std::string>* _saveInstance();
-    virtual bool _verifySymbols(std::string* errorMessage);
+    virtual bool _check(std::string* errorMessage);
 private:
     std::string _delayExpression = "1.0";
     Util::TimeUnit _delayTimeUnit = Util::TimeUnit::second;

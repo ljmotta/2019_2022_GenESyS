@@ -13,6 +13,7 @@
 
 #include "Queue.h"
 #include "Model.h"
+#include "Attribute.h"
 
 Queue::Queue(ElementManager* elems) : ModelElement(Util::TypeOf<Queue>()) {
     _elems = elems;
@@ -97,6 +98,6 @@ std::list<std::string>* Queue::_saveInstance() {
     return words;
 }
 
-bool Queue::_verifySymbols(std::string* errorMessage) {
-    return true;
+bool Queue::_check(std::string* errorMessage) {
+    return _elems->checkElement(Util::TypeOf<Attribute>(), _attributeName, "AttributeName", false, errorMessage);
 }

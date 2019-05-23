@@ -8,7 +8,7 @@
  * File:   HypothesisTesterDefaultImpl1.cpp
  * Author: rafael.luiz.cancian
  * 
- * Created on 10 de Maio de 2019, 10:27
+ * Created on 10 de Agosto de 2018, 10:27
  */
 
 #include "HypothesisTesterDefaultImpl1.h"

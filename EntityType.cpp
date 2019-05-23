@@ -12,8 +12,6 @@
  */
 
 #include "EntityType.h"
-#include "CollectorDummyImpl.h" /////
-//#include "Traits.h"
 
 EntityType::EntityType(ElementManager* elemManager) : ModelElement(Util::TypeOf<EntityType>()) {
     _elemManager = elemManager;
@@ -137,7 +135,7 @@ std::list<std::string>* EntityType::_saveInstance() {
     return words;
 }
 
-bool EntityType::_verifySymbols(std::string* errorMessage) {
+bool EntityType::_check(std::string* errorMessage) {
     return true;
 }
 

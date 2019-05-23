@@ -41,7 +41,7 @@ std::string Util::Indent() {
     return spaces;
 }
 
-static std::string Util::SetW(std::string text, unsigned short width) {
+std::string Util::SetW(std::string text, unsigned short width) {
     std::string spaces(width,' ');
     std::string result = text + spaces;
     return result.substr(0, width);

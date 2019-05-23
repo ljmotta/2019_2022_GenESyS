@@ -47,7 +47,7 @@ protected:
     virtual void _execute(Entity* entity);
     virtual void _loadInstance(std::list<std::string> words);
     virtual std::list<std::string>* _saveInstance();
-    virtual bool _verifySymbols(std::string* errorMessage);
+    virtual bool _check(std::string* errorMessage);
 private:
     //	unsigned int _allocationType = 0; // uint ? enum?
     unsigned short _priority = 0;
@@ -55,7 +55,6 @@ private:
     std::string _quantity = "1";
     Resource::ResourceRule _rule = Resource::ResourceRule::SMALLESTBUSY;
     std::string _saveAttribute = "";
-    Resource* _verifySymbolsResource(std::string _resourceName);
 
 private: // no g&s
     Resource* _resource;

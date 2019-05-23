@@ -15,13 +15,15 @@
 #define BUILDSIMPLEMODEL1_H
 
 #include "GenesysApplication_if.h"
+#include "Model.h"
 
 class BuildSimulationModel : public GenesysApplication_if {
 public:
     BuildSimulationModel();
-protected:
 public:
-    int main(int argc, char** argv);
+    virtual int main(int argc, char** argv);
+private:
+    void buildModel(Model* model);
 };
 
 #endif /* BUILDSIMPLEMODEL1_H */

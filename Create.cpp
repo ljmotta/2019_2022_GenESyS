@@ -14,7 +14,6 @@
 #include "Create.h"
 #include "Model.h"
 #include "EntityType.h"
-#include "Functor.h"
 #include "ElementManager.h"
 #include "Attribute.h"
 
@@ -90,40 +89,7 @@ std::list<std::string>* Create::_saveInstance() {
     return words;
 }
 
-bool Create::_verifySymbols(std::string* errorMessage) {
-    //Genesys.AuxFunctions.VerifySymbol(thismodule.Name, 'Time Between Creations', thisModule.aTimeBetweenCreations, cEXPRESSION, true);
-
-    // bool res = _model->verifySymbol(this->_name, "Time Between Creations", this->_timeBetweenCreationsExpression, "EXPRESSION", true); // Todo: typeid(Expression)
-
-
-    /*Checking Time Between Creations*/
-    bool result = true;
-    this->_model->parseExpression(this->_timeBetweenCreationsExpression, &result, errorMessage);
-
-    //include attributes needed
-    ElementManager* elements = _model->getElementManager();
-    //std::string neededNames[] = {"Entity.ArrivalTime", "Entity.Picture", "Entity.VATime", "Entity.NVAlTime"};
-    std::vector<std::string> neededNames = {"Entity.ArrivalTime", "Entity.Picture", "Entity.VATime", "Entity.NVAlTime"};
-    std::string neededName;
-    for (int i = 0; i < neededNames.size(); i++) {
-        neededName = neededNames[i];
-        if (elements->getElement(Util::TypeOf<Attribute>(), neededName) == nullptr) {
-            Attribute* attr1 = new Attribute(neededName);
-            elements->insertElement(Util::TypeOf<Attribute>(), attr1);
-        }
-    }
-
-
-    /*
-    // get the list of all EntityType from model infrastrucure and check if it exists
-    if (_model->getElementManager()->getElement(Util::TypeOf<EntityType>(), this->_entityType) == nullptr) {
-        // the _entityType does not exists yet, so create it
-        EntityType* newEntityType = new EntityType(_model->getElementManager());
-        newEntityType->setName(this->_entityType);
-        // insert the new EntittyType into the element list
-        _model->getElementManager()->insertElement(Util::TypeOf<EntityType>(), newEntityType);
-    }
-     */
-
+bool Create::_check(std::string* errorMessage) {
+    bool result =  SourceModelComponent::_check(errorMessage); 
     return result;
 }

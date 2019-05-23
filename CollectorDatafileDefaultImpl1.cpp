@@ -8,7 +8,7 @@
  * File:   CollectorDatafileDefaultImpl11.cpp
  * Author: rafael.luiz.cancian
  * 
- * Created on 1 de Maio de 2019, 20:58
+ * Created on 1 de Agosto de 2018, 20:58
  */
 
 #include "CollectorDatafileDefaultImpl1.h"

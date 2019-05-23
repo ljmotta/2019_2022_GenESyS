@@ -8,7 +8,7 @@
  * File:   SimulationReporter_if.h
  * Author: rafael.luiz.cancian
  *
- * Created on 8 de Maio de 2019, 10:56
+ * Created on 8 de Agosto de 2018, 10:56
  */
 
 #ifndef SIMULATIONREPORTER_IF_H

@@ -45,7 +45,7 @@ void Assign::_execute(Entity* entity) {
     for (std::list<Assignment*>::iterator it = lets->begin(); it != lets->end(); it++) {
         let = (*it);
         double value = _model->parseExpression(let->getExpression());
-        _model->getTracer()->trace(Util::TraceLevel::blockInternal, "Let \"" + let->getDestination() + "\" = " + std::to_string(value)+ "  // "+let->getExpression());
+        _model->getTracer()->trace(Util::TraceLevel::blockInternal, "Let \"" + let->getDestination() + "\" = " + std::to_string(value) + "  // " + let->getExpression());
         /* TODO: this is NOT the best way to do it (enum comparision) */
         if (let->getDestinationType() == DestinationType::Variable) {
             Variable* myvar = (Variable*) this->_model->getElementManager()->getElement(Util::TypeOf<Variable>(), let->getDestination());
@@ -66,32 +66,17 @@ std::list<std::string>* Assign::_saveInstance() {
     return words;
 }
 
-bool Assign::_verifySymbols(std::string* errorMessage) {
+bool Assign::_check(std::string* errorMessage) {
     Assignment* let;
-    ModelElement* infra;
-    bool result = true;
+    bool resultAll = true, result = true;
     for (std::list<Assignment*>::iterator it = _assignments->getList()->begin(); it != _assignments->getList()->end(); it++) {
         let = (*it);
-        /*TODO: + PARSE EXPRESSION AND DESTINY SYNTAX, ETC*/
-
-        /*
-        // create infrastrucuture it it does not exists yet
-        if (let->getDestinationType() == DestinationType::Attribute) {
-            infra = _model->getElementManager()->getElement(Util::TypeOf<Attribute>(), let->getDestination());
-            if (infra == nullptr) {
-                Attribute* newAttribute = new Attribute();
-                newAttribute->setName(let->getDestination());
-                _model->getElementManager()->insertElement(Util::TypeOf<Attribute>(), newAttribute);
-            }
+        resultAll &= _model->checkExpression(let->getExpression(), "assignment", errorMessage);
+        if (let->getDestinationType() == DestinationType::Attribute) { // TODO I dont like the way we check the destination
+            resultAll &= _model->getElementManager()->checkElement(Util::TypeOf<Attribute>(), let->getDestination(), "destination", true, errorMessage);
         } else if (let->getDestinationType() == DestinationType::Variable) {
-            infra = _model->getElementManager()->getElement(Util::TypeOf<Variable>(), let->getDestination());
-            if (infra == nullptr) {
-                Variable* newVariable = new Variable();
-                newVariable->setName(let->getDestination());
-                _model->getElementManager()->insertElement(Util::TypeOf<Variable>(), newVariable);
-            }
+            resultAll &= _model->getElementManager()->checkElement(Util::TypeOf<Variable>(), let->getDestination(), "destination", true, errorMessage);
         }
-        */
     }
-    return result;
+    return resultAll;
 }

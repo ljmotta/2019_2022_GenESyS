@@ -135,6 +135,6 @@ std::list<std::string>* Resource::_saveInstance() {
     return words;
 }
 
-bool Resource::_verifySymbols(std::string* errorMessage) {
+bool Resource::_check(std::string* errorMessage) {
     return true;
 }

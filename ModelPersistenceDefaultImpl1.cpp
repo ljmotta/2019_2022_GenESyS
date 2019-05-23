@@ -5,28 +5,26 @@
  */
 
 /* 
- * File:   ModelPersistence.cpp
- * Author: rafael.luiz.cancian
+ * File:   ModelPersistenceDefaultImpl1.cpp
+ * Author: rlcancian
  * 
- * Created on 24 de Agosto de 2018, 19:22
+ * Created on 20 de Maio de 2019, 20:41
  */
 
-#include <iostream>
-
-#include "ModelPersistenceDummyImpl.h"
+#include "ModelPersistenceDefaultImpl1.h"
 #include "ModelComponent.h"
 
-ModelPersistenceDummyImpl::ModelPersistenceDummyImpl(Model* model) {
+ModelPersistenceDefaultImpl1::ModelPersistenceDefaultImpl1(Model* model) {
     _model = model;
 }
 
-ModelPersistenceDummyImpl::ModelPersistenceDummyImpl(const ModelPersistenceDummyImpl& orig) {
+ModelPersistenceDefaultImpl1::ModelPersistenceDefaultImpl1(const ModelPersistenceDefaultImpl1& orig) {
 }
 
-ModelPersistenceDummyImpl::~ModelPersistenceDummyImpl() {
+ModelPersistenceDefaultImpl1::~ModelPersistenceDefaultImpl1() {
 }
 
-bool ModelPersistenceDummyImpl::saveAsTXT(std::string filename) {
+bool ModelPersistenceDefaultImpl1::saveAsTXT(std::string filename) {
     bool res = true;
     std::list<std::string>* words;
 
@@ -66,17 +64,17 @@ bool ModelPersistenceDummyImpl::saveAsTXT(std::string filename) {
     // close file
 }
 
-bool ModelPersistenceDummyImpl::loadAsTXT(std::string filename) {
+bool ModelPersistenceDefaultImpl1::loadAsTXT(std::string filename) {
 
 }
 
-bool ModelPersistenceDummyImpl::saveAsXML(std::string filename) {
+bool ModelPersistenceDefaultImpl1::saveAsXML(std::string filename) {
 }
 
-bool ModelPersistenceDummyImpl::loadAsXML(std::string filename) {
+bool ModelPersistenceDefaultImpl1::loadAsXML(std::string filename) {
 }
 
-void ModelPersistenceDummyImpl::_saveLine(std::list<std::string>* words, std::string filename) {
+void ModelPersistenceDefaultImpl1::_saveLine(std::list<std::string>* words, std::string filename) {
     std::string line = "";
     for (std::list<std::string>::iterator it = words->begin(); it != words->end(); it++) {
         line += (*it) + " ; ";
@@ -84,14 +82,14 @@ void ModelPersistenceDummyImpl::_saveLine(std::list<std::string>* words, std::st
     _model->getTracer()->trace(Util::TraceLevel::mostDetailed, line);
 }
 
-bool ModelPersistenceDummyImpl::save(std::string filename) {
+bool ModelPersistenceDefaultImpl1::save(std::string filename) {
     return this->saveAsTXT(filename);
 }
 
-bool ModelPersistenceDummyImpl::load(std::string filename) {
+bool ModelPersistenceDefaultImpl1::load(std::string filename) {
     return this->loadAsTXT(filename);
 }
 
-bool ModelPersistenceDummyImpl::isSaved() {
+bool ModelPersistenceDefaultImpl1::isSaved() {
     return _isSaved;
 }

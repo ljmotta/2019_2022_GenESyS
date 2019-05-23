@@ -33,7 +33,7 @@ public:
 protected:
     virtual void _loadInstance(std::list<std::string> words);
     virtual std::list<std::string>* _saveInstance();
-    virtual bool _verifySymbols(std::string* errorMessage);
+    virtual bool _check(std::string* errorMessage);
 
 private:
     unsigned int _numRows = 1;

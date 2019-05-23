@@ -8,7 +8,7 @@
  * File:   SimulationReporterDefaultImpl1.cpp
  * Author: rafael.luiz.cancian
  * 
- * Created on 8 de Maio de 2019, 10:59
+ * Created on 8 de Agosto de 2018, 10:59
  */
 
 #include "SimulationReporterDefaultImpl1.h"

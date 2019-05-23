@@ -8,7 +8,7 @@
  * File:   SamplerDefaultImpl1.cpp
  * Author: rafael.luiz.cancian
  * 
- * Created on 2 de Maio de 2019, 01:10
+ * Created on 2 de Agosto de 2018, 01:10
  */
 
 #include <cmath>
@@ -21,7 +21,7 @@ SamplerDefaultImpl1::SamplerDefaultImpl1() {
 }
 
 void SamplerDefaultImpl1::reset() {
-    _seed = _param->seed;
+    _seed = static_cast<DefaultImpl1RNG_Parameters*>(_param)->seed;
     //_normalflag = true;
 }
 
@@ -32,9 +32,10 @@ SamplerDefaultImpl1::~SamplerDefaultImpl1() {
 }
 
 double SamplerDefaultImpl1::random() {
-    _seed *= _param->multiplier;
-    _seed -= std::trunc((double)_seed / (double)_param->module) * _param->module;
-    return  (double)_seed / (double)_param->module;
+    double module = (double)static_cast<DefaultImpl1RNG_Parameters*>(_param)->module;
+    _seed *= static_cast<DefaultImpl1RNG_Parameters*>(_param)->multiplier;
+    _seed -= std::trunc((double)_seed / module) * module;
+    return  (double)_seed / (double)static_cast<DefaultImpl1RNG_Parameters*>(_param)->module;
 }
 
 double SamplerDefaultImpl1::sampleUniform(double min, double max) {

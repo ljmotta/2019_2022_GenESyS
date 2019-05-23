@@ -32,7 +32,7 @@ public:
 public: // static
     static void LoadInstance(std::list<std::string> words); // TODO: return ModelComponent* ?
     static std::list<std::string>* SaveInstance(ModelElement* element);
-    static bool VerifySymbols(ModelElement* element, std::string* errorMessage);
+    static bool Check(ModelElement* element, std::string* errorMessage);
 
 public: // get & set
     Util::identitifcation getId() const;
@@ -44,7 +44,7 @@ protected: // must be overriden by derived classes
     virtual void _loadInstance(std::list<std::string> words) = 0;
     virtual std::list<std::string>* _saveInstance();
     virtual std::list<std::string>* _saveInstance(std::string type);
-    virtual bool _verifySymbols(std::string* errorMessage) = 0;
+    virtual bool _check(std::string* errorMessage) = 0;
 
 protected:
     Util::identitifcation _id;

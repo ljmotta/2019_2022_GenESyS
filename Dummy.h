@@ -5,25 +5,22 @@
  */
 
 /* 
- * File:   Decide.h
- * Author: rafael.luiz.cancian
+ * File:   Dummy.h
+ * Author: rlcancian
  *
- * Created on 9 de Agosto de 2018, 20:39
+ * Created on 22 de Maio de 2019, 18:41
  */
 
-#ifndef DECIDE_H
-#define DECIDE_H
+#ifndef DUMMY_H
+#define DUMMY_H
 
 #include "ModelComponent.h"
 
-class Decide : public ModelComponent {
+class Dummy : public ModelComponent {
 public:
-    Decide(Model* model);
-    Decide(const Decide& orig);
-    virtual ~Decide();
-public:
-    List<std::string>* getConditions() const;
-
+    Dummy(Model* model);
+    Dummy(const Dummy& orig);
+    virtual ~Dummy();
 public:
     virtual std::string show();
 protected:
@@ -32,10 +29,8 @@ protected:
     virtual std::list<std::string>* _saveInstance();
     virtual bool _check(std::string* errorMessage);
 private:
-    List<std::string>* _conditions = new List<std::string>();
-private:
 
 };
 
-#endif /* DECIDE_H */
+#endif /* DUMMY_H */
 
