@@ -48,7 +48,7 @@
 #include "ModelCheckerDefaultImpl1.h"
 #include "ModelPersistenceDefaultImpl1.h"
 //parser
-#include "parserBisonFlex/ParserFlexBisonImpl.h"
+#include "parserBisonFlex/ParserDefaultImpl2.h"
 //tools
 #include "ExperimentDesignDefaultImpl1.h"
 #include "ProcessAnalyserDefaultImpl1.h"
@@ -94,7 +94,7 @@ template <> struct Traits<ModelChecker_if> {
 };
 
 template <> struct Traits<Parser_if> {
-    typedef ParserFlexBisonImpl Implementation; //ParserDefaultImpl1
+    typedef ParserDefaultImpl2 Implementation; //ParserDefaultImpl1
 };
 
 /*

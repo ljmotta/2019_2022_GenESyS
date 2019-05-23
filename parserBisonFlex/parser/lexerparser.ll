@@ -6,7 +6,7 @@
 # include <locale>
 # include <list>
 # include "Genesys++-driver.h"
-# include "Genesys++-parser.h"
+# include "GenesysParser.h"
 # include "obj_t.h"
 # include "../Util.h"
 # include "../List.h"
@@ -50,27 +50,27 @@ L      [A-Za-z0-9_.]+
 [0][xX][aA-fF0-9]+  {
 						//Hexadecimal number
             //Will not fail because of regex
-            std::string text("Found Hexadecimal: ");
-            text += yytext;
-            driver.getModel()->getTracer()->trace(Util::TraceLevel::mostDetailed, text);
-						return yy::genesyspp_parser::make_NUMH(obj_t(atof(yytext), std::string("Hexadecimal")),loc);
+            //std::string text("Found Hexadecimal: ");
+            //text += yytext;
+            //driver.getModel()->getTracer()->trace(Util::TraceLevel::mostDetailed, text);
+            return yy::genesyspp_parser::make_NUMH(obj_t(atof(yytext), std::string("Hexadecimal")),loc);
 					}
 
 {RR}  {
        //Float number
        //Will not fail because of regex
-       std::string text("Found Float: ");
-       text += yytext;
-       driver.getModel()->getTracer()->trace(Util::TraceLevel::mostDetailed, text);
+       //std::string text("Found Float: ");
+       //text += yytext;
+       //driver.getModel()->getTracer()->trace(Util::TraceLevel::mostDetailed, text);
        return yy::genesyspp_parser::make_NUMD(obj_t(atof(yytext),std::string("Float")), loc);
      }
 
 {DD}  {
        //Decimal number
        //Will not fail because of regex
-       std::string text("Found Decimal: ");
-       text += yytext;
-       driver.getModel()->getTracer()->trace(Util::TraceLevel::mostDetailed, text);
+       //std::string text("Found Decimal: ");
+       //text += yytext;
+       //driver.getModel()->getTracer()->trace(Util::TraceLevel::mostDetailed, text);
        return yy::genesyspp_parser::make_NUMD(obj_t(atof(yytext),std::string("Decimal")), loc);
       }
 
@@ -148,13 +148,37 @@ L      [A-Za-z0-9_.]+
 
 
 {L}   {
-        //getAttributeValue not implemented, change comparisson on future
-        double attribute = driver.getModel()->getSimulation()->getCurrentEntity()->getAttributeValue(std::string(yytext));
-        if(attribute != -1){
-          //does nothing now because getAttributeValue not implemented
-          //return yy::genesyspp_parser::make_ATRIB(obj_t(attribute, Util::TypeOf<Attribute>(), -1),loc);
+        // check if it is an ATTRIBUTE
+        int rank = driver.getModel()->getElementManager()->getRankOf(Util::TypeOf<Attribute>(), std::string(yytext));
+        if (rank>=0) {
+            double attributeValue = 0.0;
+            if (driver.getModel()->getSimulation()->getCurrentEntity() != nullptr) {
+                try {
+                    // it could crach because there may be no current entity, if the parse is running before simulation and therefore there is no CurrentEntity
+                    attributeValue = driver.getModel()->getSimulation()->getCurrentEntity()->getAttributeValue(std::string(yytext));
+                } catch(...) {
+                }
+            }
+            return yy::genesyspp_parser::make_ATRIB(obj_t(attributeValue, Util::TypeOf<Attribute>(), -1),loc);
         }
-        //iterates through the model Infrastructures and returns its id and the matching token
+        
+        ModelElement* element; 
+        // check VARIABLE
+        element = driver.getModel()->getElementManager()->getElement(Util::TypeOf<Variable>(), std::string(yytext));
+        if (element != nullptr) { // it is a variable
+            Variable* var = static_cast<Variable*>(element);
+            double variableValue = var->getValue();
+            return yy::genesyspp_parser::make_VARI(obj_t(variableValue, Util::TypeOf<Variable>(), var->getId()),loc);
+        }
+        
+        // check QUEUE
+        element = driver.getModel()->getElementManager()->getElement(Util::TypeOf<Queue>(), std::string(yytext));
+        if (element != nullptr) { 
+            return yy::genesyspp_parser::make_QUEUE(obj_t(0, Util::TypeOf<Variable>(), element->getId()),loc);
+        }
+
+        /*
+        //iterates through the model Elements and returns its id and the matching token
         std::list<std::string>* listaDisponiveis = driver.getModel()->getElementManager()->getElementTypenames();
         for(std::list<std::string>::iterator it = listaDisponiveis->begin(); it != listaDisponiveis->end(); ++it){
           List<ModelElement*>* listaAtual = driver.getModel()->getElementManager()->getElements(*it);
@@ -173,6 +197,7 @@ L      [A-Za-z0-9_.]+
             }
           }
         }
+        */
         //Case not found retturns a illegal token
         return yy::genesyspp_parser::make_ILLEGAL(obj_t(0, std::string("Illegal")), loc);
       }

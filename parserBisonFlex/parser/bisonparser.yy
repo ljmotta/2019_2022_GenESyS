@@ -128,7 +128,7 @@ class genesyspp_driver;
 //%printer { yyoutput << $$; } <*>; //prints whren something
 %%
 
-input	    : /* empty */
+input	   : /* empty */
            | input '\n' {YYACCEPT;}
            | input programa                                     { driver.setResult($2.valor);}
            | illegal

@@ -81,13 +81,13 @@
         <logicalFolder name="f2" displayName="Parser" projectFiles="true">
           <itemPath>parserBisonFlex/Genesys++-driver.cpp</itemPath>
           <itemPath>parserBisonFlex/Genesys++-driver.h</itemPath>
-          <itemPath>parserBisonFlex/Genesys++-parser.cpp</itemPath>
-          <itemPath>parserBisonFlex/Genesys++-parser.h</itemPath>
-          <itemPath>parserBisonFlex/parser/Genesys++-parser.yy</itemPath>
           <itemPath>parserBisonFlex/Genesys++-scanner.cpp</itemPath>
-          <itemPath>parserBisonFlex/parser/Genesys++-scanner.ll</itemPath>
-          <itemPath>parserBisonFlex/ParserFlexBisonImpl.cpp</itemPath>
-          <itemPath>parserBisonFlex/ParserFlexBisonImpl.h</itemPath>
+          <itemPath>parserBisonFlex/GenesysParser.cpp</itemPath>
+          <itemPath>parserBisonFlex/GenesysParser.h</itemPath>
+          <itemPath>parserBisonFlex/ParserDefaultImpl2.cpp</itemPath>
+          <itemPath>parserBisonFlex/ParserDefaultImpl2.h</itemPath>
+          <itemPath>parserBisonFlex/parser/bisonparser.yy</itemPath>
+          <itemPath>parserBisonFlex/parser/lexerparser.ll</itemPath>
           <itemPath>parserBisonFlex/location.hh</itemPath>
           <itemPath>parserBisonFlex/obj_t.cpp</itemPath>
           <itemPath>parserBisonFlex/obj_t.h</itemPath>
@@ -574,24 +574,21 @@
       </item>
       <item path="parserBisonFlex/Genesys++-driver.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="parserBisonFlex/Genesys++-parser.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="parserBisonFlex/Genesys++-parser.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="parserBisonFlex/Genesys++-scanner.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="parserBisonFlex/ParserFlexBisonImpl.cpp"
+      <item path="parserBisonFlex/GenesysParser.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="parserBisonFlex/GenesysParser.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="parserBisonFlex/ParserDefaultImpl2.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="parserBisonFlex/ParserFlexBisonImpl.h"
+      <item path="parserBisonFlex/ParserDefaultImpl2.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -602,12 +599,12 @@
       </item>
       <item path="parserBisonFlex/obj_t.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="parserBisonFlex/parser/Genesys++-parser.yy"
+      <item path="parserBisonFlex/parser/bisonparser.yy"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="parserBisonFlex/parser/Genesys++-scanner.ll"
+      <item path="parserBisonFlex/parser/lexerparser.ll"
             ex="false"
             tool="3"
             flavor2="0">
@@ -953,24 +950,21 @@
       </item>
       <item path="parserBisonFlex/Genesys++-driver.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="parserBisonFlex/Genesys++-parser.cpp"
-            ex="false"
-            tool="1"
-            flavor2="0">
-      </item>
-      <item path="parserBisonFlex/Genesys++-parser.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="parserBisonFlex/Genesys++-scanner.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="parserBisonFlex/ParserFlexBisonImpl.cpp"
+      <item path="parserBisonFlex/GenesysParser.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="parserBisonFlex/GenesysParser.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="parserBisonFlex/ParserDefaultImpl2.cpp"
             ex="false"
             tool="1"
             flavor2="0">
       </item>
-      <item path="parserBisonFlex/ParserFlexBisonImpl.h"
+      <item path="parserBisonFlex/ParserDefaultImpl2.h"
             ex="false"
             tool="3"
             flavor2="0">
@@ -981,12 +975,12 @@
       </item>
       <item path="parserBisonFlex/obj_t.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="parserBisonFlex/parser/Genesys++-parser.yy"
+      <item path="parserBisonFlex/parser/bisonparser.yy"
             ex="false"
             tool="3"
             flavor2="0">
       </item>
-      <item path="parserBisonFlex/parser/Genesys++-scanner.ll"
+      <item path="parserBisonFlex/parser/lexerparser.ll"
             ex="false"
             tool="3"
             flavor2="0">

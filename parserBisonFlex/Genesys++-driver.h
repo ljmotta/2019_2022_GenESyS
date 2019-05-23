@@ -2,7 +2,7 @@
 # define GENESYSPP_DRIVER_H
 # include <string>
 # include <map>
-# include "Genesys++-parser.h"
+# include "GenesysParser.h"
 # include "../Model.h"
 //# include "../../../ProbDistrib.h"
 # include "../Util.h"

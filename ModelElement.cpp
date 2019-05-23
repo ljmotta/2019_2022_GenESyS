@@ -68,8 +68,6 @@ std::string ModelElement::getTypename() const {
 std::list<std::string>* ModelElement::SaveInstance(ModelElement* element) {
     std::list<std::string>* words; // = new std::list<std::string>();
     try {
-        std::string name = element->_name; /* TODO: TEST ONLY. REMOVE IT */
-        //std::cout << "SALVANDO " << name << std::endl;
         words = element->_saveInstance();
     } catch (const std::exception& e) {
         //element->_model->getTrace()->traceError(e, "Error saving infra " + element->show());

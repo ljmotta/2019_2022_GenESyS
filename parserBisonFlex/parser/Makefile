@@ -1,7 +1,7 @@
 all: parser lexer
 
 parser:
-	bison --defines=../Genesys++-parser.h -o ../Genesys++-parser.cpp Genesys++-parser.yy
+	bison --graph=bisongraph.dot --xml=bisonreport.xml --defines=../GenesysParser.h -o ../GenesysParser.cpp bisonparser.yy
 
 lexer:
-	flex -o ../Genesys++-scanner.cpp Genesys++-scanner.ll
+	flex -o ../Genesys++-scanner.cpp lexerparser.ll

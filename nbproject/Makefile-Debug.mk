@@ -102,9 +102,9 @@ OBJECTFILES= \
 	${OBJECTDIR}/WaitingResource.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/parserBisonFlex/Genesys++-driver.o \
-	${OBJECTDIR}/parserBisonFlex/Genesys++-parser.o \
 	${OBJECTDIR}/parserBisonFlex/Genesys++-scanner.o \
-	${OBJECTDIR}/parserBisonFlex/ParserFlexBisonImpl.o \
+	${OBJECTDIR}/parserBisonFlex/GenesysParser.o \
+	${OBJECTDIR}/parserBisonFlex/ParserDefaultImpl2.o \
 	${OBJECTDIR}/parserBisonFlex/obj_t.o
 
 
@@ -467,20 +467,20 @@ ${OBJECTDIR}/parserBisonFlex/Genesys++-driver.o: parserBisonFlex/Genesys++-drive
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/parserBisonFlex/Genesys++-driver.o parserBisonFlex/Genesys++-driver.cpp
 
-${OBJECTDIR}/parserBisonFlex/Genesys++-parser.o: parserBisonFlex/Genesys++-parser.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}/parserBisonFlex
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/parserBisonFlex/Genesys++-parser.o parserBisonFlex/Genesys++-parser.cpp
-
 ${OBJECTDIR}/parserBisonFlex/Genesys++-scanner.o: parserBisonFlex/Genesys++-scanner.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}/parserBisonFlex
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/parserBisonFlex/Genesys++-scanner.o parserBisonFlex/Genesys++-scanner.cpp
 
-${OBJECTDIR}/parserBisonFlex/ParserFlexBisonImpl.o: parserBisonFlex/ParserFlexBisonImpl.cpp nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/parserBisonFlex/GenesysParser.o: parserBisonFlex/GenesysParser.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}/parserBisonFlex
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/parserBisonFlex/ParserFlexBisonImpl.o parserBisonFlex/ParserFlexBisonImpl.cpp
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/parserBisonFlex/GenesysParser.o parserBisonFlex/GenesysParser.cpp
+
+${OBJECTDIR}/parserBisonFlex/ParserDefaultImpl2.o: parserBisonFlex/ParserDefaultImpl2.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}/parserBisonFlex
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/parserBisonFlex/ParserDefaultImpl2.o parserBisonFlex/ParserDefaultImpl2.cpp
 
 ${OBJECTDIR}/parserBisonFlex/obj_t.o: parserBisonFlex/obj_t.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}/parserBisonFlex

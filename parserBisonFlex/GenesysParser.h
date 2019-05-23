@@ -31,16 +31,16 @@
 // version 2.2 of Bison.
 
 /**
- ** \file ../Genesys++-parser.h
+ ** \file ../GenesysParser.h
  ** Define the yy::parser class.
  */
 
 // C++ LALR(1) parser skeleton written by Akim Demaille.
 
-#ifndef YY_YY_GENESYS_PARSER_H_INCLUDED
-# define YY_YY_GENESYS_PARSER_H_INCLUDED
+#ifndef YY_YY_GENESYSPARSER_H_INCLUDED
+# define YY_YY_GENESYSPARSER_H_INCLUDED
 // //                    "%code requires" blocks.
-#line 9 "Genesys++-parser.yy" // lalr1.cc:377
+#line 9 "bisonparser.yy" // lalr1.cc:377
 
 #include <string>
 #include <cmath>
@@ -52,7 +52,7 @@
 class genesyspp_driver;
 
 
-#line 56 "../Genesys++-parser.h" // lalr1.cc:377
+#line 56 "../GenesysParser.h" // lalr1.cc:377
 
 # include <cassert>
 # include <cstdlib> // std::abort
@@ -129,7 +129,7 @@ class genesyspp_driver;
 
 
 namespace yy {
-#line 133 "../Genesys++-parser.h" // lalr1.cc:377
+#line 133 "../GenesysParser.h" // lalr1.cc:377
 
 
 
@@ -1855,9 +1855,9 @@ namespace yy {
 
 
 } // yy
-#line 1859 "../Genesys++-parser.h" // lalr1.cc:377
+#line 1859 "../GenesysParser.h" // lalr1.cc:377
 
 
 
 
-#endif // !YY_YY_GENESYS_PARSER_H_INCLUDED
+#endif // !YY_YY_GENESYSPARSER_H_INCLUDED

@@ -90,6 +90,6 @@ std::list<std::string>* Create::_saveInstance() {
 }
 
 bool Create::_check(std::string* errorMessage) {
-    bool result =  SourceModelComponent::_check(errorMessage); 
-    return result;
+    bool resultAll =  SourceModelComponent::_check(errorMessage); 
+    return resultAll;
 }

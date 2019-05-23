@@ -47,7 +47,6 @@ std::string StatisticsCollector::show() {
             parentStr = _parent->getName();
         } catch (...) { // if parent changed or deleted, can cause seg fault
             parentStr = "<<INCONSISTENT>>"; /*TODO ++*/
-            //std::cout << "WHAT TO DO?\n";
         }
     }
     return ModelElement::show() + 
