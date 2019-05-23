@@ -4,7 +4,7 @@
 # include <map>
 # include "Genesys++-parser.h"
 # include "../Model.h"
-//# include "../ProbDistrib.h"
+//# include "../../../ProbDistrib.h"
 # include "../Util.h"
 # include "../Sampler_if.h"
 // Tell Flex the lexer's prototype ...
@@ -50,7 +50,7 @@ public:
   std::string getErrorMessage();
 
   Model* getModel();
-  Sampler_if* getSampler();
+  Sampler_if* getProbs();
 
   std::string getFile();
   void setFile(std::string f);
@@ -60,7 +60,7 @@ public:
 
 private:
   Model* _model;
-  Sampler_if* _sampler;
+  Sampler_if* probs;
   double result = 0;
   std::string file;
   std::string str_to_parse;

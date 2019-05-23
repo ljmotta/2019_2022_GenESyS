@@ -107,7 +107,7 @@ class genesyspp_driver;
 %type <obj_t> atributo
 %type <obj_t> atribuicao
 %type <obj_t> variavel
-%type <obj_t> formula
+//%type <obj_t> formula
 %type <obj_t> funcaoTrig
 %type <obj_t> funcaoArit
 %type <obj_t> funcaoProb
@@ -144,7 +144,7 @@ expressao   : aritmetica                                        {$$.valor = $1.v
             | funcao                                            {$$.valor = $1.valor;}
             | ATRIB                                             {$$.valor = $1.valor;}
             | variavel                                          {$$.valor = $1.valor;}
-            | formula                                           {$$.valor = $1.valor;}
+//            | formula                                           {$$.valor = $1.valor;}
             | numero                                            {$$.valor = $1.valor;}
             | comando                                           {}
             ;
@@ -205,8 +205,8 @@ variavel    : VARI                                              { $$.valor = ((V
             ;
 
 //Formula not implemented, so will just receive a number
-formula     : NUMD                                             { $$.valor = $1.valor;} //Formula not implemented on GenESyS
-            ;
+//formula     : NUMD                                             { $$.valor = $1.valor;} //Formula not implemented on GenESyS
+//            ;
 
 funcaoTrig  : fSIN   "(" expressao ")"                          { $$.valor = sin($3.valor); }
             | fCOS   "(" expressao ")"                          { $$.valor = cos($3.valor); }
@@ -218,15 +218,15 @@ funcaoArit  : fAINT  "(" expressao ")"                          { $$.valor = (in
             | fMOD   "(" expressao "," expressao ")"            { $$.valor = (int) $3.valor % (int) $5.valor; }
             ;
 
-funcaoProb  : fEXPO  "(" expressao ")"                                            { $$.valor = driver.getSampler()->sampleExponential($3.valor); $$.tipo = "Exponencial";}
-            | fNORM  "(" expressao "," expressao ")"                              { $$.valor = driver.getSampler()->sampleNormal($3.valor,$5.valor); $$.tipo = "Normal"; }
-            | fUNIF  "(" expressao "," expressao ")"                              { $$.valor = driver.getSampler()->sampleUniform($3.valor,$5.valor); $$.tipo = "Unificada"; }
-            | fWEIB  "(" expressao "," expressao ")"                              { $$.valor = driver.getSampler()->sampleWeibull($3.valor,$5.valor); $$.tipo = "Weibull"; }
-            | fLOGN  "(" expressao "," expressao ")"                              { $$.valor = driver.getSampler()->sampleLogNormal($3.valor,$5.valor); $$.tipo = "LOGNormal"; }
-            | fGAMM  "(" expressao "," expressao ")"                              { $$.valor = driver.getSampler()->sampleGamma($3.valor,$5.valor); $$.tipo = "Gamma"; }
-            | fERLA  "(" expressao "," expressao ")"                              { $$.valor = driver.getSampler()->sampleErlang($3.valor,$5.valor); $$.tipo = "Erlang"; }
-            | fTRIA  "(" expressao "," expressao "," expressao ")"                { $$.valor = driver.getSampler()->sampleTriangular($3.valor,$5.valor,$7.valor); $$.tipo = "Triangular"; }
-            | fBETA  "(" expressao "," expressao "," expressao "," expressao ")"  { $$.valor = driver.getSampler()->sampleBeta($3.valor,$5.valor,$7.valor,$9.valor); $$.tipo = "Beta"; }
+funcaoProb  : fEXPO  "(" expressao ")"                                            { $$.valor = driver.getProbs()->sampleExponential($3.valor); $$.tipo = "Exponencial";}
+            | fNORM  "(" expressao "," expressao ")"                              { $$.valor = driver.getProbs()->sampleNormal($3.valor,$5.valor); $$.tipo = "Normal"; }
+            | fUNIF  "(" expressao "," expressao ")"                              { $$.valor = driver.getProbs()->sampleUniform($3.valor,$5.valor); $$.tipo = "Unificada"; }
+            | fWEIB  "(" expressao "," expressao ")"                              { $$.valor = driver.getProbs()->sampleWeibull($3.valor,$5.valor); $$.tipo = "Weibull"; }
+            | fLOGN  "(" expressao "," expressao ")"                              { $$.valor = driver.getProbs()->sampleLogNormal($3.valor,$5.valor); $$.tipo = "LOGNormal"; }
+            | fGAMM  "(" expressao "," expressao ")"                              { $$.valor = driver.getProbs()->sampleGamma($3.valor,$5.valor); $$.tipo = "Gamma"; }
+            | fERLA  "(" expressao "," expressao ")"                              { $$.valor = driver.getProbs()->sampleErlang($3.valor,$5.valor); $$.tipo = "Erlang"; }
+            | fTRIA  "(" expressao "," expressao "," expressao ")"                { $$.valor = driver.getProbs()->sampleTriangular($3.valor,$5.valor,$7.valor); $$.tipo = "Triangular"; }
+            | fBETA  "(" expressao "," expressao "," expressao "," expressao ")"  { $$.valor = driver.getProbs()->sampleBeta($3.valor,$5.valor,$7.valor,$9.valor); $$.tipo = "Beta"; }
             | fDISC  "(" listaparm ")"
             ;
 
@@ -278,15 +278,15 @@ illegal     : ILLEGAL                                           {
                                                                   driver.setResult(-1);
                                                                   if(driver.getThrowsException()){
                                                                     if($1.valor == 0){
-                                                                      throw std::string("Parser error: Literal nao encontrado");
+                                                                      throw std::string("Literal nao encontrado");
                                                                     }else if($1.valor == 1){
-                                                                      throw std::string("Parser error: Caracter invalido encontrado");
+                                                                      throw std::string("Caracter invalido encontrado");
                                                                     }
                                                                   }else{
                                                                     if($1.valor == 0){
-                                                                      driver.setErrorMessage(std::string("Parser error: Literal nao encontrado"));
+                                                                      driver.setErrorMessage(std::string("Literal nao encontrado"));
                                                                     }else if($1.valor == 1){
-                                                                      driver.setErrorMessage(std::string("Parser error: Caracter invalido encontrado"));
+                                                                      driver.setErrorMessage(std::string("Caracter invalido encontrado"));
                                                                     }
                                                                   }
                                                                 }

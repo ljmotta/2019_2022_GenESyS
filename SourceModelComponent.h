@@ -55,7 +55,7 @@ protected: // get & set
     double _firstCreation = 0.0;
     unsigned int _entitiesPerCreation = 1;
     unsigned int _maxCreations = std::numeric_limits<unsigned int>::max(); // std::numeric_limits<unsigned int>::max();
-    std::string _timeBetweenCreationsExpression = "10"; ////
+    std::string _timeBetweenCreationsExpression = "EXPO(1)"; ////
     Util::TimeUnit _timeBetweenCreationsTimeUnit = Util::TimeUnit::second;
     bool _collectStatistics = true;
     unsigned int _entitiesCreatedSoFar = 0;

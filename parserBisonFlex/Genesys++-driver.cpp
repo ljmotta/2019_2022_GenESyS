@@ -10,7 +10,7 @@ genesyspp_driver::genesyspp_driver ()
 genesyspp_driver::genesyspp_driver(Model* model, bool throws)
 {
   _model = model;
-  _sampler = new Traits<Sampler_if>::Implementation();
+  probs = new Traits<Sampler_if>::Implementation();
   throwsException = throws;
 }
 
@@ -73,8 +73,8 @@ Model* genesyspp_driver::getModel(){
   return _model;
 }
 
-Sampler_if* genesyspp_driver::getSampler(){
-  return _sampler;
+Sampler_if* genesyspp_driver::getProbs(){
+  return probs;
 }
 
 std::string genesyspp_driver::getFile(){

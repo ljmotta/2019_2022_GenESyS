@@ -82,7 +82,7 @@
           <itemPath>parserBisonFlex/Genesys++-driver.cpp</itemPath>
           <itemPath>parserBisonFlex/Genesys++-driver.h</itemPath>
           <itemPath>parserBisonFlex/Genesys++-parser.cpp</itemPath>
-          <itemPath>Genesys++-parser.h</itemPath>
+          <itemPath>parserBisonFlex/Genesys++-parser.h</itemPath>
           <itemPath>parserBisonFlex/parser/Genesys++-parser.yy</itemPath>
           <itemPath>parserBisonFlex/Genesys++-scanner.cpp</itemPath>
           <itemPath>parserBisonFlex/parser/Genesys++-scanner.ll</itemPath>
@@ -228,8 +228,6 @@
       <itemPath>GenesysShell.h</itemPath>
     </logicalFolder>
     <logicalFolder name="f6" displayName="Util" projectFiles="true">
-      <itemPath>LinkedBy.cpp</itemPath>
-      <itemPath>LinkedBy.h</itemPath>
       <itemPath>List.h</itemPath>
       <itemPath>Util.cpp</itemPath>
       <itemPath>Util.h</itemPath>
@@ -351,8 +349,6 @@
       </item>
       <item path="Fitter_if.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Genesys++-parser.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="GenesysApplication_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="GenesysGUI.cpp" ex="false" tool="1" flavor2="0">
@@ -382,10 +378,6 @@
       <item path="IntegratorDummyImpl.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Integrator_if.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="LinkedBy.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="LinkedBy.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="List.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -586,6 +578,8 @@
             ex="false"
             tool="1"
             flavor2="0">
+      </item>
+      <item path="parserBisonFlex/Genesys++-parser.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="parserBisonFlex/Genesys++-scanner.cpp"
             ex="false"
@@ -734,8 +728,6 @@
       </item>
       <item path="Fitter_if.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Genesys++-parser.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="GenesysApplication_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="GenesysGUI.cpp" ex="false" tool="1" flavor2="0">
@@ -765,10 +757,6 @@
       <item path="IntegratorDummyImpl.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Integrator_if.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="LinkedBy.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="LinkedBy.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="List.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -969,6 +957,8 @@
             ex="false"
             tool="1"
             flavor2="0">
+      </item>
+      <item path="parserBisonFlex/Genesys++-parser.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="parserBisonFlex/Genesys++-scanner.cpp"
             ex="false"

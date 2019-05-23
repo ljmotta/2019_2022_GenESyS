@@ -15,8 +15,8 @@
 #define PARSERFLEXBISONIMPL_H
 
 #include <string>
-#include "Genesys++-driver.h"
 #include "../Parser_if.h"
+#include "Genesys++-driver.h"
 #include "../Model.h"
 
 class ParserFlexBisonImpl : public Parser_if {

@@ -42,10 +42,10 @@ bool SourceModelComponent::_check(std::string* errorMessage) {
             Attribute* attr1 = new Attribute(neededName);
             elements->insertElement(Util::TypeOf<Attribute>(), attr1);
         }
-    }        
+    }
     bool resultAll = true;
-    resultAll &=_model->checkExpression(this->_timeBetweenCreationsExpression,  "time between creations",errorMessage);
-    resultAll &= _model->getElementManager()->checkElement(Util::TypeOf<EntityType>(), _entityType, "entitytype",errorMessage);
+    resultAll &= _model->checkExpression(this->_timeBetweenCreationsExpression, "time between creations", errorMessage);
+    resultAll &= _model->getElementManager()->checkElement(Util::TypeOf<EntityType>(), _entityType, "entitytype", errorMessage);
     return resultAll;
 }
 

@@ -355,7 +355,6 @@ namespace yy {
       // atributo
       // atribuicao
       // variavel
-      // formula
       // funcaoTrig
       // funcaoArit
       // funcaoProb
@@ -987,8 +986,8 @@ namespace yy {
     enum
     {
       yyeof_ = 0,
-      yylast_ = 973,     ///< Last index in yytable_.
-      yynnts_ = 22,  ///< Number of nonterminal symbols.
+      yylast_ = 972,     ///< Last index in yytable_.
+      yynnts_ = 21,  ///< Number of nonterminal symbols.
       yyfinal_ = 6, ///< Termination state number.
       yyterror_ = 1,
       yyerrcode_ = 256,
@@ -1134,14 +1133,13 @@ namespace yy {
       case 75: // atributo
       case 76: // atribuicao
       case 77: // variavel
-      case 78: // formula
-      case 79: // funcaoTrig
-      case 80: // funcaoArit
-      case 81: // funcaoProb
-      case 82: // funcaoStrc
-      case 83: // funcaoUser
-      case 84: // listaparm
-      case 85: // illegal
+      case 78: // funcaoTrig
+      case 79: // funcaoArit
+      case 80: // funcaoProb
+      case 81: // funcaoStrc
+      case 82: // funcaoUser
+      case 83: // listaparm
+      case 84: // illegal
         value.copy< obj_t > (other.value);
         break;
 
@@ -1221,14 +1219,13 @@ namespace yy {
       case 75: // atributo
       case 76: // atribuicao
       case 77: // variavel
-      case 78: // formula
-      case 79: // funcaoTrig
-      case 80: // funcaoArit
-      case 81: // funcaoProb
-      case 82: // funcaoStrc
-      case 83: // funcaoUser
-      case 84: // listaparm
-      case 85: // illegal
+      case 78: // funcaoTrig
+      case 79: // funcaoArit
+      case 80: // funcaoProb
+      case 81: // funcaoStrc
+      case 82: // funcaoUser
+      case 83: // listaparm
+      case 84: // illegal
         value.copy< obj_t > (v);
         break;
 
@@ -1339,14 +1336,13 @@ namespace yy {
       case 75: // atributo
       case 76: // atribuicao
       case 77: // variavel
-      case 78: // formula
-      case 79: // funcaoTrig
-      case 80: // funcaoArit
-      case 81: // funcaoProb
-      case 82: // funcaoStrc
-      case 83: // funcaoUser
-      case 84: // listaparm
-      case 85: // illegal
+      case 78: // funcaoTrig
+      case 79: // funcaoArit
+      case 80: // funcaoProb
+      case 81: // funcaoStrc
+      case 82: // funcaoUser
+      case 83: // listaparm
+      case 84: // illegal
         value.template destroy< obj_t > ();
         break;
 
@@ -1432,14 +1428,13 @@ namespace yy {
       case 75: // atributo
       case 76: // atribuicao
       case 77: // variavel
-      case 78: // formula
-      case 79: // funcaoTrig
-      case 80: // funcaoArit
-      case 81: // funcaoProb
-      case 82: // funcaoStrc
-      case 83: // funcaoUser
-      case 84: // listaparm
-      case 85: // illegal
+      case 78: // funcaoTrig
+      case 79: // funcaoArit
+      case 80: // funcaoProb
+      case 81: // funcaoStrc
+      case 82: // funcaoUser
+      case 83: // listaparm
+      case 84: // illegal
         value.move< obj_t > (s.value);
         break;
 
@@ -1860,7 +1855,7 @@ namespace yy {
 
 
 } // yy
-#line 1864 "../Genesys++-parser.h" // lalr1.cc:377
+#line 1859 "../Genesys++-parser.h" // lalr1.cc:377
 
 
 

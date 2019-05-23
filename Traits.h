@@ -32,6 +32,8 @@
 
 // genesys applications
 #include "MyReGenESYsApplication.h"
+#include "GenesysGUI.h"
+#include "GenesysShell.h"
 
 //  Default implementations
 //statistics
