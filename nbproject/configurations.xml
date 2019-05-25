@@ -243,6 +243,7 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>misc_resources/originalGenesysSrc/GenesysShell.dpr</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -257,6 +258,9 @@
           <standard>8</standard>
           <commandLine>-fpermissive</commandLine>
         </ccTool>
+        <asmTool>
+          <warningLevel>2</warningLevel>
+        </asmTool>
       </compileType>
       <item path="Assign.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -566,6 +570,11 @@
       <item path="WaitingResource.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="misc_resources/originalGenesysSrc/GenesysShell.dpr"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="parserBisonFlex/Genesys++-driver.cpp"
             ex="false"
@@ -942,6 +951,11 @@
       <item path="WaitingResource.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="misc_resources/originalGenesysSrc/GenesysShell.dpr"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="parserBisonFlex/Genesys++-driver.cpp"
             ex="false"

@@ -1,6 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$class_trace_event.html" title="TraceEvent" alt="" coords="5,56,95,83"/>
-<area shape="rect" id="node2" href="$class_trace_error_event.html" title="TraceErrorEvent" alt="" coords="166,5,283,32"/>
-<area shape="rect" id="node3" href="$class_trace_simulation_event.html" title="TraceSimulationEvent" alt="" coords="149,56,300,83"/>
-<area shape="rect" id="node4" href="$class_trace_simulation_process.html" title="TraceSimulationProcess" alt="" coords="143,107,307,133"/>
-</map>

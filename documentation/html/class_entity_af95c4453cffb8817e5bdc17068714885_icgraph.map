@@ -1,6 +1,0 @@
-<map id="Entity::getEntityType" name="Entity::getEntityType">
-<area shape="rect" id="node2" href="$class_create.html#acd3a4b8805561591e0c88d3fd689cf74" title="Create::_execute" alt="" coords="209,5,331,32"/>
-<area shape="rect" id="node3" href="$class_delay.html#a029d91a2cd736ff9c361c69336e6ab41" title="Delay::_execute" alt="" coords="211,56,329,83"/>
-<area shape="rect" id="node4" href="$class_model.html#ae62bb3a21cd56fbf9d34195edf2fb9e0" title="Model::removeEntity" alt="" coords="199,107,341,133"/>
-<area shape="rect" id="node5" href="$class_dispose.html#a342eb428496534cdfd17524ad78b0c08" title="Dispose::_execute" alt="" coords="389,107,520,133"/>
-</map>

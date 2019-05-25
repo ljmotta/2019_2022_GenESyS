@@ -43,7 +43,7 @@ std::string Create::show() {
 void Create::_execute(Entity* entity) {
     double tnow = _model->getSimulation()->getSimulatedTime();
     entity->setAttributeValue("Entity.ArrivalTime", tnow); // ->find("Entity.ArrivalTime")->second->setValue(tnow);
-    entity->setAttributeValue("Entity.Picture", 1); // ->find("Entity.ArrivalTime")->second->setValue(tnow);
+    //entity->setAttributeValue("Entity.Picture", 1); // ->find("Entity.ArrivalTime")->second->setValue(tnow);
     double timeBetweenCreations, timeScale, newArrivalTime;
     for (unsigned int i = 0; i<this->_entitiesPerCreation; i++) {
         if (_entitiesCreatedSoFar < _maxCreations) {

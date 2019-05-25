@@ -1,9 +1,0 @@
-<map id="ModelCheckerDummyImpl::checkAll" name="ModelCheckerDummyImpl::checkAll">
-<area shape="rect" id="node2" href="$class_model_checker_dummy_impl.html#a04c496601085ec1736b5937cb4360bfb" title="ModelCheckerDummyImpl\l::checkConnected" alt="" coords="240,5,417,47"/>
-<area shape="rect" id="node3" href="$class_model_checker_dummy_impl.html#a83fa84deee3cbc3e8888236c50d729c9" title="ModelCheckerDummyImpl\l::checkPathway" alt="" coords="240,71,417,112"/>
-<area shape="rect" id="node4" href="$class_model_checker_dummy_impl.html#a773a4924a7603f6b931a53e58190cda0" title="ModelCheckerDummyImpl\l::checkSymbols" alt="" coords="240,136,417,177"/>
-<area shape="rect" id="node7" href="$class_model_checker_dummy_impl.html#a1e4c7d6c7adbc85c34e66be662199cae" title="ModelCheckerDummyImpl\l::checkAndAddInternalLiterals" alt="" coords="231,201,427,243"/>
-<area shape="rect" id="node8" href="$class_model_checker_dummy_impl.html#a0ad95531ae6a9d2693914f5825e0f6d5" title="ModelCheckerDummyImpl\l::checkActivationCode" alt="" coords="240,267,417,308"/>
-<area shape="rect" id="node5" href="$class_model.html#ae5773d78fc47cb35be7fbeb74b7d63e4" title="Returns the list of components (such as Create, Delay, Dispose, etc.) that make up the simulation mod..." alt="" coords="475,118,632,145"/>
-<area shape="rect" id="node6" href="$class_list.html#a570498345450f635b72d1ca2675145cc" title="List::getList" alt="" coords="508,169,599,195"/>
-</map>

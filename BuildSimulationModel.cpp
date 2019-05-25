@@ -88,12 +88,12 @@ void BuildSimulationModel::buildModel(Model* model) { // buildModelWithAllImplem
      */
 
     ModelInfo* infos = model->getInfos();
-    infos->setAnalystName("Rafael Luiz Cancian");
-    infos->setProjectTitle("Event driven simulation model of something at all");
+    infos->setAnalystName("Your name");
+    infos->setProjectTitle("The title of the project");
     infos->setDescription("This simulation model tests the components and elements that have been implemented so far.");
-    infos->setReplicationLength(500);
+    infos->setReplicationLength(1e3);
     infos->setReplicationLengthTimeUnit(Util::TimeUnit::minute);
-    infos->setNumberOfReplications(10);
+    infos->setNumberOfReplications(50);
 
     List<ModelComponent*>* components = model->getComponents();
     ElementManager* elements = model->getElementManager();
@@ -181,4 +181,5 @@ int BuildSimulationModel::main(int argc, char** argv) {
 
     //model->saveModel("./temp/genesysSimpleSimulationModel.txt");
     model->getSimulation()->startSimulation();
+    return 0;
 };

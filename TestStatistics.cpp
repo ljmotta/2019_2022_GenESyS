@@ -24,7 +24,7 @@ int TestStatistics::main(int argc, char** argv) {
     Statistics_if* stat = new Traits<Statistics_if>::Implementation();
     std::ifstream datafile;
     datafile.open("datafileLarge.dat");
-    double value;
+    //double value;
     //while (datafile >> value) {
     //    stat->getCollector()->addValue(value);
     //}

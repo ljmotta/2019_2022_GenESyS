@@ -54,7 +54,7 @@ void testStudentSoftwareDevelopments() {
     // fit datafile to different probability distributions
     Fitter_if* fitter = simulator->getFitter();
     fitter->setDataFilename(collector->getDataFilename());
-    double sqrerror, p1, p2, p3, p4;
+    double sqrerror, p1, p2, p3;//, p4;
     std::string distribName;
     bool res;
     res = fitter->isNormalDistributed(0.95);
@@ -92,4 +92,5 @@ TestInputAnalyserTools::TestInputAnalyserTools() {
 
 int TestInputAnalyserTools::main(int argc, char** argv) {
     testStudentSoftwareDevelopments();
+    return 0;
 }

@@ -23,7 +23,7 @@ FitterDefaultImpl1::~FitterDefaultImpl1() {
 }
 
 bool FitterDefaultImpl1::isNormalDistributed(double confidencelevel) {
-
+    return true;
 }
 
 void FitterDefaultImpl1::fitUniform(double *sqrerror, double *min, double *max) {
@@ -62,5 +62,5 @@ void FitterDefaultImpl1::setDataFilename(std::string dataFilename) {
 }
 
 std::string FitterDefaultImpl1::getDataFilename() {
-
+    return ""; //todo
 }

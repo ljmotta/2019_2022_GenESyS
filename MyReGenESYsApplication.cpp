@@ -91,7 +91,7 @@ void builSimulationdModel(Model* model) { // buildModelWithAllImplementedCompone
     infos->setDescription("This simulation model tests the components and elements that have been implemented so far.");
     infos->setReplicationLength(500);
     infos->setReplicationLengthTimeUnit(Util::TimeUnit::minute);
-    infos->setNumberOfReplications(10);
+    infos->setNumberOfReplications(30);
 
     List<ModelComponent*>* components = model->getComponents();
     ElementManager* elements = model->getElementManager();
@@ -178,6 +178,6 @@ int MyReGenESYsApplication::main(int argc, char** argv) {
     builSimulationdModel(model);
     simulator->getModels()->insert(model);
 
-    //model->saveModel("./temp/genesysSimpleSimulationModel.txt");
+    model->saveModel("./temp/genesysSimpleSimulationModel.txt");
     model->getSimulation()->startSimulation();
 }

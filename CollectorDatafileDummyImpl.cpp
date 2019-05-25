@@ -29,15 +29,19 @@ void CollectorDatafileDummyImpl::addValue(double value) {
 }
 
 double CollectorDatafileDummyImpl::getLastValue() {
+    return 0.0; //TODO
 }
 
 unsigned long CollectorDatafileDummyImpl::numElements() {
+    return 0; //TODO
 }
 
 double CollectorDatafileDummyImpl::getValue(unsigned int num) {
+    return 0.0; //TODO
 }
 
 double CollectorDatafileDummyImpl::getNextValue() {
+    return 0.0; //TODO
 }
 
 void CollectorDatafileDummyImpl::seekFirstValue() {

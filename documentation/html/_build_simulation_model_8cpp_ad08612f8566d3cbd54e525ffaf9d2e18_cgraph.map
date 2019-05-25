@@ -1,4 +1,0 @@
-<map id="onEntityRemoveHandler" name="onEntityRemoveHandler">
-<area shape="rect" id="node2" href="$class_simulation_event.html#ab5776a7df0f58315df72fa5fb204dd63" title="SimulationEvent::getEvent\lProcessed" alt="" coords="217,5,395,47"/>
-<area shape="rect" id="node3" href="$class_event.html#a6890c776c6c2e13abbc0892fc7333102" title="Event::getEntity" alt="" coords="248,71,364,98"/>
-</map>

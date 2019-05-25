@@ -19,8 +19,6 @@
 #include "Resource.h"
 
 Assign::Assign(Model* model) : ModelComponent(model, Util::TypeOf<Assign>()) {
-    _model = model;
-    //_name = "Assign " + std::to_string(Util::GenerateNewIdOfType<Assign>());
 }
 
 Assign::Assign(const Assign& orig) : ModelComponent(orig) {
@@ -39,7 +37,6 @@ List<Assign::Assignment*>* Assign::getAssignments() const {
 }
 
 void Assign::_execute(Entity* entity) {
-    /* TODO +: implement */
     Assignment* let;
     std::list<Assignment*>* lets = this->_assignments->getList();
     for (std::list<Assignment*>::iterator it = lets->begin(); it != lets->end(); it++) {
@@ -68,7 +65,7 @@ std::list<std::string>* Assign::_saveInstance() {
 
 bool Assign::_check(std::string* errorMessage) {
     Assignment* let;
-    bool resultAll = true, result = true;
+    bool resultAll = true;
     for (std::list<Assignment*>::iterator it = _assignments->getList()->begin(); it != _assignments->getList()->end(); it++) {
         let = (*it);
         resultAll &= _model->checkExpression(let->getExpression(), "assignment", errorMessage);

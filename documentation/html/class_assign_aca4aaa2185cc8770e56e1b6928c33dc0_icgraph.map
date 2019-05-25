@@ -1,7 +1,0 @@
-<map id="Assign::getAssignments" name="Assign::getAssignments">
-<area shape="rect" id="node2" href="$class_assign_1_1_assignment.html#a724dc03a686c4d53d57ee45b7617ae2f" title="Assign::Assignment\l::getExpression" alt="" coords="217,5,356,47"/>
-<area shape="rect" id="node4" href="$_build_simulation_model_8cpp.html#aeea741000e292b33dca181a0a8a6106f" title="buildModel" alt="" coords="245,71,329,98"/>
-<area shape="rect" id="node3" href="$class_assign.html#a5fabf69268b2e65d8b01ce247be87a40" title="Assign::_execute" alt="" coords="420,13,543,39"/>
-<area shape="rect" id="node5" href="$_build_simulation_model_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="404,71,559,98"/>
-<area shape="rect" id="node6" href="$class_build_simulation_model.html#a8c50f55d7293860e5e7bc7e7e74f8d4a" title="BuildSimulationModel\l::main" alt="" coords="607,64,753,105"/>
-</map>

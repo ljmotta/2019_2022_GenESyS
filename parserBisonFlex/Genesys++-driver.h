@@ -1,5 +1,6 @@
 #ifndef GENESYSPP_DRIVER_H
 # define GENESYSPP_DRIVER_H
+
 # include <string>
 # include <map>
 # include "GenesysParser.h"

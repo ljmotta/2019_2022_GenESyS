@@ -1,8 +1,0 @@
-<map id="ModelInfo::getNumberOfReplications" name="ModelInfo::getNumberOfReplications">
-<area shape="rect" id="node2" href="$class_model.html#ae86e1403523e8036ba6366d1967ecac0" title="Model::Model" alt="" coords="347,5,447,32"/>
-<area shape="rect" id="node3" href="$class_model_simulation.html#a22ea961f3242d4466dc0cf392c66d5e9" title="Starts a sequential execution of a simulation, ie, a set of replications of this model. " alt="" coords="291,56,504,83"/>
-<area shape="rect" id="node6" href="$class_simulation_reporter_default_impl1.html#a14e81b56d8a18ec929aa34db4e59cfa8" title="SimulationReporterDefault\lImpl1::showReplicationStatistics" alt="" coords="291,107,504,149"/>
-<area shape="rect" id="node7" href="$class_simulation_reporter_default_impl1.html#aa8d94c9912cbaeb276bb7b1569c9bcaf" title="SimulationReporterDefault\lImpl1::showSimulationStatistics" alt="" coords="293,173,502,214"/>
-<area shape="rect" id="node4" href="$_build_simulation_model_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="552,56,707,83"/>
-<area shape="rect" id="node5" href="$class_build_simulation_model.html#a8c50f55d7293860e5e7bc7e7e74f8d4a" title="BuildSimulationModel\l::main" alt="" coords="755,49,901,90"/>
-</map>

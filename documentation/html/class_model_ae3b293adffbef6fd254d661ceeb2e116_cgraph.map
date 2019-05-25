@@ -1,8 +1,0 @@
-<map id="Model::checkModel" name="Model::checkModel">
-<area shape="rect" id="node2" href="$class_model.html#adc0de22631d77864b7956591c39ebc60" title="Provides access to the class that performs the trace of simulation and replications. " alt="" coords="217,5,337,32"/>
-<area shape="rect" id="node3" href="$class_trace_manager.html#a242d77829b85a436fd2aab2092bfa50c" title="TraceManager::trace" alt="" coords="206,56,349,83"/>
-<area shape="rect" id="node5" href="$class_util.html#a8110241a80979c8fbecca95eef59e9ad" title="Util::IncIndent" alt="" coords="225,107,329,133"/>
-<area shape="rect" id="node6" href="$class_model_checker__if.html#a83bc988696c49a17e0e7668e24743251" title="ModelChecker_if::checkAll" alt="" coords="188,157,367,184"/>
-<area shape="rect" id="node7" href="$class_util.html#a702d44544c3dd604b81e578ee9ee713f" title="Util::DecIndent" alt="" coords="222,208,333,235"/>
-<area shape="rect" id="node4" href="$class_util.html#a13a4cb5dbc88ef5e2c3a127362b956d6" title="Util::Indent" alt="" coords="415,56,501,83"/>
-</map>

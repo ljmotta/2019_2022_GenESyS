@@ -64,7 +64,7 @@ private: // simulation control
     void _stepSimulation();
     void _processEvent(Event* event);
 private:
-    bool _finishReplicationCondition();
+    bool _isReplicationEndCondition();
     void _actualizeSimulationStatistics();
 private:
     double _simulatedTime = 0.0;

@@ -17,7 +17,7 @@
 #include "ModelChecker_if.h"
 #include "Model.h"
 
-class ModelCheckerDefaultImpl1: public ModelChecker_if {
+class ModelCheckerDefaultImpl1 : public ModelChecker_if {
 public:
     ModelCheckerDefaultImpl1(Model* model);
     ModelCheckerDefaultImpl1(const ModelCheckerDefaultImpl1& orig);
@@ -28,6 +28,8 @@ public:
     virtual bool checkSymbols();
     virtual bool checkActivationCode();
     //virtual bool verifySymbol(std::string componentName, std::string expressionName, std::string expression, std::string expressionResult, bool mandatory);
+private:
+    bool _recursiveConnectedTo(ModelComponent* comp, List<ModelComponent*>* visited, List<ModelComponent*>* unconnected, bool* drenoFound);
 private:
     Model* _model;
 };

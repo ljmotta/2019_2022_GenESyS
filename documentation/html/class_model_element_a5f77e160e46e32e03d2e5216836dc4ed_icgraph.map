@@ -1,9 +1,0 @@
-<map id="ModelElement::~ModelElement" name="ModelElement::~ModelElement">
-<area shape="rect" id="node2" href="$class_element_manager.html#a2f918ec41d81e4ec0ba14fa6c6ab249a" title="ElementManager::removeElement" alt="" coords="257,107,476,133"/>
-<area shape="rect" id="node3" href="$class_entity_type.html#aee11e4242d000965f06018723bdf0946" title="EntityType::~EntityType" alt="" coords="524,5,688,32"/>
-<area shape="rect" id="node4" href="$class_model.html#ae62bb3a21cd56fbf9d34195edf2fb9e0" title="Model::removeEntity" alt="" coords="535,56,677,83"/>
-<area shape="rect" id="node6" href="$class_queue.html#a00d119db8fa3050da37746e82cbcf94f" title="Queue::~Queue" alt="" coords="549,107,663,133"/>
-<area shape="rect" id="node7" href="$class_record.html#ad2ce1a99d866834ab53dedd788cb1ea6" title="Record::~Record" alt="" coords="545,157,667,184"/>
-<area shape="rect" id="node8" href="$class_resource.html#a0e5ec475e2601bdb33644468e86f6f10" title="Resource::~Resource" alt="" coords="531,208,681,235"/>
-<area shape="rect" id="node5" href="$class_dispose.html#a342eb428496534cdfd17524ad78b0c08" title="Dispose::_execute" alt="" coords="736,56,867,83"/>
-</map>

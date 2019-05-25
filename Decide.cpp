@@ -28,7 +28,7 @@ Decide::~Decide() {
 }
 
 std::string Decide::show() {
-
+    return ModelComponent::show() + "";
 }
 
 void Decide::_execute(Entity* entity) {
@@ -51,10 +51,12 @@ void Decide::_loadInstance(std::list<std::string> words) {
 }
 
 std::list<std::string>* Decide::_saveInstance() {
+    std::list<std::string>* words = new std::list<std::string>();
+    return words;
 }
 
 bool Decide::_check(std::string* errorMessage) {
-    bool allResult=true, result = true;
+    bool allResult=true;
     std::string condition;
     for (std::list<std::string>::iterator it = _conditions->getList()->begin(); it != _conditions->getList()->end(); it++) {
         condition = (*it);

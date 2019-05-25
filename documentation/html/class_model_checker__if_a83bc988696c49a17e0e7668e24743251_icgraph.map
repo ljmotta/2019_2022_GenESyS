@@ -1,6 +1,0 @@
-<map id="ModelChecker_if::checkAll" name="ModelChecker_if::checkAll">
-<area shape="rect" id="node2" href="$class_model.html#ae3b293adffbef6fd254d661ceeb2e116" title="Checks the integrity and consistency of the model, possibly corrects some inconsistencies, and returns if the model is in position to the simulated. " alt="" coords="232,13,367,39"/>
-<area shape="rect" id="node3" href="$class_model_simulation.html#a22ea961f3242d4466dc0cf392c66d5e9" title="Starts a sequential execution of a simulation, ie, a set of replications of this model. " alt="" coords="415,13,628,39"/>
-<area shape="rect" id="node4" href="$_build_simulation_model_8cpp.html#a5168010deba14b290a849f0507e974eb" title="buildSimulationSystem" alt="" coords="676,13,831,39"/>
-<area shape="rect" id="node5" href="$class_build_simulation_model.html#a8c50f55d7293860e5e7bc7e7e74f8d4a" title="BuildSimulationModel\l::main" alt="" coords="879,5,1025,47"/>
-</map>

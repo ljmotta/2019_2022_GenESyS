@@ -49,9 +49,9 @@ public:
 private:
     static Util::identitifcation _S_lastId;
     static std::map<std::string, Util::identitifcation> _S_lastIdOfType;
-    static unsigned int _S_indentation;
 
 public: // indentation ans string
+    static unsigned int _S_indentation; // TODO: IS PRIVATE. ITS HERE JUST TO INCLUDE IT AS A WATCH
     static void SetIndent(unsigned short indent);
     static void IncIndent();
     static void DecIndent();

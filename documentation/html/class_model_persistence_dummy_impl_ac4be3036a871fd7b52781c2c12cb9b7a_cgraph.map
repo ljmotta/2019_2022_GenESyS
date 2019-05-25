@@ -1,5 +1,0 @@
-<map id="ModelPersistenceDummyImpl::loadAsXML" name="ModelPersistenceDummyImpl::loadAsXML">
-<area shape="rect" id="node2" href="$class_model.html#adc0de22631d77864b7956591c39ebc60" title="Provides access to the class that performs the trace of simulation and replications. " alt="" coords="262,5,382,32"/>
-<area shape="rect" id="node3" href="$class_trace_manager.html#a242d77829b85a436fd2aab2092bfa50c" title="TraceManager::trace" alt="" coords="251,56,393,83"/>
-<area shape="rect" id="node4" href="$class_util.html#a13a4cb5dbc88ef5e2c3a127362b956d6" title="Util::Indent" alt="" coords="441,56,528,83"/>
-</map>

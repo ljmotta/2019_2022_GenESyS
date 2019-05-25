@@ -32,10 +32,14 @@ ModelSimulation::ModelSimulation(const ModelSimulation& orig) {
 ModelSimulation::~ModelSimulation() {
 }
 
-bool ModelSimulation::_finishReplicationCondition() {
-    return _model->getEvents()->size() == 0
-            || _simulatedTime > _info->getReplicationLength() /* TODO: It should be better if it was checked the first event in the furure events list */
-            || _model->parseExpression(_info->getTerminatingCondition());
+bool ModelSimulation::_isReplicationEndCondition() {
+    bool finish = _model->getEvents()->size() == 0;
+    finish |= _model->parseExpression(_info->getTerminatingCondition()) != 0.0;
+    if (_model->getEvents()->size() > 0 && !finish) {
+        // replication length has not been achieve (sor far), but next event will happen after that, so it's just fine to set tnow as the replicationLength 
+        finish |= _model->getEvents()->first()->getTime() > _info->getReplicationLength();
+    }
+    return finish;
 }
 
 /*!
@@ -56,7 +60,7 @@ void ModelSimulation::startSimulation() {
 
         Util::IncIndent();
         {
-            while (!_finishReplicationCondition()) {
+            while (!_isReplicationEndCondition()) {
                 _stepSimulation();
                 if (_pauseOnEvent) {
                     std::cout << "[paused] ...press any key to continue...";
@@ -73,7 +77,7 @@ void ModelSimulation::startSimulation() {
             causeTerminated = "event queue is empty";
         } else if (_stopRequested) {
             causeTerminated = "user requested to stop";
-        } else if (!(this->_simulatedTime <= _info->getReplicationLength())) {
+        } else if (_model->getEvents()->first()->getTime() > _info->getReplicationLength()) {
             causeTerminated = "replication length " + std::to_string(_info->getReplicationLength()) + " was achieved";
         } else if (_model->parseExpression(_info->getTerminatingCondition())) {
             causeTerminated = "termination condition was achieved";
@@ -179,7 +183,7 @@ void ModelSimulation::_stepSimulation() {
         _model->getOnEventManager()->NotifyReplicationStepHandlers(new SimulationEvent(_currentReplicationNumber, nullptr));
         _processEvent(nextEvent);
     } else {
-        this->_simulatedTime = nextEvent->getTime(); // just to advance time to beyond simulatedTime
+        this->_simulatedTime = _model->getInfos()->getReplicationLength();////nextEvent->getTime(); // just to advance time to beyond simulatedTime
     }
 }
 
@@ -205,7 +209,7 @@ void ModelSimulation::pauseSimulation() {
 
 void ModelSimulation::stepSimulation() {
     if (_simulationIsInitiated && _replicationIsInitiaded) {
-        if (!_finishReplicationCondition()) {
+        if (!_isReplicationEndCondition()) {
             try {
                 this->_stepSimulation();
             } catch (std::exception *e) {

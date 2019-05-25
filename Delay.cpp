@@ -72,7 +72,7 @@ bool Delay::_check(std::string* errorMessage) {
     ElementManager* elements = _model->getElementManager();
     std::vector<std::string> neededNames = {"Entity.WaitTime"};
     std::string neededName;
-    for (int i = 0; i < neededNames.size(); i++) {
+    for (unsigned int i = 0; i < neededNames.size(); i++) {
         neededName = neededNames[i];
         if (elements->getElement(Util::TypeOf<Attribute>(), neededName) == nullptr) {
             Attribute* attr1 = new Attribute(neededName);
