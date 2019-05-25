@@ -172,7 +172,15 @@ void Seize::_loadInstance(std::list<std::string> words) {
 }
 
 std::list<std::string>* Seize::_saveInstance() {
-    std::list<std::string>* words = ModelComponent::_saveInstance(Util::TypeOf<Seize>());
+    std::list<std::string>* words = ModelComponent::_saveInstance();//Util::TypeOf<Seize>());
+    words->insert(words->end(), std::to_string(this->_allocationType));
+    words->insert(words->end(), std::to_string(this->_priority));
+    words->insert(words->end(), this->_quantity);
+    words->insert(words->end(), this->_queue->getName());
+    words->insert(words->end(), std::to_string(static_cast<int>(this->_resourceType)));
+    words->insert(words->end(), this->_resource->getName());
+    words->insert(words->end(), std::to_string(static_cast<int>(this->_rule)));
+    words->insert(words->end(), this->_saveAttribute);
     return words;
 }
 

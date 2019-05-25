@@ -49,6 +49,8 @@ public: // get & set
 public:
     virtual std::string show();
 protected:
+    virtual void _loadInstance(std::list<std::string> words);
+    virtual std::list<std::string>* _saveInstance();
     virtual bool _check(std::string* errorMessage);
 protected: // get & set
     EntityType* _entityType;

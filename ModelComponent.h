@@ -47,7 +47,7 @@ protected:
 
 protected:
     virtual std::list<std::string>* _saveInstance();
-    virtual std::list<std::string>* _saveInstance(std::string type);
+    //virtual std::list<std::string>* _saveInstance(std::string type);
 
 protected:
     Model* _model;

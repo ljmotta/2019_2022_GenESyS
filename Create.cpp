@@ -78,14 +78,7 @@ void Create::_loadInstance(std::list<std::string> words) {
 }
 
 std::list<std::string>* Create::_saveInstance() {
-    std::list<std::string>* words = ModelComponent::_saveInstance(Util::TypeOf<Create>());
-    words->insert(words->end(), std::to_string(this->_entitiesPerCreation));
-    words->insert(words->end(), std::to_string(this->_firstCreation));
-    words->insert(words->end(), (this->_timeBetweenCreationsExpression));
-    words->insert(words->end(), std::to_string(static_cast<int> (this->_timeBetweenCreationsTimeUnit)));
-    words->insert(words->end(), std::to_string(this->_maxCreations));
-    words->insert(words->end(), (this->_entityType->getName())); // save the name
-    words->insert(words->end(), std::to_string(this->_collectStatistics));
+    std::list<std::string>* words = SourceModelComponent::_saveInstance();//Util::TypeOf<Create>());
     return words;
 }
 

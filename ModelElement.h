@@ -43,7 +43,7 @@ public: // get & set
 protected: // must be overriden by derived classes
     virtual void _loadInstance(std::list<std::string> words) = 0;
     virtual std::list<std::string>* _saveInstance();
-    virtual std::list<std::string>* _saveInstance(std::string type);
+    //virtual std::list<std::string>* _saveInstance(std::string type);
     virtual bool _check(std::string* errorMessage) = 0;
 
 protected:

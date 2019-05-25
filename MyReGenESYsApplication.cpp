@@ -76,6 +76,7 @@ void builSimulationdModel(Model* model) { // buildModelWithAllImplementedCompone
     tm->addTraceHandler(&traceHandler);
     tm->addTraceReportHandler(&traceHandler);
     tm->addTraceSimulationHandler(&traceSimulationHandler);
+    tm->setTraceLevel(Util::TraceLevel::simulation);
 
     /*
     OnEventManager* ev = model->getOnEventManager();
@@ -86,12 +87,12 @@ void builSimulationdModel(Model* model) { // buildModelWithAllImplementedCompone
      */
 
     ModelInfo* infos = model->getInfos();
-    infos->setAnalystName("Rafael Luiz Cancian");
-    infos->setProjectTitle("Event driven simulation model of something at all");
-    infos->setDescription("This simulation model tests the components and elements that have been implemented so far.");
-    infos->setReplicationLength(500);
+    infos->setAnalystName("Your name");
+    infos->setProjectTitle("The title of the project");
+    infos->setDescription("The description of the project");
+    infos->setReplicationLength(1e3);
     infos->setReplicationLengthTimeUnit(Util::TimeUnit::minute);
-    infos->setNumberOfReplications(30);
+    infos->setNumberOfReplications(50);
 
     List<ModelComponent*>* components = model->getComponents();
     ElementManager* elements = model->getElementManager();
@@ -121,11 +122,11 @@ void builSimulationdModel(Model* model) { // buildModelWithAllImplementedCompone
     Decide* decide1 = new Decide(model);
     decide1->getConditions()->insert("UNIF(0,1)>0.5");
 
-    Resource* maquina1 = new Resource(elements, "Máquina 1");
+    Resource* maquina1 = new Resource(elements, "Machine_1");
     maquina1->setCapacity(1);
     elements->insertElement(Util::TypeOf<Resource>(), maquina1);
 
-    Queue* filaSeize1 = new Queue(elements);
+    Queue* filaSeize1 = new Queue(elements, "Queue_Machine_1");
     filaSeize1->setOrderRule(Queue::OrderRule::FIFO);
     elements->insertElement(Util::TypeOf<Queue>(), filaSeize1);
 

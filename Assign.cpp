@@ -59,7 +59,14 @@ void Assign::_loadInstance(std::list<std::string> words) {
 }
 
 std::list<std::string>* Assign::_saveInstance() {
-    std::list<std::string>* words = ModelComponent::_saveInstance(Util::TypeOf<Assign>());
+    std::list<std::string>* words = ModelComponent::_saveInstance();//Util::TypeOf<Assign>());
+    Assignment* let;
+    for (std::list<Assignment*>::iterator it=_assignments->getList()->begin(); it!=_assignments->getList()->end();it++){
+        let = (*it);
+        words->insert(words->end(), std::to_string(static_cast<int>(let->getDestinationType())));
+        words->insert(words->end(), let->getDestination());
+        words->insert(words->end(), let->getExpression());
+    }
     return words;
 }
 

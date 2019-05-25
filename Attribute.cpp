@@ -35,7 +35,7 @@ void Attribute::_loadInstance(std::list<std::string> words) {
 }
 
 std::list<std::string>* Attribute::_saveInstance() {
-    std::list<std::string>* words = ModelElement::_saveInstance(Util::TypeOf<Attribute>());
+    std::list<std::string>* words = ModelElement::_saveInstance();//Util::TypeOf<Attribute>());
     return words;
 }
 

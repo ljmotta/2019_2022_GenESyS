@@ -90,7 +90,7 @@ void Entity::_loadInstance(std::list<std::string> words) {
 }
 
 std::list<std::string>* Entity::_saveInstance() {
-    std::list<std::string>* words = ModelElement::_saveInstance(Util::TypeOf<Entity>());
+    std::list<std::string>* words = new std::list<std::string>();//ModelElement::_saveInstance();;//Util::TypeOf<Entity>());
     return words;
 }
 

@@ -67,7 +67,7 @@ void StatisticsCollector::_loadInstance(std::list<std::string> words) {
 }
 
 std::list<std::string>* StatisticsCollector::_saveInstance() {
-    std::list<std::string>* words = ModelElement::_saveInstance(Util::TypeOf<StatisticsCollector>());
+    std::list<std::string>* words = ModelElement::_saveInstance();//Util::TypeOf<StatisticsCollector>());
     return words;
 }
 

@@ -131,7 +131,11 @@ void Resource::_loadInstance(std::list<std::string> words) {
 }
 
 std::list<std::string>* Resource::_saveInstance() {
-    std::list<std::string>* words = ModelElement::_saveInstance(Util::TypeOf<Resource>());
+    std::list<std::string>* words = ModelElement::_saveInstance();//Util::TypeOf<Resource>());
+    words->insert(words->end(), std::to_string(this->_capacity));
+    words->insert(words->end(), std::to_string(this->_costBusyHour));
+    words->insert(words->end(), std::to_string(this->_costIdleHour));
+    words->insert(words->end(), std::to_string(this->_costPerUse));
     return words;
 }
 

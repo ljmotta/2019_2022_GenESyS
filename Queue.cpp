@@ -94,7 +94,9 @@ void Queue::_loadInstance(std::list<std::string> words) {
 }
 
 std::list<std::string>* Queue::_saveInstance() {
-    std::list<std::string>* words = ModelElement::_saveInstance(Util::TypeOf<Queue>());
+    std::list<std::string>* words = ModelElement::_saveInstance();//Util::TypeOf<Queue>());
+    words->insert(words->end(), std::to_string(static_cast<int>(this->_orderRule)));
+    words->insert(words->end(), this->_attributeName);
     return words;
 }
 

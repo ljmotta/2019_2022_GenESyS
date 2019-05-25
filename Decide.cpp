@@ -51,7 +51,10 @@ void Decide::_loadInstance(std::list<std::string> words) {
 }
 
 std::list<std::string>* Decide::_saveInstance() {
-    std::list<std::string>* words = new std::list<std::string>();
+    std::list<std::string>* words = ModelComponent::_saveInstance();//Util::TypeOf<Decide>());
+    for (std::list<std::string>::iterator it=_conditions->getList()->begin(); it!=_conditions->getList()->end();it++){
+        words->insert(words->end(), (*it));
+    }
     return words;
 }
 
@@ -60,7 +63,7 @@ bool Decide::_check(std::string* errorMessage) {
     std::string condition;
     for (std::list<std::string>::iterator it = _conditions->getList()->begin(); it != _conditions->getList()->end(); it++) {
         condition = (*it);
-        allResult &= _model->checkExpression(condition, "Condition", errorMessage);
+        allResult &= _model->checkExpression(condition, "condition", errorMessage);
     }
     return allResult;    
 }

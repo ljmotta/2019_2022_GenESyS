@@ -29,16 +29,19 @@ ModelElement::~ModelElement() {
 
 std::list<std::string>* ModelElement::_saveInstance() {
     std::list<std::string>* words = new std::list<std::string>();
+    words->insert(words->end(), this->_typename);
     words->insert(words->end(), std::to_string(this->_id));
     words->insert(words->end(), this->_name);
     return words;
 }
 
+/*
 std::list<std::string>* ModelElement::_saveInstance(std::string type) {
     std::list<std::string>* words = ModelElement::_saveInstance();
     words->insert(words->end(), type);
     return words;
 }
+*/
 
 std::string ModelElement::show() {
     return "id=" + std::to_string(_id) + ",name=\"" + _name + "\"";

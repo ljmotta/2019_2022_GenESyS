@@ -78,7 +78,11 @@ void Record::_execute(Entity* entity) {
 }
 
 std::list<std::string>* Record::_saveInstance() {
-
+    std::list<std::string>* words = ModelComponent::_saveInstance();//Util::TypeOf<Record>());
+    words->insert(words->end(), this->_expression);
+    words->insert(words->end(), this->_expressionName);
+    words->insert(words->end(), this->_filename);
+    return words;
 }
 
 void Record::_loadInstance(std::list<std::string> words) {
@@ -87,6 +91,6 @@ void Record::_loadInstance(std::list<std::string> words) {
 
 bool Record::_check(std::string* errorMessage) {
     // when cheking the model (before simulating it), remove the file if exists
-    std::remove(_filename.c_str()); 
+    std::remove(_filename.c_str());
     return _model->checkExpression(_expression, "expression", errorMessage);
 }

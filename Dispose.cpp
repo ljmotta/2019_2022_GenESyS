@@ -52,7 +52,8 @@ void Dispose::_loadInstance(std::list<std::string> words) {
 }
 
 std::list<std::string>* Dispose::_saveInstance() {
-    std::list<std::string>* words = ModelComponent::_saveInstance(Util::TypeOf<Dispose>());
+    std::list<std::string>* words = ModelComponent::_saveInstance();//Util::TypeOf<Dispose>());
+    words->insert(words->end(), std::to_string(this->_collectStatistics));
     return words;
 
 }

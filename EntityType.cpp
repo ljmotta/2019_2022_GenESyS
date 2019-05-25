@@ -131,7 +131,12 @@ void EntityType::_loadInstance(std::list<std::string> words) {
 }
 
 std::list<std::string>* EntityType::_saveInstance() {
-    std::list<std::string>* words = ModelElement::_saveInstance(Util::TypeOf<EntityType>());
+    std::list<std::string>* words = ModelElement::_saveInstance();//Util::TypeOf<EntityType>());
+    words->insert(words->end(), std::to_string(this->_initialNVACost));
+    words->insert(words->end(), std::to_string(this->_initialOtherCost));
+    words->insert(words->end(), this->_initialPicture);
+    words->insert(words->end(), std::to_string(this->_initialVACost));
+    words->insert(words->end(), std::to_string(this->_initialWaitingCost));
     return words;
 }
 

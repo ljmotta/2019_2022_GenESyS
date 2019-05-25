@@ -31,10 +31,13 @@ public:
     virtual bool load(std::string filename);
     virtual bool isSaved();
 private:
-    void _saveLine(std::list<std::string>* words, std::string filename);
+    void _saveLine(std::list<std::string>* words, std::ofstream* savefile);
+    std::list<std::string>* _saveModelInfo();
+    std::list<std::string>* _saveSimulatorInfo();
 private:
     Model* _model = nullptr;
     bool _isSaved = false;
+    std::string _linefieldseparator = ";; ";
 };
 
 #endif /* MODELPERSISTENCEDEFAULTIMPL1_H */

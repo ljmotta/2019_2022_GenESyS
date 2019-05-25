@@ -61,7 +61,13 @@ void Variable::_loadInstance(std::list<std::string> words) {
 }
 
 std::list<std::string>* Variable::_saveInstance() {
-    std::list<std::string>* words = ModelElement::_saveInstance(Util::TypeOf<Variable>());
+    std::list<std::string>* words = ModelElement::_saveInstance();//Util::TypeOf<Variable>());
+    words->insert(words->end(), std::to_string(this->_numCols));
+    words->insert(words->end(), std::to_string(this->_numRows));
+    for(std::map<std::string, double>::iterator it=this->_values->begin(); it!=_values->end(); it++){
+        words->insert(words->end(), (*it).first);
+        words->insert(words->end(), std::to_string((*it).second));
+    }
     return words;
 }
 

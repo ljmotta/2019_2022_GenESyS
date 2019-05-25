@@ -70,6 +70,7 @@ void ModelSimulation::startSimulation() {
             }
         }
         Util::DecIndent;
+        Util::SetIndent(1); // force
 
         _model->getOnEventManager()->NotifyReplicationEndHandlers(new SimulationEvent(_currentReplicationNumber, nullptr));
         std::string causeTerminated = "";
@@ -81,7 +82,7 @@ void ModelSimulation::startSimulation() {
             causeTerminated = "replication length " + std::to_string(_info->getReplicationLength()) + " was achieved";
         } else if (_model->parseExpression(_info->getTerminatingCondition())) {
             causeTerminated = "termination condition was achieved";
-        } else causeTerminated = "unknown";
+        } else causeTerminated = "unknown";     
         std::string message = "Replication " + std::to_string(_currentReplicationNumber) + " of " + std::to_string(_info->getNumberOfReplications()) + " has finished at time " + std::to_string(_simulatedTime) + " because " + causeTerminated;
         _model->getTracer()->trace(Util::TraceLevel::simulation, message);
         _simulationReporter->showReplicationStatistics();

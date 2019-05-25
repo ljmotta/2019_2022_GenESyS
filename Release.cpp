@@ -101,7 +101,13 @@ void Release::_loadInstance(std::list<std::string> words) {
 }
 
 std::list<std::string>* Release::_saveInstance() {
-    std::list<std::string>* words = ModelComponent::_saveInstance(Util::TypeOf<Release>());
+    std::list<std::string>* words = ModelComponent::_saveInstance();//Util::TypeOf<Release>());
+    words->insert(words->end(), std::to_string(this->_priority));
+    words->insert(words->end(), this->_quantity);
+    words->insert(words->end(), std::to_string(static_cast<int>(this->_resourceType)) );
+    words->insert(words->end(), this->_resource->getName());
+    words->insert(words->end(), std::to_string(static_cast<int>(this->_rule)));
+    words->insert(words->end(), this->_saveAttribute);
     return words;
 
 }

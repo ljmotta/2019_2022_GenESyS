@@ -31,6 +31,21 @@ std::string SourceModelComponent::show() {
     return text;
 }
 
+void SourceModelComponent::_loadInstance(std::list<std::string> words) {
+}
+
+std::list<std::string>* SourceModelComponent::_saveInstance() {
+    std::list<std::string>* words = ModelComponent::_saveInstance();
+    words->insert(words->end(), std::to_string(this->_entitiesPerCreation));
+    words->insert(words->end(), std::to_string(this->_firstCreation));
+    words->insert(words->end(), (this->_timeBetweenCreationsExpression));
+    words->insert(words->end(), std::to_string(static_cast<int> (this->_timeBetweenCreationsTimeUnit)));
+    words->insert(words->end(), std::to_string(this->_maxCreations));
+    words->insert(words->end(), (this->_entityType->getName())); // save the name
+    words->insert(words->end(), std::to_string(this->_collectStatistics));
+    return words;
+}
+
 bool SourceModelComponent::_check(std::string* errorMessage) {
     /* include attributes needed */
     ElementManager* elements = _model->getElementManager();

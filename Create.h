@@ -35,7 +35,6 @@ protected:
     virtual std::list<std::string>* _saveInstance();
     virtual bool _check(std::string* errorMessage);
 private:
-    EntityType* _entityType;
 };
 
 #endif /* CREATE_H */

@@ -1,0 +1,33 @@
+#
+# Genesys simulation model 
+# Sat May 25 14:26:43 2019
+
+
+# simulator infos
+SimulatorInfo;; ReGenESyS - Reborn Generic and Expansible System Simulator;; 2018.10.1;; 
+# model infos
+ModelInfo;; Your name;; The description of the project;; Model 1;; 50;; The title of the project;; 1000.000000;; 6;; ;; 1.0;; 0.000000;; 5;; 
+# model elements
+Attribute;; 1;; Attribute_1;; 
+EntityType;; 1;; Representative_EntityType;; 0.000000;; 0.000000;; report;; 0.000000;; 0.000000;; 
+Queue;; 1;; Queue_Machine_1;; 1;; ;; 
+Resource;; 1;; Machine_1;; 1;; 1.000000;; 1.000000;; 1.000000;; 
+StatisticsCollector;; 1;; Waiting Time;; 
+StatisticsCollector;; 2;; Transfer Time;; 
+StatisticsCollector;; 3;; Other Time;; 
+StatisticsCollector;; 4;; Value Added Time;; 
+StatisticsCollector;; 5;; Non Value Added Time;; 
+StatisticsCollector;; 6;; Time In System;; 
+StatisticsCollector;; 7;; Time Seized;; 
+StatisticsCollector;; 8;; Number In Queue;; 
+StatisticsCollector;; 9;; Time In Queue;; 
+StatisticsCollector;; 10;; Tempo total no sistema;; 
+Variable;; 1;; Variable_1;; 1;; 1;; 
+# model components
+Create;; 1;; Create 1;; 1;; Assign 1;; 1;; 0.000000;; EXPO(5);; 6;; 4294967295;; Representative_EntityType;; 1;; 
+Assign;; 1;; Assign 1;; 1;; Decide 1;; 1;; Variable_1;; Variable_1 + 1;; 0;; Attribute_1;; Variable_1;; 
+Seize;; 1;; Seize 1;; 1;; Delay 1;; 0;; 0;; 1;; Queue_Machine_1;; 2;; Machine_1;; 4;; ;; 
+Delay;; 1;; Delay 1;; 1;; Release 1;; NORM(5,1.5);; 6;; 
+Release;; 1;; Release 1;; 1;; Record 1;; 0;; 1;; 2;; Machine_1;; 4;; ;; 
+Record;; 1;; Record 1;; 1;; Dispose 1;; TNOW - Entity.ArrivalTime;; Tempo total no sistema;; ./temp/TotalTimeInSystem.txt;; 
+Dispose;; 1;; Dispose 1;; 0;; 1;; 
