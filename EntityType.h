@@ -48,7 +48,7 @@ public: //get
     StatisticsCollector* getCstatWaitingTime() const;
 
 protected: // must be overriden by derived classes
-    virtual void _loadInstance(std::list<std::string> words);
+    virtual void _loadInstance(std::list<std::string> fields);
     virtual std::list<std::string>* _saveInstance();
     virtual bool _check(std::string* errorMessage);
 

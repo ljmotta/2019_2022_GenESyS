@@ -31,19 +31,19 @@ std::string SourceModelComponent::show() {
     return text;
 }
 
-void SourceModelComponent::_loadInstance(std::list<std::string> words) {
+void SourceModelComponent::_loadInstance(std::list<std::string> fields) {
 }
 
 std::list<std::string>* SourceModelComponent::_saveInstance() {
-    std::list<std::string>* words = ModelComponent::_saveInstance();
-    words->insert(words->end(), std::to_string(this->_entitiesPerCreation));
-    words->insert(words->end(), std::to_string(this->_firstCreation));
-    words->insert(words->end(), (this->_timeBetweenCreationsExpression));
-    words->insert(words->end(), std::to_string(static_cast<int> (this->_timeBetweenCreationsTimeUnit)));
-    words->insert(words->end(), std::to_string(this->_maxCreations));
-    words->insert(words->end(), (this->_entityType->getName())); // save the name
-    words->insert(words->end(), std::to_string(this->_collectStatistics));
-    return words;
+    std::list<std::string>* fields = ModelComponent::_saveInstance();
+    fields->push_back("entitiesPerCreation="+std::to_string(this->_entitiesPerCreation));
+    fields->push_back("firstCreation="+std::to_string(this->_firstCreation));
+    fields->push_back("timeBetweenCreations="+this->_timeBetweenCreationsExpression);
+    fields->push_back("timeBetweenCreationsTimeUnit="+std::to_string(static_cast<int> (this->_timeBetweenCreationsTimeUnit)));
+    fields->push_back("maxCreations="+std::to_string(this->_maxCreations));
+    fields->push_back("entitypeName="+(this->_entityType->getName())); // save the name
+    fields->push_back("collectStatistics="+std::to_string(this->_collectStatistics));
+    return fields;
 }
 
 bool SourceModelComponent::_check(std::string* errorMessage) {
@@ -55,12 +55,12 @@ bool SourceModelComponent::_check(std::string* errorMessage) {
         neededName = neededNames[i];
         if (elements->getElement(Util::TypeOf<Attribute>(), neededName) == nullptr) {
             Attribute* attr1 = new Attribute(neededName);
-            elements->insertElement(Util::TypeOf<Attribute>(), attr1);
+            elements->insert(Util::TypeOf<Attribute>(), attr1);
         }
     }
     bool resultAll = true;
     resultAll &= _model->checkExpression(this->_timeBetweenCreationsExpression, "time between creations", errorMessage);
-    resultAll &= _model->getElementManager()->checkElement(Util::TypeOf<EntityType>(), _entityType, "entitytype", errorMessage);
+    resultAll &= _model->getElementManager()->check(Util::TypeOf<EntityType>(), _entityType, "entitytype", errorMessage);
     return resultAll;
 }
 

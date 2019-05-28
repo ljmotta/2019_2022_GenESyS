@@ -14,6 +14,7 @@
 #include "ModelCheckerDefaultImpl1.h"
 #include "SourceModelComponent.h"
 #include "SinkModelComponent.h"
+#include "ComponentManager.h"
 
 ModelCheckerDefaultImpl1::ModelCheckerDefaultImpl1(Model* model) {
     _model = model;
@@ -146,7 +147,7 @@ bool ModelCheckerDefaultImpl1::checkConnected() {
         List<ModelComponent*>* visited = new List<ModelComponent*>();
         List<ModelComponent*>* unconnected = new List<ModelComponent*>();
         ModelComponent* comp;
-        for (std::list<ModelComponent*>::iterator it = _model->getComponents()->getList()->begin(); it != _model->getComponents()->getList()->end(); it++) {
+        for (std::list<ModelComponent*>::iterator it = _model->getComponentManager()->begin(); it != _model->getComponentManager()->end(); it++) {
             comp = (*it);
             if (dynamic_cast<SourceModelComponent*> (comp) != nullptr) {
                 // it is a source component
@@ -155,7 +156,7 @@ bool ModelCheckerDefaultImpl1::checkConnected() {
             }
         }
         // check if any component remais unconnected
-        for (std::list<ModelComponent*>::iterator it = _model->getComponents()->getList()->begin(); it != _model->getComponents()->getList()->end(); it++) {
+        for (std::list<ModelComponent*>::iterator it = _model->getComponentManager()->begin(); it != _model->getComponentManager()->end(); it++) {
             comp = (*it);
             if (visited->find(comp) == visited->getList()->end()) { //not found
                 resultAll = false;
@@ -245,8 +246,8 @@ bool ModelCheckerDefaultImpl1::checkSymbols() {
         _model->getTracer()->trace(Util::TraceLevel::blockInternal, "Components:");
         Util::IncIndent();
         {
-            List<ModelComponent*>* components = _model->getComponents();
-            for (std::list<ModelComponent*>::iterator it = components->getList()->begin(); it != components->getList()->end(); it++) {
+            //List<ModelComponent*>* components = _model->getComponents();
+            for (std::list<ModelComponent*>::iterator it = _model->getComponentManager()->begin(); it != _model->getComponentManager()->end(); it++) {
                 res &= (*it)->Check((*it));
             }
         }

@@ -6,7 +6,7 @@
 
 /* 
  * File:   MyReGenESYsApplication.cpp
- * Author: rlcancian
+ * Author: rafael.luiz.cancian
  * 
  * Created on 20 de Maio de 2019, 21:01
  */
@@ -71,13 +71,6 @@ void onEntityRemoveHandler(SimulationEvent* re) {
  * @param model - The instance returned that will contains the built model
  */
 void builSimulationdModel(Model* model) { // buildModelWithAllImplementedComponents
-    // traces handle and simulation events to output them
-    TraceManager* tm = model->getTracer();
-    tm->addTraceHandler(&traceHandler);
-    tm->addTraceReportHandler(&traceHandler);
-    tm->addTraceSimulationHandler(&traceSimulationHandler);
-    tm->setTraceLevel(Util::TraceLevel::simulation);
-
     /*
     OnEventManager* ev = model->getOnEventManager();
     ev->addOnSimulationStartHandler(&onSimulationStartHandler);
@@ -86,19 +79,26 @@ void builSimulationdModel(Model* model) { // buildModelWithAllImplementedCompone
     ev->addOnProcessEventHandler(&onProcessEventHandler);
      */
 
+    // traces handle and simulation events to output them
+    TraceManager* tm = model->getTracer();
+    tm->addTraceHandler(&traceHandler);
+    tm->addTraceReportHandler(&traceHandler);
+    tm->addTraceSimulationHandler(&traceSimulationHandler);
+    tm->setTraceLevel(Util::TraceLevel::report);
+
     ModelInfo* infos = model->getInfos();
     infos->setAnalystName("Your name");
     infos->setProjectTitle("The title of the project");
     infos->setDescription("The description of the project");
     infos->setReplicationLength(1e3);
     infos->setReplicationLengthTimeUnit(Util::TimeUnit::minute);
-    infos->setNumberOfReplications(50);
+    infos->setNumberOfReplications(30);
 
-    List<ModelComponent*>* components = model->getComponents();
+    ComponentManager* components = model->getComponentManager();
     ElementManager* elements = model->getElementManager();
 
     EntityType* entityType1 = new EntityType(elements, "Representative_EntityType");
-    elements->insertElement(Util::TypeOf<EntityType>(), entityType1);
+    elements->insert(Util::TypeOf<EntityType>(), entityType1);
 
     Create* create1 = new Create(model);
     create1->setEntityType(entityType1);
@@ -108,9 +108,9 @@ void builSimulationdModel(Model* model) { // buildModelWithAllImplementedCompone
     components->insert(create1);
 
     Attribute* attribute1 = new Attribute("Attribute_1");
-    elements->insertElement(Util::TypeOf<Attribute>(), attribute1);
+    elements->insert(Util::TypeOf<Attribute>(), attribute1);
     Variable* variable1 = new Variable("Variable_1");
-    elements->insertElement(Util::TypeOf<Variable>(), variable1);
+    elements->insert(Util::TypeOf<Variable>(), variable1);
 
     Assign* assign1 = new Assign(model);
     Assign::Assignment* attrib2Assignment = new Assign::Assignment(Assign::DestinationType::Variable, "Variable_1", "Variable_1 + 1");
@@ -120,19 +120,19 @@ void builSimulationdModel(Model* model) { // buildModelWithAllImplementedCompone
     components->insert(assign1);
 
     Decide* decide1 = new Decide(model);
-    decide1->getConditions()->insert("UNIF(0,1)>0.5");
+    decide1->getConditions()->insert("UNIF(0,1)>=0.5");
 
-    Resource* maquina1 = new Resource(elements, "Machine_1");
-    maquina1->setCapacity(1);
-    elements->insertElement(Util::TypeOf<Resource>(), maquina1);
+    Resource* machine1 = new Resource(elements, "Machine_1");
+    machine1->setCapacity(1);
+    elements->insert(Util::TypeOf<Resource>(), machine1);
 
-    Queue* filaSeize1 = new Queue(elements, "Queue_Machine_1");
-    filaSeize1->setOrderRule(Queue::OrderRule::FIFO);
-    elements->insertElement(Util::TypeOf<Queue>(), filaSeize1);
+    Queue* queueSeize1 = new Queue(elements, "Queue_Machine_1");
+    queueSeize1->setOrderRule(Queue::OrderRule::FIFO);
+    elements->insert(Util::TypeOf<Queue>(), queueSeize1);
 
     Seize* seize1 = new Seize(model);
-    seize1->setResource(maquina1);
-    seize1->setQueue(filaSeize1);
+    seize1->setResource(machine1);
+    seize1->setQueue(queueSeize1);
     components->insert(seize1);
 
     Delay* delay1 = new Delay(model);
@@ -141,27 +141,59 @@ void builSimulationdModel(Model* model) { // buildModelWithAllImplementedCompone
     components->insert(delay1);
 
     Release* release1 = new Release(model);
-    release1->setResource(maquina1);
+    release1->setResource(machine1);
     components->insert(release1);
 
     Record* record1 = new Record(model);
-    record1->setExpressionName("Tempo total no sistema");
+    record1->setExpressionName("Time in system after releasing machine 1");
     record1->setExpression("TNOW - Entity.ArrivalTime");
-    record1->setFilename("./temp/TotalTimeInSystem.txt");
+    record1->setFilename("./temp/TimeAfterMachine1.txt");
     components->insert(record1);
 
     Dispose* dispose1 = new Dispose(model);
     components->insert(dispose1);
 
+    Resource* machine2 = new Resource(elements, "Machine_2");
+    machine2->setCapacity(1);
+    elements->insert(Util::TypeOf<Resource>(), machine2);
+
+    Queue* queueSeize2 = new Queue(elements, "Queue_Machine_2");
+    queueSeize2->setOrderRule(Queue::OrderRule::FIFO);
+    elements->insert(Util::TypeOf<Queue>(), queueSeize2);
+
+    Seize* seize2 = new Seize(model);
+    seize2->setResource(machine2);
+    seize2->setQueue(queueSeize2);
+    components->insert(seize2);
+
+    Delay* delay2 = new Delay(model);
+    delay2->setDelayExpression("NORM(5,1.5)");
+    delay2->setDelayTimeUnit(Util::TimeUnit::minute);
+    components->insert(delay2);
+
+    Release* release2 = new Release(model);
+    release2->setResource(machine2);
+    components->insert(release2);
+
+    Record* record2 = new Record(model);
+    record2->setExpressionName("Time in system after releasing machine 2");
+    record2->setExpression("TNOW - Entity.ArrivalTime");
+    record2->setFilename("./temp/TimeAfterMachine2.txt");
+    components->insert(record2);
+    
     // connect model components to create a "workflow" -- should always start from a SourceModelComponent and end at a SinkModelComponent (it will be checked)
     create1->getNextComponents()->insert(assign1);
     assign1->getNextComponents()->insert(decide1);
     decide1->getNextComponents()->insert(seize1);
-    decide1->getNextComponents()->insert(dispose1);
+    decide1->getNextComponents()->insert(seize2);
     seize1->getNextComponents()->insert(delay1);
     delay1->getNextComponents()->insert(release1);
     release1->getNextComponents()->insert(record1);
     record1->getNextComponents()->insert(dispose1);
+    seize2->getNextComponents()->insert(delay2);
+    delay2->getNextComponents()->insert(release2);
+    release2->getNextComponents()->insert(record2);
+    record2->getNextComponents()->insert(dispose1);
 }
 
 MyReGenESYsApplication::MyReGenESYsApplication() {

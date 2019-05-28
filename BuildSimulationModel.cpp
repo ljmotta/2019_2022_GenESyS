@@ -95,11 +95,11 @@ void BuildSimulationModel::buildModel(Model* model) { // buildModelWithAllImplem
     infos->setReplicationLengthTimeUnit(Util::TimeUnit::minute);
     infos->setNumberOfReplications(50);
 
-    List<ModelComponent*>* components = model->getComponents();
+    ComponentManager* components = model->getComponentManager();
     ElementManager* elements = model->getElementManager();
 
     EntityType* entityType1 = new EntityType(elements, "Representative_EntityType");
-    elements->insertElement(Util::TypeOf<EntityType>(), entityType1);
+    elements->insert(Util::TypeOf<EntityType>(), entityType1);
 
     Create* create1 = new Create(model);
     create1->setEntityType(entityType1);
@@ -109,9 +109,9 @@ void BuildSimulationModel::buildModel(Model* model) { // buildModelWithAllImplem
     components->insert(create1);
 
     Attribute* attribute1 = new Attribute("Attribute_1");
-    elements->insertElement(Util::TypeOf<Attribute>(), attribute1);
+    elements->insert(Util::TypeOf<Attribute>(), attribute1);
     Variable* variable1 = new Variable("Variable_1");
-    elements->insertElement(Util::TypeOf<Variable>(), variable1);
+    elements->insert(Util::TypeOf<Variable>(), variable1);
 
     Assign* assign1 = new Assign(model);
     Assign::Assignment* attrib2Assignment = new Assign::Assignment(Assign::DestinationType::Variable, "Variable_1", "Variable_1 + 1");
@@ -125,11 +125,11 @@ void BuildSimulationModel::buildModel(Model* model) { // buildModelWithAllImplem
 
     Resource* maquina1 = new Resource(elements, "Máquina 1");
     maquina1->setCapacity(1);
-    elements->insertElement(Util::TypeOf<Resource>(), maquina1);
+    elements->insert(Util::TypeOf<Resource>(), maquina1);
 
     Queue* filaSeize1 = new Queue(elements);
     filaSeize1->setOrderRule(Queue::OrderRule::FIFO);
-    elements->insertElement(Util::TypeOf<Queue>(), filaSeize1);
+    elements->insert(Util::TypeOf<Queue>(), filaSeize1);
 
     Seize* seize1 = new Seize(model);
     seize1->setResource(maquina1);

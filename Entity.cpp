@@ -86,12 +86,12 @@ void Entity::setAttributeValue(std::string attributeName, double value) {
      */
 }
 
-void Entity::_loadInstance(std::list<std::string> words) {
+void Entity::_loadInstance(std::list<std::string> fields) {
 }
 
 std::list<std::string>* Entity::_saveInstance() {
-    std::list<std::string>* words = new std::list<std::string>();//ModelElement::_saveInstance();;//Util::TypeOf<Entity>());
-    return words;
+    std::list<std::string>* fields = new std::list<std::string>();//ModelElement::_saveInstance();;//Util::TypeOf<Entity>());
+    return fields;
 }
 
 bool Entity::_check(std::string* errorMessage) {

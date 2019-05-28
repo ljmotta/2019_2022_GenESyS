@@ -63,8 +63,9 @@ struct Traits {
  */
 
 template <> struct Traits<GenesysApplication_if> {
-    //typedef GenesysShell Application;
-    typedef MyReGenESYsApplication Application;
+    //typedef GenesysGUI Application;
+    typedef GenesysShell Application;
+    //typedef MyReGenESYsApplication Application;
 };
 
 

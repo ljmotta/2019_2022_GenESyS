@@ -57,15 +57,15 @@ void Delay::_execute(Entity* entity) {
     _model->getTracer()->trace(Util::TraceLevel::blockInternal, "End of delay of entity " + std::to_string(entity->getId()) + " scheduled to time " + std::to_string(delayEndTime));
 }
 
-void Delay::_loadInstance(std::list<std::string> words) {
+void Delay::_loadInstance(std::list<std::string> fields) {
 
 }
 
 std::list<std::string>* Delay::_saveInstance() {
-    std::list<std::string>* words = ModelComponent::_saveInstance();//Util::TypeOf<Delay>());
-    words->insert(words->end(), this->_delayExpression);
-    words->insert(words->end(), std::to_string(static_cast<int>(this->_delayTimeUnit)));
-    return words;
+    std::list<std::string>* fields = ModelComponent::_saveInstance();//Util::TypeOf<Delay>());
+    fields->push_back("delayExpression="+this->_delayExpression);
+    fields->push_back("delayExpressionTimeUnit="+std::to_string(static_cast<int>(this->_delayTimeUnit)));
+    return fields;
 
 }
 
@@ -78,7 +78,7 @@ bool Delay::_check(std::string* errorMessage) {
         neededName = neededNames[i];
         if (elements->getElement(Util::TypeOf<Attribute>(), neededName) == nullptr) {
             Attribute* attr1 = new Attribute(neededName);
-            elements->insertElement(Util::TypeOf<Attribute>(), attr1);
+            elements->insert(Util::TypeOf<Attribute>(), attr1);
         }
     }
     return _model->checkExpression(_delayExpression, "Delay expression", errorMessage);

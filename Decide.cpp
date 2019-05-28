@@ -47,15 +47,15 @@ void Decide::_execute(Entity* entity) {
     _model->sendEntityToComponent(entity, this->getNextComponents()->getAtRank(i), 0.0);
 }
 
-void Decide::_loadInstance(std::list<std::string> words) {
+void Decide::_loadInstance(std::list<std::string> fields) {
 }
 
 std::list<std::string>* Decide::_saveInstance() {
-    std::list<std::string>* words = ModelComponent::_saveInstance();//Util::TypeOf<Decide>());
+    std::list<std::string>* fields = ModelComponent::_saveInstance();//Util::TypeOf<Decide>());
     for (std::list<std::string>::iterator it=_conditions->getList()->begin(); it!=_conditions->getList()->end();it++){
-        words->insert(words->end(), (*it));
+        fields->push_back("condition="+(*it));
     }
-    return words;
+    return fields;
 }
 
 bool Decide::_check(std::string* errorMessage) {

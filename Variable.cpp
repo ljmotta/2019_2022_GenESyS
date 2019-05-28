@@ -57,18 +57,18 @@ void Variable::setValue(std::string index, double value) {
     }
 }
 
-void Variable::_loadInstance(std::list<std::string> words) {
+void Variable::_loadInstance(std::list<std::string> fields) {
 }
 
 std::list<std::string>* Variable::_saveInstance() {
-    std::list<std::string>* words = ModelElement::_saveInstance();//Util::TypeOf<Variable>());
-    words->insert(words->end(), std::to_string(this->_numCols));
-    words->insert(words->end(), std::to_string(this->_numRows));
+    std::list<std::string>* fields = ModelElement::_saveInstance();//Util::TypeOf<Variable>());
+    fields->push_back("numCols="+std::to_string(this->_numCols));
+    fields->push_back("numRows="+std::to_string(this->_numRows));
     for(std::map<std::string, double>::iterator it=this->_values->begin(); it!=_values->end(); it++){
-        words->insert(words->end(), (*it).first);
-        words->insert(words->end(), std::to_string((*it).second));
+        fields->push_back("pos="+(*it).first);
+        fields->push_back("value="+std::to_string((*it).second));
     }
-    return words;
+    return fields;
 }
 
 bool Variable::_check(std::string* errorMessage) {

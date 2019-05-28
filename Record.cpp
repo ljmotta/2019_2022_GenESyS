@@ -19,14 +19,14 @@
 
 Record::Record(Model* model) : ModelComponent(model, Util::TypeOf<Record>()) {
     _cstatExpression = new StatisticsCollector(_expressionName, this);
-    _model->getElementManager()->insertElement(Util::TypeOf<StatisticsCollector>(), _cstatExpression);
+    _model->getElementManager()->insert(Util::TypeOf<StatisticsCollector>(), _cstatExpression);
 }
 
 Record::Record(const Record& orig) : ModelComponent(orig) {
 }
 
 Record::~Record() {
-    _model->getElementManager()->removeElement(Util::TypeOf<StatisticsCollector>(), _cstatExpression);
+    _model->getElementManager()->remove(Util::TypeOf<StatisticsCollector>(), _cstatExpression);
 }
 
 std::string Record::show() {
@@ -78,14 +78,14 @@ void Record::_execute(Entity* entity) {
 }
 
 std::list<std::string>* Record::_saveInstance() {
-    std::list<std::string>* words = ModelComponent::_saveInstance();//Util::TypeOf<Record>());
-    words->insert(words->end(), this->_expression);
-    words->insert(words->end(), this->_expressionName);
-    words->insert(words->end(), this->_filename);
-    return words;
+    std::list<std::string>* fields = ModelComponent::_saveInstance();//Util::TypeOf<Record>());
+    fields->push_back("expression="+this->_expression);
+    fields->push_back("expressionName="+this->_expressionName);
+    fields->push_back("fileName="+this->_filename);
+    return fields;
 }
 
-void Record::_loadInstance(std::list<std::string> words) {
+void Record::_loadInstance(std::list<std::string> fields) {
 
 }
 

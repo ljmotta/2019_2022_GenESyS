@@ -167,28 +167,28 @@ void Seize::_execute(Entity* entity) {
     }
 }
 
-void Seize::_loadInstance(std::list<std::string> words) {
+void Seize::_loadInstance(std::list<std::string> fields) {
 
 }
 
 std::list<std::string>* Seize::_saveInstance() {
-    std::list<std::string>* words = ModelComponent::_saveInstance();//Util::TypeOf<Seize>());
-    words->insert(words->end(), std::to_string(this->_allocationType));
-    words->insert(words->end(), std::to_string(this->_priority));
-    words->insert(words->end(), this->_quantity);
-    words->insert(words->end(), this->_queue->getName());
-    words->insert(words->end(), std::to_string(static_cast<int>(this->_resourceType)));
-    words->insert(words->end(), this->_resource->getName());
-    words->insert(words->end(), std::to_string(static_cast<int>(this->_rule)));
-    words->insert(words->end(), this->_saveAttribute);
-    return words;
+    std::list<std::string>* fields = ModelComponent::_saveInstance();//Util::TypeOf<Seize>());
+    fields->push_back("allocationType="+std::to_string(this->_allocationType));
+    fields->push_back("priority="+std::to_string(this->_priority));
+    fields->push_back("quantity="+this->_quantity);
+    fields->push_back("queueName="+this->_queue->getName());
+    fields->push_back("resourceType="+std::to_string(static_cast<int>(this->_resourceType)));
+    fields->push_back("resourceName="+this->_resource->getName());
+    fields->push_back("rule="+std::to_string(static_cast<int>(this->_rule)));
+    fields->push_back("saveAttribue="+this->_saveAttribute);
+    return fields;
 }
 
 bool Seize::_check(std::string* errorMessage) {
     bool resultAll = true;
     resultAll &= _model->checkExpression(_quantity, "quantity", errorMessage);
-    resultAll &= _model->getElementManager()->checkElement(Util::TypeOf<Resource>(), _resource, "Resource", errorMessage);
-    resultAll &= _model->getElementManager()->checkElement(Util::TypeOf<Queue>(), _queue, "Queue", errorMessage);
-    resultAll &= _model->getElementManager()->checkElement(Util::TypeOf<Attribute>(), _saveAttribute, "SaveAttribute", false,errorMessage);
+    resultAll &= _model->getElementManager()->check(Util::TypeOf<Resource>(), _resource, "Resource", errorMessage);
+    resultAll &= _model->getElementManager()->check(Util::TypeOf<Queue>(), _queue, "Queue", errorMessage);
+    resultAll &= _model->getElementManager()->check(Util::TypeOf<Attribute>(), _saveAttribute, "SaveAttribute", false,errorMessage);
     return resultAll;
 }

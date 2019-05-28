@@ -47,14 +47,14 @@ void Dispose::_execute(Entity* entity) {
     _model->removeEntity(entity, this->isCollectStatistics());
 }
 
-void Dispose::_loadInstance(std::list<std::string> words) {
+void Dispose::_loadInstance(std::list<std::string> fields) {
 
 }
 
 std::list<std::string>* Dispose::_saveInstance() {
-    std::list<std::string>* words = ModelComponent::_saveInstance();//Util::TypeOf<Dispose>());
-    words->insert(words->end(), std::to_string(this->_collectStatistics));
-    return words;
+    std::list<std::string>* fields = ModelComponent::_saveInstance();//Util::TypeOf<Dispose>());
+    fields->push_back("collectStatistics="+std::to_string(this->_collectStatistics));
+    return fields;
 
 }
 

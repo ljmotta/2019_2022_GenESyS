@@ -26,7 +26,7 @@ Resource::Resource(ElementManager* elems, std::string name) : ModelElement(Util:
 
 void Resource::_initCStats() {
     _cstatTimeSeized = new StatisticsCollector("Time Seized", this);
-    _elems->insertElement(Util::TypeOf<StatisticsCollector>(), _cstatTimeSeized);
+    _elems->insert(Util::TypeOf<StatisticsCollector>(), _cstatTimeSeized);
 
 }
 
@@ -34,7 +34,7 @@ Resource::Resource(const Resource& orig) : ModelElement(orig) {
 }
 
 Resource::~Resource() {
-    _elems->removeElement(Util::TypeOf<StatisticsCollector>(), _cstatTimeSeized);
+    _elems->remove(Util::TypeOf<StatisticsCollector>(), _cstatTimeSeized);
     _cstatTimeSeized->~StatisticsCollector();
 }
 
@@ -126,17 +126,17 @@ void Resource::_notifyEventHandlers() {
     }
 }
 
-void Resource::_loadInstance(std::list<std::string> words) {
+void Resource::_loadInstance(std::list<std::string> fields) {
 
 }
 
 std::list<std::string>* Resource::_saveInstance() {
-    std::list<std::string>* words = ModelElement::_saveInstance();//Util::TypeOf<Resource>());
-    words->insert(words->end(), std::to_string(this->_capacity));
-    words->insert(words->end(), std::to_string(this->_costBusyHour));
-    words->insert(words->end(), std::to_string(this->_costIdleHour));
-    words->insert(words->end(), std::to_string(this->_costPerUse));
-    return words;
+    std::list<std::string>* fields = ModelElement::_saveInstance();//Util::TypeOf<Resource>());
+    fields->push_back("capacity="+std::to_string(this->_capacity));
+    fields->push_back("costBusyHour="+std::to_string(this->_costBusyHour));
+    fields->push_back("costIdleHour="+std::to_string(this->_costIdleHour));
+    fields->push_back("costPerUse="+std::to_string(this->_costPerUse));
+    return fields;
 }
 
 bool Resource::_check(std::string* errorMessage) {

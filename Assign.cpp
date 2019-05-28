@@ -55,19 +55,19 @@ void Assign::_execute(Entity* entity) {
     this->_model->sendEntityToComponent(entity, this->getNextComponents()->first(), 0.0);
 }
 
-void Assign::_loadInstance(std::list<std::string> words) {
+void Assign::_loadInstance(std::list<std::string> fields) {
 }
 
 std::list<std::string>* Assign::_saveInstance() {
-    std::list<std::string>* words = ModelComponent::_saveInstance();//Util::TypeOf<Assign>());
+    std::list<std::string>* fields = ModelComponent::_saveInstance();//Util::TypeOf<Assign>());
     Assignment* let;
     for (std::list<Assignment*>::iterator it=_assignments->getList()->begin(); it!=_assignments->getList()->end();it++){
         let = (*it);
-        words->insert(words->end(), std::to_string(static_cast<int>(let->getDestinationType())));
-        words->insert(words->end(), let->getDestination());
-        words->insert(words->end(), let->getExpression());
+        fields->push_back("destinationType="+std::to_string(static_cast<int>(let->getDestinationType())));
+        fields->push_back("destination="+let->getDestination());
+        fields->push_back("expression="+let->getExpression());
     }
-    return words;
+    return fields;
 }
 
 bool Assign::_check(std::string* errorMessage) {
@@ -77,9 +77,9 @@ bool Assign::_check(std::string* errorMessage) {
         let = (*it);
         resultAll &= _model->checkExpression(let->getExpression(), "assignment", errorMessage);
         if (let->getDestinationType() == DestinationType::Attribute) { // TODO I dont like the way we check the destination
-            resultAll &= _model->getElementManager()->checkElement(Util::TypeOf<Attribute>(), let->getDestination(), "destination", true, errorMessage);
+            resultAll &= _model->getElementManager()->check(Util::TypeOf<Attribute>(), let->getDestination(), "destination", true, errorMessage);
         } else if (let->getDestinationType() == DestinationType::Variable) {
-            resultAll &= _model->getElementManager()->checkElement(Util::TypeOf<Variable>(), let->getDestination(), "destination", true, errorMessage);
+            resultAll &= _model->getElementManager()->check(Util::TypeOf<Variable>(), let->getDestination(), "destination", true, errorMessage);
         }
     }
     return resultAll;

@@ -19,6 +19,7 @@
 #include "StatisticsCollector.h"
 #include "Traits.h"
 #include "SimulationControl.h"
+#include "ComponentManager.h"
 
 ModelSimulation::ModelSimulation(Model* model) {
     _model = model;
@@ -150,8 +151,8 @@ void ModelSimulation::_initReplication() {
     Event *newEvent;
     double creationTime;
     unsigned int numToCreate;
-    std::list<ModelComponent*>* list = _model->getComponents()->getList();
-    for (std::list<ModelComponent*>::iterator it = list->begin(); it != list->end(); it++) {
+    //std::list<ModelComponent*>* list = _model->getComponents()->getList();
+    for (std::list<ModelComponent*>::iterator it = _model->getComponentManager()->begin(); it != _model->getComponentManager()->end(); it++) {
         source = dynamic_cast<SourceModelComponent*> (*it);
         if (source != nullptr) {
             creationTime = source->getFirstCreation();

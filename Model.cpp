@@ -40,6 +40,7 @@ Model::Model(Simulator* simulator) {
     _modelInfo = new ModelInfo();
     _eventHandler = new OnEventManager(); // should be on .h (all that does not depends on THIS)
     _elementManager = new ElementManager(this);
+    _componentManager = new ComponentManager(this);
     _trace = new TraceManager(this);
     // 1:1 associations (Traits)
     _parser = new Traits<Parser_if>::Implementation(this);
@@ -47,10 +48,7 @@ Model::Model(Simulator* simulator) {
     _modelPersistence = new Traits<ModelPersistence_if>::Implementation(this);
     _simulation = new ModelSimulation(this);
     // 1:n associations
-    _components = new List<ModelComponent*>();
-    _components->setSortFunc([](const ModelComponent* a, const ModelComponent * b) {
-        return a->getId() < b->getId(); /// Components are sorted by ID
-    });
+    
     _events = new List<Event*>(); /// The future events list must be chronologicaly sorted
     //_events->setSortFunc(&EventCompare); // It works too
     _events->setSortFunc([](const Event* a, const Event * b) {
@@ -124,9 +122,9 @@ double Model::parseExpression(const std::string expression, bool* success, std::
 
 void Model::_showComponents() {
     getTracer()->trace(Util::TraceLevel::mostDetailed, "Simulation Model:");
-    std::list<ModelComponent*>* list = getComponents()->getList();
+    //std::list<ModelComponent*>* list = getComponents()->getList();
     Util::IncIndent();
-    for (std::list<ModelComponent*>::iterator it = list->begin(); it != list->end(); it++) {
+    for (std::list<ModelComponent*>::iterator it = getComponentManager()->begin(); it != getComponentManager()->end(); it++) {
         getTracer()->trace(Util::TraceLevel::mostDetailed, (*it)->show()); ////
     }
     Util::DecIndent();
@@ -158,12 +156,16 @@ void Model::removeEntity(Entity* entity, bool collectStatistics) {
     }
     /* TODO -: event onEntityRemove */
     std::string entId = std::to_string(entity->getId());
-    this->getElementManager()->removeElement(Util::TypeOf<Entity>(), entity);
+    this->getElementManager()->remove(Util::TypeOf<Entity>(), entity);
     getTracer()->trace(Util::TraceLevel::blockInternal, "Entity " + entId + " was removed from the system");
 }
 
 List<Event*>* Model::getEvents() const {
     return _events;
+}
+
+ComponentManager* Model::getComponentManager() const {
+    return _componentManager;
 }
 
 List<SimulationControl*>* Model::getControls() const {
@@ -209,8 +211,8 @@ Util::identitifcation Model::getId() const {
     return _id;
 }
 
-List<ModelComponent*>* Model::getComponents() const {
-    return _components;
-}
+//List<ModelComponent*>* Model::getComponents() const {
+//    return _components;
+//}
 
 

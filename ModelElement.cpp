@@ -28,18 +28,18 @@ ModelElement::~ModelElement() {
 }
 
 std::list<std::string>* ModelElement::_saveInstance() {
-    std::list<std::string>* words = new std::list<std::string>();
-    words->insert(words->end(), this->_typename);
-    words->insert(words->end(), std::to_string(this->_id));
-    words->insert(words->end(), this->_name);
-    return words;
+    std::list<std::string>* fields = new std::list<std::string>();
+    fields->push_back("typename="+this->_typename);
+    fields->push_back("id="+std::to_string(this->_id));
+    fields->push_back("name="+this->_name);
+    return fields;
 }
 
 /*
 std::list<std::string>* ModelElement::_saveInstance(std::string type) {
-    std::list<std::string>* words = ModelElement::_saveInstance();
-    words->insert(words->end(), type);
-    return words;
+    std::list<std::string>* fields = ModelElement::_saveInstance();
+    fields->push_back(type);
+    return fields;
 }
 */
 
@@ -64,18 +64,18 @@ std::string ModelElement::getTypename() const {
 }
 
 //std::list<std::string>* ModelElement::_saveInstance() { /* TODO: REMOVE - IS PURE VIRTUAL  TEMP */
-//	std::list<std::string>* words = new std::list<std::string>();
-//	return words;
+//	std::list<std::string>* fields = new std::list<std::string>();
+//	return fields;
 //}
 
 std::list<std::string>* ModelElement::SaveInstance(ModelElement* element) {
-    std::list<std::string>* words; // = new std::list<std::string>();
+    std::list<std::string>* fields; // = new std::list<std::string>();
     try {
-        words = element->_saveInstance();
+        fields = element->_saveInstance();
     } catch (const std::exception& e) {
         //element->_model->getTrace()->traceError(e, "Error saving infra " + element->show());
     }
-    return words;
+    return fields;
 }
 
 bool ModelElement::Check(ModelElement* element, std::string* errorMessage) {

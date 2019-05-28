@@ -24,14 +24,34 @@ void Util::IncIndent() {
     Util::_S_indentation++;
 }
 
-void Util::SetIndent(unsigned short indent) {
-    Util::_S_indentation=indent;
+void Util::SetIndent(const unsigned short indent) {
+    Util::_S_indentation = indent;
 }
 
 void Util::DecIndent() {
     Util::_S_indentation--;
 }
 
+void Util::SepKeyVal(std::string str, std::string *key, std::string *value) {
+    // TODO: Check pointers when spliting string. There is an error
+    //char *c;
+    bool settingKey=true;
+    //key = new std::string();
+    //value = new std::string();
+    key->clear();
+    value->clear();
+    for (std::string::iterator it=str.begin(); it!=str.end(); it++){
+        if (settingKey) {
+            if ((*it)!='=') {
+                key->append(new char((*it)));
+            } else {
+                settingKey = false;
+            }
+        } else {
+            value->append(new char((*it)));
+        }
+    }
+}
 
 std::string Util::Indent() {
     std::string spaces = "";
@@ -42,7 +62,7 @@ std::string Util::Indent() {
 }
 
 std::string Util::SetW(std::string text, unsigned short width) {
-    std::string spaces(width,' ');
+    std::string spaces(width, ' ');
     std::string result = text + spaces;
     return result.substr(0, width);
 }

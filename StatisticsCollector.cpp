@@ -62,13 +62,18 @@ Statistics_if* StatisticsCollector::getStatistics() const {
     return _statistics;
 }
 
-void StatisticsCollector::_loadInstance(std::list<std::string> words) {
+void StatisticsCollector::_loadInstance(std::list<std::string> fields) {
 
 }
 
 std::list<std::string>* StatisticsCollector::_saveInstance() {
-    std::list<std::string>* words = ModelElement::_saveInstance();//Util::TypeOf<StatisticsCollector>());
-    return words;
+    std::list<std::string>* fields = ModelElement::_saveInstance();//Util::TypeOf<StatisticsCollector>());
+    std::string parent = "";
+    if (this->_parent != nullptr) {
+        parent = _parent->getName();
+    }
+    fields->push_back("parent="+parent);
+    return fields;
 }
 
 bool StatisticsCollector::_check(std::string* errorMessage) {

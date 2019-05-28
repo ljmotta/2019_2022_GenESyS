@@ -36,12 +36,12 @@ void EntityType::_initCostsAndStatistics() {
     _cstatVATime = new StatisticsCollector("Value Added Time", this);
     _cstatNVATime = new StatisticsCollector("Non Value Added Time", this);
     _cstatTotalTime = new StatisticsCollector("Time In System", this);
-    _elemManager->insertElement(Util::TypeOf<StatisticsCollector>(), _cstatNVATime);
-    _elemManager->insertElement(Util::TypeOf<StatisticsCollector>(), _cstatOtherTime);
-    _elemManager->insertElement(Util::TypeOf<StatisticsCollector>(), _cstatTotalTime);
-    _elemManager->insertElement(Util::TypeOf<StatisticsCollector>(), _cstatTransferTime);
-    _elemManager->insertElement(Util::TypeOf<StatisticsCollector>(), _cstatVATime);
-    _elemManager->insertElement(Util::TypeOf<StatisticsCollector>(), _cstatWaitingTime);
+    _elemManager->insert(Util::TypeOf<StatisticsCollector>(), _cstatNVATime);
+    _elemManager->insert(Util::TypeOf<StatisticsCollector>(), _cstatOtherTime);
+    _elemManager->insert(Util::TypeOf<StatisticsCollector>(), _cstatTotalTime);
+    _elemManager->insert(Util::TypeOf<StatisticsCollector>(), _cstatTransferTime);
+    _elemManager->insert(Util::TypeOf<StatisticsCollector>(), _cstatVATime);
+    _elemManager->insert(Util::TypeOf<StatisticsCollector>(), _cstatWaitingTime);
 
 }
 
@@ -49,12 +49,12 @@ EntityType::EntityType(const EntityType& orig) : ModelElement(orig) {
 }
 
 EntityType::~EntityType() {
-    _elemManager->removeElement(Util::TypeOf<StatisticsCollector>(), _cstatNVATime);
-    _elemManager->removeElement(Util::TypeOf<StatisticsCollector>(), _cstatOtherTime);
-    _elemManager->removeElement(Util::TypeOf<StatisticsCollector>(), _cstatTotalTime);
-    _elemManager->removeElement(Util::TypeOf<StatisticsCollector>(), _cstatTransferTime);
-    _elemManager->removeElement(Util::TypeOf<StatisticsCollector>(), _cstatVATime);
-    _elemManager->removeElement(Util::TypeOf<StatisticsCollector>(), _cstatWaitingTime);
+    _elemManager->remove(Util::TypeOf<StatisticsCollector>(), _cstatNVATime);
+    _elemManager->remove(Util::TypeOf<StatisticsCollector>(), _cstatOtherTime);
+    _elemManager->remove(Util::TypeOf<StatisticsCollector>(), _cstatTotalTime);
+    _elemManager->remove(Util::TypeOf<StatisticsCollector>(), _cstatTransferTime);
+    _elemManager->remove(Util::TypeOf<StatisticsCollector>(), _cstatVATime);
+    _elemManager->remove(Util::TypeOf<StatisticsCollector>(), _cstatWaitingTime);
 }
 
 std::string EntityType::show() {
@@ -126,18 +126,18 @@ StatisticsCollector* EntityType::getCstatWaitingTime() const {
     return _cstatWaitingTime;
 }
 
-void EntityType::_loadInstance(std::list<std::string> words) {
+void EntityType::_loadInstance(std::list<std::string> fields) {
 
 }
 
 std::list<std::string>* EntityType::_saveInstance() {
-    std::list<std::string>* words = ModelElement::_saveInstance();//Util::TypeOf<EntityType>());
-    words->insert(words->end(), std::to_string(this->_initialNVACost));
-    words->insert(words->end(), std::to_string(this->_initialOtherCost));
-    words->insert(words->end(), this->_initialPicture);
-    words->insert(words->end(), std::to_string(this->_initialVACost));
-    words->insert(words->end(), std::to_string(this->_initialWaitingCost));
-    return words;
+    std::list<std::string>* fields = ModelElement::_saveInstance();//Util::TypeOf<EntityType>());
+    fields->push_back("initialNVACost="+std::to_string(this->_initialNVACost));
+    fields->push_back("initialOtherCost="+std::to_string(this->_initialOtherCost));
+    fields->push_back("initialPicture="+this->_initialPicture);
+    fields->push_back("initialVACost="+std::to_string(this->_initialVACost));
+    fields->push_back("initialWaitingCost="+std::to_string(this->_initialWaitingCost));
+    return fields;
 }
 
 bool EntityType::_check(std::string* errorMessage) {

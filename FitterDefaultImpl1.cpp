@@ -6,7 +6,7 @@
 
 /* 
  * File:   FitterDefaultImpl1.cpp
- * Author: rlcancian
+ * Author: rafael.luiz.cancian
  * 
  * Created on 20 de Maio de 2019, 20:48
  */

@@ -6,7 +6,7 @@
 
 /* 
  * File:   MyReGenESYsApplication.h
- * Author: rlcancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 20 de Maio de 2019, 21:01
  */

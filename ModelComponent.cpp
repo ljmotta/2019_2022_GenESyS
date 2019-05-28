@@ -38,13 +38,13 @@ void ModelComponent::Execute(Entity* entity, ModelComponent* component) {
 
 std::list<std::string>* ModelComponent::SaveInstance(ModelComponent* component) {
     component->_model->getTracer()->trace(Util::TraceLevel::blockArrival, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));
-    std::list<std::string>* words = new std::list<std::string>();
+    std::list<std::string>* fields = new std::list<std::string>();
     try {
-        words = component->_saveInstance();
+        fields = component->_saveInstance();
     } catch (const std::exception& e) {
         component->_model->getTracer()->traceError(e, "Error executing component " + component->show());
     }
-    return words;
+    return fields;
 }
 
 bool ModelComponent::Check(ModelComponent* component) {
@@ -75,21 +75,22 @@ std::string ModelComponent::show() {
 }
 
 std::list<std::string>* ModelComponent::_saveInstance() {
-    std::list<std::string>* words = ModelElement::_saveInstance();
-    words->insert(words->end(), std::to_string(this->_nextComponents->size()));
+    std::list<std::string>* fields = ModelElement::_saveInstance();
+    fields->push_back("nextSize="+std::to_string(this->_nextComponents->size()));
+    //unsigned short i=0;
     for (std::list<ModelComponent*>::iterator it=_nextComponents->getList()->begin(); it!=_nextComponents->getList()->end(); it++){
-        words->insert(words->end(), (*it)->_name);
+        fields->push_back("next="+(*it)->_name);
     }
-    return words;
+    return fields;
 }
 
 /*
 std::list<std::string>* ModelComponent::_saveInstance(std::string type) {
-    std::list<std::string>* words = ModelComponent::_saveInstance();
-    words->insert(words->end(), std::to_string(this->_nextComponents->size()));
-    for (std::list<ModelComponent*>::iterator it=_nextComponents->getList()->begin(); it!=_nextComponents->getList()->end(); it++){
-        words->insert(words->end(), (*it)->_name);
+    std::list<std::string>* fields = ModelComponent::_saveInstance();
+    fields->push_back(std::to_string(this->_nextComponents->size()));
+    for (std::list<ModelComponent*>::iterator it=_nextgetComponentManager()->begin(); it!=_nextgetComponentManager()->end(); it++){
+        fields->push_back((*it)->_name);
     }
-    return words;
+    return fields;
 }
 */

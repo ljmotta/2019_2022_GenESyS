@@ -6,7 +6,7 @@
 
 /* 
  * File:   ModelPersistenceDefaultImpl1.h
- * Author: rlcancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 20 de Maio de 2019, 20:41
  */
@@ -23,21 +23,21 @@ public:
     ModelPersistenceDefaultImpl1(const ModelPersistenceDefaultImpl1& orig);
     virtual ~ModelPersistenceDefaultImpl1();
 public:
-    virtual bool saveAsTXT(std::string filename);
-    virtual bool loadAsTXT(std::string filename);
-    virtual bool saveAsXML(std::string filename);
-    virtual bool loadAsXML(std::string filename);
     virtual bool save(std::string filename);
     virtual bool load(std::string filename);
     virtual bool isSaved();
 private:
-    void _saveLine(std::list<std::string>* words, std::ofstream* savefile);
-    std::list<std::string>* _saveModelInfo();
-    std::list<std::string>* _saveSimulatorInfo();
+    //bool saveAsTXT(std::string filename);
+    //bool loadAsTXT(std::string filename);
+    void _saveContent(std::list<std::string>* content, std::ofstream* file);
+    std::list<std::string>* _adjustFieldsToSaveAsTXT(std::list<std::string>* fields);
+//    std::list<std::string>* _adjustFieldsToSaveAsXML(std::list<std::string>* fields);
+    std::list<std::string>* _getModelInfosFieldsToSave();
+    std::list<std::string>* _getSimulatorInfoFieldsToSave();
 private:
     Model* _model = nullptr;
     bool _isSaved = false;
-    std::string _linefieldseparator = ";; ";
+    std::string _linefieldseparator = "; ";
 };
 
 #endif /* MODELPERSISTENCEDEFAULTIMPL1_H */

@@ -42,7 +42,6 @@ StatisticsDefaultImpl1::~StatisticsDefaultImpl1() {
 
 void StatisticsDefaultImpl1::collectorAddHandler(double newValue) {
     _elems = _collector->numElements();
-
     if (newValue < _min) {
         _min = newValue;
     }

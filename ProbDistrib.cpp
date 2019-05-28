@@ -39,14 +39,35 @@ double ProbDistrib::normal(double x, double mean, double stddev) {
     return p1*p2;
 }
 
+/*
 double ProbDistrib::_gammaFunction(unsigned int x) {
-    if (x > 1)
-        return (x - 1) * _gammaFunction(x - 1);
-    else
-        return 1.0;
+    unsigned int i;
+    double prod = 1.0;
+    for (i = 1; i < x; i++)
+        prod *= i;
+    return prod;
 }
-
-double ProbDistrib::_gammaFunction(double z) {
+ */
+long double ProbDistrib::_gammaFunction(double z) {
+    long double term1 = std::sqrt(2*M_PI) * std::exp(-z);
+    long double term2 = std::sqrt(1.0/z) * std::pow(z + 1/(12*z - 1/(10*z)), z);
+    return term1 * term2;
+    /*
+    unsigned int x = std::trunc(z);
+    double fracz = z - x;
+    long double fat = 1.0;
+    for (unsigned int i = 2; i < x; i++)
+        fat *= i;
+    long double res;
+    if (fracz == 0) {
+        res = fat;
+    } else {
+        res = fat + fracz * (fat * x - fat);
+    }
+    return res;
+    */
+    
+    /*
     // TODO: IT DOES NOT WORK
     double term, product;
     double gammaConst = 0.577215664901532860606512090082402431042; //Euler-Mascheroni Constant
@@ -60,6 +81,7 @@ double ProbDistrib::_gammaFunction(double z) {
     } while (n < maxIter);
     double value = 1 / (z * std::exp(gammaConst * z) * product);
     return value;
+     */
 }
 
 double ProbDistrib::gamma(double x, unsigned int alpha, double beta) {
@@ -86,23 +108,34 @@ double ProbDistrib::weibull(double x, double alpha, double scale) {
 }
 
 double ProbDistrib::logNormal(double x, double mean, double stddev) {
-    
+
 }
 
 double ProbDistrib::triangular(double x, double min, double mode, double max) {
 }
 
 double ProbDistrib::tStudent(double x, double mean, double stddev, unsigned int degreeFreedom) {
-    double num = _gammaFunction((degreeFreedom + 1) / 2.0);
-    double denum = std::sqrt(degreeFreedom * M_PI) * _gammaFunction(degreeFreedom / 2.0);
-    double term = std::pow(1 + (x * x) / degreeFreedom, -((degreeFreedom + 1) / 2.0));
-    return (num / denum)* term;
+    // version 1
+    //double num = _gammaFunction((degreeFreedom + 1) / 2.0);
+    //double denum = std::sqrt(degreeFreedom * M_PI) * _gammaFunction(degreeFreedom / 2.0);
+    //double term = std::pow(1 + (x * x) / degreeFreedom, -((degreeFreedom + 1) / 2.0));
+    //return (num / denum)* term;
+    // version 2
+    long double num = _gammaFunction((degreeFreedom + 1) / 2.0);
+    long double denum = _gammaFunction(1.0 / 2.0) * _gammaFunction(degreeFreedom / 2.0);
+    long double term = (1 / std::sqrt(degreeFreedom / 2.0)) * std::pow(1 + (x * x) / degreeFreedom, -((degreeFreedom + 1) / 2.0));
+    return (num / denum) * term;
 }
 
-double ProbDistrib::fSnedecor(double x, double u, double v) {
+double ProbDistrib::fFisher(double x, double k, double m) {
+    long double num = _gammaFunction((k + m) / 2.0);
+    long double denum = _gammaFunction(k / 2.0) * _gammaFunction(m / 2.0);
+    long double term = std::pow(k, k / 2.0) * std::pow(m, m / 2.0) * std::pow(x, k / 2.0 - 1) * std::pow(m + k*x, -(k + m) / 2.0);
+    return (num / denum)*term;
 }
 
 double ProbDistrib::chi2(double x, double m) {
+    return ProbDistrib::gamma(x, m / 2, 1 / 2);
 }
 
 double ProbDistrib::inverseNormal(double cumulativeProbability, double mean, double stddev) {

@@ -29,8 +29,8 @@ Queue::Queue(ElementManager* elems, std::string name) : ModelElement(Util::TypeO
 void Queue::_initCStats() {
     _cstatNumberInQueue = new StatisticsCollector("Number In Queue", this); /* TODO: ++ WHY THIS INSERT "DISPOSE" AND "10ENTITYTYPE" STATCOLL ?? */
     _cstatTimeInQueue = new StatisticsCollector("Time In Queue", this);
-    _elems->insertElement(Util::TypeOf<StatisticsCollector>(), _cstatNumberInQueue);
-    _elems->insertElement(Util::TypeOf<StatisticsCollector>(), _cstatTimeInQueue);
+    _elems->insert(Util::TypeOf<StatisticsCollector>(), _cstatNumberInQueue);
+    _elems->insert(Util::TypeOf<StatisticsCollector>(), _cstatTimeInQueue);
 
 }
 
@@ -38,8 +38,8 @@ Queue::Queue(const Queue& orig) : ModelElement(orig) {
 }
 
 Queue::~Queue() {
-    _elems->removeElement(Util::TypeOf<StatisticsCollector>(), _cstatNumberInQueue);
-    _elems->removeElement(Util::TypeOf<StatisticsCollector>(), _cstatTimeInQueue);
+    _elems->remove(Util::TypeOf<StatisticsCollector>(), _cstatNumberInQueue);
+    _elems->remove(Util::TypeOf<StatisticsCollector>(), _cstatTimeInQueue);
 }
 
 std::string Queue::show() {
@@ -89,17 +89,17 @@ Queue::OrderRule Queue::getOrderRule() const {
 //	return _list;
 //}
 
-void Queue::_loadInstance(std::list<std::string> words) {
+void Queue::_loadInstance(std::list<std::string> fields) {
 
 }
 
 std::list<std::string>* Queue::_saveInstance() {
-    std::list<std::string>* words = ModelElement::_saveInstance();//Util::TypeOf<Queue>());
-    words->insert(words->end(), std::to_string(static_cast<int>(this->_orderRule)));
-    words->insert(words->end(), this->_attributeName);
-    return words;
+    std::list<std::string>* fields = ModelElement::_saveInstance();//Util::TypeOf<Queue>());
+    fields->push_back("orderRule="+std::to_string(static_cast<int>(this->_orderRule)));
+    fields->push_back("attributeName="+this->_attributeName);
+    return fields;
 }
 
 bool Queue::_check(std::string* errorMessage) {
-    return _elems->checkElement(Util::TypeOf<Attribute>(), _attributeName, "AttributeName", false, errorMessage);
+    return _elems->check(Util::TypeOf<Attribute>(), _attributeName, "AttributeName", false, errorMessage);
 }

@@ -21,11 +21,7 @@
  */
 class ModelPersistence_if {
 public:
-    // not a good interface
-    virtual bool saveAsTXT(std::string filename) = 0;
-    virtual bool loadAsTXT(std::string filename) = 0;
-    virtual bool saveAsXML(std::string filename) = 0;
-    virtual bool loadAsXML(std::string filename) = 0;
+    // TODO: not a good interface for sure. The Bridge pattern should be a lot better
     virtual bool save(std::string filename) = 0;
     virtual bool load(std::string filename) = 0;
     virtual bool isSaved() = 0;

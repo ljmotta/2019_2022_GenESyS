@@ -1,0 +1,7 @@
+version
+modelload=temp/model.gen
+modelcheck
+start
+shorreport
+quit
+

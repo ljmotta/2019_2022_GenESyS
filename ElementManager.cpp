@@ -30,7 +30,7 @@ ElementManager::ElementManager(const ElementManager& orig) {
 ElementManager::~ElementManager() {
 }
 
-bool ElementManager::insertElement(std::string infraTypename, ModelElement* infra) {
+bool ElementManager::insert(std::string infraTypename, ModelElement* infra) {
     List<ModelElement*>* listElements = getElements(infraTypename);
     if (listElements->find(infra) == listElements->getList()->end()) { //not found
         //if (dynamic_cast<ModelElement*> (infra) == nullptr) { // how? remove it. test only because of seg faults
@@ -43,13 +43,13 @@ bool ElementManager::insertElement(std::string infraTypename, ModelElement* infr
     return false;
 }
 
-void ElementManager::removeElement(std::string infraTypename, ModelElement* infra) {
+void ElementManager::remove(std::string infraTypename, ModelElement* infra) {
     List<ModelElement*>* listElements = getElements(infraTypename);
     listElements->remove(infra);
     infra->~ModelElement(); /* TODO: Check: Should really destroy infra here? */
 }
 
-bool ElementManager::checkElement(std::string infraTypename, std::string infraName, std::string expressionName, bool mandatory, std::string* errorMessage) {
+bool ElementManager::check(std::string infraTypename, std::string infraName, std::string expressionName, bool mandatory, std::string* errorMessage) {
     if (infraName == "" && !mandatory) {
         return true;
     }
@@ -61,13 +61,13 @@ bool ElementManager::checkElement(std::string infraTypename, std::string infraNa
     return result;
 }
 
-bool ElementManager::checkElement(std::string infraTypename, ModelElement* infra, std::string expressionName, std::string* errorMessage) {
+bool ElementManager::check(std::string infraTypename, ModelElement* infra, std::string expressionName, std::string* errorMessage) {
     bool result = infra != nullptr;
     if (!result) {
         std::string msg = infraTypename + " for '" + expressionName + "' is null.";
         errorMessage->append(msg);
     } else {
-        result = checkElement(infraTypename, infra->getName(), expressionName, true, errorMessage);
+        result = check(infraTypename, infra->getName(), expressionName, true, errorMessage);
     }
     return result;
 }

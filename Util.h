@@ -50,11 +50,12 @@ private:
     static Util::identitifcation _S_lastId;
     static std::map<std::string, Util::identitifcation> _S_lastIdOfType;
 
-public: // indentation ans string
+public: // indentation and string
     static unsigned int _S_indentation; // TODO: IS PRIVATE. ITS HERE JUST TO INCLUDE IT AS A WATCH
-    static void SetIndent(unsigned short indent);
+    static void SetIndent(const unsigned short indent);
     static void IncIndent();
     static void DecIndent();
+    static void SepKeyVal(std::string str, std::string *key, std::string *value);
     static std::string Indent();
     static std::string SetW(std::string text, unsigned short width); 
     

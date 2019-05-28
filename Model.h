@@ -23,6 +23,7 @@
 #include "Parser_if.h"
 #include "ModelPersistence_if.h"
 #include "ElementManager.h"
+#include "ComponentManager.h"
 #include "TraceManager.h"
 #include "OnEventManager.h"
 #include "ModelInfo.h"
@@ -63,12 +64,13 @@ public: // only gets
     TraceManager* getTracer() const; ///< Provides access to the class that performs the trace of simulation and replications.
     OnEventManager* getOnEventManager() const;
     ElementManager* getElementManager() const; ///< Provides access to the class that manages the most basic elements of the simulation model (such as queues, resources, variables, etc.).
+    ComponentManager* getComponentManager() const; ///< The future events list chronologically sorted; Events are scheduled by components when processing other events, and a replication evolves over time by sequentially processing the very first event in this list. It's initialized with events first described by source components (SourceComponentModel).
     ModelInfo* getInfos() const;
     Simulator* getParent() const;
     ModelSimulation* getSimulation() const; ///< Provides access to the class that manages the model simulation.
     // 1:n
-    List<ModelComponent*>* getComponents() const; ///< Returns the list of components (such as Create, Delay, Dispose, etc.) that make up the simulation model.
-    List<Event*>* getEvents() const; ///< The future events list chronologically sorted; Events are scheduled by components when processing other events, and a replication evolves over time by sequentially processing the very first event in this list. It's initialized with events first described by source components (SourceComponentModel).
+    //List<ModelComponent*>* getComponents() const; ///< Returns the list of components (such as Create, Delay, Dispose, etc.) that make up the simulation model.
+    List<Event*>* getEvents() const;
     //List<Entity*>* getEntities() const;
 
     /*
@@ -84,10 +86,11 @@ private: // read only public access (gets)
     TraceManager* _trace;
     OnEventManager* _eventHandler;
     ElementManager* _elementManager;
+    ComponentManager* _componentManager;
     ModelInfo* _modelInfo;
     ModelSimulation* _simulation;
     // 1:n
-    List<ModelComponent*>* _components;
+    //List<ModelComponent*>* _components;
     List<Event*>* _events;
     // for process analyser
     List<SimulationResponse*>* _responses;

@@ -31,12 +31,12 @@ std::string Attribute::show() {
     return ModelElement::show();
 }
 
-void Attribute::_loadInstance(std::list<std::string> words) {
+void Attribute::_loadInstance(std::list<std::string> fields) {
 }
 
 std::list<std::string>* Attribute::_saveInstance() {
-    std::list<std::string>* words = ModelElement::_saveInstance();//Util::TypeOf<Attribute>());
-    return words;
+    std::list<std::string>* fields = ModelElement::_saveInstance();//Util::TypeOf<Attribute>());
+    return fields;
 }
 
 bool Attribute::_check(std::string* errorMessage) {

@@ -42,6 +42,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/CollectorDatafileDummyImpl.o \
 	${OBJECTDIR}/CollectorDefaultImpl1.o \
 	${OBJECTDIR}/CollectorDummyImpl.o \
+	${OBJECTDIR}/ComponentManager.o \
 	${OBJECTDIR}/Create.o \
 	${OBJECTDIR}/Decide.o \
 	${OBJECTDIR}/Delay.o \
@@ -166,6 +167,11 @@ ${OBJECTDIR}/CollectorDummyImpl.o: CollectorDummyImpl.cpp nbproject/Makefile-${C
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/CollectorDummyImpl.o CollectorDummyImpl.cpp
+
+${OBJECTDIR}/ComponentManager.o: ComponentManager.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ComponentManager.o ComponentManager.cpp
 
 ${OBJECTDIR}/Create.o: Create.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

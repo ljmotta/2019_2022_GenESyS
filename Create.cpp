@@ -50,7 +50,7 @@ void Create::_execute(Entity* entity) {
             _entitiesCreatedSoFar++;
             Entity* newEntity = new Entity(this->_model->getElementManager());
             newEntity->setEntityType(entity->getEntityType());
-            _model->getElementManager()->insertElement(Util::TypeOf<Entity>(), newEntity); // ->getEntities()->insert(newEntity);
+            _model->getElementManager()->insert(Util::TypeOf<Entity>(), newEntity); // ->getEntities()->insert(newEntity);
             timeBetweenCreations = _model->parseExpression(this->_timeBetweenCreationsExpression);
             timeScale = Util::TimeUnitConvert(this->_timeBetweenCreationsTimeUnit, _model->getInfos()->getReplicationLengthTimeUnit());
             newArrivalTime = tnow + timeBetweenCreations*timeScale;
@@ -63,9 +63,9 @@ void Create::_execute(Entity* entity) {
     _model->sendEntityToComponent(entity, this->getNextComponents()->first(), 0.0);
 }
 
-void Create::_loadInstance(std::list<std::string> words) {
+void Create::_loadInstance(std::list<std::string> fields) {
     // the first word (CREATE) have to be deleted before. It begins on the second word
-    std::list<std::string>::iterator it = words.begin();
+    std::list<std::string>::iterator it = fields.begin();
     this->_entitiesPerCreation = std::stoi((*it++));
     this->_firstCreation = std::stoi((*it++));
     this->_timeBetweenCreationsExpression = (*it++);
@@ -78,8 +78,8 @@ void Create::_loadInstance(std::list<std::string> words) {
 }
 
 std::list<std::string>* Create::_saveInstance() {
-    std::list<std::string>* words = SourceModelComponent::_saveInstance();//Util::TypeOf<Create>());
-    return words;
+    std::list<std::string>* fields = SourceModelComponent::_saveInstance();//Util::TypeOf<Create>());
+    return fields;
 }
 
 bool Create::_check(std::string* errorMessage) {

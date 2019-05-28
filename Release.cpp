@@ -96,27 +96,27 @@ void Release::_execute(Entity* entity) {
     _model->sendEntityToComponent(entity, this->getNextComponents()->first(), 0.0);
 }
 
-void Release::_loadInstance(std::list<std::string> words) {
+void Release::_loadInstance(std::list<std::string> fields) {
 
 }
 
 std::list<std::string>* Release::_saveInstance() {
-    std::list<std::string>* words = ModelComponent::_saveInstance();//Util::TypeOf<Release>());
-    words->insert(words->end(), std::to_string(this->_priority));
-    words->insert(words->end(), this->_quantity);
-    words->insert(words->end(), std::to_string(static_cast<int>(this->_resourceType)) );
-    words->insert(words->end(), this->_resource->getName());
-    words->insert(words->end(), std::to_string(static_cast<int>(this->_rule)));
-    words->insert(words->end(), this->_saveAttribute);
-    return words;
+    std::list<std::string>* fields = ModelComponent::_saveInstance();//Util::TypeOf<Release>());
+    fields->push_back("priority="+std::to_string(this->_priority));
+    fields->push_back("quantity="+this->_quantity);
+    fields->push_back("resourceType="+std::to_string(static_cast<int>(this->_resourceType)) );
+    fields->push_back("resourceName="+this->_resource->getName());
+    fields->push_back("role="+std::to_string(static_cast<int>(this->_rule)));
+    fields->push_back("saveAttribute="+this->_saveAttribute);
+    return fields;
 
 }
 
 bool Release::_check(std::string* errorMessage) {
     bool resultAll = true;
     resultAll &= _model->checkExpression(_quantity, "quantity", errorMessage);
-    resultAll &= _model->getElementManager()->checkElement(Util::TypeOf<Resource>(), _resource, "resource", errorMessage);
-    resultAll &= _model->getElementManager()->checkElement(Util::TypeOf<Attribute>(), _saveAttribute, "SaveAttribute", false, errorMessage);
+    resultAll &= _model->getElementManager()->check(Util::TypeOf<Resource>(), _resource, "resource", errorMessage);
+    resultAll &= _model->getElementManager()->check(Util::TypeOf<Attribute>(), _saveAttribute, "SaveAttribute", false, errorMessage);
     return resultAll;
 }
 

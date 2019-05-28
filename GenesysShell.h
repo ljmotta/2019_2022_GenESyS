@@ -6,7 +6,7 @@
 
 /* 
  * File:   GenesysShell.h
- * Author: rlcancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 23 de Maio de 2019, 13:02
  */
@@ -30,14 +30,16 @@ private:
     class ShellCommand {
     public:
 
-        ShellCommand(std::string shortname, std::string longname, std::string descrition, ExecuterMember executer) {
+        ShellCommand(std::string shortname, std::string longname, std::string parameters, std::string descrition, ExecuterMember executer) {
             this->descrition = descrition;
             this->longname = longname;
+            this->parameters = parameters;
             this->shortname = shortname;
             this->executer = executer;
         }
         std::string shortname;
         std::string longname;
+        std::string parameters;
         std::string descrition;
         ExecuterMember executer;
     };
@@ -48,15 +50,19 @@ public:
 public:
     virtual int main(int argc, char** argv);
 public: // commands
+    void cmdScript();
     void cmdHelp();
     void cmdQuit();
     void cmdModelLoad();
+    void cmdModelSave();
+    void cmdVersion();
 private:
     void run(List<std::string>* arguments);
     void Trace(std::string message);
+    void tryExecuteCommand(std::string inputText, std::string shortPrefix, std::string longPrefix, std::string separator);
 private:
     Simulator* _simulator = new Simulator();
-    std::vector<std::string>* _parameters;
+    std::string _parameter;
     List<ShellCommand*>* _commands = new List<ShellCommand*>();
     std::string _prompt = "$ReGenesys> ";
 };
