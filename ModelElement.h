@@ -31,7 +31,7 @@ public:
 public:
     virtual std::string show();
 public: // static
-    static void LoadInstance(std::vector<std::map<std::string, std::string>*> fields); // TODO: return ModelComponent* ?
+    static ModelElement* LoadInstance(std::map<std::string, std::string>* fields); // TODO: return ModelComponent* ?
     static std::map<std::string, std::string>* SaveInstance(ModelElement* element);
     static bool Check(ModelElement* element, std::string* errorMessage);
 

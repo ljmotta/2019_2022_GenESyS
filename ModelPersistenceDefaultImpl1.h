@@ -29,10 +29,8 @@ public:
 private:
     void _saveContent(std::list<std::string>* content, std::ofstream* file);
     void _loadFields(std::string line);
-    void _lodModelInfosFields(std::map<std::string, std::string>* fields);
     void _loadSimulatorInfoFields(std::map<std::string, std::string>* fields);
     std::list<std::string>* _adjustFieldsToSave(std::map<std::string, std::string>* fields);
-    std::map<std::string, std::string>* _getModelInfosFieldsToSave();
     std::map<std::string, std::string>* _getSimulatorInfoFieldsToSave();
 private:
     Model* _model = nullptr;

@@ -41,6 +41,7 @@ public:
     static void Execute(Entity* entity, ModelComponent* component); ///< This method triggers the simulation of the behavior of the component. It is invoked when an event (corresponding to this component) is taken from the list of future events or when an entity arrives at this component by connection.
     static void InitBetweenReplications(ModelComponent* component);
     static bool Check(ModelComponent* component);
+    static ModelComponent* LoadInstance(std::map<std::string, std::string>* fields);
     static std::map<std::string, std::string>* SaveInstance(ModelComponent* component);
 private:
     List<ModelComponent*>* _nextComponents;

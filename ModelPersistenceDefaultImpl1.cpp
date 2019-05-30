@@ -36,23 +36,6 @@ std::map<std::string, std::string>* ModelPersistenceDefaultImpl1::_getSimulatorI
     return fields;
 }
 
-std::map<std::string, std::string>* ModelPersistenceDefaultImpl1::_getModelInfosFieldsToSave() {
-    std::map<std::string, std::string>* fields = new std::map<std::string, std::string>();
-    fields->emplace("typename", "ModelInfo");
-    fields->emplace("analystName", _model->getInfos()->getAnalystName());
-    fields->emplace("description", _model->getInfos()->getDescription());
-    fields->emplace("name", _model->getInfos()->getName());
-    fields->emplace("numberOfReplications", std::to_string(_model->getInfos()->getNumberOfReplications()));
-    fields->emplace("projectTitle", _model->getInfos()->getProjectTitle());
-    fields->emplace("replicationLength", std::to_string(_model->getInfos()->getReplicationLength()));
-    fields->emplace("replicationLengthTimeUnit", std::to_string(static_cast<int> (_model->getInfos()->getReplicationLengthTimeUnit())));
-    fields->emplace("terminatingCondition", _model->getInfos()->getTerminatingCondition());
-    fields->emplace("version", _model->getInfos()->getVersion());
-    fields->emplace("warmUpTime", std::to_string(_model->getInfos()->getWarmUpPeriod()));
-    fields->emplace("warmUpTimeTimeUnit", std::to_string(static_cast<int> (_model->getInfos()->getWarmUpPeriodTimeUnit())));
-    return fields;
-}
-
 bool ModelPersistenceDefaultImpl1::save(std::string filename) {
     _model->getTracer()->trace(Util::TraceLevel::blockArrival, "Saving file \"" + filename + "\"");
     Util::IncIndent();
@@ -63,7 +46,7 @@ bool ModelPersistenceDefaultImpl1::save(std::string filename) {
 	fields = _getSimulatorInfoFieldsToSave();
 	simulInfosToSave = _adjustFieldsToSave(fields);
 	// save model own infos
-	fields = _getModelInfosFieldsToSave();
+	fields = _model->getInfos()->saveInstance();
 	modelInfosToSave = _adjustFieldsToSave(fields);
 	// save infras
 	modelElementsToSave = new std::list<std::string>();
@@ -132,31 +115,46 @@ void ModelPersistenceDefaultImpl1::_saveContent(std::list<std::string>* content,
 }
 
 void ModelPersistenceDefaultImpl1::_loadFields(std::string line) {
-    //std::regex regex{R"([=]+)"}; // split on space R"([\s]+)"
-    std::regex regex{R"([;\s]+)"}; // split on "; ".TODO: How change it by the attribute _linefieldseparator ??
-    std::sregex_token_iterator it{line.begin(), line.end(), regex, -1};
-    std::vector<std::string> vecfields{it,{}};
-    std::list<std::string> lstfields{it,{}};
-    // separate the first field (typename)
-    regex = {R"([=]+)"}; // split on "; ".TODO: How change it by the attribute _linefieldseparator ??
-    it = {vecfields[0].begin(), vecfields[0].end(), regex, -1};
-    std::vector<std::string> firstField{it,{}};
-    if (firstField[0] == "typename") {
-	lstfields.pop_front();
-	if (firstField[1] == "SimulatorInfo") {
-	    //this->_loadSimulatorInfoFields(lstfields);
-	} else if (firstField[1] == "ModelInfo") {
-	    //this->_lodModelInfosFields(lstfields);
-	} else {
-	    // invoke the right class to handle it
+    //std::regex regex{R"([=]+)"}; // split on space R"([\s]+)" TODO: HOW SEPARATOR WITH MORE THAN ONE CHAR
+    std::regex regex{R"([;]+)"}; // split on "; ".TODO: How change it by the attribute _linefieldseparator ??
+    std::sregex_token_iterator tit{line.begin(), line.end(), regex, -1};
+    std::list<std::string> lstfields{tit,{}};
+    // for each field, separate key and value and form a map
+    try {
+	std::map<std::string, std::string>* fields = new std::map<std::string, std::string>();
+	regex = {R"([=]+)"};
+	std::vector<std::string> veckeyval; //{it,{}};
+	for (std::list<std::string>::iterator it = lstfields.begin(); it != lstfields.end(); it++) {
+	    std::cout << (*it) << std::endl;
+	    tit = {(*it).begin(), (*it).end(), regex, -1};
+	    veckeyval = {tit,{}};
+	    trim((veckeyval[0]));
+	    if (veckeyval[0] != "") {
+		if (veckeyval.size() > 1) {
+		    trim((veckeyval[1]));
+		    fields->emplace(veckeyval[0], veckeyval[1]);
+		} else {
+		    fields->emplace(veckeyval[0], "");
+		}
+	    }
 	}
-    } else {
-	_model->getTracer()->trace(Util::TraceLevel::errors, "Unknow format on line: " + line);
-    }
-}
+	// now the map<str,str> is ready. Look for the right class to load it
+	std::string thistypename = (*fields->find("typename")).second;
+	if (thistypename == "SimulatorInfo") {
+	    this->_loadSimulatorInfoFields(fields);
+	} else if (thistypename == "ModelInfo") {
+	    _model->getInfos()->loadInstance(fields);
+	} else {
+	    // this should be a ModelComponent or ModelElement. 
+	    //std::string thistypename = (*fields->find("typename")).second;
+	    ModelElement* newElement = ModelElement::LoadInstance(fields);
+	    if (newElement != nullptr) {
 
-void ModelPersistenceDefaultImpl1::_lodModelInfosFields(std::map<std::string, std::string>* fields) {
-    //fields->front();
+	    }
+	}
+    } catch (...) {
+
+    }
 }
 
 void ModelPersistenceDefaultImpl1::_loadSimulatorInfoFields(std::map<std::string, std::string>* fields) {
@@ -186,10 +184,12 @@ bool ModelPersistenceDefaultImpl1::load(std::string filename) {
 
 std::list<std::string>* ModelPersistenceDefaultImpl1::_adjustFieldsToSave(std::map<std::string, std::string>* fields) {
     std::list<std::string>* newList = new std::list<std::string>();
+    std::string newStr;
     for (std::map<std::string, std::string>::iterator it = fields->begin(); it != fields->end(); it++) {
-	std::string newStr = (*it).first + "=" + (*it).second;
-	newList->push_back(newStr);
+	newStr += (*it).first + "=" + (*it).second + this->_linefieldseparator;
     }
+    _model->getTracer()->trace(Util::TraceLevel::mostDetailed, newStr);
+    newList->push_back(newStr);
     return newList;
 }
 

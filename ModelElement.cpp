@@ -73,6 +73,10 @@ std::string ModelElement::getTypename() const {
 //	return fields;
 //}
 
+ModelElement* ModelElement::LoadInstance(std::map<std::string, std::string>* fields) {
+    
+}
+
 std::map<std::string, std::string>* ModelElement::SaveInstance(ModelElement* element) {
     std::map<std::string, std::string>* fields; // = new std::list<std::string>();
     try {

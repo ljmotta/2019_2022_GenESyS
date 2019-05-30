@@ -93,7 +93,7 @@ void builSimulationdModel(Model* model) { // buildModelWithAllImplementedCompone
     tm->addTraceHandler(&traceHandler);
     tm->addTraceReportHandler(&traceHandler);
     tm->addTraceSimulationHandler(&traceSimulationHandler);
-    tm->setTraceLevel(Util::TraceLevel::blockArrival);
+    tm->setTraceLevel(Util::TraceLevel::mostDetailed);
 
     ModelInfo* infos = model->getInfos();
     infos->setAnalystName("Your name");
@@ -211,9 +211,12 @@ void builSimulationdModel(Model* model) { // buildModelWithAllImplementedCompone
 int MyReGenESYsApplication::main(int argc, char** argv) {
     Simulator* simulator = new Simulator();
     Model* model = new Model(simulator);
-    builSimulationdModel(model);
-    simulator->getModels()->insert(model);
-
-    model->saveModel("./temp/genesysSimpleSimulationModel.txt");
+    //builSimulationdModel(model);
+    //simulator->getModels()->insert(model);
+    //model->saveModel("./models/genesysSimpleSimulationModel.txt");
+    
+    model->loadModel("./models/genesysSimpleSimulationModel.txt");
+    
     //model->getSimulation()->startSimulation();
+    return 0;
 }
