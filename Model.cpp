@@ -48,11 +48,11 @@ Model::Model(Simulator* simulator) {
     _modelPersistence = new Traits<ModelPersistence_if>::Implementation(this);
     _simulation = new ModelSimulation(this);
     // 1:n associations
-    
+
     _events = new List<Event*>(); /// The future events list must be chronologicaly sorted
     //_events->setSortFunc(&EventCompare); // It works too
     _events->setSortFunc([](const Event* a, const Event * b) {
-        return a->getTime() < b->getTime(); /// Events are sorted chronologically
+	return a->getTime() < b->getTime(); /// Events are sorted chronologically
     });
 
     // for process analyser
@@ -60,17 +60,17 @@ Model::Model(Simulator* simulator) {
     _controls = new List<SimulationControl*>();
     // insert controls
     _controls->insert(new SimulationControl("Model Info", "Number of Replications",
-            DefineGetterMember<ModelInfo>(this->_modelInfo, &ModelInfo::getNumberOfReplications),
-            DefineSetterMember<ModelInfo>(this->_modelInfo, &ModelInfo::setNumberOfReplications))
-            );
+	    DefineGetterMember<ModelInfo>(this->_modelInfo, &ModelInfo::getNumberOfReplications),
+	    DefineSetterMember<ModelInfo>(this->_modelInfo, &ModelInfo::setNumberOfReplications))
+	    );
     _controls->insert(new SimulationControl("Model Info", "Replication Length",
-            DefineGetterMember<ModelInfo>(this->_modelInfo, &ModelInfo::getReplicationLength),
-            DefineSetterMember<ModelInfo>(this->_modelInfo, &ModelInfo::setReplicationLength))
-            );
+	    DefineGetterMember<ModelInfo>(this->_modelInfo, &ModelInfo::getReplicationLength),
+	    DefineSetterMember<ModelInfo>(this->_modelInfo, &ModelInfo::setReplicationLength))
+	    );
     _controls->insert(new SimulationControl("Model Info", "Warmup Period",
-            DefineGetterMember<ModelInfo>(this->_modelInfo, &ModelInfo::getWarmUpPeriod),
-            DefineSetterMember<ModelInfo>(this->_modelInfo, &ModelInfo::setWarmUpPeriod))
-            );
+	    DefineGetterMember<ModelInfo>(this->_modelInfo, &ModelInfo::getWarmUpPeriod),
+	    DefineSetterMember<ModelInfo>(this->_modelInfo, &ModelInfo::setWarmUpPeriod))
+	    );
 }
 
 Model::Model(const Model& orig) {
@@ -82,15 +82,15 @@ Model::~Model() {
 void Model::sendEntityToComponent(Entity* entity, ModelComponent* component, double timeDelay) {
     /* TODO -: event onEntityMove */
     if (timeDelay > 0) {
-        // schedule to send it
-        Event* newEvent = new Event(this->getSimulation()->getSimulatedTime() + timeDelay, entity, component);
-        this->getEvents()->insert(newEvent);
+	// schedule to send it
+	Event* newEvent = new Event(this->getSimulation()->getSimulatedTime() + timeDelay, entity, component);
+	this->getEvents()->insert(newEvent);
     } else {
-        // send it now
-        /* TODO -: supposed not to be a queue associated to a component */
-        Util::DecIndent();
-        component->Execute(entity, component);
-        Util::IncIndent();
+	// send it now
+	/* TODO -: supposed not to be a queue associated to a component */
+	Util::DecIndent();
+	component->Execute(entity, component);
+	Util::IncIndent();
     }
 }
 
@@ -110,8 +110,8 @@ bool Model::checkExpression(const std::string expression, const std::string expr
     bool result;
     parseExpression(expression, &result, errorMessage);
     if (!result) {
-        std::string msg = "Expression \"" + expression + "\" for '" + expressionName + "' is incorrect. ";
-        errorMessage->append(msg);
+	std::string msg = "Expression \"" + expression + "\" for '" + expressionName + "' is incorrect. ";
+	errorMessage->append(msg);
     }
     return result;
 }
@@ -125,7 +125,7 @@ void Model::_showComponents() {
     //std::list<ModelComponent*>* list = getComponents()->getList();
     Util::IncIndent();
     for (std::list<ModelComponent*>::iterator it = getComponentManager()->begin(); it != getComponentManager()->end(); it++) {
-        getTracer()->trace(Util::TraceLevel::mostDetailed, (*it)->show()); ////
+	getTracer()->trace(Util::TraceLevel::mostDetailed, (*it)->show()); ////
     }
     Util::DecIndent();
 }
@@ -136,11 +136,11 @@ bool Model::checkModel() {
     bool res = this->_modelChecker->checkAll();
     Util::DecIndent();
     if (res) {
-        getTracer()->trace(Util::TraceLevel::blockInternal, "Model check passed");
+	getTracer()->trace(Util::TraceLevel::blockInternal, "Model check passed");
     } else {
-        //std::exception e = new std::exception();
-        //getTrace()->traceError() ;
-        getTracer()->trace(Util::TraceLevel::errors, "Model check has failed");
+	//std::exception e = new std::exception();
+	//getTrace()->traceError() ;
+	getTracer()->trace(Util::TraceLevel::errors, "Model check has failed");
     }
     return res;
 }
@@ -151,8 +151,8 @@ bool Model::checkModel() {
 
 void Model::removeEntity(Entity* entity, bool collectStatistics) {
     if (collectStatistics) {
-        double timeInSystem = this->getSimulation()->getSimulatedTime() - entity->getAttributeValue("Entity.ArrivalTime");
-        entity->getEntityType()->getCstatTotalTime()->getStatistics()->getCollector()->addValue(timeInSystem);
+	double timeInSystem = this->getSimulation()->getSimulatedTime() - entity->getAttributeValue("Entity.ArrivalTime");
+	entity->getEntityType()->getCstatTotalTime()->getStatistics()->getCollector()->addValue(timeInSystem);
     }
     /* TODO -: event onEntityRemove */
     std::string entId = std::to_string(entity->getId());

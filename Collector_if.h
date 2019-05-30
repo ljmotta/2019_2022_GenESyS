@@ -20,12 +20,14 @@
 /*!
  */
 typedef std::function<void(double) > CollectorAddValueHandler;
+
 template<typename Class>
 CollectorAddValueHandler SetCollectorAddValueHandler(void (Class::*function)(double), Class * object) {
     return std::bind(function, object, std::placeholders::_1);
 }
 
 typedef std::function<void() > CollectorClearHandler;
+
 template<typename Class>
 CollectorClearHandler SetCollectorClearHandler(void (Class::*function)(), Class * object) {
     return std::bind(function, object);

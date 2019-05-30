@@ -44,7 +44,7 @@ Queue::~Queue() {
 
 std::string Queue::show() {
     return ModelElement::show() +
-            ",waiting=" + this->_list->show();
+	    ",waiting=" + this->_list->show();
 }
 
 void Queue::insertElement(Waiting* element) {
@@ -57,6 +57,10 @@ void Queue::removeElement(Waiting* element, double tnow) {
     this->_cstatNumberInQueue->getStatistics()->getCollector()->addValue(_list->size());
     double timeInQueue = tnow - element->getTimeStartedWaiting();
     this->_cstatTimeInQueue->getStatistics()->getCollector()->addValue(timeInQueue);
+}
+
+void Queue::initBetweenReplication() {
+    this->_list->clear();
 }
 
 unsigned int Queue::size() {
@@ -89,14 +93,14 @@ Queue::OrderRule Queue::getOrderRule() const {
 //	return _list;
 //}
 
-void Queue::_loadInstance(std::list<std::string> fields) {
+void Queue::_loadInstance(std::map<std::string, std::string>* fields) {
 
 }
 
-std::list<std::string>* Queue::_saveInstance() {
-    std::list<std::string>* fields = ModelElement::_saveInstance();//Util::TypeOf<Queue>());
-    fields->push_back("orderRule="+std::to_string(static_cast<int>(this->_orderRule)));
-    fields->push_back("attributeName="+this->_attributeName);
+std::map<std::string, std::string>* Queue::_saveInstance() {
+    std::map<std::string, std::string>* fields = ModelElement::_saveInstance(); //Util::TypeOf<Queue>());
+    fields->emplace("orderRule", std::to_string(static_cast<int> (this->_orderRule)));
+    fields->emplace("attributeName", this->_attributeName);
     return fields;
 }
 

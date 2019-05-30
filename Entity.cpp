@@ -19,7 +19,7 @@ Entity::Entity(ElementManager* elements) : ModelElement(Util::TypeOf<Entity>()) 
     _elements = elements;
     unsigned int numAttributes = _elements->getNumberOfElements(Util::TypeOf<Attribute>());
     for (unsigned i = 0; i < numAttributes; i++) {
-        _attributeValues->insert(0.0);
+	_attributeValues->insert(0.0);
     }
 }
 
@@ -30,11 +30,11 @@ Entity::~Entity() {
 }
 
 void Entity::setEntityTypeName(std::string entityTypeName) throw () {
-    EntityType* entitytype = static_cast<EntityType*> (this->_elements->getElement(Util::TypeOf<EntityType>(), entityTypeName));
+    EntityType* entitytype = dynamic_cast<EntityType*> (this->_elements->getElement(Util::TypeOf<EntityType>(), entityTypeName));
     if (entitytype != nullptr) {
-        this->_entityType = entitytype;
+	this->_entityType = entitytype;
     } else {
-        throw std::invalid_argument("EntityType does not exist");
+	throw std::invalid_argument("EntityType does not exist");
     }
 }
 
@@ -53,13 +53,13 @@ EntityType* Entity::getEntityType() const {
 std::string Entity::show() {
     std::string message = ModelElement::show();
     if (this->_entityType != nullptr) {
-        message += ",entityType=\"" + this->_entityType->getName()+"\"";
+	message += ",entityType=\"" + this->_entityType->getName() + "\"";
     }
     message += ",attributeValues=[";
     _attributeValues->first();
     for (unsigned int i = 0; i < _attributeValues->size(); i++) {
-        message += std::to_string(_attributeValues->actual()) + ",";
-        _attributeValues->next();
+	message += std::to_string(_attributeValues->actual()) + ",";
+	_attributeValues->next();
     }
     message += "]";
     return message;
@@ -68,30 +68,30 @@ std::string Entity::show() {
 double Entity::getAttributeValue(std::string attributeName) {
     int rank = this->_elements->getRankOf(Util::TypeOf<Attribute>(), attributeName);
     if (rank >= 0) {
-        return this->_attributeValues->getAtRank(rank);
+	return this->_attributeValues->getAtRank(rank);
     } else
-        return 0.0; /* TODO: Never should happen. check how to report */
+	return 0.0; /* TODO: Never should happen. check how to report */
 }
 
 void Entity::setAttributeValue(std::string attributeName, double value) {
     int rank = this->_elements->getRankOf(Util::TypeOf<Attribute>(), attributeName);
     if (rank >= 0) {
-        this->_attributeValues->setAtRank(rank, value);
+	this->_attributeValues->setAtRank(rank, value);
     }
     /*
     std::map<std::string, AttributeValue*>::iterator it = entity->getAttributeValues()->find('Entity.ArrivalTime');
     if (it != entity->getAttributeValues()::end()) {
-        (*it)->second->setValue(this->_model->getSimulationTime());
+	(*it)->second->setValue(this->_model->getSimulationTime());
     }
      */
 }
 
-void Entity::_loadInstance(std::list<std::string> fields) {
+void Entity::_loadInstance(std::map<std::string, std::string>* fields) {
+    // never lods an entity
 }
 
-std::list<std::string>* Entity::_saveInstance() {
-    std::list<std::string>* fields = new std::list<std::string>();//ModelElement::_saveInstance();;//Util::TypeOf<Entity>());
-    return fields;
+std::map<std::string, std::string>* Entity::_saveInstance() {
+    return new std::map<std::string,std::string>(); 
 }
 
 bool Entity::_check(std::string* errorMessage) {

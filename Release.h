@@ -42,11 +42,12 @@ public: // get & set
     // indirect access to and Resource*
     void setResourceName(std::string resourceName) throw();
     std::string getResourceName() const;
-    
+
 protected:
     virtual void _execute(Entity* entity);
-    virtual void _loadInstance(std::list<std::string> fields);
-    virtual std::list<std::string>* _saveInstance();
+    virtual void _loadInstance(std::map<std::string, std::string>* fields);
+    virtual void _initBetweenReplications();
+    virtual std::map<std::string, std::string>* _saveInstance();
     virtual bool _check(std::string* errorMessage);
 private:
     //	unsigned int _allocationType = 0; // uint ? enum?

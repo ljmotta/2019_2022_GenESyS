@@ -33,7 +33,7 @@
 // genesys applications
 #include "MyReGenESYsApplication.h"
 #include "GenesysGUI.h"
-#include "GenesysShell.h"
+#include "GenesysConsole.h"
 
 //  Default implementations
 //statistics
@@ -64,10 +64,9 @@ struct Traits {
 
 template <> struct Traits<GenesysApplication_if> {
     //typedef GenesysGUI Application;
-    typedef GenesysShell Application;
-    //typedef MyReGenESYsApplication Application;
+    //typedef GenesysConsole Application;
+    typedef MyReGenESYsApplication Application;
 };
-
 
 /*
  *  Model
@@ -75,7 +74,7 @@ template <> struct Traits<GenesysApplication_if> {
 
 template <> struct Traits<Model> {
     static const bool debugged = true;
-    static const Util::TraceLevel traceLevel = Util::TraceLevel::mostDetailed;//::simulation;
+    static const Util::TraceLevel traceLevel = Util::TraceLevel::mostDetailed; //::simulation;
 };
 
 template <> struct Traits<ModelPersistence_if> {
@@ -117,7 +116,7 @@ template <> struct Traits<Statistics_if> {
 
 template <> struct Traits<Integrator_if> {
     typedef IntegratorDefaultImpl1 Implementation;
-    static constexpr unsigned int MaxIterations = 1e3; 
+    static constexpr unsigned int MaxIterations = 1e3;
     static constexpr double Precision = 1e-9;
 };
 

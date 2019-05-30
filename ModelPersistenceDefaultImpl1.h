@@ -17,7 +17,7 @@
 #include "ModelPersistence_if.h"
 #include "Model.h"
 
-class ModelPersistenceDefaultImpl1 : public ModelPersistence_if{
+class ModelPersistenceDefaultImpl1 : public ModelPersistence_if {
 public:
     ModelPersistenceDefaultImpl1(Model* model);
     ModelPersistenceDefaultImpl1(const ModelPersistenceDefaultImpl1& orig);
@@ -27,13 +27,13 @@ public:
     virtual bool load(std::string filename);
     virtual bool isSaved();
 private:
-    //bool saveAsTXT(std::string filename);
-    //bool loadAsTXT(std::string filename);
     void _saveContent(std::list<std::string>* content, std::ofstream* file);
-    std::list<std::string>* _adjustFieldsToSaveAsTXT(std::list<std::string>* fields);
-//    std::list<std::string>* _adjustFieldsToSaveAsXML(std::list<std::string>* fields);
-    std::list<std::string>* _getModelInfosFieldsToSave();
-    std::list<std::string>* _getSimulatorInfoFieldsToSave();
+    void _loadFields(std::string line);
+    void _lodModelInfosFields(std::map<std::string, std::string>* fields);
+    void _loadSimulatorInfoFields(std::map<std::string, std::string>* fields);
+    std::list<std::string>* _adjustFieldsToSave(std::map<std::string, std::string>* fields);
+    std::map<std::string, std::string>* _getModelInfosFieldsToSave();
+    std::map<std::string, std::string>* _getSimulatorInfoFieldsToSave();
 private:
     Model* _model = nullptr;
     bool _isSaved = false;

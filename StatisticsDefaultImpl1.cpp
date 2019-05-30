@@ -43,10 +43,10 @@ StatisticsDefaultImpl1::~StatisticsDefaultImpl1() {
 void StatisticsDefaultImpl1::collectorAddHandler(double newValue) {
     _elems = _collector->numElements();
     if (newValue < _min) {
-        _min = newValue;
+	_min = newValue;
     }
     if (newValue > _max) {
-        _max = newValue;
+	_max = newValue;
     }
     _sum += newValue;
     _sumSquare += newValue*newValue;
@@ -82,16 +82,16 @@ unsigned int StatisticsDefaultImpl1::numElements() {
 
 double StatisticsDefaultImpl1::min() {
     if (_elems > 0)
-        return _min;
+	return _min;
     else
-        return 0.0;
+	return 0.0;
 }
 
 double StatisticsDefaultImpl1::max() {
     if (_elems > 0)
-        return _max;
+	return _max;
     else
-        return 0.0;
+	return 0.0;
 }
 
 double StatisticsDefaultImpl1::average() {

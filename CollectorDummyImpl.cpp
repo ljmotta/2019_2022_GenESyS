@@ -25,7 +25,7 @@ CollectorDummyImpl::~CollectorDummyImpl() {
 void CollectorDummyImpl::clear() {
     _numElements = 0;
     if (_clearHandler != nullptr) {
-        _clearHandler();
+	_clearHandler();
     }
 }
 
@@ -33,7 +33,7 @@ void CollectorDummyImpl::addValue(double value) {
     _lastValue = value;
     _numElements++;
     if (_addValueHandler != nullptr) {
-        _addValueHandler(value);
+	_addValueHandler(value);
     }
 }
 

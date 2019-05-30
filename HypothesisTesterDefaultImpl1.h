@@ -17,7 +17,7 @@
 #include "HypothesisTester_if.h"
 #include "Integrator_if.h"
 
-class HypothesisTesterDefaultImpl1: public HypothesisTester_if {
+class HypothesisTesterDefaultImpl1 : public HypothesisTester_if {
 public:
     HypothesisTesterDefaultImpl1();
     HypothesisTesterDefaultImpl1(const HypothesisTesterDefaultImpl1& orig);
@@ -32,7 +32,7 @@ public:
     virtual void setDataFilename(std::string dataFilename);
     virtual std::string getDataFilename();
 private:
-    Integrator_if* _integrator; 
+    Integrator_if* _integrator;
 };
 
 #endif /* HYPOTHESISTESTERDEFAULTIMPL1_H */

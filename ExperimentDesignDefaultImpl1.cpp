@@ -26,7 +26,6 @@ std::list<FactorOrInteractionContribution*>* ExperimentDesignDefaultImpl1::getCo
     return _contributions;
 }
 
-
 bool ExperimentDesignDefaultImpl1::generate2krScenarioExperiments() {
     return true;
 }

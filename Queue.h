@@ -25,7 +25,7 @@ class Queue : public ModelElement {
 public:
 
     enum class OrderRule : int {
-        FIFO = 1, LIFO = 2, HIGHESTVALUE = 3, SMALLESTVALUE = 4
+	FIFO = 1, LIFO = 2, HIGHESTVALUE = 3, SMALLESTVALUE = 4
     };
 
 public:
@@ -38,6 +38,7 @@ public:
 public:
     void insertElement(Waiting* element);
     void removeElement(Waiting* element, double tnow);
+    void initBetweenReplication();
     unsigned int size();
     Waiting* first();
     void setAttributeName(std::string _attributeName);
@@ -49,8 +50,8 @@ public: //g&s
 
 
 protected:
-    virtual void _loadInstance(std::list<std::string> fields);
-    virtual std::list<std::string>* _saveInstance();
+    virtual void _loadInstance(std::map<std::string, std::string>* fields);
+    virtual std::map<std::string, std::string>* _saveInstance();
     virtual bool _check(std::string* errorMessage);
 private:
     void _initCStats();

@@ -14,7 +14,6 @@
 #ifndef Sampler_IF_H
 #define Sampler_IF_H
 
-
 /*!
  * Interface that describes the methods to be implemented by classes that generate random values ​​that follow a specific probability distribution.
  */

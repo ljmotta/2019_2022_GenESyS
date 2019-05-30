@@ -21,9 +21,9 @@ public:
 
     class MyRNG_Parameters : public RNG_Parameters {
     public:
-        unsigned int seed;
-        unsigned int module;
-        unsigned int multiplier;
+	unsigned int seed;
+	unsigned int module;
+	unsigned int multiplier;
     };
 public:
     SamplerDummyImpl();

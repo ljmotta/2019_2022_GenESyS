@@ -78,7 +78,7 @@ void BuildSimulationModel::buildModel(Model* model) { // buildModelWithAllImplem
     tm->addTraceReportHandler(&traceHandler);
     tm->addTraceSimulationHandler(&traceSimulationHandler);
      */
-    
+
     /*
     OnEventManager* ev = model->getOnEventManager();
     ev->addOnSimulationStartHandler(&onSimulationStartHandler);

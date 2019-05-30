@@ -16,7 +16,7 @@
 
 #include "Integrator_if.h"
 
-class IntegratorDefaultImpl1: public Integrator_if {
+class IntegratorDefaultImpl1 : public Integrator_if {
 public:
     IntegratorDefaultImpl1();
     IntegratorDefaultImpl1(const IntegratorDefaultImpl1& orig);

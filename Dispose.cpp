@@ -15,9 +15,11 @@
 #include "Model.h"
 
 Dispose::Dispose(Model* model) : SinkModelComponent(model, Util::TypeOf<Dispose>()) {
-    model->getResponses()->insert(new SimulationResponse(Util::TypeOf<Dispose>(), "Number Out",
-            DefineGetterMember<Dispose>(this, &Dispose::getNumberOut))
-            );
+    _numberOut = new Counter("Count number out", this);
+    _model->getElementManager()->insert(Util::TypeOf<Counter>(), _numberOut);
+    //model->getResponses()->insert(new SimulationResponse(Util::TypeOf<Dispose>(), "Number Out",
+    //        DefineGetterMember<Dispose>(this, &Dispose::getNumberOut))
+    //        );
 }
 
 Dispose::Dispose(const Dispose& orig) : SinkModelComponent(orig) {
@@ -28,32 +30,24 @@ Dispose::~Dispose() {
 
 std::string Dispose::show() {
     return SinkModelComponent::show() +
-            ",collectStatistics=" + std::to_string(this->_collectStatistics);
-}
-
-unsigned int Dispose::getNumberOut() const {
-    return _numberOut;
-}
-
-void Dispose::setCollectStatistics(bool _collectStatistics) {
-    this->_collectStatistics = _collectStatistics;
-}
-
-bool Dispose::isCollectStatistics() const {
-    return _collectStatistics;
+	    ",collectStatistics=" + std::to_string(this->_collectStatistics);
 }
 
 void Dispose::_execute(Entity* entity) {
+    _numberOut->incCountValue();
     _model->removeEntity(entity, this->isCollectStatistics());
 }
 
-void Dispose::_loadInstance(std::list<std::string> fields) {
+void Dispose::_loadInstance(std::map<std::string, std::string>* fields) {
 
 }
 
-std::list<std::string>* Dispose::_saveInstance() {
-    std::list<std::string>* fields = ModelComponent::_saveInstance();//Util::TypeOf<Dispose>());
-    fields->push_back("collectStatistics="+std::to_string(this->_collectStatistics));
+void Dispose::_initBetweenReplications() {
+    SinkModelComponent::_initBetweenReplications();
+}
+
+std::map<std::string, std::string>* Dispose::_saveInstance() {
+    std::map<std::string, std::string>* fields = ModelComponent::_saveInstance(); //Util::TypeOf<Dispose>());
     return fields;
 
 }

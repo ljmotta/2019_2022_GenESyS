@@ -31,9 +31,9 @@ Record::~Record() {
 
 std::string Record::show() {
     return ModelComponent::show() +
-            ",expressionName=\"" + this->_expressionName + "\"" +
-            ",expression=\"" + _expression + "\"" +
-            "filename=\"" + _filename + "\"";
+	    ",expressionName=\"" + this->_expressionName + "\"" +
+	    ",expression=\"" + _expression + "\"" +
+	    "filename=\"" + _filename + "\"";
 }
 
 void Record::setExpressionName(std::string expressionName) {
@@ -77,16 +77,19 @@ void Record::_execute(Entity* entity) {
 
 }
 
-std::list<std::string>* Record::_saveInstance() {
-    std::list<std::string>* fields = ModelComponent::_saveInstance();//Util::TypeOf<Record>());
-    fields->push_back("expression="+this->_expression);
-    fields->push_back("expressionName="+this->_expressionName);
-    fields->push_back("fileName="+this->_filename);
+std::map<std::string, std::string>* Record::_saveInstance() {
+    std::map<std::string, std::string>* fields = ModelComponent::_saveInstance(); //Util::TypeOf<Record>());
+    fields->emplace("expression" , this->_expression);
+    fields->emplace("expressionName" , this->_expressionName);
+    fields->emplace("fileName" , this->_filename);
     return fields;
 }
 
-void Record::_loadInstance(std::list<std::string> fields) {
+void Record::_loadInstance(std::map<std::string, std::string>* fields) {
 
+}
+
+void Record::_initBetweenReplications() {
 }
 
 bool Record::_check(std::string* errorMessage) {

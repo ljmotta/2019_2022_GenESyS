@@ -30,3 +30,14 @@ bool SinkModelComponent::isCollectStatistics() const {
     return _collectStatistics;
 }
 
+void SinkModelComponent::_loadInstance(std::map<std::string, std::string>* fields) {
+}
+
+void SinkModelComponent::_initBetweenReplications() {
+}
+
+std::map<std::string, std::string>* SinkModelComponent::_saveInstance() {
+}
+
+bool SinkModelComponent::_check(std::string* errorMessage) {
+}

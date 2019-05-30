@@ -40,14 +40,14 @@ double IntegratorDefaultImpl1::integrate(double min, double max, double (*f)(dou
     double x, y, h = (max - min) / m;
     double I1 = 0.0;
     for (unsigned int j = 1; j <= m + 1; j++) {
-        i = j - 1;
-        if (i == 0 || i == m)
-            c = 1;
-        else
-            c = 2;
-        x = min + i*h;
-        y = f(x, p2);
-        I1 += c*y;
+	i = j - 1;
+	if (i == 0 || i == m)
+	    c = 1;
+	else
+	    c = 2;
+	x = min + i*h;
+	y = f(x, p2);
+	I1 += c*y;
     }
     return (h / 2)*I1;
 }
@@ -57,14 +57,14 @@ double IntegratorDefaultImpl1::integrate(double min, double max, double (*f)(dou
     double x, y, h = (max - min) / m;
     double I1 = 0.0;
     for (unsigned int j = 1; j <= m + 1; j++) {
-        i = j - 1;
-        if (i == 0 || i == m)
-            c = 1;
-        else
-            c = 2;
-        x = min + i*h;
-        y = f(x, p2, p3);
-        I1 += c*y;
+	i = j - 1;
+	if (i == 0 || i == m)
+	    c = 1;
+	else
+	    c = 2;
+	x = min + i*h;
+	y = f(x, p2, p3);
+	I1 += c*y;
     }
     return (h / 2)*I1;
 }
@@ -74,14 +74,14 @@ double IntegratorDefaultImpl1::integrate(double min, double max, double (*f)(dou
     double x, y, h = (max - min) / m;
     double I1 = 0.0;
     for (unsigned int j = 1; j <= m + 1; j++) {
-        i = j - 1;
-        if (i == 0 || i == m)
-            c = 1;
-        else
-            c = 2;
-        x = min + i*h;
-        y = f(x, p2, p3, p4);
-        I1 += c*y;
+	i = j - 1;
+	if (i == 0 || i == m)
+	    c = 1;
+	else
+	    c = 2;
+	x = min + i*h;
+	y = f(x, p2, p3, p4);
+	I1 += c*y;
     }
     return (h / 2)*I1;
 }
@@ -91,14 +91,14 @@ double IntegratorDefaultImpl1::integrate(double min, double max, double (*f)(dou
     double x, y, h = (max - min) / m;
     double I1 = 0.0;
     for (unsigned int j = 1; j <= m + 1; j++) {
-        i = j - 1;
-        if (i == 0 || i == m)
-            c = 1;
-        else
-            c = 2;
-        x = min + i*h;
-        y = f(x, p2, p3, p4, p5);
-        I1 += c*y;
+	i = j - 1;
+	if (i == 0 || i == m)
+	    c = 1;
+	else
+	    c = 2;
+	x = min + i*h;
+	y = f(x, p2, p3, p4, p5);
+	I1 += c*y;
     }
     return (h / 2)*I1;
 }

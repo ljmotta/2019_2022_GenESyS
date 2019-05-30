@@ -34,15 +34,16 @@ public:
     virtual std::string show();
 protected:
     virtual void _execute(Entity* entity);
-    virtual void _loadInstance(std::list<std::string> fields);
-    virtual std::list<std::string>* _saveInstance();
+    virtual void _loadInstance(std::map<std::string, std::string>* fields);
+    virtual void _initBetweenReplications();
+    virtual std::map<std::string, std::string>* _saveInstance();
     virtual bool _check(std::string* errorMessage);
 private:
     std::string _expression = "";
     std::string _expressionName = "";
     std::string _filename = "";
 private:
-    StatisticsCollector* _cstatExpression;  /* TODO: Cretae an internal class to agregate ExpressionStatisticsColelctor, and change Record to got a list of it, so Record cn record a set of expressions into a set of files */
+    StatisticsCollector* _cstatExpression; /* TODO: Cretae an internal class to agregate ExpressionStatisticsColelctor, and change Record to got a list of it, so Record cn record a set of expressions into a set of files */
 };
 
 #endif /* RECORD_H */

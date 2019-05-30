@@ -37,15 +37,15 @@ double HypothesisTesterDefaultImpl1::testVariance(double confidencelevel, double
 }
 
 double HypothesisTesterDefaultImpl1::testAverage(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) {
-return 0.0; //todo
+    return 0.0; //todo
 }
 
 double HypothesisTesterDefaultImpl1::testProportion(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) {
-return 0.0; //todo
+    return 0.0; //todo
 }
 
 double HypothesisTesterDefaultImpl1::testVariance(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) {
-return 0.0; //todo
+    return 0.0; //todo
 }
 
 void HypothesisTesterDefaultImpl1::setDataFilename(std::string dataFilename) {

@@ -15,6 +15,7 @@
 #define DISPOSE_H
 
 #include "SinkModelComponent.h"
+#include "Counter.h"
 
 class Dispose : public SinkModelComponent {
 public:
@@ -22,20 +23,17 @@ public:
     Dispose(const Dispose& orig);
     virtual ~Dispose();
 public:
-    unsigned int getNumberOut() const;
-public:
     virtual std::string show();
-public:
-    virtual void setCollectStatistics(bool _collectStatistics);
-    virtual bool isCollectStatistics() const;
 protected:
     virtual void _execute(Entity* entity);
-    virtual void _loadInstance(std::list<std::string> fields);
-    virtual std::list<std::string>* _saveInstance();
+    virtual void _loadInstance(std::map<std::string, std::string>* fields);
+    virtual void _initBetweenReplications();
+    virtual std::map<std::string, std::string>* _saveInstance();
     virtual bool _check(std::string* errorMessage);
 private:
     bool _collectStatistics = true;
-    unsigned int _numberOut = 0;
+private:
+    Counter* _numberOut;
 };
 
 #endif /* DISPOSE_H */

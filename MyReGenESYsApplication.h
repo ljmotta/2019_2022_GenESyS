@@ -16,7 +16,7 @@
 
 #include "GenesysApplication_if.h"
 
-class MyReGenESYsApplication: public GenesysApplication_if {
+class MyReGenESYsApplication : public GenesysApplication_if {
 public:
     MyReGenESYsApplication();
     MyReGenESYsApplication(const MyReGenESYsApplication& orig);

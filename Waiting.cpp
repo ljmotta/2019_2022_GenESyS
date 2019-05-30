@@ -32,8 +32,8 @@ double Waiting::getTimeStartedWaiting() const {
 std::string Waiting::show() {
     return //ModelElement::show()+
     ",entity=" + std::to_string(_entity->getId()) +
-            ",component=\"" + _component->getName() + "\"" +
-            ",timeStatedWaiting=" + std::to_string(_timeStartedWaiting);
+	    ",component=\"" + _component->getName() + "\"" +
+	    ",timeStatedWaiting=" + std::to_string(_timeStartedWaiting);
 }
 
 ModelComponent* Waiting::getComponent() const {

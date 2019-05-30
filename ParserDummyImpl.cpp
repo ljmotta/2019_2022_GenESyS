@@ -35,15 +35,15 @@ std::string* ParserDummyImpl::getErrorMessage() {
 
 double ParserDummyImpl::parse(const std::string expression, bool* success, std::string* errorMessage) {
     try {
-        double result = this->parse(expression);
-        std::string temp("");
-        errorMessage = &temp;
-        *success = true;
-        return result;
+	double result = this->parse(expression);
+	std::string temp("");
+	errorMessage = &temp;
+	*success = true;
+	return result;
     } catch (...) {
-        std::string temp("Error parsing...");
-        errorMessage = &temp;
-        *success = false;
-        return 0.0;
+	std::string temp("Error parsing...");
+	errorMessage = &temp;
+	*success = false;
+	return 0.0;
     }
 }

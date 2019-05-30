@@ -35,19 +35,22 @@ public:
     virtual ~ModelComponent();
 public:
     virtual std::string show();
+public:
     List<ModelComponent*>* getNextComponents() const; ///< Returns a list of components directly connected to the output. Usually the components have a single output, but they may have none (such as Dispose) or more than one (as Decide).
 public:
     static void Execute(Entity* entity, ModelComponent* component); ///< This method triggers the simulation of the behavior of the component. It is invoked when an event (corresponding to this component) is taken from the list of future events or when an entity arrives at this component by connection.
+    static void InitBetweenReplications(ModelComponent* component);
     static bool Check(ModelComponent* component);
-    static std::list<std::string>* SaveInstance(ModelComponent* component);
+    static std::map<std::string, std::string>* SaveInstance(ModelComponent* component);
 private:
     List<ModelComponent*>* _nextComponents;
 protected:
     virtual void _execute(Entity* entity) = 0;
+    virtual void _initBetweenReplications() = 0;
 
 protected:
-    virtual std::list<std::string>* _saveInstance();
-    //virtual std::list<std::string>* _saveInstance(std::string type);
+    virtual std::map<std::string, std::string>* _saveInstance();
+    //virtual std::list<std::map<std::string,std::string>*>* _saveInstance(std::string type);
 
 protected:
     Model* _model;

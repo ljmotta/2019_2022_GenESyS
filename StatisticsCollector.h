@@ -30,8 +30,8 @@ public:
     Statistics_if* getStatistics() const;
 
 protected:
-    virtual void _loadInstance(std::list<std::string> fields);
-    virtual std::list<std::string>* _saveInstance();
+    virtual void _loadInstance(std::map<std::string, std::string>* fields);
+    virtual std::map<std::string, std::string>* _saveInstance();
     virtual bool _check(std::string* errorMessage);
 
 private:

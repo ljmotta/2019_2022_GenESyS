@@ -18,7 +18,7 @@ ComponentManager::ComponentManager(Model* model) {
     _model = model;
     _components = new List<ModelComponent*>();
     _components->setSortFunc([](const ModelComponent* a, const ModelComponent * b) {
-        return a->getId() < b->getId(); /// Components are sorted by ID
+	return a->getId() < b->getId(); /// Components are sorted by ID
     });
 }
 

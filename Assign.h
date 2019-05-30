@@ -21,8 +21,8 @@ class Assign : public ModelComponent {
 public:
 
     /* TODO: +- an enun is not a good idea. Should be a list of possible classes, so TypeOf could be set */
-    enum class DestinationType : int { 
-        Attribute, Variable
+    enum class DestinationType : int {
+	Attribute, Variable
     };
 
     /*!
@@ -31,42 +31,42 @@ public:
     class Assignment {
     public:
 
-        Assignment(DestinationType destinationType, std::string destination, std::string expression) {
-            this->_destinationType = destinationType;
-            this->_destination = destination;
-            this->_expression = expression;
-            // an assignment is always in the form:
-            // (destinationType) destination = expression
-        };
+	Assignment(DestinationType destinationType, std::string destination, std::string expression) {
+	    this->_destinationType = destinationType;
+	    this->_destination = destination;
+	    this->_expression = expression;
+	    // an assignment is always in the form:
+	    // (destinationType) destination = expression
+	};
     public:
 
-        void setDestination(std::string _destination) {
-            this->_destination = _destination;
-        }
+	void setDestination(std::string _destination) {
+	    this->_destination = _destination;
+	}
 
-        std::string getDestination() const {
-            return _destination;
-        }
+	std::string getDestination() const {
+	    return _destination;
+	}
 
-        void setDestinationType(DestinationType _destinationType) {
-            this->_destinationType = _destinationType;
-        }
+	void setDestinationType(DestinationType _destinationType) {
+	    this->_destinationType = _destinationType;
+	}
 
-        DestinationType getDestinationType() const {
-            return _destinationType;
-        }
+	DestinationType getDestinationType() const {
+	    return _destinationType;
+	}
 
-        void setExpression(std::string _expression) {
-            this->_expression = _expression;
-        }
+	void setExpression(std::string _expression) {
+	    this->_expression = _expression;
+	}
 
-        std::string getExpression() const {
-            return _expression;
-        }
+	std::string getExpression() const {
+	    return _expression;
+	}
     private:
-        DestinationType _destinationType = DestinationType::Attribute;
-        std::string _destination = "";
-        std::string _expression = "";
+	DestinationType _destinationType = DestinationType::Attribute;
+	std::string _destination = "";
+	std::string _expression = "";
 
     };
 public:
@@ -80,8 +80,9 @@ public:
 
 protected:
     virtual void _execute(Entity* entity);
-    virtual void _loadInstance(std::list<std::string> fields);
-    virtual std::list<std::string>* _saveInstance();
+    virtual void _loadInstance(std::map<std::string, std::string>* fields);
+    virtual void _initBetweenReplications();
+    virtual std::map<std::string, std::string>* _saveInstance();
     virtual bool _check(std::string* errorMessage);
 private:
 private:

@@ -35,7 +35,7 @@ public:
     virtual double variationCoef();
     virtual double halfWidthConfidenceInterval();
     virtual unsigned int newSampleSize(double halfWidth);
-    virtual double getConfidenceLevel() ;
+    virtual double getConfidenceLevel();
     virtual void setConfidenceLevel(double confidencelevel);
 private:
     void collectorAddHandler(double newValue);

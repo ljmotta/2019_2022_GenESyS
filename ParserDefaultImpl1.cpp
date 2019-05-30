@@ -35,16 +35,16 @@ std::string* ParserDefaultImpl1::getErrorMessage() {
 
 double ParserDefaultImpl1::parse(const std::string expression, bool* success, std::string* errorMessage) {
     try {
-        double result = this->parse(expression);
-        std::string temp("");  /* TODO: CHECK SCOPE OF VARIABLE */
-        errorMessage = &temp;
-        *success = true;
-        return result;
+	double result = this->parse(expression);
+	std::string temp(""); /* TODO: CHECK SCOPE OF VARIABLE */
+	errorMessage = &temp;
+	*success = true;
+	return result;
     } catch (...) {
-        std::string temp("Error parsing...");
-        errorMessage = &temp;
-        *success = false;
-        return 0.0;
+	std::string temp("Error parsing...");
+	errorMessage = &temp;
+	*success = false;
+	return 0.0;
     }
 }
 

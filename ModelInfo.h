@@ -47,7 +47,7 @@ public: // gets and sets
     void setWarmUpPeriodTimeUnit(Util::TimeUnit _warmUpPeriodTimeUnit);
     Util::TimeUnit getWarmUpPeriodTimeUnit() const;
     void setTerminatingCondition(std::string _terminatingCondition);
-    std::string getTerminatingCondition() const;   
+    std::string getTerminatingCondition() const;
 private: // with public access (get & set)
     // model general information
     std::string _name;

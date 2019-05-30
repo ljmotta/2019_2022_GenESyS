@@ -25,7 +25,7 @@ WaitingResource::~WaitingResource() {
 
 std::string WaitingResource::show() {
     return Waiting::show() +
-            ",quantity=" + std::to_string(this->_quantity);
+	    ",quantity=" + std::to_string(this->_quantity);
 }
 
 unsigned int WaitingResource::getQuantity() const {

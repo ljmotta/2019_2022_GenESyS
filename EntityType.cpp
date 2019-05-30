@@ -59,7 +59,7 @@ EntityType::~EntityType() {
 
 std::string EntityType::show() {
     return ModelElement::show() +
-            ",initialPicture=" + this->_initialPicture; // add more...
+	    ",initialPicture=" + this->_initialPicture; // add more...
 }
 
 void EntityType::setInitialWaitingCost(double _initialWaitingCost) {
@@ -126,17 +126,18 @@ StatisticsCollector* EntityType::getCstatWaitingTime() const {
     return _cstatWaitingTime;
 }
 
-void EntityType::_loadInstance(std::list<std::string> fields) {
-
+void EntityType::_loadInstance(std::map<std::string, std::string>* fields) {
+    ModelElement::_loadInstance(fields);
+    //TODO+
 }
 
-std::list<std::string>* EntityType::_saveInstance() {
-    std::list<std::string>* fields = ModelElement::_saveInstance();//Util::TypeOf<EntityType>());
-    fields->push_back("initialNVACost="+std::to_string(this->_initialNVACost));
-    fields->push_back("initialOtherCost="+std::to_string(this->_initialOtherCost));
-    fields->push_back("initialPicture="+this->_initialPicture);
-    fields->push_back("initialVACost="+std::to_string(this->_initialVACost));
-    fields->push_back("initialWaitingCost="+std::to_string(this->_initialWaitingCost));
+std::map<std::string, std::string>* EntityType::_saveInstance() {
+    std::map<std::string, std::string>* fields = ModelElement::_saveInstance(); //Util::TypeOf<EntityType>());
+    fields->emplace("initialNVACost", std::to_string(this->_initialNVACost));
+    fields->emplace("initialOtherCost", std::to_string(this->_initialOtherCost));
+    fields->emplace("initialPicture", this->_initialPicture);
+    fields->emplace("initialVACost", std::to_string(this->_initialVACost));
+    fields->emplace("initialWaitingCost", std::to_string(this->_initialWaitingCost));
     return fields;
 }
 

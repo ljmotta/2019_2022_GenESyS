@@ -22,6 +22,6 @@ GenesysGUI::GenesysGUI(const GenesysGUI& orig) {
 GenesysGUI::~GenesysGUI() {
 }
 
-int GenesysGUI::main(int argc, char** argv){
+int GenesysGUI::main(int argc, char** argv) {
     return 0;
 }

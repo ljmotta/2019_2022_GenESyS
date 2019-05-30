@@ -29,20 +29,29 @@ void ModelComponent::Execute(Entity* entity, ModelComponent* component) {
     component->_model->getTracer()->trace(Util::TraceLevel::blockArrival, "Entity " + std::to_string(entity->getId()) + " has arrived at component \"" + component->_name + "\""); //std::to_string(component->_id));
     Util::IncIndent();
     try {
-        component->_execute(entity);
+	component->_execute(entity);
     } catch (const std::exception& e) {
-        component->_model->getTracer()->traceError(e, "Error executing component " + component->show());
+	component->_model->getTracer()->traceError(e, "Error executing component " + component->show());
     }
     Util::DecIndent();
 }
 
-std::list<std::string>* ModelComponent::SaveInstance(ModelComponent* component) {
-    component->_model->getTracer()->trace(Util::TraceLevel::blockArrival, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));
-    std::list<std::string>* fields = new std::list<std::string>();
+void ModelComponent::InitBetweenReplications(ModelComponent* component) {
+    //component->_model->getTracer()->trace(Util::TraceLevel::blockArrival, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));
     try {
-        fields = component->_saveInstance();
+	component->_initBetweenReplications();
     } catch (const std::exception& e) {
-        component->_model->getTracer()->traceError(e, "Error executing component " + component->show());
+	component->_model->getTracer()->traceError(e, "Error initing component " + component->show());
+    };
+}
+
+std::map<std::string, std::string>* ModelComponent::SaveInstance(ModelComponent* component) {
+    component->_model->getTracer()->trace(Util::TraceLevel::blockArrival, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));
+    std::map<std::string, std::string>* fields = new std::map<std::string,std::string>();
+    try {
+	fields = component->_saveInstance();
+    } catch (const std::exception& e) {
+	component->_model->getTracer()->traceError(e, "Error executing component " + component->show());
     }
     return fields;
 }
@@ -53,14 +62,14 @@ bool ModelComponent::Check(ModelComponent* component) {
     std::string* errorMessage = new std::string();
     Util::IncIndent();
     {
-        try {
-            res = component->_check(errorMessage);
-            if (!res) {
-                component->_model->getTracer()->trace(Util::TraceLevel::errors, "Error: Checking has failed with message '" + *errorMessage + "'");
-            }
-        } catch (const std::exception& e) {
-            component->_model->getTracer()->traceError(e, "Error verifying component " + component->show());
-        }
+	try {
+	    res = component->_check(errorMessage);
+	    if (!res) {
+		component->_model->getTracer()->trace(Util::TraceLevel::errors, "Error: Checking has failed with message '" + *errorMessage + "'");
+	    }
+	} catch (const std::exception& e) {
+	    component->_model->getTracer()->traceError(e, "Error verifying component " + component->show());
+	}
     }
     Util::DecIndent();
     return res;
@@ -74,23 +83,24 @@ std::string ModelComponent::show() {
     return ModelElement::show(); // "{id=" + std::to_string(this->_id) + ",name=\""+this->_name + "\"}"; // , nextComponents[]=(" + _nextComponents->show() + ")}";
 }
 
-std::list<std::string>* ModelComponent::_saveInstance() {
-    std::list<std::string>* fields = ModelElement::_saveInstance();
-    fields->push_back("nextSize="+std::to_string(this->_nextComponents->size()));
-    //unsigned short i=0;
-    for (std::list<ModelComponent*>::iterator it=_nextComponents->getList()->begin(); it!=_nextComponents->getList()->end(); it++){
-        fields->push_back("next="+(*it)->_name);
+std::map<std::string, std::string>* ModelComponent::_saveInstance() {
+    std::map<std::string, std::string>* fields = ModelElement::_saveInstance();
+    fields->emplace("nextSize" , std::to_string(this->_nextComponents->size()));
+    unsigned short i=0;
+    for (std::list<ModelComponent*>::iterator it = _nextComponents->getList()->begin(); it != _nextComponents->getList()->end(); it++) {
+	fields->emplace("next"+std::to_string(i) , (*it)->_name);
+	i++;
     }
     return fields;
 }
 
 /*
-std::list<std::string>* ModelComponent::_saveInstance(std::string type) {
-    std::list<std::string>* fields = ModelComponent::_saveInstance();
+std::list<std::map<std::string,std::string>*>* ModelComponent::_saveInstance(std::string type) {
+    std::list<std::map<std::string,std::string>*>* fields = ModelComponent::_saveInstance();
     fields->push_back(std::to_string(this->_nextComponents->size()));
     for (std::list<ModelComponent*>::iterator it=_nextgetComponentManager()->begin(); it!=_nextgetComponentManager()->end(); it++){
-        fields->push_back((*it)->_name);
+	fields->push_back((*it)->_name);
     }
     return fields;
 }
-*/
+ */

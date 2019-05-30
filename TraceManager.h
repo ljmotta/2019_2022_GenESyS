@@ -24,16 +24,16 @@ class TraceEvent {
 public:
 
     TraceEvent(Util::TraceLevel tracelevel, std::string text) {
-        _tracelevel = tracelevel;
-        _text = text;
+	_tracelevel = tracelevel;
+	_text = text;
     }
 
     Util::TraceLevel getTracelevel() const {
-        return _tracelevel;
+	return _tracelevel;
     }
 
     std::string getText() const {
-        return _text;
+	return _text;
     }
 private:
     Util::TraceLevel _tracelevel;
@@ -44,11 +44,11 @@ class TraceErrorEvent : public TraceEvent {
 public:
 
     TraceErrorEvent(std::string text, std::exception e) : TraceEvent(Util::TraceLevel::errors, text) {
-        _e = e;
+	_e = e;
     }
 
     std::exception getException() const {
-        return _e;
+	return _e;
     }
 private:
     std::exception _e;
@@ -58,21 +58,21 @@ class TraceSimulationEvent : public TraceEvent {
 public:
 
     ModelComponent* getComponent() const {
-        return _component;
+	return _component;
     }
 
     Entity* getEntity() const {
-        return _entity;
+	return _entity;
     }
 
     double getTime() const {
-        return _time;
+	return _time;
     }
 
     TraceSimulationEvent(Util::TraceLevel tracelevel, double time, Entity* entity, ModelComponent* component, std::string text) : TraceEvent(tracelevel, text) {
-        _time = time;
-        _entity = entity;
-        _component = component;
+	_time = time;
+	_entity = entity;
+	_component = component;
     }
 private:
     double _time;

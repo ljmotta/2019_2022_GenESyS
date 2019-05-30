@@ -18,6 +18,7 @@
 #include <limits>
 #include "SourceModelComponent.h"
 #include "EntityType.h"
+#include "Counter.h"
 
 /*!
  * Create is the most basic component to include the first entities into the model, and therefore is a source component (derived from SourceModelComponent)
@@ -31,10 +32,12 @@ public:
     virtual std::string show();
 protected:
     virtual void _execute(Entity* entity);
-    virtual void _loadInstance(std::list<std::string> fields);
-    virtual std::list<std::string>* _saveInstance();
+    virtual void _loadInstance(std::map<std::string, std::string>* fields);
+    virtual void _initBetweenReplications();
+    virtual std::map<std::string, std::string>* _saveInstance();
     virtual bool _check(std::string* errorMessage);
 private:
+    Counter* _numberOut;
 };
 
 #endif /* CREATE_H */

@@ -13,14 +13,16 @@
 
 #include "Simulator.h"
 #include "Traits.h"
+#include "LicenceManager.h"
 
 Simulator::Simulator() {
-    std::cout << "Now running " << _name << std::endl << _license << std::endl << std::endl; // The ONLY cout allowed "inside" the simulator (including model and other classes, pls
+    std::cout << "Now running " << _name << std::endl; // The ONLY cout allowed "inside" the simulator (including model and other classes, pls
+    _licenceManager = new LicenceManager(this);
+    std::cout << _licenceManager->getLicense() << std::endl << std::endl; // The ONLY cout allowed "inside" the simulator (including model and other classes, pls
     // 1:1
-    _fitter = new Traits<Fitter_if>::Implementation(); 
+    _fitter = new Traits<Fitter_if>::Implementation();
     _sampler = new Traits<Sampler_if>::Implementation();
-
-    // instanciate 1:n attributes 
+    // instanciate 1:n attributes
     _plugins = new List<Plugin*>();
     _models = new List<Model*>();
 }
@@ -41,10 +43,6 @@ List<Plugin*>* Simulator::getPlugins() const {
 
 std::string Simulator::getVersion() const {
     return _version;
-}
-
-std::string Simulator::getLicense() const {
-    return _license;
 }
 
 std::string Simulator::getName() const {

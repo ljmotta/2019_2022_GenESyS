@@ -27,8 +27,8 @@ Event::~Event() {
 
 std::string Event::show() {
     return "time=" + std::to_string(_time) +
-            ",entity=" + std::to_string(_entity->getId()) +
-            ",comp=\"" + _component->getName() + "\""; //+std::to_string(_component->getId())+"}";
+	    ",entity=" + std::to_string(_entity->getId()) +
+	    ",comp=\"" + _component->getName() + "\""; //+std::to_string(_component->getId())+"}";
 }
 
 double Event::getTime() const {

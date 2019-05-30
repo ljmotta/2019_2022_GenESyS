@@ -1,5 +1,5 @@
 version
-modelload=temp/model.gen
+modelload=models/genesysmodel.txt
 modelcheck
 start
 shorreport

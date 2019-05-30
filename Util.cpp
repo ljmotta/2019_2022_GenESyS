@@ -11,14 +11,15 @@
  * Created on 21 de Junho de 2018, 13:02
  */
 
+#include "Util.h"
 #include <typeinfo>
 #include <map>
 
-#include "Util.h"
 
 Util::identitifcation Util::_S_lastId = 0;
 unsigned int Util::_S_indentation;
 std::map<std::string, Util::identitifcation> Util::_S_lastIdOfType = std::map<std::string, Util::identitifcation>();
+std::map<std::string, std::string> Util::_S_TypeOf = std::map<std::string, std::string>();
 
 void Util::IncIndent() {
     Util::_S_indentation++;
@@ -35,28 +36,28 @@ void Util::DecIndent() {
 void Util::SepKeyVal(std::string str, std::string *key, std::string *value) {
     // TODO: Check pointers when spliting string. There is an error
     //char *c;
-    bool settingKey=true;
+    bool settingKey = true;
     //key = new std::string();
     //value = new std::string();
     key->clear();
     value->clear();
-    for (std::string::iterator it=str.begin(); it!=str.end(); it++){
-        if (settingKey) {
-            if ((*it)!='=') {
-                key->append(new char((*it)));
-            } else {
-                settingKey = false;
-            }
-        } else {
-            value->append(new char((*it)));
-        }
+    for (std::string::iterator it = str.begin(); it != str.end(); it++) {
+	if (settingKey) {
+	    if ((*it) != '=') {
+		key->append(new char((*it)));
+	    } else {
+		settingKey = false;
+	    }
+	} else {
+	    value->append(new char((*it)));
+	}
     }
 }
 
 std::string Util::Indent() {
     std::string spaces = "";
     for (unsigned int i = 0; i < Util::_S_indentation; i++) {
-        spaces += "|  ";
+	spaces += "|  ";
     }
     return spaces;
 }
@@ -75,14 +76,24 @@ Util::identitifcation Util::GenerateNewId() {
 Util::identitifcation Util::GenerateNewIdOfType(std::string objtype) {
     std::map<std::string, Util::identitifcation>::iterator it = Util::_S_lastIdOfType.find(objtype);
     if (it == Util::_S_lastIdOfType.end()) {
-        // a new one. create the pair
-        Util::_S_lastIdOfType.insert(std::pair<std::string, Util::identitifcation>(objtype, 0));
-        it = Util::_S_lastIdOfType.find(objtype);
+	// a new one. create the pair
+	Util::_S_lastIdOfType.insert(std::pair<std::string, Util::identitifcation>(objtype, 0));
+	it = Util::_S_lastIdOfType.find(objtype);
     }
     Util::identitifcation next = (*it).second;
     next++;
     (*it).second = next;
     return (*it).second;
+}
+
+void Util::ResetIdOfType(std::string objtype) {
+    std::map<std::string, Util::identitifcation>::iterator it = Util::_S_lastIdOfType.find(objtype);
+    if (it == Util::_S_lastIdOfType.end()) {
+	// a new one. create the pair
+	Util::_S_lastIdOfType.insert(std::pair<std::string, Util::identitifcation>(objtype, 0));
+	it = Util::_S_lastIdOfType.find(objtype);
+    }
+    (*it).second = 0;
 }
 
 double Util::TimeUnitConvert(Util::TimeUnit timeUnit1, Util::TimeUnit timeUnit2) {
@@ -93,13 +104,13 @@ double Util::TimeUnitConvert(Util::TimeUnit timeUnit1, Util::TimeUnit timeUnit2)
     intTimeUnit1 = static_cast<int> (timeUnit1);
     intTimeUnit2 = static_cast<int> (timeUnit2);
     if (intTimeUnit1 <= intTimeUnit2) {
-        for (unsigned int i = intTimeUnit1 + 1; i <= intTimeUnit2; i++) {
-            res /= scaleValues[i];
-        }
+	for (unsigned int i = intTimeUnit1 + 1; i <= intTimeUnit2; i++) {
+	    res /= scaleValues[i];
+	}
     } else {
-        for (unsigned int i = intTimeUnit2 + 1; i <= intTimeUnit1; i++) {
-            res *= scaleValues[i];
-        }
+	for (unsigned int i = intTimeUnit2 + 1; i <= intTimeUnit1; i++) {
+	    res *= scaleValues[i];
+	}
     }
     return res;
 }

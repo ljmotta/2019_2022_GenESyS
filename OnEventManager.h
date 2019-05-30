@@ -28,17 +28,17 @@ class SimulationEvent {
 public:
 
     SimulationEvent(unsigned int replicationNumber, Event* event) {
-        _replicationNumber = replicationNumber;
-        _event = event;
+	_replicationNumber = replicationNumber;
+	_event = event;
     }
 public:
 
     unsigned int getReplicationNumber() const {
-        return _replicationNumber;
+	return _replicationNumber;
     }
 
     Event* getEventProcessed() const {
-        return _event;
+	return _event;
     }
 private:
     unsigned int _replicationNumber;

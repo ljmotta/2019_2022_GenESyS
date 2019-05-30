@@ -17,14 +17,18 @@
 #include "Simulator.h"
 #include "SourceModelComponent.h"
 #include "StatisticsCollector.h"
+#include "Counter.h"
 #include "Traits.h"
 #include "SimulationControl.h"
 #include "ComponentManager.h"
 
 ModelSimulation::ModelSimulation(Model* model) {
     _model = model;
-    _info = model->getInfos(); // why?
-    _simulationReporter = new Traits<SimulationReporter_if>::Implementation(this, model);
+    _info = model->getInfos(); // why??
+    _statsCountersSimulation->setSortFunc([](const ModelElement* a, const ModelElement * b) {
+	return a->getId() < b->getId();
+    });
+    _simulationReporter = new Traits<SimulationReporter_if>::Implementation(this, model, this->_statsCountersSimulation);
 }
 
 ModelSimulation::ModelSimulation(const ModelSimulation& orig) {
@@ -37,8 +41,8 @@ bool ModelSimulation::_isReplicationEndCondition() {
     bool finish = _model->getEvents()->size() == 0;
     finish |= _model->parseExpression(_info->getTerminatingCondition()) != 0.0;
     if (_model->getEvents()->size() > 0 && !finish) {
-        // replication length has not been achieve (sor far), but next event will happen after that, so it's just fine to set tnow as the replicationLength 
-        finish |= _model->getEvents()->first()->getTime() > _info->getReplicationLength();
+	// replication length has not been achieve (sor far), but next event will happen after that, so it's just fine to set tnow as the replicationLength 
+	finish |= _model->getEvents()->first()->getTime() > _info->getReplicationLength();
     }
     return finish;
 }
@@ -48,48 +52,47 @@ bool ModelSimulation::_isReplicationEndCondition() {
  */
 void ModelSimulation::startSimulation() {
     if (!_model->checkModel()) {
-        _model->getTracer()->trace(Util::TraceLevel::errors, "Model check failed. Cannot start simulation.");
-        return;
+	_model->getTracer()->trace(Util::TraceLevel::errors, "Model check failed. Cannot start simulation.");
+	return;
     }
     Util::SetIndent(0);
     _initSimulation();
     _model->getOnEventManager()->NotifySimulationStartHandlers(new SimulationEvent(0, nullptr));
     for (_currentReplicationNumber = 1; _currentReplicationNumber <= _info->getNumberOfReplications(); _currentReplicationNumber++) {
-        Util::SetIndent(1);
-        _initReplication();
-        _model->getOnEventManager()->NotifyReplicationStartHandlers(new SimulationEvent(_currentReplicationNumber, nullptr));
+	Util::SetIndent(1);
+	_initReplication();
+	_model->getOnEventManager()->NotifyReplicationStartHandlers(new SimulationEvent(_currentReplicationNumber, nullptr));
 
-        Util::IncIndent();
-        {
-            while (!_isReplicationEndCondition()) {
-                _stepSimulation();
-                if (_pauseOnEvent) {
-                    std::cout << "[paused] ...press any key to continue...";
-                    std::cin.get();
-                    std::cout << std::endl;
-                }
-            }
-        }
-        Util::DecIndent;
-        Util::SetIndent(1); // force
+	Util::IncIndent();
+	{
+	    while (!_isReplicationEndCondition()) {
+		_stepSimulation();
+		if (_pauseOnEvent) {
+		    std::cout << "[paused] ...press any key to continue...";
+		    std::cin.get();
+		    std::cout << std::endl;
+		}
+	    }
+	}
+	Util::SetIndent(1); // force
 
-        _model->getOnEventManager()->NotifyReplicationEndHandlers(new SimulationEvent(_currentReplicationNumber, nullptr));
-        std::string causeTerminated = "";
-        if (_model->getEvents()->empty()) {
-            causeTerminated = "event queue is empty";
-        } else if (_stopRequested) {
-            causeTerminated = "user requested to stop";
-        } else if (_model->getEvents()->first()->getTime() > _info->getReplicationLength()) {
-            causeTerminated = "replication length " + std::to_string(_info->getReplicationLength()) + " was achieved";
-        } else if (_model->parseExpression(_info->getTerminatingCondition())) {
-            causeTerminated = "termination condition was achieved";
-        } else causeTerminated = "unknown";     
-        std::string message = "Replication " + std::to_string(_currentReplicationNumber) + " of " + std::to_string(_info->getNumberOfReplications()) + " has finished at time " + std::to_string(_simulatedTime) + " because " + causeTerminated;
-        _model->getTracer()->trace(Util::TraceLevel::simulation, message);
-        _simulationReporter->showReplicationStatistics();
-        _actualizeSimulationStatistics();
+	_model->getOnEventManager()->NotifyReplicationEndHandlers(new SimulationEvent(_currentReplicationNumber, nullptr));
+	std::string causeTerminated = "";
+	if (_model->getEvents()->empty()) {
+	    causeTerminated = "event queue is empty";
+	} else if (_stopRequested) {
+	    causeTerminated = "user requested to stop";
+	} else if (_model->getEvents()->first()->getTime() > _info->getReplicationLength()) {
+	    causeTerminated = "replication length " + std::to_string(_info->getReplicationLength()) + " was achieved";
+	} else if (_model->parseExpression(_info->getTerminatingCondition())) {
+	    causeTerminated = "termination condition was achieved";
+	} else causeTerminated = "unknown";
+	std::string message = "Replication " + std::to_string(_currentReplicationNumber) + " of " + std::to_string(_info->getNumberOfReplications()) + " has finished with last event at time " + std::to_string(_simulatedTime) + " because " + causeTerminated;
+	_model->getTracer()->trace(Util::TraceLevel::simulation, message);
+	_simulationReporter->showReplicationStatistics();
+	_actualizeSimulationStatistics();
     }
-    _simulationReporter->showSimulationStatistics(_cStatsSimulation);
+    _simulationReporter->showSimulationStatistics(); //_cStatsSimulation);
     Util::DecIndent();
 
     _model->getTracer()->trace(Util::TraceLevel::simulation, "Simulation of model \"" + _info->getName() + "\" has finished.\n");
@@ -98,13 +101,45 @@ void ModelSimulation::startSimulation() {
 }
 
 void ModelSimulation::_actualizeSimulationStatistics() {
-    StatisticsCollector* cstat;
-    int i = 0;
+    const std::string UtilTypeOfStatisticsCollector = Util::TypeOf<StatisticsCollector>();
+    const std::string UtilTypeOfCounter = Util::TypeOf<Counter>();
+
+    StatisticsCollector *sc, *scSim;
+    ModelElement* me;
     List<ModelElement*>* cstats = _model->getElementManager()->getElements(Util::TypeOf<StatisticsCollector>());
     for (std::list<ModelElement*>::iterator it = cstats->getList()->begin(); it != cstats->getList()->end(); it++) {
-        cstat = static_cast<StatisticsCollector*> ((*it));
-        this->_cStatsSimulation->getAtRank(i)->getStatistics()->getCollector()->addValue(cstat->getStatistics()->average());
-        i++;
+	sc = dynamic_cast<StatisticsCollector*> ((*it));
+	scSim = nullptr;
+	for (std::list<ModelElement*>::iterator it = _statsCountersSimulation->getList()->begin(); it != _statsCountersSimulation->getList()->end(); it++) {
+	    if ((*it)->getTypename() == UtilTypeOfStatisticsCollector) {
+		if ((*it)->getName() == _cte_stCountSimulNamePrefix + sc->getName() && dynamic_cast<StatisticsCollector*> (*it)->getParent() == sc->getParent()) {
+		    // found
+		    scSim = dynamic_cast<StatisticsCollector*> (*it);
+		    break;
+		}
+	    }
+	}
+	//scSim = dynamic_cast<StatisticsCollector*> (*(this->_statsCountersSimulation->find((*it))));
+	assert(scSim != nullptr);
+	scSim->getStatistics()->getCollector()->addValue(sc->getStatistics()->average());
+    }
+    Counter *cnt, *cntSim;
+    List<ModelElement*>* counters = _model->getElementManager()->getElements(Util::TypeOf<Counter>());
+    for (std::list<ModelElement*>::iterator it = counters->getList()->begin(); it != counters->getList()->end(); it++) {
+	cnt = dynamic_cast<Counter*> ((*it));
+	cntSim = nullptr;
+	for (std::list<ModelElement*>::iterator it = _statsCountersSimulation->getList()->begin(); it != _statsCountersSimulation->getList()->end(); it++) {
+	    if ((*it)->getTypename() == UtilTypeOfCounter) {
+		if ((*it)->getName() == _cte_stCountSimulNamePrefix + cnt->getName() && dynamic_cast<Counter*> (*it)->getParent() == cnt->getParent()) {
+		    // found
+		    cntSim = dynamic_cast<Counter*> (*it);
+		    break;
+		}
+	    }
+	}
+	//cntSim = dynamic_cast<Counter*> (*(this->_statsCountersSimulation->find((*it))));
+	assert(cntSim != nullptr);
+	cntSim->incCountValue(cnt->getCountValue());
     }
 }
 
@@ -115,27 +150,32 @@ void ModelSimulation::_initSimulation() {
     TraceManager* tm = _model->getTracer();
     tm->traceReport(Util::TraceLevel::simulation, "\n-----------------------------------------------------");
     tm->traceReport(Util::TraceLevel::simulation, _model->getParent()->getName());
-    tm->traceReport(Util::TraceLevel::simulation, _model->getParent()->getLicense());
+    tm->traceReport(Util::TraceLevel::simulation, _model->getParent()->getLicenceManager()->getLicense());
     tm->traceReport(Util::TraceLevel::simulation, "Project Title: " + _info->getProjectTitle());
     tm->traceReport(Util::TraceLevel::simulation, "Analyst Name: " + _info->getAnalystName());
     tm->traceReport(Util::TraceLevel::simulation, "");
-    //tm->traceReport(Util::TraceLevel::simulation, "Trace Level: "+static_cast<unsigned int>(_model->getTracer()->getTraceLevel()));
+    //tm->traceReport(Util::TraceLevel::simulation, "Trace Level: "+dynamic_cast<unsigned int>(_model->getTracer()->getTraceLevel()));
     //tm->traceReport(Util::TraceLevel::simulation, "");
     tm->trace(Util::TraceLevel::simulation, "Simulation of model \"" + _info->getName() + "\" is starting.");
-    // copy all CStats (used in a replication) to CStats for the whole simulation
-    this->_cStatsSimulation->clear();
+    // copy all CStats and Counters (used in a replication) to CStats and counters for the whole simulation
+    this->_statsCountersSimulation->clear();
     StatisticsCollector* cstat;
     List<ModelElement*>* cstats = _model->getElementManager()->getElements(Util::TypeOf<StatisticsCollector>());
     for (std::list<ModelElement*>::iterator it = cstats->getList()->begin(); it != cstats->getList()->end(); it++) {
-        cstat = static_cast<StatisticsCollector*> ((*it));
-        StatisticsCollector* newCStatSimul = new StatisticsCollector("Simul." + cstat->getName(), cstat->getParent());
-        this->_cStatsSimulation->insert(newCStatSimul);
+	cstat = dynamic_cast<StatisticsCollector*> ((*it));
+	StatisticsCollector* newCStatSimul = new StatisticsCollector(_cte_stCountSimulNamePrefix + cstat->getName(), cstat->getParent());
+	this->_statsCountersSimulation->insert(newCStatSimul);
+    }
+    // copy all Counters (used in a replication) to Counters for the whole simulation
+    Counter* counter;
+    List<ModelElement*>* counters = _model->getElementManager()->getElements(Util::TypeOf<Counter>());
+    for (std::list<ModelElement*>::iterator it = counters->getList()->begin(); it != counters->getList()->end(); it++) {
+	counter = dynamic_cast<Counter*> ((*it));
+	Counter* newCountSimul = new Counter(_cte_stCountSimulNamePrefix + counter->getName(), counter->getParent());
+	this->_statsCountersSimulation->insert(newCountSimul);
     }
 }
 
-/*!
- Clear the event list, restarts simulated time, initialize event list and statistics
- */
 void ModelSimulation::_initReplication() {
     TraceManager* tm = _model->getTracer();
     tm->traceReport(Util::TraceLevel::simulation, "");
@@ -145,6 +185,14 @@ void ModelSimulation::_initReplication() {
     _simulatedTime = 0.0;
     _pauseRequested = false;
 
+    if (_currentReplicationNumber > 1) { // init all components between replications
+	for (std::list<ModelComponent*>::iterator it = _model->getComponentManager()->begin(); it != _model->getComponentManager()->end(); it++) {
+	    ModelComponent::InitBetweenReplications((*it));
+	}
+    }
+    Util::ResetIdOfType(Util::TypeOf<Entity>());
+    Util::ResetIdOfType(Util::TypeOf<Event>());
+
     // insert first creation events
     SourceModelComponent *source;
     Entity *newEntity;
@@ -153,45 +201,62 @@ void ModelSimulation::_initReplication() {
     unsigned int numToCreate;
     //std::list<ModelComponent*>* list = _model->getComponents()->getList();
     for (std::list<ModelComponent*>::iterator it = _model->getComponentManager()->begin(); it != _model->getComponentManager()->end(); it++) {
-        source = dynamic_cast<SourceModelComponent*> (*it);
-        if (source != nullptr) {
-            creationTime = source->getFirstCreation();
-            numToCreate = source->getEntitiesPerCreation();
-            for (unsigned int i = 1; i <= numToCreate; i++) {
-                newEntity = new Entity(_model->getElementManager());
-                newEntity->setEntityType(source->getEntityType());
-                newEvent = new Event(creationTime, newEntity, (*it));
-                _model->getEvents()->insert(newEvent);
-            }
-        }
+	source = dynamic_cast<SourceModelComponent*> (*it);
+	if (source != nullptr) {
+	    creationTime = source->getFirstCreation();
+	    numToCreate = source->getEntitiesPerCreation();
+	    for (unsigned int i = 1; i <= numToCreate; i++) {
+		newEntity = new Entity(_model->getElementManager());
+		newEntity->setEntityType(source->getEntityType());
+		newEvent = new Event(creationTime, newEntity, (*it));
+		_model->getEvents()->insert(newEvent);
+	    }
+	}
     }
 
     if (this->_initializeStatisticsBetweenReplications) {
-        StatisticsCollector* cstat;
-        List<ModelElement*>* list = _model->getElementManager()->getElements(Util::TypeOf<StatisticsCollector>());
-        for (std::list<ModelElement*>::iterator it = list->getList()->begin(); it != list->getList()->end(); it++) {
-            cstat = (StatisticsCollector*) (*it);
-            cstat->getStatistics()->getCollector()->clear();
-        }
+	_initStatistics();
     }
+}
+
+void ModelSimulation::_initStatistics() {
+    StatisticsCollector* cstat;
+    List<ModelElement*>* list = _model->getElementManager()->getElements(Util::TypeOf<StatisticsCollector>());
+    for (std::list<ModelElement*>::iterator it = list->getList()->begin(); it != list->getList()->end(); it++) {
+	cstat = (StatisticsCollector*) (*it);
+	cstat->getStatistics()->getCollector()->clear();
+    }
+    Counter* counter;
+    list = _model->getElementManager()->getElements(Util::TypeOf<Counter>());
+    for (std::list<ModelElement*>::iterator it = list->getList()->begin(); it != list->getList()->end(); it++) {
+	counter = (Counter*) (*it);
+	counter->clear();
+    }
+
 }
 
 void ModelSimulation::_stepSimulation() {
     // process one single event
     Event* nextEvent;
     nextEvent = _model->getEvents()->first();
+    double warmupTime = Util::TimeUnitConvert(_model->getInfos()->getWarmUpPeriodTimeUnit(), _model->getInfos()->getReplicationLengthTimeUnit());
+    warmupTime *= _model->getInfos()->getWarmUpPeriod();
+    if (_model->getSimulation()->getSimulatedTime() <= warmupTime && nextEvent->getTime() > warmupTime) {// warmuTime. Time to initStats
+	_model->getTracer()->trace(Util::TraceLevel::simulation, "Warmup time reached. Statistics are being reseted.");
+	_initStatistics();
+    }
     if (nextEvent->getTime() <= _info->getReplicationLength()) {
-        _model->getEvents()->pop_front();
-        _model->getOnEventManager()->NotifyReplicationStepHandlers(new SimulationEvent(_currentReplicationNumber, nullptr));
-        _processEvent(nextEvent);
+	_model->getEvents()->pop_front();
+	_model->getOnEventManager()->NotifyReplicationStepHandlers(new SimulationEvent(_currentReplicationNumber, nullptr));
+	_processEvent(nextEvent);
     } else {
-        this->_simulatedTime = _model->getInfos()->getReplicationLength();////nextEvent->getTime(); // just to advance time to beyond simulatedTime
+	this->_simulatedTime = _model->getInfos()->getReplicationLength(); ////nextEvent->getTime(); // just to advance time to beyond simulatedTime
     }
 }
 
 void ModelSimulation::_processEvent(Event* event) {
-    _model->getTracer()->trace(Util::TraceLevel::blockArrival, "");
-    _model->getTracer()->trace(Util::TraceLevel::blockArrival, "Processing event=(" + event->show() + ")");
+    //_model->getTracer()->trace(Util::TraceLevel::simulation, "");
+    _model->getTracer()->trace(Util::TraceLevel::simulation, "Processing event=(" + event->show() + ")");
     _model->getTracer()->trace(Util::TraceLevel::blockInternal, "Current Entity: " + event->getEntity()->show());
     this->_currentEntity = event->getEntity();
     this->_currentComponent = event->getComponent();
@@ -199,9 +264,9 @@ void ModelSimulation::_processEvent(Event* event) {
     _model->getOnEventManager()->NotifyProcessEventHandlers(new SimulationEvent(_currentReplicationNumber, event));
     Util::IncIndent();
     try {
-        event->getComponent()->Execute(event->getEntity(), event->getComponent()); // Execute is static
+	event->getComponent()->Execute(event->getEntity(), event->getComponent()); // Execute is static
     } catch (std::exception *e) {
-        _model->getTracer()->traceError(*e, "Error on processing event (" + event->show() + ")");
+	_model->getTracer()->traceError(*e, "Error on processing event (" + event->show() + ")");
     }
     Util::DecIndent();
 }
@@ -211,13 +276,13 @@ void ModelSimulation::pauseSimulation() {
 
 void ModelSimulation::stepSimulation() {
     if (_simulationIsInitiated && _replicationIsInitiaded) {
-        if (!_isReplicationEndCondition()) {
-            try {
-                this->_stepSimulation();
-            } catch (std::exception *e) {
-                _model->getTracer()->traceError((*e), "Error on simulation step");
-            }
-        }
+	if (!_isReplicationEndCondition()) {
+	    try {
+		this->_stepSimulation();
+	    } catch (std::exception *e) {
+		_model->getTracer()->traceError((*e), "Error on simulation step");
+	    }
+	}
     }
 
 }
@@ -286,4 +351,8 @@ ModelComponent* ModelSimulation::getCurrentComponent() const {
 
 Entity* ModelSimulation::getCurrentEntity() const {
     return _currentEntity;
+}
+
+SimulationReporter_if* ModelSimulation::getSimulationReporter() const {
+    return _simulationReporter;
 }

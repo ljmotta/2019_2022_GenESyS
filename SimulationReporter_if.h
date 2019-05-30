@@ -15,12 +15,12 @@
 #define SIMULATIONREPORTER_IF_H
 
 #include "List.h"
-#include "StatisticsCollector.h"
+//#include "StatisticsCollector.h"
 
 class SimulationReporter_if {
 public:
     virtual void showReplicationStatistics() = 0;
-    virtual void showSimulationStatistics(List<StatisticsCollector*>* cstatsSimulation) = 0;
+    virtual void showSimulationStatistics() = 0; //List<StatisticsCollector*>* cstatsSimulation) = 0;
 };
 
 #endif /* SIMULATIONREPORTER_IF_H */

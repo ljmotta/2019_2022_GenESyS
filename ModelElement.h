@@ -16,6 +16,7 @@
 
 #include <string>
 #include <list>
+#include <vector>
 #include "Util.h"
 
 /*!
@@ -30,8 +31,8 @@ public:
 public:
     virtual std::string show();
 public: // static
-    static void LoadInstance(std::list<std::string> fields); // TODO: return ModelComponent* ?
-    static std::list<std::string>* SaveInstance(ModelElement* element);
+    static void LoadInstance(std::vector<std::map<std::string, std::string>*> fields); // TODO: return ModelComponent* ?
+    static std::map<std::string, std::string>* SaveInstance(ModelElement* element);
     static bool Check(ModelElement* element, std::string* errorMessage);
 
 public: // get & set
@@ -41,9 +42,9 @@ public: // get & set
     std::string getTypename() const;
 
 protected: // must be overriden by derived classes
-    virtual void _loadInstance(std::list<std::string> fields) = 0;
-    virtual std::list<std::string>* _saveInstance();
-    //virtual std::list<std::string>* _saveInstance(std::string type);
+    virtual void _loadInstance(std::map<std::string, std::string>* fields) = 0;
+    virtual std::map<std::string, std::string>* _saveInstance();
+    //virtual std::list<std::map<std::string,std::string>*>* _saveInstance(std::string type);
     virtual bool _check(std::string* errorMessage) = 0;
 
 protected:

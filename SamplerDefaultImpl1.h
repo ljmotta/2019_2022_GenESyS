@@ -21,9 +21,9 @@ public:
 
     class DefaultImpl1RNG_Parameters : public RNG_Parameters {
     public:
-        unsigned int seed = 666;
-        unsigned int module = 2147483647;
-        unsigned int multiplier = 950706376;
+	unsigned int seed = 666;
+	unsigned int module = 2147483647;
+	unsigned int multiplier = 950706376;
     };
 public:
     SamplerDefaultImpl1();

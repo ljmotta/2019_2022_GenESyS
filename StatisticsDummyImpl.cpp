@@ -61,11 +61,11 @@ unsigned int StatisticsDummyImpl::newSampleSize(double halfWidth) {
 }
 
 void StatisticsDummyImpl::setConfidenceLevel(double confidencelevel) {
-    
+
 }
 
 double StatisticsDummyImpl::getConfidenceLevel() {
-    
+
 }
 
 Collector_if* StatisticsDummyImpl::getCollector() {

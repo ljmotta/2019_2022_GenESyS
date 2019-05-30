@@ -23,9 +23,9 @@ class HypothesisTester_if {
 public:
 
     enum H1Comparition {
-        DIFFERENT = 1,
-        LESS_THAN = 2,
-        GREATER_THAN = 3
+	DIFFERENT = 1,
+	LESS_THAN = 2,
+	GREATER_THAN = 3
     };
 public:
     /* TODO: all "test" methods should return double p-value, not bool */

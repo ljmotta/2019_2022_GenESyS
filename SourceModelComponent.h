@@ -49,8 +49,9 @@ public: // get & set
 public:
     virtual std::string show();
 protected:
-    virtual void _loadInstance(std::list<std::string> fields);
-    virtual std::list<std::string>* _saveInstance();
+    virtual void _loadInstance(std::map<std::string, std::string>* fields);
+    virtual void _initBetweenReplications();
+    virtual std::map<std::string, std::string>* _saveInstance();
     virtual bool _check(std::string* errorMessage);
 protected: // get & set
     EntityType* _entityType;

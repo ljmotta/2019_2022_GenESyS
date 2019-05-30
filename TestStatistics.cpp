@@ -33,12 +33,12 @@ int TestStatistics::main(int argc, char** argv) {
     stat->getCollector()->addValue(1007);
     std::cout << "Elems\t" << "Average\t" << "StdDev\t" << "CoefVar\t" << "Min\t" << "Max\t" << std::endl;
     std::cout << stat->numElements() << "\t"
-            << stat->average() << "\t"
-            << stat->stddeviation() << "\t"
-            << stat->variationCoef() << "\t"
-            << stat->min() << "\t"
-            << stat->max() << "\t"
-            << std::endl;
+	    << stat->average() << "\t"
+	    << stat->stddeviation() << "\t"
+	    << stat->variationCoef() << "\t"
+	    << stat->min() << "\t"
+	    << stat->max() << "\t"
+	    << std::endl;
     //datafile.close();
     return 0;
 }

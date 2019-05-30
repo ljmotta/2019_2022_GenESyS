@@ -16,7 +16,6 @@
 Attribute::Attribute() : ModelElement(Util::TypeOf<Attribute>()) {
 }
 
-
 Attribute::Attribute(std::string name) : ModelElement(Util::TypeOf<Attribute>()) {
     _name = name;
 }
@@ -31,11 +30,12 @@ std::string Attribute::show() {
     return ModelElement::show();
 }
 
-void Attribute::_loadInstance(std::list<std::string> fields) {
+void Attribute::_loadInstance(std::map<std::string, std::string>* fields) {
+    ModelElement::_loadInstance(fields);
 }
 
-std::list<std::string>* Attribute::_saveInstance() {
-    std::list<std::string>* fields = ModelElement::_saveInstance();//Util::TypeOf<Attribute>());
+std::map<std::string, std::string>* Attribute::_saveInstance() {
+    std::map<std::string, std::string>* fields = ModelElement::_saveInstance(); //Util::TypeOf<Attribute>());
     return fields;
 }
 

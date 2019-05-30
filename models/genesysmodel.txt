@@ -1,0 +1,30 @@
+# Genesys simulation model 
+# Last saved on Tue May 28 12:06:08 2019
+
+# simulator infos
+typename=SimulatorInfo; name=ReGenESyS - Reborn Generic and Expansible System Simulator; version=2018.10.1; 
+
+# model infos
+typename=ModelInfo; analystName=Your name; description=The description of the project; name=Model 1; numberOfReplications=30; projectTitle=The title of the project; replicationLength=1000.000000; replicationLengthTimeUnit=6; terminatingCondition=; version=1.0; warmUpTime=0.000000; warmUpTimeTimeUnit=5; 
+
+# model elements
+typename=Attribute; id=1; name=Attribute_1; 
+typename=EntityType; id=1; name=Representative_EntityType; initialNVACost=0.000000; initialOtherCost=0.000000; initialPicture=report; initialVACost=0.000000; initialWaitingCost=0.000000; 
+typename=Queue; id=1; name=Queue_Machine_1; orderRule=1; attributeName=; 
+typename=Queue; id=2; name=Queue_Machine_2; orderRule=1; attributeName=; 
+typename=Resource; id=1; name=Machine_1; capacity=1; costBusyHour=1.000000; costIdleHour=1.000000; costPerUse=1.000000; 
+typename=Resource; id=2; name=Machine_2; capacity=1; costBusyHour=1.000000; costIdleHour=1.000000; costPerUse=1.000000; 
+typename=Variable; id=1; name=Variable_1; numCols=1; numRows=1; 
+
+# model components
+typename=Assign; id=1; name=Assign 1; nextSize=1; next=Decide 1; destinationType=1; destination=Variable_1; expression=Variable_1 + 1; destinationType=0; destination=Attribute_1; expression=Variable_1; 
+typename=Create; id=1; name=Create 1; nextSize=1; next=Assign 1; entitiesPerCreation=1; firstCreation=0.000000; timeBetweenCreations=EXPO(5); timeBetweenCreationsTimeUnit=6; maxCreations=4294967295; entitypeName=Representative_EntityType; collectStatistics=1; 
+typename=Delay; id=1; name=Delay 1; nextSize=1; next=Release 1; delayExpression=NORM(5,1.5); delayExpressionTimeUnit=6; 
+typename=Delay; id=2; name=Delay 2; nextSize=1; next=Release 2; delayExpression=NORM(5,1.5); delayExpressionTimeUnit=6; 
+typename=Dispose; id=1; name=Dispose 1; nextSize=0; collectStatistics=1; 
+typename=Record; id=1; name=Record 1; nextSize=1; next=Dispose 1; expression=TNOW - Entity.ArrivalTime; expressionName=Time in system after releasing machine 1; fileName=./temp/TimeAfterMachine1.txt; 
+typename=Record; id=2; name=Record 2; nextSize=1; next=Dispose 1; expression=TNOW - Entity.ArrivalTime; expressionName=Time in system after releasing machine 2; fileName=./temp/TimeAfterMachine2.txt; 
+typename=Release; id=1; name=Release 1; nextSize=1; next=Record 1; priority=0; quantity=1; resourceType=2; resourceName=Machine_1; role=4; saveAttribute=; 
+typename=Release; id=2; name=Release 2; nextSize=1; next=Record 2; priority=0; quantity=1; resourceType=2; resourceName=Machine_2; role=4; saveAttribute=; 
+typename=Seize; id=1; name=Seize 1; nextSize=1; next=Delay 1; allocationType=0; priority=0; quantity=1; queueName=Queue_Machine_1; resourceType=2; resourceName=Machine_1; rule=4; saveAttribue=; 
+typename=Seize; id=2; name=Seize 2; nextSize=1; next=Delay 2; allocationType=0; priority=0; quantity=1; queueName=Queue_Machine_2; resourceType=2; resourceName=Machine_2; rule=4; saveAttribue=; 

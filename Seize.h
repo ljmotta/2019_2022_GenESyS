@@ -46,9 +46,9 @@ public: // get & set
     void setAllocationType(unsigned int _allocationType);
     unsigned int getAllocationType() const;
     // indirect access to Queue* and Resource*
-    void setResourceName(std::string _resourceName) throw ();
+    void setResourceName(std::string _resourceName) throw();
     std::string getResourceName() const;
-    void setQueueName(std::string queueName) throw ();
+    void setQueueName(std::string queueName) throw();
     std::string getQueueName() const;
     void setResource(Resource* resource);
     Resource* getResource() const;
@@ -56,8 +56,9 @@ public: // get & set
     Queue* getQueue() const;
 protected:
     virtual void _execute(Entity* entity);
-    virtual void _loadInstance(std::list<std::string> fields);
-    virtual std::list<std::string>* _saveInstance();
+    virtual void _loadInstance(std::map<std::string, std::string>* fields);
+    virtual void _initBetweenReplications();
+    virtual std::map<std::string, std::string>* _saveInstance();
     virtual bool _check(std::string* errorMessage);
 private:
     void _handlerForResourceEvent(Resource* resource);

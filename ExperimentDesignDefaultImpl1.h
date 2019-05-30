@@ -16,7 +16,7 @@
 
 #include "ExperimentDesign_if.h"
 
-class ExperimentDesignDefaultImpl1 : public ExperimentDesign_if{
+class ExperimentDesignDefaultImpl1 : public ExperimentDesign_if {
 public:
     ExperimentDesignDefaultImpl1();
     ExperimentDesignDefaultImpl1(const ExperimentDesignDefaultImpl1& orig);

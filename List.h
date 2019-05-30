@@ -66,8 +66,8 @@ private:
     //std::map<Util::identitifcation, T>* _map;
     std::list<T>* _list;
     CompFunct _sortFunc{[](const T, const T) {
-            return false;
-        }}; //! Default function: insert at the end of the list.
+	    return false;
+	} }; //! Default function: insert at the end of the list.
     typename std::list<T>::iterator _it;
 };
 
@@ -101,7 +101,7 @@ std::string List<T>::show() {
     int i = 0;
     std::string text = "{";
     for (typename std::list<T>::iterator it = _list->begin(); it != _list->end(); it++, i++) {
-        text += "[" + std::to_string(i) + "]=(" + (*it)->show() + "),";
+	text += "[" + std::to_string(i) + "]=(" + (*it)->show() + "),";
     }
     text += "}";
     return text;
@@ -122,7 +122,7 @@ void List<T>::pop_front() {
     typename std::list<T>::iterator itTemp = _list->begin();
     _list->pop_front();
     if (_it == itTemp) { /* TODO +: check this */
-        _it = _list->begin(); // if it points to the removed element, then changes to begin
+	_it = _list->begin(); // if it points to the removed element, then changes to begin
     }
 }
 
@@ -130,7 +130,7 @@ template <typename T>
 void List<T>::remove(T element) {
     _list->remove(element);
     if ((*_it) == element) { /* TODO +: check this */
-        _it = _list->begin(); // if it points to the removed element, then changes to begin
+	_it = _list->begin(); // if it points to the removed element, then changes to begin
     }
 }
 
@@ -148,11 +148,11 @@ template <typename T>
 T List<T>::getAtRank(unsigned int rank) {
     unsigned int thisRank = 0;
     for (typename std::list<T>::iterator it = _list->begin(); it != _list->end(); it++) {
-        if (rank == thisRank) {
-            return (*it);
-        } else {
-            thisRank++;
-        }
+	if (rank == thisRank) {
+	    return(*it);
+	} else {
+	    thisRank++;
+	}
     }
     return 0; /* TODO: Invalid return depends on T. If T is pointer, nullptr works fine. If T is double, it does not. I just let (*it), buut it is not nice*/
 }
@@ -161,28 +161,28 @@ template <typename T>
 void List<T>::setAtRank(unsigned int rank, T element) {
     unsigned int thisRank = 0;
     for (typename std::list<T>::iterator it = _list->begin(); it != _list->end(); it++) {
-        if (rank == thisRank) {
-            *it = element;
-            return;
-        } else {
-            thisRank++;
-        }
+	if (rank == thisRank) {
+	    *it = element;
+	    return;
+	} else {
+	    thisRank++;
+	}
     }
 }
 
 template <typename T>
 T List<T>::next() {
     _it++;
-    return (*_it);
+    return(*_it);
 
 }
 
 template <typename T>
 typename std::list<T>::iterator List<T>::find(T element) {
     for (typename std::list<T>::iterator it = _list->begin(); it != _list->end(); it++) {
-        if ((*it) == element) {
-            return it;
-        }
+	if ((*it) == element) {
+	    return it;
+	}
     }
     return _list->end(); /* TODO+-: check nullptr or invalid iterator when not found */
     //return nullptr;
@@ -193,37 +193,37 @@ template <typename T>
 int List<T>::rankOf(T element) {
     int rank = 0;
     for (typename std::list<T>::iterator it = _list->begin(); it != _list->end(); it++) {
-        if ((*it) == element) {
-            return rank;
-        } else
-            rank++;
+	if ((*it) == element) {
+	    return rank;
+	} else
+	    rank++;
     }
     return -1; // not found -> negative rank
 }
-*/
+ */
 
 template <typename T>
 T List<T>::first() {
     _it = _list->begin();
-    return (*_it);
+    return(*_it);
 }
 
 template <typename T>
 T List<T>::last() {
     _it = _list->end();
-    return (*_it);
+    return(*_it);
 }
 
 template <typename T>
 T List<T>::previous() {
     _it--;
-    return (*_it);
+    return(*_it);
 }
 
 template <typename T>
 T List<T>::actual() {
     /* TODO: To implement. Must actualize _it on other methods when other elements are accessed */
-    return (*_it);
+    return(*_it);
 }
 
 template <typename T>

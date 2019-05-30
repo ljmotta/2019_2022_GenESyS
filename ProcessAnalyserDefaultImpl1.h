@@ -19,7 +19,7 @@
 #include "SimulationResponse.h"
 #include "SimulationControl.h"
 
-class ProcessAnalyserDefaultImpl1: public ProcessAnalyser_if {
+class ProcessAnalyserDefaultImpl1 : public ProcessAnalyser_if {
 public:
     ProcessAnalyserDefaultImpl1();
     ProcessAnalyserDefaultImpl1(const ProcessAnalyserDefaultImpl1& orig);

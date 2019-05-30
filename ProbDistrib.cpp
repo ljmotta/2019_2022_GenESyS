@@ -19,9 +19,9 @@
 
 double ProbDistrib::uniform(double x, double min, double max) {
     if (x >= min && x <= max)
-        return 1.0 / (max - min);
+	return 1.0 / (max - min);
     else
-        return 0.0;
+	return 0.0;
 }
 
 double ProbDistrib::exponential(double x, double mean) {
@@ -44,29 +44,29 @@ double ProbDistrib::_gammaFunction(unsigned int x) {
     unsigned int i;
     double prod = 1.0;
     for (i = 1; i < x; i++)
-        prod *= i;
+	prod *= i;
     return prod;
 }
  */
 long double ProbDistrib::_gammaFunction(double z) {
-    long double term1 = std::sqrt(2*M_PI) * std::exp(-z);
-    long double term2 = std::sqrt(1.0/z) * std::pow(z + 1/(12*z - 1/(10*z)), z);
+    long double term1 = std::sqrt(2 * M_PI) * std::exp(-z);
+    long double term2 = std::sqrt(1.0 / z) * std::pow(z + 1 / (12 * z - 1 / (10 * z)), z);
     return term1 * term2;
     /*
     unsigned int x = std::trunc(z);
     double fracz = z - x;
     long double fat = 1.0;
     for (unsigned int i = 2; i < x; i++)
-        fat *= i;
+	fat *= i;
     long double res;
     if (fracz == 0) {
-        res = fat;
+	res = fat;
     } else {
-        res = fat + fracz * (fat * x - fat);
+	res = fat + fracz * (fat * x - fat);
     }
     return res;
-    */
-    
+     */
+
     /*
     // TODO: IT DOES NOT WORK
     double term, product;
@@ -75,9 +75,9 @@ long double ProbDistrib::_gammaFunction(double z) {
     n = 1;
     product = 1.0;
     do {
-        term = (1.0 + z / n) * std::exp(-z / n);
-        product *= term;
-        n++;
+	term = (1.0 + z / n) * std::exp(-z / n);
+	product *= term;
+	n++;
     } while (n < maxIter);
     double value = 1 / (z * std::exp(gammaConst * z) * product);
     return value;

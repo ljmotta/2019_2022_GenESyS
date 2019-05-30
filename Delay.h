@@ -22,7 +22,7 @@ public:
     Delay(Model* model);
     Delay(const Delay& orig);
     virtual ~Delay();
-    public:
+public:
     void setDelayExpression(std::string _delayExpression);
     std::string getDelayExpression() const;
     void setDelayTimeUnit(Util::TimeUnit _delayTimeUnit);
@@ -31,8 +31,9 @@ public:
     virtual std::string show();
 protected:
     virtual void _execute(Entity* entity);
-    virtual void _loadInstance(std::list<std::string> fields);
-    virtual std::list<std::string>* _saveInstance();
+    virtual void _initBetweenReplications();
+    virtual void _loadInstance(std::map<std::string, std::string>* fields);
+    virtual std::map<std::string, std::string>* _saveInstance();
     virtual bool _check(std::string* errorMessage);
 private:
     std::string _delayExpression = "1.0";

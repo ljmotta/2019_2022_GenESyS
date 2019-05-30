@@ -17,7 +17,7 @@
 Dummy::Dummy(Model* model) : ModelComponent(model, Util::TypeOf<Dummy>()) {
 }
 
-Dummy::Dummy(const Dummy& orig): ModelComponent(orig) {
+Dummy::Dummy(const Dummy& orig) : ModelComponent(orig) {
 }
 
 Dummy::~Dummy() {

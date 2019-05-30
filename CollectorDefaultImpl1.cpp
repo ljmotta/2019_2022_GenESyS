@@ -25,7 +25,7 @@ CollectorDefaultImpl1::~CollectorDefaultImpl1() {
 void CollectorDefaultImpl1::clear() {
     _numElements = 0;
     if (_clearHandler != nullptr) {
-        _clearHandler();
+	_clearHandler();
     }
 }
 
@@ -33,7 +33,7 @@ void CollectorDefaultImpl1::addValue(double value) {
     _lastValue = value;
     _numElements++;
     if (_addValueHandler != nullptr) {
-        _addValueHandler(value);
+	_addValueHandler(value);
     }
 }
 

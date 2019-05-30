@@ -26,23 +26,27 @@ SourceModelComponent::~SourceModelComponent() {
 
 std::string SourceModelComponent::show() {
     std::string text = ModelComponent::show() +
-            ",entityType=\"" + _entityType->getName() + "\"" +
-            ",firstCreation=" + std::to_string(_firstCreation);
+	    ",entityType=\"" + _entityType->getName() + "\"" +
+	    ",firstCreation=" + std::to_string(_firstCreation);
     return text;
 }
 
-void SourceModelComponent::_loadInstance(std::list<std::string> fields) {
+void SourceModelComponent::_loadInstance(std::map<std::string, std::string>* fields) {
 }
 
-std::list<std::string>* SourceModelComponent::_saveInstance() {
-    std::list<std::string>* fields = ModelComponent::_saveInstance();
-    fields->push_back("entitiesPerCreation="+std::to_string(this->_entitiesPerCreation));
-    fields->push_back("firstCreation="+std::to_string(this->_firstCreation));
-    fields->push_back("timeBetweenCreations="+this->_timeBetweenCreationsExpression);
-    fields->push_back("timeBetweenCreationsTimeUnit="+std::to_string(static_cast<int> (this->_timeBetweenCreationsTimeUnit)));
-    fields->push_back("maxCreations="+std::to_string(this->_maxCreations));
-    fields->push_back("entitypeName="+(this->_entityType->getName())); // save the name
-    fields->push_back("collectStatistics="+std::to_string(this->_collectStatistics));
+void SourceModelComponent::_initBetweenReplications() {
+    this->_entitiesCreatedSoFar = 0;
+}
+
+std::map<std::string, std::string>* SourceModelComponent::_saveInstance() {
+    std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
+    fields->emplace("entitiesPerCreation" , std::to_string(this->_entitiesPerCreation));
+    fields->emplace("firstCreation" , std::to_string(this->_firstCreation));
+    fields->emplace("timeBetweenCreations" , this->_timeBetweenCreationsExpression);
+    fields->emplace("timeBetweenCreationsTimeUnit" , std::to_string(static_cast<int> (this->_timeBetweenCreationsTimeUnit)));
+    fields->emplace("maxCreations",  std::to_string(this->_maxCreations));
+    fields->emplace("entitypeName" , (this->_entityType->getName())); // save the name
+    fields->emplace("collectStatistics" , std::to_string(this->_collectStatistics));
     return fields;
 }
 
@@ -52,11 +56,11 @@ bool SourceModelComponent::_check(std::string* errorMessage) {
     std::vector<std::string> neededNames = {"Entity.ArrivalTime", "Entity.VATime", "Entity.NVAlTime", "Entity.WaitTime", "Entity.TransferTime", "Entity.OtherTime"};
     std::string neededName;
     for (int i = 0; i < neededNames.size(); i++) {
-        neededName = neededNames[i];
-        if (elements->getElement(Util::TypeOf<Attribute>(), neededName) == nullptr) {
-            Attribute* attr1 = new Attribute(neededName);
-            elements->insert(Util::TypeOf<Attribute>(), attr1);
-        }
+	neededName = neededNames[i];
+	if (elements->getElement(Util::TypeOf<Attribute>(), neededName) == nullptr) {
+	    Attribute* attr1 = new Attribute(neededName);
+	    elements->insert(Util::TypeOf<Attribute>(), attr1);
+	}
     }
     bool resultAll = true;
     resultAll &= _model->checkExpression(this->_timeBetweenCreationsExpression, "time between creations", errorMessage);

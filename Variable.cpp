@@ -37,9 +37,9 @@ double Variable::getValue() {
 double Variable::getValue(std::string index) {
     std::map<std::string, double>::iterator it = _values->find(index);
     if (it == _values->end()) {
-        return 0.0; // index does not exist. Assuming sparse matrix, it's zero. 
+	return 0.0; // index does not exist. Assuming sparse matrix, it's zero. 
     } else {
-        return it->second;
+	return it->second;
     }
 }
 
@@ -50,23 +50,26 @@ void Variable::setValue(double value) {
 void Variable::setValue(std::string index, double value) {
     std::map<std::string, double>::iterator it = _values->find(index);
     if (it == _values->end()) {
-        // index does not exist. Create it.
-        _values->insert(std::pair<std::string, double>(index, value));
+	// index does not exist. Create it.
+	_values->insert(std::pair<std::string, double>(index, value));
     } else {
-        it->second = value;
+	it->second = value;
     }
 }
 
-void Variable::_loadInstance(std::list<std::string> fields) {
+void Variable::_loadInstance(std::map<std::string, std::string>* fields) {
+    ModelElement::_loadInstance(fields);
 }
 
-std::list<std::string>* Variable::_saveInstance() {
-    std::list<std::string>* fields = ModelElement::_saveInstance();//Util::TypeOf<Variable>());
-    fields->push_back("numCols="+std::to_string(this->_numCols));
-    fields->push_back("numRows="+std::to_string(this->_numRows));
-    for(std::map<std::string, double>::iterator it=this->_values->begin(); it!=_values->end(); it++){
-        fields->push_back("pos="+(*it).first);
-        fields->push_back("value="+std::to_string((*it).second));
+std::map<std::string, std::string>* Variable::_saveInstance() {
+    std::map<std::string, std::string>* fields = ModelElement::_saveInstance(); //Util::TypeOf<Variable>());
+    fields->emplace("numCols" , std::to_string(this->_numCols));
+    fields->emplace("numRows" , std::to_string(this->_numRows));
+    unsigned int i=0;
+    for (std::map<std::string, double>::iterator it = this->_values->begin(); it != _values->end(); it++) {
+	fields->emplace("pos"+std::to_string(i) , (*it).first);
+	fields->emplace("value"+std::to_string(i) , std::to_string((*it).second));
+	i++;
     }
     return fields;
 }

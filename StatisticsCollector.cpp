@@ -43,15 +43,15 @@ StatisticsCollector::~StatisticsCollector() {
 std::string StatisticsCollector::show() {
     std::string parentStr = "";
     if (_parent != nullptr) {
-        try {
-            parentStr = _parent->getName();
-        } catch (...) { // if parent changed or deleted, can cause seg fault
-            parentStr = "<<INCONSISTENT>>"; /*TODO ++*/
-        }
+	try {
+	    parentStr = _parent->getName();
+	} catch (...) { // if parent changed or deleted, can cause seg fault
+	    parentStr = "<<INCONSISTENT>>"; /*TODO ++*/
+	}
     }
-    return ModelElement::show() + 
-            ",parent=\""+parentStr + "\"" +
-            ",numElements=" + std::to_string(_statistics->numElements());
+    return ModelElement::show() +
+	    ",parent=\"" + parentStr + "\"" +
+	    ",numElements=" + std::to_string(_statistics->numElements());
 }
 
 ModelElement* StatisticsCollector::getParent() const {
@@ -62,17 +62,19 @@ Statistics_if* StatisticsCollector::getStatistics() const {
     return _statistics;
 }
 
-void StatisticsCollector::_loadInstance(std::list<std::string> fields) {
-
+void StatisticsCollector::_loadInstance(std::map<std::string, std::string>* fields) {
+    ModelElement::_loadInstance(fields);
 }
 
-std::list<std::string>* StatisticsCollector::_saveInstance() {
-    std::list<std::string>* fields = ModelElement::_saveInstance();//Util::TypeOf<StatisticsCollector>());
-    std::string parent = "";
+std::map<std::string, std::string>* StatisticsCollector::_saveInstance() {
+    std::map<std::string, std::string>* fields = ModelElement::_saveInstance(); //Util::TypeOf<StatisticsCollector>());
+    std::string parentId = "",parentTypename="";
     if (this->_parent != nullptr) {
-        parent = _parent->getName();
+	parentId = std::to_string(_parent->getId());
+	parentTypename = _parent->getTypename();
     }
-    fields->push_back("parent="+parent);
+    fields->emplace("parentTypename" , parentTypename);
+    fields->emplace("parentId" , parentId);
     return fields;
 }
 

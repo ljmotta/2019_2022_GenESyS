@@ -12,6 +12,7 @@
  */
 
 #include "Resource.h"
+#include "Counter.h"
 
 Resource::Resource(ElementManager* elems) : ModelElement(Util::TypeOf<Resource>()) {
     _elems = elems;
@@ -27,6 +28,10 @@ Resource::Resource(ElementManager* elems, std::string name) : ModelElement(Util:
 void Resource::_initCStats() {
     _cstatTimeSeized = new StatisticsCollector("Time Seized", this);
     _elems->insert(Util::TypeOf<StatisticsCollector>(), _cstatTimeSeized);
+    _numSeizes = new Counter("Seizes", this);
+    _elems->insert(Util::TypeOf<Counter>(), _numSeizes);
+    _numReleases = new Counter("Releases", this);
+    _elems->insert(Util::TypeOf<Counter>(), _numReleases);
 
 }
 
@@ -40,32 +45,39 @@ Resource::~Resource() {
 
 std::string Resource::show() {
     return ModelElement::show() +
-            ",capacity=" + std::to_string(_capacity) +
-            ",costBusyByour=" + std::to_string(_costBusyHour) +
-            ",costIdleByour=" + std::to_string(_costIdleHour) +
-            ",costPerUse=" + std::to_string(_costPerUse) +
-            ",state=" + std::to_string(static_cast<int> (_resourceState));
+	    ",capacity=" + std::to_string(_capacity) +
+	    ",costBusyByour=" + std::to_string(_costBusyHour) +
+	    ",costIdleByour=" + std::to_string(_costIdleHour) +
+	    ",costPerUse=" + std::to_string(_costPerUse) +
+	    ",state=" + std::to_string(static_cast<int> (_resourceState));
 }
 
 void Resource::seize(unsigned int quantity, double tnow) {
     _numberBusy += quantity;
-    _seizes++;
-    _whenSeized = tnow;
+    _numSeizes->incCountValue(quantity);
+    _lastTimeSeized = tnow;
 }
 
 void Resource::release(unsigned int quantity, double tnow) {
     if (_numberBusy >= quantity) {
-        _numberBusy -= quantity;
+	_numberBusy -= quantity;
     } else {
-        _numberBusy = 0;
+	_numberBusy = 0;
     }
-    _numberOut++;
-    double timeSeized = tnow - _whenSeized;
+    _numReleases->incCountValue(quantity);
+    double timeSeized = tnow - _lastTimeSeized;
     // Collect statistics about time seized
     this->_cstatTimeSeized->getStatistics()->getCollector()->addValue(timeSeized);
     //
-    _lastTimeSeized = timeSeized; 
+    _lastTimeSeized = timeSeized;
     _notifyEventHandlers();
+}
+
+void Resource::initBetweenReplications() {
+    this->_lastTimeSeized = 0.0;
+    this->_numberBusy = 0;
+    this->_numSeizes->clear();
+    this->_numReleases->clear();
 }
 
 void Resource::setResourceState(ResourceState _resourceState) {
@@ -112,30 +124,30 @@ unsigned int Resource::getNumberBusy() const {
     return _numberBusy;
 }
 
-unsigned int Resource::getNumberOut() const {
-    return _numberOut;
+void Resource::addResourceEventHandler(ResourceEventHandler eventHandler) {
+    this->_resourceEventHandlers->insert(eventHandler); // TODO: priority should be registered as well, so handlers are invoqued ordered by priority
 }
 
-void Resource::addResourceEventHandler(ResourceEventHandler eventHandler) { 
-    this->_resourceEventHandlers->insert(eventHandler); // TODO: priority should be registered as well, so handlers are invoqued ordered by priority
+double Resource::getLastTimeSeized() const {
+    return _lastTimeSeized;
 }
 
 void Resource::_notifyEventHandlers() {
     for (std::list<ResourceEventHandler>::iterator it = this->_resourceEventHandlers->getList()->begin(); it != _resourceEventHandlers->getList()->end(); it++) {
-        (*it)(this);
+	(*it)(this);
     }
 }
 
-void Resource::_loadInstance(std::list<std::string> fields) {
-
+void Resource::_loadInstance(std::map<std::string, std::string>* fields) {
+    ModelElement::_loadInstance(fields);
 }
 
-std::list<std::string>* Resource::_saveInstance() {
-    std::list<std::string>* fields = ModelElement::_saveInstance();//Util::TypeOf<Resource>());
-    fields->push_back("capacity="+std::to_string(this->_capacity));
-    fields->push_back("costBusyHour="+std::to_string(this->_costBusyHour));
-    fields->push_back("costIdleHour="+std::to_string(this->_costIdleHour));
-    fields->push_back("costPerUse="+std::to_string(this->_costPerUse));
+std::map<std::string, std::string>* Resource::_saveInstance() {
+    std::map<std::string, std::string>* fields = ModelElement::_saveInstance(); //Util::TypeOf<Resource>());
+    fields->emplace("capacity", std::to_string(this->_capacity));
+    fields->emplace("costBusyHour", std::to_string(this->_costBusyHour));
+    fields->emplace("costIdleHour", std::to_string(this->_costIdleHour));
+    fields->emplace("costPerUse", std::to_string(this->_costPerUse));
     return fields;
 }
 

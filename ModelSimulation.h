@@ -18,6 +18,7 @@
 #include "Entity.h"
 #include "ModelInfo.h"
 #include "SimulationReporter_if.h"
+#include "Counter.h"
 
 class Model;
 
@@ -53,6 +54,7 @@ public: // only gets
     unsigned int getCurrentReplicationNumber() const;
     ModelComponent* getCurrentComponent() const;
     Entity* getCurrentEntity() const;
+    SimulationReporter_if* getSimulationReporter() const;
 
     /*
      * PRIVATE
@@ -60,7 +62,8 @@ public: // only gets
 
 private: // simulation control
     void _initSimulation();
-    void _initReplication();
+    void _initReplication(); ///< Clear the event list, restarts simulated time, initialize event list and statistics, request components to reinitialize
+    void _initStatistics();
     void _stepSimulation();
     void _processEvent(Event* event);
 private:
@@ -85,10 +88,13 @@ private:
     ModelComponent* _currentComponent;
     SimulationReporter_if* _simulationReporter;
     unsigned int _currentReplicationNumber;
-    List<StatisticsCollector*>* _cStatsSimulation = new List<StatisticsCollector*>();
+    List<ModelElement*>* _statsCountersSimulation = new List<ModelElement*>();
+    //std::list<ModelElement*>* _countersSimulation = new std::list<ModelElement*>();
 private:
     Model* _model;
     ModelInfo* _info;
+private:
+    const std::string _cte_stCountSimulNamePrefix = ""; //Simul.";
 };
 
 #endif /* MODELSIMULATION_H */

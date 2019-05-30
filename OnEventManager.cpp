@@ -48,7 +48,7 @@ void OnEventManager::addOnSimulationEndHandler(simulationEventHandler EventHandl
 
 void OnEventManager::_NotifyHandlers(std::list<simulationEventHandler>* list, SimulationEvent* se) {
     for (std::list<simulationEventHandler>::iterator it = list->begin(); it != list->end(); it++) {
-        (*it)(se);
+	(*it)(se);
     }
 }
 

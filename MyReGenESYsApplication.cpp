@@ -64,6 +64,15 @@ void onEntityRemoveHandler(SimulationEvent* re) {
     std::cout << "(Handler) Entity " << re->getEventProcessed()->getEntity() << " was removed." << std::endl;
 }
 
+MyReGenESYsApplication::MyReGenESYsApplication() {
+}
+
+MyReGenESYsApplication::MyReGenESYsApplication(const MyReGenESYsApplication& orig) {
+}
+
+MyReGenESYsApplication::~MyReGenESYsApplication() {
+}
+
 /**
  * This function shows an example of how to create a simulation model.
  * It creates some handlers for tracing (debug) and for events, set model infos and than creates the model itself.
@@ -84,7 +93,7 @@ void builSimulationdModel(Model* model) { // buildModelWithAllImplementedCompone
     tm->addTraceHandler(&traceHandler);
     tm->addTraceReportHandler(&traceHandler);
     tm->addTraceSimulationHandler(&traceSimulationHandler);
-    tm->setTraceLevel(Util::TraceLevel::report);
+    tm->setTraceLevel(Util::TraceLevel::blockArrival);
 
     ModelInfo* infos = model->getInfos();
     infos->setAnalystName("Your name");
@@ -92,7 +101,9 @@ void builSimulationdModel(Model* model) { // buildModelWithAllImplementedCompone
     infos->setDescription("The description of the project");
     infos->setReplicationLength(1e3);
     infos->setReplicationLengthTimeUnit(Util::TimeUnit::minute);
-    infos->setNumberOfReplications(30);
+    infos->setNumberOfReplications(10);
+    infos->setWarmUpPeriod(50);
+    infos->setWarmUpPeriodTimeUnit(Util::TimeUnit::minute);
 
     ComponentManager* components = model->getComponentManager();
     ElementManager* elements = model->getElementManager();
@@ -120,7 +131,8 @@ void builSimulationdModel(Model* model) { // buildModelWithAllImplementedCompone
     components->insert(assign1);
 
     Decide* decide1 = new Decide(model);
-    decide1->getConditions()->insert("UNIF(0,1)>=0.5");
+    //decide1->getConditions()->insert("UNIF(0,1)>=0.5");
+    decide1->getConditions()->insert("NQ(Queue_Machine_1) <= 2*NQ(Queue_Machine_2)");
 
     Resource* machine1 = new Resource(elements, "Machine_1");
     machine1->setCapacity(1);
@@ -180,7 +192,7 @@ void builSimulationdModel(Model* model) { // buildModelWithAllImplementedCompone
     record2->setExpression("TNOW - Entity.ArrivalTime");
     record2->setFilename("./temp/TimeAfterMachine2.txt");
     components->insert(record2);
-    
+
     // connect model components to create a "workflow" -- should always start from a SourceModelComponent and end at a SinkModelComponent (it will be checked)
     create1->getNextComponents()->insert(assign1);
     assign1->getNextComponents()->insert(decide1);
@@ -196,15 +208,6 @@ void builSimulationdModel(Model* model) { // buildModelWithAllImplementedCompone
     record2->getNextComponents()->insert(dispose1);
 }
 
-MyReGenESYsApplication::MyReGenESYsApplication() {
-}
-
-MyReGenESYsApplication::MyReGenESYsApplication(const MyReGenESYsApplication& orig) {
-}
-
-MyReGenESYsApplication::~MyReGenESYsApplication() {
-}
-
 int MyReGenESYsApplication::main(int argc, char** argv) {
     Simulator* simulator = new Simulator();
     Model* model = new Model(simulator);
@@ -212,5 +215,5 @@ int MyReGenESYsApplication::main(int argc, char** argv) {
     simulator->getModels()->insert(model);
 
     model->saveModel("./temp/genesysSimpleSimulationModel.txt");
-    model->getSimulation()->startSimulation();
+    //model->getSimulation()->startSimulation();
 }

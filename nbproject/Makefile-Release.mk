@@ -43,6 +43,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/CollectorDefaultImpl1.o \
 	${OBJECTDIR}/CollectorDummyImpl.o \
 	${OBJECTDIR}/ComponentManager.o \
+	${OBJECTDIR}/Counter.o \
 	${OBJECTDIR}/Create.o \
 	${OBJECTDIR}/Decide.o \
 	${OBJECTDIR}/Delay.o \
@@ -55,12 +56,13 @@ OBJECTFILES= \
 	${OBJECTDIR}/ExperimentDesignDummyImpl.o \
 	${OBJECTDIR}/FactorOrInteractionContribution.o \
 	${OBJECTDIR}/FitterDefaultImpl1.o \
+	${OBJECTDIR}/GenesysConsole.o \
 	${OBJECTDIR}/GenesysGUI.o \
-	${OBJECTDIR}/GenesysShell.o \
 	${OBJECTDIR}/HypothesisTesterDefaultImpl1.o \
 	${OBJECTDIR}/HypothesisTesterDummyImpl.o \
 	${OBJECTDIR}/IntegratorDefaultImpl1.o \
 	${OBJECTDIR}/IntegratorDummyImpl.o \
+	${OBJECTDIR}/LicenceManager.o \
 	${OBJECTDIR}/Model.o \
 	${OBJECTDIR}/ModelCheckerDefaultImpl1.o \
 	${OBJECTDIR}/ModelComponent.o \
@@ -173,6 +175,11 @@ ${OBJECTDIR}/ComponentManager.o: ComponentManager.cpp nbproject/Makefile-${CND_C
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ComponentManager.o ComponentManager.cpp
 
+${OBJECTDIR}/Counter.o: Counter.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Counter.o Counter.cpp
+
 ${OBJECTDIR}/Create.o: Create.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -233,15 +240,15 @@ ${OBJECTDIR}/FitterDefaultImpl1.o: FitterDefaultImpl1.cpp nbproject/Makefile-${C
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FitterDefaultImpl1.o FitterDefaultImpl1.cpp
 
+${OBJECTDIR}/GenesysConsole.o: GenesysConsole.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/GenesysConsole.o GenesysConsole.cpp
+
 ${OBJECTDIR}/GenesysGUI.o: GenesysGUI.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/GenesysGUI.o GenesysGUI.cpp
-
-${OBJECTDIR}/GenesysShell.o: GenesysShell.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/GenesysShell.o GenesysShell.cpp
 
 ${OBJECTDIR}/HypothesisTesterDefaultImpl1.o: HypothesisTesterDefaultImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -262,6 +269,11 @@ ${OBJECTDIR}/IntegratorDummyImpl.o: IntegratorDummyImpl.cpp nbproject/Makefile-$
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/IntegratorDummyImpl.o IntegratorDummyImpl.cpp
+
+${OBJECTDIR}/LicenceManager.o: LicenceManager.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/LicenceManager.o LicenceManager.cpp
 
 ${OBJECTDIR}/Model.o: Model.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
