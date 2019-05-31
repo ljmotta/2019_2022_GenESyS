@@ -18,6 +18,8 @@
 #include "StatisticsCollector.h"
 #include "ElementManager.h"
 #include "Counter.h"
+#include "Plugin.h"
+
 
 /*!
  * Resource represents a facility that...
@@ -50,6 +52,9 @@ public:
     virtual ~Resource();
 public:
     virtual std::string show();
+public:
+    static PluginInformation* GetPluginInformation();
+    static ModelElement* LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields);
 public:
     void seize(unsigned int quantity, double tnow);
     void release(unsigned int quantity, double tnow);

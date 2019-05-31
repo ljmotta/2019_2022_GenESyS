@@ -198,3 +198,20 @@ bool Seize::_check(std::string* errorMessage) {
     resultAll &= _model->getElementManager()->check(Util::TypeOf<Attribute>(), _saveAttribute, "SaveAttribute", false, errorMessage);
     return resultAll;
 }
+
+PluginInformation* Seize::GetPluginInformation(){
+    return new PluginInformation(Util::TypeOf<Seize>(), true, &Seize::LoadInstance);
+}
+
+
+ModelElement* Seize::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+    Seize* newComponent = new Seize(model);
+    try {
+	newComponent->_loadInstance(fields);
+    } catch (const std::exception& e) {
+	
+    }
+    return newComponent;
+
+}
+

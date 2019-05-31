@@ -98,7 +98,6 @@
         <itemPath>ComponentManager.h</itemPath>
         <itemPath>ElementManager.cpp</itemPath>
         <itemPath>ElementManager.h</itemPath>
-        <itemPath>ElementManager_if.h</itemPath>
         <itemPath>ModelChecker_if.h</itemPath>
         <itemPath>ModelComponent.cpp</itemPath>
         <itemPath>ModelComponent.h</itemPath>
@@ -329,8 +328,6 @@
       <item path="ElementManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ElementManager.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ElementManager_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Entity.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -727,8 +724,6 @@
       <item path="ElementManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ElementManager.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ElementManager_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Entity.cpp" ex="false" tool="1" flavor2="0">
       </item>

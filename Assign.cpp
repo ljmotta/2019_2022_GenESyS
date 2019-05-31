@@ -36,6 +36,20 @@ List<Assign::Assignment*>* Assign::getAssignments() const {
     return _assignments;
 }
 
+PluginInformation* Assign::GetPluginInformation(){
+    return new PluginInformation(Util::TypeOf<Assign>(), true, &Assign::LoadInstance);
+}
+
+ModelElement* Assign::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+    Assign* newComponent = new Assign(model);
+    try {
+	newComponent->_loadInstance(fields);
+    } catch (const std::exception& e) {
+
+    }
+    return newComponent;
+}
+
 void Assign::_execute(Entity* entity) {
     Assignment* let;
     std::list<Assignment*>* lets = this->_assignments->getList();

@@ -18,6 +18,8 @@
 
 #include "ModelComponent.h"
 #include "Resource.h"
+#include "Plugin.h"
+
 
 class Release : public ModelComponent {
 public:
@@ -26,6 +28,9 @@ public:
     virtual ~Release();
 public:
     virtual std::string show();
+public:
+    static PluginInformation* GetPluginInformation();
+    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 public: // get & set
     void setPriority(unsigned short _priority);
     unsigned short getPriority() const;

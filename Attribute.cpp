@@ -34,6 +34,20 @@ bool Attribute::_loadInstance(std::map<std::string, std::string>* fields) {
     return ModelElement::_loadInstance(fields);
 }
 
+PluginInformation* Attribute::GetPluginInformation(){
+    return new PluginInformation(Util::TypeOf<Attribute>(), false, &Attribute::LoadInstance);
+}
+
+ModelElement* Attribute::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {
+    Attribute* newElement = new Attribute();
+    try {
+	newElement->_loadInstance(fields);
+    } catch (const std::exception& e) {
+
+    }
+    return newElement;    
+}
+
 std::map<std::string, std::string>* Attribute::_saveInstance() {
     std::map<std::string, std::string>* fields = ModelElement::_saveInstance(); //Util::TypeOf<Attribute>());
     return fields;

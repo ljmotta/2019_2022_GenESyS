@@ -23,8 +23,26 @@ class ModelComponent;
 class Model;
 class ElementManager;
 
-
 typedef ModelElement* (*StaticLoaderComponentInstance)(Model*, std::map<std::string, std::string>*);
+
+class PluginInformation {
+public:
+
+    PluginInformation(std::string pluginTypename, bool isComponent, StaticLoaderComponentInstance loader) {
+	this->loader = loader;
+	this->drain = drain;
+	this->isComponent = isComponent;
+	this->pluginTypename = pluginTypename;
+	this->source = source;
+    }
+    std::string pluginTypename;
+    bool source;
+    bool drain;
+    bool isComponent;
+    StaticLoaderComponentInstance loader;
+};
+
+typedef PluginInformation* (*StaticGetPluginInformation)();
 
 /*!
  * A Plugin represents a dynamically linked component class (ModelComponent) or element class (ModelElement); It gives access to a ModelComponent so it can be used by the model. Classes like Create, Delay, and Dispose are examples of PlugIns.  It corresponds directly to the  "Expansible" part (the capitalized 'E') of the GenESyS acronymous
@@ -32,29 +50,20 @@ PlugIns are NOT implemented yet
  */
 class Plugin {
 public:
-    Plugin(StaticLoaderComponentInstance loader); //std::string pluginTypename, bool source, bool drain);
+    Plugin(StaticGetPluginInformation getInformation); //std::string pluginTypename, bool source, bool drain);
     Plugin(const Plugin& orig);
     virtual ~Plugin();
 public:
-    bool isDrain() const;
-    bool isSource() const;
-    bool isComponent() const;
-    bool isValidPlugin() const;
-    std::string getPluginTypename() const;
-    std::string getFullfilename() const;
-public:
     ModelComponent* loadNewComponent(Model* model, std::map<std::string, std::string>* fields);
     ModelElement* loadNewElement(ElementManager* elems, std::map<std::string, std::string>* fields);
+public:
+    bool isIsValidPlugin() const;
+    PluginInformation* getPluginInfo() const;
 private: // read only
-    std::string _fullfilename;
-    std::string _pluginTypename;
-    bool _source;
-    bool _drain;
-    bool _isElement; // should be always true
-    bool _isComponent;
     bool _isValidPlugin;
+    PluginInformation* _pluginInfo;
 private:
-    StaticLoaderComponentInstance _loader;
+    StaticGetPluginInformation _getInformation;
 };
 
 #endif /* PLUGIN_H */

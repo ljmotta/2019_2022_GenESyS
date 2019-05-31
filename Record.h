@@ -32,6 +32,9 @@ public:
     StatisticsCollector* getCstatExpression() const;
 public:
     virtual std::string show();
+public:
+    static PluginInformation* GetPluginInformation();
+    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 protected:
     virtual void _execute(Entity* entity);
     virtual bool _loadInstance(std::map<std::string, std::string>* fields);

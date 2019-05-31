@@ -18,8 +18,10 @@
 #include "List.h"
 #include "Entity.h"
 #include "Waiting.h"
-
+#include "ElementManager.h"
 #include "StatisticsCollector.h"
+#include "Plugin.h"
+
 
 class Queue : public ModelElement {
 public:
@@ -35,6 +37,9 @@ public:
     virtual ~Queue();
 public:
     virtual std::string show();
+public:
+    static PluginInformation* GetPluginInformation();
+    static ModelElement* LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields);
 public:
     void insertElement(Waiting* element);
     void removeElement(Waiting* element, double tnow);

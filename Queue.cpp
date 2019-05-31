@@ -93,6 +93,20 @@ Queue::OrderRule Queue::getOrderRule() const {
 //	return _list;
 //}
 
+PluginInformation* Queue::GetPluginInformation(){
+    return new PluginInformation(Util::TypeOf<Queue>(), false, &Queue::LoadInstance);
+}
+
+ModelElement* Queue::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {
+    Queue* newElement = new Queue(elems);
+    try {
+	newElement->_loadInstance(fields);
+    } catch (const std::exception& e) {
+
+    }
+    return newElement;
+}
+
 bool Queue::_loadInstance(std::map<std::string, std::string>* fields) {
     return ModelElement::_loadInstance(fields);
 }

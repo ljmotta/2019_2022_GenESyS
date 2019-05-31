@@ -74,9 +74,11 @@ MyReGenESYsApplication::~MyReGenESYsApplication() {
 }
 
 void MyReGenESYsApplication::manuallyInsertAllPlugins(Simulator* simulator) {
-    simulator->getPluginManager()->insert(new Plugin(&Create::LoadInstance));
-    simulator->getPluginManager()->insert(new Plugin(&Delay::LoadInstance));
-    simulator->getPluginManager()->insert(new Plugin(&Dispose::LoadInstance));
+    simulator->getPluginManager()->insert(new Plugin(&Attribute::GetPluginInformation));
+    simulator->getPluginManager()->insert(new Plugin(&EntityType::GetPluginInformation));
+    simulator->getPluginManager()->insert(new Plugin(&Create::GetPluginInformation));
+    simulator->getPluginManager()->insert(new Plugin(&Delay::GetPluginInformation));
+    simulator->getPluginManager()->insert(new Plugin(&Dispose::GetPluginInformation));
 }
 
 /**
@@ -217,7 +219,7 @@ void builSimulationdModel(Model* model) { // buildModelWithAllImplementedCompone
 int MyReGenESYsApplication::main(int argc, char** argv) {
     Simulator* simulator = new Simulator();
     this->manuallyInsertAllPlugins(simulator);
-    
+
     Model* model = new Model(simulator);
     builSimulationdModel(model);
     simulator->getModelManager()->insert(model);

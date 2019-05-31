@@ -136,3 +136,19 @@ void Release::setResourceName(std::string resourceName) throw () {
 std::string Release::getResourceName() const {
     return _resource->getName();
 }
+
+PluginInformation* Release::GetPluginInformation(){
+    return new PluginInformation(Util::TypeOf<Release>(), true, &Release::LoadInstance);
+}
+
+
+ModelElement* Release::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+    Release* newComponent = new Release(model);
+    try {
+	newComponent->_loadInstance(fields);
+    } catch (const std::exception& e) {
+	
+    }
+    return newComponent;
+
+}

@@ -15,6 +15,9 @@
 #define VARIABLE_H
 
 #include "ModelElement.h"
+#include "ElementManager.h"
+#include "Plugin.h"
+
 
 class Variable : public ModelElement {
 public:
@@ -24,6 +27,9 @@ public:
     virtual ~Variable();
 public:
     virtual std::string show();
+public:
+    static PluginInformation* GetPluginInformation();
+    static ModelElement* LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields);
 public:
     double getValue();
     double getValue(std::string index);

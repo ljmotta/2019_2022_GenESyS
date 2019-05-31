@@ -15,6 +15,9 @@
 #define COUNTERDEFAULTIMPL1_H
 
 #include "ModelElement.h"
+#include "ElementManager.h"
+#include "Plugin.h"
+
 
 class Counter : public ModelElement {
 public:
@@ -23,6 +26,11 @@ public:
     Counter(std::string name, ModelElement* parent);
     Counter(const Counter& orig);
     virtual ~Counter();
+public:
+    virtual std::string show();
+public:
+    static PluginInformation* GetPluginInformation();
+    static ModelElement* LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields);
 public:
     void clear();
     void incCountValue(int value = 1);

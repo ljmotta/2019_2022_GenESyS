@@ -138,6 +138,20 @@ void Resource::_notifyEventHandlers() {
     }
 }
 
+PluginInformation* Resource::GetPluginInformation(){
+    return new PluginInformation(Util::TypeOf<Resource>(), false, &Resource::LoadInstance);
+}
+
+ModelElement* Resource::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {
+    Resource* newElement = new Resource(elems);
+    try {
+	newElement->_loadInstance(fields);
+    } catch (const std::exception& e) {
+
+    }
+    return newElement;
+}
+
 bool Resource::_loadInstance(std::map<std::string, std::string>* fields) {
     return ModelElement::_loadInstance(fields);
 }

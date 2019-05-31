@@ -18,6 +18,8 @@
 #include <list>
 #include "List.h"
 #include "ModelElement.h"
+#include "ElementManager.h"
+#include "Plugin.h"
 
 class Attribute : public ModelElement {
 public:
@@ -27,6 +29,9 @@ public:
     virtual ~Attribute();
 public:
     virtual std::string show();
+public:
+    static PluginInformation* GetPluginInformation();
+    static ModelElement* LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields);
 protected:
     virtual bool _loadInstance(std::map<std::string, std::string>* fields);
     virtual std::map<std::string, std::string>* _saveInstance();

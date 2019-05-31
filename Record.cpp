@@ -97,3 +97,20 @@ bool Record::_check(std::string* errorMessage) {
     std::remove(_filename.c_str());
     return _model->checkExpression(_expression, "expression", errorMessage);
 }
+
+PluginInformation* Record::GetPluginInformation(){
+    return new PluginInformation(Util::TypeOf<Record>(), true, &Record::LoadInstance);
+}
+
+
+ModelElement* Record::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+    Record* newComponent = new Record(model);
+    try {
+	newComponent->_loadInstance(fields);
+    } catch (const std::exception& e) {
+	
+    }
+    return newComponent;
+
+}
+

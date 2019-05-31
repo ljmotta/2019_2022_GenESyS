@@ -12,6 +12,7 @@
  */
 
 #include "Variable.h"
+#include "Plugin.h"
 
 Variable::Variable() : ModelElement(Util::TypeOf<Variable>()) {
 }
@@ -28,6 +29,10 @@ Variable::~Variable() {
 
 std::string Variable::show() {
     return ModelElement::show(); // @TODO: include values
+}
+
+PluginInformation* Variable::GetPluginInformation(){
+    return new PluginInformation(Util::TypeOf<Variable>(), false, &Variable::LoadInstance);
 }
 
 double Variable::getValue() {
@@ -55,6 +60,16 @@ void Variable::setValue(std::string index, double value) {
     } else {
 	it->second = value;
     }
+}
+
+ModelElement* Variable::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {
+    Variable* newElement = new Variable();
+    try {
+	newElement->_loadInstance(fields);
+    } catch (const std::exception& e) {
+
+    }
+    return newElement;
 }
 
 bool Variable::_loadInstance(std::map<std::string, std::string>* fields) {

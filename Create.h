@@ -19,6 +19,8 @@
 #include "SourceModelComponent.h"
 #include "EntityType.h"
 #include "Counter.h"
+#include "Plugin.h"
+
 
 /*!
  * Create is the most basic component to include the first entities into the model, and therefore is a source component (derived from SourceModelComponent)
@@ -31,6 +33,7 @@ public:
 public:
     virtual std::string show();
 public:
+    static PluginInformation* GetPluginInformation();
     static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 protected:
     virtual void _execute(Entity* entity);

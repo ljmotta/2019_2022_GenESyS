@@ -100,3 +100,7 @@ bool Delay::_check(std::string* errorMessage) {
     }
     return _model->checkExpression(_delayExpression, "Delay expression", errorMessage);
 }
+
+PluginInformation* Delay::GetPluginInformation(){
+    return new PluginInformation(Util::TypeOf<Delay>(), true, &Delay::LoadInstance);
+}

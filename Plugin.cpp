@@ -18,33 +18,22 @@
 #include "Assign.h"
 #include <assert.h>
 
-Plugin::Plugin(StaticLoaderComponentInstance loader) {
-    _loader = loader;
-    Model* newTempModel = new Model(nullptr);
-    std::map<std::string, std::string>* newTempMap = new std::map<std::string, std::string>();
+Plugin::Plugin(StaticGetPluginInformation getInformation) {
+    this->_getInformation = getInformation;
     try {
-	ModelComponent* newTempComponent = _loader(newTempModel, newTempMap);
-	assert(newTempComponent != nullptr);
-	this->_pluginTypename = newTempComponent->getTypename();
-	this->_isElement = (dynamic_cast<ModelElement*> (newTempComponent) != nullptr);
-	this->_isComponent = (dynamic_cast<ModelComponent*> (newTempComponent) != nullptr);
-	this->_drain = (dynamic_cast<SinkModelComponent*> (newTempComponent) != nullptr);
-	this->_drain = (dynamic_cast<SinkModelComponent*> (newTempComponent) != nullptr);
-	this->_source = (dynamic_cast<SourceModelComponent*> (newTempComponent) != nullptr);
+	PluginInformation* infos = _getInformation();
 	this->_isValidPlugin = true;
-	newTempModel->~Model();
     } catch (...) {
 	this->_isValidPlugin = false;
     }
-
 }
 
-bool Plugin::isValidPlugin() const {
+PluginInformation* Plugin::getPluginInfo() const {
+    return _pluginInfo;
+}
+
+bool Plugin::isIsValidPlugin() const {
     return _isValidPlugin;
-}
-
-bool Plugin::isComponent() const {
-    return _isComponent;
 }
 
 //Plugin::Plugin(std::string pluginTypename, bool source, bool drain) {
@@ -60,23 +49,6 @@ Plugin::~Plugin() {
 }
 
 ModelComponent* Plugin::loadNewComponent(Model* model, std::map<std::string, std::string>* fields) {
-    _loader(model, fields);
+    return this->_pluginInfo->loader(model, fields);
 }
-
-bool Plugin::isDrain() const {
-    return _drain;
-}
-
-bool Plugin::isSource() const {
-    return _source;
-}
-
-std::string Plugin::getPluginTypename() const {
-    return _pluginTypename;
-}
-
-std::string Plugin::getFullfilename() const {
-    return _fullfilename;
-}
-
 

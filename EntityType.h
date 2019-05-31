@@ -18,6 +18,8 @@
 #include "ModelElement.h"
 #include "StatisticsCollector.h"
 #include "ElementManager.h"
+#include "Plugin.h"
+
 //#include "Model.h"
 
 class EntityType : public ModelElement {
@@ -28,6 +30,9 @@ public:
     virtual ~EntityType();
 public:
     virtual std::string show();
+public:
+    static PluginInformation* GetPluginInformation();
+    static ModelElement* LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields);
 public: //get & set
     void setInitialWaitingCost(double _initialWaitingCost);
     double getInitialWaitingCost() const;

@@ -72,3 +72,17 @@ bool Decide::_check(std::string* errorMessage) {
     }
     return allResult;
 }
+
+PluginInformation* Decide::GetPluginInformation(){
+    return new PluginInformation(Util::TypeOf<Decide>(), true, &Decide::LoadInstance);
+}
+
+ModelElement* Decide::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+    Decide* newComponent = new Decide(model);
+    try {
+	newComponent->_loadInstance(fields);
+    } catch (const std::exception& e) {
+	
+    }
+    return newComponent;
+}

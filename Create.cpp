@@ -43,16 +43,6 @@ std::string Create::show() {
     return SourceModelComponent::show();
 }
 
-ModelElement* Create::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
-    Create* newComponent = new Create(model);
-    try {
-	newComponent->_loadInstance(fields);
-    } catch (const std::exception& e) {
-	
-    }
-    return newComponent;
-}
-
 void Create::_execute(Entity* entity) {
     double tnow = _model->getSimulation()->getSimulatedTime();
     entity->setAttributeValue("Entity.ArrivalTime", tnow); // ->find("Entity.ArrivalTime")->second->setValue(tnow);
@@ -76,6 +66,20 @@ void Create::_execute(Entity* entity) {
     }
     _numberOut->incCountValue();
     _model->sendEntityToComponent(entity, this->getNextComponents()->front(), 0.0);
+}
+
+PluginInformation* Create::GetPluginInformation(){
+    return new PluginInformation(Util::TypeOf<Create>(), true, &Create::LoadInstance);
+}
+
+ModelElement* Create::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+    Create* newComponent = new Create(model);
+    try {
+	newComponent->_loadInstance(fields);
+    } catch (const std::exception& e) {
+	
+    }
+    return newComponent;
 }
 
 bool Create::_loadInstance(std::map<std::string, std::string>* fields) {

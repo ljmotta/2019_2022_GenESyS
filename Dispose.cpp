@@ -33,17 +33,6 @@ std::string Dispose::show() {
 	    ",collectStatistics=" + std::to_string(this->_collectStatistics);
 }
 
-ModelElement* Dispose::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
-    Dispose* newComponent = new Dispose(model);
-    try {
-	newComponent->_loadInstance(fields);
-    } catch (const std::exception& e) {
-	
-    }
-    return newComponent;
-
-}
-
 void Dispose::_execute(Entity* entity) {
     _numberOut->incCountValue();
     _model->removeEntity(entity, this->isCollectStatistics());
@@ -65,4 +54,19 @@ std::map<std::string, std::string>* Dispose::_saveInstance() {
 
 bool Dispose::_check(std::string* errorMessage) {
     return true;
+}
+
+PluginInformation* Dispose::GetPluginInformation(){
+    return new PluginInformation(Util::TypeOf<Dispose>(), true, &Dispose::LoadInstance);
+}
+
+ModelElement* Dispose::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+    Dispose* newComponent = new Dispose(model);
+    try {
+	newComponent->_loadInstance(fields);
+    } catch (const std::exception& e) {
+	
+    }
+    return newComponent;
+
 }

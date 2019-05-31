@@ -31,7 +31,12 @@ Counter::Counter(const Counter& orig) : ModelElement(orig) {
 Counter::~Counter() {
 }
 
-void Counter::clear() {
+std::string Counter::show() {
+    return ModelElement::show() + 
+	    ", count="+std::to_string(this->_count);
+}
+void
+Counter::clear() {
     _count = 0;
 }
 
@@ -45,6 +50,20 @@ unsigned long Counter::getCountValue() {
 
 ModelElement* Counter::getParent() const {
     return _parent;
+}
+
+PluginInformation* Counter::GetPluginInformation(){
+    return new PluginInformation(Util::TypeOf<Counter>(), false, &Counter::LoadInstance);
+}
+
+ModelElement* Counter::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {
+    Counter* newElement = new Counter();
+    try {
+	newElement->_loadInstance(fields);
+    } catch (const std::exception& e) {
+
+    }
+    return newElement;
 }
 
 bool Counter::_loadInstance(std::map<std::string, std::string>* fields) {

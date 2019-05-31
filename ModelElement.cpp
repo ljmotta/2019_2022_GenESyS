@@ -85,6 +85,7 @@ std::string ModelElement::getTypename() const {
 //}
 
 ModelElement* ModelElement::LoadInstance(std::map<std::string, std::string>* fields) {
+    // should NEVER be inviked
     return nullptr;
 }
 

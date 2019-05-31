@@ -16,6 +16,9 @@
 
 #include "ModelElement.h"
 #include "Statistics_if.h"
+#include "ElementManager.h"
+#include "Plugin.h"
+
 
 class StatisticsCollector : public ModelElement {//, public Statistics_if {
 public:
@@ -26,6 +29,10 @@ public:
     virtual ~StatisticsCollector();
 public:
     virtual std::string show();
+public:
+    static PluginInformation* GetPluginInformation();
+    static ModelElement* LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields);
+public:
     ModelElement* getParent() const;
     Statistics_if* getStatistics() const;
 

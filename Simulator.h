@@ -41,7 +41,7 @@ public: // only get
     PluginManager* getPluginManager() const;
     ModelManager* getModelManager() const;
     ToolManager* getToolManager() const;
-private: // attributes 1:n
+private: 
 private: // attributes 1:1 objects
     LicenceManager* _licenceManager;
     PluginManager* _pluginManager;

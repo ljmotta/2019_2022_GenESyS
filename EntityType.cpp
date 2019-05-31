@@ -126,6 +126,21 @@ StatisticsCollector* EntityType::getCstatWaitingTime() const {
     return _cstatWaitingTime;
 }
 
+PluginInformation* EntityType::GetPluginInformation(){
+    return new PluginInformation(Util::TypeOf<EntityType>(), false, &EntityType::LoadInstance);
+}
+
+
+ModelElement* EntityType::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {
+    EntityType* newElement = new EntityType(elems);
+    try {
+	newElement->_loadInstance(fields);
+    } catch (const std::exception& e) {
+
+    }
+    return newElement;
+}
+
 bool EntityType::_loadInstance(std::map<std::string, std::string>* fields) {
     return ModelElement::_loadInstance(fields);
     //TODO+

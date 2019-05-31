@@ -19,6 +19,8 @@
 #include "Model.h"
 #include "Resource.h"
 #include "Queue.h"
+#include "Plugin.h"
+
 
 /*!
  * Seize tries to allocate a certain amount of a resource
@@ -30,6 +32,9 @@ public:
     virtual ~Seize();
 public:
     virtual std::string show();
+public:
+    static PluginInformation* GetPluginInformation();
+    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 public: // get & set
     void setLastMemberSeized(unsigned int _lastMemberSeized);
     unsigned int getLastMemberSeized() const;
