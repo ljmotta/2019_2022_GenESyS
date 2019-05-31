@@ -73,6 +73,12 @@ MyReGenESYsApplication::MyReGenESYsApplication(const MyReGenESYsApplication& ori
 MyReGenESYsApplication::~MyReGenESYsApplication() {
 }
 
+void MyReGenESYsApplication::manuallyInsertAllPlugins(Simulator* simulator) {
+    simulator->getPluginManager()->insert(new Plugin(&Create::LoadInstance));
+    simulator->getPluginManager()->insert(new Plugin(&Delay::LoadInstance));
+    simulator->getPluginManager()->insert(new Plugin(&Dispose::LoadInstance));
+}
+
 /**
  * This function shows an example of how to create a simulation model.
  * It creates some handlers for tracing (debug) and for events, set model infos and than creates the model itself.
@@ -210,13 +216,15 @@ void builSimulationdModel(Model* model) { // buildModelWithAllImplementedCompone
 
 int MyReGenESYsApplication::main(int argc, char** argv) {
     Simulator* simulator = new Simulator();
+    this->manuallyInsertAllPlugins(simulator);
+    
     Model* model = new Model(simulator);
-    //builSimulationdModel(model);
-    //simulator->getModelManager()->insert(model);
-    //model->saveModel("./models/genesysSimpleSimulationModel.txt");
-    
-    model->loadModel("./models/genesysSimpleSimulationModel.txt");
-    
+    builSimulationdModel(model);
+    simulator->getModelManager()->insert(model);
+    model->saveModel("./models/genesysSimpleSimulationModel.txt");
+
+    //model->loadModel("./models/genesysSimpleSimulationModel.txt");
+
     //model->getSimulation()->startSimulation();
     return 0;
 }

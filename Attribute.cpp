@@ -30,8 +30,8 @@ std::string Attribute::show() {
     return ModelElement::show();
 }
 
-void Attribute::_loadInstance(std::map<std::string, std::string>* fields) {
-    ModelElement::_loadInstance(fields);
+bool Attribute::_loadInstance(std::map<std::string, std::string>* fields) {
+    return ModelElement::_loadInstance(fields);
 }
 
 std::map<std::string, std::string>* Attribute::_saveInstance() {

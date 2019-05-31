@@ -93,8 +93,8 @@ Queue::OrderRule Queue::getOrderRule() const {
 //	return _list;
 //}
 
-void Queue::_loadInstance(std::map<std::string, std::string>* fields) {
-
+bool Queue::_loadInstance(std::map<std::string, std::string>* fields) {
+    return ModelElement::_loadInstance(fields);
 }
 
 std::map<std::string, std::string>* Queue::_saveInstance() {

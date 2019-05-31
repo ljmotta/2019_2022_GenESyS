@@ -16,8 +16,9 @@
 #include "ModelElement.h"
 
 ModelElement::ModelElement(std::string thistypename) {
-    _id = Util::GenerateNewIdOfType(thistypename);
-    _name = thistypename + " " + std::to_string(_id);
+    // is is UNIQUE FOR EVERY ELEMENT AND COMPONENT in the entire simulator
+    _id = Util::GenerateNewId(); //GenerateNewIdOfType(thistypename);
+    _name = thistypename + " " + std::to_string(Util::GenerateNewIdOfType(thistypename)); //std::to_string(_id);
     _typename = thistypename;
 }
 
@@ -27,16 +28,26 @@ ModelElement::ModelElement(const ModelElement& orig) {
 ModelElement::~ModelElement() {
 }
 
-void ModelElement::_loadInstance(std::map<std::string, std::string>* fields) {
-    this->_id = std::stoi((*fields->find("id")).second);
-    this->_name = (*fields->find("name")).second;
+bool ModelElement::_loadInstance(std::map<std::string, std::string>* fields) {
+    //this->_id = std::stoi((*fields->find("id")).second);
+    bool res = true;
+    std::map<std::string, std::string>::iterator it;
+    it = fields->find("id");
+    it != fields->end() ? this->_id = std::stoi((*it).second) : res = false;
+    it = fields->find("name");
+    if (it != fields->end()) {
+	this->_name = (*it).second;
+    } else
+	res = false;
+    //it != fields->end() ? this->_name = (*it).second : res = false;
+    return res;
 }
 
 std::map<std::string, std::string>* ModelElement::_saveInstance() {
-    std::map<std::string, std::string>* fields = new std::map<std::string,std::string>();
+    std::map<std::string, std::string>* fields = new std::map<std::string, std::string>();
     fields->emplace("typename", this->_typename);
-    fields->emplace("id" , std::to_string(this->_id));
-    fields->emplace("name" , this->_name);
+    fields->emplace("id", std::to_string(this->_id));
+    fields->emplace("name", this->_name);
     return fields;
 }
 

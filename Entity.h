@@ -39,7 +39,7 @@ public:
     double getAttributeValue(std::string attributeName);
     void setAttributeValue(std::string attributeName, double value);
 protected:
-    virtual void _loadInstance(std::map<std::string, std::string>* fields);
+    virtual bool _loadInstance(std::map<std::string, std::string>* fields);
     virtual std::map<std::string, std::string>* _saveInstance();
     virtual bool _check(std::string* errorMessage);
 

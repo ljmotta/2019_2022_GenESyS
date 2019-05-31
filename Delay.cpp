@@ -31,6 +31,16 @@ std::string Delay::show() {
 	    ",timeUnit=" + std::to_string(static_cast<int> (this->_delayTimeUnit));
 }
 
+ModelElement* Delay::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+    Delay* newComponent = new Delay(model);
+    try {
+	newComponent->_loadInstance(fields);
+    } catch (const std::exception& e) {
+
+    }
+    return newComponent;
+}
+
 void Delay::setDelayExpression(std::string _delayExpression) {
     this->_delayExpression = _delayExpression;
 }
@@ -57,8 +67,13 @@ void Delay::_execute(Entity* entity) {
     _model->getTracer()->trace(Util::TraceLevel::blockInternal, "End of delay of entity " + std::to_string(entity->getId()) + " scheduled to time " + std::to_string(delayEndTime));
 }
 
-void Delay::_loadInstance(std::map<std::string, std::string>* fields) {
-
+bool Delay::_loadInstance(std::map<std::string, std::string>* fields) {
+    bool res = ModelComponent::_loadInstance(fields);
+    if (res) {
+	this->_delayExpression = (*fields->find("delayExpression")).second;
+	this->_delayTimeUnit = static_cast<Util::TimeUnit> (std::stoi((*fields->find("delayExpressionTimeUnit")).second));
+    }
+    return res;
 }
 
 void Delay::_initBetweenReplications() {
@@ -67,7 +82,7 @@ void Delay::_initBetweenReplications() {
 std::map<std::string, std::string>* Delay::_saveInstance() {
     std::map<std::string, std::string>* fields = ModelComponent::_saveInstance(); //Util::TypeOf<Delay>());
     fields->emplace("delayExpression", this->_delayExpression);
-    fields->emplace("delayExpressionTimeUnit" , std::to_string(static_cast<int> (this->_delayTimeUnit)));
+    fields->emplace("delayExpressionTimeUnit", std::to_string(static_cast<int> (this->_delayTimeUnit)));
     return fields;
 }
 

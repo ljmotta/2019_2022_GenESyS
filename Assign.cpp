@@ -55,7 +55,8 @@ void Assign::_execute(Entity* entity) {
     this->_model->sendEntityToComponent(entity, this->getNextComponents()->front(), 0.0);
 }
 
-void Assign::_loadInstance(std::map<std::string, std::string>* fields) {
+bool Assign::_loadInstance(std::map<std::string, std::string>* fields) {
+    return true;
 }
 
 void Assign::_initBetweenReplications() {

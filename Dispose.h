@@ -24,9 +24,11 @@ public:
     virtual ~Dispose();
 public:
     virtual std::string show();
+public:
+    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 protected:
     virtual void _execute(Entity* entity);
-    virtual void _loadInstance(std::map<std::string, std::string>* fields);
+    virtual bool _loadInstance(std::map<std::string, std::string>* fields);
     virtual void _initBetweenReplications();
     virtual std::map<std::string, std::string>* _saveInstance();
     virtual bool _check(std::string* errorMessage);

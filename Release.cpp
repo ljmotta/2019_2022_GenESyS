@@ -96,8 +96,8 @@ void Release::_execute(Entity* entity) {
     _model->sendEntityToComponent(entity, this->getNextComponents()->front(), 0.0);
 }
 
-void Release::_loadInstance(std::map<std::string, std::string>* fields) {
-
+bool Release::_loadInstance(std::map<std::string, std::string>* fields) {
+return true;
 }
 
 void Release::_initBetweenReplications() {

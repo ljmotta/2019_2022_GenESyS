@@ -47,7 +47,8 @@ void Decide::_execute(Entity* entity) {
     _model->sendEntityToComponent(entity, this->getNextComponents()->getAtRank(i), 0.0);
 }
 
-void Decide::_loadInstance(std::map<std::string, std::string>* fields) {
+bool Decide::_loadInstance(std::map<std::string, std::string>* fields) {
+    return true;
 }
 
 void Decide::_initBetweenReplications() {

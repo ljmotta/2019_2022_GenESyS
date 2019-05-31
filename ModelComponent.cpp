@@ -16,7 +16,6 @@
 
 ModelComponent::ModelComponent(Model* model, std::string componentTypename) : ModelElement(componentTypename) {
     _model = model;
-    _nextComponents = new List<ModelComponent*>();
 }
 
 ModelComponent::ModelComponent(const ModelComponent& orig) : ModelElement(orig) {
@@ -47,7 +46,7 @@ void ModelComponent::InitBetweenReplications(ModelComponent* component) {
 
 std::map<std::string, std::string>* ModelComponent::SaveInstance(ModelComponent* component) {
     component->_model->getTracer()->trace(Util::TraceLevel::blockArrival, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));
-    std::map<std::string, std::string>* fields = new std::map<std::string,std::string>();
+    std::map<std::string, std::string>* fields = new std::map<std::string, std::string>();
     try {
 	fields = component->_saveInstance();
     } catch (const std::exception& e) {
@@ -83,12 +82,27 @@ std::string ModelComponent::show() {
     return ModelElement::show(); // "{id=" + std::to_string(this->_id) + ",name=\""+this->_name + "\"}"; // , nextComponents[]=(" + _nextComponents->show() + ")}";
 }
 
+bool ModelComponent::_loadInstance(std::map<std::string, std::string>* fields) {
+    bool res = ModelElement::_loadInstance(fields);
+    if (res) {
+    // Now it shoould load nextComponents. The problem is that the nextCOmponent may not be loaded yet.
+    // So, what can be done is to temporarily load the ID of the nextComponents, and to wait until all the components have been loaded to update nextComponents based on the temporarilyIDs now being loaded
+    unsigned short nextSize = std::stoi((*fields->find("nextSize")).second);
+    this->_tempLoadNextComponentsIDs = new List<Util::identitifcation>();
+    for (unsigned short i = 0; i < nextSize; i++) {
+	Util::identitifcation nextId = std::stoi((*fields->find("nextId" + std::to_string(i))).second);
+	this->_tempLoadNextComponentsIDs->insert(nextId);
+    }
+    }
+    return res;
+}
+
 std::map<std::string, std::string>* ModelComponent::_saveInstance() {
     std::map<std::string, std::string>* fields = ModelElement::_saveInstance();
-    fields->emplace("nextSize" , std::to_string(this->_nextComponents->size()));
-    unsigned short i=0;
+    fields->emplace("nextSize", std::to_string(this->_nextComponents->size()));
+    unsigned short i = 0;
     for (std::list<ModelComponent*>::iterator it = _nextComponents->getList()->begin(); it != _nextComponents->getList()->end(); it++) {
-	fields->emplace("next"+std::to_string(i) , (*it)->_name);
+	fields->emplace("nextId" + std::to_string(i), std::to_string((*it)->_id));
 	i++;
     }
     return fields;

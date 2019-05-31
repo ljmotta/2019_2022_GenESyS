@@ -57,8 +57,8 @@ void Variable::setValue(std::string index, double value) {
     }
 }
 
-void Variable::_loadInstance(std::map<std::string, std::string>* fields) {
-    ModelElement::_loadInstance(fields);
+bool Variable::_loadInstance(std::map<std::string, std::string>* fields) {
+    return ModelElement::_loadInstance(fields);
 }
 
 std::map<std::string, std::string>* Variable::_saveInstance() {

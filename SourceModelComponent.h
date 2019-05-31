@@ -40,8 +40,8 @@ public: // get & set
     Util::TimeUnit getTimeUnit() const;
     void setTimeBetweenCreationsExpression(std::string _timeBetweenCreations);
     std::string getTimeBetweenCreationsExpression() const;
-    void setMaxCreations(unsigned int _maxCreations);
-    unsigned int getMaxCreations() const;
+    void setMaxCreations(std::string _maxCreationsExpression);
+    std::string getMaxCreations() const;
     unsigned int getEntitiesCreated() const;
     void setEntitiesCreated(unsigned int _entitiesCreated);
     void setEntitiesPerCreation(unsigned int _entitiesPerCreation);
@@ -49,7 +49,7 @@ public: // get & set
 public:
     virtual std::string show();
 protected:
-    virtual void _loadInstance(std::map<std::string, std::string>* fields);
+    virtual bool _loadInstance(std::map<std::string, std::string>* fields);
     virtual void _initBetweenReplications();
     virtual std::map<std::string, std::string>* _saveInstance();
     virtual bool _check(std::string* errorMessage);
@@ -57,10 +57,10 @@ protected: // get & set
     EntityType* _entityType;
     double _firstCreation = 0.0;
     unsigned int _entitiesPerCreation = 1;
-    unsigned int _maxCreations = std::numeric_limits<unsigned int>::max(); // std::numeric_limits<unsigned int>::max();
+    std::string _maxCreationsExpression = std::to_string(std::numeric_limits<unsigned int>::max()); // std::numeric_limits<unsigned int>::max();
     std::string _timeBetweenCreationsExpression = "EXPO(1)"; ////
     Util::TimeUnit _timeBetweenCreationsTimeUnit = Util::TimeUnit::second;
-    bool _collectStatistics = true;
+    //bool _collectStatistics = true;
     unsigned int _entitiesCreatedSoFar = 0;
 };
 

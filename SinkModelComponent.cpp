@@ -30,13 +30,21 @@ bool SinkModelComponent::isCollectStatistics() const {
     return _collectStatistics;
 }
 
-void SinkModelComponent::_loadInstance(std::map<std::string, std::string>* fields) {
+bool SinkModelComponent::_loadInstance(std::map<std::string, std::string>* fields) {
+    bool res = ModelComponent::_loadInstance(fields);
+    if (res) {
+    this->_collectStatistics = std::stoi((*fields->find("collectStatistics")).second) != 0;
+    }
+    return res;
 }
 
 void SinkModelComponent::_initBetweenReplications() {
 }
 
 std::map<std::string, std::string>* SinkModelComponent::_saveInstance() {
+    std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
+    fields->emplace("collectStatistics", std::to_string(this->_collectStatistics));
+    return fields;
 }
 
 bool SinkModelComponent::_check(std::string* errorMessage) {

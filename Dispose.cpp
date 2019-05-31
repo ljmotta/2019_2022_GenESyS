@@ -33,13 +33,24 @@ std::string Dispose::show() {
 	    ",collectStatistics=" + std::to_string(this->_collectStatistics);
 }
 
+ModelElement* Dispose::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+    Dispose* newComponent = new Dispose(model);
+    try {
+	newComponent->_loadInstance(fields);
+    } catch (const std::exception& e) {
+	
+    }
+    return newComponent;
+
+}
+
 void Dispose::_execute(Entity* entity) {
     _numberOut->incCountValue();
     _model->removeEntity(entity, this->isCollectStatistics());
 }
 
-void Dispose::_loadInstance(std::map<std::string, std::string>* fields) {
-
+bool Dispose::_loadInstance(std::map<std::string, std::string>* fields) {
+    return ModelComponent::_loadInstance(fields);
 }
 
 void Dispose::_initBetweenReplications() {

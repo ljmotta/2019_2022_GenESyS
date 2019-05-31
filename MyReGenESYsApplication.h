@@ -16,6 +16,8 @@
 
 #include "GenesysApplication_if.h"
 
+#include "Simulator.h"
+
 class MyReGenESYsApplication : public GenesysApplication_if {
 public:
     MyReGenESYsApplication();
@@ -23,6 +25,8 @@ public:
     virtual ~MyReGenESYsApplication();
 public:
     virtual int main(int argc, char** argv);
+private:
+    void manuallyInsertAllPlugins(Simulator* simulator);
 };
 
 #endif /* MYREGENESYSAPPLICATION_H */

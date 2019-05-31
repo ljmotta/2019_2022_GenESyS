@@ -126,8 +126,8 @@ StatisticsCollector* EntityType::getCstatWaitingTime() const {
     return _cstatWaitingTime;
 }
 
-void EntityType::_loadInstance(std::map<std::string, std::string>* fields) {
-    ModelElement::_loadInstance(fields);
+bool EntityType::_loadInstance(std::map<std::string, std::string>* fields) {
+    return ModelElement::_loadInstance(fields);
     //TODO+
 }
 

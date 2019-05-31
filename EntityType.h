@@ -48,7 +48,7 @@ public: //get
     StatisticsCollector* getCstatWaitingTime() const;
 
 protected: // must be overriden by derived classes
-    virtual void _loadInstance(std::map<std::string, std::string>* fields);
+    virtual bool _loadInstance(std::map<std::string, std::string>* fields);
     virtual std::map<std::string, std::string>* _saveInstance();
     virtual bool _check(std::string* errorMessage);
 

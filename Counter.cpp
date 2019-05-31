@@ -47,8 +47,8 @@ ModelElement* Counter::getParent() const {
     return _parent;
 }
 
-void Counter::_loadInstance(std::map<std::string, std::string>* fields) {
-    ModelElement::_loadInstance(fields);
+bool Counter::_loadInstance(std::map<std::string, std::string>* fields) {
+    return ModelElement::_loadInstance(fields);
 }
 
 std::map<std::string, std::string>* Counter::_saveInstance() {

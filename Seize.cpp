@@ -167,8 +167,8 @@ void Seize::_execute(Entity* entity) {
     }
 }
 
-void Seize::_loadInstance(std::map<std::string, std::string>* fields) {
-
+bool Seize::_loadInstance(std::map<std::string, std::string>* fields) {
+    return true;
 }
 
 void Seize::_initBetweenReplications() {

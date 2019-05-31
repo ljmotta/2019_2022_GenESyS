@@ -62,8 +62,8 @@ Statistics_if* StatisticsCollector::getStatistics() const {
     return _statistics;
 }
 
-void StatisticsCollector::_loadInstance(std::map<std::string, std::string>* fields) {
-    ModelElement::_loadInstance(fields);
+bool StatisticsCollector::_loadInstance(std::map<std::string, std::string>* fields) {
+    return ModelElement::_loadInstance(fields);
 }
 
 std::map<std::string, std::string>* StatisticsCollector::_saveInstance() {

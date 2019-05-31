@@ -85,8 +85,8 @@ std::map<std::string, std::string>* Record::_saveInstance() {
     return fields;
 }
 
-void Record::_loadInstance(std::map<std::string, std::string>* fields) {
-
+bool Record::_loadInstance(std::map<std::string, std::string>* fields) {
+    return true;
 }
 
 void Record::_initBetweenReplications() {

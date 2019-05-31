@@ -86,8 +86,9 @@ void Entity::setAttributeValue(std::string attributeName, double value) {
      */
 }
 
-void Entity::_loadInstance(std::map<std::string, std::string>* fields) {
+bool Entity::_loadInstance(std::map<std::string, std::string>* fields) {
     // never lods an entity
+    return true;
 }
 
 std::map<std::string, std::string>* Entity::_saveInstance() {

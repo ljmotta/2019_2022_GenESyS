@@ -138,8 +138,8 @@ void Resource::_notifyEventHandlers() {
     }
 }
 
-void Resource::_loadInstance(std::map<std::string, std::string>* fields) {
-    ModelElement::_loadInstance(fields);
+bool Resource::_loadInstance(std::map<std::string, std::string>* fields) {
+    return ModelElement::_loadInstance(fields);
 }
 
 std::map<std::string, std::string>* Resource::_saveInstance() {

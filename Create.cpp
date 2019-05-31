@@ -16,6 +16,7 @@
 #include "EntityType.h"
 #include "ElementManager.h"
 #include "Attribute.h"
+#include "Assign.h"
 
 Create::Create(Model* model) : SourceModelComponent(model, Util::TypeOf<Create>()) {
     _numberOut = new Counter("Count number Out", this);
@@ -42,11 +43,22 @@ std::string Create::show() {
     return SourceModelComponent::show();
 }
 
+ModelElement* Create::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+    Create* newComponent = new Create(model);
+    try {
+	newComponent->_loadInstance(fields);
+    } catch (const std::exception& e) {
+	
+    }
+    return newComponent;
+}
+
 void Create::_execute(Entity* entity) {
     double tnow = _model->getSimulation()->getSimulatedTime();
     entity->setAttributeValue("Entity.ArrivalTime", tnow); // ->find("Entity.ArrivalTime")->second->setValue(tnow);
     //entity->setAttributeValue("Entity.Picture", 1); // ->find("Entity.ArrivalTime")->second->setValue(tnow);
     double timeBetweenCreations, timeScale, newArrivalTime;
+    unsigned int _maxCreations = _model->parseExpression(this->_maxCreationsExpression);
     for (unsigned int i = 0; i<this->_entitiesPerCreation; i++) {
 	if (_entitiesCreatedSoFar < _maxCreations) {
 	    _entitiesCreatedSoFar++;
@@ -66,19 +78,8 @@ void Create::_execute(Entity* entity) {
     _model->sendEntityToComponent(entity, this->getNextComponents()->front(), 0.0);
 }
 
-void Create::_loadInstance(std::map<std::string, std::string>* fields) {
-    // the first word (CREATE) have to be deleted before. It begins on the second word
-    /*
-    this->_entitiesPerCreation = std::stoi((*it++));
-    this->_firstCreation = std::stoi((*it++));
-    this->_timeBetweenCreationsExpression = (*it++);
-    this->_timeBetweenCreationsTimeUnit = static_cast<Util::TimeUnit> (std::stoi((*it++))); //TODO: + how to set a enum class based on a string?  //std::stoi((*it++)); // bad enum convertion!
-    this->_maxCreations = std::stoi((*it++));
-    std::string entityTypeName = (*it++); // retrieves the entitytype based on name
-    EntityType* entityType = dynamic_cast<EntityType*> (_model->getElementManager()->getElement(Util::TypeOf<EntityType>(), entityTypeName));
-    this->_entityType = entityType;
-    this->_collectStatistics = std::stoi(*it++);
-    */
+bool Create::_loadInstance(std::map<std::string, std::string>* fields) {
+    return SourceModelComponent::_loadInstance(fields);
 }
 
 void Create::_initBetweenReplications() {
