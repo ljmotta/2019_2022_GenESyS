@@ -24,6 +24,10 @@ PluginManager::~PluginManager() {
 }
 
 bool PluginManager::insert(Plugin* plugin) {
+    if (plugin->isIsValidPlugin()) {
+	this->_plugins->insert(plugin);
+    }
+    return plugin->isIsValidPlugin();
 }
 
 void PluginManager::remove(Plugin* plugin) {

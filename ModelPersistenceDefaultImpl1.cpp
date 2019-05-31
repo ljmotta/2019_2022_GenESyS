@@ -52,7 +52,7 @@ bool ModelPersistenceDefaultImpl1::save(std::string filename) {
 	modelElementsToSave = new std::list<std::string>();
 	std::list<std::string>* infraTypenames = _model->getElementManager()->getElementTypenames();
 	for (std::list<std::string>::iterator itTypenames = infraTypenames->begin(); itTypenames != infraTypenames->end(); itTypenames++) {
-	    if ((*itTypenames) != Util::TypeOf<StatisticsCollector>()) { //CStats do NOT need to be saved
+	    if ((*itTypenames) != Util::TypeOf<StatisticsCollector>() && (*itTypenames) != Util::TypeOf<Counter>()) { // STATISTICSCOLLECTR and COUNTERs do NOT need to be saved
 		List<ModelElement*>* infras = _model->getElementManager()->getElements((*itTypenames));
 		_model->getTracer()->trace(Util::TraceLevel::mostDetailed, "Writing elements of type \"" + (*itTypenames) + "\":");
 		Util::IncIndent();
@@ -93,13 +93,13 @@ bool ModelPersistenceDefaultImpl1::save(std::string filename) {
 	    time_t now = time(0);
 	    char* dt = ctime(&now);
 	    savefile << "# Last saved on " << dt;
-	    savefile << std::endl << "# simulator infos" << std::endl;
+	    savefile << "# simulator infos" << std::endl;
 	    _saveContent(simulInfosToSave, &savefile);
-	    savefile << std::endl << "# model infos" << std::endl;
+	    savefile << "# model infos" << std::endl;
 	    _saveContent(modelInfosToSave, &savefile);
-	    savefile << std::endl << "# model elements" << std::endl;
+	    savefile << "# model elements" << std::endl;
 	    _saveContent(modelElementsToSave, &savefile);
-	    savefile << std::endl << "# model components" << std::endl;
+	    savefile << "# model components" << std::endl;
 	    _saveContent(modelComponentsToSave, &savefile);
 	    savefile.close();
 	}
@@ -110,7 +110,7 @@ bool ModelPersistenceDefaultImpl1::save(std::string filename) {
 
 void ModelPersistenceDefaultImpl1::_saveContent(std::list<std::string>* content, std::ofstream* file) {
     for (std::list<std::string>::iterator it = content->begin(); it != content->end(); it++) {
-	*file << (*it) << std::endl;
+	*file << (*it) << std::endl << std::endl;
     }
 }
 

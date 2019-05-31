@@ -30,10 +30,10 @@ public:
 
     PluginInformation(std::string pluginTypename, bool isComponent, StaticLoaderComponentInstance loader) {
 	this->loader = loader;
-	this->drain = drain;
+	//this->drain = drain;
 	this->isComponent = isComponent;
 	this->pluginTypename = pluginTypename;
-	this->source = source;
+	//this->source = source;
     }
     std::string pluginTypename;
     bool source;

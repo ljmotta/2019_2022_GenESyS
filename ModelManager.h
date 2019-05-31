@@ -15,6 +15,7 @@
 #define MODELMANAGER_H
 
 #include "Model.h"
+#include "TraceManager.h"
 
 class ModelManager {
 public:
@@ -25,14 +26,18 @@ public:
     void insert(Model* model);
     void remove(Model* model);
     void setCurrent(Model* model);
+    bool saveModel(std::string filename);
+    bool loadModel(std::string filename);
 public:
     Model* front();
     Model* current();
     Model* next();
     Model* end();
+    TraceManager* getTracer() const;
 private:
-    List<Model*>* _models;
+    List<Model*>* _models = new List<Model*>();
     Model* _currentModel;
+    TraceManager* _tracer;
 private:
     Simulator* _simulator;
 };

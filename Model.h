@@ -83,7 +83,7 @@ private: // read only public access (gets)
     Util::identitifcation _id;
     Simulator* _parentSimulator; /*! The parente of the model */
     // 1:1 (associted classes)
-    TraceManager* _trace;
+    TraceManager* _tracer;
     OnEventManager* _eventHandler;
     ElementManager* _elementManager;
     ComponentManager* _componentManager;

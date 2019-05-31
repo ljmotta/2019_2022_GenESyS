@@ -23,7 +23,8 @@ public:
     LicenceManager(Simulator* simulator);
     LicenceManager(const LicenceManager& orig);
     virtual ~LicenceManager();
-    const std::string showLicense() const;
+    const std::string showLicence() const;
+    const std::string showLimits() const;
     bool lookforActivationCode();
     bool insertActivationCode();
     void removeActivationCode();

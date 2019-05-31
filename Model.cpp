@@ -41,7 +41,7 @@ Model::Model(Simulator* simulator) {
     _eventHandler = new OnEventManager(); // should be on .h (all that does not depends on THIS)
     _elementManager = new ElementManager(this);
     _componentManager = new ComponentManager(this);
-    _trace = new TraceManager(this);
+    _tracer = new TraceManager(this);
     // 1:1 associations (Traits)
     _parser = new Traits<Parser_if>::Implementation(this);
     _modelChecker = new Traits<ModelChecker_if>::Implementation(this);
@@ -177,7 +177,7 @@ List<SimulationResponse*>* Model::getResponses() const {
 }
 
 TraceManager* Model::getTracer() const {
-    return _trace;
+    return _tracer;
 }
 
 OnEventManager* Model::getOnEventManager() const {

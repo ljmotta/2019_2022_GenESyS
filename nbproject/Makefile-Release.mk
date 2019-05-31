@@ -48,6 +48,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Decide.o \
 	${OBJECTDIR}/Delay.o \
 	${OBJECTDIR}/Dispose.o \
+	${OBJECTDIR}/Dummy.o \
 	${OBJECTDIR}/ElementManager.o \
 	${OBJECTDIR}/Entity.o \
 	${OBJECTDIR}/EntityType.o \
@@ -202,6 +203,11 @@ ${OBJECTDIR}/Dispose.o: Dispose.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Dispose.o Dispose.cpp
+
+${OBJECTDIR}/Dummy.o: Dummy.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Dummy.o Dummy.cpp
 
 ${OBJECTDIR}/ElementManager.o: ElementManager.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

@@ -28,6 +28,7 @@
 #include "Assign.h"
 #include "Record.h"
 #include "Decide.h"
+#include "Dummy.h"
 
 // Model elements
 #include "ElementManager.h"
@@ -74,11 +75,24 @@ MyReGenESYsApplication::~MyReGenESYsApplication() {
 }
 
 void MyReGenESYsApplication::manuallyInsertAllPlugins(Simulator* simulator) {
+    //elements
     simulator->getPluginManager()->insert(new Plugin(&Attribute::GetPluginInformation));
+    simulator->getPluginManager()->insert(new Plugin(&Counter::GetPluginInformation));
     simulator->getPluginManager()->insert(new Plugin(&EntityType::GetPluginInformation));
+    simulator->getPluginManager()->insert(new Plugin(&Queue::GetPluginInformation));
+    simulator->getPluginManager()->insert(new Plugin(&Resource::GetPluginInformation));
+    simulator->getPluginManager()->insert(new Plugin(&StatisticsCollector::GetPluginInformation));
+    simulator->getPluginManager()->insert(new Plugin(&Variable::GetPluginInformation));
+    // components
+    simulator->getPluginManager()->insert(new Plugin(&Assign::GetPluginInformation));
     simulator->getPluginManager()->insert(new Plugin(&Create::GetPluginInformation));
+    simulator->getPluginManager()->insert(new Plugin(&Decide::GetPluginInformation));
     simulator->getPluginManager()->insert(new Plugin(&Delay::GetPluginInformation));
     simulator->getPluginManager()->insert(new Plugin(&Dispose::GetPluginInformation));
+    simulator->getPluginManager()->insert(new Plugin(&Dummy::GetPluginInformation));
+    simulator->getPluginManager()->insert(new Plugin(&Record::GetPluginInformation));
+    simulator->getPluginManager()->insert(new Plugin(&Release::GetPluginInformation));
+    simulator->getPluginManager()->insert(new Plugin(&Seize::GetPluginInformation));
 }
 
 /**
@@ -201,6 +215,9 @@ void builSimulationdModel(Model* model) { // buildModelWithAllImplementedCompone
     record2->setFilename("./temp/TimeAfterMachine2.txt");
     components->insert(record2);
 
+    Dummy* dummy1 = new Dummy(model);
+    components->insert(dummy1);
+
     // connect model components to create a "workflow" -- should always start from a SourceModelComponent and end at a SinkModelComponent (it will be checked)
     create1->getNextComponents()->insert(assign1);
     assign1->getNextComponents()->insert(decide1);
@@ -213,19 +230,20 @@ void builSimulationdModel(Model* model) { // buildModelWithAllImplementedCompone
     seize2->getNextComponents()->insert(delay2);
     delay2->getNextComponents()->insert(release2);
     release2->getNextComponents()->insert(record2);
-    record2->getNextComponents()->insert(dispose1);
+    record2->getNextComponents()->insert(dummy1);
+    dummy1->getNextComponents()->insert(dispose1);
 }
 
 int MyReGenESYsApplication::main(int argc, char** argv) {
     Simulator* simulator = new Simulator();
     this->manuallyInsertAllPlugins(simulator);
 
-    Model* model = new Model(simulator);
-    builSimulationdModel(model);
-    simulator->getModelManager()->insert(model);
-    model->saveModel("./models/genesysSimpleSimulationModel.txt");
+//    Model* model = new Model(simulator);
+//    builSimulationdModel(model);
+//    simulator->getModelManager()->insert(model);
+//    model->saveModel("./models/genesysSimpleSimulationModel.txt");
 
-    //model->loadModel("./models/genesysSimpleSimulationModel.txt");
+    simulator->getModelManager()->loadModel("./models/genesysSimpleSimulationModel.txt");
 
     //model->getSimulation()->startSimulation();
     return 0;

@@ -47,6 +47,7 @@ private: // attributes 1:1 objects
     PluginManager* _pluginManager;
     ModelManager* _modelManager;
     ToolManager* _toolManager;
+    //TraceManager* _tracer;
 private: // attributes 1:1 native
     const std::string _name = "ReGenESyS - Reborn Generic and Expansible System Simulator";
     const std::string _version = "2018.10.1";

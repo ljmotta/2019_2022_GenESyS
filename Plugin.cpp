@@ -49,6 +49,9 @@ Plugin::~Plugin() {
 }
 
 ModelComponent* Plugin::loadNewComponent(Model* model, std::map<std::string, std::string>* fields) {
-    return this->_pluginInfo->loader(model, fields);
+    //return this->_pluginInfo->loader(model, fields);
+    StaticLoaderComponentInstance loader = this->_pluginInfo->loader;
+    ModelElement* newElementOrComponent = loader(model, fields);
+    return newElementOrComponent;
 }
 

@@ -150,7 +150,7 @@ void ModelSimulation::_initSimulation() {
     TraceManager* tm = _model->getTracer();
     tm->traceReport(Util::TraceLevel::simulation, "\n-----------------------------------------------------");
     tm->traceReport(Util::TraceLevel::simulation, _model->getParent()->getName());
-    tm->traceReport(Util::TraceLevel::simulation, _model->getParent()->getLicenceManager()->showLicense());
+    tm->traceReport(Util::TraceLevel::simulation, _model->getParent()->getLicenceManager()->showLicence());
     tm->traceReport(Util::TraceLevel::simulation, "Project Title: " + _info->getProjectTitle());
     tm->traceReport(Util::TraceLevel::simulation, "Analyst Name: " + _info->getAnalystName());
     tm->traceReport(Util::TraceLevel::simulation, "");

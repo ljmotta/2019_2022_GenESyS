@@ -27,18 +27,40 @@ std::string Dummy::show() {
     return ModelComponent::show() + "";
 }
 
+ModelElement* Dummy::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+    Dummy* newComponent = new Dummy(model);
+    try {
+	newComponent->_loadInstance(fields);
+    } catch (const std::exception& e) {
+
+    }
+    return newComponent;
+}
+
 void Dummy::_execute(Entity* entity) {
-    _model->getTracer()->trace(Util::TraceLevel::blockInternal, "I'm dummy and I'm only sending the entity forward");
-    _model->sendEntityToComponent(entity, this->getNextComponents()->first(), 0.0);
+    _model->getTracer()->trace(Util::TraceLevel::blockInternal, "I'm just a dummy model and I'll just send the entity forward");
+    this->_model->sendEntityToComponent(entity, this->getNextComponents()->front(), 0.0);
 }
 
-void Dummy::_loadInstance(std::list<std::string> words) {
+bool Dummy::_loadInstance(std::map<std::string, std::string>* fields) {
+    bool res = ModelComponent::_loadInstance(fields);
+    if (res) {
+    }
+    return res;
 }
 
-std::list<std::string>* Dummy::_saveInstance() {
+void Dummy::_initBetweenReplications() {
+}
+
+std::map<std::string, std::string>* Dummy::_saveInstance() {
+    std::map<std::string, std::string>* fields = ModelComponent::_saveInstance(); 
+    return fields;
 }
 
 bool Dummy::_check(std::string* errorMessage) {
     return true;
 }
 
+PluginInformation* Dummy::GetPluginInformation(){
+    return new PluginInformation(Util::TypeOf<Dummy>(), true, &Dummy::LoadInstance);
+}

@@ -109,7 +109,7 @@ std::map<std::string, std::string>* Release::_saveInstance() {
     fields->emplace("priority" , std::to_string(this->_priority));
     fields->emplace("quantity" , this->_quantity);
     fields->emplace("resourceType" , std::to_string(static_cast<int> (this->_resourceType)));
-    fields->emplace("resourceName" , this->_resource->getName());
+    fields->emplace("resourceId" , std::to_string(this->_resource->getId()));
     fields->emplace("role" , std::to_string(static_cast<int> (this->_rule)));
     fields->emplace("saveAttribute" , this->_saveAttribute);
     return fields;

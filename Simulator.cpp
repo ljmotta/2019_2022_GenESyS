@@ -16,12 +16,15 @@
 #include "ToolManager.h"
 
 Simulator::Simulator() {
-    std::cout << "Now running " << _name << std::endl; // The ONLY cout allowed "inside" the simulator (including model and other classes, pls
+    // This is the ONLY method in the entire software where std::cout is allowed.
+    std::cout << "Now running " << _name << std::endl;
     _licenceManager = new LicenceManager(this);
     _pluginManager = new PluginManager(this);
     _modelManager = new ModelManager(this);
     _toolManager = new ToolManager(this);
-    
+    //_tracer = new TraceManager(nullptr); // no model so far. Tracing from simulation just can't tracesimulation. That looks fair enough
+    std::cout << _licenceManager->showLicence() << std::endl;
+    std::cout << _licenceManager->showLimits() << std::endl << std::endl;
 }
 
 PluginManager* Simulator::getPluginManager() const {

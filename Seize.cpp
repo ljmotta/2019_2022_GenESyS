@@ -182,9 +182,9 @@ std::map<std::string, std::string>* Seize::_saveInstance() {
     fields->emplace("allocationType" , std::to_string(this->_allocationType));
     fields->emplace("priority=" , std::to_string(this->_priority));
     fields->emplace("quantity" , this->_quantity);
-    fields->emplace("queueName" , this->_queue->getName());
+    fields->emplace("queueId" , std::to_string(this->_queue->getId()));
     fields->emplace("resourceType" , std::to_string(static_cast<int> (this->_resourceType)));
-    fields->emplace("resourceName" , this->_resource->getName());
+    fields->emplace("resourceId" , std::to_string( this->_resource->getId()));
     fields->emplace("rule" , std::to_string(static_cast<int> (this->_rule)));
     fields->emplace("saveAttribue" , this->_saveAttribute);
     return fields;

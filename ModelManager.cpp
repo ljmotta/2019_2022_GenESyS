@@ -32,17 +32,29 @@ void ModelManager::insert(Model* model) {
 
 void ModelManager::remove(Model* model) {
     _models->remove(model);
-    if (_currentModel==model) {
+    if (_currentModel == model) {
 	_currentModel = nullptr;
     }
     model->~Model();
+}
+
+bool ModelManager::saveModel(std::string filename) {
+    if (_currentModel != nullptr)
+	return _currentModel->saveModel(filename);
+    return false;
+}
+
+bool ModelManager::loadModel(std::string filename) {
+    if (_currentModel == nullptr)
+	this->insert(new Model(_simulator));
+    return _currentModel->loadModel(filename);
 }
 
 void ModelManager::setCurrent(Model* model) {
     this->_currentModel = model;
 }
 
-Model* ModelManager::current(){
+Model* ModelManager::current() {
     return _currentModel;
 }
 
@@ -56,4 +68,8 @@ Model* ModelManager::next() {
 
 Model* ModelManager::end() {
     return _models->last();
+}
+
+TraceManager* ModelManager::getTracer() const {
+    return _tracer;
 }

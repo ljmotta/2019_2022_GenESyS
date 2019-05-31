@@ -29,7 +29,7 @@ public:
     void remove(Plugin* plugin);
     Plugin* find(std::string pluginTypeName);
 private:
-    List<Plugin*>* _plugins;
+    List<Plugin*>* _plugins = new List<Plugin*>();
     Simulator* _simulator;
 };
 

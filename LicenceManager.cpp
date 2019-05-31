@@ -15,13 +15,13 @@
 
 LicenceManager::LicenceManager(Simulator* simulator) {
     _simulator = simulator;
-    _licence = "Academic Mode. In academic mode this software has full functionality and executing training-size simulation models. This software may be duplicated and used for educational purposes only; any commercial application is a violation of the license agreement. Designed and developed by prof. Dr. Ing Rafael Luiz Cancian";
+    _licence = "LICENCE: \nAcademic Mode. In academic mode this software has full functionality and executing training-size simulation models. This software may be duplicated and used for educational purposes only; any commercial application is a violation of the license agreement. Designed and developed by prof. Dr. Ing Rafael Luiz Cancian";
     _activationCode = "";
     _components = 100;
     _elements = 100;
-    _entities = 150;
+    _entities = 200;
     _hosts = 2;
-    _threads = 1;
+    _threads = 2;
 }
 
 LicenceManager::LicenceManager(const LicenceManager& orig) {
@@ -30,8 +30,18 @@ LicenceManager::LicenceManager(const LicenceManager& orig) {
 LicenceManager::~LicenceManager() {
 }
 
-const std::string LicenceManager::showLicense() const {
+const std::string LicenceManager::showLicence() const {
     return _licence;
+}
+
+const std::string LicenceManager::showLimits() const {
+    std::string msg = "Based on your licence and activation code, your simulator is running under the following limits" +
+	    std::string(": ") + std::to_string(_components) + " components" +
+	    ", " + std::to_string(_elements) + " elements" +
+	    ", " + std::to_string(_entities) + " entities" +
+	    ", " + std::to_string(_hosts) + " hosts" +
+	    ", " + std::to_string(_threads) + " threads.";
+    return msg;
 }
 
 bool LicenceManager::lookforActivationCode() {
