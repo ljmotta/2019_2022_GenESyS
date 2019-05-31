@@ -101,7 +101,7 @@ void Seize::_handlerForResourceEvent(Resource* resource) {
 	if ((resource->getCapacity() - resource->getNumberBusy()) >= quantity) { //enought quantity to seize
 	    double tnow = _model->getSimulation()->getSimulatedTime();
 	    resource->seize(quantity, tnow);
-	    _model->getEvents()->insert(new Event(tnow, first->getEntity(), this->getNextComponents()->first()));
+	    _model->getEvents()->insert(new Event(tnow, first->getEntity(), this->getNextComponents()->front()));
 	    _queue->removeElement(first, tnow);
 	    _model->getTracer()->traceSimulation(Util::TraceLevel::blockInternal, tnow, first->getEntity(), this, "Waiting entity " + std::to_string(first->getEntity()->getId()) + " now seizes " + std::to_string(quantity) + " elements of resource \"" + resource->getName() + "\"");
 
@@ -163,7 +163,7 @@ void Seize::_execute(Entity* entity) {
     } else { // alocate the resource
 	_model->getTracer()->traceSimulation(Util::TraceLevel::blockInternal, _model->getSimulation()->getSimulatedTime(), entity, this, "Entity seizes " + std::to_string(quantity) + " elements of resource \"" + resource->getName() + "\"");
 	resource->seize(quantity, _model->getSimulation()->getSimulatedTime());
-	_model->sendEntityToComponent(entity, this->getNextComponents()->first(), 0.0);
+	_model->sendEntityToComponent(entity, this->getNextComponents()->front(), 0.0);
     }
 }
 

@@ -56,7 +56,7 @@ std::string Entity::show() {
 	message += ",entityType=\"" + this->_entityType->getName() + "\"";
     }
     message += ",attributeValues=[";
-    _attributeValues->first();
+    _attributeValues->front();
     for (unsigned int i = 0; i < _attributeValues->size(); i++) {
 	message += std::to_string(_attributeValues->actual()) + ",";
 	_attributeValues->next();

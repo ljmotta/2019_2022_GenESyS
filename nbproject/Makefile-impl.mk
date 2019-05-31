@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=GenESyS-Reborn
+PROJECTNAME=RebornedGenESyS
 
 # Active Configuration
 DEFAULTCONF=Debug

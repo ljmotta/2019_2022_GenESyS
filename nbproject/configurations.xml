@@ -4,12 +4,10 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Arquivos de Cabeçalho"
                    projectFiles="true">
-      <itemPath>LicenceManager.h</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Arquivos de Código-Fonte"
                    projectFiles="true">
-      <itemPath>LicenceManager.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Arquivos de Recurso"
@@ -125,11 +123,17 @@
       <itemPath>DefineGetterSetter.h</itemPath>
       <itemPath>Event.cpp</itemPath>
       <itemPath>Event.h</itemPath>
+      <itemPath>LicenceManager.cpp</itemPath>
+      <itemPath>LicenceManager.h</itemPath>
       <itemPath>Model.cpp</itemPath>
       <itemPath>Model.h</itemPath>
+      <itemPath>ModelManager.cpp</itemPath>
+      <itemPath>ModelManager.h</itemPath>
       <itemPath>Parser_if.h</itemPath>
       <itemPath>Plugin.cpp</itemPath>
       <itemPath>Plugin.h</itemPath>
+      <itemPath>PluginManager.cpp</itemPath>
+      <itemPath>PluginManager.h</itemPath>
       <itemPath>Sampler_if.h</itemPath>
       <itemPath>SimulationControl.cpp</itemPath>
       <itemPath>SimulationControl.h</itemPath>
@@ -205,6 +209,8 @@
       </logicalFolder>
       <logicalFolder name="f5" displayName="System Optimization" projectFiles="true">
       </logicalFolder>
+      <itemPath>ToolManager.cpp</itemPath>
+      <itemPath>ToolManager.h</itemPath>
     </logicalFolder>
     <logicalFolder name="f10"
                    displayName="User Program Interfaces"
@@ -421,6 +427,10 @@
       </item>
       <item path="ModelInfo.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="ModelManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ModelManager.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="ModelPersistenceDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ModelPersistenceDefaultImpl1.h" ex="false" tool="3" flavor2="0">
@@ -452,6 +462,10 @@
       <item path="Plugin.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Plugin.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PluginManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PluginManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ProbDistrib.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -556,6 +570,10 @@
       <item path="TestStatistics.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="TestStatistics.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ToolManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ToolManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="TraceManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -807,6 +825,10 @@
       </item>
       <item path="ModelInfo.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="ModelManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ModelManager.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="ModelPersistenceDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ModelPersistenceDefaultImpl1.h" ex="false" tool="3" flavor2="0">
@@ -838,6 +860,10 @@
       <item path="Plugin.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Plugin.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PluginManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PluginManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ProbDistrib.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -942,6 +968,10 @@
       <item path="TestStatistics.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="TestStatistics.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ToolManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ToolManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="TraceManager.cpp" ex="false" tool="1" flavor2="0">
       </item>

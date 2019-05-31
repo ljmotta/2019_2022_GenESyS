@@ -42,7 +42,7 @@ bool ModelSimulation::_isReplicationEndCondition() {
     finish |= _model->parseExpression(_info->getTerminatingCondition()) != 0.0;
     if (_model->getEvents()->size() > 0 && !finish) {
 	// replication length has not been achieve (sor far), but next event will happen after that, so it's just fine to set tnow as the replicationLength 
-	finish |= _model->getEvents()->first()->getTime() > _info->getReplicationLength();
+	finish |= _model->getEvents()->front()->getTime() > _info->getReplicationLength();
     }
     return finish;
 }
@@ -82,7 +82,7 @@ void ModelSimulation::startSimulation() {
 	    causeTerminated = "event queue is empty";
 	} else if (_stopRequested) {
 	    causeTerminated = "user requested to stop";
-	} else if (_model->getEvents()->first()->getTime() > _info->getReplicationLength()) {
+	} else if (_model->getEvents()->front()->getTime() > _info->getReplicationLength()) {
 	    causeTerminated = "replication length " + std::to_string(_info->getReplicationLength()) + " was achieved";
 	} else if (_model->parseExpression(_info->getTerminatingCondition())) {
 	    causeTerminated = "termination condition was achieved";
@@ -150,7 +150,7 @@ void ModelSimulation::_initSimulation() {
     TraceManager* tm = _model->getTracer();
     tm->traceReport(Util::TraceLevel::simulation, "\n-----------------------------------------------------");
     tm->traceReport(Util::TraceLevel::simulation, _model->getParent()->getName());
-    tm->traceReport(Util::TraceLevel::simulation, _model->getParent()->getLicenceManager()->getLicense());
+    tm->traceReport(Util::TraceLevel::simulation, _model->getParent()->getLicenceManager()->showLicense());
     tm->traceReport(Util::TraceLevel::simulation, "Project Title: " + _info->getProjectTitle());
     tm->traceReport(Util::TraceLevel::simulation, "Analyst Name: " + _info->getAnalystName());
     tm->traceReport(Util::TraceLevel::simulation, "");
@@ -238,7 +238,7 @@ void ModelSimulation::_initStatistics() {
 void ModelSimulation::_stepSimulation() {
     // process one single event
     Event* nextEvent;
-    nextEvent = _model->getEvents()->first();
+    nextEvent = _model->getEvents()->front();
     double warmupTime = Util::TimeUnitConvert(_model->getInfos()->getWarmUpPeriodTimeUnit(), _model->getInfos()->getReplicationLengthTimeUnit());
     warmupTime *= _model->getInfos()->getWarmUpPeriod();
     if (_model->getSimulation()->getSimulatedTime() <= warmupTime && nextEvent->getTime() > warmupTime) {// warmuTime. Time to initStats

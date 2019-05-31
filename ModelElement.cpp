@@ -74,7 +74,7 @@ std::string ModelElement::getTypename() const {
 //}
 
 ModelElement* ModelElement::LoadInstance(std::map<std::string, std::string>* fields) {
-    
+    return nullptr;
 }
 
 std::map<std::string, std::string>* ModelElement::SaveInstance(ModelElement* element) {

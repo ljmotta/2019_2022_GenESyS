@@ -68,6 +68,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/ModelComponent.o \
 	${OBJECTDIR}/ModelElement.o \
 	${OBJECTDIR}/ModelInfo.o \
+	${OBJECTDIR}/ModelManager.o \
 	${OBJECTDIR}/ModelPersistenceDefaultImpl1.o \
 	${OBJECTDIR}/ModelSimulation.o \
 	${OBJECTDIR}/MyReGenESYsApplication.o \
@@ -75,6 +76,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/ParserDefaultImpl1.o \
 	${OBJECTDIR}/ParserDummyImpl.o \
 	${OBJECTDIR}/Plugin.o \
+	${OBJECTDIR}/PluginManager.o \
 	${OBJECTDIR}/ProbDistrib.o \
 	${OBJECTDIR}/ProcessAnalyserDummyImpl.o \
 	${OBJECTDIR}/Queue.o \
@@ -98,6 +100,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/TestInputAnalyserTools.o \
 	${OBJECTDIR}/TestParser.o \
 	${OBJECTDIR}/TestStatistics.o \
+	${OBJECTDIR}/ToolManager.o \
 	${OBJECTDIR}/TraceManager.o \
 	${OBJECTDIR}/Util.o \
 	${OBJECTDIR}/Variable.o \
@@ -129,11 +132,11 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/genesys-reborn
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/rebornedgenesys
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/genesys-reborn: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/rebornedgenesys: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/genesys-reborn ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/rebornedgenesys ${OBJECTFILES} ${LDLIBSOPTIONS}
 
 ${OBJECTDIR}/Assign.o: Assign.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -300,6 +303,11 @@ ${OBJECTDIR}/ModelInfo.o: ModelInfo.cpp nbproject/Makefile-${CND_CONF}.mk
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelInfo.o ModelInfo.cpp
 
+${OBJECTDIR}/ModelManager.o: ModelManager.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelManager.o ModelManager.cpp
+
 ${OBJECTDIR}/ModelPersistenceDefaultImpl1.o: ModelPersistenceDefaultImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -334,6 +342,11 @@ ${OBJECTDIR}/Plugin.o: Plugin.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Plugin.o Plugin.cpp
+
+${OBJECTDIR}/PluginManager.o: PluginManager.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PluginManager.o PluginManager.cpp
 
 ${OBJECTDIR}/ProbDistrib.o: ProbDistrib.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -449,6 +462,11 @@ ${OBJECTDIR}/TestStatistics.o: TestStatistics.cpp nbproject/Makefile-${CND_CONF}
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestStatistics.o TestStatistics.cpp
+
+${OBJECTDIR}/ToolManager.o: ToolManager.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ToolManager.o ToolManager.cpp
 
 ${OBJECTDIR}/TraceManager.o: TraceManager.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

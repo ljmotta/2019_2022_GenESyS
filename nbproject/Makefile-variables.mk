@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-Linux
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux
-CND_ARTIFACT_NAME_Debug=genesys-reborn
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/genesys-reborn
+CND_ARTIFACT_NAME_Debug=rebornedgenesys
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/rebornedgenesys
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux/package
-CND_PACKAGE_NAME_Debug=genesys-reborn.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/genesys-reborn.tar
+CND_PACKAGE_NAME_Debug=rebornedgenesys.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/rebornedgenesys.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-Linux
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux
-CND_ARTIFACT_NAME_Release=genesys-reborn
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/genesys-reborn
+CND_ARTIFACT_NAME_Release=rebornedgenesys
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/rebornedgenesys
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux/package
-CND_PACKAGE_NAME_Release=genesys-reborn.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/genesys-reborn.tar
+CND_PACKAGE_NAME_Release=rebornedgenesys.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/rebornedgenesys.tar
 #
 # include compiler specific variables
 #

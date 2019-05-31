@@ -23,11 +23,20 @@ public:
     LicenceManager(Simulator* simulator);
     LicenceManager(const LicenceManager& orig);
     virtual ~LicenceManager();
-    const std::string getLicense() const;
+    const std::string showLicense() const;
+    bool lookforActivationCode();
+    bool insertActivationCode();
+    void removeActivationCode();
+    unsigned int getModelComponentsLimit();
+    unsigned int getModelElementsLimit();
+    unsigned int getEntityLimit();
+    unsigned int getHostsLimit();
+    unsigned int getThreadsLimit();
 private:
     Simulator* _simulator;
-    const std::string _license = "Academic Mode. In academic mode this software has full functionality and executing training-size simulation models. This software may be duplicated and used for educational purposes only; any commercial application is a violation of the license agreement. Designed and developed by prof. Dr. Ing Rafael Luiz Cancian";
-
+    std::string _licence;
+    std::string _activationCode;
+    unsigned int _components, _elements, _entities,_hosts, _threads;
 };
 
 #endif /* LICENCEMANAGER_H */

@@ -177,7 +177,7 @@ int BuildSimulationModel::main(int argc, char** argv) {
     Simulator* simulator = new Simulator();
     Model* model = new Model(simulator);
     buildModel(model);
-    simulator->getModels()->insert(model);
+    simulator->getModelManager()->insert(model);
 
     //model->saveModel("./temp/genesysSimpleSimulationModel.txt");
     model->getSimulation()->startSimulation();

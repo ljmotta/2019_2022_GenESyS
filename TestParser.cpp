@@ -28,7 +28,7 @@ TestParser::~TestParser() {
 int TestParser::main(int argc, char** argv) {
     Simulator* simulator = new Simulator();
     Model* model = new Model(simulator);
-    simulator->getModels()->insert(model);
+    simulator->getModelManager()->insert(model);
     double value;
     bool success;
     std::string errorMsg = "";

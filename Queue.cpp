@@ -68,7 +68,7 @@ unsigned int Queue::size() {
 }
 
 Waiting* Queue::first() {
-    return _list->first();
+    return _list->front();
 }
 
 void Queue::setAttributeName(std::string _attributeName) {

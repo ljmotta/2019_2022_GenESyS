@@ -63,7 +63,7 @@ void Create::_execute(Entity* entity) {
 	}
     }
     _numberOut->incCountValue();
-    _model->sendEntityToComponent(entity, this->getNextComponents()->first(), 0.0);
+    _model->sendEntityToComponent(entity, this->getNextComponents()->front(), 0.0);
 }
 
 void Create::_loadInstance(std::map<std::string, std::string>* fields) {

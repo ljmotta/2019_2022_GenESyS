@@ -212,7 +212,7 @@ int MyReGenESYsApplication::main(int argc, char** argv) {
     Simulator* simulator = new Simulator();
     Model* model = new Model(simulator);
     //builSimulationdModel(model);
-    //simulator->getModels()->insert(model);
+    //simulator->getModelManager()->insert(model);
     //model->saveModel("./models/genesysSimpleSimulationModel.txt");
     
     model->loadModel("./models/genesysSimpleSimulationModel.txt");

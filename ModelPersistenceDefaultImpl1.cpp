@@ -161,6 +161,9 @@ void ModelPersistenceDefaultImpl1::_loadSimulatorInfoFields(std::map<std::string
 }
 
 bool ModelPersistenceDefaultImpl1::load(std::string filename) {
+    //std::list<Plugin*> plugins = this->_model->getParent()->getPlugins();
+    //plugins->front()->
+    //return false;
     _model->getTracer()->trace(Util::TraceLevel::blockArrival, "Loading file \"" + filename + "\"");
     Util::IncIndent();
     {

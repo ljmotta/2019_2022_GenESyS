@@ -12,33 +12,34 @@
  */
 
 #include "Simulator.h"
-#include "Traits.h"
 #include "LicenceManager.h"
+#include "ToolManager.h"
 
 Simulator::Simulator() {
     std::cout << "Now running " << _name << std::endl; // The ONLY cout allowed "inside" the simulator (including model and other classes, pls
     _licenceManager = new LicenceManager(this);
-    std::cout << _licenceManager->getLicense() << std::endl << std::endl; // The ONLY cout allowed "inside" the simulator (including model and other classes, pls
-    // 1:1
-    _fitter = new Traits<Fitter_if>::Implementation();
-    _sampler = new Traits<Sampler_if>::Implementation();
-    // instanciate 1:n attributes
-    _plugins = new List<Plugin*>();
-    _models = new List<Model*>();
+    _pluginManager = new PluginManager(this);
+    _modelManager = new ModelManager(this);
+    _toolManager = new ToolManager(this);
+    
+}
+
+PluginManager* Simulator::getPluginManager() const {
+    return _pluginManager;
+}
+
+ModelManager* Simulator::getModelManager() const {
+    return _modelManager;
+}
+
+ToolManager* Simulator::getToolManager() const {
+    return _toolManager;
 }
 
 Simulator::Simulator(const Simulator& orig) {
 }
 
 Simulator::~Simulator() {
-}
-
-List<Model*>* Simulator::getModels() const {
-    return _models;
-}
-
-List<Plugin*>* Simulator::getPlugins() const {
-    return _plugins;
 }
 
 std::string Simulator::getVersion() const {
@@ -49,11 +50,7 @@ std::string Simulator::getName() const {
     return _name;
 }
 
-Sampler_if* Simulator::getSampler() const {
-    return _sampler;
-}
-
-Fitter_if* Simulator::getFitter() const {
-    return _fitter;
+LicenceManager* Simulator::getLicenceManager() const {
+    return _licenceManager;
 }
 

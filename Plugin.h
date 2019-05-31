@@ -16,6 +16,16 @@
 
 #include "Util.h"
 #include <string>
+#include <functional>
+class ModelComponent;
+class Model;
+
+typedef std::function<ModelComponent*(Model*) > ModelComponentConstructor;
+
+template<typename Class>
+ModelComponentConstructor SetModelComponentConstructor(ModelComponent* (Class::*function)(Model*), Class * object) {
+    return std::bind(function, object, std::placeholders::_1);
+}
 
 /*!
  * A Plugin represents a dynamically linked component class (ModelComponent) or element class (ModelElement); It gives access to a ModelComponent so it can be used by the model. Classes like Create, Delay, and Dispose are examples of PlugIns.  It corresponds directly to the  "Expansible" part (the capitalized 'E') of the GenESyS acronymous

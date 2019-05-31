@@ -57,7 +57,7 @@ public: // improved (easier) methods
     void setAtRank(unsigned int rank, T element);
     T getAtRank(unsigned int rank);
     T next();
-    T first();
+    T front();
     T last();
     T previous();
     T actual(); // get current element on the list (the last used)
@@ -203,7 +203,7 @@ int List<T>::rankOf(T element) {
  */
 
 template <typename T>
-T List<T>::first() {
+T List<T>::front() {
     _it = _list->begin();
     return(*_it);
 }

@@ -50,7 +50,7 @@ void GenesysConsole::cmdTraceLevel() {
     try {
 	int tlnum = std::stoi(_parameter);
 	Util::TraceLevel tl = static_cast<Util::TraceLevel> (tlnum);
-	_simulator->getModels()->actual()->getTracer()->setTraceLevel(tl);
+	_simulator->getModelManager()->current()->getTracer()->setTraceLevel(tl);
     } catch (...) {
 	Trace("Error setting trace level");
     }
@@ -59,7 +59,7 @@ void GenesysConsole::cmdTraceLevel() {
 void GenesysConsole::cmdModelCheck() {
     Trace("Check model");
     try {
-	_simulator->getModels()->actual()->checkModel();
+	_simulator->getModelManager()->current()->checkModel();
     } catch (...) {
 	Trace("Error checking model");
     }
@@ -68,7 +68,7 @@ void GenesysConsole::cmdModelCheck() {
 void GenesysConsole::cmdStart() {
     Trace("Start simulation");
     try {
-	_simulator->getModels()->actual()->getSimulation()->startSimulation();
+	_simulator->getModelManager()->current()->getSimulation()->startSimulation();
     } catch (...) {
 	Trace("Error starting simulation");
     }
@@ -77,7 +77,7 @@ void GenesysConsole::cmdStart() {
 void GenesysConsole::cmdStep() {
     Trace("Step simulation");
     try {
-	_simulator->getModels()->actual()->getSimulation()->stepSimulation();
+	_simulator->getModelManager()->current()->getSimulation()->stepSimulation();
     } catch (...) {
 	Trace("Error stepping simulation");
     }
@@ -86,7 +86,7 @@ void GenesysConsole::cmdStep() {
 void GenesysConsole::cmdStop() {
     Trace("Stop simulation");
     try {
-	_simulator->getModels()->actual()->getSimulation()->stopSimulation();
+	_simulator->getModelManager()->current()->getSimulation()->stopSimulation();
     } catch (...) {
 	Trace("Error stopping simulation");
     }
@@ -95,7 +95,7 @@ void GenesysConsole::cmdStop() {
 void GenesysConsole::cmdShowReport() {
     Trace("Show report");
     try {
-	_simulator->getModels()->actual()->getSimulation()->getSimulationReporter()->showSimulationStatistics();
+	_simulator->getModelManager()->current()->getSimulation()->getSimulationReporter()->showSimulationStatistics();
     } catch (...) {
 	Trace("Error showing reports");
     }
@@ -160,7 +160,7 @@ void GenesysConsole::run(List<std::string>* commandlineArgs) {
     std::string inputText; //, shortPrefix, longPrefix, separator;
     while (true) {
 	if (!commandlineArgs->empty()) {
-	    inputText = commandlineArgs->first();
+	    inputText = commandlineArgs->front();
 	    commandlineArgs->pop_front();
 	    tryExecuteCommand(inputText, "-", "--", "=");
 	} else {
