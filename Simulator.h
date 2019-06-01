@@ -41,16 +41,18 @@ public: // only get
     PluginManager* getPluginManager() const;
     ModelManager* getModelManager() const;
     ToolManager* getToolManager() const;
+    TraceManager* getTraceManager() const;
 private: 
 private: // attributes 1:1 objects
     LicenceManager* _licenceManager;
     PluginManager* _pluginManager;
     ModelManager* _modelManager;
     ToolManager* _toolManager;
+    TraceManager* _traceManager;
     //TraceManager* _tracer;
 private: // attributes 1:1 native
     const std::string _name = "ReGenESyS - Reborn Generic and Expansible System Simulator";
-    const std::string _version = "2018.10.1";
+    const std::string _version = "2019.0601";
 };
 
 #endif /* GENESYS_H */

@@ -36,29 +36,37 @@ void Decide::_execute(Entity* entity) {
     unsigned short i = 0;
     for (std::list<std::string>::iterator it = _conditions->getList()->begin(); it != _conditions->getList()->end(); it++) {
 	value = _model->parseExpression((*it));
-	_model->getTracer()->traceSimulation(Util::TraceLevel::blockInternal, _model->getSimulation()->getSimulatedTime(), entity, this, std::to_string(i + 1) + "th condition evaluated to " + std::to_string(value) + "  // " + (*it));
+	_model->getTraceManager()->traceSimulation(Util::TraceLevel::blockInternal, _model->getSimulation()->getSimulatedTime(), entity, this, std::to_string(i + 1) + "th condition evaluated to " + std::to_string(value) + "  // " + (*it));
 	if (value) {
 	    _model->sendEntityToComponent(entity, this->getNextComponents()->getAtRank(i), 0.0);
 	    return;
 	}
 	i++;
     }
-    _model->getTracer()->traceSimulation(Util::TraceLevel::blockInternal, _model->getSimulation()->getSimulatedTime(), entity, this, "No condition has been evaluated true");
+    _model->getTraceManager()->traceSimulation(Util::TraceLevel::blockInternal, _model->getSimulation()->getSimulatedTime(), entity, this, "No condition has been evaluated true");
     _model->sendEntityToComponent(entity, this->getNextComponents()->getAtRank(i), 0.0);
-}
-
-bool Decide::_loadInstance(std::map<std::string, std::string>* fields) {
-    return true;
 }
 
 void Decide::_initBetweenReplications() {
 }
 
+bool Decide::_loadInstance(std::map<std::string, std::string>* fields) {
+    bool res = ModelComponent::_loadInstance(fields);
+    if (res) {
+	unsigned int nv = std::stoi((*(fields->find("conditions"))).second);
+	for (unsigned int i = 0; i < nv; i++) {
+	    this->_conditions->insert((*(fields->find("condition"+std::to_string(i)))).second);
+	}
+    }
+    return res;
+}
+
 std::map<std::string, std::string>* Decide::_saveInstance() {
     std::map<std::string, std::string>* fields = ModelComponent::_saveInstance(); //Util::TypeOf<Decide>());
-    unsigned short i=0;
+    unsigned short i = 0;
+    fields->emplace("conditions", std::to_string(_conditions->size()));
     for (std::list<std::string>::iterator it = _conditions->getList()->begin(); it != _conditions->getList()->end(); it++) {
-	fields->emplace("condition"+std::to_string(i) , (*it));
+	fields->emplace("condition" + std::to_string(i), (*it));
     }
     return fields;
 }
@@ -73,16 +81,16 @@ bool Decide::_check(std::string* errorMessage) {
     return allResult;
 }
 
-PluginInformation* Decide::GetPluginInformation(){
-    return new PluginInformation(Util::TypeOf<Decide>(), true, &Decide::LoadInstance);
+PluginInformation* Decide::GetPluginInformation() {
+    return new PluginInformation(Util::TypeOf<Decide>(), &Decide::LoadInstance);
 }
 
-ModelElement* Decide::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+ModelComponent* Decide::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
     Decide* newComponent = new Decide(model);
     try {
 	newComponent->_loadInstance(fields);
     } catch (const std::exception& e) {
-	
+
     }
     return newComponent;
 }

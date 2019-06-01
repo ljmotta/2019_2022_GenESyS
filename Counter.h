@@ -6,7 +6,7 @@
 
 /*
  * File:   CounterDefaultImpl1.h
- * Author: rlcancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 29 de Maio de 2019, 11:24
  */

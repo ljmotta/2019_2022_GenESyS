@@ -73,7 +73,7 @@ void onEntityRemoveHandler(SimulationEvent* re) {
 void BuildSimulationModel::buildModel(Model* model) { // buildModelWithAllImplementedComponents
     // traces handle and simulation events to output them
     /*
-    TraceManager* tm = model->getTracer();
+    TraceManager* tm = model->getTraceManager();
     tm->addTraceHandler(&traceHandler);
     tm->addTraceReportHandler(&traceHandler);
     tm->addTraceSimulationHandler(&traceSimulationHandler);

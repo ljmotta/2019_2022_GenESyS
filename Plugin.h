@@ -17,32 +17,48 @@
 #include "Util.h"
 #include <string>
 #include <functional>
+#include <list>
 
 class ModelElement;
 class ModelComponent;
 class Model;
 class ElementManager;
 
-typedef ModelElement* (*StaticLoaderComponentInstance)(Model*, std::map<std::string, std::string>*);
+typedef ModelComponent* (*StaticLoaderComponentInstance)(Model*, std::map<std::string, std::string>*);
+typedef ModelElement* (*StaticLoaderElementInstance)(ElementManager*, std::map<std::string, std::string>*);
+class PluginInformation;
+typedef PluginInformation* (*StaticGetPluginInformation)();
 
 class PluginInformation {
 public:
 
-    PluginInformation(std::string pluginTypename, bool isComponent, StaticLoaderComponentInstance loader) {
-	this->loader = loader;
-	//this->drain = drain;
-	this->isComponent = isComponent;
+    PluginInformation(std::string pluginTypename, StaticLoaderComponentInstance componentloader) {
+	this->componentloader = componentloader;
+	this->elementloader = nullptr;
+	this->isComponent = true;
+	this->pluginTypename = pluginTypename;
+	//this->source = source;
+    }
+
+    PluginInformation(std::string pluginTypename, StaticLoaderElementInstance elementloader) {
+	this->componentloader = nullptr;
+	this->elementloader = elementloader;
+	this->isComponent = false;
 	this->pluginTypename = pluginTypename;
 	//this->source = source;
     }
     std::string pluginTypename;
-    bool source;
-    bool drain;
+    std::string author = "";
+    std::string date = "";
+    std::string observation = "";
+    bool isSource;
+    bool isSink;
     bool isComponent;
-    StaticLoaderComponentInstance loader;
+    bool generateReport = false;
+    StaticLoaderComponentInstance componentloader;
+    StaticLoaderElementInstance elementloader;
+    std::list<PluginInformation> dependencies;
 };
-
-typedef PluginInformation* (*StaticGetPluginInformation)();
 
 /*!
  * A Plugin represents a dynamically linked component class (ModelComponent) or element class (ModelElement); It gives access to a ModelComponent so it can be used by the model. Classes like Create, Delay, and Dispose are examples of PlugIns.  It corresponds directly to the  "Expansible" part (the capitalized 'E') of the GenESyS acronymous
@@ -54,16 +70,19 @@ public:
     Plugin(const Plugin& orig);
     virtual ~Plugin();
 public:
-    ModelComponent* loadNewComponent(Model* model, std::map<std::string, std::string>* fields);
-    ModelElement* loadNewElement(ElementManager* elems, std::map<std::string, std::string>* fields);
-public:
     bool isIsValidPlugin() const;
     PluginInformation* getPluginInfo() const;
+public:
+    ModelElement* loadNew(Model* model, std::map<std::string, std::string>* fields);
+    bool loadAndInsertNew(Model* model, std::map<std::string, std::string>* fields);
+private:
+    ModelComponent* _loadNewComponent(Model* model, std::map<std::string, std::string>* fields);
+    ModelElement* _loadNewElement(ElementManager* model, std::map<std::string, std::string>* fields);
 private: // read only
     bool _isValidPlugin;
     PluginInformation* _pluginInfo;
 private:
-    StaticGetPluginInformation _getInformation;
+    StaticGetPluginInformation _StatMethodGetInformation;
 };
 
 #endif /* PLUGIN_H */

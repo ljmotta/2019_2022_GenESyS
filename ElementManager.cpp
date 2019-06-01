@@ -72,13 +72,17 @@ bool ElementManager::check(std::string infraTypename, ModelElement* infra, std::
     return result;
 }
 
+void ElementManager::clear() {
+    this->_elements->clear();
+}
+
 unsigned int ElementManager::getNumberOfElements(std::string infraTypename) {
     List<ModelElement*>* listElements = getElements(infraTypename);
     return listElements->size();
 }
 
 void ElementManager::show() {
-    _model->getTracer()->trace(Util::TraceLevel::mostDetailed, "Model Elements:");
+    _model->getTraceManager()->trace(Util::TraceLevel::mostDetailed, "Model Elements:");
     //std::map<std::string, List<ModelElement*>*>* _elements;
     std::string key;
     List<ModelElement*>* list;
@@ -87,11 +91,11 @@ void ElementManager::show() {
 	for (std::map<std::string, List<ModelElement*>*>::iterator infraIt = _elements->begin(); infraIt != _elements->end(); infraIt++) {
 	    key = (*infraIt).first;
 	    list = (*infraIt).second;
-	    _model->getTracer()->trace(Util::TraceLevel::mostDetailed, key + ": (" + std::to_string(list->size()) + ")");
+	    _model->getTraceManager()->trace(Util::TraceLevel::mostDetailed, key + ": (" + std::to_string(list->size()) + ")");
 	    Util::IncIndent();
 	    {
 		for (std::list<ModelElement*>::iterator it = list->getList()->begin(); it != list->getList()->end(); it++) {
-		    _model->getTracer()->trace(Util::TraceLevel::mostDetailed, (*it)->show());
+		    _model->getTraceManager()->trace(Util::TraceLevel::mostDetailed, (*it)->show());
 		}
 	    }
 	    Util::DecIndent();

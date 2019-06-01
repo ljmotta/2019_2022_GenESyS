@@ -50,7 +50,7 @@ void GenesysConsole::cmdTraceLevel() {
     try {
 	int tlnum = std::stoi(_parameter);
 	Util::TraceLevel tl = static_cast<Util::TraceLevel> (tlnum);
-	_simulator->getModelManager()->current()->getTracer()->setTraceLevel(tl);
+	_simulator->getModelManager()->current()->getTraceManager()->setTraceLevel(tl);
     } catch (...) {
 	Trace("Error setting trace level");
     }

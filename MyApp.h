@@ -18,15 +18,15 @@
 
 #include "Simulator.h"
 
-class MyReGenESYsApplication : public GenesysApplication_if {
+class MyApp : public GenesysApplication_if {
 public:
-    MyReGenESYsApplication();
-    MyReGenESYsApplication(const MyReGenESYsApplication& orig);
-    virtual ~MyReGenESYsApplication();
+    MyApp();
+    MyApp(const MyApp& orig);
+    virtual ~MyApp();
 public:
     virtual int main(int argc, char** argv);
 private:
-    void manuallyInsertAllPlugins(Simulator* simulator);
+    void insertFakePluginsByHand(Simulator* simulator);
 };
 
 #endif /* MYREGENESYSAPPLICATION_H */

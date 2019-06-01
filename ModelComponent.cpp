@@ -25,38 +25,38 @@ ModelComponent::~ModelComponent() {
 }
 
 void ModelComponent::Execute(Entity* entity, ModelComponent* component) {
-    component->_model->getTracer()->trace(Util::TraceLevel::blockArrival, "Entity " + std::to_string(entity->getId()) + " has arrived at component \"" + component->_name + "\""); //std::to_string(component->_id));
+    component->_model->getTraceManager()->trace(Util::TraceLevel::blockArrival, "Entity " + std::to_string(entity->getId()) + " has arrived at component \"" + component->_name + "\""); //std::to_string(component->_id));
     Util::IncIndent();
     try {
 	component->_execute(entity);
     } catch (const std::exception& e) {
-	component->_model->getTracer()->traceError(e, "Error executing component " + component->show());
+	component->_model->getTraceManager()->traceError(e, "Error executing component " + component->show());
     }
     Util::DecIndent();
 }
 
 void ModelComponent::InitBetweenReplications(ModelComponent* component) {
-    //component->_model->getTracer()->trace(Util::TraceLevel::blockArrival, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));
+    //component->_model->getTraceManager()->trace(Util::TraceLevel::blockArrival, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));
     try {
 	component->_initBetweenReplications();
     } catch (const std::exception& e) {
-	component->_model->getTracer()->traceError(e, "Error initing component " + component->show());
+	component->_model->getTraceManager()->traceError(e, "Error initing component " + component->show());
     };
 }
 
 std::map<std::string, std::string>* ModelComponent::SaveInstance(ModelComponent* component) {
-    component->_model->getTracer()->trace(Util::TraceLevel::blockArrival, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));
+    component->_model->getTraceManager()->trace(Util::TraceLevel::blockArrival, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));
     std::map<std::string, std::string>* fields = new std::map<std::string, std::string>();
     try {
 	fields = component->_saveInstance();
     } catch (const std::exception& e) {
-	component->_model->getTracer()->traceError(e, "Error executing component " + component->show());
+	component->_model->getTraceManager()->traceError(e, "Error executing component " + component->show());
     }
     return fields;
 }
 
 bool ModelComponent::Check(ModelComponent* component) {
-    component->_model->getTracer()->trace(Util::TraceLevel::mostDetailed, "Checking " + component->_typename + ": " + component->_name); //std::to_string(component->_id));
+    component->_model->getTraceManager()->trace(Util::TraceLevel::mostDetailed, "Checking " + component->_typename + ": " + component->_name); //std::to_string(component->_id));
     bool res = false;
     std::string* errorMessage = new std::string();
     Util::IncIndent();
@@ -64,10 +64,10 @@ bool ModelComponent::Check(ModelComponent* component) {
 	try {
 	    res = component->_check(errorMessage);
 	    if (!res) {
-		component->_model->getTracer()->trace(Util::TraceLevel::errors, "Error: Checking has failed with message '" + *errorMessage + "'");
+		component->_model->getTraceManager()->trace(Util::TraceLevel::errors, "Error: Checking has failed with message '" + *errorMessage + "'");
 	    }
 	} catch (const std::exception& e) {
-	    component->_model->getTracer()->traceError(e, "Error verifying component " + component->show());
+	    component->_model->getTraceManager()->traceError(e, "Error verifying component " + component->show());
 	}
     }
     Util::DecIndent();

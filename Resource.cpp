@@ -139,7 +139,7 @@ void Resource::_notifyEventHandlers() {
 }
 
 PluginInformation* Resource::GetPluginInformation(){
-    return new PluginInformation(Util::TypeOf<Resource>(), false, &Resource::LoadInstance);
+    return new PluginInformation(Util::TypeOf<Resource>(), &Resource::LoadInstance);
 }
 
 ModelElement* Resource::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {
@@ -153,7 +153,14 @@ ModelElement* Resource::LoadInstance(ElementManager* elems, std::map<std::string
 }
 
 bool Resource::_loadInstance(std::map<std::string, std::string>* fields) {
-    return ModelElement::_loadInstance(fields);
+    bool res =ModelElement::_loadInstance(fields);
+    if (res){
+	this->_capacity = std::stoi( (*(fields->find("capacity"))).second );
+	this->_costBusyHour = std::stod((*(fields->find("costBusyHour"))).second);
+	this->_costIdleHour= std::stod((*(fields->find("costIdleHour"))).second);
+	this->_costPerUse = std::stod((*(fields->find("costPerUse"))).second);
+    }
+    return res;
 }
 
 std::map<std::string, std::string>* Resource::_saveInstance() {

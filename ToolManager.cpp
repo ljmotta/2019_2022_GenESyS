@@ -6,7 +6,7 @@
 
 /* 
  * File:   ToolManager.cpp
- * Author: rlcancian
+ * Author: rafael.luiz.cancian
  * 
  * Created on 31 de Maio de 2019, 09:04
  */

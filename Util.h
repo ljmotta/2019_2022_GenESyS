@@ -83,7 +83,7 @@ public: // indentation and string
     static void SepKeyVal(std::string str, std::string *key, std::string *value);
     static std::string Indent();
     static std::string SetW(std::string text, unsigned short width);
-
+    static std::string StrTimeUnit(Util::TimeUnit timeUnit);
 public: // identitification
     static Util::identitifcation GenerateNewId();
     static Util::identitifcation GenerateNewIdOfType(std::string objtype);

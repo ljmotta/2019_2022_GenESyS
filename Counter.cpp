@@ -6,7 +6,7 @@
 
 /* 
  * File:   CounterDefaultImpl1.cpp
- * Author: rlcancian
+ * Author: rafael.luiz.cancian
  * 
  * Created on 29 de Maio de 2019, 11:24
  */
@@ -32,9 +32,10 @@ Counter::~Counter() {
 }
 
 std::string Counter::show() {
-    return ModelElement::show() + 
-	    ", count="+std::to_string(this->_count);
+    return ModelElement::show() +
+	    ", count=" + std::to_string(this->_count);
 }
+
 void
 Counter::clear() {
     _count = 0;
@@ -52,8 +53,10 @@ ModelElement* Counter::getParent() const {
     return _parent;
 }
 
-PluginInformation* Counter::GetPluginInformation(){
-    return new PluginInformation(Util::TypeOf<Counter>(), false, &Counter::LoadInstance);
+PluginInformation* Counter::GetPluginInformation() {
+    PluginInformation* pluginfo = new PluginInformation(Util::TypeOf<Counter>(), &Counter::LoadInstance);
+    pluginfo->generateReport = true;
+    return pluginfo;
 }
 
 ModelElement* Counter::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {

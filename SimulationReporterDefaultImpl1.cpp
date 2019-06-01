@@ -29,8 +29,8 @@ SimulationReporterDefaultImpl1::~SimulationReporterDefaultImpl1() {
 }
 
 void SimulationReporterDefaultImpl1::showReplicationStatistics() {
-    _model->getTracer()->traceReport(Util::TraceLevel::report, "");
-    _model->getTracer()->traceReport(Util::TraceLevel::report, "Begin of Report for replication " + std::to_string(_simulation->getCurrentReplicationNumber()) + " of " + std::to_string(_model->getInfos()->getNumberOfReplications()));
+    _model->getTraceManager()->traceReport(Util::TraceLevel::report, "");
+    _model->getTraceManager()->traceReport(Util::TraceLevel::report, "Begin of Report for replication " + std::to_string(_simulation->getCurrentReplicationNumber()) + " of " + std::to_string(_model->getInfos()->getNumberOfReplications()));
     const std::string UtilTypeOfStatisticsCollector = Util::TypeOf<StatisticsCollector>();
     const std::string UtilTypeOfCounter = Util::TypeOf<Counter>();
     // runs over all elements and list the statistics for each one, and then the statistics with no parent
@@ -79,23 +79,23 @@ void SimulationReporterDefaultImpl1::showReplicationStatistics() {
 	std::list<ModelElement*>* listStatAndCount = (*mapIt).second;
 	assert(listStatAndCount != nullptr);
 	listStatAndCount->insert(listStatAndCount->end(), statOrCnt);
-	//_model->getTracer()->traceReport(Util::TraceLevel::report, parentTypename + " -> " + parentName + " -> " + stat->show());
+	//_model->getTraceManager()->traceReport(Util::TraceLevel::report, parentTypename + " -> " + parentName + " -> " + stat->show());
     }
     // now runs over that map of maps showing the statistics
     for (auto const mapmapItem : *mapMapTypeStat) {
-	_model->getTracer()->traceReport(Util::TraceLevel::report, "Statistis for " + mapmapItem.first + ":");
+	_model->getTraceManager()->traceReport(Util::TraceLevel::report, "Statistis for " + mapmapItem.first + ":");
 	Util::IncIndent();
 	{
 	    for (auto const mapItem : *(mapmapItem.second)) {
-		_model->getTracer()->traceReport(Util::TraceLevel::report, mapItem.first + ":");
+		_model->getTraceManager()->traceReport(Util::TraceLevel::report, mapItem.first + ":");
 		Util::IncIndent();
 		{
-		    _model->getTracer()->traceReport(Util::TraceLevel::report, Util::SetW("name", _nameW) +
+		    _model->getTraceManager()->traceReport(Util::TraceLevel::report, Util::SetW("name", _nameW) +
 			    Util::SetW("elems", _w) + Util::SetW("min", _w) + Util::SetW("max", _w) + Util::SetW("average", _w) + Util::SetW("variance", _w) + Util::SetW("stddev", _w) + Util::SetW("varCoef", _w) + Util::SetW("confInterv", _w) + Util::SetW("confLevel", _w));
 		    for (ModelElement * const item : *(mapItem.second)) {
 			if (item->getTypename() == UtilTypeOfStatisticsCollector) {
 			    Statistics_if* stat = dynamic_cast<StatisticsCollector*> (item)->getStatistics();
-			    _model->getTracer()->traceReport(Util::TraceLevel::report,
+			    _model->getTraceManager()->traceReport(Util::TraceLevel::report,
 				    Util::SetW(item->getName() + std::string(_nameW, '.'), _nameW - 1) + " " +
 				    Util::SetW(std::to_string(stat->numElements()), _w) +
 				    Util::SetW(std::to_string(stat->min()), _w) +
@@ -110,7 +110,7 @@ void SimulationReporterDefaultImpl1::showReplicationStatistics() {
 			} else {
 			    if (item->getTypename() == UtilTypeOfCounter) {
 				Counter* count = dynamic_cast<Counter*> (item);
-				_model->getTracer()->traceReport(Util::TraceLevel::report,
+				_model->getTraceManager()->traceReport(Util::TraceLevel::report,
 					Util::SetW(count->getName() + std::string(_nameW, '.'), _nameW - 1) + " " +
 					Util::SetW(std::to_string(count->getCountValue()), _w)
 					);
@@ -125,13 +125,13 @@ void SimulationReporterDefaultImpl1::showReplicationStatistics() {
     }
 
     Util::DecIndent();
-    _model->getTracer()->traceReport(Util::TraceLevel::report, "End of Report for replication " + std::to_string(_simulation->getCurrentReplicationNumber()) + " of " + std::to_string(_model->getInfos()->getNumberOfReplications()));
-    _model->getTracer()->traceReport(Util::TraceLevel::report, "------------------------------");
+    _model->getTraceManager()->traceReport(Util::TraceLevel::report, "End of Report for replication " + std::to_string(_simulation->getCurrentReplicationNumber()) + " of " + std::to_string(_model->getInfos()->getNumberOfReplications()));
+    _model->getTraceManager()->traceReport(Util::TraceLevel::report, "------------------------------");
 }
 
 void SimulationReporterDefaultImpl1::showSimulationStatistics() {//List<StatisticsCollector*>* cstatsSimulation) {
-    _model->getTracer()->traceReport(Util::TraceLevel::report, "");
-    _model->getTracer()->traceReport(Util::TraceLevel::report, "Begin of Report for Simulation (based on " + std::to_string(_model->getInfos()->getNumberOfReplications()) + " replications)");
+    _model->getTraceManager()->traceReport(Util::TraceLevel::report, "");
+    _model->getTraceManager()->traceReport(Util::TraceLevel::report, "Begin of Report for Simulation (based on " + std::to_string(_model->getInfos()->getNumberOfReplications()) + " replications)");
     const std::string UtilTypeOfStatisticsCollector = Util::TypeOf<StatisticsCollector>();
     const std::string UtilTypeOfCounter = Util::TypeOf<Counter>();
     // runs over all elements and list the statistics for each one, and then the statistics with no parent
@@ -177,24 +177,24 @@ void SimulationReporterDefaultImpl1::showSimulationStatistics() {//List<Statisti
 	// get the list and insert the stat in that list
 	std::list<ModelElement*>* listStat = (*mapIt).second;
 	listStat->insert(listStat->end(), statOrCnt);
-	//_model->getTracer()->traceReport(Util::TraceLevel::report, parentTypename + " -> " + parentName + " -> " + stat->show());
+	//_model->getTraceManager()->traceReport(Util::TraceLevel::report, parentTypename + " -> " + parentName + " -> " + stat->show());
     }
     // now runs over that map of maps showing the statistics
     //int w = 12;
     for (auto const mapmapItem : *mapMapTypeStat) {
-	_model->getTracer()->traceReport(Util::TraceLevel::report, "Statistis for " + mapmapItem.first + ":");
+	_model->getTraceManager()->traceReport(Util::TraceLevel::report, "Statistis for " + mapmapItem.first + ":");
 	Util::IncIndent();
 	{
 	    for (auto const mapItem : *(mapmapItem.second)) {
-		_model->getTracer()->traceReport(Util::TraceLevel::report, mapItem.first + ":");
+		_model->getTraceManager()->traceReport(Util::TraceLevel::report, mapItem.first + ":");
 		Util::IncIndent();
 		{
-		    _model->getTracer()->traceReport(Util::TraceLevel::report, Util::SetW("name", _nameW) +
+		    _model->getTraceManager()->traceReport(Util::TraceLevel::report, Util::SetW("name", _nameW) +
 			    Util::SetW("elems", _w) + Util::SetW("min", _w) + Util::SetW("max", _w) + Util::SetW("average", _w) + Util::SetW("variance", _w) + Util::SetW("stddev", _w) + Util::SetW("varCoef", _w) + Util::SetW("confInterv", _w) + Util::SetW("confLevel", _w));
 		    for (ModelElement * const item : *(mapItem.second)) {
 			if (item->getTypename() == UtilTypeOfStatisticsCollector) {
 			    Statistics_if* stat = dynamic_cast<StatisticsCollector*> (item)->getStatistics();
-			    _model->getTracer()->traceReport(Util::TraceLevel::report,
+			    _model->getTraceManager()->traceReport(Util::TraceLevel::report,
 				    Util::SetW(item->getName() + std::string(_nameW, '.'), _nameW - 1) + " " +
 				    Util::SetW(std::to_string(stat->numElements()), _w) +
 				    Util::SetW(std::to_string(stat->min()), _w) +
@@ -209,7 +209,7 @@ void SimulationReporterDefaultImpl1::showSimulationStatistics() {//List<Statisti
 			} else {
 			    if (item->getTypename() == UtilTypeOfCounter) {
 				Counter* cnt = dynamic_cast<Counter*> (item);
-				_model->getTracer()->traceReport(Util::TraceLevel::report,
+				_model->getTraceManager()->traceReport(Util::TraceLevel::report,
 					Util::SetW(cnt->getName() + std::string(_nameW, '.'), _nameW - 1) + " " +
 					Util::SetW(std::to_string(cnt->getCountValue()), _w)
 					);
@@ -225,5 +225,5 @@ void SimulationReporterDefaultImpl1::showSimulationStatistics() {//List<Statisti
     }
 
     Util::DecIndent();
-    _model->getTracer()->traceReport(Util::TraceLevel::report, "End of Report for Simulation");
+    _model->getTraceManager()->traceReport(Util::TraceLevel::report, "End of Report for Simulation");
 }

@@ -6,7 +6,7 @@
 
 /* 
  * File:   LicenceManager.h
- * Author: rlcancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 29 de Maio de 2019, 11:45
  */
@@ -25,6 +25,7 @@ public:
     virtual ~LicenceManager();
     const std::string showLicence() const;
     const std::string showLimits() const;
+    const std::string showActivationCode() const;
     bool lookforActivationCode();
     bool insertActivationCode();
     void removeActivationCode();

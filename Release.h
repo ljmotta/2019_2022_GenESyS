@@ -30,7 +30,7 @@ public:
     virtual std::string show();
 public:
     static PluginInformation* GetPluginInformation();
-    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+    static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 public: // get & set
     void setPriority(unsigned short _priority);
     unsigned short getPriority() const;

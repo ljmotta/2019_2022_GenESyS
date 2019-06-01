@@ -102,7 +102,7 @@ typedef void (*traceSimulationProcessListener)(TraceSimulationProcess);
  */
 class TraceManager {
 public:
-    TraceManager(Model* model);
+    TraceManager(Simulator* simulator);//(Model* model);
     TraceManager(const TraceManager& orig);
     virtual ~TraceManager();
 public: // traces
@@ -120,6 +120,7 @@ public: // traces
 public:
     void setTraceLevel(Util::TraceLevel _traceLevel);
     Util::TraceLevel getTraceLevel() const;
+    Simulator* getSimulator() const;
 private:
     bool _traceConditionPassed(Util::TraceLevel level);
 private: // trace listener
@@ -128,7 +129,8 @@ private: // trace listener
     std::list<traceListener>* _traceReportHandlers = new std::list<traceListener>();
     std::list<traceSimulationListener>* _traceSimulationHandlers = new std::list<traceSimulationListener>();
 private:
-    Model* _model;
+    //Model* _model;
+    Simulator* _simulator;
 private:
     Util::TraceLevel _traceLevel; // = Util::TraceLevel::mostDetailed;
     bool _debugged;

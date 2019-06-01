@@ -19,9 +19,10 @@
 #include <assert.h>
 
 Plugin::Plugin(StaticGetPluginInformation getInformation) {
-    this->_getInformation = getInformation;
+    this->_StatMethodGetInformation = getInformation;
     try {
-	PluginInformation* infos = _getInformation();
+	PluginInformation* infos = _StatMethodGetInformation();
+	this->_pluginInfo = infos;
 	this->_isValidPlugin = true;
     } catch (...) {
 	this->_isValidPlugin = false;
@@ -48,10 +49,33 @@ Plugin::Plugin(const Plugin& orig) {
 Plugin::~Plugin() {
 }
 
-ModelComponent* Plugin::loadNewComponent(Model* model, std::map<std::string, std::string>* fields) {
+ModelElement* Plugin::loadNew(Model* model, std::map<std::string, std::string>* fields) {
+    if (this->_pluginInfo->isComponent) {
+	return _loadNewComponent(model, fields);
+    } else {
+	return _loadNewElement(model->getElementManager(), fields);
+    }
+}
+
+bool Plugin::loadAndInsertNew(Model* model, std::map<std::string, std::string>* fields) {
+    if (this->_pluginInfo->isComponent) {
+	ModelComponent* newComp = _loadNewComponent(model, fields);
+	return model->getComponentManager()->insert(newComp);
+    } else {
+	ModelElement* newElem = _loadNewElement(model->getElementManager(), fields);
+	return model->getElementManager()->insert(this->_pluginInfo->pluginTypename, newElem);
+    }
+}
+
+ModelComponent* Plugin::_loadNewComponent(Model* model, std::map<std::string, std::string>* fields) {
     //return this->_pluginInfo->loader(model, fields);
-    StaticLoaderComponentInstance loader = this->_pluginInfo->loader;
-    ModelElement* newElementOrComponent = loader(model, fields);
+    StaticLoaderComponentInstance loader = this->_pluginInfo->componentloader;
+    ModelComponent* newElementOrComponent = loader(model, fields);
     return newElementOrComponent;
 }
 
+ModelElement* Plugin::_loadNewElement(ElementManager* elems, std::map<std::string, std::string>* fields) {
+    StaticLoaderElementInstance loader = this->_pluginInfo->elementloader;
+    ModelElement* newElementOrComponent = loader(elems, fields);
+    return newElementOrComponent;
+}

@@ -17,14 +17,15 @@
 
 Simulator::Simulator() {
     // This is the ONLY method in the entire software where std::cout is allowed.
-    std::cout << "Now running " << _name << std::endl;
+    std::cout << "RUNNING " << _name << " version " << _version << std::endl;
     _licenceManager = new LicenceManager(this);
     _pluginManager = new PluginManager(this);
     _modelManager = new ModelManager(this);
     _toolManager = new ToolManager(this);
-    //_tracer = new TraceManager(nullptr); // no model so far. Tracing from simulation just can't tracesimulation. That looks fair enough
+    _traceManager = new TraceManager(this);
     std::cout << _licenceManager->showLicence() << std::endl;
-    std::cout << _licenceManager->showLimits() << std::endl << std::endl;
+    std::cout << _licenceManager->showActivationCode() << std::endl;
+    std::cout << _licenceManager->showLimits() << std::endl;
 }
 
 PluginManager* Simulator::getPluginManager() const {
@@ -37,6 +38,10 @@ ModelManager* Simulator::getModelManager() const {
 
 ToolManager* Simulator::getToolManager() const {
     return _toolManager;
+}
+
+TraceManager* Simulator::getTraceManager() const {
+    return _traceManager;
 }
 
 Simulator::Simulator(const Simulator& orig) {

@@ -31,7 +31,7 @@ std::string Delay::show() {
 	    ",timeUnit=" + std::to_string(static_cast<int> (this->_delayTimeUnit));
 }
 
-ModelElement* Delay::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+ModelComponent* Delay::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
     Delay* newComponent = new Delay(model);
     try {
 	newComponent->_loadInstance(fields);
@@ -64,7 +64,7 @@ void Delay::_execute(Entity* entity) {
     double delayEndTime = _model->getSimulation()->getSimulatedTime() + waitTime;
     Event* newEvent = new Event(delayEndTime, entity, this->getNextComponents()->front());
     _model->getEvents()->insert(newEvent);
-    _model->getTracer()->trace(Util::TraceLevel::blockInternal, "End of delay of entity " + std::to_string(entity->getId()) + " scheduled to time " + std::to_string(delayEndTime));
+    _model->getTraceManager()->trace(Util::TraceLevel::blockInternal, "End of delay of entity " + std::to_string(entity->getId()) + " scheduled to time " + std::to_string(delayEndTime));
 }
 
 bool Delay::_loadInstance(std::map<std::string, std::string>* fields) {
@@ -102,5 +102,5 @@ bool Delay::_check(std::string* errorMessage) {
 }
 
 PluginInformation* Delay::GetPluginInformation(){
-    return new PluginInformation(Util::TypeOf<Delay>(), true, &Delay::LoadInstance);
+    return new PluginInformation(Util::TypeOf<Delay>(), &Delay::LoadInstance);
 }

@@ -6,7 +6,7 @@
 
 /* 
  * File:   ModelManager.h
- * Author: rlcancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 31 de Maio de 2019, 08:37
  */
@@ -33,11 +33,9 @@ public:
     Model* current();
     Model* next();
     Model* end();
-    TraceManager* getTracer() const;
 private:
     List<Model*>* _models = new List<Model*>();
     Model* _currentModel;
-    TraceManager* _tracer;
 private:
     Simulator* _simulator;
 };

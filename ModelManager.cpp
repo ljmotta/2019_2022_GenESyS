@@ -6,7 +6,7 @@
 
 /* 
  * File:   ModelManager.cpp
- * Author: rlcancian
+ * Author: rafael.luiz.cancian
  * 
  * Created on 31 de Maio de 2019, 08:37
  */
@@ -68,8 +68,4 @@ Model* ModelManager::next() {
 
 Model* ModelManager::end() {
     return _models->last();
-}
-
-TraceManager* ModelManager::getTracer() const {
-    return _tracer;
 }

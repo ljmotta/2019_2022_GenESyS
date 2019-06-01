@@ -117,7 +117,7 @@ void ModelInfo::loadInstance(std::map<std::string, std::string>* fields) {
     this->_analystName = (*fields->find("analystName")).second;
     this->_description = (*fields->find("description")).second;
     this->_name = (*fields->find("name")).second;
-    this->_numberOfReplications = std::stoi((*fields->find("")).second);
+    this->_numberOfReplications = std::stoi((*fields->find("numberOfReplications")).second);
     this->_projectTitle = (*fields->find("projectTitle")).second;
     this->_replicationLength = std::stod((*fields->find("replicationLength")).second);
     this->_replicationLengthTimeUnit = static_cast<Util::TimeUnit>(std::stoi((*fields->find("replicationLengthTimeUnit")).second));

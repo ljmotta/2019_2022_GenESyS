@@ -19,11 +19,11 @@
 class SamplerDummyImpl : public Sampler_if {
 public:
 
-    class MyRNG_Parameters : public RNG_Parameters {
-    public:
+    struct MyRNG_Parameters : public RNG_Parameters {
 	unsigned int seed;
 	unsigned int module;
 	unsigned int multiplier;
+	~MyRNG_Parameters() = default;
     };
 public:
     SamplerDummyImpl();

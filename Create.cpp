@@ -60,7 +60,7 @@ void Create::_execute(Entity* entity) {
 	    newArrivalTime = tnow + timeBetweenCreations*timeScale;
 	    Event* newEvent = new Event(newArrivalTime, newEntity, this);
 	    _model->getEvents()->insert(newEvent);
-	    _model->getTracer()->traceSimulation(Util::TraceLevel::blockInternal, tnow, entity, this, "Arrival of entity " + std::to_string(newEntity->getId()) + " schedule for time " + std::to_string(newArrivalTime));
+	    _model->getTraceManager()->traceSimulation(Util::TraceLevel::blockInternal, tnow, entity, this, "Arrival of entity " + std::to_string(newEntity->getId()) + " schedule for time " + std::to_string(newArrivalTime));
 	    //_model->getTrace()->trace(Util::TraceLevel::blockInternal, "Arrival of entity "+std::to_string(entity->getId()) + " schedule for time " +std::to_string(newArrivalTime));
 	}
     }
@@ -69,10 +69,10 @@ void Create::_execute(Entity* entity) {
 }
 
 PluginInformation* Create::GetPluginInformation(){
-    return new PluginInformation(Util::TypeOf<Create>(), true, &Create::LoadInstance);
+    return new PluginInformation(Util::TypeOf<Create>(), &Create::LoadInstance);
 }
 
-ModelElement* Create::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+ModelComponent* Create::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
     Create* newComponent = new Create(model);
     try {
 	newComponent->_loadInstance(fields);

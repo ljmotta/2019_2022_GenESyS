@@ -32,7 +32,7 @@ std::string Variable::show() {
 }
 
 PluginInformation* Variable::GetPluginInformation(){
-    return new PluginInformation(Util::TypeOf<Variable>(), false, &Variable::LoadInstance);
+    return new PluginInformation(Util::TypeOf<Variable>(), &Variable::LoadInstance);
 }
 
 double Variable::getValue() {
@@ -73,13 +73,27 @@ ModelElement* Variable::LoadInstance(ElementManager* elems, std::map<std::string
 }
 
 bool Variable::_loadInstance(std::map<std::string, std::string>* fields) {
-    return ModelElement::_loadInstance(fields);
+    bool res= ModelElement::_loadInstance(fields);
+    if (res) {
+	this->_numCols=std::stoi((*(fields->find("numCols"))).second);
+	this->_numRows=std::stoi((*(fields->find("numRows"))).second);
+	unsigned int nv = std::stoi((*(fields->find("numValues"))).second);
+	std::string pos;
+	double value;
+	for (unsigned int i=0; i<nv; i++){
+	    pos = ((*(fields->find("pos"+std::to_string(i)))).second);
+	    value=std::stod((*(fields->find("value"+std::to_string(i)))).second);
+	    this->_values->emplace(pos,value);
+	}
+    }
+    return res;
 }
 
 std::map<std::string, std::string>* Variable::_saveInstance() {
     std::map<std::string, std::string>* fields = ModelElement::_saveInstance(); //Util::TypeOf<Variable>());
     fields->emplace("numCols" , std::to_string(this->_numCols));
     fields->emplace("numRows" , std::to_string(this->_numRows));
+    fields->emplace("numValues", std::to_string(this->_values->size()));
     unsigned int i=0;
     for (std::map<std::string, double>::iterator it = this->_values->begin(); it != _values->end(); it++) {
 	fields->emplace("pos"+std::to_string(i) , (*it).first);

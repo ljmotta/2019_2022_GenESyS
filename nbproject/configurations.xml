@@ -219,8 +219,8 @@
       <logicalFolder name="f1" displayName="Tests" projectFiles="true">
         <itemPath>BuildSimulationModel.cpp</itemPath>
         <itemPath>BuildSimulationModel.h</itemPath>
-        <itemPath>MyReGenESYsApplication.cpp</itemPath>
-        <itemPath>MyReGenESYsApplication.h</itemPath>
+        <itemPath>MyApp.cpp</itemPath>
+        <itemPath>MyApp.h</itemPath>
         <itemPath>TestInputAnalyserTools.cpp</itemPath>
         <itemPath>TestInputAnalyserTools.h</itemPath>
         <itemPath>TestParser.cpp</itemPath>
@@ -444,9 +444,9 @@
       </item>
       <item path="ModelSimulation.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="MyReGenESYsApplication.cpp" ex="false" tool="1" flavor2="0">
+      <item path="MyApp.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="MyReGenESYsApplication.h" ex="false" tool="3" flavor2="0">
+      <item path="MyApp.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="OnEventManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -844,9 +844,9 @@
       </item>
       <item path="ModelSimulation.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="MyReGenESYsApplication.cpp" ex="false" tool="1" flavor2="0">
+      <item path="MyApp.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="MyReGenESYsApplication.h" ex="false" tool="3" flavor2="0">
+      <item path="MyApp.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="OnEventManager.cpp" ex="false" tool="1" flavor2="0">
       </item>

@@ -59,7 +59,7 @@ double SamplerDummyImpl::sampleDiscrete(double value, double acumProb, ...) {
 }
 
 void SamplerDummyImpl::setRNGparameters(Sampler_if::RNG_Parameters* param) {
-    _param = param;
+    _param = dynamic_cast<MyRNG_Parameters*> (param);
 }
 
 Sampler_if::RNG_Parameters* SamplerDummyImpl::getRNGparameters() const {

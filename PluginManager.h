@@ -6,7 +6,7 @@
 
 /* 
  * File:   PluginManager.h
- * Author: rlcancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 30 de Maio de 2019, 17:49
  */
@@ -28,6 +28,10 @@ public:
     bool insert(Plugin* plugin);
     void remove(Plugin* plugin);
     Plugin* find(std::string pluginTypeName);
+public:
+    Plugin* front();
+    Plugin* next();
+    Plugin* last();
 private:
     List<Plugin*>* _plugins = new List<Plugin*>();
     Simulator* _simulator;

@@ -14,8 +14,8 @@
 #include "TraceManager.h"
 #include "Traits.h"
 
-TraceManager::TraceManager(Model* model) {
-    _model = model;
+TraceManager::TraceManager(Simulator* simulator) {//(Model* model) {
+    _simulator = simulator;
     _debugged = Traits<Model>::debugged;
     _traceLevel = Traits<Model>::traceLevel;
 }
@@ -32,6 +32,10 @@ void TraceManager::setTraceLevel(Util::TraceLevel _traceLevel) {
 
 Util::TraceLevel TraceManager::getTraceLevel() const {
     return _traceLevel;
+}
+
+Simulator* TraceManager::getSimulator() const {
+    return _simulator;
 }
 
 /*

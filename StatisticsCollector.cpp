@@ -63,7 +63,9 @@ Statistics_if* StatisticsCollector::getStatistics() const {
 }
 
 PluginInformation* StatisticsCollector::GetPluginInformation(){
-    return new PluginInformation(Util::TypeOf<StatisticsCollector>(), false, &StatisticsCollector::LoadInstance);
+    PluginInformation* pluginfo= new PluginInformation(Util::TypeOf<StatisticsCollector>(), &StatisticsCollector::LoadInstance);
+    pluginfo->generateReport=true;
+    return pluginfo;
 }
 
 
@@ -78,7 +80,10 @@ ModelElement* StatisticsCollector::LoadInstance(ElementManager* elems, std::map<
 }
 
 bool StatisticsCollector::_loadInstance(std::map<std::string, std::string>* fields) {
-    return ModelElement::_loadInstance(fields);
+    bool res= ModelElement::_loadInstance(fields);
+    if(res){
+    }
+    return res;
 }
 
 std::map<std::string, std::string>* StatisticsCollector::_saveInstance() {

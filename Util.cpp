@@ -68,6 +68,21 @@ std::string Util::SetW(std::string text, unsigned short width) {
     return result.substr(0, width);
 }
 
+std::string Util::StrTimeUnit(Util::TimeUnit timeUnit) {
+    switch(static_cast<int>(timeUnit)) {
+	case 1: return "picosecond";
+	case 2: return "nanosecond";
+	case 3: return "microsecond";
+	case 4: return "milisecond";
+	case 5: return "second";
+	case 6: return "minute";
+	case 7: return "hour";
+	case 8: return "day";
+	case 9: return "week";
+    }
+    return "UNKNOWN!";
+}
+
 Util::identitifcation Util::GenerateNewId() {
     Util::_S_lastId++;
     return Util::_S_lastId;

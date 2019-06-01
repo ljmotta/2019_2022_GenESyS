@@ -127,7 +127,7 @@ StatisticsCollector* EntityType::getCstatWaitingTime() const {
 }
 
 PluginInformation* EntityType::GetPluginInformation(){
-    return new PluginInformation(Util::TypeOf<EntityType>(), false, &EntityType::LoadInstance);
+    return new PluginInformation(Util::TypeOf<EntityType>(), &EntityType::LoadInstance);
 }
 
 
@@ -142,8 +142,15 @@ ModelElement* EntityType::LoadInstance(ElementManager* elems, std::map<std::stri
 }
 
 bool EntityType::_loadInstance(std::map<std::string, std::string>* fields) {
-    return ModelElement::_loadInstance(fields);
-    //TODO+
+    bool res= ModelElement::_loadInstance(fields);
+    if (res){
+	this->_initialNVACost = std::stod((*(fields->find("initialNVACost"))).second);
+	this->_initialOtherCost=std::stod((*(fields->find("initialOtherCost"))).second);
+	this->_initialPicture=((*(fields->find("initialPicture"))).second);
+	this->_initialVACost=std::stod((*(fields->find("initialVACost"))).second);
+	this->_initialWaitingCost=std::stod((*(fields->find("initialWaitingCost"))).second);
+    }
+    return res;
 }
 
 std::map<std::string, std::string>* EntityType::_saveInstance() {

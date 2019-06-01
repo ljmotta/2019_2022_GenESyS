@@ -37,7 +37,7 @@ std::map<std::string, std::string>* ModelPersistenceDefaultImpl1::_getSimulatorI
 }
 
 bool ModelPersistenceDefaultImpl1::save(std::string filename) {
-    _model->getTracer()->trace(Util::TraceLevel::blockArrival, "Saving file \"" + filename + "\"");
+    _model->getTraceManager()->trace(Util::TraceLevel::blockArrival, "Saving file \"" + filename + "\"");
     Util::IncIndent();
     std::list<std::string> *simulInfosToSave, *modelInfosToSave, *modelElementsToSave, *modelComponentsToSave;
     {
@@ -54,11 +54,11 @@ bool ModelPersistenceDefaultImpl1::save(std::string filename) {
 	for (std::list<std::string>::iterator itTypenames = infraTypenames->begin(); itTypenames != infraTypenames->end(); itTypenames++) {
 	    if ((*itTypenames) != Util::TypeOf<StatisticsCollector>() && (*itTypenames) != Util::TypeOf<Counter>()) { // STATISTICSCOLLECTR and COUNTERs do NOT need to be saved
 		List<ModelElement*>* infras = _model->getElementManager()->getElements((*itTypenames));
-		_model->getTracer()->trace(Util::TraceLevel::mostDetailed, "Writing elements of type \"" + (*itTypenames) + "\":");
+		_model->getTraceManager()->trace(Util::TraceLevel::mostDetailed, "Writing elements of type \"" + (*itTypenames) + "\":");
 		Util::IncIndent();
 		{
 		    for (std::list<ModelElement*>::iterator it = infras->getList()->begin(); it != infras->getList()->end(); it++) {
-			_model->getTracer()->trace(Util::TraceLevel::mostDetailed, "Writing " + (*itTypenames) + " \"" + (*it)->getName() + "\"");
+			_model->getTraceManager()->trace(Util::TraceLevel::mostDetailed, "Writing " + (*itTypenames) + " \"" + (*it)->getName() + "\"");
 			fields = (*it)->SaveInstance((*it));
 			Util::IncIndent();
 			modelElementsToSave->merge(*_adjustFieldsToSave(fields));
@@ -69,7 +69,7 @@ bool ModelPersistenceDefaultImpl1::save(std::string filename) {
 	    }
 	}
 	// save components
-	_model->getTracer()->trace(Util::TraceLevel::mostDetailed, "Writing components\":");
+	_model->getTraceManager()->trace(Util::TraceLevel::mostDetailed, "Writing components\":");
 	//List<ModelComponent*>* components = this->_model->getComponents();
 	modelComponentsToSave = new std::list<std::string>();
 	Util::IncIndent();
@@ -83,7 +83,7 @@ bool ModelPersistenceDefaultImpl1::save(std::string filename) {
 	}
 	Util::DecIndent();
 	// SAVE FILE
-	_model->getTracer()->trace(Util::TraceLevel::mostDetailed, "Saving file");
+	_model->getTraceManager()->trace(Util::TraceLevel::mostDetailed, "Saving file");
 	Util::IncIndent();
 	{
 	    // open file
@@ -114,8 +114,10 @@ void ModelPersistenceDefaultImpl1::_saveContent(std::list<std::string>* content,
     }
 }
 
-void ModelPersistenceDefaultImpl1::_loadFields(std::string line) {
+bool ModelPersistenceDefaultImpl1::_loadFields(std::string line) {
     //std::regex regex{R"([=]+)"}; // split on space R"([\s]+)" TODO: HOW SEPARATOR WITH MORE THAN ONE CHAR
+    _model->getTraceManager()->trace(Util::TraceLevel::blockInternal, line);
+    bool res = true;
     std::regex regex{R"([;]+)"}; // split on "; ".TODO: How change it by the attribute _linefieldseparator ??
     std::sregex_token_iterator tit{line.begin(), line.end(), regex, -1};
     std::list<std::string> lstfields{tit,{}};
@@ -125,7 +127,7 @@ void ModelPersistenceDefaultImpl1::_loadFields(std::string line) {
 	regex = {R"([=]+)"};
 	std::vector<std::string> veckeyval; //{it,{}};
 	for (std::list<std::string>::iterator it = lstfields.begin(); it != lstfields.end(); it++) {
-	    std::cout << (*it) << std::endl;
+	    //std::cout << (*it) << std::endl;
 	    tit = {(*it).begin(), (*it).end(), regex, -1};
 	    veckeyval = {tit,{}};
 	    trim((veckeyval[0]));
@@ -147,14 +149,26 @@ void ModelPersistenceDefaultImpl1::_loadFields(std::string line) {
 	} else {
 	    // this should be a ModelComponent or ModelElement. 
 	    //std::string thistypename = (*fields->find("typename")).second;
-	    ModelElement* newElement = ModelElement::LoadInstance(fields);
-	    if (newElement != nullptr) {
-
+	    ModelElement* newTemUselessElement = ModelElement::LoadInstance(fields);
+	    if (newTemUselessElement != nullptr) {
+		newTemUselessElement->~ModelElement();
+		Plugin* plugin = this->_model->getParent()->getPluginManager()->find(thistypename);
+		if (plugin != nullptr) {
+		    res = plugin->loadAndInsertNew(_model, fields);
+		} else {
+		    _model->getTraceManager()->trace(Util::TraceLevel::errors, "Error loading file: Could not identity typename \"" + thistypename + "\"");
+		    res = false;
+		}
+	    } else {
+		_model->getTraceManager()->trace(Util::TraceLevel::errors, "Error loading file: Could not identity typename \"" + thistypename + "\"");
+		res = false;
 	    }
+
 	}
     } catch (...) {
 
     }
+    return res;
 }
 
 void ModelPersistenceDefaultImpl1::_loadSimulatorInfoFields(std::map<std::string, std::string>* fields) {
@@ -164,25 +178,28 @@ bool ModelPersistenceDefaultImpl1::load(std::string filename) {
     //std::list<Plugin*> plugins = this->_model->getParent()->getPlugins();
     //plugins->front()->
     //return false;
-    _model->getTracer()->trace(Util::TraceLevel::blockArrival, "Loading file \"" + filename + "\"");
+    bool res = true;
+    _model->getTraceManager()->trace(Util::TraceLevel::blockArrival, "Loading file \"" + filename + "\"");
     Util::IncIndent();
     {
 	std::ifstream modelFile;
 	std::string inputLine;
 	try {
 	    modelFile.open(filename);
-	    while (getline(modelFile, inputLine)) {
+	    while (getline(modelFile, inputLine) && res) {
 		if (inputLine.substr(0, 1) != "#" && !inputLine.empty()) {
-		    _loadFields(inputLine);
+		    Util::IncIndent();
+		    res &= _loadFields(inputLine);
+		    Util::DecIndent();
 		}
 	    }
 	    modelFile.close();
 	} catch (...) {
-	    _model->getTracer()->trace(Util::TraceLevel::errors, "Error loading file \"" + filename + "\"");
+	    _model->getTraceManager()->trace(Util::TraceLevel::errors, "Error loading file \"" + filename + "\"");
 	}
-
     }
     Util::DecIndent();
+    return res;
 }
 
 std::list<std::string>* ModelPersistenceDefaultImpl1::_adjustFieldsToSave(std::map<std::string, std::string>* fields) {
@@ -191,7 +208,7 @@ std::list<std::string>* ModelPersistenceDefaultImpl1::_adjustFieldsToSave(std::m
     for (std::map<std::string, std::string>::iterator it = fields->begin(); it != fields->end(); it++) {
 	newStr += (*it).first + "=" + (*it).second + this->_linefieldseparator;
     }
-    _model->getTracer()->trace(Util::TraceLevel::mostDetailed, newStr);
+    _model->getTraceManager()->trace(Util::TraceLevel::mostDetailed, newStr);
     newList->push_back(newStr);
     return newList;
 }

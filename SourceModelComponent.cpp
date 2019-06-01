@@ -40,7 +40,7 @@ bool SourceModelComponent::_loadInstance(std::map<std::string, std::string>* fie
 	this->_timeBetweenCreationsTimeUnit = static_cast<Util::TimeUnit> (std::stoi((*fields->find("timeBetweenCreationsTimeUnit")).second));
 	this->_maxCreationsExpression = (*fields->find("maxCreations")).second;
 	std::string entityTypename = (*fields->find("entityTypename")).second;
-	this->_entityType = _model->getElementManager()->getElement(Util::TypeOf<EntityType>(), entityTypename);
+	this->_entityType = dynamic_cast<EntityType*> (_model->getElementManager()->getElement(Util::TypeOf<EntityType>(), entityTypename));
     }
     return res;
 }

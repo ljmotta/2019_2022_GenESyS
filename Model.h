@@ -50,6 +50,7 @@ public: // model control
     bool saveModel(std::string filename);
     bool loadModel(std::string filename);
     bool checkModel(); ///< Checks the integrity and consistency of the model, possibly corrects some inconsistencies, and returns if the model is in position to the simulated.
+    void clear();
     //bool verifySymbol(std::string componentName, std::string expressionName, std::string expression, std::string expressionResult, bool mandatory); ///< Verifies if a symbol defined in a component (ModelComponent) or element is syntactically valid and addresses existing components or elements. It's used only by and directed by the component that defines the symbol.
     void removeEntity(Entity* entity, bool collectStatistics);
     void sendEntityToComponent(Entity* entity, ModelComponent* component, double timeDelay); ///< Used by components (ModelComponent) to send entities to another specific component, usually the next one connected to it, or used by the model itself, when processing an event (Event). 
@@ -61,7 +62,6 @@ public: // only gets
     // 1:1
     List<SimulationControl*>* getControls() const; ///< Returns a list of values that can be externally controlled (changed). They usually correspond to input parameters in the simulation model that must be changed for an experimental design.
     List<SimulationResponse*>* getResponses() const; ///< Returns a list of exits or simulation results that can be read externally. They usually correspond to statistics resulting from the simulation that must be read for an experiment design.
-    TraceManager* getTracer() const; ///< Provides access to the class that performs the trace of simulation and replications.
     OnEventManager* getOnEventManager() const;
     ElementManager* getElementManager() const; ///< Provides access to the class that manages the most basic elements of the simulation model (such as queues, resources, variables, etc.).
     ComponentManager* getComponentManager() const; ///< The future events list chronologically sorted; Events are scheduled by components when processing other events, and a replication evolves over time by sequentially processing the very first event in this list. It's initialized with events first described by source components (SourceComponentModel).
@@ -71,6 +71,8 @@ public: // only gets
     // 1:n
     //List<ModelComponent*>* getComponents() const; ///< Returns the list of components (such as Create, Delay, Dispose, etc.) that make up the simulation model.
     List<Event*>* getEvents() const;
+    void setTraceManager(TraceManager* _traceManager);
+    TraceManager* getTraceManager() const; ///< Provides access to the class that performs the trace of simulation and replications.
     //List<Entity*>* getEntities() const;
 
     /*
@@ -83,7 +85,7 @@ private: // read only public access (gets)
     Util::identitifcation _id;
     Simulator* _parentSimulator; /*! The parente of the model */
     // 1:1 (associted classes)
-    TraceManager* _tracer;
+    TraceManager* _traceManager;
     OnEventManager* _eventHandler;
     ElementManager* _elementManager;
     ComponentManager* _componentManager;

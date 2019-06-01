@@ -37,10 +37,10 @@ List<Assign::Assignment*>* Assign::getAssignments() const {
 }
 
 PluginInformation* Assign::GetPluginInformation(){
-    return new PluginInformation(Util::TypeOf<Assign>(), true, &Assign::LoadInstance);
+    return new PluginInformation(Util::TypeOf<Assign>(), &Assign::LoadInstance);
 }
 
-ModelElement* Assign::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+ModelComponent* Assign::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
     Assign* newComponent = new Assign(model);
     try {
 	newComponent->_loadInstance(fields);
@@ -56,7 +56,7 @@ void Assign::_execute(Entity* entity) {
     for (std::list<Assignment*>::iterator it = lets->begin(); it != lets->end(); it++) {
 	let = (*it);
 	double value = _model->parseExpression(let->getExpression());
-	_model->getTracer()->trace(Util::TraceLevel::blockInternal, "Let \"" + let->getDestination() + "\" = " + std::to_string(value) + "  // " + let->getExpression());
+	_model->getTraceManager()->trace(Util::TraceLevel::blockInternal, "Let \"" + let->getDestination() + "\" = " + std::to_string(value) + "  // " + let->getExpression());
 	/* TODO: this is NOT the best way to do it (enum comparision) */
 	if (let->getDestinationType() == DestinationType::Variable) {
 	    Variable* myvar = (Variable*) this->_model->getElementManager()->getElement(Util::TypeOf<Variable>(), let->getDestination());
@@ -69,16 +69,29 @@ void Assign::_execute(Entity* entity) {
     this->_model->sendEntityToComponent(entity, this->getNextComponents()->front(), 0.0);
 }
 
-bool Assign::_loadInstance(std::map<std::string, std::string>* fields) {
-    return true;
-}
-
 void Assign::_initBetweenReplications() {
 }
+
+bool Assign::_loadInstance(std::map<std::string, std::string>* fields) {
+    bool res = ModelComponent::_loadInstance(fields);
+    if (res) {
+	unsigned int nv = std::stoi((*(fields->find("assignments"))).second);
+	for (unsigned int i=0; i<nv; i++){
+	    DestinationType dt = static_cast<DestinationType>(std::stoi((*(fields->find("destinationType"+std::to_string(i)))).second));
+	    std::string dest = ((*(fields->find("destination"+std::to_string(i)))).second);
+	    std::string exp = ((*(fields->find("expression"+std::to_string(i)))).second);
+	    Assignment* assmt = new Assignment(dt, dest, exp);
+	    this->_assignments->insert(assmt);
+	}
+    }
+    return res;
+}
+
 
 std::map<std::string, std::string>* Assign::_saveInstance() {
     std::map<std::string, std::string>* fields = ModelComponent::_saveInstance(); //Util::TypeOf<Assign>());
     Assignment* let;
+    fields->emplace("assignments", std::to_string(_assignments->size()));
     unsigned short i = 0;
     for (std::list<Assignment*>::iterator it = _assignments->getList()->begin(); it != _assignments->getList()->end(); it++) {
 	let = (*it);

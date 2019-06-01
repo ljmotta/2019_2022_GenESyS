@@ -43,13 +43,13 @@ bool ModelCheckerDefaultImpl1::checkAll() {
 
 bool ModelCheckerDefaultImpl1::_recursiveConnectedTo(ModelComponent* comp, List<ModelComponent*>* visited, List<ModelComponent*>* unconnected, bool* drenoFound) {
     visited->insert(comp);
-    _model->getTracer()->trace(Util::TraceLevel::mostDetailed, "Connected to component " + comp->getName());
+    _model->getTraceManager()->trace(Util::TraceLevel::mostDetailed, "Connected to component " + comp->getName());
     if (dynamic_cast<SinkModelComponent*> (comp) != nullptr) { // it is a sink
         *drenoFound = true;
     } else { // it is not a sink
         if (comp->getNextComponents()->size() == 0) {
             unconnected->insert(comp);
-            _model->getTracer()->trace(Util::TraceLevel::errors, "Component \"" + comp->getName() + "\" is unconnected (not a sink with no next componentes connected to)");
+            _model->getTraceManager()->trace(Util::TraceLevel::errors, "Component \"" + comp->getName() + "\" is unconnected (not a sink with no next componentes connected to)");
             *drenoFound = false;
         } else {
             ModelComponent* nextComp;
@@ -140,7 +140,7 @@ end;
 
 bool ModelCheckerDefaultImpl1::checkConnected() {
     /* TODO +-: not implemented yet */
-    _model->getTracer()->trace(Util::TraceLevel::blockArrival, "Checking connected");
+    _model->getTraceManager()->trace(Util::TraceLevel::blockArrival, "Checking connected");
     bool resultAll = true;
     Util::IncIndent();
     {
@@ -160,7 +160,7 @@ bool ModelCheckerDefaultImpl1::checkConnected() {
             comp = (*it);
             if (visited->find(comp) == visited->getList()->end()) { //not found
                 resultAll = false;
-                _model->getTracer()->trace(Util::TraceLevel::errors, "Component \"" + comp->getName() + "\" is unconnected.");
+                _model->getTraceManager()->trace(Util::TraceLevel::errors, "Component \"" + comp->getName() + "\" is unconnected.");
             }
         }
 
@@ -239,11 +239,11 @@ end;
 
 bool ModelCheckerDefaultImpl1::checkSymbols() {
     bool res = true;
-    _model->getTracer()->trace(Util::TraceLevel::blockArrival, "Checking symbols");
+    _model->getTraceManager()->trace(Util::TraceLevel::blockArrival, "Checking symbols");
     Util::IncIndent();
     {
         // check components
-        _model->getTracer()->trace(Util::TraceLevel::blockInternal, "Components:");
+        _model->getTraceManager()->trace(Util::TraceLevel::blockInternal, "Components:");
         Util::IncIndent();
         {
             //List<ModelComponent*>* components = _model->getComponents();
@@ -254,7 +254,7 @@ bool ModelCheckerDefaultImpl1::checkSymbols() {
         Util::DecIndent();
 
         // check elements
-        _model->getTracer()->trace(Util::TraceLevel::blockInternal, "Elements:");
+        _model->getTraceManager()->trace(Util::TraceLevel::blockInternal, "Elements:");
         Util::IncIndent();
         {
             std::string elementType;
@@ -268,27 +268,27 @@ bool ModelCheckerDefaultImpl1::checkSymbols() {
                 for (std::list<ModelElement*>::iterator it = elements->getList()->begin(); it != elements->getList()->end(); it++) {
                     element = (*it);
                     // copyed from modelCOmponent. It is not inside the ModelElement::Check because ModelElement has no access to Model to call Tracer
-                    _model->getTracer()->trace(Util::TraceLevel::mostDetailed, "Checking " + element->getTypename() + ": " + element->getName()); //std::to_string(component->_id));
+                    _model->getTraceManager()->trace(Util::TraceLevel::mostDetailed, "Checking " + element->getTypename() + ": " + element->getName()); //std::to_string(component->_id));
                     Util::IncIndent();
                     {
                         try {
                             result = element->Check((*it), errorMessage);
                             res &= result;
                             if (!res) {
-                                _model->getTracer()->trace(Util::TraceLevel::errors, "Error: Checking has failed with message '" + *errorMessage + "'");
+                                _model->getTraceManager()->trace(Util::TraceLevel::errors, "Error: Checking has failed with message '" + *errorMessage + "'");
                             }
                         } catch (const std::exception& e) {
-                            _model->getTracer()->traceError(e, "Error verifying component " + element->show());
+                            _model->getTraceManager()->traceError(e, "Error verifying component " + element->show());
                         }
                     }
                     Util::DecIndent();
 
                     /*
-                    _model->getTracer()->trace(Util::TraceLevel::mostDetailed, "Verifying symbols of " + elementType + " " + element->getName()); //std::to_string(component->_id));
+                    _model->getTraceManager()->trace(Util::TraceLevel::mostDetailed, "Verifying symbols of " + elementType + " " + element->getName()); //std::to_string(component->_id));
                     result = element->Check((*it), errorMessage);
                     res &= result;
                     if (!result) {
-                        _model->getTracer()->trace(Util::TraceLevel::mostDetailed, "Verification of symbols of component \"" + element->getName() + "\" has failed with message " + *errorMessage);
+                        _model->getTraceManager()->trace(Util::TraceLevel::mostDetailed, "Verification of symbols of component \"" + element->getName() + "\" has failed with message " + *errorMessage);
                     }
                      */
                 }
@@ -310,7 +310,7 @@ bool ModelCheckerDefaultImpl1::checkActivationCode() {
 bool ModelCheckerDefaultImpl1::verifySymbol(std::string componentName, std::string expressionName, std::string expression, std::string expressionResult, bool mandatory) {
     bool res = true;
     if (mandatory && expression == "") {
-        _model->getTracer()->getErrorMessages()->insert("Error verifying symbol \"" + expressionName + "\" of component \"" + componentName + "\n: Mandatory symbol is empty");
+        _model->getTraceManager()->getErrorMessages()->insert("Error verifying symbol \"" + expressionName + "\" of component \"" + componentName + "\n: Mandatory symbol is empty");
         res = false;
     }
     // TODO: Not implemented yet 

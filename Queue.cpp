@@ -17,7 +17,7 @@
 
 Queue::Queue(ElementManager* elems) : ModelElement(Util::TypeOf<Queue>()) {
     _elems = elems;
-    _initCStats();
+    _initCStats(); 
 }
 
 Queue::Queue(ElementManager* elems, std::string name) : ModelElement(Util::TypeOf<Queue>()) {
@@ -93,8 +93,8 @@ Queue::OrderRule Queue::getOrderRule() const {
 //	return _list;
 //}
 
-PluginInformation* Queue::GetPluginInformation(){
-    return new PluginInformation(Util::TypeOf<Queue>(), false, &Queue::LoadInstance);
+PluginInformation* Queue::GetPluginInformation() {
+    return new PluginInformation(Util::TypeOf<Queue>(), &Queue::LoadInstance);
 }
 
 ModelElement* Queue::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {
@@ -108,7 +108,15 @@ ModelElement* Queue::LoadInstance(ElementManager* elems, std::map<std::string, s
 }
 
 bool Queue::_loadInstance(std::map<std::string, std::string>* fields) {
-    return ModelElement::_loadInstance(fields);
+    bool res = ModelElement::_loadInstance(fields);
+    if (res) {
+	try {
+	    this->_attributeName = (*fields->find("attributeName")).second;
+	    this->_orderRule = static_cast<OrderRule> (std::stoi((*fields->find("orderRule")).second));
+	} catch (...) {
+	}
+    }
+    return res;
 }
 
 std::map<std::string, std::string>* Queue::_saveInstance() {

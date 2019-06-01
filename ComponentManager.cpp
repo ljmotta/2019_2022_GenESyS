@@ -36,6 +36,10 @@ void ComponentManager::remove(ModelComponent* comp) {
     _components->remove(comp);
 }
 
+void ComponentManager::clear(){
+    this->_components->clear();
+}
+
 ModelComponent* ComponentManager::getComponent(Util::identitifcation id) {
 }
 

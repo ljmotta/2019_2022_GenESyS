@@ -34,7 +34,7 @@ public:
     virtual std::string show();
 public:
     static PluginInformation* GetPluginInformation();
-    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+    static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 public: // get & set
     void setLastMemberSeized(unsigned int _lastMemberSeized);
     unsigned int getLastMemberSeized() const;

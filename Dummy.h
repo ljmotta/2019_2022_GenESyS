@@ -6,7 +6,7 @@
 
 /* 
  * File:   Dummy.h
- * Author: rlcancian
+ * Author: rafael.luiz.cancian
  *
  * Created on 22 de Maio de 2019, 18:41
  */
@@ -25,7 +25,7 @@ public:
     virtual std::string show();
 public:
     static PluginInformation* GetPluginInformation();
-    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+    static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 protected:
     virtual void _execute(Entity* entity);
     virtual void _initBetweenReplications();

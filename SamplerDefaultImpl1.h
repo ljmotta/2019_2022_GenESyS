@@ -19,11 +19,11 @@
 class SamplerDefaultImpl1 : public Sampler_if {
 public:
 
-    class DefaultImpl1RNG_Parameters : public RNG_Parameters {
-    public:
+    struct DefaultImpl1RNG_Parameters : public RNG_Parameters {
 	unsigned int seed = 666;
 	unsigned int module = 2147483647;
 	unsigned int multiplier = 950706376;
+	~DefaultImpl1RNG_Parameters() = default;
     };
 public:
     SamplerDefaultImpl1();

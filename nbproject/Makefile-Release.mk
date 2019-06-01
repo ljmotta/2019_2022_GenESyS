@@ -72,7 +72,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/ModelManager.o \
 	${OBJECTDIR}/ModelPersistenceDefaultImpl1.o \
 	${OBJECTDIR}/ModelSimulation.o \
-	${OBJECTDIR}/MyReGenESYsApplication.o \
+	${OBJECTDIR}/MyApp.o \
 	${OBJECTDIR}/OnEventManager.o \
 	${OBJECTDIR}/ParserDefaultImpl1.o \
 	${OBJECTDIR}/ParserDummyImpl.o \
@@ -324,10 +324,10 @@ ${OBJECTDIR}/ModelSimulation.o: ModelSimulation.cpp nbproject/Makefile-${CND_CON
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelSimulation.o ModelSimulation.cpp
 
-${OBJECTDIR}/MyReGenESYsApplication.o: MyReGenESYsApplication.cpp nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/MyApp.o: MyApp.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/MyReGenESYsApplication.o MyReGenESYsApplication.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/MyApp.o MyApp.cpp
 
 ${OBJECTDIR}/OnEventManager.o: OnEventManager.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

@@ -918,7 +918,7 @@ do_action: /* This label is used only to access EOF actions. */
 		    //Will not fail because of regex
 		    //std::string text("Found Hexadecimal: ");
 		    //text += yytext;
-		    //driver.getModel()->getTracer()->trace(Util::TraceLevel::mostDetailed, text);
+		    //driver.getModel()->getTraceManager()->trace(Util::TraceLevel::mostDetailed, text);
 		    return yy::genesyspp_parser::make_NUMH(obj_t(atof(yytext), std::string("Hexadecimal")), loc);
 		}
 		    YY_BREAK
@@ -930,7 +930,7 @@ do_action: /* This label is used only to access EOF actions. */
 		    //Will not fail because of regex
 		    //std::string text("Found Float: ");
 		    //text += yytext;
-		    //driver.getModel()->getTracer()->trace(Util::TraceLevel::mostDetailed, text);
+		    //driver.getModel()->getTraceManager()->trace(Util::TraceLevel::mostDetailed, text);
 		    return yy::genesyspp_parser::make_NUMD(obj_t(atof(yytext), std::string("Float")), loc);
 		}
 		    YY_BREAK
@@ -942,7 +942,7 @@ do_action: /* This label is used only to access EOF actions. */
 		    //Will not fail because of regex
 		    //std::string text("Found Decimal: ");
 		    //text += yytext;
-		    //driver.getModel()->getTracer()->trace(Util::TraceLevel::mostDetailed, text);
+		    //driver.getModel()->getTraceManager()->trace(Util::TraceLevel::mostDetailed, text);
 		    return yy::genesyspp_parser::make_NUMD(obj_t(atof(yytext), std::string("Decimal")), loc);
 		}
 		    YY_BREAK

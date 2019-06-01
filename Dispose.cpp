@@ -57,10 +57,10 @@ bool Dispose::_check(std::string* errorMessage) {
 }
 
 PluginInformation* Dispose::GetPluginInformation(){
-    return new PluginInformation(Util::TypeOf<Dispose>(), true, &Dispose::LoadInstance);
+    return new PluginInformation(Util::TypeOf<Dispose>(), &Dispose::LoadInstance);
 }
 
-ModelElement* Dispose::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+ModelComponent* Dispose::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
     Dispose* newComponent = new Dispose(model);
     try {
 	newComponent->_loadInstance(fields);

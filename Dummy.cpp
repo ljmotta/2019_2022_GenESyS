@@ -6,7 +6,7 @@
 
 /* 
  * File:   Dummy.cpp
- * Author: rlcancian
+ * Author: rafael.luiz.cancian
  * 
  * Created on 22 de Maio de 2019, 18:41
  */
@@ -27,7 +27,7 @@ std::string Dummy::show() {
     return ModelComponent::show() + "";
 }
 
-ModelElement* Dummy::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+ModelComponent* Dummy::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
     Dummy* newComponent = new Dummy(model);
     try {
 	newComponent->_loadInstance(fields);
@@ -38,7 +38,7 @@ ModelElement* Dummy::LoadInstance(Model* model, std::map<std::string, std::strin
 }
 
 void Dummy::_execute(Entity* entity) {
-    _model->getTracer()->trace(Util::TraceLevel::blockInternal, "I'm just a dummy model and I'll just send the entity forward");
+    _model->getTraceManager()->trace(Util::TraceLevel::blockInternal, "I'm just a dummy model and I'll just send the entity forward");
     this->_model->sendEntityToComponent(entity, this->getNextComponents()->front(), 0.0);
 }
 
@@ -62,5 +62,5 @@ bool Dummy::_check(std::string* errorMessage) {
 }
 
 PluginInformation* Dummy::GetPluginInformation(){
-    return new PluginInformation(Util::TypeOf<Dummy>(), true, &Dummy::LoadInstance);
+    return new PluginInformation(Util::TypeOf<Dummy>(), &Dummy::LoadInstance);
 }

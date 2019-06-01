@@ -23,7 +23,8 @@ public:
     /*!
      * class that encapsulates attributes required to generate random numbers, which depends on the generation method used.
      */
-    class RNG_Parameters {
+    struct RNG_Parameters {
+	virtual ~RNG_Parameters() = default;
     };
 public: // probability distributions
     virtual double random() = 0;

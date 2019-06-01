@@ -41,20 +41,18 @@ Model::Model(Simulator* simulator) {
     _eventHandler = new OnEventManager(); // should be on .h (all that does not depends on THIS)
     _elementManager = new ElementManager(this);
     _componentManager = new ComponentManager(this);
-    _tracer = new TraceManager(this);
+    _traceManager = simulator->getTraceManager(); // every model starts with the same tracer, unless a specific one is set
     // 1:1 associations (Traits)
     _parser = new Traits<Parser_if>::Implementation(this);
     _modelChecker = new Traits<ModelChecker_if>::Implementation(this);
     _modelPersistence = new Traits<ModelPersistence_if>::Implementation(this);
     _simulation = new ModelSimulation(this);
     // 1:n associations
-
     _events = new List<Event*>(); /// The future events list must be chronologicaly sorted
     //_events->setSortFunc(&EventCompare); // It works too
     _events->setSortFunc([](const Event* a, const Event * b) {
 	return a->getTime() < b->getTime(); /// Events are sorted chronologically
     });
-
     // for process analyser
     _responses = new List<SimulationResponse*>();
     _controls = new List<SimulationControl*>();
@@ -121,26 +119,31 @@ double Model::parseExpression(const std::string expression, bool* success, std::
 }
 
 void Model::_showComponents() {
-    getTracer()->trace(Util::TraceLevel::mostDetailed, "Simulation Model:");
+    getTraceManager()->trace(Util::TraceLevel::mostDetailed, "Simulation Model:");
     //std::list<ModelComponent*>* list = getComponents()->getList();
     Util::IncIndent();
     for (std::list<ModelComponent*>::iterator it = getComponentManager()->begin(); it != getComponentManager()->end(); it++) {
-	getTracer()->trace(Util::TraceLevel::mostDetailed, (*it)->show()); ////
+	getTraceManager()->trace(Util::TraceLevel::mostDetailed, (*it)->show()); ////
     }
     Util::DecIndent();
 }
+void Model::clear(){
+    this->_componentManager->clear();
+    this->_elementManager->clear();
+    //Util::ResetAllIds(); // TODO: To implement
+}
 
 bool Model::checkModel() {
-    getTracer()->trace(Util::TraceLevel::blockInternal, "Checking model consistency");
+    getTraceManager()->trace(Util::TraceLevel::blockInternal, "Checking model consistency");
     Util::IncIndent();
     bool res = this->_modelChecker->checkAll();
     Util::DecIndent();
     if (res) {
-	getTracer()->trace(Util::TraceLevel::blockInternal, "Model check passed");
+	getTraceManager()->trace(Util::TraceLevel::blockInternal, "Model check passed");
     } else {
 	//std::exception e = new std::exception();
 	//getTrace()->traceError() ;
-	getTracer()->trace(Util::TraceLevel::errors, "Model check has failed");
+	getTraceManager()->trace(Util::TraceLevel::errors, "Model check has failed");
     }
     return res;
 }
@@ -157,11 +160,19 @@ void Model::removeEntity(Entity* entity, bool collectStatistics) {
     /* TODO -: event onEntityRemove */
     std::string entId = std::to_string(entity->getId());
     this->getElementManager()->remove(Util::TypeOf<Entity>(), entity);
-    getTracer()->trace(Util::TraceLevel::blockInternal, "Entity " + entId + " was removed from the system");
+    getTraceManager()->trace(Util::TraceLevel::blockInternal, "Entity " + entId + " was removed from the system");
 }
 
 List<Event*>* Model::getEvents() const {
     return _events;
+}
+
+void Model::setTraceManager(TraceManager* _traceManager) {
+    this->_traceManager = _traceManager;
+}
+
+TraceManager* Model::getTraceManager() const {
+    return _traceManager;
 }
 
 ComponentManager* Model::getComponentManager() const {
@@ -174,10 +185,6 @@ List<SimulationControl*>* Model::getControls() const {
 
 List<SimulationResponse*>* Model::getResponses() const {
     return _responses;
-}
-
-TraceManager* Model::getTracer() const {
-    return _tracer;
 }
 
 OnEventManager* Model::getOnEventManager() const {

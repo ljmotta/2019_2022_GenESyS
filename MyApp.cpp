@@ -11,7 +11,7 @@
  * Created on 20 de Maio de 2019, 21:01
  */
 
-#include "MyReGenESYsApplication.h"
+#include "MyApp.h"
 
 // GEnSyS Simulator
 #include "Simulator.h"
@@ -65,17 +65,17 @@ void onEntityRemoveHandler(SimulationEvent* re) {
     std::cout << "(Handler) Entity " << re->getEventProcessed()->getEntity() << " was removed." << std::endl;
 }
 
-MyReGenESYsApplication::MyReGenESYsApplication() {
+MyApp::MyApp() {
 }
 
-MyReGenESYsApplication::MyReGenESYsApplication(const MyReGenESYsApplication& orig) {
+MyApp::MyApp(const MyApp& orig) {
 }
 
-MyReGenESYsApplication::~MyReGenESYsApplication() {
+MyApp::~MyApp() {
 }
 
-void MyReGenESYsApplication::manuallyInsertAllPlugins(Simulator* simulator) {
-    //elements
+void MyApp::insertFakePluginsByHand(Simulator* simulator) {
+    // model elements
     simulator->getPluginManager()->insert(new Plugin(&Attribute::GetPluginInformation));
     simulator->getPluginManager()->insert(new Plugin(&Counter::GetPluginInformation));
     simulator->getPluginManager()->insert(new Plugin(&EntityType::GetPluginInformation));
@@ -83,7 +83,7 @@ void MyReGenESYsApplication::manuallyInsertAllPlugins(Simulator* simulator) {
     simulator->getPluginManager()->insert(new Plugin(&Resource::GetPluginInformation));
     simulator->getPluginManager()->insert(new Plugin(&StatisticsCollector::GetPluginInformation));
     simulator->getPluginManager()->insert(new Plugin(&Variable::GetPluginInformation));
-    // components
+    // model components
     simulator->getPluginManager()->insert(new Plugin(&Assign::GetPluginInformation));
     simulator->getPluginManager()->insert(new Plugin(&Create::GetPluginInformation));
     simulator->getPluginManager()->insert(new Plugin(&Decide::GetPluginInformation));
@@ -95,28 +95,42 @@ void MyReGenESYsApplication::manuallyInsertAllPlugins(Simulator* simulator) {
     simulator->getPluginManager()->insert(new Plugin(&Seize::GetPluginInformation));
 }
 
-/**
- * This function shows an example of how to create a simulation model.
- * It creates some handlers for tracing (debug) and for events, set model infos and than creates the model itself.
- * The model is a composition of components (and elements that they use), connected to form a process/fluxogram 
- * @param model - The instance returned that will contains the built model
- */
-void builSimulationdModel(Model* model) { // buildModelWithAllImplementedComponents
-    /*
-    OnEventManager* ev = model->getOnEventManager();
-    ev->addOnSimulationStartHandler(&onSimulationStartHandler);
-    ev->addOnReplicationStartHandler(&onReplicationStartHandler);
-    ev->addOnReplicationEndHandler(&onReplicationEndHandler);
-    ev->addOnProcessEventHandler(&onProcessEventHandler);
-     */
+void _buildModel01_CreDelDis(Model* model) {
+    // buildModelWithAllImplementedComponents
+    ModelInfo* infos = model->getInfos();
+    infos->setReplicationLength(1);
+    infos->setReplicationLengthTimeUnit(Util::TimeUnit::minute);
+    infos->setNumberOfReplications(10);
 
-    // traces handle and simulation events to output them
-    TraceManager* tm = model->getTracer();
-    tm->addTraceHandler(&traceHandler);
-    tm->addTraceReportHandler(&traceHandler);
-    tm->addTraceSimulationHandler(&traceSimulationHandler);
-    tm->setTraceLevel(Util::TraceLevel::mostDetailed);
+    ComponentManager* components = model->getComponentManager();
+    ElementManager* elements = model->getElementManager();
 
+    EntityType* entityType1 = new EntityType(elements, "EntityType_1");
+    elements->insert(Util::TypeOf<EntityType>(), entityType1);
+
+    Create* create1 = new Create(model);
+    create1->setEntityType(entityType1);
+    create1->setTimeBetweenCreationsExpression("1");
+    create1->setTimeUnit(Util::TimeUnit::second);
+    create1->setEntitiesPerCreation(1);
+    components->insert(create1);
+
+    Delay* delay1 = new Delay(model);
+    delay1->setDelayExpression("2");
+    delay1->setDelayTimeUnit(Util::TimeUnit::minute);
+    components->insert(delay1);
+
+    Dispose* dispose1 = new Dispose(model);
+    components->insert(dispose1);
+
+    // connect model components to create a "workflow" -- should always start from a SourceModelComponent and end at a SinkModelComponent (it will be checked)
+    create1->getNextComponents()->insert(delay1);
+    delay1->getNextComponents()->insert(dispose1);
+}
+
+
+void _buildMostCompleteModel(Model* model) {
+    // buildModelWithAllImplementedComponents
     ModelInfo* infos = model->getInfos();
     infos->setAnalystName("Your name");
     infos->setProjectTitle("The title of the project");
@@ -234,16 +248,45 @@ void builSimulationdModel(Model* model) { // buildModelWithAllImplementedCompone
     dummy1->getNextComponents()->insert(dispose1);
 }
 
-int MyReGenESYsApplication::main(int argc, char** argv) {
+/**
+ * This function shows an example of how to create a simulation model.
+ * It creates some handlers for tracing (debug) and for events, set model infos and than creates the model itself.
+ * The model is a composition of components (and elements that they use), connected to form a process/fluxogram 
+ * @param model - The instance returned that will contains the built model
+ */
+void builSimulationdModel(Model* model) { 
+    //_buildMostCompleteModel(model);
+    _buildModel01_CreDelDis();
+}
+
+int MyApp::main(int argc, char** argv) {
     Simulator* simulator = new Simulator();
-    this->manuallyInsertAllPlugins(simulator);
 
-//    Model* model = new Model(simulator);
-//    builSimulationdModel(model);
-//    simulator->getModelManager()->insert(model);
-//    model->saveModel("./models/genesysSimpleSimulationModel.txt");
+    // traces handle and simulation events to output them
+    TraceManager* tm = simulator->getTraceManager();
+    tm->addTraceHandler(&traceHandler);
+    tm->addTraceReportHandler(&traceHandler);
+    tm->addTraceSimulationHandler(&traceSimulationHandler);
 
-    simulator->getModelManager()->loadModel("./models/genesysSimpleSimulationModel.txt");
+    /*
+OnEventManager* ev = model->getOnEventManager();
+ev->addOnSimulationStartHandler(&onSimulationStartHandler);
+ev->addOnReplicationStartHandler(&onReplicationStartHandler);
+ev->addOnReplicationEndHandler(&onReplicationEndHandler);
+ev->addOnProcessEventHandler(&onProcessEventHandler);
+     */
+
+    // Insert some fake plugins, since components and elements are NOT dynamic linked. 
+    // Basically all ModelComponents and ModelElements classes that may de used to buikd simulation models and to be persisted to files, should be "declared" by plugins.
+    this->insertFakePluginsByHand(simulator);
+
+        Model* model = new Model(simulator);
+        builSimulationdModel(model);
+        simulator->getModelManager()->insert(model);
+        model->saveModel("./models/model99_AllTogether.txt");
+
+
+//    simulator->getModelManager()->loadModel("./models/genesysSimpleSimulationModel.txt");
 
     //model->getSimulation()->startSimulation();
     return 0;

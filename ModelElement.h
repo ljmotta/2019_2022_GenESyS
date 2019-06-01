@@ -45,7 +45,7 @@ protected: // must be overriden by derived classes
     virtual bool _loadInstance(std::map<std::string, std::string>* fields);
     virtual std::map<std::string, std::string>* _saveInstance();
     //virtual std::list<std::map<std::string,std::string>*>* _saveInstance(std::string type);
-    virtual bool _check(std::string* errorMessage) = 0;
+    virtual bool _check(std::string* errorMessage);
 
 protected:
     Util::identitifcation _id;

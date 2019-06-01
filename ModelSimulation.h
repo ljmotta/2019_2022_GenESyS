@@ -55,11 +55,9 @@ public: // only gets
     ModelComponent* getCurrentComponent() const;
     Entity* getCurrentEntity() const;
     SimulationReporter_if* getSimulationReporter() const;
-
     /*
      * PRIVATE
      */
-
 private: // simulation control
     void _initSimulation();
     void _initReplication(); ///< Clear the event list, restarts simulated time, initialize event list and statistics, request components to reinitialize
@@ -69,6 +67,7 @@ private: // simulation control
 private:
     bool _isReplicationEndCondition();
     void _actualizeSimulationStatistics();
+    void _showSimulationHeader();
 private:
     double _simulatedTime = 0.0;
     // list of double double _breakOnTimes;

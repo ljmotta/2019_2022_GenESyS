@@ -6,7 +6,7 @@
 
 /* 
  * File:   LicenceManager.cpp
- * Author: rlcancian
+ * Author: rafael.luiz.cancian
  * 
  * Created on 29 de Maio de 2019, 11:45
  */
@@ -15,7 +15,7 @@
 
 LicenceManager::LicenceManager(Simulator* simulator) {
     _simulator = simulator;
-    _licence = "LICENCE: \nAcademic Mode. In academic mode this software has full functionality and executing training-size simulation models. This software may be duplicated and used for educational purposes only; any commercial application is a violation of the license agreement. Designed and developed by prof. Dr. Ing Rafael Luiz Cancian";
+    _licence = "LICENCE: Academic Mode. In academic mode this software has full functionality and executing training-size simulation models. This software may be duplicated and used for educational purposes only; any commercial application is a violation of the license agreement. Designed and developed by prof. Dr. Ing Rafael Luiz Cancian";
     _activationCode = "";
     _components = 100;
     _elements = 100;
@@ -35,7 +35,7 @@ const std::string LicenceManager::showLicence() const {
 }
 
 const std::string LicenceManager::showLimits() const {
-    std::string msg = "Based on your licence and activation code, your simulator is running under the following limits" +
+    std::string msg = "LIMITS: Based on your licence and activation code, your simulator is running under the following limits" +
 	    std::string(": ") + std::to_string(_components) + " components" +
 	    ", " + std::to_string(_elements) + " elements" +
 	    ", " + std::to_string(_entities) + " entities" +
@@ -44,10 +44,17 @@ const std::string LicenceManager::showLimits() const {
     return msg;
 }
 
+const std::string LicenceManager::showActivationCode() const {
+    std::string msg = "ACTIVATION CODE: Not found.";
+    return msg;
+}
+
 bool LicenceManager::lookforActivationCode() {
+    return false;
 }
 
 bool LicenceManager::insertActivationCode() {
+    return false;
 }
 
 void LicenceManager::removeActivationCode() {

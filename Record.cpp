@@ -72,21 +72,27 @@ void Record::_execute(Entity* entity) {
     file.open(_filename, std::ofstream::out | std::ofstream::app);
     file << value << std::endl;
     file.close(); // TODO: open and close for every data is not a good idea. Should open when replication starts and close when it finishes.    
-    _model->getTracer()->traceSimulation(Util::TraceLevel::blockInternal, _model->getSimulation()->getSimulatedTime(), entity, this, "Recording value " + std::to_string(value));
+    _model->getTraceManager()->traceSimulation(Util::TraceLevel::blockInternal, _model->getSimulation()->getSimulatedTime(), entity, this, "Recording value " + std::to_string(value));
     _model->sendEntityToComponent(entity, this->getNextComponents()->front(), 0.0);
 
 }
 
 std::map<std::string, std::string>* Record::_saveInstance() {
     std::map<std::string, std::string>* fields = ModelComponent::_saveInstance(); //Util::TypeOf<Record>());
-    fields->emplace("expression" , this->_expression);
-    fields->emplace("expressionName" , this->_expressionName);
-    fields->emplace("fileName" , this->_filename);
+    fields->emplace("expression0" , this->_expression);
+    fields->emplace("expressionName0" , this->_expressionName);
+    fields->emplace("fileName0" , this->_filename);
     return fields;
 }
 
 bool Record::_loadInstance(std::map<std::string, std::string>* fields) {
-    return true;
+    bool res = ModelComponent::_loadInstance(fields);
+    if (res) {
+	this->_expression = ((*(fields->find("expression0"))).second);
+	this->_expressionName = ((*(fields->find("expressionName0"))).second);
+	this->_filename = ((*(fields->find("fileName0"))).second);
+    }
+    return res;
 }
 
 void Record::_initBetweenReplications() {
@@ -99,11 +105,11 @@ bool Record::_check(std::string* errorMessage) {
 }
 
 PluginInformation* Record::GetPluginInformation(){
-    return new PluginInformation(Util::TypeOf<Record>(), true, &Record::LoadInstance);
+    return new PluginInformation(Util::TypeOf<Record>(), &Record::LoadInstance);
 }
 
 
-ModelElement* Record::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+ModelComponent* Record::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
     Record* newComponent = new Record(model);
     try {
 	newComponent->_loadInstance(fields);
