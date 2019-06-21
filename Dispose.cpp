@@ -47,7 +47,7 @@ void Dispose::_initBetweenReplications() {
 }
 
 std::map<std::string, std::string>* Dispose::_saveInstance() {
-    std::map<std::string, std::string>* fields = ModelComponent::_saveInstance(); //Util::TypeOf<Dispose>());
+    std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
     return fields;
 
 }

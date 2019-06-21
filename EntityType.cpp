@@ -12,6 +12,8 @@
  */
 
 #include "EntityType.h"
+#include "Model.h"
+#include "SimulationResponse.h"
 
 EntityType::EntityType(ElementManager* elemManager) : ModelElement(Util::TypeOf<EntityType>()) {
     _elemManager = elemManager;
@@ -42,7 +44,10 @@ void EntityType::_initCostsAndStatistics() {
     _elemManager->insert(Util::TypeOf<StatisticsCollector>(), _cstatTransferTime);
     _elemManager->insert(Util::TypeOf<StatisticsCollector>(), _cstatVATime);
     _elemManager->insert(Util::TypeOf<StatisticsCollector>(), _cstatWaitingTime);
-
+    // insert cstats as simulation responses
+    List<::SimulationResponse*>* responses = this->_elemManager->getModel()->getResponses();
+//    responses->insert(new SimulationResponse(Util::TypeOf<EntityType>(), "Waiting time",
+//            DefineGetterMember<StatisticsDefaultImpl1>(this->_cstatWaitingTime, &StatisticsDefaultImpl1::average)));
 }
 
 EntityType::EntityType(const EntityType& orig) : ModelElement(orig) {
@@ -126,10 +131,9 @@ StatisticsCollector* EntityType::getCstatWaitingTime() const {
     return _cstatWaitingTime;
 }
 
-PluginInformation* EntityType::GetPluginInformation(){
+PluginInformation* EntityType::GetPluginInformation() {
     return new PluginInformation(Util::TypeOf<EntityType>(), &EntityType::LoadInstance);
 }
-
 
 ModelElement* EntityType::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {
     EntityType* newElement = new EntityType(elems);
@@ -142,13 +146,13 @@ ModelElement* EntityType::LoadInstance(ElementManager* elems, std::map<std::stri
 }
 
 bool EntityType::_loadInstance(std::map<std::string, std::string>* fields) {
-    bool res= ModelElement::_loadInstance(fields);
-    if (res){
+    bool res = ModelElement::_loadInstance(fields);
+    if (res) {
 	this->_initialNVACost = std::stod((*(fields->find("initialNVACost"))).second);
-	this->_initialOtherCost=std::stod((*(fields->find("initialOtherCost"))).second);
-	this->_initialPicture=((*(fields->find("initialPicture"))).second);
-	this->_initialVACost=std::stod((*(fields->find("initialVACost"))).second);
-	this->_initialWaitingCost=std::stod((*(fields->find("initialWaitingCost"))).second);
+	this->_initialOtherCost = std::stod((*(fields->find("initialOtherCost"))).second);
+	this->_initialPicture = ((*(fields->find("initialPicture"))).second);
+	this->_initialVACost = std::stod((*(fields->find("initialVACost"))).second);
+	this->_initialWaitingCost = std::stod((*(fields->find("initialWaitingCost"))).second);
     }
     return res;
 }

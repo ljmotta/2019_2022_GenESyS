@@ -104,6 +104,10 @@ void ElementManager::show() {
     Util::DecIndent();
 }
 
+Model* ElementManager::getModel() const {
+    return _model;
+}
+
 List<ModelElement*>* ElementManager::getElements(std::string infraTypename) const {
     std::map<std::string, List<ModelElement*>*>::iterator it = this->_elements->find(infraTypename);
     if (it == this->_elements->end()) {

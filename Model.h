@@ -51,6 +51,7 @@ public: // model control
     bool loadModel(std::string filename);
     bool checkModel(); ///< Checks the integrity and consistency of the model, possibly corrects some inconsistencies, and returns if the model is in position to the simulated.
     void clear();
+    void show();
     //bool verifySymbol(std::string componentName, std::string expressionName, std::string expression, std::string expressionResult, bool mandatory); ///< Verifies if a symbol defined in a component (ModelComponent) or element is syntactically valid and addresses existing components or elements. It's used only by and directed by the component that defines the symbol.
     void removeEntity(Entity* entity, bool collectStatistics);
     void sendEntityToComponent(Entity* entity, ModelComponent* component, double timeDelay); ///< Used by components (ModelComponent) to send entities to another specific component, usually the next one connected to it, or used by the model itself, when processing an event (Event). 
@@ -80,6 +81,7 @@ public: // only gets
      */
 private:
     void _showComponents();
+    void _showElements();
 
 private: // read only public access (gets)
     Util::identitifcation _id;

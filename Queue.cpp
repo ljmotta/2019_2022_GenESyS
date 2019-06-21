@@ -52,14 +52,15 @@ void Queue::insertElement(Waiting* element) {
     this->_cstatNumberInQueue->getStatistics()->getCollector()->addValue(_list->size());
 }
 
-void Queue::removeElement(Waiting* element, double tnow) {
+void Queue::removeElement(Waiting* element) {
+    double tnow = this->_elems->getModel()->getSimulation()->getSimulatedTime();
     _list->remove(element);
     this->_cstatNumberInQueue->getStatistics()->getCollector()->addValue(_list->size());
     double timeInQueue = tnow - element->getTimeStartedWaiting();
     this->_cstatTimeInQueue->getStatistics()->getCollector()->addValue(timeInQueue);
 }
 
-void Queue::initBetweenReplication() {
+void Queue::initBetweenReplications() {
     this->_list->clear();
 }
 

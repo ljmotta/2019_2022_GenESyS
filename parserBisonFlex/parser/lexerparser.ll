@@ -12,6 +12,7 @@
 # include "../List.h"
 # include "../Variable.h"
 # include "../Queue.h"
+# include "../Formula.h" 
 # include "../Resource.h"
 # include "../ModelElement.h"
 # include "../Attribute.h"
@@ -171,6 +172,15 @@ L      [A-Za-z0-9_.]+
             return yy::genesyspp_parser::make_VARI(obj_t(variableValue, Util::TypeOf<Variable>(), var->getId()),loc);
         }
         
+        // check FORMULA
+        element = driver.getModel()->getElementManager()->getElement(Util::TypeOf<Formula>(), std::string(yytext));
+        if (element != nullptr) { // it is a FORMULA
+            Formula* form = static_cast<Formula*>(element);
+            //double formulaValue = form->getValue();
+	    //std::string formulaExpression = form->getFormulaExpression();
+            return yy::genesyspp_parser::make_FORM(obj_t(0, Util::TypeOf<Formula>(), form->getId()),loc);
+        }
+        
         // check QUEUE
         element = driver.getModel()->getElementManager()->getElement(Util::TypeOf<Queue>(), std::string(yytext));
         if (element != nullptr) { 
@@ -181,21 +191,20 @@ L      [A-Za-z0-9_.]+
         //iterates through the model Elements and returns its id and the matching token
         std::list<std::string>* listaDisponiveis = driver.getModel()->getElementManager()->getElementTypenames();
         for(std::list<std::string>::iterator it = listaDisponiveis->begin(); it != listaDisponiveis->end(); ++it){
-          List<ModelElement*>* listaAtual = driver.getModel()->getElementManager()->getElements(*it);
-          for(std::list<ModelElement*>::iterator it2 = listaAtual->getList()->begin(); it2 != listaAtual->getList()->end(); ++it2){
-            if((*it2)->getName() == std::string(yytext)){//case sensitive names
-              if (*it == Util::TypeOf<Variable>()){
-                return yy::genesyspp_parser::make_VARI(obj_t(0, Util::TypeOf<Variable>(), (*it2)->getId()),loc);
-              }
-              if (*it == Util::TypeOf<Queue>()){
-                return yy::genesyspp_parser::make_QUEUE(obj_t(0, Util::TypeOf<Queue>(), (*it2)->getId()),loc);
-              }
-              if (*it == Util::TypeOf<Resource>()){
-                return yy::genesyspp_parser::make_RES(obj_t(0, Util::TypeOf<Resource>(), (*it2)->getId()),loc);
-              }
-              //Formula not implemented on Genesys
-            }
-          }
+	    List<ModelElement*>* listaAtual = driver.getModel()->getElementManager()->getElements(*it);
+	    for(std::list<ModelElement*>::iterator it2 = listaAtual->getList()->begin(); it2 != listaAtual->getList()->end(); ++it2){
+		if((*it2)->getName() == std::string(yytext)){//case sensitive names
+		    if (*it == Util::TypeOf<Variable>()){
+			return yy::genesyspp_parser::make_VARI(obj_t(0, Util::TypeOf<Variable>(), (*it2)->getId()),loc);
+		    }
+		    if (*it == Util::TypeOf<Queue>()){
+			return yy::genesyspp_parser::make_QUEUE(obj_t(0, Util::TypeOf<Queue>(), (*it2)->getId()),loc);
+		    }
+		    if (*it == Util::TypeOf<Resource>()){
+			return yy::genesyspp_parser::make_RES(obj_t(0, Util::TypeOf<Resource>(), (*it2)->getId()),loc);
+		    }
+		}
+	    }
         }
         */
         //Case not found retturns a illegal token

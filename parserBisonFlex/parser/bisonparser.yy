@@ -13,6 +13,7 @@
 #include "../Util.h"
 #include "../Variable.h"
 #include "../Queue.h"
+#include "../Formula.h"
 #include "../Resource.h"
 class genesyspp_driver;
 
@@ -38,24 +39,39 @@ class genesyspp_driver;
 
 %token <obj_t> NUMD
 %token <obj_t> NUMH
+
 %token <obj_t> ATRIB
 %token <obj_t> VARI
 %token <obj_t> FORM
 %token <obj_t> QUEUE
 %token <obj_t> RES
+
+%token <obj_t> fTFIN
+%token <obj_t> fNR
+%token <obj_t> fMR
+%token <obj_t> fIRF
+%token <obj_t> fRESSEIZES
+%token <obj_t> fSTATE
+%token <obj_t> fNQ
+%token <obj_t> fFIRSTINQ
+%token <obj_t> fLASTINQ
 %token <obj_t> oLE
 %token <obj_t> oGE
 %token <obj_t> oEQ
 %token <obj_t> oNE
+
 %token <obj_t> oAND
 %token <obj_t> oOR
 %token <obj_t> oNOT
+
 %token <obj_t> fSIN
 %token <obj_t> fCOS
+
 %token <obj_t> fAINT
 %token <obj_t> fMOD
 %token <obj_t> fINT
 %token <obj_t> fFRAC
+
 %token <obj_t> fEXPO
 %token <obj_t> fNORM
 %token <obj_t> fUNIF
@@ -66,16 +82,9 @@ class genesyspp_driver;
 %token <obj_t> fTRIA
 %token <obj_t> fBETA
 %token <obj_t> fDISC
+
 %token <obj_t> fTNOW
-%token <obj_t> fTFIN
-%token <obj_t> fNR
-%token <obj_t> fMR
-%token <obj_t> fIRF
-%token <obj_t> fRESSEIZES
-%token <obj_t> fSTATE
-%token <obj_t> fNQ
-%token <obj_t> fFIRSTINQ
-%token <obj_t> fLASTINQ
+
 %token <obj_t> cIF
 %token <obj_t> cELSE
 %token <obj_t> cFOR
@@ -107,7 +116,7 @@ class genesyspp_driver;
 %type <obj_t> atributo
 %type <obj_t> atribuicao
 %type <obj_t> variavel
-//%type <obj_t> formula
+%type <obj_t> formula
 %type <obj_t> funcaoTrig
 %type <obj_t> funcaoArit
 %type <obj_t> funcaoProb
@@ -144,7 +153,7 @@ expressao   : aritmetica                                        {$$.valor = $1.v
             | funcao                                            {$$.valor = $1.valor;}
             | ATRIB                                             {$$.valor = $1.valor;}
             | variavel                                          {$$.valor = $1.valor;}
-//            | formula                                           {$$.valor = $1.valor;}
+            | formula                                           {$$.valor = $1.valor;}
             | numero                                            {$$.valor = $1.valor;}
             | comando                                           {}
             ;
@@ -153,10 +162,10 @@ numero      : NUMD                                              { $$.valor = $1.
             | NUMH                                              { $$.valor = $1.valor;}
             ;
 
-aritmetica  : expressao PLUS expressao                           { $$.valor = $1.valor + $3.valor;}
-            | expressao MINUS expressao                           { $$.valor = $1.valor - $3.valor;}
-            | expressao SLASH expressao                           { $$.valor = $1.valor / $3.valor;}
-            | expressao STAR expressao                           { $$.valor = $1.valor * $3.valor;}
+aritmetica  : expressao PLUS expressao                          { $$.valor = $1.valor + $3.valor;}
+            | expressao MINUS expressao                         { $$.valor = $1.valor - $3.valor;}
+            | expressao SLASH expressao                         { $$.valor = $1.valor / $3.valor;}
+            | expressao STAR expressao                          { $$.valor = $1.valor * $3.valor;}
             | MINUS expressao %prec NEG                         { $$.valor = -$2.valor;}
             ;
 
@@ -198,15 +207,15 @@ atributo    : ATRIB                                             { $$.valor = $1.
 atribuicao  : atributo "=" expressao                            { $$.valor = $3.valor; }
             | variavel "=" expressao                            { $$.valor = $3.valor; }
             ;
-//My implementation, check with teacher
-variavel    : VARI                                              { $$.valor = ((Variable*)(driver.getModel()->getElementManager()->getElement(Util::TypeOf<Variable>(), $1.id)))->getValue();} //change
+
+variavel    : VARI                                              { $$.valor = ((Variable*)(driver.getModel()->getElementManager()->getElement(Util::TypeOf<Variable>(), $1.id)))->getValue();} 
             | VARI "[" expressao "]"                            { $$.valor = ((Variable*)(driver.getModel()->getElementManager()->getElement(Util::TypeOf<Variable>(), $1.id)))->getValue(std::to_string($3.valor));}
             | VARI "[" expressao "," expressao "]"              { std::string index(std::to_string($3.valor)); index.append(","); index.append(std::to_string($5.valor)); $$.valor = ((Variable*)(driver.getModel()->getElementManager()->getElement(Util::TypeOf<Variable>(), $1.id)))->getValue(index);}
             ;
 
-//Formula not implemented, so will just receive a number
-//formula     : NUMD                                             { $$.valor = $1.valor;} //Formula not implemented on GenESyS
-//            ;
+// TODO: THERE IS A PROBLEM WITH FORMULA: TO EVALUATE THE FORMULA EXPRESSION, PARSER IS REINVOKED, AND THEN IT CRASHES (NO REENTRACE?)
+formula     : FORM                                              { $$.valor = ((Formula*)(driver.getModel()->getElementManager()->getElement(Util::TypeOf<Formula>(), $1.id)))->getValue();} 
+            ;
 
 funcaoTrig  : fSIN   "(" expressao ")"                          { $$.valor = sin($3.valor); }
             | fCOS   "(" expressao ")"                          { $$.valor = cos($3.valor); }

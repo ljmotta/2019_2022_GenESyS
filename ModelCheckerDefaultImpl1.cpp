@@ -57,7 +57,9 @@ bool ModelCheckerDefaultImpl1::_recursiveConnectedTo(ModelComponent* comp, List<
                 nextComp = (*it);
                 if (visited->find(nextComp) == visited->getList()->end()) { // not visited yet
                     *drenoFound = false;
+		    Util::IncIndent();
                     this->_recursiveConnectedTo(nextComp, visited, unconnected, drenoFound);
+		    Util::DecIndent();
                 } else {
                     *drenoFound = true;
                 }

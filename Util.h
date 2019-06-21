@@ -87,6 +87,7 @@ public: // indentation and string
 public: // identitification
     static Util::identitifcation GenerateNewId();
     static Util::identitifcation GenerateNewIdOfType(std::string objtype);
+    static Util::identitifcation GetLastIdOfType(std::string objtype);
     static void ResetIdOfType(std::string objtype);
 
 public: // simulation support

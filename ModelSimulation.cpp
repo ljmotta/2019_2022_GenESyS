@@ -55,7 +55,7 @@ void ModelSimulation::startSimulation() {
 	_model->getTraceManager()->trace(Util::TraceLevel::errors, "Model check failed. Cannot start simulation.");
 	return;
     }
-    Util::SetIndent(0);
+    Util::SetIndent(0); //force indentation
     _initSimulation();
     _model->getOnEventManager()->NotifySimulationStartHandlers(new SimulationEvent(0, nullptr));
     for (_currentReplicationNumber = 1; _currentReplicationNumber <= _info->getNumberOfReplications(); _currentReplicationNumber++) {
@@ -152,10 +152,10 @@ void ModelSimulation::_showSimulationHeader() {
     tm->traceReport(Util::TraceLevel::simulation, _model->getParent()->getLicenceManager()->showLimits());
     // model infos
     tm->traceReport(Util::TraceLevel::simulation, "Analyst Name: " + _info->getAnalystName());
-    tm->traceReport(Util::TraceLevel::simulation, "\nProject Title: " + _info->getProjectTitle());
-    tm->traceReport(Util::TraceLevel::simulation, "\nNumber of Replications: " + _info->getNumberOfReplications());
+    tm->traceReport(Util::TraceLevel::simulation, "Project Title: " + _info->getProjectTitle());
+    tm->traceReport(Util::TraceLevel::simulation, "Number of Replications: " + std::to_string(_info->getNumberOfReplications()));
     tm->traceReport(Util::TraceLevel::simulation, "Replication Length: " + std::to_string(_info->getReplicationLength())+ " " + Util::StrTimeUnit(_info->getReplicationLengthTimeUnit()));
-    tm->traceReport(Util::TraceLevel::simulation, "");
+    //tm->traceReport(Util::TraceLevel::simulation, "");
     // model controls and responses
     std::string controls;
     for(std::list<SimulationControl*>::iterator it = _model->getControls()->getList()->begin(); it!= _model->getControls()->getList()->end(); it++) {
@@ -164,9 +164,9 @@ void ModelSimulation::_showSimulationHeader() {
     tm->traceReport(Util::TraceLevel::simulation, "Simulation controls: "+controls);
     std::string responses;
     for(std::list<SimulationResponse*>::iterator it = _model->getResponses()->getList()->begin(); it!= _model->getResponses()->getList()->end(); it++) {
-	controls+=(*it)->getName()+"("+(*it)->getType()+"), ";
+	responses+=(*it)->getName()+"("+(*it)->getType()+"), ";
     }
-    tm->traceReport(Util::TraceLevel::simulation, "Simulation responses: "+controls);
+    tm->traceReport(Util::TraceLevel::simulation, "Simulation responses: "+responses);
 }
 
 /*!

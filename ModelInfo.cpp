@@ -13,6 +13,7 @@
 
 #include "ModelInfo.h"
 #include "Model.h"
+#include "Assign.h"
 
 ModelInfo::ModelInfo() {
     _name = "Model " + std::to_string(Util::GenerateNewIdOfType<Model>());
@@ -22,6 +23,17 @@ ModelInfo::ModelInfo(const ModelInfo& orig) {
 }
 
 ModelInfo::~ModelInfo() {
+
+}
+std::string ModelInfo::show(){
+    return "analystName=\""+this->_analystName+"\""+
+	    ",description=\""+this->_description+"\""+
+	    ",name=\""+this->_name+"\""+
+	    ",numberOfReplications="+std::to_string(this->_numberOfReplications)+
+	    ",replicationLength="+std::to_string(this->_replicationLength)+ " "+Util::StrTimeUnit(this->_replicationLengthTimeUnit)+
+	    ",terminatingCondition=\""+this->_terminatingCondition+"\""+
+	    ",version="+this->_version+
+	    ",warmupTime="+std::to_string(this->_warmUpPeriod)+" "+Util::StrTimeUnit(this->_warmUpPeriodTimeUnit);
 }
 
 void ModelInfo::setName(std::string _name) {

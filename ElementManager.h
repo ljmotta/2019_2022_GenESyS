@@ -50,6 +50,7 @@ public:
     List<ModelElement*>* getElements(std::string infraTypename) const;
 public:
     void show();
+    Model* getModel() const;
 private:
     std::map<std::string, List<ModelElement*>*>* _elements;
     Model* _model;

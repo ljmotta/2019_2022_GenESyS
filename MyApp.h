@@ -27,6 +27,7 @@ public:
     virtual int main(int argc, char** argv);
 private:
     void insertFakePluginsByHand(Simulator* simulator);
+    void builAndRunSimulationdModel();
 };
 
 #endif /* MYREGENESYSAPPLICATION_H */

@@ -25,6 +25,8 @@ public:
     ModelInfo();
     ModelInfo(const ModelInfo& orig);
     virtual ~ModelInfo();
+public:
+    std::string show();
 public: // gets and sets
     void setName(std::string _name);
     std::string getName() const;

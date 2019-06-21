@@ -74,7 +74,7 @@ template <> struct Traits<GenesysApplication_if> {
 
 template <> struct Traits<Model> {
     static const bool debugged = true;
-    static const Util::TraceLevel traceLevel = Util::TraceLevel::mostDetailed; //::simulation;
+    static const Util::TraceLevel traceLevel = Util::TraceLevel::blockArrival;// :simulation;
 };
 
 template <> struct Traits<ModelPersistence_if> {

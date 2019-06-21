@@ -17,6 +17,7 @@
 
 Entity::Entity(ElementManager* elements) : ModelElement(Util::TypeOf<Entity>()) {
     _elements = elements;
+    _entityNumber = Util::GetLastIdOfType(Util::TypeOf<Entity>());
     unsigned int numAttributes = _elements->getNumberOfElements(Util::TypeOf<Attribute>());
     for (unsigned i = 0; i < numAttributes; i++) {
 	_attributeValues->insert(0.0);
@@ -84,6 +85,10 @@ void Entity::setAttributeValue(std::string attributeName, double value) {
 	(*it)->second->setValue(this->_model->getSimulationTime());
     }
      */
+}
+
+Util::identitifcation Entity::getEntityNumber() const {
+    return _entityNumber;
 }
 
 bool Entity::_loadInstance(std::map<std::string, std::string>* fields) {

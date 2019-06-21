@@ -97,6 +97,7 @@ bool Model::saveModel(std::string filename) {
 }
 
 bool Model::loadModel(std::string filename) {
+    //this->clear(); // clear the model before loading on an existing model
     return this->_modelPersistence->load(filename);
 }
 
@@ -118,32 +119,73 @@ double Model::parseExpression(const std::string expression, bool* success, std::
     return _parser->parse(expression, success, errorMessage);
 }
 
-void Model::_showComponents() {
-    getTraceManager()->trace(Util::TraceLevel::mostDetailed, "Simulation Model:");
-    //std::list<ModelComponent*>* list = getComponents()->getList();
+void Model::show() {
+    getTraceManager()->trace(Util::TraceLevel::report, "Simulation Model:");
     Util::IncIndent();
-    for (std::list<ModelComponent*>::iterator it = getComponentManager()->begin(); it != getComponentManager()->end(); it++) {
-	getTraceManager()->trace(Util::TraceLevel::mostDetailed, (*it)->show()); ////
+    {
+	getTraceManager()->trace(Util::TraceLevel::report, "Information:");
+	Util::IncIndent();
+	getTraceManager()->trace(Util::TraceLevel::report, this->getInfos()->show());
+	Util::DecIndent();
+	_showComponents();
+	_showElements();
+    }
+    Util::DecIndent();
+    getTraceManager()->trace(Util::TraceLevel::report, "End of Simulation Model");
+}
+
+void Model::_showElements() {
+    getTraceManager()->trace(Util::TraceLevel::report, "Elements:");
+    Util::IncIndent();
+    {
+	std::string elementType;
+	bool result;
+	ModelElement* element;
+	std::string* errorMessage = new std::string();
+	std::list<std::string>* elementTypes = getElementManager()->getElementTypenames();
+	for (std::list<std::string>::iterator typeIt = elementTypes->begin(); typeIt != elementTypes->end(); typeIt++) {
+	    elementType = (*typeIt);
+	    List<ModelElement*>* elements = getElementManager()->getElements(elementType);
+	    getTraceManager()->trace(Util::TraceLevel::report, elementType + ":");
+	    Util::IncIndent();
+	    {
+		for (std::list<ModelElement*>::iterator it = elements->getList()->begin(); it != elements->getList()->end(); it++) {
+		    element = (*it);
+		    getTraceManager()->trace(Util::TraceLevel::report, element->show());
+		}
+	    }
+	    Util::DecIndent();
+	}
     }
     Util::DecIndent();
 }
-void Model::clear(){
+
+void Model::_showComponents() {
+    getTraceManager()->trace(Util::TraceLevel::report, "Components:");
+    Util::IncIndent();
+    for (std::list<ModelComponent*>::iterator it = getComponentManager()->begin(); it != getComponentManager()->end(); it++) {
+	getTraceManager()->trace(Util::TraceLevel::report, (*it)->show()); ////
+    }
+    Util::DecIndent();
+}
+
+void Model::clear() {
     this->_componentManager->clear();
     this->_elementManager->clear();
     //Util::ResetAllIds(); // TODO: To implement
 }
 
 bool Model::checkModel() {
-    getTraceManager()->trace(Util::TraceLevel::blockInternal, "Checking model consistency");
+    getTraceManager()->trace(Util::TraceLevel::simulation, "Checking model consistency");
     Util::IncIndent();
     bool res = this->_modelChecker->checkAll();
     Util::DecIndent();
     if (res) {
-	getTraceManager()->trace(Util::TraceLevel::blockInternal, "Model check passed");
+	getTraceManager()->trace(Util::TraceLevel::simulation, "End of Model checking: Success");
     } else {
 	//std::exception e = new std::exception();
 	//getTrace()->traceError() ;
-	getTraceManager()->trace(Util::TraceLevel::errors, "Model check has failed");
+	getTraceManager()->trace(Util::TraceLevel::errors, "End of Model checking: Failed");
     }
     return res;
 }

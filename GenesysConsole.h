@@ -60,6 +60,7 @@ public: // commands
     void cmdStop();
     void cmdShowReport();
     void cmdModelSave();
+    void cmdModelShow();
     void cmdVersion();
     void cmdTraceLevel();
 private:

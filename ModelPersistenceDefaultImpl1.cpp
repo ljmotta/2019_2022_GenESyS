@@ -141,33 +141,39 @@ bool ModelPersistenceDefaultImpl1::_loadFields(std::string line) {
 	    }
 	}
 	// now the map<str,str> is ready. Look for the right class to load it
-	std::string thistypename = (*fields->find("typename")).second;
-	if (thistypename == "SimulatorInfo") {
-	    this->_loadSimulatorInfoFields(fields);
-	} else if (thistypename == "ModelInfo") {
-	    _model->getInfos()->loadInstance(fields);
-	} else {
-	    // this should be a ModelComponent or ModelElement. 
-	    //std::string thistypename = (*fields->find("typename")).second;
-	    ModelElement* newTemUselessElement = ModelElement::LoadInstance(fields);
-	    if (newTemUselessElement != nullptr) {
-		newTemUselessElement->~ModelElement();
-		Plugin* plugin = this->_model->getParent()->getPluginManager()->find(thistypename);
-		if (plugin != nullptr) {
-		    res = plugin->loadAndInsertNew(_model, fields);
+	Util::IncIndent();
+	{
+	    std::string thistypename = (*fields->find("typename")).second;
+	    _model->getTraceManager()->trace(Util::TraceLevel::blockInternal, "loading " + thistypename + "");
+	    if (thistypename == "SimulatorInfo") {
+		this->_loadSimulatorInfoFields(fields);
+	    } else if (thistypename == "ModelInfo") {
+		_model->getInfos()->loadInstance(fields);
+	    } else {
+		// this should be a ModelComponent or ModelElement. 
+		//std::string thistypename = (*fields->find("typename")).second;
+		ModelElement* newTemUselessElement = ModelElement::LoadInstance(fields);
+		if (newTemUselessElement != nullptr) {
+		    newTemUselessElement->~ModelElement();
+		    Plugin* plugin = this->_model->getParent()->getPluginManager()->find(thistypename);
+		    if (plugin != nullptr) {
+			res = plugin->loadAndInsertNew(_model, fields);
+		    } else {
+			_model->getTraceManager()->trace(Util::TraceLevel::errors, "Error loading file: Could not identity typename \"" + thistypename + "\"");
+			res = false;
+		    }
 		} else {
 		    _model->getTraceManager()->trace(Util::TraceLevel::errors, "Error loading file: Could not identity typename \"" + thistypename + "\"");
 		    res = false;
 		}
-	    } else {
-		_model->getTraceManager()->trace(Util::TraceLevel::errors, "Error loading file: Could not identity typename \"" + thistypename + "\"");
-		res = false;
-	    }
 
+	    }
 	}
+	Util::DecIndent();
     } catch (...) {
 
     }
+
     return res;
 }
 
@@ -188,9 +194,9 @@ bool ModelPersistenceDefaultImpl1::load(std::string filename) {
 	    modelFile.open(filename);
 	    while (getline(modelFile, inputLine) && res) {
 		if (inputLine.substr(0, 1) != "#" && !inputLine.empty()) {
-		    Util::IncIndent();
+		    //Util::IncIndent();
 		    res &= _loadFields(inputLine);
-		    Util::DecIndent();
+		    //Util::DecIndent();
 		}
 	    }
 	    modelFile.close();

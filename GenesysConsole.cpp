@@ -33,6 +33,7 @@ GenesysConsole::GenesysConsole() {
     _commands->insert(new ShellCommand("v", "version", "", "Show the version.", DefineExecuterMember<GenesysConsole>(this, &GenesysConsole::cmdVersion)));
     _commands->insert(new ShellCommand("ss", "start", "", "Start simulation.", DefineExecuterMember<GenesysConsole>(this, &GenesysConsole::cmdStart)));
     _commands->insert(new ShellCommand("mc", "modelcheck", "", "Check model.", DefineExecuterMember<GenesysConsole>(this, &GenesysConsole::cmdModelCheck)));
+    _commands->insert(new ShellCommand("mh", "modelshow", "", "Show model.", DefineExecuterMember<GenesysConsole>(this, &GenesysConsole::cmdModelShow)));
     _commands->insert(new ShellCommand("ps", "step", "", "step simulation.", DefineExecuterMember<GenesysConsole>(this, &GenesysConsole::cmdStep)));
     _commands->insert(new ShellCommand("ts", "stop", "", "Stop simulation.", DefineExecuterMember<GenesysConsole>(this, &GenesysConsole::cmdStop)));
     _commands->insert(new ShellCommand("sr", "showreport", "", "Show simulation report.", DefineExecuterMember<GenesysConsole>(this, &GenesysConsole::cmdShowReport)));
@@ -129,6 +130,17 @@ void GenesysConsole::cmdModelLoad() {
 	model->loadModel(filename);
     } catch (...) {
 	//        _commands
+	Trace("   Error loading");
+    }
+}
+
+void GenesysConsole::cmdModelShow() {
+    Trace("Model Show");
+    try {
+	_simulator->getModelManager()->current()->show();
+    } catch (...) {
+	//        _commands
+	Trace("   Error showing");
     }
 }
 
@@ -148,6 +160,7 @@ void GenesysConsole::cmdScript() {
 	}
 	commandfile.close();
     } catch (...) {
+	Trace("   Error scripting");
     }
 }
 
@@ -217,7 +230,7 @@ int GenesysConsole::main(int argc, char** argv) {
 	commandlineArgs->insert(arg);
     }
     //commandlineArgs->insert("-rf=temp/script.txt");
-    commandlineArgs->insert("-ml=models/genesysmodel.txt");
+    //commandlineArgs->insert("-ml=models/genesysmodel.txt");
     this->run(commandlineArgs);
     return 0;
 }

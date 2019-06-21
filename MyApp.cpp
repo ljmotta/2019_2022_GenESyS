@@ -12,6 +12,7 @@
  */
 
 #include "MyApp.h"
+#include "GenesysConsole.h"
 
 // GEnSyS Simulator
 #include "Simulator.h"
@@ -36,6 +37,8 @@
 #include "Attribute.h"
 #include "Variable.h"
 #include "ProbDistrib.h"
+#include "Group.h"
+#include "Formula.h"
 
 void traceHandler(TraceEvent e) {
     std::cout << e.getText() << std::endl;
@@ -83,6 +86,8 @@ void MyApp::insertFakePluginsByHand(Simulator* simulator) {
     simulator->getPluginManager()->insert(new Plugin(&Resource::GetPluginInformation));
     simulator->getPluginManager()->insert(new Plugin(&StatisticsCollector::GetPluginInformation));
     simulator->getPluginManager()->insert(new Plugin(&Variable::GetPluginInformation));
+    simulator->getPluginManager()->insert(new Plugin(&Group::GetPluginInformation));
+    simulator->getPluginManager()->insert(new Plugin(&Formula::GetPluginInformation));
     // model components
     simulator->getPluginManager()->insert(new Plugin(&Assign::GetPluginInformation));
     simulator->getPluginManager()->insert(new Plugin(&Create::GetPluginInformation));
@@ -95,12 +100,45 @@ void MyApp::insertFakePluginsByHand(Simulator* simulator) {
     simulator->getPluginManager()->insert(new Plugin(&Seize::GetPluginInformation));
 }
 
+void _testaMeuModelo(Model* model) {
+    ModelInfo* info = model->getInfos();
+    info->setNumberOfReplications(1);
+    info->setReplicationLength(6);
+    info->setReplicationLengthTimeUnit(Util::TimeUnit::second);
+    model->getTraceManager()->setTraceLevel(Util::TraceLevel::mostDetailed);
+    
+    EntityType* entType1 = new EntityType(model->getElementManager());
+    entType1->setName("Carro");
+    model->getElementManager()->insert(Util::TypeOf<EntityType>(), entType1);
+    
+    Formula* form1 = new Formula(model->getElementManager());
+    form1->setName("Gravidade");
+    form1->setFormulaExpression("2+3-1");
+    model->getElementManager()->insert(Util::TypeOf<Formula>(), form1);
+    
+    Create* create1 = new Create(model);
+    create1->setEntityType(entType1);
+    create1->setTimeBetweenCreationsExpression("1");//("Gravidade");
+    create1->setTimeUnit(Util::TimeUnit::second);
+    model->getComponentManager()->insert(create1);
+    
+    Dummy* dummy1 = new Dummy(model);
+    model->getComponentManager()->insert(dummy1);
+    
+    Dispose* dispose1 = new Dispose(model);
+    model->getComponentManager()->insert(dispose1);
+    
+    create1->getNextComponents()->insert(dummy1);
+    dummy1->getNextComponents()->insert(dispose1);
+}
+
 void _buildModel01_CreDelDis(Model* model) {
     // buildModelWithAllImplementedComponents
     ModelInfo* infos = model->getInfos();
-    infos->setReplicationLength(1);
-    infos->setReplicationLengthTimeUnit(Util::TimeUnit::minute);
-    infos->setNumberOfReplications(10);
+    infos->setReplicationLength(60);
+    infos->setReplicationLengthTimeUnit(Util::TimeUnit::second);
+    infos->setNumberOfReplications(1);
+    infos->setDescription("./models/model01_CreDelDis.txt");
 
     ComponentManager* components = model->getComponentManager();
     ElementManager* elements = model->getElementManager();
@@ -117,7 +155,7 @@ void _buildModel01_CreDelDis(Model* model) {
 
     Delay* delay1 = new Delay(model);
     delay1->setDelayExpression("2");
-    delay1->setDelayTimeUnit(Util::TimeUnit::minute);
+    delay1->setDelayTimeUnit(Util::TimeUnit::second);
     components->insert(delay1);
 
     Dispose* dispose1 = new Dispose(model);
@@ -128,6 +166,92 @@ void _buildModel01_CreDelDis(Model* model) {
     delay1->getNextComponents()->insert(dispose1);
 }
 
+void _buildModel02_CreDelDis(Model* model) {
+    // buildModelWithAllImplementedComponents
+    ModelInfo* infos = model->getInfos();
+    infos->setReplicationLength(60);
+    infos->setReplicationLengthTimeUnit(Util::TimeUnit::second);
+    infos->setNumberOfReplications(1);
+    infos->setDescription("./models/model02_CreDelDis.txt");
+
+    ComponentManager* components = model->getComponentManager();
+    ElementManager* elements = model->getElementManager();
+
+    EntityType* entityType1 = new EntityType(elements, "EntityType_1");
+    elements->insert(Util::TypeOf<EntityType>(), entityType1);
+
+    Create* create1 = new Create(model);
+    create1->setEntityType(entityType1);
+    create1->setTimeBetweenCreationsExpression("expo(1)");
+    create1->setTimeUnit(Util::TimeUnit::second);
+    create1->setEntitiesPerCreation(1);
+    components->insert(create1);
+
+    Delay* delay1 = new Delay(model);
+    delay1->setDelayExpression("norm(2,0.67)");
+    delay1->setDelayTimeUnit(Util::TimeUnit::second);
+    components->insert(delay1);
+
+    Dispose* dispose1 = new Dispose(model);
+    components->insert(dispose1);
+
+    // connect model components to create a "workflow" -- should always start from a SourceModelComponent and end at a SinkModelComponent (it will be checked)
+    create1->getNextComponents()->insert(delay1);
+    delay1->getNextComponents()->insert(dispose1);
+}
+
+void _buildModel03_CreSeiDelResDis(Model* model) {
+    // buildModelWithAllImplementedComponents
+    ModelInfo* infos = model->getInfos();
+    infos->setReplicationLength(60);
+    infos->setReplicationLengthTimeUnit(Util::TimeUnit::second);
+    infos->setNumberOfReplications(1);
+    infos->setDescription("./models/model03_CreSeiDelRelDis.txt");
+
+    ComponentManager* components = model->getComponentManager();
+    ElementManager* elements = model->getElementManager();
+
+    EntityType* entityType1 = new EntityType(elements, "EntityType_1");
+    elements->insert(Util::TypeOf<EntityType>(), entityType1);
+
+    Create* create1 = new Create(model);
+    create1->setEntityType(entityType1);
+    create1->setTimeBetweenCreationsExpression("expo(2)");
+    create1->setTimeUnit(Util::TimeUnit::second);
+    create1->setEntitiesPerCreation(1);
+    components->insert(create1);
+
+    Resource* machine1 = new Resource(elements, "Machine_1");
+    machine1->setCapacity(1);
+    elements->insert(Util::TypeOf<Resource>(), machine1);
+
+    Queue* queueSeize1 = new Queue(elements, "Queue_Machine_1");
+    queueSeize1->setOrderRule(Queue::OrderRule::FIFO);
+    elements->insert(Util::TypeOf<Queue>(), queueSeize1);
+
+    Seize* seize1 = new Seize(model);
+    seize1->setResource(machine1);
+    seize1->setQueue(queueSeize1);
+    components->insert(seize1);
+
+    Delay* delay1 = new Delay(model);
+    delay1->setDelayExpression("norm(2,0.67)");
+    delay1->setDelayTimeUnit(Util::TimeUnit::second);
+    components->insert(delay1);
+
+    Release* release1 = new Release(model);
+    release1->setResource(machine1);
+    components->insert(release1);
+
+    Dispose* dispose1 = new Dispose(model);
+    components->insert(dispose1);
+
+    // connect model components to create a "workflow" -- should always start from a SourceModelComponent and end at a SinkModelComponent (it will be checked)
+    create1->getNextComponents()->insert(seize1);
+    seize1->getNextComponents()->insert(delay1);
+    delay1->getNextComponents()->insert(release1);
+    release1->getNextComponents()->insert(dispose1);
+}
 
 void _buildMostCompleteModel(Model* model) {
     // buildModelWithAllImplementedComponents
@@ -140,6 +264,7 @@ void _buildMostCompleteModel(Model* model) {
     infos->setNumberOfReplications(10);
     infos->setWarmUpPeriod(50);
     infos->setWarmUpPeriodTimeUnit(Util::TimeUnit::minute);
+    infos->setDescription("./models/model99_AllTogether.txt");
 
     ComponentManager* components = model->getComponentManager();
     ElementManager* elements = model->getElementManager();
@@ -254,12 +379,7 @@ void _buildMostCompleteModel(Model* model) {
  * The model is a composition of components (and elements that they use), connected to form a process/fluxogram 
  * @param model - The instance returned that will contains the built model
  */
-void builSimulationdModel(Model* model) { 
-    //_buildMostCompleteModel(model);
-    _buildModel01_CreDelDis();
-}
-
-int MyApp::main(int argc, char** argv) {
+void MyApp::builAndRunSimulationdModel() {
     Simulator* simulator = new Simulator();
 
     // traces handle and simulation events to output them
@@ -280,14 +400,33 @@ ev->addOnProcessEventHandler(&onProcessEventHandler);
     // Basically all ModelComponents and ModelElements classes that may de used to buikd simulation models and to be persisted to files, should be "declared" by plugins.
     this->insertFakePluginsByHand(simulator);
 
-        Model* model = new Model(simulator);
-        builSimulationdModel(model);
-        simulator->getModelManager()->insert(model);
-        model->saveModel("./models/model99_AllTogether.txt");
+    Model* model = new Model(simulator);
+    //_buildModel01_CreDelDis(model);
+    //_buildModel02_CreDelDis(model);
+    //_buildModel03_CreSeiDelResDis(model);
+     _testaMeuModelo(model);
+    //_buildMostCompleteModel(model);
 
+    simulator->getModelManager()->insert(model);
+    //model->saveModel(model->getInfos()->getDescription());
 
-//    simulator->getModelManager()->loadModel("./models/genesysSimpleSimulationModel.txt");
+    //simulator->getModelManager()->loadModel("./models/model99_AllTogether.txt");
+    //simulator->getModelManager()->loadModel("./models/model01_CreDelDis.txt");
 
-    //model->getSimulation()->startSimulation();
+    //model->checkModel();
+    model->show();
+    model->getSimulation()->startSimulation();
+}
+
+int MyApp::main(int argc, char** argv) {
+    bool iWantToProgramMyOwnCode = true;//false;
+
+    if (iWantToProgramMyOwnCode) {
+	this->builAndRunSimulationdModel();
+    } else { // runs GenesysConsole application (under development)
+	GenesysConsole* console = new GenesysConsole();
+	console->main(argc, argv);
+    }
+
     return 0;
 }

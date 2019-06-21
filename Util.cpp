@@ -101,6 +101,20 @@ Util::identitifcation Util::GenerateNewIdOfType(std::string objtype) {
     return (*it).second;
 }
 
+Util::identitifcation Util::GetLastIdOfType(std::string objtype) {
+    std::map<std::string, Util::identitifcation>::iterator it = Util::_S_lastIdOfType.find(objtype);
+    if (it == Util::_S_lastIdOfType.end()) {
+	// a new one. create the pair
+	Util::_S_lastIdOfType.insert(std::pair<std::string, Util::identitifcation>(objtype, 0));
+	it = Util::_S_lastIdOfType.find(objtype);
+    }
+    Util::identitifcation next = (*it).second;
+    //next++;
+    //(*it).second = next;
+    return (*it).second;
+    
+}
+
 void Util::ResetIdOfType(std::string objtype) {
     std::map<std::string, Util::identitifcation>::iterator it = Util::_S_lastIdOfType.find(objtype);
     if (it == Util::_S_lastIdOfType.end()) {

@@ -25,7 +25,7 @@ ModelComponent::~ModelComponent() {
 }
 
 void ModelComponent::Execute(Entity* entity, ModelComponent* component) {
-    component->_model->getTraceManager()->trace(Util::TraceLevel::blockArrival, "Entity " + std::to_string(entity->getId()) + " has arrived at component \"" + component->_name + "\""); //std::to_string(component->_id));
+    component->_model->getTraceManager()->trace(Util::TraceLevel::blockArrival, "Entity " + std::to_string(entity->getEntityNumber()) + " has arrived at component \"" + component->_name + "\""); //std::to_string(component->_id));
     Util::IncIndent();
     try {
 	component->_execute(entity);

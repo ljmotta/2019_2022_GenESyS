@@ -28,23 +28,22 @@ public:
     ModelElement(std::string elementTypename);
     ModelElement(const ModelElement& orig);
     virtual ~ModelElement();
-public:
-    virtual std::string show();
-public: // static
-    static ModelElement* LoadInstance(std::map<std::string, std::string>* fields); // TODO: return ModelComponent* ?
-    static std::map<std::string, std::string>* SaveInstance(ModelElement* element);
-    static bool Check(ModelElement* element, std::string* errorMessage);
 
 public: // get & set
     Util::identitifcation getId() const;
     void setName(std::string _name);
     std::string getName() const;
     std::string getTypename() const;
+public: // static
+    static ModelElement* LoadInstance(std::map<std::string, std::string>* fields); // TODO: return ModelComponent* ?
+    static std::map<std::string, std::string>* SaveInstance(ModelElement* element);
+    static bool Check(ModelElement* element, std::string* errorMessage);
+public:
+    virtual std::string show();
 
 protected: // must be overriden by derived classes
     virtual bool _loadInstance(std::map<std::string, std::string>* fields);
     virtual std::map<std::string, std::string>* _saveInstance();
-    //virtual std::list<std::map<std::string,std::string>*>* _saveInstance(std::string type);
     virtual bool _check(std::string* errorMessage);
 
 protected:
