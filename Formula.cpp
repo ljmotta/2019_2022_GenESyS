@@ -11,13 +11,15 @@
  * Created on 20 de Junho de 2019, 00:56
  */
 
-#include <iostream>
 #include "Formula.h"
+#include <iostream>
 #include "ElementManager.h"
 #include "Model.h"
+#include "Traits.h"
 
 Formula::Formula(ElementManager* elements) : ModelElement(Util::TypeOf<Formula>()) {
     _elements = elements;
+    _myPrivateParser = new Traits<Parser_if>::Implementation(elements->getModel());
 }
 
 void Formula::setFormulaExpression(std::string _formulaExpression) {
@@ -29,8 +31,8 @@ std::string Formula::getFormulaExpression() const {
 }
 
 double Formula::getValue() const {
-    std::cout << "Pegando valor" << std::endl;
-    return _elements->getModel()->parseExpression(_formulaExpression);
+    double value = -99.9;//_myPrivateParser->parse(_formulaExpression);
+    return value;
 }
 
 Formula::Formula(const Formula& orig) : ModelElement(orig) {
@@ -58,5 +60,7 @@ std::map<std::string, std::string>* Formula::_saveInstance() {
 }
 
 bool Formula::_check(std::string* errorMessage) {
-    return true;
+    std::string errorMsg="";
+    bool res  = _elements->getModel()->checkExpression(this->_formulaExpression,"formula expression", &errorMsg);
+    return res;
 }

@@ -74,8 +74,8 @@ bool SourceModelComponent::_check(std::string* errorMessage) {
 	}
     }
     bool resultAll = true;
-    resultAll &= _model->checkExpression(this->_timeBetweenCreationsExpression, "time between creations", errorMessage);
     resultAll &= _model->getElementManager()->check(Util::TypeOf<EntityType>(), _entityType, "entitytype", errorMessage);
+    resultAll &= _model->checkExpression(this->_timeBetweenCreationsExpression, "time between creations", errorMessage);
     return resultAll;
 }
 

@@ -439,12 +439,13 @@ namespace yy {
         PLUS = 306,
         MINUS = 307,
         STAR = 308,
-        SLASH = 309,
-        LESS = 310,
-        GREATER = 311,
-        ASSIGN = 312,
-        COMMA = 313,
-        NEG = 314
+        POWER = 309,
+        SLASH = 310,
+        LESS = 311,
+        GREATER = 312,
+        ASSIGN = 313,
+        COMMA = 314,
+        NEG = 315
       };
     };
 
@@ -761,6 +762,10 @@ namespace yy {
 
     static inline
     symbol_type
+    make_POWER (const location_type& l);
+
+    static inline
+    symbol_type
     make_SLASH (const location_type& l);
 
     static inline
@@ -988,12 +993,12 @@ namespace yy {
     enum
     {
       yyeof_ = 0,
-      yylast_ = 955,     ///< Last index in yytable_.
+      yylast_ = 1052,     ///< Last index in yytable_.
       yynnts_ = 22,  ///< Number of nonterminal symbols.
       yyfinal_ = 6, ///< Termination state number.
       yyterror_ = 1,
       yyerrcode_ = 256,
-      yyntokens_ = 64  ///< Number of tokens.
+      yyntokens_ = 65  ///< Number of tokens.
     };
 
 
@@ -1011,7 +1016,7 @@ namespace yy {
     translate_table[] =
     {
      0,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-      60,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+      61,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
@@ -1041,9 +1046,9 @@ namespace yy {
       25,    26,    27,    28,    29,    30,    31,    32,    33,    34,
       35,    36,    37,    38,    39,    40,    41,    42,    43,    44,
       45,    46,    47,    48,    49,    50,    51,    52,    53,    54,
-      55,    56,    57,    58,    59,    61,    62,    63
+      55,    56,    57,    58,    59,    60,    62,    63,    64
     };
-    const unsigned int user_token_number_max_ = 317;
+    const unsigned int user_token_number_max_ = 318;
     const token_number_type undef_token_ = 2;
 
     if (static_cast<int>(t) <= yyeof_)
@@ -1122,27 +1127,27 @@ namespace yy {
       case 46: // cTO
       case 47: // cDO
       case 48: // ILLEGAL
-      case 65: // input
-      case 66: // programa
-      case 67: // expressao
-      case 68: // numero
-      case 69: // aritmetica
-      case 70: // relacional
-      case 71: // comando
-      case 72: // comandoIF
-      case 73: // comandoFOR
-      case 74: // funcao
-      case 75: // atributo
-      case 76: // atribuicao
-      case 77: // variavel
-      case 78: // formula
-      case 79: // funcaoTrig
-      case 80: // funcaoArit
-      case 81: // funcaoProb
-      case 82: // funcaoStrc
-      case 83: // funcaoUser
-      case 84: // listaparm
-      case 85: // illegal
+      case 66: // input
+      case 67: // programa
+      case 68: // expressao
+      case 69: // numero
+      case 70: // aritmetica
+      case 71: // relacional
+      case 72: // comando
+      case 73: // comandoIF
+      case 74: // comandoFOR
+      case 75: // funcao
+      case 76: // atributo
+      case 77: // atribuicao
+      case 78: // variavel
+      case 79: // formula
+      case 80: // funcaoTrig
+      case 81: // funcaoArit
+      case 82: // funcaoProb
+      case 83: // funcaoStrc
+      case 84: // funcaoUser
+      case 85: // listaparm
+      case 86: // illegal
         value.copy< obj_t > (other.value);
         break;
 
@@ -1209,27 +1214,27 @@ namespace yy {
       case 46: // cTO
       case 47: // cDO
       case 48: // ILLEGAL
-      case 65: // input
-      case 66: // programa
-      case 67: // expressao
-      case 68: // numero
-      case 69: // aritmetica
-      case 70: // relacional
-      case 71: // comando
-      case 72: // comandoIF
-      case 73: // comandoFOR
-      case 74: // funcao
-      case 75: // atributo
-      case 76: // atribuicao
-      case 77: // variavel
-      case 78: // formula
-      case 79: // funcaoTrig
-      case 80: // funcaoArit
-      case 81: // funcaoProb
-      case 82: // funcaoStrc
-      case 83: // funcaoUser
-      case 84: // listaparm
-      case 85: // illegal
+      case 66: // input
+      case 67: // programa
+      case 68: // expressao
+      case 69: // numero
+      case 70: // aritmetica
+      case 71: // relacional
+      case 72: // comando
+      case 73: // comandoIF
+      case 74: // comandoFOR
+      case 75: // funcao
+      case 76: // atributo
+      case 77: // atribuicao
+      case 78: // variavel
+      case 79: // formula
+      case 80: // funcaoTrig
+      case 81: // funcaoArit
+      case 82: // funcaoProb
+      case 83: // funcaoStrc
+      case 84: // funcaoUser
+      case 85: // listaparm
+      case 86: // illegal
         value.copy< obj_t > (v);
         break;
 
@@ -1327,27 +1332,27 @@ namespace yy {
       case 46: // cTO
       case 47: // cDO
       case 48: // ILLEGAL
-      case 65: // input
-      case 66: // programa
-      case 67: // expressao
-      case 68: // numero
-      case 69: // aritmetica
-      case 70: // relacional
-      case 71: // comando
-      case 72: // comandoIF
-      case 73: // comandoFOR
-      case 74: // funcao
-      case 75: // atributo
-      case 76: // atribuicao
-      case 77: // variavel
-      case 78: // formula
-      case 79: // funcaoTrig
-      case 80: // funcaoArit
-      case 81: // funcaoProb
-      case 82: // funcaoStrc
-      case 83: // funcaoUser
-      case 84: // listaparm
-      case 85: // illegal
+      case 66: // input
+      case 67: // programa
+      case 68: // expressao
+      case 69: // numero
+      case 70: // aritmetica
+      case 71: // relacional
+      case 72: // comando
+      case 73: // comandoIF
+      case 74: // comandoFOR
+      case 75: // funcao
+      case 76: // atributo
+      case 77: // atribuicao
+      case 78: // variavel
+      case 79: // formula
+      case 80: // funcaoTrig
+      case 81: // funcaoArit
+      case 82: // funcaoProb
+      case 83: // funcaoStrc
+      case 84: // funcaoUser
+      case 85: // listaparm
+      case 86: // illegal
         value.template destroy< obj_t > ();
         break;
 
@@ -1420,27 +1425,27 @@ namespace yy {
       case 46: // cTO
       case 47: // cDO
       case 48: // ILLEGAL
-      case 65: // input
-      case 66: // programa
-      case 67: // expressao
-      case 68: // numero
-      case 69: // aritmetica
-      case 70: // relacional
-      case 71: // comando
-      case 72: // comandoIF
-      case 73: // comandoFOR
-      case 74: // funcao
-      case 75: // atributo
-      case 76: // atribuicao
-      case 77: // variavel
-      case 78: // formula
-      case 79: // funcaoTrig
-      case 80: // funcaoArit
-      case 81: // funcaoProb
-      case 82: // funcaoStrc
-      case 83: // funcaoUser
-      case 84: // listaparm
-      case 85: // illegal
+      case 66: // input
+      case 67: // programa
+      case 68: // expressao
+      case 69: // numero
+      case 70: // aritmetica
+      case 71: // relacional
+      case 72: // comando
+      case 73: // comandoIF
+      case 74: // comandoFOR
+      case 75: // funcao
+      case 76: // atributo
+      case 77: // atribuicao
+      case 78: // variavel
+      case 79: // formula
+      case 80: // funcaoTrig
+      case 81: // funcaoArit
+      case 82: // funcaoProb
+      case 83: // funcaoStrc
+      case 84: // funcaoUser
+      case 85: // listaparm
+      case 86: // illegal
         value.move< obj_t > (s.value);
         break;
 
@@ -1505,7 +1510,7 @@ namespace yy {
      285,   286,   287,   288,   289,   290,   291,   292,   293,   294,
      295,   296,   297,   298,   299,   300,   301,   302,   303,   304,
      305,   306,   307,   308,   309,   310,   311,   312,   313,   314,
-      10,   315,   316,   317
+     315,    10,   316,   317,   318
     };
     return static_cast<token_type> (yytoken_number_[type]);
   }
@@ -1823,6 +1828,12 @@ namespace yy {
   }
 
   genesyspp_parser::symbol_type
+  genesyspp_parser::make_POWER (const location_type& l)
+  {
+    return symbol_type (token::POWER, l);
+  }
+
+  genesyspp_parser::symbol_type
   genesyspp_parser::make_SLASH (const location_type& l)
   {
     return symbol_type (token::SLASH, l);
@@ -1861,7 +1872,7 @@ namespace yy {
 
 
 } // yy
-#line 1865 "../GenesysParser.h" // lalr1.cc:377
+#line 1876 "../GenesysParser.h" // lalr1.cc:377
 
 
 

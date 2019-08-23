@@ -15,17 +15,39 @@
 #define ODE_H
 
 #include "ModelElement.h"
+#include "ElementManager.h"
+#include "Plugin.h"
+
+class ODEfunction {
+public:
+
+    ODEfunction(std::string expression, double initialPoint, double initialValue) {
+	this->expression = expression;
+	this->initialPoint =initialPoint;
+	this->initialValue = initialValue;
+    }
+    std::string expression;
+    double initialPoint;
+    double initialValue;
+};
 
 class ODE : public ModelElement {
 public:
-    ODE();
+    ODE(ElementManager* elems);
     ODE(const ODE& orig);
     virtual ~ODE();
 public:
     virtual std::string show();
 public:
-    void setExpression(std::string expression);
-    std::string getExpression() const;
+    static PluginInformation* GetPluginInformation();
+    static ModelElement* LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields);
+public:
+    double solve();
+    void setStepH(double _h);
+    double getStepH() const;
+    void setEndTime(double _endTime);
+    double getEndTime() const;
+    List<ODEfunction*>* getODEfunctions() const;
 protected: // must be overriden by derived classes
     virtual bool _loadInstance(std::map<std::string, std::string>* fields);
     virtual std::map<std::string, std::string>* _saveInstance();
@@ -33,7 +55,10 @@ protected: // must be overriden by derived classes
 private:
 
 private:
-    std::string expression;
+    List<ODEfunction*>* _ODEfunctions = new List<ODEfunction*>();
+    double _stepH = 0.1;
+    double _endTime;
+    ElementManager* _elems;
 };
 
 #endif /* ODE_H */

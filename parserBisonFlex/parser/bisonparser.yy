@@ -96,6 +96,7 @@ class genesyspp_driver;
 %token PLUS "+"
 %token MINUS "-"
 %token STAR "*"
+%token POWER "^"
 %token SLASH "/"
 %token LESS "<"
 %token GREATER ">"
@@ -166,6 +167,7 @@ aritmetica  : expressao PLUS expressao                          { $$.valor = $1.
             | expressao MINUS expressao                         { $$.valor = $1.valor - $3.valor;}
             | expressao SLASH expressao                         { $$.valor = $1.valor / $3.valor;}
             | expressao STAR expressao                          { $$.valor = $1.valor * $3.valor;}
+            | expressao POWER expressao                         { $$.valor = pow($1.valor,$3.valor);}
             | MINUS expressao %prec NEG                         { $$.valor = -$2.valor;}
             ;
 

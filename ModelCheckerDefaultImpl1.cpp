@@ -53,8 +53,8 @@ bool ModelCheckerDefaultImpl1::_recursiveConnectedTo(ModelComponent* comp, List<
             *drenoFound = false;
         } else {
             ModelComponent* nextComp;
-            for (std::list<ModelComponent*>::iterator it = comp->getNextComponents()->getList()->begin(); it != comp->getNextComponents()->getList()->end(); it++) {
-                nextComp = (*it);
+            for (std::list<Connection*>::iterator it = comp->getNextComponents()->getList()->begin(); it != comp->getNextComponents()->getList()->end(); it++) {
+                nextComp = (*it)->first;
                 if (visited->find(nextComp) == visited->getList()->end()) { // not visited yet
                     *drenoFound = false;
 		    Util::IncIndent();
@@ -276,7 +276,7 @@ bool ModelCheckerDefaultImpl1::checkSymbols() {
                         try {
                             result = element->Check((*it), errorMessage);
                             res &= result;
-                            if (!res) {
+                            if (!result) {
                                 _model->getTraceManager()->trace(Util::TraceLevel::errors, "Error: Checking has failed with message '" + *errorMessage + "'");
                             }
                         } catch (const std::exception& e) {

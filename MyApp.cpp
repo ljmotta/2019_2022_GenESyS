@@ -39,6 +39,7 @@
 #include "ProbDistrib.h"
 #include "Group.h"
 #include "Formula.h"
+#include "ODE.h"
 
 void traceHandler(TraceEvent e) {
     std::cout << e.getText() << std::endl;
@@ -88,6 +89,7 @@ void MyApp::insertFakePluginsByHand(Simulator* simulator) {
     simulator->getPluginManager()->insert(new Plugin(&Variable::GetPluginInformation));
     simulator->getPluginManager()->insert(new Plugin(&Group::GetPluginInformation));
     simulator->getPluginManager()->insert(new Plugin(&Formula::GetPluginInformation));
+    simulator->getPluginManager()->insert(new Plugin(&ODE::GetPluginInformation));
     // model components
     simulator->getPluginManager()->insert(new Plugin(&Assign::GetPluginInformation));
     simulator->getPluginManager()->insert(new Plugin(&Create::GetPluginInformation));
@@ -106,28 +108,43 @@ void _testaMeuModelo(Model* model) {
     info->setReplicationLength(6);
     info->setReplicationLengthTimeUnit(Util::TimeUnit::second);
     model->getTraceManager()->setTraceLevel(Util::TraceLevel::mostDetailed);
-    
+
     EntityType* entType1 = new EntityType(model->getElementManager());
     entType1->setName("Carro");
     model->getElementManager()->insert(Util::TypeOf<EntityType>(), entType1);
-    
-    Formula* form1 = new Formula(model->getElementManager());
-    form1->setName("Gravidade");
-    form1->setFormulaExpression("2+3-1");
-    model->getElementManager()->insert(Util::TypeOf<Formula>(), form1);
-    
+
+    //Formula* form1 = new Formula(model->getElementManager());
+    //form1->setName("Gravidade");
+    //form1->setFormulaExpression("2+3-1");
+    //model->getElementManager()->insert(Util::TypeOf<Formula>(), form1);
+
     Create* create1 = new Create(model);
     create1->setEntityType(entType1);
-    create1->setTimeBetweenCreationsExpression("1");//("Gravidade");
+    create1->setTimeBetweenCreationsExpression("2+3-1"); //("Gravidade");
     create1->setTimeUnit(Util::TimeUnit::second);
     model->getComponentManager()->insert(create1);
-    
+
+
+    Variable* var1 = new Variable();
+    var1->setName("var1");
+    model->getElementManager()->insert(Util::TypeOf<Variable>(), var1);
+
+    ODE* ode1 = new ODE(model->getElementManager());
+    ODEfunction* func1 = new ODEfunction("var1 - TNOW*TNOW + 1", 0.0, 0.5);
+    ode1->getODEfunctions()->insert(func1);
+    ode1->setStepH(0.2);
+    ode1->setEndTime(2.0);
+    model->getElementManager()->insert(Util::TypeOf<ODE>(), ode1);
+
     Dummy* dummy1 = new Dummy(model);
+    dummy1->setOde(ode1);
     model->getComponentManager()->insert(dummy1);
-    
+    //ODE* ode1 = new ODE(model);
+    //model->getComponentManager()->insert(ode1);
+
     Dispose* dispose1 = new Dispose(model);
     model->getComponentManager()->insert(dispose1);
-    
+
     create1->getNextComponents()->insert(dummy1);
     dummy1->getNextComponents()->insert(dispose1);
 }
@@ -404,7 +421,7 @@ ev->addOnProcessEventHandler(&onProcessEventHandler);
     //_buildModel01_CreDelDis(model);
     //_buildModel02_CreDelDis(model);
     //_buildModel03_CreSeiDelResDis(model);
-     _testaMeuModelo(model);
+    _testaMeuModelo(model);
     //_buildMostCompleteModel(model);
 
     simulator->getModelManager()->insert(model);
@@ -419,14 +436,6 @@ ev->addOnProcessEventHandler(&onProcessEventHandler);
 }
 
 int MyApp::main(int argc, char** argv) {
-    bool iWantToProgramMyOwnCode = true;//false;
-
-    if (iWantToProgramMyOwnCode) {
-	this->builAndRunSimulationdModel();
-    } else { // runs GenesysConsole application (under development)
-	GenesysConsole* console = new GenesysConsole();
-	console->main(argc, argv);
-    }
-
+    this->builAndRunSimulationdModel();
     return 0;
 }

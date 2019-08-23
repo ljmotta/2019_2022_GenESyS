@@ -23,6 +23,7 @@ int main(int argc, char** argv) {
     // do not change it. Set you own application in Traits file => Traits<GenesysApplication_if>::Application
     GenesysApplication_if *app = new Traits<GenesysApplication_if>::Application();
     int res = app->main(argc, argv);
+    std::cout << "Quiting application." << std::endl;
     return res;
 }
 

@@ -68,6 +68,8 @@
         </logicalFolder>
         <itemPath>ComponentManager.cpp</itemPath>
         <itemPath>ComponentManager.h</itemPath>
+        <itemPath>ConnectionManager.cpp</itemPath>
+        <itemPath>ConnectionManager.h</itemPath>
         <itemPath>ElementManager.cpp</itemPath>
         <itemPath>ElementManager.h</itemPath>
         <itemPath>ModelChecker_if.h</itemPath>
@@ -91,29 +93,31 @@
         <itemPath>TraceManager.cpp</itemPath>
         <itemPath>TraceManager.h</itemPath>
       </logicalFolder>
-      <itemPath>DefineGetterSetter.h</itemPath>
-      <itemPath>Event.cpp</itemPath>
-      <itemPath>Event.h</itemPath>
-      <itemPath>LicenceManager.cpp</itemPath>
-      <itemPath>LicenceManager.h</itemPath>
-      <itemPath>Model.cpp</itemPath>
-      <itemPath>Model.h</itemPath>
-      <itemPath>ModelManager.cpp</itemPath>
-      <itemPath>ModelManager.h</itemPath>
-      <itemPath>Parser_if.h</itemPath>
-      <itemPath>Plugin.cpp</itemPath>
-      <itemPath>Plugin.h</itemPath>
-      <itemPath>PluginManager.cpp</itemPath>
-      <itemPath>PluginManager.h</itemPath>
-      <itemPath>Sampler_if.h</itemPath>
-      <itemPath>SimulationControl.cpp</itemPath>
-      <itemPath>SimulationControl.h</itemPath>
-      <itemPath>SimulationResponse.cpp</itemPath>
-      <itemPath>SimulationResponse.h</itemPath>
+      <logicalFolder name="f2" displayName="SimulatorParts" projectFiles="true">
+        <itemPath>DefineGetterSetter.h</itemPath>
+        <itemPath>Event.cpp</itemPath>
+        <itemPath>Event.h</itemPath>
+        <itemPath>LicenceManager.cpp</itemPath>
+        <itemPath>LicenceManager.h</itemPath>
+        <itemPath>Model.cpp</itemPath>
+        <itemPath>Model.h</itemPath>
+        <itemPath>ModelManager.cpp</itemPath>
+        <itemPath>ModelManager.h</itemPath>
+        <itemPath>Parser_if.h</itemPath>
+        <itemPath>Plugin.cpp</itemPath>
+        <itemPath>Plugin.h</itemPath>
+        <itemPath>PluginManager.cpp</itemPath>
+        <itemPath>PluginManager.h</itemPath>
+        <itemPath>Sampler_if.h</itemPath>
+        <itemPath>SimulationControl.cpp</itemPath>
+        <itemPath>SimulationControl.h</itemPath>
+        <itemPath>SimulationResponse.cpp</itemPath>
+        <itemPath>SimulationResponse.h</itemPath>
+      </logicalFolder>
       <itemPath>Simulator.cpp</itemPath>
       <itemPath>Simulator.h</itemPath>
     </logicalFolder>
-    <logicalFolder name="f3" displayName="Plugins" projectFiles="true" kind="ROOT">
+    <logicalFolder name="f3" displayName="Plugins" projectFiles="true">
       <logicalFolder name="f2" displayName="Components" projectFiles="true">
         <itemPath>Assign.cpp</itemPath>
         <itemPath>Assign.h</itemPath>
@@ -160,7 +164,7 @@
         <itemPath>Signal.cpp</itemPath>
         <itemPath>Signal.h</itemPath>
       </logicalFolder>
-      <logicalFolder name="f1" displayName="Elements" projectFiles="true" kind="ROOT">
+      <logicalFolder name="f1" displayName="Elements" projectFiles="true">
         <itemPath>Counter.cpp</itemPath>
         <itemPath>Counter.h</itemPath>
         <itemPath>Formula.cpp</itemPath>
@@ -197,6 +201,8 @@
         <itemPath>CollectorDefaultImpl1.h</itemPath>
         <itemPath>CollectorDummyImpl.cpp</itemPath>
         <itemPath>CollectorDummyImpl.h</itemPath>
+        <itemPath>FitterDefaultImpl1.cpp</itemPath>
+        <itemPath>FitterDefaultImpl1.h</itemPath>
         <itemPath>HypothesisTesterDefaultImpl1.cpp</itemPath>
         <itemPath>HypothesisTesterDefaultImpl1.h</itemPath>
         <itemPath>HypothesisTesterDummyImpl.cpp</itemPath>
@@ -212,28 +218,23 @@
         <itemPath>StatisticsDummyImpl.cpp</itemPath>
         <itemPath>StatisticsDummyImpl.h</itemPath>
       </logicalFolder>
-      <itemPath>CollectorDatafile_if.h</itemPath>
-      <itemPath>Collector_if.h</itemPath>
-      <itemPath>HypothesisTester_if.h</itemPath>
-      <itemPath>Integrator_if.h</itemPath>
+      <logicalFolder name="f2" displayName="Interfaces" projectFiles="true">
+        <itemPath>AnalysisOfVariance_if.h</itemPath>
+        <itemPath>CollectorDatafile_if.h</itemPath>
+        <itemPath>Collector_if.h</itemPath>
+        <itemPath>Fitter_if.h</itemPath>
+        <itemPath>HypothesisTester_if.h</itemPath>
+        <itemPath>Integrator_if.h</itemPath>
+        <itemPath>StatisticsDataFile_if.h</itemPath>
+        <itemPath>Statistics_if.h</itemPath>
+      </logicalFolder>
       <itemPath>ProbDistrib.cpp</itemPath>
       <itemPath>ProbDistrib.h</itemPath>
-      <itemPath>StatisticsDataFile_if.h</itemPath>
-      <itemPath>Statistics_if.h</itemPath>
     </logicalFolder>
     <logicalFolder name="f8" displayName="Tools" projectFiles="true">
       <logicalFolder name="f1"
                      displayName="Distributed Parallel Execution"
                      projectFiles="true">
-      </logicalFolder>
-      <logicalFolder name="f1" displayName="Input Analyser" projectFiles="true">
-        <logicalFolder name="f1" displayName="Impl" projectFiles="true">
-          <itemPath>FitterDefaultImpl1.cpp</itemPath>
-          <itemPath>FitterDefaultImpl1.h</itemPath>
-        </logicalFolder>
-        <itemPath>Fitter_if.h</itemPath>
-      </logicalFolder>
-      <logicalFolder name="f3" displayName="Output Analyser" projectFiles="true">
       </logicalFolder>
       <logicalFolder name="f4" displayName="Process Analyser" projectFiles="true">
         <logicalFolder name="f1" displayName="Impl" projectFiles="true">
@@ -241,8 +242,8 @@
           <itemPath>ExperimentDesignDefaultImpl1.h</itemPath>
           <itemPath>ExperimentDesignDummyImpl.cpp</itemPath>
           <itemPath>ExperimentDesignDummyImpl.h</itemPath>
-          <itemPath>ProcessAnalyserDummyImpl.cpp</itemPath>
-          <itemPath>ProcessAnalyserDummyImpl.h</itemPath>
+          <itemPath>ProcessAnalyserDefaultImpl1.cpp</itemPath>
+          <itemPath>ProcessAnalyserDefaultImpl1.h</itemPath>
         </logicalFolder>
         <itemPath>ExperimentDesign_if.h</itemPath>
         <itemPath>FactorOrInteractionContribution.cpp</itemPath>
@@ -273,11 +274,13 @@
         <itemPath>TestStatistics.h</itemPath>
         <itemPath>main.cpp</itemPath>
       </logicalFolder>
+      <logicalFolder name="f2" displayName="UserInterfaces" projectFiles="true">
+        <itemPath>GenesysConsole.cpp</itemPath>
+        <itemPath>GenesysConsole.h</itemPath>
+        <itemPath>GenesysGUI.cpp</itemPath>
+        <itemPath>GenesysGUI.h</itemPath>
+      </logicalFolder>
       <itemPath>GenesysApplication_if.h</itemPath>
-      <itemPath>GenesysConsole.cpp</itemPath>
-      <itemPath>GenesysConsole.h</itemPath>
-      <itemPath>GenesysGUI.cpp</itemPath>
-      <itemPath>GenesysGUI.h</itemPath>
     </logicalFolder>
     <logicalFolder name="f6" displayName="Util" projectFiles="true">
       <itemPath>List.h</itemPath>
@@ -313,6 +316,8 @@
           <warningLevel>2</warningLevel>
         </asmTool>
       </compileType>
+      <item path="AnalysisOfVariance_if.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Assign.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Assign.h" ex="false" tool="3" flavor2="0">
@@ -356,6 +361,10 @@
       <item path="ComponentManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ComponentManager.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ConnectionManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ConnectionManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Counter.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -562,9 +571,9 @@
       </item>
       <item path="ProbDistrib.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="ProcessAnalyserDummyImpl.cpp" ex="false" tool="1" flavor2="0">
+      <item path="ProcessAnalyserDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="ProcessAnalyserDummyImpl.h" ex="false" tool="3" flavor2="0">
+      <item path="ProcessAnalyserDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ProcessAnalyser_if.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -793,6 +802,8 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="AnalysisOfVariance_if.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Assign.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Assign.h" ex="false" tool="3" flavor2="0">
@@ -836,6 +847,10 @@
       <item path="ComponentManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ComponentManager.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ConnectionManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ConnectionManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Counter.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -1042,9 +1057,9 @@
       </item>
       <item path="ProbDistrib.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="ProcessAnalyserDummyImpl.cpp" ex="false" tool="1" flavor2="0">
+      <item path="ProcessAnalyserDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="ProcessAnalyserDummyImpl.h" ex="false" tool="3" flavor2="0">
+      <item path="ProcessAnalyserDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ProcessAnalyser_if.h" ex="false" tool="3" flavor2="0">
       </item>

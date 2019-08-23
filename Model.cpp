@@ -77,17 +77,21 @@ Model::Model(const Model& orig) {
 Model::~Model() {
 }
 
-void Model::sendEntityToComponent(Entity* entity, ModelComponent* component, double timeDelay) {
+void Model::sendEntityToComponent(Entity* entity, Connection* connection, double timeDelay){
+    this->sendEntityToComponent(entity, connection->first, timeDelay, connection->second);
+}
+
+void Model::sendEntityToComponent(Entity* entity, ModelComponent* component, double timeDelay, unsigned int componentInputNumber) {
     /* TODO -: event onEntityMove */
     if (timeDelay > 0) {
 	// schedule to send it
-	Event* newEvent = new Event(this->getSimulation()->getSimulatedTime() + timeDelay, entity, component);
+	Event* newEvent = new Event(this->getSimulation()->getSimulatedTime() + timeDelay, entity, component, componentInputNumber);
 	this->getEvents()->insert(newEvent);
     } else {
 	// send it now
 	/* TODO -: supposed not to be a queue associated to a component */
 	Util::DecIndent();
-	component->Execute(entity, component);
+	ModelComponent::Execute(entity, component, componentInputNumber);
 	Util::IncIndent();
     }
 }
@@ -102,7 +106,11 @@ bool Model::loadModel(std::string filename) {
 }
 
 double Model::parseExpression(const std::string expression) {
+    try{
     return _parser->parse(expression);
+    }catch(...){
+	return 0.0; //TODO HOW SAY THERE WAS AN ERROR?
+    }
 }
 
 bool Model::checkExpression(const std::string expression, const std::string expressionName, std::string* errorMessage) {
@@ -116,7 +124,8 @@ bool Model::checkExpression(const std::string expression, const std::string expr
 }
 
 double Model::parseExpression(const std::string expression, bool* success, std::string* errorMessage) {
-    return _parser->parse(expression, success, errorMessage);
+    double value = _parser->parse(expression, success, errorMessage);
+    return value;
 }
 
 void Model::show() {
@@ -200,7 +209,7 @@ void Model::removeEntity(Entity* entity, bool collectStatistics) {
 	entity->getEntityType()->getCstatTotalTime()->getStatistics()->getCollector()->addValue(timeInSystem);
     }
     /* TODO -: event onEntityRemove */
-    std::string entId = std::to_string(entity->getId());
+    std::string entId = std::to_string(entity->getEntityNumber());
     this->getElementManager()->remove(Util::TypeOf<Entity>(), entity);
     getTraceManager()->trace(Util::TraceLevel::blockInternal, "Entity " + entId + " was removed from the system");
 }

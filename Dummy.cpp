@@ -14,7 +14,12 @@
 #include "Dummy.h"
 #include "Model.h"
 
+// TODO: FOR TESTING ONLY
+#include "ODE.h"
+#include "Variable.h"
+
 Dummy::Dummy(Model* model) : ModelComponent(model, Util::TypeOf<Dummy>()) {
+    _ode = new ODE(model->getElementManager());
 }
 
 Dummy::Dummy(const Dummy& orig) : ModelComponent(orig) {
@@ -37,9 +42,22 @@ ModelComponent* Dummy::LoadInstance(Model* model, std::map<std::string, std::str
     return newComponent;
 }
 
+void Dummy::setOde(ODE* _ode) {
+    this->_ode = _ode;
+}
+
+ODE* Dummy::getOde() const {
+    return _ode;
+}
+
 void Dummy::_execute(Entity* entity) {
+    /*
     _model->getTraceManager()->trace(Util::TraceLevel::blockInternal, "I'm just a dummy model and I'll just send the entity forward");
     this->_model->sendEntityToComponent(entity, this->getNextComponents()->front(), 0.0);
+    */
+    _ode->solve();
+    Event* newEvent = new Event(_ode->getStepH(), entity, this->getNextComponents()->front());
+    _model->getEvents()->insert(newEvent);
 }
 
 bool Dummy::_loadInstance(std::map<std::string, std::string>* fields) {
@@ -57,7 +75,7 @@ std::map<std::string, std::string>* Dummy::_saveInstance() {
     return fields;
 }
 
-bool Dummy::_check(std::string* errorMessage) {
+bool Dummy::_check(std::string* errorMessage) {   
     return true;
 }
 

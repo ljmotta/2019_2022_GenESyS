@@ -72,6 +72,10 @@ Waiting* Queue::first() {
     return _list->front();
 }
 
+Waiting* Queue::getAtRank(unsigned int rank){
+    return _list->getAtRank(rank);
+}
+
 void Queue::setAttributeName(std::string _attributeName) {
     this->_attributeName = _attributeName;
 }

@@ -13,10 +13,11 @@
 
 #include "Event.h"
 
-Event::Event(double time, Entity* entity, ModelComponent* component) {
+Event::Event(double time, Entity* entity, ModelComponent* component, unsigned int componentInputNumber) {
     _time = time;
     _entity = entity;
     _component = component;
+    _componentInputNumber = componentInputNumber;
 }
 
 Event::Event(const Event& orig) {
@@ -29,6 +30,10 @@ std::string Event::show() {
     return "time=" + std::to_string(_time) +
 	    ",entity=" + std::to_string(_entity->getEntityNumber()) +
 	    ",comp=\"" + _component->getName() + "\""; //+std::to_string(_component->getId())+"}";
+}
+
+unsigned int Event::getComponentInputNumber() const {
+    return _componentInputNumber;
 }
 
 double Event::getTime() const {

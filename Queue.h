@@ -45,6 +45,7 @@ public:
     void removeElement(Waiting* element);
     unsigned int size();
     Waiting* first();
+    Waiting* getAtRank(unsigned int rank);
     void setAttributeName(std::string _attributeName);
     std::string getAttributeName() const;
     void setOrderRule(OrderRule _orderRule);

@@ -45,6 +45,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/CollectorDefaultImpl1.o \
 	${OBJECTDIR}/CollectorDummyImpl.o \
 	${OBJECTDIR}/ComponentManager.o \
+	${OBJECTDIR}/ConnectionManager.o \
 	${OBJECTDIR}/Counter.o \
 	${OBJECTDIR}/Create.o \
 	${OBJECTDIR}/Decide.o \
@@ -90,7 +91,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Plugin.o \
 	${OBJECTDIR}/PluginManager.o \
 	${OBJECTDIR}/ProbDistrib.o \
-	${OBJECTDIR}/ProcessAnalyserDummyImpl.o \
+	${OBJECTDIR}/ProcessAnalyserDefaultImpl1.o \
 	${OBJECTDIR}/Queue.o \
 	${OBJECTDIR}/Record.o \
 	${OBJECTDIR}/Release.o \
@@ -208,6 +209,11 @@ ${OBJECTDIR}/ComponentManager.o: ComponentManager.cpp nbproject/Makefile-${CND_C
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ComponentManager.o ComponentManager.cpp
+
+${OBJECTDIR}/ConnectionManager.o: ConnectionManager.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ConnectionManager.o ConnectionManager.cpp
 
 ${OBJECTDIR}/Counter.o: Counter.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -434,10 +440,10 @@ ${OBJECTDIR}/ProbDistrib.o: ProbDistrib.cpp nbproject/Makefile-${CND_CONF}.mk
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ProbDistrib.o ProbDistrib.cpp
 
-${OBJECTDIR}/ProcessAnalyserDummyImpl.o: ProcessAnalyserDummyImpl.cpp nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/ProcessAnalyserDefaultImpl1.o: ProcessAnalyserDefaultImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ProcessAnalyserDummyImpl.o ProcessAnalyserDummyImpl.cpp
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ProcessAnalyserDefaultImpl1.o ProcessAnalyserDefaultImpl1.cpp
 
 ${OBJECTDIR}/Queue.o: Queue.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

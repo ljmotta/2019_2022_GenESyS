@@ -17,9 +17,10 @@
 
 ToolManager::ToolManager(Simulator* simulator) {
     _simulator = simulator;
+    //
     _fitter = new Traits<Fitter_if>::Implementation();
     _sampler = new Traits<Sampler_if>::Implementation();
-
+    _processAnalyser = new Traits<ProcessAnalyser_if>::Implementation();
 }
 
 ToolManager::ToolManager(const ToolManager& orig) {
@@ -35,4 +36,8 @@ Sampler_if* ToolManager::getSampler() const {
 
 Fitter_if* ToolManager::getFitter() const {
     return _fitter;
+}
+
+ProcessAnalyser_if* ToolManager::getExperimentDesigner() const {
+    return _processAnalyser;
 }

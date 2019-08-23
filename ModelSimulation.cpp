@@ -259,7 +259,7 @@ void ModelSimulation::_stepSimulation() {
     nextEvent = _model->getEvents()->front();
     double warmupTime = Util::TimeUnitConvert(_model->getInfos()->getWarmUpPeriodTimeUnit(), _model->getInfos()->getReplicationLengthTimeUnit());
     warmupTime *= _model->getInfos()->getWarmUpPeriod();
-    if (_model->getSimulation()->getSimulatedTime() <= warmupTime && nextEvent->getTime() > warmupTime) {// warmuTime. Time to initStats
+    if (warmupTime>0.0 && _model->getSimulation()->getSimulatedTime() <= warmupTime && nextEvent->getTime() > warmupTime) {// warmuTime. Time to initStats
 	_model->getTraceManager()->trace(Util::TraceLevel::simulation, "Warmup time reached. Statistics are being reseted.");
 	_initStatistics();
     }
@@ -278,11 +278,13 @@ void ModelSimulation::_processEvent(Event* event) {
     _model->getTraceManager()->trace(Util::TraceLevel::blockInternal, "Current Entity: " + event->getEntity()->show());
     this->_currentEntity = event->getEntity();
     this->_currentComponent = event->getComponent();
+    this->_currentInputNumber = event->getComponentInputNumber();
     _simulatedTime = event->getTime();
     _model->getOnEventManager()->NotifyProcessEventHandlers(new SimulationEvent(_currentReplicationNumber, event));
     Util::IncIndent();
     try {
-	event->getComponent()->Execute(event->getEntity(), event->getComponent()); // Execute is static
+	//event->getComponent()->Execute(event->getEntity(), event->getComponent()); // Execute is static
+	ModelComponent::Execute(event->getEntity(), event->getComponent(), event->getComponentInputNumber());
     } catch (std::exception *e) {
 	_model->getTraceManager()->traceError(*e, "Error on processing event (" + event->show() + ")");
     }
@@ -373,4 +375,8 @@ Entity* ModelSimulation::getCurrentEntity() const {
 
 SimulationReporter_if* ModelSimulation::getSimulationReporter() const {
     return _simulationReporter;
+}
+
+unsigned int ModelSimulation::getCurrentInputNumber() const {
+    return _currentInputNumber;
 }

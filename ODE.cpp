@@ -12,8 +12,10 @@
  */
 
 #include "ODE.h"
+#include "Model.h"
 
-ODE::ODE() : ModelElement(Util::TypeOf<ODE>()) {
+ODE::ODE(ElementManager* elems) : ModelElement(Util::TypeOf<ODE>()) {
+    _elems = elems;
 }
 
 ODE::ODE(const ODE& orig) : ModelElement(orig) {
@@ -22,16 +24,47 @@ ODE::ODE(const ODE& orig) : ModelElement(orig) {
 ODE::~ODE() {
 }
 
-void ODE::setExpression(std::string expression) {
-    this->expression = expression;
-}
-
-std::string ODE::getExpression() const {
-    return expression;
-}
-
 std::string ODE::show() {
-    return ModelElement::show() + ",ODE=.";
+    std::string txt =  ModelElement::show();
+    unsigned short i=0;
+    for (std::list<ODEfunction*>::iterator it = _ODEfunctions->getList()->begin(); it != _ODEfunctions->getList()->end(); it++) {
+	txt += ",func["+std::to_string(i)+"]=\""+(*it)->expression+"\",(func["+std::to_string(i)+"]["+std::to_string((*it)->initialPoint)+"]="+std::to_string((*it)->initialValue)+")";
+    }
+    return txt;
+}
+
+double ODE::solve() {
+    double expressionValue, k1, k2, k3, k4, w;
+    expressionValue  = _elems->getModel()->parseExpression(this->getODEfunctions()->front()->expression );
+    k1 = _stepH*expressionValue;
+}
+
+
+void ODE::setStepH(double _h) {
+    this->_stepH = _h;
+}
+
+double ODE::getStepH() const {
+    return _stepH;
+}
+
+void ODE::setEndTime(double _endTime) {
+    this->_endTime = _endTime;
+}
+
+double ODE::getEndTime() const {
+    return _endTime;
+}
+
+List<ODEfunction*>* ODE::getODEfunctions() const {
+    return _ODEfunctions;
+}
+
+PluginInformation* ODE::GetPluginInformation() {
+    return new PluginInformation(Util::TypeOf<ODE>(), &ODE::LoadInstance);
+}
+
+ModelElement* ODE::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {
 }
 
 bool ODE::_loadInstance(std::map<std::string, std::string>* fields) {
@@ -41,4 +74,12 @@ std::map<std::string, std::string>* ODE::_saveInstance() {
 }
 
 bool ODE::_check(std::string* errorMessage) {
+    bool result = true;
+    unsigned short i=0;
+    ODEfunction* func;
+    for (std::list<ODEfunction*>::iterator it = _ODEfunctions->getList()->begin(); it != _ODEfunctions->getList()->end(); it++) {
+	func = (*it);
+	result &= _elems->getModel()->checkExpression(func->expression, "expression["+std::to_string(i++)+"]", errorMessage);
+    }
+    return result;
 }

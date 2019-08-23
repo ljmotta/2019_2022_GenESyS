@@ -17,6 +17,7 @@
 #include "ModelElement.h"
 #include "ElementManager.h"
 #include "Plugin.h"
+#include "Parser_if.h"
 
 class Formula : public ModelElement {
 public:
@@ -38,6 +39,8 @@ protected: // must be overriden by derived classes
     virtual bool _check(std::string* errorMessage);
 private:
     ElementManager* _elements;
+    //Model* _model;
+    Parser_if* _myPrivateParser;
 private:
     std::string _formulaExpression;
 };

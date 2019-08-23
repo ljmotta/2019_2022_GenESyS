@@ -15,6 +15,8 @@
 #define DUMMY_H
 
 #include "ModelComponent.h"
+// TODO: FOR TESTING ONLY
+#include "ODE.h"
 
 class Dummy : public ModelComponent {
 public:
@@ -26,6 +28,8 @@ public:
 public:
     static PluginInformation* GetPluginInformation();
     static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+    void setOde(ODE* _ode);
+    ODE* getOde() const;
 protected:
     virtual void _execute(Entity* entity);
     virtual void _initBetweenReplications();
@@ -33,7 +37,7 @@ protected:
     virtual std::map<std::string, std::string>* _saveInstance();
     virtual bool _check(std::string* errorMessage);
 private:
-
+    ODE* _ode;
 };
 
 #endif /* DUMMY_H */
