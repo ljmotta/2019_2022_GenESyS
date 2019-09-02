@@ -179,7 +179,7 @@ void _buildModel01_CreDelDis(Model* model) {
     components->insert(dispose1);
 
     // connect model components to create a "workflow" -- should always start from a SourceModelComponent and end at a SinkModelComponent (it will be checked)
-    create1->getNextComponents()->insert(delay1);
+    //create1->getNextComponents()->insert(delay1);
     delay1->getNextComponents()->insert(dispose1);
 }
 
@@ -418,20 +418,20 @@ ev->addOnProcessEventHandler(&onProcessEventHandler);
     this->insertFakePluginsByHand(simulator);
 
     Model* model = new Model(simulator);
-    //_buildModel01_CreDelDis(model);
+    _buildModel01_CreDelDis(model);
     //_buildModel02_CreDelDis(model);
     //_buildModel03_CreSeiDelResDis(model);
-    _testaMeuModelo(model);
+    //_testaMeuModelo(model);
     //_buildMostCompleteModel(model);
 
-    simulator->getModelManager()->insert(model);
+    //simulator->getModelManager()->insert(model);
     //model->saveModel(model->getInfos()->getDescription());
 
     //simulator->getModelManager()->loadModel("./models/model99_AllTogether.txt");
     //simulator->getModelManager()->loadModel("./models/model01_CreDelDis.txt");
 
     //model->checkModel();
-    model->show();
+    //model->show();
     model->getSimulation()->startSimulation();
 }
 
