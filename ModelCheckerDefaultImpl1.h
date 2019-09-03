@@ -27,6 +27,7 @@ public:
     virtual bool checkConnected();
     virtual bool checkSymbols();
     virtual bool checkActivationCode();
+    virtual bool checkLimits();
     //virtual bool verifySymbol(std::string componentName, std::string expressionName, std::string expression, std::string expressionResult, bool mandatory);
 private:
     bool _recursiveConnectedTo(ModelComponent* comp, List<ModelComponent*>* visited, List<ModelComponent*>* unconnected, bool* drenoFound);

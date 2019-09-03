@@ -11,9 +11,7 @@
  * Created on 21 de Junho de 2018, 12:47
  */
 
-#include <cstdlib>
 #include <iostream>
-
 #include "Traits.h"
 
 /*

@@ -262,17 +262,16 @@
                    displayName="User Program Interfaces"
                    projectFiles="true">
       <logicalFolder name="f1" displayName="Tests" projectFiles="true">
-        <itemPath>BuildSimulationModel.cpp</itemPath>
-        <itemPath>BuildSimulationModel.h</itemPath>
-        <itemPath>MyApp.cpp</itemPath>
-        <itemPath>MyApp.h</itemPath>
+        <itemPath>BuildSimulationModel02.cpp</itemPath>
+        <itemPath>BuildSimulationModel02.h</itemPath>
+        <itemPath>BuildSimulationModel03.cpp</itemPath>
+        <itemPath>BuildSimulationModel03.h</itemPath>
         <itemPath>TestInputAnalyserTools.cpp</itemPath>
         <itemPath>TestInputAnalyserTools.h</itemPath>
         <itemPath>TestParser.cpp</itemPath>
         <itemPath>TestParser.h</itemPath>
         <itemPath>TestStatistics.cpp</itemPath>
         <itemPath>TestStatistics.h</itemPath>
-        <itemPath>main.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="UserInterfaces" projectFiles="true">
         <itemPath>GenesysConsole.cpp</itemPath>
@@ -280,9 +279,13 @@
         <itemPath>GenesysGUI.cpp</itemPath>
         <itemPath>GenesysGUI.h</itemPath>
       </logicalFolder>
+      <itemPath>BaseConsoleGenesysApplication.cpp</itemPath>
+      <itemPath>BaseConsoleGenesysApplication.h</itemPath>
       <itemPath>GenesysApplication_if.h</itemPath>
+      <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="f6" displayName="Util" projectFiles="true">
+      <itemPath>DefaultTraceAndEventHandlers.h</itemPath>
       <itemPath>List.h</itemPath>
       <itemPath>Util.cpp</itemPath>
       <itemPath>Util.h</itemPath>
@@ -326,13 +329,21 @@
       </item>
       <item path="Attribute.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="BaseConsoleGenesysApplication.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="BaseConsoleGenesysApplication.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Batch.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Batch.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="BuildSimulationModel.cpp" ex="false" tool="1" flavor2="0">
+      <item path="BuildSimulationModel02.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="BuildSimulationModel.h" ex="false" tool="3" flavor2="0">
+      <item path="BuildSimulationModel02.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="BuildSimulationModel03.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="BuildSimulationModel03.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="CellularAutomata.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -377,6 +388,8 @@
       <item path="Decide.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Decide.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DefaultTraceAndEventHandlers.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="DefineGetterSetter.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -532,10 +545,6 @@
       <item path="ModelSimulation.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ModelSimulation.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="MyApp.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="MyApp.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ODE.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -812,13 +821,21 @@
       </item>
       <item path="Attribute.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="BaseConsoleGenesysApplication.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="BaseConsoleGenesysApplication.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Batch.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Batch.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="BuildSimulationModel.cpp" ex="false" tool="1" flavor2="0">
+      <item path="BuildSimulationModel02.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="BuildSimulationModel.h" ex="false" tool="3" flavor2="0">
+      <item path="BuildSimulationModel02.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="BuildSimulationModel03.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="BuildSimulationModel03.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="CellularAutomata.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -863,6 +880,8 @@
       <item path="Decide.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Decide.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="DefaultTraceAndEventHandlers.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="DefineGetterSetter.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -1018,10 +1037,6 @@
       <item path="ModelSimulation.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ModelSimulation.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="MyApp.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="MyApp.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ODE.cpp" ex="false" tool="1" flavor2="0">
       </item>

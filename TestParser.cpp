@@ -11,8 +11,8 @@
  * Created on 7 de Novembro de 2018, 20:17
  */
 
-#include <string>
 #include "TestParser.h"
+#include <string>
 #include "Model.h"
 #include "Simulator.h"
 

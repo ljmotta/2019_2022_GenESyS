@@ -77,6 +77,10 @@ void TraceManager::trace(Util::TraceLevel tracelevel, std::string text) {
 	for (std::list<traceListener>::iterator it = this->_traceHandlers->begin(); it != _traceHandlers->end(); it++) {
 	    (*it)(e);
 	}
+	for (std::list<traceListenerMethod>::iterator it = this->_traceHandlersMethod->begin(); it != _traceHandlersMethod->end(); it++) {
+	    (*it)(e);
+	}
+
     }
 }
 

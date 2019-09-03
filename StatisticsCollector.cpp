@@ -16,6 +16,7 @@
 
 StatisticsCollector::StatisticsCollector() : ModelElement(Util::TypeOf<StatisticsCollector>()) {
     _initStaticsAndCollector();
+    _generateReportInformation = true;
 }
 
 StatisticsCollector::StatisticsCollector(std::string name) : ModelElement(Util::TypeOf<StatisticsCollector>()) {

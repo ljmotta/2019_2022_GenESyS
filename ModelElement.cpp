@@ -67,6 +67,10 @@ std::string ModelElement::show() {
     return "id=" + std::to_string(_id) + ",name=\"" + _name + "\"";
 }
 
+bool ModelElement::generateReportInformation() const {
+    return _generateReportInformation;
+}
+
 Util::identitifcation ModelElement::getId() const {
     return _id;
 }

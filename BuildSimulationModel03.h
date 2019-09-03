@@ -11,24 +11,23 @@
  * Created on 20 de Maio de 2019, 21:01
  */
 
-#ifndef MYREGENESYSAPPLICATION_H
-#define MYREGENESYSAPPLICATION_H
+#ifndef BUILDSIMULATIONMODEL03_H
+#define BUILDSIMULATIONMODEL03_H
 
-#include "GenesysApplication_if.h"
+#include "BaseConsoleGenesysApplication.h"
 
 #include "Simulator.h"
 
-class MyApp : public GenesysApplication_if {
+class BuildSimulationModel03 : public BaseConsoleGenesysApplication {
 public:
-    MyApp();
-    MyApp(const MyApp& orig);
-    virtual ~MyApp();
+    BuildSimulationModel03();
+    BuildSimulationModel03(const BuildSimulationModel03& orig);
+    virtual ~BuildSimulationModel03();
 public:
     virtual int main(int argc, char** argv);
 private:
-    void insertFakePluginsByHand(Simulator* simulator);
     void builAndRunSimulationdModel();
 };
 
-#endif /* MYREGENESYSAPPLICATION_H */
+#endif /* BUILDSIMULATIONMODEL03_H */
 

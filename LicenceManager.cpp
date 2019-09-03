@@ -15,19 +15,23 @@
 
 LicenceManager::LicenceManager(Simulator* simulator) {
     _simulator = simulator;
-    _licence = "LICENCE: Academic Mode. In academic mode this software has full functionality and executing training-size simulation models. This software may be duplicated and used for educational purposes only; any commercial application is a violation of the license agreement. Designed and developed by prof. Dr. Ing Rafael Luiz Cancian";
-    _activationCode = "";
-    _components = 100;
-    _elements = 100;
-    _entities = 200;
-    _hosts = 2;
-    _threads = 2;
+    this->setDefaultLicenceAndLimits();
 }
 
 LicenceManager::LicenceManager(const LicenceManager& orig) {
 }
 
 LicenceManager::~LicenceManager() {
+}
+
+void LicenceManager::setDefaultLicenceAndLimits() {
+    _licence = "LICENCE: Academic Mode. In academic mode this software has full functionality and executing training-size simulation models. This software may be duplicated and used for educational purposes only; any commercial application is a violation of the license agreement. Designed and developed by prof. Dr. Ing Rafael Luiz Cancian, 2018-2019";
+    _activationCode = "";
+    _components = 50;
+    _elements = 100;
+    _entities = 200;
+    _hosts = 1;
+    _threads = 1;
 }
 
 const std::string LicenceManager::showLicence() const {
@@ -50,14 +54,17 @@ const std::string LicenceManager::showActivationCode() const {
 }
 
 bool LicenceManager::lookforActivationCode() {
+    // @TODO: Not implemented yet
     return false;
 }
 
 bool LicenceManager::insertActivationCode() {
+    // @TODO: Not implemented yet
     return false;
 }
 
 void LicenceManager::removeActivationCode() {
+    this->setDefaultLicenceAndLimits();
 }
 
 unsigned int LicenceManager::getModelComponentsLimit() {

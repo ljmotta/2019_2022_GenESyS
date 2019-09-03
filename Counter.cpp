@@ -14,6 +14,7 @@
 #include "Counter.h"
 
 Counter::Counter() : ModelElement(Util::TypeOf<Counter>()) {
+    _generateReportInformation = true;
 }
 
 Counter::Counter(std::string name) : ModelElement(Util::TypeOf<Counter>()) {

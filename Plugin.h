@@ -66,7 +66,8 @@ PlugIns are NOT implemented yet
  */
 class Plugin {
 public:
-    Plugin(StaticGetPluginInformation getInformation); //std::string pluginTypename, bool source, bool drain);
+    Plugin(std::string filename_so_dll); 
+    Plugin(StaticGetPluginInformation getInformation); // temporary. Just while compiled together
     Plugin(const Plugin& orig);
     virtual ~Plugin();
 public:

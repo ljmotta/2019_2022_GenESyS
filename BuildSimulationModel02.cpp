@@ -4,16 +4,10 @@
  * and open the template in the editor.
  */
 
-using namespace std;
-
-
-#include "BuildSimulationModel.h"
+#include "BuildSimulationModel02.h"
 
 // GEnSyS Simulator
 #include "Simulator.h"
-
-// Configuration
-#include "Traits.h"
 
 // Model Components
 #include "Create.h"
@@ -24,6 +18,7 @@ using namespace std;
 #include "Assign.h"
 #include "Record.h"
 #include "Decide.h"
+#include "Dummy.h"
 
 // Model elements
 #include "ElementManager.h"
@@ -31,62 +26,38 @@ using namespace std;
 #include "Attribute.h"
 #include "Variable.h"
 #include "ProbDistrib.h"
+#include "Group.h"
+#include "Formula.h"
+#include "ODE.h"
 
-/*
+BuildSimulationModel02::BuildSimulationModel02() {
 
-void traceHandler(TraceEvent e) {
-    std::cout << e.getText() << std::endl;
 }
-
-void traceSimulationHandler(TraceSimulationEvent e) {
-    std::cout << e.getText() << std::endl;
-}
-
-void onSimulationStartHandler(SimulationEvent* re) {
-    std::cout << "(Handler) Simulation is starting" << std::endl;
-}
-
-void onReplicationStartHandler(SimulationEvent* re) {
-    std::cout << "(Handler) Replication " << re->getReplicationNumber() << " starting." << std::endl;
-}
-
-void onProcessEventHandler(SimulationEvent* re) {
-    std::cout << "(Handler) Processing event " << re->getEventProcessed()->show() << std::endl;
-}
-
-void onReplicationEndHandler(SimulationEvent* re) {
-    std::cout << "(Handler) Replication " << re->getReplicationNumber() << " ending." << std::endl;
-}
-
-void onEntityRemoveHandler(SimulationEvent* re) {
-    std::cout << "(Handler) Entity " << re->getEventProcessed()->getEntity() << " was removed." << std::endl;
-}
-
- */
 
 /**
- * This function shows an example of how to create a simulation model.
- * It creates some handlers for tracing (debug) and for events, set model infos and than creates the model itself.
- * The model is a composition of components (and elements that they use), connected to form a process/fluxogram 
- * @param model - The instance returned that will contains the built model
+ * This is the main function of the BuildSimulationModel application. 
+ * It instanciates the simulator, builds a simulation model and then simulate that model.
  */
-void BuildSimulationModel::buildModel(Model* model) { // buildModelWithAllImplementedComponents
-    // traces handle and simulation events to output them
-    /*
+int BuildSimulationModel02::main(int argc, char** argv) {
+    Simulator* simulator = new Simulator();
+
+    // insert "fake plugins" since plugins based on dynamic loaded library are not implemented yet
+    this->insertFakePluginsByHand(simulator);
+
+    // creates an empty model
+    Model* model = new Model(simulator);
+
+    // Handle traces and simulation events to output them
     TraceManager* tm = model->getTraceManager();
-    tm->addTraceHandler(&traceHandler);
-    tm->addTraceReportHandler(&traceHandler);
-    tm->addTraceSimulationHandler(&traceSimulationHandler);
-     */
+    this->setDefaultTraceHandlers(tm);
 
-    /*
-    OnEventManager* ev = model->getOnEventManager();
-    ev->addOnSimulationStartHandler(&onSimulationStartHandler);
-    ev->addOnReplicationStartHandler(&onReplicationStartHandler);
-    ev->addOnReplicationEndHandler(&onReplicationEndHandler);
-    ev->addOnProcessEventHandler(&onProcessEventHandler);
-     */
+    // get easy access to classes used to insert components and elements into a model
+    ComponentManager* components = model->getComponentManager();
+    ElementManager* elements = model->getElementManager();
 
+    //
+    // build the simulation model
+    //
     ModelInfo* infos = model->getInfos();
     infos->setAnalystName("Your name");
     infos->setProjectTitle("The title of the project");
@@ -94,9 +65,6 @@ void BuildSimulationModel::buildModel(Model* model) { // buildModelWithAllImplem
     infos->setReplicationLength(1e3);
     infos->setReplicationLengthTimeUnit(Util::TimeUnit::minute);
     infos->setNumberOfReplications(50);
-
-    ComponentManager* components = model->getComponentManager();
-    ElementManager* elements = model->getElementManager();
 
     EntityType* entityType1 = new EntityType(elements, "Representative_EntityType");
     elements->insert(Util::TypeOf<EntityType>(), entityType1);
@@ -139,6 +107,7 @@ void BuildSimulationModel::buildModel(Model* model) { // buildModelWithAllImplem
     Delay* delay1 = new Delay(model);
     delay1->setDelayExpression("NORM(5,1.5)");
     delay1->setDelayTimeUnit(Util::TimeUnit::minute);
+
     components->insert(delay1);
 
     Release* release1 = new Release(model);
@@ -163,23 +132,17 @@ void BuildSimulationModel::buildModel(Model* model) { // buildModelWithAllImplem
     delay1->getNextComponents()->insert(release1);
     release1->getNextComponents()->insert(record1);
     record1->getNextComponents()->insert(dispose1);
-}
 
-BuildSimulationModel::BuildSimulationModel() {
-
-}
-
-/**
- * This is the main function of the BuildSimulationModel application. 
- * It instanciates the simulator, builds a simulation model and then simulate that model.
- */
-int BuildSimulationModel::main(int argc, char** argv) {
-    Simulator* simulator = new Simulator();
-    Model* model = new Model(simulator);
-    buildModel(model);
+    // insert the model into the simulator 
     simulator->getModelManager()->insert(model);
 
-    //model->saveModel("./temp/genesysSimpleSimulationModel.txt");
+    // if the model is ok then save the model into a text file 
+    if (model->checkModel()) {
+	model->saveModel("./temp/fullSimulationModel.txt");
+    }
+
+    // execute the simulation
     model->getSimulation()->startSimulation();
+
     return 0;
 };

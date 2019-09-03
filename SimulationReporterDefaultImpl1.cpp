@@ -31,6 +31,10 @@ SimulationReporterDefaultImpl1::~SimulationReporterDefaultImpl1() {
 void SimulationReporterDefaultImpl1::showReplicationStatistics() {
     _model->getTraceManager()->traceReport(Util::TraceLevel::report, "");
     _model->getTraceManager()->traceReport(Util::TraceLevel::report, "Begin of Report for replication " + std::to_string(_simulation->getCurrentReplicationNumber()) + " of " + std::to_string(_model->getInfos()->getNumberOfReplications()));
+    /* @TODO: StatisticsCollector and Counter should NOT be special classes. It should iterate classes looking for classes that can generate reports. 
+     StatisticsCollector and Counter should ovveride an inherited attribute from ModelElement to specify they generate report information
+     look for _generateReportInformation = true;  using bool generateReportInformation() const;
+     */
     const std::string UtilTypeOfStatisticsCollector = Util::TypeOf<StatisticsCollector>();
     const std::string UtilTypeOfCounter = Util::TypeOf<Counter>();
     // runs over all elements and list the statistics for each one, and then the statistics with no parent

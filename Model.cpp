@@ -38,7 +38,7 @@ Model::Model(Simulator* simulator) {
     _parentSimulator = simulator; // a simulator is the "parent" of a model 
     // 1:1 associations (no Traits)
     _modelInfo = new ModelInfo();
-    _eventHandler = new OnEventManager(); // should be on .h (all that does not depends on THIS)
+    _eventManager = new OnEventManager(); // should be on .h (all that does not depends on THIS)
     _elementManager = new ElementManager(this);
     _componentManager = new ComponentManager(this);
     _traceManager = simulator->getTraceManager(); // every model starts with the same tracer, unless a specific one is set
@@ -239,7 +239,7 @@ List<SimulationResponse*>* Model::getResponses() const {
 }
 
 OnEventManager* Model::getOnEventManager() const {
-    return _eventHandler;
+    return _eventManager;
 }
 
 ElementManager* Model::getElementManager() const {

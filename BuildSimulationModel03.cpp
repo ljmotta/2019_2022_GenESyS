@@ -11,14 +11,11 @@
  * Created on 20 de Maio de 2019, 21:01
  */
 
-#include "MyApp.h"
+#include "BuildSimulationModel03.h"
 #include "GenesysConsole.h"
 
 // GEnSyS Simulator
 #include "Simulator.h"
-
-// Configuration
-#include "Traits.h"
 
 // Model Components
 #include "Create.h"
@@ -41,66 +38,15 @@
 #include "Formula.h"
 #include "ODE.h"
 
-void traceHandler(TraceEvent e) {
-    std::cout << e.getText() << std::endl;
+BuildSimulationModel03::BuildSimulationModel03() {
 }
 
-void traceSimulationHandler(TraceSimulationEvent e) {
-    std::cout << e.getText() << std::endl;
+BuildSimulationModel03::BuildSimulationModel03(const BuildSimulationModel03& orig) {
 }
 
-void onSimulationStartHandler(SimulationEvent* re) {
-    std::cout << "(Handler) Simulation is starting" << std::endl;
+BuildSimulationModel03::~BuildSimulationModel03() {
 }
 
-void onReplicationStartHandler(SimulationEvent* re) {
-    std::cout << "(Handler) Replication " << re->getReplicationNumber() << " starting." << std::endl;
-}
-
-void onProcessEventHandler(SimulationEvent* re) {
-    std::cout << "(Handler) Processing event " << re->getEventProcessed()->show() << std::endl;
-}
-
-void onReplicationEndHandler(SimulationEvent* re) {
-    std::cout << "(Handler) Replication " << re->getReplicationNumber() << " ending." << std::endl;
-}
-
-void onEntityRemoveHandler(SimulationEvent* re) {
-    std::cout << "(Handler) Entity " << re->getEventProcessed()->getEntity() << " was removed." << std::endl;
-}
-
-MyApp::MyApp() {
-}
-
-MyApp::MyApp(const MyApp& orig) {
-}
-
-MyApp::~MyApp() {
-}
-
-void MyApp::insertFakePluginsByHand(Simulator* simulator) {
-    // model elements
-    simulator->getPluginManager()->insert(new Plugin(&Attribute::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&Counter::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&EntityType::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&Queue::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&Resource::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&StatisticsCollector::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&Variable::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&Group::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&Formula::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&ODE::GetPluginInformation));
-    // model components
-    simulator->getPluginManager()->insert(new Plugin(&Assign::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&Create::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&Decide::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&Delay::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&Dispose::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&Dummy::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&Record::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&Release::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&Seize::GetPluginInformation));
-}
 
 void _testaMeuModelo(Model* model) {
     ModelInfo* info = model->getInfos();
@@ -179,7 +125,7 @@ void _buildModel01_CreDelDis(Model* model) {
     components->insert(dispose1);
 
     // connect model components to create a "workflow" -- should always start from a SourceModelComponent and end at a SinkModelComponent (it will be checked)
-    //create1->getNextComponents()->insert(delay1);
+    create1->getNextComponents()->insert(delay1);
     delay1->getNextComponents()->insert(dispose1);
 }
 
@@ -396,28 +342,27 @@ void _buildMostCompleteModel(Model* model) {
  * The model is a composition of components (and elements that they use), connected to form a process/fluxogram 
  * @param model - The instance returned that will contains the built model
  */
-void MyApp::builAndRunSimulationdModel() {
+void BuildSimulationModel03::builAndRunSimulationdModel() {
     Simulator* simulator = new Simulator();
 
     // traces handle and simulation events to output them
     TraceManager* tm = simulator->getTraceManager();
-    tm->addTraceHandler(&traceHandler);
-    tm->addTraceReportHandler(&traceHandler);
-    tm->addTraceSimulationHandler(&traceSimulationHandler);
-
-    /*
-OnEventManager* ev = model->getOnEventManager();
-ev->addOnSimulationStartHandler(&onSimulationStartHandler);
-ev->addOnReplicationStartHandler(&onReplicationStartHandler);
-ev->addOnReplicationEndHandler(&onReplicationEndHandler);
-ev->addOnProcessEventHandler(&onProcessEventHandler);
-     */
+    //tm->addTraceHandler(&traceHandlerFunction);
+    //tm->addTraceReportHandler(&traceHandlerFunction);
+    //tm->addTraceSimulationHandler(&traceSimulationHandlerFunction);  
 
     // Insert some fake plugins, since components and elements are NOT dynamic linked. 
     // Basically all ModelComponents and ModelElements classes that may de used to buikd simulation models and to be persisted to files, should be "declared" by plugins.
     this->insertFakePluginsByHand(simulator);
 
     Model* model = new Model(simulator);
+
+    OnEventManager* ev = model->getOnEventManager();
+    //ev->addOnSimulationStartHandler(&onSimulationStartHandlerFunction);
+    //ev->addOnReplicationStartHandler(&onReplicationStartHandlerFunction);
+    //ev->addOnReplicationEndHandler(&onReplicationEndHandlerFunction);
+    //ev->addOnProcessEventHandler(&onProcessEventHandlerFunction);
+    
     _buildModel01_CreDelDis(model);
     //_buildModel02_CreDelDis(model);
     //_buildModel03_CreSeiDelResDis(model);
@@ -435,7 +380,7 @@ ev->addOnProcessEventHandler(&onProcessEventHandler);
     model->getSimulation()->startSimulation();
 }
 
-int MyApp::main(int argc, char** argv) {
+int BuildSimulationModel03::main(int argc, char** argv) {
     this->builAndRunSimulationdModel();
     return 0;
 }

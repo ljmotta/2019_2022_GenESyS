@@ -37,8 +37,10 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/Assign.o \
 	${OBJECTDIR}/Attribute.o \
+	${OBJECTDIR}/BaseConsoleGenesysApplication.o \
 	${OBJECTDIR}/Batch.o \
-	${OBJECTDIR}/BuildSimulationModel.o \
+	${OBJECTDIR}/BuildSimulationModel02.o \
+	${OBJECTDIR}/BuildSimulationModel03.o \
 	${OBJECTDIR}/CellularAutomata.o \
 	${OBJECTDIR}/CollectorDatafileDefaultImpl1.o \
 	${OBJECTDIR}/CollectorDatafileDummyImpl.o \
@@ -82,7 +84,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/ModelManager.o \
 	${OBJECTDIR}/ModelPersistenceDefaultImpl1.o \
 	${OBJECTDIR}/ModelSimulation.o \
-	${OBJECTDIR}/MyApp.o \
 	${OBJECTDIR}/ODE.o \
 	${OBJECTDIR}/OnEventManager.o \
 	${OBJECTDIR}/ParserDefaultImpl1.o \
@@ -170,15 +171,25 @@ ${OBJECTDIR}/Attribute.o: Attribute.cpp nbproject/Makefile-${CND_CONF}.mk
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Attribute.o Attribute.cpp
 
+${OBJECTDIR}/BaseConsoleGenesysApplication.o: BaseConsoleGenesysApplication.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/BaseConsoleGenesysApplication.o BaseConsoleGenesysApplication.cpp
+
 ${OBJECTDIR}/Batch.o: Batch.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Batch.o Batch.cpp
 
-${OBJECTDIR}/BuildSimulationModel.o: BuildSimulationModel.cpp nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/BuildSimulationModel02.o: BuildSimulationModel02.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/BuildSimulationModel.o BuildSimulationModel.cpp
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/BuildSimulationModel02.o BuildSimulationModel02.cpp
+
+${OBJECTDIR}/BuildSimulationModel03.o: BuildSimulationModel03.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/BuildSimulationModel03.o BuildSimulationModel03.cpp
 
 ${OBJECTDIR}/CellularAutomata.o: CellularAutomata.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -394,11 +405,6 @@ ${OBJECTDIR}/ModelSimulation.o: ModelSimulation.cpp nbproject/Makefile-${CND_CON
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelSimulation.o ModelSimulation.cpp
-
-${OBJECTDIR}/MyApp.o: MyApp.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/MyApp.o MyApp.cpp
 
 ${OBJECTDIR}/ODE.o: ODE.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

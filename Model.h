@@ -89,7 +89,7 @@ private: // read only public access (gets)
     Simulator* _parentSimulator; /*! The parente of the model */
     // 1:1 (associted classes)
     TraceManager* _traceManager;
-    OnEventManager* _eventHandler;
+    OnEventManager* _eventManager;
     ElementManager* _elementManager;
     ComponentManager* _componentManager;
     ModelInfo* _modelInfo;
