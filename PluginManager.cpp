@@ -24,6 +24,11 @@ PluginManager::PluginManager(const PluginManager& orig) {
 PluginManager::~PluginManager() {
 }
 
+bool PluginManager::check(Plugin* plugin){
+    //@TODO
+    return true;
+}
+
 bool PluginManager::insert(Plugin* plugin) {
     PluginInformation *plugInfo = plugin->getPluginInfo();
     if (plugin->isIsValidPlugin() && plugInfo != nullptr) {

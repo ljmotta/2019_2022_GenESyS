@@ -25,6 +25,7 @@ public:
     PluginManager(const PluginManager& orig);
     virtual ~PluginManager();
 public:
+    bool check(Plugin* plugin);
     bool insert(Plugin* plugin);
     void remove(Plugin* plugin);
     Plugin* find(std::string pluginTypeName);
