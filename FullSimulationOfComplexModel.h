@@ -17,9 +17,9 @@
 #include "BaseConsoleGenesysApplication.h"
 #include "Model.h"
 
-class BuildSimulationModel02: public BaseConsoleGenesysApplication {
+class FullSimulationOfComplexModel: public BaseConsoleGenesysApplication {
 public:
-    BuildSimulationModel02();
+    FullSimulationOfComplexModel();
 public:
     virtual int main(int argc, char** argv);
 };

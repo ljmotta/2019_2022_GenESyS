@@ -30,7 +30,6 @@
 #include "Dummy.h"
 
 // Model elements
-#include "ElementManager.h"
 #include "EntityType.h"
 #include "Attribute.h"
 #include "Variable.h"
@@ -59,7 +58,7 @@ void BaseConsoleGenesysApplication::traceErrorHandler(TraceErrorEvent e) {
 }
 
 void BaseConsoleGenesysApplication::traceReportHandler(TraceEvent e) {
-    std::cout << e.getText() << std::endl;
+    std::cout << "" << e.getText() << "" << std::endl;
 }
 
 void BaseConsoleGenesysApplication::traceSimulationHandler(TraceSimulationEvent e) {

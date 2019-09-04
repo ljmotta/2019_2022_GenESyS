@@ -39,7 +39,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/Attribute.o \
 	${OBJECTDIR}/BaseConsoleGenesysApplication.o \
 	${OBJECTDIR}/Batch.o \
-	${OBJECTDIR}/BuildSimulationModel02.o \
 	${OBJECTDIR}/BuildSimulationModel03.o \
 	${OBJECTDIR}/CellularAutomata.o \
 	${OBJECTDIR}/CollectorDatafileDefaultImpl1.o \
@@ -63,8 +62,10 @@ OBJECTFILES= \
 	${OBJECTDIR}/ExperimentDesignDefaultImpl1.o \
 	${OBJECTDIR}/ExperimentDesignDummyImpl.o \
 	${OBJECTDIR}/FactorOrInteractionContribution.o \
+	${OBJECTDIR}/FirstExampleOfSimulation.o \
 	${OBJECTDIR}/FitterDefaultImpl1.o \
 	${OBJECTDIR}/Formula.o \
+	${OBJECTDIR}/FullSimulationOfComplexModel.o \
 	${OBJECTDIR}/GenesysConsole.o \
 	${OBJECTDIR}/GenesysGUI.o \
 	${OBJECTDIR}/Group.o \
@@ -103,6 +104,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/SamplerDummyImpl.o \
 	${OBJECTDIR}/Schedule.o \
 	${OBJECTDIR}/Search.o \
+	${OBJECTDIR}/SecondExampleOfSimulation.o \
 	${OBJECTDIR}/Seize.o \
 	${OBJECTDIR}/Separate.o \
 	${OBJECTDIR}/Sequence.o \
@@ -180,11 +182,6 @@ ${OBJECTDIR}/Batch.o: Batch.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Batch.o Batch.cpp
-
-${OBJECTDIR}/BuildSimulationModel02.o: BuildSimulationModel02.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/BuildSimulationModel02.o BuildSimulationModel02.cpp
 
 ${OBJECTDIR}/BuildSimulationModel03.o: BuildSimulationModel03.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -301,6 +298,11 @@ ${OBJECTDIR}/FactorOrInteractionContribution.o: FactorOrInteractionContribution.
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FactorOrInteractionContribution.o FactorOrInteractionContribution.cpp
 
+${OBJECTDIR}/FirstExampleOfSimulation.o: FirstExampleOfSimulation.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FirstExampleOfSimulation.o FirstExampleOfSimulation.cpp
+
 ${OBJECTDIR}/FitterDefaultImpl1.o: FitterDefaultImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -310,6 +312,11 @@ ${OBJECTDIR}/Formula.o: Formula.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Formula.o Formula.cpp
+
+${OBJECTDIR}/FullSimulationOfComplexModel.o: FullSimulationOfComplexModel.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FullSimulationOfComplexModel.o FullSimulationOfComplexModel.cpp
 
 ${OBJECTDIR}/GenesysConsole.o: GenesysConsole.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -500,6 +507,11 @@ ${OBJECTDIR}/Search.o: Search.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Search.o Search.cpp
+
+${OBJECTDIR}/SecondExampleOfSimulation.o: SecondExampleOfSimulation.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SecondExampleOfSimulation.o SecondExampleOfSimulation.cpp
 
 ${OBJECTDIR}/Seize.o: Seize.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

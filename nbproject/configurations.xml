@@ -262,10 +262,14 @@
                    displayName="User Program Interfaces"
                    projectFiles="true">
       <logicalFolder name="f1" displayName="Tests" projectFiles="true">
-        <itemPath>BuildSimulationModel02.cpp</itemPath>
-        <itemPath>BuildSimulationModel02.h</itemPath>
         <itemPath>BuildSimulationModel03.cpp</itemPath>
         <itemPath>BuildSimulationModel03.h</itemPath>
+        <itemPath>FirstExampleOfSimulation.cpp</itemPath>
+        <itemPath>FirstExampleOfSimulation.h</itemPath>
+        <itemPath>FullSimulationOfComplexModel.cpp</itemPath>
+        <itemPath>FullSimulationOfComplexModel.h</itemPath>
+        <itemPath>SecondExampleOfSimulation.cpp</itemPath>
+        <itemPath>SecondExampleOfSimulation.h</itemPath>
         <itemPath>TestInputAnalyserTools.cpp</itemPath>
         <itemPath>TestInputAnalyserTools.h</itemPath>
         <itemPath>TestParser.cpp</itemPath>
@@ -336,10 +340,6 @@
       <item path="Batch.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Batch.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="BuildSimulationModel02.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="BuildSimulationModel02.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="BuildSimulationModel03.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -446,6 +446,10 @@
       </item>
       <item path="FactorOrInteractionContribution.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="FirstExampleOfSimulation.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="FirstExampleOfSimulation.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="FitterDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="FitterDefaultImpl1.h" ex="false" tool="3" flavor2="0">
@@ -455,6 +459,10 @@
       <item path="Formula.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Formula.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="FullSimulationOfComplexModel.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="FullSimulationOfComplexModel.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="GenesysApplication_if.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -629,6 +637,10 @@
       <item path="Search.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Search.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SecondExampleOfSimulation.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SecondExampleOfSimulation.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Seize.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -829,10 +841,6 @@
       </item>
       <item path="Batch.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="BuildSimulationModel02.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="BuildSimulationModel02.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="BuildSimulationModel03.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="BuildSimulationModel03.h" ex="false" tool="3" flavor2="0">
@@ -938,6 +946,10 @@
       </item>
       <item path="FactorOrInteractionContribution.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="FirstExampleOfSimulation.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="FirstExampleOfSimulation.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="FitterDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="FitterDefaultImpl1.h" ex="false" tool="3" flavor2="0">
@@ -947,6 +959,10 @@
       <item path="Formula.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Formula.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="FullSimulationOfComplexModel.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="FullSimulationOfComplexModel.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="GenesysApplication_if.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -1121,6 +1137,10 @@
       <item path="Search.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Search.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="SecondExampleOfSimulation.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SecondExampleOfSimulation.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Seize.cpp" ex="false" tool="1" flavor2="0">
       </item>

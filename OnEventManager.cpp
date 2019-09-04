@@ -75,5 +75,5 @@ void OnEventManager::NotifySimulationStartHandlers(SimulationEvent* se) {
 }
 
 void OnEventManager::NotifySimulationEndHandlers(SimulationEvent* se) {
-
+    this->_NotifyHandlers(this->_onSimulationEndHandlers, se);
 }

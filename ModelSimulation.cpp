@@ -101,20 +101,21 @@ void ModelSimulation::startSimulation() {
 }
 
 void ModelSimulation::_actualizeSimulationStatistics() {
+    //@todo: should not be only CSTAT and COUNTER, but any element that generateReportInformation
     const std::string UtilTypeOfStatisticsCollector = Util::TypeOf<StatisticsCollector>();
     const std::string UtilTypeOfCounter = Util::TypeOf<Counter>();
 
     StatisticsCollector *sc, *scSim;
     ModelElement* me;
     List<ModelElement*>* cstats = _model->getElementManager()->getElements(Util::TypeOf<StatisticsCollector>());
-    for (std::list<ModelElement*>::iterator it = cstats->getList()->begin(); it != cstats->getList()->end(); it++) {
-	sc = dynamic_cast<StatisticsCollector*> ((*it));
+    for (std::list<ModelElement*>::iterator itMod = cstats->getList()->begin(); itMod != cstats->getList()->end(); itMod++) {
+	sc = dynamic_cast<StatisticsCollector*> ((*itMod));
 	scSim = nullptr;
-	for (std::list<ModelElement*>::iterator it = _statsCountersSimulation->getList()->begin(); it != _statsCountersSimulation->getList()->end(); it++) {
-	    if ((*it)->getTypename() == UtilTypeOfStatisticsCollector) {
-		if ((*it)->getName() == _cte_stCountSimulNamePrefix + sc->getName() && dynamic_cast<StatisticsCollector*> (*it)->getParent() == sc->getParent()) {
+	for (std::list<ModelElement*>::iterator itSim = _statsCountersSimulation->getList()->begin(); itSim != _statsCountersSimulation->getList()->end(); itSim++) {
+	    if ((*itSim)->getTypename() == UtilTypeOfStatisticsCollector) {
+		if ((*itSim)->getName() == _cte_stCountSimulNamePrefix + sc->getName() && dynamic_cast<StatisticsCollector*> (*itSim)->getParent() == sc->getParent()) {
 		    // found
-		    scSim = dynamic_cast<StatisticsCollector*> (*it);
+		    scSim = dynamic_cast<StatisticsCollector*> (*itSim);
 		    break;
 		}
 	    }
@@ -125,21 +126,35 @@ void ModelSimulation::_actualizeSimulationStatistics() {
     }
     Counter *cnt, *cntSim;
     List<ModelElement*>* counters = _model->getElementManager()->getElements(Util::TypeOf<Counter>());
-    for (std::list<ModelElement*>::iterator it = counters->getList()->begin(); it != counters->getList()->end(); it++) {
-	cnt = dynamic_cast<Counter*> ((*it));
-	cntSim = nullptr;
-	for (std::list<ModelElement*>::iterator it = _statsCountersSimulation->getList()->begin(); it != _statsCountersSimulation->getList()->end(); it++) {
-	    if ((*it)->getTypename() == UtilTypeOfCounter) {
-		if ((*it)->getName() == _cte_stCountSimulNamePrefix + cnt->getName() && dynamic_cast<Counter*> (*it)->getParent() == cnt->getParent()) {
+    for (std::list<ModelElement*>::iterator itMod = counters->getList()->begin(); itMod != counters->getList()->end(); itMod++) {
+	cnt = dynamic_cast<Counter*> ((*itMod));
+	/**/cntSim = nullptr;
+	scSim = nullptr;
+	for (std::list<ModelElement*>::iterator itSim = _statsCountersSimulation->getList()->begin(); itSim != _statsCountersSimulation->getList()->end(); itSim++) {
+	    if ((*itSim)->getTypename() == UtilTypeOfStatisticsCollector) {
+		//_model->getTraceManager()->trace(Util::TraceLevel::simulation, (*itSim)->getName() + " == "+_cte_stCountSimulNamePrefix + cnt->getName());
+		if ((*itSim)->getName() == _cte_stCountSimulNamePrefix + cnt->getName() && dynamic_cast<StatisticsCollector*> (*itSim)->getParent() == cnt->getParent()) {
 		    // found
-		    cntSim = dynamic_cast<Counter*> (*it);
+		    scSim = dynamic_cast<StatisticsCollector*> (*itSim);
 		    break;
 		}
 	    }
+	    /*
+	    if ((*itSim)->getTypename() == UtilTypeOfCounter) {
+	    	if ((*itSim)->getName() == _cte_stCountSimulNamePrefix + cnt->getName() && dynamic_cast<Counter*> (*itSim)->getParent() == cnt->getParent()) {
+	    	    // found
+	    	    cntSim = dynamic_cast<Counter*> (*itSim);
+	    	    break;
+	    	}
+	    }
+	    */ 
 	}
-	//cntSim = dynamic_cast<Counter*> (*(this->_statsCountersSimulation->find((*it))));
+	/*
 	assert(cntSim != nullptr);
 	cntSim->incCountValue(cnt->getCountValue());
+	*/
+	assert(scSim != nullptr);
+	scSim->getStatistics()->getCollector()->addValue(cnt->getCountValue()); 
     }
 }
 
@@ -176,6 +191,7 @@ void ModelSimulation::_initSimulation() {
     _showSimulationHeader();
     _model->getTraceManager()->trace(Util::TraceLevel::simulation, "Simulation of model \"" + _info->getName() + "\" is starting.");
     // copy all CStats and Counters (used in a replication) to CStats and counters for the whole simulation
+    // @TODO: Should not be CStats and Counters, but any element that generates report importation
     this->_statsCountersSimulation->clear();
     StatisticsCollector* cstat;
     List<ModelElement*>* cstats = _model->getElementManager()->getElements(Util::TypeOf<StatisticsCollector>());
@@ -185,19 +201,26 @@ void ModelSimulation::_initSimulation() {
 	this->_statsCountersSimulation->insert(newCStatSimul);
     }
     // copy all Counters (used in a replication) to Counters for the whole simulation
+    // @TODO: Counters in replication should be converted into CStats in simulation. Each value counted in a replication should be added in a CStat for Stats.
     Counter* counter;
     List<ModelElement*>* counters = _model->getElementManager()->getElements(Util::TypeOf<Counter>());
     for (std::list<ModelElement*>::iterator it = counters->getList()->begin(); it != counters->getList()->end(); it++) {
 	counter = dynamic_cast<Counter*> ((*it));
+	// adding a counter
+	/*
 	Counter* newCountSimul = new Counter(_cte_stCountSimulNamePrefix + counter->getName(), counter->getParent());
 	this->_statsCountersSimulation->insert(newCountSimul);
+	*/
+	// addin a cstat (to stat the counts)
+	StatisticsCollector* newCStatSimul = new StatisticsCollector(_cte_stCountSimulNamePrefix + counter->getName(), counter->getParent());
+    	this->_statsCountersSimulation->insert(newCStatSimul);
     }
 }
 
 void ModelSimulation::_initReplication() {
     TraceManager* tm = _model->getTraceManager();
-    tm->traceReport(Util::TraceLevel::simulation, "");
-    tm->traceReport(Util::TraceLevel::simulation, "Replication " + std::to_string(_currentReplicationNumber) + " of " + std::to_string(_info->getNumberOfReplications()) + " is starting.");
+    tm->trace(Util::TraceLevel::simulation, "");
+    tm->trace(Util::TraceLevel::simulation, "Replication " + std::to_string(_currentReplicationNumber) + " of " + std::to_string(_info->getNumberOfReplications()) + " is starting.");
 
     _model->getEvents()->clear();
     _simulatedTime = 0.0;

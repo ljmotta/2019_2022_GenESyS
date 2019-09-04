@@ -31,8 +31,10 @@
 #include "SimulationReporter_if.h"
 
 // genesys applications
-#include "BuildSimulationModel02.h"
+#include "FullSimulationOfComplexModel.h"
 #include "BuildSimulationModel03.h"
+#include "FirstExampleOfSimulation.h"
+#include "SecondExampleOfSimulation.h"
 #include "GenesysGUI.h"
 #include "GenesysConsole.h"
 
@@ -66,7 +68,9 @@ struct Traits {
 template <> struct Traits<GenesysApplication_if> {
     //typedef GenesysGUI Application;
     //typedef GenesysConsole Application;
-    typedef BuildSimulationModel02 Application;
+    //typedef FullSimulationOfComplexModel Application;
+    //typedef FirstExampleOfSimulation Application;
+    typedef SecondExampleOfSimulation Application;
 };
 
 /*

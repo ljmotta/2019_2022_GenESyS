@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-#include "BuildSimulationModel02.h"
+#include "FullSimulationOfComplexModel.h"
 
 // GEnSyS Simulator
 #include "Simulator.h"
@@ -21,7 +21,6 @@
 #include "Dummy.h"
 
 // Model elements
-#include "ElementManager.h"
 #include "EntityType.h"
 #include "Attribute.h"
 #include "Variable.h"
@@ -30,15 +29,15 @@
 #include "Formula.h"
 #include "ODE.h"
 
-BuildSimulationModel02::BuildSimulationModel02() {
+FullSimulationOfComplexModel::FullSimulationOfComplexModel() {
 
 }
 
 /**
- * This is the main function of the BuildSimulationModel application. 
+ * This is the main function of the application. 
  * It instanciates the simulator, builds a simulation model and then simulate that model.
  */
-int BuildSimulationModel02::main(int argc, char** argv) {
+int FullSimulationOfComplexModel::main(int argc, char** argv) {
     Simulator* simulator = new Simulator();
 
     // insert "fake plugins" since plugins based on dynamic loaded library are not implemented yet
