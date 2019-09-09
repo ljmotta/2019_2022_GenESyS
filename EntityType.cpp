@@ -132,7 +132,7 @@ StatisticsCollector* EntityType::getCstatWaitingTime() const {
 }
 
 PluginInformation* EntityType::GetPluginInformation() {
-    return new PluginInformation(Util::TypeOf<EntityType>(), &EntityType::LoadInstance);
+    PluginInformation* info = new PluginInformation(Util::TypeOf<EntityType>(), &EntityType::LoadInstance); return info;
 }
 
 ModelElement* EntityType::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {

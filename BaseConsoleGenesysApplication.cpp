@@ -28,6 +28,9 @@
 #include "Record.h"
 #include "Decide.h"
 #include "Dummy.h"
+#include "Route.h"
+#include "Enter.h"
+#include "Leave.h"
 
 // Model elements
 #include "EntityType.h"
@@ -35,6 +38,7 @@
 #include "Variable.h"
 #include "ProbDistrib.h"
 #include "Group.h"
+#include "Station.h"
 #include "Formula.h"
 #include "ODE.h"
 
@@ -101,6 +105,32 @@ void BaseConsoleGenesysApplication::setDefaultTraceHandlers(TraceManager* tm) {
 
 void BaseConsoleGenesysApplication::insertFakePluginsByHand(Simulator* simulator) {
     // model elements
+    simulator->getPluginManager()->insert("./plugins/attribute.so");
+    simulator->getPluginManager()->insert("./plugins/counter.so");
+    simulator->getPluginManager()->insert("./plugins/entitytype.so");
+    simulator->getPluginManager()->insert("./plugins/queue.so");
+    simulator->getPluginManager()->insert("./plugins/resource.so");
+    simulator->getPluginManager()->insert("./plugins/statisticscollector.so");
+    simulator->getPluginManager()->insert("./plugins/variable.so");
+    simulator->getPluginManager()->insert("./plugins/group.so");
+    simulator->getPluginManager()->insert("./plugins/station.so");
+    simulator->getPluginManager()->insert("./plugins/formula.so");
+    simulator->getPluginManager()->insert("./plugins/ode.so");
+    // model components
+    simulator->getPluginManager()->insert("./plugins/assign.so");
+    simulator->getPluginManager()->insert("./plugins/create.so");
+    simulator->getPluginManager()->insert("./plugins/decide.so");
+    simulator->getPluginManager()->insert("./plugins/delay.so");
+    simulator->getPluginManager()->insert("./plugins/dispose.so");
+    simulator->getPluginManager()->insert("./plugins/dummy.so");
+    simulator->getPluginManager()->insert("./plugins/record.so");
+    simulator->getPluginManager()->insert("./plugins/release.so");
+    simulator->getPluginManager()->insert("./plugins/seize.so");
+    simulator->getPluginManager()->insert("./plugins/route.so");
+    simulator->getPluginManager()->insert("./plugins/enter.so");
+    simulator->getPluginManager()->insert("./plugins/leave.so");
+    /*
+    // model elements
     simulator->getPluginManager()->insert(new Plugin(&Attribute::GetPluginInformation));
     simulator->getPluginManager()->insert(new Plugin(&Counter::GetPluginInformation));
     simulator->getPluginManager()->insert(new Plugin(&EntityType::GetPluginInformation));
@@ -109,6 +139,7 @@ void BaseConsoleGenesysApplication::insertFakePluginsByHand(Simulator* simulator
     simulator->getPluginManager()->insert(new Plugin(&StatisticsCollector::GetPluginInformation));
     simulator->getPluginManager()->insert(new Plugin(&Variable::GetPluginInformation));
     simulator->getPluginManager()->insert(new Plugin(&Group::GetPluginInformation));
+    simulator->getPluginManager()->insert(new Plugin(&Station::GetPluginInformation));
     simulator->getPluginManager()->insert(new Plugin(&Formula::GetPluginInformation));
     simulator->getPluginManager()->insert(new Plugin(&ODE::GetPluginInformation));
     // model components
@@ -121,4 +152,8 @@ void BaseConsoleGenesysApplication::insertFakePluginsByHand(Simulator* simulator
     simulator->getPluginManager()->insert(new Plugin(&Record::GetPluginInformation));
     simulator->getPluginManager()->insert(new Plugin(&Release::GetPluginInformation));
     simulator->getPluginManager()->insert(new Plugin(&Seize::GetPluginInformation));
+    simulator->getPluginManager()->insert(new Plugin(&Route::GetPluginInformation));
+    simulator->getPluginManager()->insert(new Plugin(&Enter::GetPluginInformation));
+    simulator->getPluginManager()->insert(new Plugin(&Leave::GetPluginInformation));
+    */
 }

@@ -47,7 +47,7 @@ std::string Formula::show() {
 }
 
 PluginInformation* Formula::GetPluginInformation() {
-    return new PluginInformation(Util::TypeOf<Formula>(), &Formula::LoadInstance);
+    PluginInformation* info = new PluginInformation(Util::TypeOf<Formula>(), &Formula::LoadInstance); return info;
 }
 
 ModelElement* Formula::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {

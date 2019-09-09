@@ -50,7 +50,7 @@ Plugin::~Plugin() {
 }
 
 ModelElement* Plugin::loadNew(Model* model, std::map<std::string, std::string>* fields) {
-    if (this->_pluginInfo->isComponent) {
+    if (this->_pluginInfo->isComponent()) {
 	return _loadNewComponent(model, fields);
     } else {
 	return _loadNewElement(model->getElementManager(), fields);
@@ -58,24 +58,24 @@ ModelElement* Plugin::loadNew(Model* model, std::map<std::string, std::string>* 
 }
 
 bool Plugin::loadAndInsertNew(Model* model, std::map<std::string, std::string>* fields) {
-    if (this->_pluginInfo->isComponent) {
+    if (this->_pluginInfo->isComponent()) {
 	ModelComponent* newComp = _loadNewComponent(model, fields);
 	return model->getComponentManager()->insert(newComp);
     } else {
 	ModelElement* newElem = _loadNewElement(model->getElementManager(), fields);
-	return model->getElementManager()->insert(this->_pluginInfo->pluginTypename, newElem);
+	return model->getElementManager()->insert(this->_pluginInfo->getPluginTypename(), newElem);
     }
 }
 
 ModelComponent* Plugin::_loadNewComponent(Model* model, std::map<std::string, std::string>* fields) {
     //return this->_pluginInfo->loader(model, fields);
-    StaticLoaderComponentInstance loader = this->_pluginInfo->componentloader;
+    StaticLoaderComponentInstance loader = this->_pluginInfo->getComponentloader();
     ModelComponent* newElementOrComponent = loader(model, fields);
     return newElementOrComponent;
 }
 
 ModelElement* Plugin::_loadNewElement(ElementManager* elems, std::map<std::string, std::string>* fields) {
-    StaticLoaderElementInstance loader = this->_pluginInfo->elementloader;
+    StaticLoaderElementInstance loader = this->_pluginInfo->getElementloader();
     ModelElement* newElementOrComponent = loader(elems, fields);
     return newElementOrComponent;
 }

@@ -28,8 +28,8 @@ public:
     virtual ~ConnectionManager();
 public:
     unsigned int size();
-    ModelComponent* front();
-    ModelComponent* getAtRank(unsigned int rank);
+    ModelComponent* front(); /*!< DEPRECTED. Use  frontConnection instead */    
+    ModelComponent* getAtRank(unsigned int rank); /*!< DEPRECTED. Use  getConnectionAtRank instead */
     Connection* frontConnection();
     Connection* getConnectionAtRank(unsigned int rank);
     void insert(ModelComponent* component, unsigned int inputNumber = 0);

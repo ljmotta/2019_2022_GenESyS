@@ -99,7 +99,7 @@ Queue::OrderRule Queue::getOrderRule() const {
 //}
 
 PluginInformation* Queue::GetPluginInformation() {
-    return new PluginInformation(Util::TypeOf<Queue>(), &Queue::LoadInstance);
+    PluginInformation* info = new PluginInformation(Util::TypeOf<Queue>(), &Queue::LoadInstance); return info;
 }
 
 ModelElement* Queue::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {

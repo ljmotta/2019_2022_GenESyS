@@ -22,6 +22,8 @@
         <itemPath>ParserDefaultImpl1.h</itemPath>
         <itemPath>ParserDummyImpl.cpp</itemPath>
         <itemPath>ParserDummyImpl.h</itemPath>
+        <itemPath>PluginConnectorDummyImpl1.cpp</itemPath>
+        <itemPath>PluginConnectorDummyImpl1.h</itemPath>
         <itemPath>SamplerDefaultImpl1.cpp</itemPath>
         <itemPath>SamplerDefaultImpl1.h</itemPath>
         <itemPath>SamplerDummyImpl.cpp</itemPath>
@@ -106,6 +108,9 @@
         <itemPath>Parser_if.h</itemPath>
         <itemPath>Plugin.cpp</itemPath>
         <itemPath>Plugin.h</itemPath>
+        <itemPath>PluginConnector_if.h</itemPath>
+        <itemPath>PluginInformation.cpp</itemPath>
+        <itemPath>PluginInformation.h</itemPath>
         <itemPath>PluginManager.cpp</itemPath>
         <itemPath>PluginManager.h</itemPath>
         <itemPath>Sampler_if.h</itemPath>
@@ -261,15 +266,19 @@
     <logicalFolder name="f10"
                    displayName="User Program Interfaces"
                    projectFiles="true">
+      <logicalFolder name="f3" displayName="Examples" projectFiles="true">
+        <itemPath>FirstExampleOfSimulation.cpp</itemPath>
+        <itemPath>FirstExampleOfSimulation.h</itemPath>
+        <itemPath>SecondExampleOfSimulation.cpp</itemPath>
+        <itemPath>SecondExampleOfSimulation.h</itemPath>
+      </logicalFolder>
       <logicalFolder name="f1" displayName="Tests" projectFiles="true">
         <itemPath>BuildSimulationModel03.cpp</itemPath>
         <itemPath>BuildSimulationModel03.h</itemPath>
-        <itemPath>FirstExampleOfSimulation.cpp</itemPath>
-        <itemPath>FirstExampleOfSimulation.h</itemPath>
         <itemPath>FullSimulationOfComplexModel.cpp</itemPath>
         <itemPath>FullSimulationOfComplexModel.h</itemPath>
-        <itemPath>SecondExampleOfSimulation.cpp</itemPath>
-        <itemPath>SecondExampleOfSimulation.h</itemPath>
+        <itemPath>TestEnterLeaveRoute.cpp</itemPath>
+        <itemPath>TestEnterLeaveRoute.h</itemPath>
         <itemPath>TestInputAnalyserTools.cpp</itemPath>
         <itemPath>TestInputAnalyserTools.h</itemPath>
         <itemPath>TestParser.cpp</itemPath>
@@ -580,6 +589,16 @@
       </item>
       <item path="Plugin.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="PluginConnectorDummyImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PluginConnectorDummyImpl1.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PluginConnector_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PluginInformation.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PluginInformation.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="PluginManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="PluginManager.h" ex="false" tool="3" flavor2="0">
@@ -715,6 +734,10 @@
       <item path="StatisticsDummyImpl.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Statistics_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="TestEnterLeaveRoute.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="TestEnterLeaveRoute.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="TestInputAnalyserTools.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -1080,6 +1103,16 @@
       </item>
       <item path="Plugin.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="PluginConnectorDummyImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PluginConnectorDummyImpl1.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PluginConnector_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PluginInformation.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PluginInformation.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="PluginManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="PluginManager.h" ex="false" tool="3" flavor2="0">
@@ -1215,6 +1248,10 @@
       <item path="StatisticsDummyImpl.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Statistics_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="TestEnterLeaveRoute.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="TestEnterLeaveRoute.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="TestInputAnalyserTools.cpp" ex="false" tool="1" flavor2="0">
       </item>

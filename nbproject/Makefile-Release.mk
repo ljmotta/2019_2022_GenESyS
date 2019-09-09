@@ -91,6 +91,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/ParserDummyImpl.o \
 	${OBJECTDIR}/PickUp.o \
 	${OBJECTDIR}/Plugin.o \
+	${OBJECTDIR}/PluginConnectorDummyImpl1.o \
+	${OBJECTDIR}/PluginInformation.o \
 	${OBJECTDIR}/PluginManager.o \
 	${OBJECTDIR}/ProbDistrib.o \
 	${OBJECTDIR}/ProcessAnalyserDefaultImpl1.o \
@@ -122,6 +124,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/StatisticsDataFileDummyImpl.o \
 	${OBJECTDIR}/StatisticsDefaultImpl1.o \
 	${OBJECTDIR}/StatisticsDummyImpl.o \
+	${OBJECTDIR}/TestEnterLeaveRoute.o \
 	${OBJECTDIR}/TestInputAnalyserTools.o \
 	${OBJECTDIR}/TestParser.o \
 	${OBJECTDIR}/TestStatistics.o \
@@ -443,6 +446,16 @@ ${OBJECTDIR}/Plugin.o: Plugin.cpp nbproject/Makefile-${CND_CONF}.mk
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Plugin.o Plugin.cpp
 
+${OBJECTDIR}/PluginConnectorDummyImpl1.o: PluginConnectorDummyImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PluginConnectorDummyImpl1.o PluginConnectorDummyImpl1.cpp
+
+${OBJECTDIR}/PluginInformation.o: PluginInformation.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PluginInformation.o PluginInformation.cpp
+
 ${OBJECTDIR}/PluginManager.o: PluginManager.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -597,6 +610,11 @@ ${OBJECTDIR}/StatisticsDummyImpl.o: StatisticsDummyImpl.cpp nbproject/Makefile-$
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/StatisticsDummyImpl.o StatisticsDummyImpl.cpp
+
+${OBJECTDIR}/TestEnterLeaveRoute.o: TestEnterLeaveRoute.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestEnterLeaveRoute.o TestEnterLeaveRoute.cpp
 
 ${OBJECTDIR}/TestInputAnalyserTools.o: TestInputAnalyserTools.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

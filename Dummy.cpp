@@ -53,10 +53,10 @@ ODE* Dummy::getOde() const {
 void Dummy::_execute(Entity* entity) {
     /*
     _model->getTraceManager()->trace(Util::TraceLevel::blockInternal, "I'm just a dummy model and I'll just send the entity forward");
-    this->_model->sendEntityToComponent(entity, this->getNextComponents()->front(), 0.0);
+    this->_model->sendEntityToComponent(entity, this->getNextComponents()->frontConnection(), 0.0);
     */
     _ode->solve();
-    Event* newEvent = new Event(_ode->getStepH(), entity, this->getNextComponents()->front());
+    Event* newEvent = new Event(_ode->getStepH(), entity, this->getNextComponents()->frontConnection());
     _model->getEvents()->insert(newEvent);
 }
 
@@ -80,5 +80,5 @@ bool Dummy::_check(std::string* errorMessage) {
 }
 
 PluginInformation* Dummy::GetPluginInformation(){
-    return new PluginInformation(Util::TypeOf<Dummy>(), &Dummy::LoadInstance);
+    PluginInformation* info = new PluginInformation(Util::TypeOf<Dummy>(), &Dummy::LoadInstance); return info;
 }

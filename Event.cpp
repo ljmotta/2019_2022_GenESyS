@@ -20,6 +20,13 @@ Event::Event(double time, Entity* entity, ModelComponent* component, unsigned in
     _componentInputNumber = componentInputNumber;
 }
 
+Event::Event(double time, Entity* entity, Connection* connection) {
+    _time = time;
+    _entity = entity;
+    _component = connection->first;
+    _componentInputNumber = connection->second;
+}
+
 Event::Event(const Event& orig) {
 }
 

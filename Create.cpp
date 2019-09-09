@@ -68,8 +68,10 @@ void Create::_execute(Entity* entity) {
     _model->sendEntityToComponent(entity, this->getNextComponents()->frontConnection(), 0.0);
 }
 
-PluginInformation* Create::GetPluginInformation(){
-    return new PluginInformation(Util::TypeOf<Create>(), &Create::LoadInstance);
+PluginInformation* Create::GetPluginInformation() {
+    PluginInformation* info = new PluginInformation(Util::TypeOf<Create>(), &Create::LoadInstance);
+    info->setSource(true);
+    return info;
 }
 
 ModelComponent* Create::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
@@ -77,7 +79,7 @@ ModelComponent* Create::LoadInstance(Model* model, std::map<std::string, std::st
     try {
 	newComponent->_loadInstance(fields);
     } catch (const std::exception& e) {
-	
+
     }
     return newComponent;
 }
@@ -91,7 +93,7 @@ void Create::_initBetweenReplications() {
 }
 
 std::map<std::string, std::string>* Create::_saveInstance() {
-    std::map<std::string, std::string>* fields = SourceModelComponent::_saveInstance(); 
+    std::map<std::string, std::string>* fields = SourceModelComponent::_saveInstance();
     return fields;
 }
 

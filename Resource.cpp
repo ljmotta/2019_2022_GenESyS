@@ -139,7 +139,7 @@ void Resource::_notifyEventHandlers() {
 }
 
 PluginInformation* Resource::GetPluginInformation(){
-    return new PluginInformation(Util::TypeOf<Resource>(), &Resource::LoadInstance);
+    PluginInformation* info = new PluginInformation(Util::TypeOf<Resource>(), &Resource::LoadInstance); return info;
 }
 
 ModelElement* Resource::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {

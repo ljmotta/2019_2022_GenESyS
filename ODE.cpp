@@ -61,7 +61,7 @@ List<ODEfunction*>* ODE::getODEfunctions() const {
 }
 
 PluginInformation* ODE::GetPluginInformation() {
-    return new PluginInformation(Util::TypeOf<ODE>(), &ODE::LoadInstance);
+    PluginInformation* info = new PluginInformation(Util::TypeOf<ODE>(), &ODE::LoadInstance); return info;
 }
 
 ModelElement* ODE::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {

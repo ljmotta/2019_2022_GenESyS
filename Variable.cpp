@@ -32,7 +32,7 @@ std::string Variable::show() {
 }
 
 PluginInformation* Variable::GetPluginInformation(){
-    return new PluginInformation(Util::TypeOf<Variable>(), &Variable::LoadInstance);
+    PluginInformation* info = new PluginInformation(Util::TypeOf<Variable>(), &Variable::LoadInstance); return info;
 }
 
 double Variable::getValue() {

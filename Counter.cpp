@@ -55,9 +55,9 @@ ModelElement* Counter::getParent() const {
 }
 
 PluginInformation* Counter::GetPluginInformation() {
-    PluginInformation* pluginfo = new PluginInformation(Util::TypeOf<Counter>(), &Counter::LoadInstance);
-    pluginfo->generateReport = true;
-    return pluginfo;
+    PluginInformation* info = new PluginInformation(Util::TypeOf<Counter>(), &Counter::LoadInstance);
+    info->setGenerateReport(true);
+    return info;
 }
 
 ModelElement* Counter::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {

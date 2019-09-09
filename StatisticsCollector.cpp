@@ -63,12 +63,11 @@ Statistics_if* StatisticsCollector::getStatistics() const {
     return _statistics;
 }
 
-PluginInformation* StatisticsCollector::GetPluginInformation(){
-    PluginInformation* pluginfo= new PluginInformation(Util::TypeOf<StatisticsCollector>(), &StatisticsCollector::LoadInstance);
-    pluginfo->generateReport=true;
-    return pluginfo;
+PluginInformation* StatisticsCollector::GetPluginInformation() {
+    PluginInformation* info = new PluginInformation(Util::TypeOf<StatisticsCollector>(), &StatisticsCollector::LoadInstance);
+    info->setGenerateReport(true);
+    return info;
 }
-
 
 ModelElement* StatisticsCollector::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {
     StatisticsCollector* newElement = new StatisticsCollector();
@@ -81,21 +80,21 @@ ModelElement* StatisticsCollector::LoadInstance(ElementManager* elems, std::map<
 }
 
 bool StatisticsCollector::_loadInstance(std::map<std::string, std::string>* fields) {
-    bool res= ModelElement::_loadInstance(fields);
-    if(res){
+    bool res = ModelElement::_loadInstance(fields);
+    if (res) {
     }
     return res;
 }
 
 std::map<std::string, std::string>* StatisticsCollector::_saveInstance() {
     std::map<std::string, std::string>* fields = ModelElement::_saveInstance(); //Util::TypeOf<StatisticsCollector>());
-    std::string parentId = "",parentTypename="";
+    std::string parentId = "", parentTypename = "";
     if (this->_parent != nullptr) {
 	parentId = std::to_string(_parent->getId());
 	parentTypename = _parent->getTypename();
     }
-    fields->emplace("parentTypename" , parentTypename);
-    fields->emplace("parentId" , parentId);
+    fields->emplace("parentTypename", parentTypename);
+    fields->emplace("parentId", parentId);
     return fields;
 }
 
