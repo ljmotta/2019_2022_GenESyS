@@ -17,6 +17,7 @@
 #include "ModelElement.h"
 #include "ElementManager.h"
 #include "Plugin.h"
+#include "Entity.h"
 
 class Station: public ModelElement {
 public:
@@ -31,6 +32,10 @@ public: // static
     static ModelElement* LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields);
 public:
     void initBetweenReplications();
+    void enter(Entity* entity);
+    void leave(Entity* entity);
+    void setEnterIntoStationComponent(ModelComponent* _enterIntoStationComponent);
+    ModelComponent* getEnterIntoStationComponent() const;
 protected:
     virtual bool _loadInstance(std::map<std::string, std::string>* fields);
     virtual std::map<std::string, std::string>* _saveInstance();
@@ -39,6 +44,11 @@ private:
     void _initCStats();
 private:
     ElementManager* _elems;
+private:
+    StatisticsCollector* _cstatNumberInStation;
+    StatisticsCollector* _cstatTimeInStation;
+    unsigned int _numberInStation=0;
+    ModelComponent* _enterIntoStationComponent;
 };
 
 #endif /* STATION_H */

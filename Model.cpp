@@ -250,7 +250,7 @@ ModelInfo* Model::getInfos() const {
     return _modelInfo;
 }
 
-Simulator* Model::getParent() const {
+Simulator* Model::getParentSimulator() const {
     return _parentSimulator;
 }
 

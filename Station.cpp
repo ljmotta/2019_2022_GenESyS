@@ -12,10 +12,13 @@
  */
 
 #include "Station.h"
+#include "Entity.h"
+#include "Model.h"
+#include "Attribute.h"
 
 Station::Station(ElementManager* elems) : ModelElement(Util::TypeOf<Station>()) {
     _elems = elems;
-    _initCStats(); 
+    _initCStats();
 }
 
 Station::Station(ElementManager* elems, std::string name) : ModelElement(Util::TypeOf<Station>()) {
@@ -25,10 +28,10 @@ Station::Station(ElementManager* elems, std::string name) : ModelElement(Util::T
 }
 
 void Station::_initCStats() {
-//    _cstatNumberInStation = new StatisticsCollector("Number In Station", this); /* TODO: ++ WHY THIS INSERT "DISPOSE" AND "10ENTITYTYPE" STATCOLL ?? */
-//    _cstatTimeInStation = new StatisticsCollector("Time In Station", this);
-//    _elems->insert(Util::TypeOf<StatisticsCollector>(), _cstatNumberInStation);
-//    _elems->insert(Util::TypeOf<StatisticsCollector>(), _cstatTimeInStation);
+    _cstatNumberInStation = new StatisticsCollector("Number In Station", this);
+    _cstatTimeInStation = new StatisticsCollector("Time In Station", this);
+    _elems->insert(Util::TypeOf<StatisticsCollector>(), _cstatNumberInStation);
+    _elems->insert(Util::TypeOf<StatisticsCollector>(), _cstatTimeInStation);
 
 }
 
@@ -36,8 +39,8 @@ Station::Station(const Station& orig) : ModelElement(orig) {
 }
 
 Station::~Station() {
-    //_elems->remove(Util::TypeOf<StatisticsCollector>(), _cstatNumberInStation);
-    //_elems->remove(Util::TypeOf<StatisticsCollector>(), _cstatTimeInStation);
+    _elems->remove(Util::TypeOf<StatisticsCollector>(), _cstatNumberInStation);
+    _elems->remove(Util::TypeOf<StatisticsCollector>(), _cstatTimeInStation);
 }
 
 std::string Station::show() {
@@ -49,9 +52,35 @@ void Station::initBetweenReplications() {
     //this->_list->clear();
 }
 
+void Station::enter(Entity* entity) {
+    std::string attributeName = "Entity.ArrivalAt"+this->getName();
+    entity->setAttributeValue(attributeName, _elems->getParentModel()->getSimulation()->getSimulatedTime());
+    entity->setAttributeValue("Entity.Station", _id);
+    _numberInStation++;
+    this->_cstatNumberInStation->getStatistics()->getCollector()->addValue(_numberInStation);
+}
+
+void Station::leave(Entity* entity) {
+    std::string attributeName = "Entity.ArrivalAt"+this->getName();
+    double arrivalTime = entity->getAttributeValue(attributeName);
+    double timeInStation = _elems->getParentModel()->getSimulation()->getSimulatedTime() - arrivalTime;
+    _cstatTimeInStation->getStatistics()->getCollector()->addValue(timeInStation);
+    entity->setAttributeValue("Entity.Station", 0.0);
+    _numberInStation--;
+    _cstatNumberInStation->getStatistics()->getCollector()->addValue(_numberInStation);
+}
+
+void Station::setEnterIntoStationComponent(ModelComponent* _enterIntoStationComponent) {
+    this->_enterIntoStationComponent = _enterIntoStationComponent;
+}
+
+ModelComponent* Station::getEnterIntoStationComponent() const {
+    return _enterIntoStationComponent;
+}
 
 PluginInformation* Station::GetPluginInformation() {
-    PluginInformation* info = new PluginInformation(Util::TypeOf<Station>(), &Station::LoadInstance); return info;
+    PluginInformation* info = new PluginInformation(Util::TypeOf<Station>(), &Station::LoadInstance);
+    return info;
 }
 
 ModelElement* Station::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {
@@ -68,8 +97,6 @@ bool Station::_loadInstance(std::map<std::string, std::string>* fields) {
     bool res = ModelElement::_loadInstance(fields);
     if (res) {
 	try {
-	    //this->_attributeName = (*fields->find("attributeName")).second;
-	    //this->_orderRule = static_cast<OrderRule> (std::stoi((*fields->find("orderRule")).second));
 	} catch (...) {
 	}
     }
@@ -78,12 +105,22 @@ bool Station::_loadInstance(std::map<std::string, std::string>* fields) {
 
 std::map<std::string, std::string>* Station::_saveInstance() {
     std::map<std::string, std::string>* fields = ModelElement::_saveInstance(); //Util::TypeOf<Station>());
-    //fields->emplace("orderRule", std::to_string(static_cast<int> (this->_orderRule)));
-    //fields->emplace("attributeName", this->_attributeName);
     return fields;
 }
 
 bool Station::_check(std::string* errorMessage) {
-    return true; //_elems->check(Util::TypeOf<Attribute>(), _attributeName, "AttributeName", false, errorMessage);
+    /* include attributes needed */
+    std::vector<std::string> neededNames = {"Entity.Station"};
+    neededNames.insert(neededNames.begin(), "Entity.ArrivalAt"+this->getName());
+    std::string neededName;
+    for (int i = 0; i < neededNames.size(); i++) {
+	neededName = neededNames[i];
+	if (_elems->getElement(Util::TypeOf<Attribute>(), neededName) == nullptr) {
+	    Attribute* attr1 = new Attribute(neededName);
+	    _elems->insert(Util::TypeOf<Attribute>(), attr1);
+	}
+    }
+    
+    return true;
 }
 

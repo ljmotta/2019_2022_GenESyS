@@ -35,7 +35,7 @@ std::string ODE::show() {
 
 double ODE::solve() {
     double expressionValue, k1, k2, k3, k4, w;
-    expressionValue  = _elems->getModel()->parseExpression(this->getODEfunctions()->front()->expression );
+    expressionValue  = _elems->getParentModel()->parseExpression(this->getODEfunctions()->front()->expression );
     k1 = _stepH*expressionValue;
 }
 
@@ -79,7 +79,7 @@ bool ODE::_check(std::string* errorMessage) {
     ODEfunction* func;
     for (std::list<ODEfunction*>::iterator it = _ODEfunctions->getList()->begin(); it != _ODEfunctions->getList()->end(); it++) {
 	func = (*it);
-	result &= _elems->getModel()->checkExpression(func->expression, "expression["+std::to_string(i++)+"]", errorMessage);
+	result &= _elems->getParentModel()->checkExpression(func->expression, "expression["+std::to_string(i++)+"]", errorMessage);
     }
     return result;
 }

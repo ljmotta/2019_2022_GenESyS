@@ -162,9 +162,9 @@ void ModelSimulation::_showSimulationHeader() {
     TraceManager* tm = _model->getTraceManager();
     tm->traceReport(Util::TraceLevel::simulation, "\n-----------------------------------------------------");
     // simulator infos
-    tm->traceReport(Util::TraceLevel::simulation, _model->getParent()->getName());
-    tm->traceReport(Util::TraceLevel::simulation, _model->getParent()->getLicenceManager()->showLicence());
-    tm->traceReport(Util::TraceLevel::simulation, _model->getParent()->getLicenceManager()->showLimits());
+    tm->traceReport(Util::TraceLevel::simulation, _model->getParentSimulator()->getName());
+    tm->traceReport(Util::TraceLevel::simulation, _model->getParentSimulator()->getLicenceManager()->showLicence());
+    tm->traceReport(Util::TraceLevel::simulation, _model->getParentSimulator()->getLicenceManager()->showLimits());
     // model infos
     tm->traceReport(Util::TraceLevel::simulation, "Analyst Name: " + _info->getAnalystName());
     tm->traceReport(Util::TraceLevel::simulation, "Project Title: " + _info->getProjectTitle());

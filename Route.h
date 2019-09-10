@@ -19,6 +19,11 @@
 
 class Route : public ModelComponent {
 public:
+
+    enum class DestinationType : int {
+	Station = 0, BySequence = 1
+    };
+public:
     Route(Model* model);
     Route(const Route& orig);
     virtual ~Route();
@@ -34,6 +39,8 @@ public:
     std::string getRouteTimeExpression() const;
     void setRouteTimeTimeUnit(Util::TimeUnit _routeTimeTimeUnit);
     Util::TimeUnit getRouteTimeTimeUnit() const;
+    void setRouteDestinationType(DestinationType _routeDestinationType);
+    Route::DestinationType getRouteDestinationType() const;
 public:
 protected:
     virtual void _execute(Entity* entity);
@@ -42,9 +49,10 @@ protected:
     virtual std::map<std::string, std::string>* _saveInstance();
     virtual bool _check(std::string* errorMessage);
 private:
-    Station* _station;
     std::string _routeTimeExpression = "0.0";
     Util::TimeUnit _routeTimeTimeUnit = Util::TimeUnit::second;
+    Route::DestinationType _routeDestinationType = DestinationType::Station;
+    Station* _station;
 };
 
 #endif /* ROUTE_H */

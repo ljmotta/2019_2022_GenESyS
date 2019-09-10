@@ -1,5 +1,5 @@
 # Genesys simulation model 
-# Last saved on Tue Sep 10 00:58:08 2019
+# Last saved on Tue Sep 10 09:47:38 2019
 # simulator infos
 name=ReGenESyS - Reborn Generic and Expansible System Simulator; typename=SimulatorInfo; version=190909; 
 
@@ -9,50 +9,52 @@ analystName=; description=; name=Model 1; numberOfReplications=3; projectTitle=;
 # model elements
 id=10; name=Station 1; typename=Station; 
 
-id=11; name=Station 2; typename=Station; 
+id=13; name=Station 2; typename=Station; 
 
-id=12; name=Station 3; typename=Station; 
+id=16; name=Station 3; typename=Station; 
 
 id=1; initialNVACost=0.000000; initialOtherCost=0.000000; initialPicture=report; initialVACost=0.000000; initialWaitingCost=0.000000; name=AnyEntityType; typename=EntityType; 
 
-id=27; name=Entity.ArrivalTime; typename=Attribute; 
+id=33; name=Entity.ArrivalTime; typename=Attribute; 
 
-id=28; name=Entity.VATime; typename=Attribute; 
+id=34; name=Entity.TransferTime; typename=Attribute; 
 
-id=29; name=Entity.NVATime; typename=Attribute; 
+id=35; name=Entity.Station; typename=Attribute; 
 
-id=30; name=Entity.WaitTime; typename=Attribute; 
+id=36; name=Entity.WaitTime; typename=Attribute; 
 
-id=31; name=Entity.TransferTime; typename=Attribute; 
+id=37; name=Entity.ArrivalAtStation 1; typename=Attribute; 
 
-id=32; name=Entity.OtherTime; typename=Attribute; 
+id=38; name=Entity.ArrivalAtStation 2; typename=Attribute; 
+
+id=39; name=Entity.ArrivalAtStation 3; typename=Attribute; 
 
 # model components
-delayExpression=1.0; delayExpressionTimeUnit=5; id=22; name=Delay 1; nextId0=16; nextSize=1; typename=Delay; 
+delayExpression=1.0; delayExpressionTimeUnit=5; id=28; name=Delay 1; nextId0=22; nextSize=1; typename=Delay; 
 
-delayExpression=1.0; delayExpressionTimeUnit=5; id=23; name=Delay 2; nextId0=17; nextSize=1; typename=Delay; 
+delayExpression=1.0; delayExpressionTimeUnit=5; id=29; name=Delay 2; nextId0=23; nextSize=1; typename=Delay; 
 
-delayExpression=1.0; delayExpressionTimeUnit=5; id=24; name=Delay 3; nextId0=18; nextSize=1; typename=Delay; 
+delayExpression=1.0; delayExpressionTimeUnit=5; id=30; name=Delay 3; nextId0=24; nextSize=1; typename=Delay; 
 
-entitiesPerCreation=1; entityTypename=AnyEntityType; firstCreation=0.000000; id=8; maxCreations=4294967295; name=Create 1; nextId0=19; nextSize=1; timeBetweenCreations=5.0; timeBetweenCreationsTimeUnit=5; typename=Create; 
+entitiesPerCreation=1; entityTypename=AnyEntityType; firstCreation=0.000000; id=8; maxCreations=4294967295; name=Create 1; nextId0=25; nextSize=1; timeBetweenCreations=5.0; timeBetweenCreationsTimeUnit=5; typename=Create; 
 
-id=13; name=Enter 1; nextId0=22; nextSize=1; typename=Enter; 
+id=19; name=Enter 1; nextId0=28; nextSize=1; stationName=Station 1; typename=Enter; 
 
-id=14; name=Enter 2; nextId0=23; nextSize=1; typename=Enter; 
+id=20; name=Enter 2; nextId0=29; nextSize=1; stationName=Station 2; typename=Enter; 
 
-id=15; name=Enter 3; nextId0=24; nextSize=1; typename=Enter; 
+id=21; name=Enter 3; nextId0=30; nextSize=1; stationName=Station 3; typename=Enter; 
 
-id=16; name=Leave 1; nextId0=20; nextSize=1; typename=Leave; 
+id=22; name=Leave 1; nextId0=26; nextSize=1; stationName=Station 1; typename=Leave; 
 
-id=17; name=Leave 2; nextId0=21; nextSize=1; typename=Leave; 
+id=23; name=Leave 2; nextId0=27; nextSize=1; stationName=Station 2; typename=Leave; 
 
-id=18; name=Leave 3; nextId0=25; nextSize=1; typename=Leave; 
+id=24; name=Leave 3; nextId0=31; nextSize=1; stationName=Station 3; typename=Leave; 
 
-id=19; name=Route 1; nextSize=0; typename=Route; 
+id=25; name=Route 1; nextSize=0; routeDestinationType=0; routeTimeExpression=0.5; routeTimeTimeUnit=5; stationId=10; stationName=Station 1; typename=Route; 
 
-id=20; name=Route 2; nextSize=0; typename=Route; 
+id=26; name=Route 2; nextSize=0; routeDestinationType=0; routeTimeExpression=0.5; routeTimeTimeUnit=5; stationId=13; stationName=Station 2; typename=Route; 
 
-id=21; name=Route 3; nextSize=0; typename=Route; 
+id=27; name=Route 3; nextSize=0; routeDestinationType=0; routeTimeExpression=0.5; routeTimeTimeUnit=5; stationId=16; stationName=Station 3; typename=Route; 
 
-id=25; name=Dispose 1; nextSize=0; typename=Dispose; 
+id=31; name=Dispose 1; nextSize=0; typename=Dispose; 
 

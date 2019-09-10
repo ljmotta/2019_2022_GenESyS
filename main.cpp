@@ -12,6 +12,7 @@
  */
 
 #include <iostream>
+#include <thread>
 #include "Traits.h"
 
 /*
@@ -22,7 +23,8 @@ int main(int argc, char** argv) {
     GenesysApplication_if *app = new Traits<GenesysApplication_if>::Application();
     int res = app->main(argc, argv);
     std::cout << "Quiting application." << std::endl;
-    for (unsigned int i=0; i<1e6;i++);
+    for (unsigned int i=0; i<1e3;i++)
+	std::this_thread::yield();
     return res;
 }
 

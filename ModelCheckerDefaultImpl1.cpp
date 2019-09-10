@@ -150,7 +150,7 @@ bool ModelCheckerDefaultImpl1::checkConnected() {
     /* TODO +-: not implemented yet */
     _model->getTraceManager()->trace(Util::TraceLevel::blockArrival, "Checking connected");
     bool resultAll = true;
-    PluginManager* pluginManager = this->_model->getParent()->getPluginManager();
+    PluginManager* pluginManager = this->_model->getParentSimulator()->getPluginManager();
     Plugin* plugin;
     Util::IncIndent();
     {
@@ -328,7 +328,7 @@ bool ModelCheckerDefaultImpl1::checkLimits() {
     bool res = true;
     std::string text;
     unsigned int value;
-    LicenceManager *licence = _model->getParent()->getLicenceManager();
+    LicenceManager *licence = _model->getParentSimulator()->getLicenceManager();
     _model->getTraceManager()->trace(Util::TraceLevel::blockArrival, "Checking model limits");
     Util::IncIndent();
     {

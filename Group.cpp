@@ -49,7 +49,7 @@ void Group::insertElement(Entity* element) {
 }
 
 void Group::removeElement(Entity* element) {
-    double tnow = this->_elements->getModel()->getSimulation()->getSimulatedTime();
+    double tnow = this->_elements->getParentModel()->getSimulation()->getSimulatedTime();
     _list->remove(element);
     this->_cstatNumberInGroup->getStatistics()->getCollector()->addValue(_list->size());
 }

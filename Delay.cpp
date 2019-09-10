@@ -64,7 +64,7 @@ void Delay::_execute(Entity* entity) {
     double delayEndTime = _model->getSimulation()->getSimulatedTime() + waitTime;
     Event* newEvent = new Event(delayEndTime, entity, this->getNextComponents()->frontConnection());
     _model->getEvents()->insert(newEvent);
-    _model->getTraceManager()->trace(Util::TraceLevel::blockInternal, "End of delay of entity " + std::to_string(entity->getId()) + " scheduled to time " + std::to_string(delayEndTime));
+    _model->getTraceManager()->trace(Util::TraceLevel::blockInternal, "End of delay of entity " + std::to_string(entity->getEntityNumber()) + " scheduled to time " + std::to_string(delayEndTime));
 }
 
 bool Delay::_loadInstance(std::map<std::string, std::string>* fields) {

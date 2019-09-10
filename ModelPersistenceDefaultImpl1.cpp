@@ -31,8 +31,8 @@ ModelPersistenceDefaultImpl1::~ModelPersistenceDefaultImpl1() {
 std::map<std::string, std::string>* ModelPersistenceDefaultImpl1::_getSimulatorInfoFieldsToSave() {
     std::map<std::string, std::string>* fields = new std::map<std::string, std::string>();
     fields->emplace("typename", "SimulatorInfo");
-    fields->emplace("name", _model->getParent()->getName());
-    fields->emplace("version", _model->getParent()->getVersion());
+    fields->emplace("name", _model->getParentSimulator()->getName());
+    fields->emplace("version", _model->getParentSimulator()->getVersion());
     return fields;
 }
 
@@ -155,7 +155,7 @@ bool ModelPersistenceDefaultImpl1::_loadFields(std::string line) {
 		ModelElement* newTemUselessElement = ModelElement::LoadInstance(fields);
 		if (newTemUselessElement != nullptr) {
 		    newTemUselessElement->~ModelElement();
-		    Plugin* plugin = this->_model->getParent()->getPluginManager()->find(thistypename);
+		    Plugin* plugin = this->_model->getParentSimulator()->getPluginManager()->find(thistypename);
 		    if (plugin != nullptr) {
 			res = plugin->loadAndInsertNew(_model, fields);
 		    } else {

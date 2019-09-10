@@ -103,7 +103,7 @@ void Seize::_handlerForResourceEvent(Resource* resource) {
 	    resource->seize(quantity, tnow);
 	    _model->getEvents()->insert(new Event(tnow, first->getEntity(), this->getNextComponents()->frontConnection()));
 	    _queue->removeElement(first);
-	    _model->getTraceManager()->traceSimulation(Util::TraceLevel::blockInternal, tnow, first->getEntity(), this, "Waiting entity " + std::to_string(first->getEntity()->getId()) + " now seizes " + std::to_string(quantity) + " elements of resource \"" + resource->getName() + "\"");
+	    _model->getTraceManager()->traceSimulation(Util::TraceLevel::blockInternal, tnow, first->getEntity(), this, "Waiting entity " + std::to_string(first->getEntity()->getEntityNumber()) + " now seizes " + std::to_string(quantity) + " elements of resource \"" + resource->getName() + "\"");
 
 	}
     }

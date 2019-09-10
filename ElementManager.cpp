@@ -112,7 +112,7 @@ void ElementManager::show() {
     Util::DecIndent();
 }
 
-Model* ElementManager::getModel() const {
+Model* ElementManager::getParentModel() const {
     return _model;
 }
 
