@@ -65,6 +65,7 @@ void Station::leave(Entity* entity) {
     double arrivalTime = entity->getAttributeValue(attributeName);
     double timeInStation = _elems->getParentModel()->getSimulation()->getSimulatedTime() - arrivalTime;
     _cstatTimeInStation->getStatistics()->getCollector()->addValue(timeInStation);
+    entity->getEntityType()->getStatisticsCollector("Time in Stations")->getStatistics()->getCollector()->addValue(timeInStation);
     entity->setAttributeValue("Entity.Station", 0.0);
     _numberInStation--;
     _cstatNumberInStation->getStatistics()->getCollector()->addValue(_numberInStation);
