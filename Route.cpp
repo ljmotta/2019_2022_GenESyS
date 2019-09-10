@@ -26,7 +26,12 @@ Route::~Route() {
 }
 
 std::string Route::show() {
-    return ModelComponent::show() + "";
+    std::string msg= ModelComponent::show() + 
+	    ",destinationType="+std::to_string(static_cast<int>(this->_routeDestinationType))+
+	    ",timeExpression="+this->_routeTimeExpression+" "+Util::StrTimeUnit(this->_routeTimeTimeUnit);
+    if (_station != nullptr)
+	msg += ",station="+this->_station->getName();
+    return msg;
 }
 
 ModelComponent* Route::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
@@ -125,6 +130,11 @@ bool Route::_check(std::string* errorMessage) {
 	    Attribute* attr1 = new Attribute(neededName);
 	    elements->insert(Util::TypeOf<Attribute>(), attr1);
 	}
+    } 
+    // include StatisticsCollector needed in EntityType
+    std::list<ModelElement*>* enttypes = elements->getElements(Util::TypeOf<EntityType>())->getList();
+    for (std::list<ModelElement*>::iterator it= enttypes->begin(); it!= enttypes->end(); it++) {
+	static_cast<EntityType*>((*it))->getStatisticsCollector("Transfer Time"); // force create this CStat before simulation starts
     }
     bool resultAll = true;
     resultAll &= _model->checkExpression(_routeTimeExpression, "Route time expression", errorMessage);

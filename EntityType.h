@@ -51,7 +51,7 @@ public: //get
     //StatisticsCollector* getCstatOtherTime() const;
     //StatisticsCollector* getCstatTransferTime() const;
     //StatisticsCollector* getCstatWaitingTime() const;
-    StatisticsCollector* getStatisticsCollector(std::string name) const;
+    StatisticsCollector* getStatisticsCollector(std::string name);
 
 protected: // must be overriden by derived classes
     virtual bool _loadInstance(std::map<std::string, std::string>* fields);

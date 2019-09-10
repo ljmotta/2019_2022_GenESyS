@@ -135,7 +135,7 @@ std::string EntityType::getInitialPicture() const {
 //    return _cstatWaitingTime;
 //}
 
-StatisticsCollector* EntityType::getStatisticsCollector(std::string name) const {
+StatisticsCollector* EntityType::getStatisticsCollector(std::string name) {
     StatisticsCollector* cstat;
     for (std::list<StatisticsCollector*>::iterator it = _statisticsCollectors->getList()->begin(); it!= _statisticsCollectors->getList()->end(); it++) {
 	cstat = (*it);
@@ -144,7 +144,7 @@ StatisticsCollector* EntityType::getStatisticsCollector(std::string name) const 
 	}
     }
     // not found. Create it, insert it into the list of cstats, into the model element manager, and then return it
-    cstat = new StatisticsCollector(name, this);
+    cstat = new StatisticsCollector(_elemManager, name, this);
     _statisticsCollectors->insert(cstat);
     this->_elemManager->insert(Util::TypeOf<StatisticsCollector>(), cstat);
     return cstat;

@@ -138,12 +138,14 @@ void Model::show() {
 	Util::DecIndent();
 	_showComponents();
 	_showElements();
+	_showSimulationControls();
+	_showSimulationResponses();
     }
     Util::DecIndent();
     getTraceManager()->trace(Util::TraceLevel::report, "End of Simulation Model");
 }
 
-void Model::_showElements() {
+void Model::_showElements() const {
     getTraceManager()->trace(Util::TraceLevel::report, "Elements:");
     Util::IncIndent();
     {
@@ -169,10 +171,28 @@ void Model::_showElements() {
     Util::DecIndent();
 }
 
-void Model::_showComponents() {
+void Model::_showComponents() const {
     getTraceManager()->trace(Util::TraceLevel::report, "Components:");
     Util::IncIndent();
     for (std::list<ModelComponent*>::iterator it = getComponentManager()->begin(); it != getComponentManager()->end(); it++) {
+	getTraceManager()->trace(Util::TraceLevel::report, (*it)->show()); ////
+    }
+    Util::DecIndent();
+}
+
+void Model::_showSimulationControls() const {
+    getTraceManager()->trace(Util::TraceLevel::report, "Simulation Controls:");
+    Util::IncIndent();
+    for (std::list<SimulationControl*>::iterator it = _controls->getList()->begin(); it != _controls->getList()->end(); it++) {
+	getTraceManager()->trace(Util::TraceLevel::report, (*it)->show()); ////
+    }
+    Util::DecIndent();
+}
+
+void Model::_showSimulationResponses() const {
+    getTraceManager()->trace(Util::TraceLevel::report, "Simulation Responses:");
+    Util::IncIndent();
+    for (std::list<SimulationResponse*>::iterator it = _responses->getList()->begin(); it != _responses->getList()->end(); it++) {
 	getTraceManager()->trace(Util::TraceLevel::report, (*it)->show()); ////
     }
     Util::DecIndent();
@@ -204,10 +224,6 @@ bool Model::checkModel() {
 //}
 
 void Model::removeEntity(Entity* entity, bool collectStatistics) {
-    if (collectStatistics) {
-	double timeInSystem = this->getSimulation()->getSimulatedTime() - entity->getAttributeValue("Entity.ArrivalTime");
-	entity->getEntityType()->getStatisticsCollector("Total Time")->getStatistics()->getCollector()->addValue(timeInSystem);
-    }
     /* TODO -: event onEntityRemove */
     std::string entId = std::to_string(entity->getEntityNumber());
     this->getElementManager()->remove(Util::TypeOf<Entity>(), entity);

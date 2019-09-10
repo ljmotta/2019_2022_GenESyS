@@ -98,6 +98,12 @@ bool Delay::_check(std::string* errorMessage) {
 	    elements->insert(Util::TypeOf<Attribute>(), attr1);
 	}
     }
+    // include StatisticsCollector needed in EntityType
+    std::list<ModelElement*>* enttypes = elements->getElements(Util::TypeOf<EntityType>())->getList();
+    for (std::list<ModelElement*>::iterator it= enttypes->begin(); it!= enttypes->end(); it++) {
+	static_cast<EntityType*>((*it))->getStatisticsCollector("Waiting Time"); // force create this CStat before simulation starts
+    }
+    //
     return _model->checkExpression(_delayExpression, "Delay expression", errorMessage);
 }
 

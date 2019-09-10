@@ -134,10 +134,12 @@ int TestEnterLeaveRoute::main(int argc, char** argv) {
     leave3->getNextComponents()->insert(dispose1);
     // insert the model into the simulator 
     simulator->getModelManager()->insert(model);
-    // if the model is ok then save the model into a text file 
-    if (model->checkModel()) {
-	model->saveModel("./temp/testEnterLeaveRoute.txt");
-    }
+    // check the model
+    model->checkModel();
+    // save the model into a text file 
+    model->saveModel("./temp/testEnterLeaveRoute.txt");
+    // show the model
+    model->show();
     // execute the simulation
     model->getSimulation()->startSimulation();
     return 0;

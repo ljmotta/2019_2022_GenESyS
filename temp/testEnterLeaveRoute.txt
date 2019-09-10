@@ -1,5 +1,5 @@
 # Genesys simulation model 
-# Last saved on Tue Sep 10 16:07:05 2019
+# Last saved on Tue Sep 10 18:54:17 2019
 # simulator infos
 name=ReGenESyS - Reborn Generic and Expansible System Simulator; typename=SimulatorInfo; version=190909; 
 
@@ -17,13 +17,13 @@ id=28; name=Entity.TransferTime; typename=Attribute;
 
 id=29; name=Entity.Station; typename=Attribute; 
 
-id=30; name=Entity.WaitTime; typename=Attribute; 
+id=31; name=Entity.WaitTime; typename=Attribute; 
 
-id=31; name=Entity.ArrivalAtStation 1; typename=Attribute; 
+id=34; name=Entity.ArrivalAtStation 1; typename=Attribute; 
 
-id=32; name=Entity.ArrivalAtStation 2; typename=Attribute; 
+id=36; name=Entity.ArrivalAtStation 2; typename=Attribute; 
 
-id=33; name=Entity.ArrivalAtStation 3; typename=Attribute; 
+id=37; name=Entity.ArrivalAtStation 3; typename=Attribute; 
 
 id=4; name=Station 1; typename=Station; 
 

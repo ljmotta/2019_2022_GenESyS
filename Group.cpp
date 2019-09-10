@@ -27,7 +27,7 @@ Group::Group(ElementManager* elems, std::string name) : ModelElement(Util::TypeO
 }
 
 void Group::_initCStats() {
-    _cstatNumberInGroup = new StatisticsCollector("Number In Group", this);
+    _cstatNumberInGroup = new StatisticsCollector(_elements, "Number In Group", this);
     _elements->insert(Util::TypeOf<StatisticsCollector>(), _cstatNumberInGroup);
 }
 

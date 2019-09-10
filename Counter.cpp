@@ -12,24 +12,37 @@
  */
 
 #include "Counter.h"
+#include "SimulationResponse.h"
+#include "Model.h"
 
-Counter::Counter() : ModelElement(Util::TypeOf<Counter>()) {
-    _generateReportInformation = true;
+Counter::Counter(ElementManager* elems) : ModelElement(Util::TypeOf<Counter>()) {
+    _addSimulationResponse(elems);
 }
 
-Counter::Counter(std::string name) : ModelElement(Util::TypeOf<Counter>()) {
+Counter::Counter(ElementManager* elems, std::string name) : ModelElement(Util::TypeOf<Counter>()) {
     _name = name;
+    _addSimulationResponse(elems);
 }
 
-Counter::Counter(std::string name, ModelElement* parent) : ModelElement(Util::TypeOf<Counter>()) {
+Counter::Counter(ElementManager* elems, std::string name, ModelElement* parent) : ModelElement(Util::TypeOf<Counter>()) {
     _name = name;
     _parent = parent;
+    _addSimulationResponse(elems);
 }
 
 Counter::Counter(const Counter& orig) : ModelElement(orig) {
 }
 
 Counter::~Counter() {
+}
+
+void Counter::_addSimulationResponse(ElementManager* elems) {
+    GetterMember getterMember = DefineGetterMember<Counter>(this, &Counter::getCountValue);
+    std::string parentName = "";
+    if (_parent != nullptr)
+	parentName = _parent->getName();
+    SimulationResponse* resp = new SimulationResponse(Util::TypeOf<Counter>(), parentName+":"+_name, getterMember);
+    elems->getParentModel()->getResponses()->insert(resp);
 }
 
 std::string Counter::show() {
@@ -46,7 +59,7 @@ void Counter::incCountValue(int value) {
     _count += value;
 }
 
-unsigned long Counter::getCountValue() {
+unsigned long Counter::getCountValue() const {
     return _count;
 }
 
@@ -61,7 +74,7 @@ PluginInformation* Counter::GetPluginInformation() {
 }
 
 ModelElement* Counter::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {
-    Counter* newElement = new Counter();
+    Counter* newElement = new Counter(elems);
     try {
 	newElement->_loadInstance(fields);
     } catch (const std::exception& e) {

@@ -18,7 +18,7 @@
 #include <iostream>
 
 Record::Record(Model* model) : ModelComponent(model, Util::TypeOf<Record>()) {
-    _cstatExpression = new StatisticsCollector(_expressionName, this);
+    _cstatExpression = new StatisticsCollector(_model->getElementManager(), _expressionName, this);
     _model->getElementManager()->insert(Util::TypeOf<StatisticsCollector>(), _cstatExpression);
 }
 

@@ -14,25 +14,39 @@
 #include "StatisticsCollector.h"
 #include "Traits.h"
 
-StatisticsCollector::StatisticsCollector() : ModelElement(Util::TypeOf<StatisticsCollector>()) {
+typedef Traits<ModelComponent>::StatisticsCollector_StatisticsImplementation StatisticsClass;
+
+StatisticsCollector::StatisticsCollector(ElementManager* elems) : ModelElement(Util::TypeOf<StatisticsCollector>()) {
     _initStaticsAndCollector();
-    _generateReportInformation = true;
+    _addSimulationResponse(elems);
 }
 
-StatisticsCollector::StatisticsCollector(std::string name) : ModelElement(Util::TypeOf<StatisticsCollector>()) {
+StatisticsCollector::StatisticsCollector(ElementManager* elems,std::string name) : ModelElement(Util::TypeOf<StatisticsCollector>()) {
     _name = name;
     _initStaticsAndCollector();
+    _addSimulationResponse(elems);
 }
 
-StatisticsCollector::StatisticsCollector(std::string name, ModelElement* parent) : ModelElement(Util::TypeOf<StatisticsCollector>()) {
+StatisticsCollector::StatisticsCollector(ElementManager* elems,std::string name, ModelElement* parent) : ModelElement(Util::TypeOf<StatisticsCollector>()) {
     _name = name;
     _parent = parent;
     _initStaticsAndCollector();
+    _addSimulationResponse(elems);
+}
+
+void StatisticsCollector::_addSimulationResponse(ElementManager* elems) {
+    
+    GetterMember getterMember = DefineGetterMember<StatisticsClass>(static_cast<StatisticsClass*>(this->_statistics), &StatisticsClass::average); 
+    std::string parentName = "";
+    if (_parent != nullptr)
+	parentName = _parent->getName();
+    SimulationResponse* resp = new SimulationResponse(Util::TypeOf<StatisticsClass>(), parentName+":"+_name+".average", getterMember);
+    elems->getParentModel()->getResponses()->insert(resp);
 }
 
 void StatisticsCollector::_initStaticsAndCollector() {
     Collector_if* collector = new Traits<ModelComponent>::StatisticsCollector_CollectorImplementation();
-    _statistics = new Traits<ModelComponent>::StatisticsCollector_StatisticsImplementation(collector);
+    _statistics = new StatisticsClass(collector);//Traits<ModelComponent>::StatisticsCollector_StatisticsImplementation(collector);
 }
 
 StatisticsCollector::StatisticsCollector(const StatisticsCollector& orig) : ModelElement(orig) {
@@ -70,7 +84,7 @@ PluginInformation* StatisticsCollector::GetPluginInformation() {
 }
 
 ModelElement* StatisticsCollector::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {
-    StatisticsCollector* newElement = new StatisticsCollector();
+    StatisticsCollector* newElement = new StatisticsCollector(elems);
     try {
 	newElement->_loadInstance(fields);
     } catch (const std::exception& e) {

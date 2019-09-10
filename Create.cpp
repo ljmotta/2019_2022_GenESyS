@@ -19,7 +19,7 @@
 #include "Assign.h"
 
 Create::Create(Model* model) : SourceModelComponent(model, Util::TypeOf<Create>()) {
-    _numberOut = new Counter("Count number in", this);
+    _numberOut = new Counter(_model->getElementManager(), "Count number in", this);
     _model->getElementManager()->insert(Util::TypeOf<Counter>(), _numberOut);
     model->getControls()->insert(new SimulationControl(Util::TypeOf<Create>(), "Entities Per Creation",
 	    DefineGetterMember<SourceModelComponent>(this, &Create::getEntitiesPerCreation),
@@ -73,6 +73,7 @@ PluginInformation* Create::GetPluginInformation() {
     info->setSource(true);
     info->insertDynamicLibFileDependence("attribute.so");
     info->insertDynamicLibFileDependence("entitytype.so");
+    info->insertDynamicLibFileDependence("statisticscollector.so");
     return info;
 }
 

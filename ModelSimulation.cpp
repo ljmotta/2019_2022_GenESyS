@@ -123,7 +123,7 @@ void ModelSimulation::_actualizeSimulationStatistics() {
 	//scSim = dynamic_cast<StatisticsCollector*> (*(this->_statsCountersSimulation->find((*it))));
 	if (scSim == nullptr) {
 	    // this is a cstat created during the last replication
-	    scSim = new StatisticsCollector(sc->getName(), sc->getParent());
+	    scSim = new StatisticsCollector(_model->getElementManager(), sc->getName(), sc->getParent());
 	    _statsCountersSimulation->insert(scSim);
 	}
 	assert(scSim != nullptr);
@@ -202,7 +202,7 @@ void ModelSimulation::_initSimulation() {
     List<ModelElement*>* cstats = _model->getElementManager()->getElements(Util::TypeOf<StatisticsCollector>());
     for (std::list<ModelElement*>::iterator it = cstats->getList()->begin(); it != cstats->getList()->end(); it++) {
 	cstat = dynamic_cast<StatisticsCollector*> ((*it));
-	StatisticsCollector* newCStatSimul = new StatisticsCollector(_cte_stCountSimulNamePrefix + cstat->getName(), cstat->getParent());
+	StatisticsCollector* newCStatSimul = new StatisticsCollector(_model->getElementManager(), _cte_stCountSimulNamePrefix + cstat->getName(), cstat->getParent());
 	this->_statsCountersSimulation->insert(newCStatSimul);
     }
     // copy all Counters (used in a replication) to Counters for the whole simulation
@@ -217,7 +217,7 @@ void ModelSimulation::_initSimulation() {
 	this->_statsCountersSimulation->insert(newCountSimul);
 	*/
 	// addin a cstat (to stat the counts)
-	StatisticsCollector* newCStatSimul = new StatisticsCollector(_cte_stCountSimulNamePrefix + counter->getName(), counter->getParent());
+	StatisticsCollector* newCStatSimul = new StatisticsCollector(_model->getElementManager(), _cte_stCountSimulNamePrefix + counter->getName(), counter->getParent());
     	this->_statsCountersSimulation->insert(newCStatSimul);
     }
 }

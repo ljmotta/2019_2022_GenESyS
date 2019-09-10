@@ -51,7 +51,6 @@ protected:
     Util::identitifcation _id;
     std::string _name;
     std::string _typename;
-    bool _generateReportInformation = false; //@TODO: This attribute should be used by SimulationReport_if implementations to look for elements to include in reports
 };
 
 #endif /* MODELELEMENT_H */

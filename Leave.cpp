@@ -24,7 +24,7 @@ Leave::~Leave() {
 }
 
 std::string Leave::show() {
-    return ModelComponent::show() + "";
+    return ModelComponent::show() + ",station="+this->_station->getName();
 }
 
 ModelComponent* Leave::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {

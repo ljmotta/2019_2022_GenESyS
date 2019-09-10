@@ -81,9 +81,10 @@ public: // only gets
      * PRIVATE
      */
 private:
-    void _showComponents();
-    void _showElements();
-
+    void _showComponents() const;
+    void _showElements() const;
+    void _showSimulationControls() const;
+    void _showSimulationResponses() const;
 private: // read only public access (gets)
     Util::identitifcation _id;
     Simulator* _parentSimulator; /*! The parente of the model */

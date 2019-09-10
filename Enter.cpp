@@ -24,7 +24,7 @@ Enter::~Enter() {
 }
 
 std::string Enter::show() {
-    return ModelComponent::show() + "";
+    return ModelComponent::show() + ",station="+this->_station->getName();
 }
 
 ModelComponent* Enter::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {

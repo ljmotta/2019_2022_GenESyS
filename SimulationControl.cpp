@@ -24,6 +24,10 @@ SimulationControl::SimulationControl(const SimulationControl& orig) : Simulation
 SimulationControl::~SimulationControl() {
 }
 
+std::string SimulationControl::show() {
+    return "name="+this->_name+", type="+this->_type;
+}
+
 void SimulationControl::setValue(double value) {
     this->_setMemberFunction(value);
 }

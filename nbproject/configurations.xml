@@ -87,7 +87,11 @@
         <itemPath>ModelSimulation.h</itemPath>
         <itemPath>OnEventManager.cpp</itemPath>
         <itemPath>OnEventManager.h</itemPath>
+        <itemPath>SimulationControl.cpp</itemPath>
+        <itemPath>SimulationControl.h</itemPath>
         <itemPath>SimulationReporter_if.h</itemPath>
+        <itemPath>SimulationResponse.cpp</itemPath>
+        <itemPath>SimulationResponse.h</itemPath>
         <itemPath>SinkModelComponent.cpp</itemPath>
         <itemPath>SinkModelComponent.h</itemPath>
         <itemPath>SourceModelComponent.cpp</itemPath>
@@ -114,10 +118,6 @@
         <itemPath>PluginManager.cpp</itemPath>
         <itemPath>PluginManager.h</itemPath>
         <itemPath>Sampler_if.h</itemPath>
-        <itemPath>SimulationControl.cpp</itemPath>
-        <itemPath>SimulationControl.h</itemPath>
-        <itemPath>SimulationResponse.cpp</itemPath>
-        <itemPath>SimulationResponse.h</itemPath>
       </logicalFolder>
       <itemPath>Simulator.cpp</itemPath>
       <itemPath>Simulator.h</itemPath>

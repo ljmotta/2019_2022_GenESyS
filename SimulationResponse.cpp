@@ -12,6 +12,7 @@
  */
 
 #include "SimulationResponse.h"
+#include "AnalysisOfVariance_if.h"
 
 SimulationResponse::SimulationResponse(std::string type, std::string name, GetterMember getterMember) {
     _type = type;
@@ -23,6 +24,10 @@ SimulationResponse::SimulationResponse(const SimulationResponse& orig) {
 }
 
 SimulationResponse::~SimulationResponse() {
+}
+
+std::string SimulationResponse::show() {
+    return "name="+this->_name+", type="+this->_type;
 }
 
 std::string SimulationResponse::getName() const {
