@@ -22,8 +22,8 @@ public:
     PluginConnectorDummyImpl1(const PluginConnectorDummyImpl1& orig);
     virtual ~PluginConnectorDummyImpl1();
 public:
-    virtual bool check(const std::string dynamicLibraryFilename, Plugin* plugin);
-    virtual bool connect(const std::string dynamicLibraryFilename, Plugin* plugin);
+    virtual Plugin* check(const std::string dynamicLibraryFilename);
+    virtual Plugin* connect(const std::string dynamicLibraryFilename);
     virtual bool disconnect(const std::string dynamicLibraryFilename);
     virtual bool disconnect(Plugin* plugin);
 private:

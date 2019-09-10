@@ -52,7 +52,7 @@ bool PluginManager::_insert(Plugin* plugin) {
 bool PluginManager::check(std::string dynamicLibraryFilename) {
     Plugin* plugin;
     try {
-    _pluginConnector->check(dynamicLibraryFilename, plugin);
+	plugin = _pluginConnector->check(dynamicLibraryFilename);
     } catch (...) {
 	return false;
     }
@@ -62,8 +62,9 @@ bool PluginManager::check(std::string dynamicLibraryFilename) {
 Plugin* PluginManager::insert(std::string dynamicLibraryFilename) {
     Plugin* plugin;
     try {
-    _pluginConnector->connect(dynamicLibraryFilename, plugin);
-    } catch(...) {
+	plugin = _pluginConnector->connect(dynamicLibraryFilename);
+	_insert(plugin);
+    } catch (...) {
 	return nullptr;
     }
     return plugin;
@@ -77,9 +78,9 @@ bool PluginManager::remove(std::string dynamicLibraryFilename) {
 bool PluginManager::remove(Plugin* plugin) {
     if (plugin != nullptr) {
 	_plugins->remove(plugin);
-	try{
-	_pluginConnector->disconnect(plugin);
-	} catch(...) {
+	try {
+	    _pluginConnector->disconnect(plugin);
+	} catch (...) {
 	    return false;
 	}
 	return true;

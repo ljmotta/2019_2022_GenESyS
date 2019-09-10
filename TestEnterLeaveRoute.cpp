@@ -37,13 +37,13 @@ TestEnterLeaveRoute::TestEnterLeaveRoute() {
 
 int TestEnterLeaveRoute::main(int argc, char** argv) {
     Simulator* simulator = new Simulator();
-    // insert "fake plugins" since plugins based on dynamic loaded library are not implemented yet
-    this->insertFakePluginsByHand(simulator);
     // creates an empty model
     Model* model = new Model(simulator);
     // Handle traces and simulation events to output them
     TraceManager* tm = model->getTraceManager();
     this->setDefaultTraceHandlers(tm);
+    // insert "fake plugins" since plugins based on dynamic loaded library are not implemented yet
+    this->insertFakePluginsByHand(simulator);
     // get easy access to classes used to insert components and elements into a model
     ComponentManager* components = model->getComponentManager();
     ElementManager* elements = model->getElementManager();
@@ -78,10 +78,10 @@ int TestEnterLeaveRoute::main(int argc, char** argv) {
     components->insert(enter1);
     Enter* enter2 = new Enter(model);
     enter2->setStation(station2);
-    components->insert(enter1);
+    components->insert(enter2);
     Enter* enter3 = new Enter(model);
     enter3->setStation(station3);
-    components->insert(enter1);
+    components->insert(enter3);
     // create components to Leave stations
     Leave* leave1 = new Leave(model);
     leave1->setStation(station1);
@@ -120,12 +120,15 @@ int TestEnterLeaveRoute::main(int argc, char** argv) {
     components->insert(dispose1);
     // connect model components to create a "workflow" 
     create1->getNextComponents()->insert(route0);
+    //
     enter1->getNextComponents()->insert(delay1);
     delay1->getNextComponents()->insert(leave1);
     leave1->getNextComponents()->insert(route1);
+    //
     enter2->getNextComponents()->insert(delay2);
     delay2->getNextComponents()->insert(leave2);
     leave2->getNextComponents()->insert(route2);
+    //
     enter3->getNextComponents()->insert(delay3);
     delay3->getNextComponents()->insert(leave3);
     leave3->getNextComponents()->insert(dispose1);

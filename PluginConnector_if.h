@@ -19,8 +19,8 @@
 
 class PluginConnector_if {
 public:
-    virtual bool check(const std::string dynamicLibraryFilename, Plugin* plugin) = 0;
-    virtual bool connect(const std::string dynamicLibraryFilename, Plugin* plugin) = 0;
+    virtual Plugin* check(const std::string dynamicLibraryFilename) = 0;
+    virtual Plugin* connect(const std::string dynamicLibraryFilename) = 0;
     virtual bool disconnect(const std::string dynamicLibraryFilename) = 0;
     virtual bool disconnect(Plugin* plugin) = 0;
 };

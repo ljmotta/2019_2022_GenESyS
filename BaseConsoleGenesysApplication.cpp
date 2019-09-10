@@ -18,29 +18,6 @@
 // GEnSyS Simulator
 #include "Simulator.h"
 
-// Model Components
-#include "Create.h"
-#include "Delay.h"
-#include "Dispose.h"
-#include "Seize.h"
-#include "Release.h"
-#include "Assign.h"
-#include "Record.h"
-#include "Decide.h"
-#include "Dummy.h"
-#include "Route.h"
-#include "Enter.h"
-#include "Leave.h"
-
-// Model elements
-#include "EntityType.h"
-#include "Attribute.h"
-#include "Variable.h"
-#include "ProbDistrib.h"
-#include "Group.h"
-#include "Station.h"
-#include "Formula.h"
-#include "ODE.h"
 
 BaseConsoleGenesysApplication::BaseConsoleGenesysApplication() {
 }
@@ -129,31 +106,4 @@ void BaseConsoleGenesysApplication::insertFakePluginsByHand(Simulator* simulator
     simulator->getPluginManager()->insert("./plugins/route.so");
     simulator->getPluginManager()->insert("./plugins/enter.so");
     simulator->getPluginManager()->insert("./plugins/leave.so");
-    /*
-    // model elements
-    simulator->getPluginManager()->insert(new Plugin(&Attribute::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&Counter::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&EntityType::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&Queue::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&Resource::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&StatisticsCollector::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&Variable::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&Group::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&Station::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&Formula::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&ODE::GetPluginInformation));
-    // model components
-    simulator->getPluginManager()->insert(new Plugin(&Assign::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&Create::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&Decide::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&Delay::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&Dispose::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&Dummy::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&Record::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&Release::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&Seize::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&Route::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&Enter::GetPluginInformation));
-    simulator->getPluginManager()->insert(new Plugin(&Leave::GetPluginInformation));
-    */
 }

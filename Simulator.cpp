@@ -17,7 +17,7 @@
 
 Simulator::Simulator() {
     // This is the ONLY method in the entire software where std::cout is allowed.
-    std::cout << "RUNNING " << _name << " version " << _version << std::endl;
+    std::cout << "RUNNING " << _name << ", version " << _version << std::endl;
     _licenceManager = new LicenceManager(this);
     _pluginManager = new PluginManager(this);
     _modelManager = new ModelManager(this);

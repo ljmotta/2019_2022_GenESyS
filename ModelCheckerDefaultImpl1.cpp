@@ -17,6 +17,8 @@
 #include "ComponentManager.h"
 #include "Simulator.h"
 
+#include <assert.h>
+
 ModelCheckerDefaultImpl1::ModelCheckerDefaultImpl1(Model* model) {
     _model = model;
 }
@@ -29,12 +31,11 @@ ModelCheckerDefaultImpl1::~ModelCheckerDefaultImpl1() {
 
 bool ModelCheckerDefaultImpl1::checkAll() {
     bool res = true;
-    res &= checkConnected();
-    //res &= checkPathway();
     res &= checkSymbols();
     //res &= checkAndAddInternalLiterals();
     //res &= checkActivationCode();
     res &= checkLimits();
+    res &= checkConnected();
     return res;
 }
 
@@ -43,10 +44,13 @@ bool ModelCheckerDefaultImpl1::checkAll() {
 //    return true;
 //}
 
-bool ModelCheckerDefaultImpl1::_recursiveConnectedTo(ModelComponent* comp, List<ModelComponent*>* visited, List<ModelComponent*>* unconnected, bool* drenoFound) {
+bool ModelCheckerDefaultImpl1::_recursiveConnectedTo(PluginManager* pluginManager, ModelComponent* comp, List<ModelComponent*>* visited, List<ModelComponent*>* unconnected, bool* drenoFound) {
     visited->insert(comp);
     _model->getTraceManager()->trace(Util::TraceLevel::mostDetailed, "Connected to component " + comp->getName());
-    if (dynamic_cast<SinkModelComponent*> (comp) != nullptr) { // it is a sink
+    Plugin* plugin = pluginManager->find(comp->getTypename());
+    assert(plugin!= nullptr);
+    if (plugin->getPluginInfo()->isSink() || (plugin->getPluginInfo()->isSendTransfer() && comp->getNextComponents()->size()==0)) {//(dynamic_cast<SinkModelComponent*> (comp) != nullptr) { 
+	// it is a sink OR it can send entities throught a transfer and has no nextConnections
 	*drenoFound = true;
     } else { // it is not a sink
 	if (comp->getNextComponents()->size() == 0) {
@@ -60,7 +64,7 @@ bool ModelCheckerDefaultImpl1::_recursiveConnectedTo(ModelComponent* comp, List<
 		if (visited->find(nextComp) == visited->getList()->end()) { // not visited yet
 		    *drenoFound = false;
 		    Util::IncIndent();
-		    this->_recursiveConnectedTo(nextComp, visited, unconnected, drenoFound);
+		    this->_recursiveConnectedTo(pluginManager, nextComp, visited, unconnected, drenoFound);
 		    Util::DecIndent();
 		} else {
 		    *drenoFound = true;
@@ -146,6 +150,8 @@ bool ModelCheckerDefaultImpl1::checkConnected() {
     /* TODO +-: not implemented yet */
     _model->getTraceManager()->trace(Util::TraceLevel::blockArrival, "Checking connected");
     bool resultAll = true;
+    PluginManager* pluginManager = this->_model->getParent()->getPluginManager();
+    Plugin* plugin;
     Util::IncIndent();
     {
 	List<ModelComponent*>* visited = new List<ModelComponent*>();
@@ -153,10 +159,12 @@ bool ModelCheckerDefaultImpl1::checkConnected() {
 	ModelComponent* comp;
 	for (std::list<ModelComponent*>::iterator it = _model->getComponentManager()->begin(); it != _model->getComponentManager()->end(); it++) {
 	    comp = (*it);
-	    if (dynamic_cast<SourceModelComponent*> (comp) != nullptr) {
-		// it is a source component
+	    plugin = pluginManager->find(comp->getTypename());
+	    assert(plugin != nullptr);
+	    if (plugin->getPluginInfo()->isSource() || plugin->getPluginInfo()->isReceiveTransfer()) { //(dynamic_cast<SourceModelComponent*> (comp) != nullptr) {
+		// it is a source component OR it can receive enetities from transfer
 		bool drenoFound = false;
-		_recursiveConnectedTo(comp, visited, unconnected, &drenoFound);
+		_recursiveConnectedTo(pluginManager, comp, visited, unconnected, &drenoFound);
 	    }
 	}
 	// check if any component remais unconnected
