@@ -77,6 +77,7 @@ bool Leave::_check(std::string* errorMessage) {
 
 PluginInformation* Leave::GetPluginInformation() {
     PluginInformation* info = new PluginInformation(Util::TypeOf<Leave>(), &Leave::LoadInstance);
+    info->insertDynamicLibFileDependence("station.so");
     return info;
 }
 

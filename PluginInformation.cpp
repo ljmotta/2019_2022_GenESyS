@@ -79,12 +79,16 @@
     std::string PluginInformation::getPluginTypename() const {
         return _pluginTypename;
     }
+    
+    void PluginInformation::insertDynamicLibFileDependence(std::string filename) {
+	_dynamicLibFilenameDependencies->insert(_dynamicLibFilenameDependencies->end(), filename);
+    }
 
-    void PluginInformation::setDynamicLibFilenameDependencies(std::list<std::string> dynamicLibFilenameDependencies) {
+    void PluginInformation::setDynamicLibFilenameDependencies(std::list<std::string>* dynamicLibFilenameDependencies) {
         this->_dynamicLibFilenameDependencies = dynamicLibFilenameDependencies;
     }
 
-    std::list<std::string> PluginInformation::getDynamicLibFilenameDependencies() const {
+    std::list<std::string>* PluginInformation::getDynamicLibFilenameDependencies() const {
         return _dynamicLibFilenameDependencies;
     }
 

@@ -42,6 +42,8 @@ int TestEnterLeaveRoute::main(int argc, char** argv) {
     // Handle traces and simulation events to output them
     TraceManager* tm = model->getTraceManager();
     this->setDefaultTraceHandlers(tm);
+    // set the trace level of simulation to "blockArrival" level, which is an intermediate level of tracing
+    tm->setTraceLevel(Util::TraceLevel::blockArrival);
     // insert "fake plugins" since plugins based on dynamic loaded library are not implemented yet
     this->insertFakePluginsByHand(simulator);
     // get easy access to classes used to insert components and elements into a model
@@ -54,8 +56,6 @@ int TestEnterLeaveRoute::main(int argc, char** argv) {
     ModelInfo* infos = model->getInfos();
     infos->setReplicationLength(30);
     infos->setNumberOfReplications(3);
-    // set the trace level of simulation to "blockArrival" level, which is an intermediate level of tracing
-    simulator->getTraceManager()->setTraceLevel(Util::TraceLevel::mostDetailed);
     // create a (Source)ModelElement of type EntityType, used by a ModelComponent that follows
     EntityType* entityType1 = new EntityType(elements, "AnyEntityType");
     elements->insert(Util::TypeOf<EntityType>(), entityType1);

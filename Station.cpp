@@ -54,6 +54,7 @@ void Station::initBetweenReplications() {
 
 void Station::enter(Entity* entity) {
     std::string attributeName = "Entity.ArrivalAt"+this->getName();
+    trimwithin(attributeName);
     entity->setAttributeValue(attributeName, _elems->getParentModel()->getSimulation()->getSimulatedTime());
     entity->setAttributeValue("Entity.Station", _id);
     _numberInStation++;
@@ -62,6 +63,7 @@ void Station::enter(Entity* entity) {
 
 void Station::leave(Entity* entity) {
     std::string attributeName = "Entity.ArrivalAt"+this->getName();
+    trimwithin(attributeName);
     double arrivalTime = entity->getAttributeValue(attributeName);
     double timeInStation = _elems->getParentModel()->getSimulation()->getSimulatedTime() - arrivalTime;
     _cstatTimeInStation->getStatistics()->getCollector()->addValue(timeInStation);

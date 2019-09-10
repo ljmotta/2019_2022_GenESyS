@@ -71,6 +71,8 @@ void Create::_execute(Entity* entity) {
 PluginInformation* Create::GetPluginInformation() {
     PluginInformation* info = new PluginInformation(Util::TypeOf<Create>(), &Create::LoadInstance);
     info->setSource(true);
+    info->insertDynamicLibFileDependence("attribute.so");
+    info->insertDynamicLibFileDependence("entitytype.so");
     return info;
 }
 

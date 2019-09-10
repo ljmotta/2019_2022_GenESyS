@@ -152,7 +152,9 @@ std::string Release::getResourceName() const {
 }
 
 PluginInformation* Release::GetPluginInformation() {
-    PluginInformation* info = new PluginInformation(Util::TypeOf<Release>(), &Release::LoadInstance); return info;
+    PluginInformation* info = new PluginInformation(Util::TypeOf<Release>(), &Release::LoadInstance);
+    info->insertDynamicLibFileDependence("resource.so");
+    return info;
 }
 
 ModelComponent* Release::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {

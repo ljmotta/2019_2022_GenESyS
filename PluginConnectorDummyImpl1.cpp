@@ -49,7 +49,7 @@ PluginConnectorDummyImpl1::~PluginConnectorDummyImpl1() {
 }
 
 Plugin* PluginConnectorDummyImpl1::check(const std::string dynamicLibraryFilename) {
-    return nullptr;/**@ TODO:To implement */
+    return nullptr; /**@ TODO:To implement */
 }
 
 Plugin* PluginConnectorDummyImpl1::connect(const std::string dynamicLibraryFilename) {
@@ -108,7 +108,7 @@ Plugin* PluginConnectorDummyImpl1::connect(const std::string dynamicLibraryFilen
 
     if (GetInfo != nullptr) {
 	pluginResult = new Plugin(GetInfo);
-  }
+    }
     return pluginResult;
 }
 

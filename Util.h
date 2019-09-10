@@ -42,6 +42,14 @@ static inline void trim(std::string &s) {
     rtrim(s);
 }
 
+// trim all spaces within the string (in place) -- used to transform general names into valid literals
+static inline void trimwithin(std::string &str) {
+    //ltrim(s);
+    //rtrim(s);
+    //s.erase(std::remove_if(s.begin(), s.end(), std::isspace), s.end());
+    str.erase(remove(str.begin(), str.end(), ' '), str.end()); 
+}
+
 static std::string getFileName(const std::string& s) {
    char sep = '/';
 
@@ -49,8 +57,10 @@ static std::string getFileName(const std::string& s) {
    if (i != std::string::npos) {
       return(s.substr(i+1, s.length() - i));
    }
-   return("");
+   return s;
 }
+
+
 
 
 class Util {

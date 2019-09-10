@@ -142,6 +142,7 @@ bool Route::_check(std::string* errorMessage) {
 PluginInformation* Route::GetPluginInformation() {
     PluginInformation* info = new PluginInformation(Util::TypeOf<Route>(), &Route::LoadInstance);
     info->setSendTransfer(true);
+    info->insertDynamicLibFileDependence("station.so");
     return info;
 }
 

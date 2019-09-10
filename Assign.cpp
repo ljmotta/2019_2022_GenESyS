@@ -38,6 +38,8 @@ List<Assign::Assignment*>* Assign::getAssignments() const {
 
 PluginInformation* Assign::GetPluginInformation() {
     PluginInformation* info = new PluginInformation(Util::TypeOf<Assign>(), &Assign::LoadInstance);
+    info->insertDynamicLibFileDependence("attribute.so");
+    info->insertDynamicLibFileDependence("variable.so");
     return info;
 }
 

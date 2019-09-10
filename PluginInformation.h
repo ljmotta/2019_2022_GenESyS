@@ -48,8 +48,9 @@ public:
     std::string getAuthor() const;
     std::string getPluginTypename() const;
     // sets
-    void setDynamicLibFilenameDependencies(std::list<std::string> dynamicLibFilenameDependencies);
-    std::list<std::string> getDynamicLibFilenameDependencies() const;
+    void insertDynamicLibFileDependence(std::string filename);
+    void setDynamicLibFilenameDependencies(std::list<std::string>* dynamicLibFilenameDependencies);
+    std::list<std::string>* getDynamicLibFilenameDependencies() const;
     void setGenerateReport(bool generateReport);
     void setSendTransfer(bool sendTransfer);
     void setReceiveTransfer(bool receiveTransfer);
@@ -70,7 +71,7 @@ private:
     bool _receiveTransfer = false; /*!< If true, an entity can arrive to this component without a phisical connection. In terms of model connection check, it is just like a Source component, since it does not need to have a predecessor */
     bool _sendTransfer = false; /*!< If true, an entity can be sent from this component to another one without a phisical connection. In terms of model connection check, it is just like a Sink component, since it does not need to have a sucessor */
     bool _generateReport = false;
-    std::list<std::string> _dynamicLibFilenameDependencies;
+    std::list<std::string>* _dynamicLibFilenameDependencies = new std::list<std::string>();
     // set from constructor
     std::string _pluginTypename;
     bool _isComponent = false;

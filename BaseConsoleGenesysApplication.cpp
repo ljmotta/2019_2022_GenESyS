@@ -81,29 +81,29 @@ void BaseConsoleGenesysApplication::setDefaultTraceHandlers(TraceManager* tm) {
 }
 
 void BaseConsoleGenesysApplication::insertFakePluginsByHand(Simulator* simulator) {
-    // model elements
-    simulator->getPluginManager()->insert("./plugins/attribute.so");
-    simulator->getPluginManager()->insert("./plugins/counter.so");
-    simulator->getPluginManager()->insert("./plugins/entitytype.so");
-    simulator->getPluginManager()->insert("./plugins/queue.so");
-    simulator->getPluginManager()->insert("./plugins/resource.so");
-    simulator->getPluginManager()->insert("./plugins/statisticscollector.so");
-    simulator->getPluginManager()->insert("./plugins/variable.so");
-    simulator->getPluginManager()->insert("./plugins/group.so");
-    simulator->getPluginManager()->insert("./plugins/station.so");
-    simulator->getPluginManager()->insert("./plugins/formula.so");
-    simulator->getPluginManager()->insert("./plugins/ode.so");
     // model components
-    simulator->getPluginManager()->insert("./plugins/assign.so");
-    simulator->getPluginManager()->insert("./plugins/create.so");
-    simulator->getPluginManager()->insert("./plugins/decide.so");
-    simulator->getPluginManager()->insert("./plugins/delay.so");
-    simulator->getPluginManager()->insert("./plugins/dispose.so");
-    simulator->getPluginManager()->insert("./plugins/dummy.so");
-    simulator->getPluginManager()->insert("./plugins/record.so");
-    simulator->getPluginManager()->insert("./plugins/release.so");
-    simulator->getPluginManager()->insert("./plugins/seize.so");
-    simulator->getPluginManager()->insert("./plugins/route.so");
-    simulator->getPluginManager()->insert("./plugins/enter.so");
-    simulator->getPluginManager()->insert("./plugins/leave.so");
+    simulator->getPluginManager()->insert("assign.so");
+    simulator->getPluginManager()->insert("create.so");
+    simulator->getPluginManager()->insert("decide.so");
+    simulator->getPluginManager()->insert("delay.so");
+    simulator->getPluginManager()->insert("dispose.so");
+    simulator->getPluginManager()->insert("dummy.so");
+    simulator->getPluginManager()->insert("record.so");
+    simulator->getPluginManager()->insert("release.so");
+    simulator->getPluginManager()->insert("seize.so");
+    simulator->getPluginManager()->insert("route.so");
+    simulator->getPluginManager()->insert("enter.so");
+    simulator->getPluginManager()->insert("leave.so");
+    // model elements
+    simulator->getPluginManager()->insert("attribute.so");
+    simulator->getPluginManager()->insert("counter.so");
+    simulator->getPluginManager()->insert("entitytype.so");
+    simulator->getPluginManager()->insert("queue.so");
+    simulator->getPluginManager()->insert("resource.so");
+    simulator->getPluginManager()->insert("statisticscollector.so");
+    simulator->getPluginManager()->insert("variable.so");
+    simulator->getPluginManager()->insert("group.so");
+    simulator->getPluginManager()->insert("station.so");
+    simulator->getPluginManager()->insert("formula.so");
+    simulator->getPluginManager()->insert("ode.so");
 }

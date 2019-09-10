@@ -223,7 +223,10 @@ bool Seize::_check(std::string* errorMessage) {
 }
 
 PluginInformation* Seize::GetPluginInformation() {
-    PluginInformation* info = new PluginInformation(Util::TypeOf<Seize>(), &Seize::LoadInstance); return info;
+    PluginInformation* info = new PluginInformation(Util::TypeOf<Seize>(), &Seize::LoadInstance);
+    info->insertDynamicLibFileDependence("queue.so");
+    info->insertDynamicLibFileDependence("resource.so");
+    return info;
 }
 
 ModelComponent* Seize::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
