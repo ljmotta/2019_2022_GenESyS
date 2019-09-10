@@ -206,7 +206,7 @@ bool Model::checkModel() {
 void Model::removeEntity(Entity* entity, bool collectStatistics) {
     if (collectStatistics) {
 	double timeInSystem = this->getSimulation()->getSimulatedTime() - entity->getAttributeValue("Entity.ArrivalTime");
-	entity->getEntityType()->getCstatTotalTime()->getStatistics()->getCollector()->addValue(timeInSystem);
+	entity->getEntityType()->getStatisticsCollector("Total Time")->getStatistics()->getCollector()->addValue(timeInSystem);
     }
     /* TODO -: event onEntityRemove */
     std::string entId = std::to_string(entity->getEntityNumber());

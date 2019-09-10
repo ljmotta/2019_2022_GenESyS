@@ -121,6 +121,11 @@ void ModelSimulation::_actualizeSimulationStatistics() {
 	    }
 	}
 	//scSim = dynamic_cast<StatisticsCollector*> (*(this->_statsCountersSimulation->find((*it))));
+	if (scSim == nullptr) {
+	    // this is a cstat created during the last replication
+	    scSim = new StatisticsCollector(sc->getName(), sc->getParent());
+	    _statsCountersSimulation->insert(scSim);
+	}
 	assert(scSim != nullptr);
 	scSim->getStatistics()->getCollector()->addValue(sc->getStatistics()->average());
     }

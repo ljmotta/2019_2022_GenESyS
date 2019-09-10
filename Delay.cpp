@@ -59,7 +59,7 @@ Util::TimeUnit Delay::getDelayTimeUnit() const {
 
 void Delay::_execute(Entity* entity) {
     double waitTime = _model->parseExpression(_delayExpression) * Util::TimeUnitConvert(_delayTimeUnit, _model->getInfos()->getReplicationLengthTimeUnit());
-    entity->getEntityType()->getCstatWaitingTime()->getStatistics()->getCollector()->addValue(waitTime);
+    entity->getEntityType()->getStatisticsCollector("Waiting Time")->getStatistics()->getCollector()->addValue(waitTime);
     entity->setAttributeValue("Entity.WaitTime", entity->getAttributeValue("Entity.WaitTime") + waitTime);
     double delayEndTime = _model->getSimulation()->getSimulatedTime() + waitTime;
     Event* newEvent = new Event(delayEndTime, entity, this->getNextComponents()->frontConnection());

@@ -32,18 +32,18 @@ void EntityType::_initCostsAndStatistics() {
     _initialNVACost = 0.0;
     _initialOtherCost = 0.0;
     // add cstats as elements
-    _cstatWaitingTime = new StatisticsCollector("Waiting Time", this);
-    _cstatTransferTime = new StatisticsCollector("Transfer Time", this);
-    _cstatOtherTime = new StatisticsCollector("Other Time", this);
-    _cstatVATime = new StatisticsCollector("Value Added Time", this);
-    _cstatNVATime = new StatisticsCollector("Non Value Added Time", this);
-    _cstatTotalTime = new StatisticsCollector("Time In System", this);
-    _elemManager->insert(Util::TypeOf<StatisticsCollector>(), _cstatNVATime);
-    _elemManager->insert(Util::TypeOf<StatisticsCollector>(), _cstatOtherTime);
-    _elemManager->insert(Util::TypeOf<StatisticsCollector>(), _cstatTotalTime);
-    _elemManager->insert(Util::TypeOf<StatisticsCollector>(), _cstatTransferTime);
-    _elemManager->insert(Util::TypeOf<StatisticsCollector>(), _cstatVATime);
-    _elemManager->insert(Util::TypeOf<StatisticsCollector>(), _cstatWaitingTime);
+    //_cstatWaitingTime = new StatisticsCollector("Waiting Time", this);
+    //_cstatTransferTime = new StatisticsCollector("Transfer Time", this);
+    //_cstatOtherTime = new StatisticsCollector("Other Time", this);
+    //_cstatVATime = new StatisticsCollector("Value Added Time", this);
+    //_cstatNVATime = new StatisticsCollector("Non Value Added Time", this);
+    //_cstatTotalTime = new StatisticsCollector("Time In System", this);
+    //_elemManager->insert(Util::TypeOf<StatisticsCollector>(), _cstatNVATime);
+    //_elemManager->insert(Util::TypeOf<StatisticsCollector>(), _cstatOtherTime);
+    //_elemManager->insert(Util::TypeOf<StatisticsCollector>(), _cstatTotalTime);
+    //_elemManager->insert(Util::TypeOf<StatisticsCollector>(), _cstatTransferTime);
+    //_elemManager->insert(Util::TypeOf<StatisticsCollector>(), _cstatVATime);
+    //_elemManager->insert(Util::TypeOf<StatisticsCollector>(), _cstatWaitingTime);
     // insert cstats as simulation responses
     List<::SimulationResponse*>* responses = this->_elemManager->getParentModel()->getResponses();
 //    responses->insert(new SimulationResponse(Util::TypeOf<EntityType>(), "Waiting time",
@@ -54,12 +54,16 @@ EntityType::EntityType(const EntityType& orig) : ModelElement(orig) {
 }
 
 EntityType::~EntityType() {
-    _elemManager->remove(Util::TypeOf<StatisticsCollector>(), _cstatNVATime);
-    _elemManager->remove(Util::TypeOf<StatisticsCollector>(), _cstatOtherTime);
-    _elemManager->remove(Util::TypeOf<StatisticsCollector>(), _cstatTotalTime);
-    _elemManager->remove(Util::TypeOf<StatisticsCollector>(), _cstatTransferTime);
-    _elemManager->remove(Util::TypeOf<StatisticsCollector>(), _cstatVATime);
-    _elemManager->remove(Util::TypeOf<StatisticsCollector>(), _cstatWaitingTime);
+    //_elemManager->remove(Util::TypeOf<StatisticsCollector>(), _cstatNVATime);
+    //_elemManager->remove(Util::TypeOf<StatisticsCollector>(), _cstatOtherTime);
+    //_elemManager->remove(Util::TypeOf<StatisticsCollector>(), _cstatTotalTime);
+    //_elemManager->remove(Util::TypeOf<StatisticsCollector>(), _cstatTransferTime);
+    //_elemManager->remove(Util::TypeOf<StatisticsCollector>(), _cstatVATime);
+    //_elemManager->remove(Util::TypeOf<StatisticsCollector>(), _cstatWaitingTime);
+    // remove all CStats
+    for (std::list<StatisticsCollector*>::iterator it = this->_statisticsCollectors->getList()->begin(); it != this->_statisticsCollectors->getList()->end(); it++) {
+	 _elemManager->remove(Util::TypeOf<StatisticsCollector>(), (*it));
+    }
 }
 
 std::string EntityType::show() {
@@ -107,28 +111,43 @@ std::string EntityType::getInitialPicture() const {
     return _initialPicture;
 }
 
-StatisticsCollector* EntityType::getCstatTotalTime() const {
-    return _cstatTotalTime;
-}
+//StatisticsCollector* EntityType::getCstatTotalTime() const {
+//    return _cstatTotalTime;
+//}
 
-StatisticsCollector* EntityType::getCstatNVATime() const {
-    return _cstatNVATime;
-}
+//StatisticsCollector* EntityType::getCstatNVATime() const {
+//    return _cstatNVATime;
+//}
 
-StatisticsCollector* EntityType::getCstatVATime() const {
-    return _cstatVATime;
-}
+//StatisticsCollector* EntityType::getCstatVATime() const {
+//    return _cstatVATime;
+//}
 
-StatisticsCollector* EntityType::getCstatOtherTime() const {
-    return _cstatOtherTime;
-}
+//StatisticsCollector* EntityType::getCstatOtherTime() const {
+//    return _cstatOtherTime;
+//}
 
-StatisticsCollector* EntityType::getCstatTransferTime() const {
-    return _cstatTransferTime;
-}
+//StatisticsCollector* EntityType::getCstatTransferTime() const {
+//    return _cstatTransferTime;
+//}
 
-StatisticsCollector* EntityType::getCstatWaitingTime() const {
-    return _cstatWaitingTime;
+//StatisticsCollector* EntityType::getCstatWaitingTime() const {
+//    return _cstatWaitingTime;
+//}
+
+StatisticsCollector* EntityType::getStatisticsCollector(std::string name) const {
+    StatisticsCollector* cstat;
+    for (std::list<StatisticsCollector*>::iterator it = _statisticsCollectors->getList()->begin(); it!= _statisticsCollectors->getList()->end(); it++) {
+	cstat = (*it);
+	if (cstat->getName()==name) {
+	    return cstat;
+	}
+    }
+    // not found. Create it, insert it into the list of cstats, into the model element manager, and then return it
+    cstat = new StatisticsCollector(name, this);
+    _statisticsCollectors->insert(cstat);
+    this->_elemManager->insert(Util::TypeOf<StatisticsCollector>(), cstat);
+    return cstat;
 }
 
 PluginInformation* EntityType::GetPluginInformation() {
