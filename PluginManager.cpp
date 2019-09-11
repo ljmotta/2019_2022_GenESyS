@@ -85,7 +85,11 @@ Plugin* PluginManager::insert(std::string dynamicLibraryFilename) {
     Plugin* plugin;
     try {
 	plugin = _pluginConnector->connect(dynamicLibraryFilename);
-	_insert(plugin);
+	if (plugin != nullptr)
+	    _insert(plugin);
+	else {
+	    _simulator->getTraceManager()->trace(Util::TraceLevel::errors, "Plugin from file \""+dynamicLibraryFilename+"\" could not be connected.");
+	}
     } catch (...) {
 
 	return nullptr;

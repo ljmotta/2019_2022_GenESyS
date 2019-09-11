@@ -5,31 +5,31 @@
  */
 
 /* 
- * File:   PickUp.cpp
+ * File:   Alocate.cpp
  * Author: rlcancian
  * 
- * Created on 03 de Junho de 2019, 15:15
+ * Created on 11 de Setembro de 2019, 13:16
  */
 
-#include "PickUp.h"
+#include "Alocate.h"
 
 #include "Model.h"
 
-PickUp::PickUp(Model* model) : ModelComponent(model, Util::TypeOf<PickUp>()) {
+Alocate::Alocate(Model* model) : ModelComponent(model, Util::TypeOf<Alocate>()) {
 }
 
-PickUp::PickUp(const PickUp& orig) : ModelComponent(orig) {
+Alocate::Alocate(const Alocate& orig) : ModelComponent(orig) {
 }
 
-PickUp::~PickUp() {
+Alocate::~Alocate() {
 }
 
-std::string PickUp::show() {
+std::string Alocate::show() {
     return ModelComponent::show() + "";
 }
 
-ModelComponent* PickUp::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
-    PickUp* newComponent = new PickUp(model);
+ModelComponent* Alocate::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+    Alocate* newComponent = new Alocate(model);
     try {
 	newComponent->_loadInstance(fields);
     } catch (const std::exception& e) {
@@ -38,12 +38,12 @@ ModelComponent* PickUp::LoadInstance(Model* model, std::map<std::string, std::st
     return newComponent;
 }
 
-void PickUp::_execute(Entity* entity) {
+void Alocate::_execute(Entity* entity) {
     _model->getTraceManager()->trace(Util::TraceLevel::blockInternal, "I'm just a dummy model and I'll just send the entity forward");
     this->_model->sendEntityToComponent(entity, this->getNextComponents()->frontConnection(), 0.0);
 }
 
-bool PickUp::_loadInstance(std::map<std::string, std::string>* fields) {
+bool Alocate::_loadInstance(std::map<std::string, std::string>* fields) {
     bool res = ModelComponent::_loadInstance(fields);
     if (res) {
 	//...
@@ -51,23 +51,23 @@ bool PickUp::_loadInstance(std::map<std::string, std::string>* fields) {
     return res;
 }
 
-void PickUp::_initBetweenReplications() {
+void Alocate::_initBetweenReplications() {
 }
 
-std::map<std::string, std::string>* PickUp::_saveInstance() {
+std::map<std::string, std::string>* Alocate::_saveInstance() {
     std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
     //...
     return fields;
 }
 
-bool PickUp::_check(std::string* errorMessage) {
+bool Alocate::_check(std::string* errorMessage) {
     bool resultAll = true;
     //...
     return resultAll;
 }
 
-PluginInformation* PickUp::GetPluginInformation(){
-    PluginInformation* info = new PluginInformation(Util::TypeOf<PickUp>(), &PickUp::LoadInstance);
+PluginInformation* Alocate::GetPluginInformation(){
+    PluginInformation* info = new PluginInformation(Util::TypeOf<Alocate>(), &Alocate::LoadInstance);
     // ...
     return info;
 }

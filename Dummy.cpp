@@ -14,12 +14,7 @@
 #include "Dummy.h"
 #include "Model.h"
 
-// TODO: FOR TESTING ONLY
-#include "ODE.h"
-#include "Variable.h"
-
 Dummy::Dummy(Model* model) : ModelComponent(model, Util::TypeOf<Dummy>()) {
-    _ode = new ODE(model->getElementManager());
 }
 
 Dummy::Dummy(const Dummy& orig) : ModelComponent(orig) {
@@ -42,27 +37,15 @@ ModelComponent* Dummy::LoadInstance(Model* model, std::map<std::string, std::str
     return newComponent;
 }
 
-void Dummy::setOde(ODE* _ode) {
-    this->_ode = _ode;
-}
-
-ODE* Dummy::getOde() const {
-    return _ode;
-}
-
 void Dummy::_execute(Entity* entity) {
-    /*
     _model->getTraceManager()->trace(Util::TraceLevel::blockInternal, "I'm just a dummy model and I'll just send the entity forward");
     this->_model->sendEntityToComponent(entity, this->getNextComponents()->frontConnection(), 0.0);
-    */
-    _ode->solve();
-    Event* newEvent = new Event(_ode->getStepH(), entity, this->getNextComponents()->frontConnection());
-    _model->getEvents()->insert(newEvent);
 }
 
 bool Dummy::_loadInstance(std::map<std::string, std::string>* fields) {
     bool res = ModelComponent::_loadInstance(fields);
     if (res) {
+	//...
     }
     return res;
 }
@@ -71,14 +54,19 @@ void Dummy::_initBetweenReplications() {
 }
 
 std::map<std::string, std::string>* Dummy::_saveInstance() {
-    std::map<std::string, std::string>* fields = ModelComponent::_saveInstance(); 
+    std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
+    //...
     return fields;
 }
 
-bool Dummy::_check(std::string* errorMessage) {   
-    return true;
+bool Dummy::_check(std::string* errorMessage) {
+    bool resultAll = true;
+    //...
+    return resultAll;
 }
 
 PluginInformation* Dummy::GetPluginInformation(){
-    PluginInformation* info = new PluginInformation(Util::TypeOf<Dummy>(), &Dummy::LoadInstance); return info;
+    PluginInformation* info = new PluginInformation(Util::TypeOf<Dummy>(), &Dummy::LoadInstance);
+    // ...
+    return info;
 }

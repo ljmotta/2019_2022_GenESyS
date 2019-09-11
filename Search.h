@@ -14,14 +14,32 @@
 #ifndef SEARCH_H
 #define SEARCH_H
 
-class Search {
-public:
-    Search();
+#include "ModelComponent.h"
+
+/*!
+ This component ...
+ */
+class Search : public ModelComponent {
+public: // constructors
+    Search(Model* model);
     Search(const Search& orig);
     virtual ~Search();
-private:
-
+public:  // virtual
+    virtual std::string show();
+public:  // static
+    static PluginInformation* GetPluginInformation();
+    static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+protected:  // virtual
+    virtual void _execute(Entity* entity);
+    virtual void _initBetweenReplications();
+    virtual bool _loadInstance(std::map<std::string, std::string>* fields);
+    virtual std::map<std::string, std::string>* _saveInstance();
+    virtual bool _check(std::string* errorMessage);
+private: // methods
+private: // attributes 1:1
+private: // attributes 1:n
 };
+
 
 #endif /* SEARCH_H */
 

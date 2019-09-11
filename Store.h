@@ -5,25 +5,25 @@
  */
 
 /* 
- * File:   Hold.h
+ * File:   Store.h
  * Author: rlcancian
  *
- * Created on 03 de Junho de 2019, 15:20
+ * Created on 11 de Setembro de 2019, 13:07
  */
 
-#ifndef HOLD_H
-#define HOLD_H
+#ifndef STORE_H
+#define STORE_H
 
 #include "ModelComponent.h"
 
 /*!
  This component ...
  */
-class Hold : public ModelComponent {
+class Store : public ModelComponent {
 public: // constructors
-    Hold(Model* model);
-    Hold(const Hold& orig);
-    virtual ~Hold();
+    Store(Model* model);
+    Store(const Store& orig);
+    virtual ~Store();
 public:  // virtual
     virtual std::string show();
 public:  // static
@@ -41,5 +41,5 @@ private: // attributes 1:n
 };
 
 
-#endif /* HOLD_H */
+#endif /* STORE_H */
 

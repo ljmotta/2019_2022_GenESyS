@@ -5,25 +5,25 @@
  */
 
 /* 
- * File:   Hold.h
+ * File:   Free.h
  * Author: rlcancian
  *
- * Created on 03 de Junho de 2019, 15:20
+ * Created on 11 de Setembro de 2019, 13:16
  */
 
-#ifndef HOLD_H
-#define HOLD_H
+#ifndef FREE_H
+#define FREE_H
 
 #include "ModelComponent.h"
 
 /*!
  This component ...
  */
-class Hold : public ModelComponent {
+class Free : public ModelComponent {
 public: // constructors
-    Hold(Model* model);
-    Hold(const Hold& orig);
-    virtual ~Hold();
+    Free(Model* model);
+    Free(const Free& orig);
+    virtual ~Free();
 public:  // virtual
     virtual std::string show();
 public:  // static
@@ -41,5 +41,5 @@ private: // attributes 1:n
 };
 
 
-#endif /* HOLD_H */
+#endif /* FREE_H */
 

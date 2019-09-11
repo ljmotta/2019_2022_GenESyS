@@ -5,25 +5,25 @@
  */
 
 /* 
- * File:   Hold.h
+ * File:   Unstore.h
  * Author: rlcancian
  *
- * Created on 03 de Junho de 2019, 15:20
+ * Created on 11 de Setembro de 2019, 13:08
  */
 
-#ifndef HOLD_H
-#define HOLD_H
+#ifndef UNSTORE_H
+#define UNSTORE_H
 
 #include "ModelComponent.h"
 
 /*!
  This component ...
  */
-class Hold : public ModelComponent {
+class Unstore : public ModelComponent {
 public: // constructors
-    Hold(Model* model);
-    Hold(const Hold& orig);
-    virtual ~Hold();
+    Unstore(Model* model);
+    Unstore(const Unstore& orig);
+    virtual ~Unstore();
 public:  // virtual
     virtual std::string show();
 public:  // static
@@ -41,5 +41,5 @@ private: // attributes 1:n
 };
 
 
-#endif /* HOLD_H */
+#endif /* UNSTORE_H */
 

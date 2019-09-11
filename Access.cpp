@@ -5,31 +5,31 @@
  */
 
 /* 
- * File:   PickUp.cpp
+ * File:   Access.cpp
  * Author: rlcancian
  * 
- * Created on 03 de Junho de 2019, 15:15
+ * Created on 11 de Setembro de 2019, 13:14
  */
 
-#include "PickUp.h"
+#include "Access.h"
 
 #include "Model.h"
 
-PickUp::PickUp(Model* model) : ModelComponent(model, Util::TypeOf<PickUp>()) {
+Access::Access(Model* model) : ModelComponent(model, Util::TypeOf<Access>()) {
 }
 
-PickUp::PickUp(const PickUp& orig) : ModelComponent(orig) {
+Access::Access(const Access& orig) : ModelComponent(orig) {
 }
 
-PickUp::~PickUp() {
+Access::~Access() {
 }
 
-std::string PickUp::show() {
+std::string Access::show() {
     return ModelComponent::show() + "";
 }
 
-ModelComponent* PickUp::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
-    PickUp* newComponent = new PickUp(model);
+ModelComponent* Access::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+    Access* newComponent = new Access(model);
     try {
 	newComponent->_loadInstance(fields);
     } catch (const std::exception& e) {
@@ -38,12 +38,12 @@ ModelComponent* PickUp::LoadInstance(Model* model, std::map<std::string, std::st
     return newComponent;
 }
 
-void PickUp::_execute(Entity* entity) {
+void Access::_execute(Entity* entity) {
     _model->getTraceManager()->trace(Util::TraceLevel::blockInternal, "I'm just a dummy model and I'll just send the entity forward");
     this->_model->sendEntityToComponent(entity, this->getNextComponents()->frontConnection(), 0.0);
 }
 
-bool PickUp::_loadInstance(std::map<std::string, std::string>* fields) {
+bool Access::_loadInstance(std::map<std::string, std::string>* fields) {
     bool res = ModelComponent::_loadInstance(fields);
     if (res) {
 	//...
@@ -51,23 +51,23 @@ bool PickUp::_loadInstance(std::map<std::string, std::string>* fields) {
     return res;
 }
 
-void PickUp::_initBetweenReplications() {
+void Access::_initBetweenReplications() {
 }
 
-std::map<std::string, std::string>* PickUp::_saveInstance() {
+std::map<std::string, std::string>* Access::_saveInstance() {
     std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
     //...
     return fields;
 }
 
-bool PickUp::_check(std::string* errorMessage) {
+bool Access::_check(std::string* errorMessage) {
     bool resultAll = true;
     //...
     return resultAll;
 }
 
-PluginInformation* PickUp::GetPluginInformation(){
-    PluginInformation* info = new PluginInformation(Util::TypeOf<PickUp>(), &PickUp::LoadInstance);
+PluginInformation* Access::GetPluginInformation(){
+    PluginInformation* info = new PluginInformation(Util::TypeOf<Access>(), &Access::LoadInstance);
     // ...
     return info;
 }

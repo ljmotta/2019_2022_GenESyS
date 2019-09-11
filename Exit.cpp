@@ -5,31 +5,31 @@
  */
 
 /* 
- * File:   PickUp.cpp
+ * File:   Exit.cpp
  * Author: rlcancian
  * 
- * Created on 03 de Junho de 2019, 15:15
+ * Created on 11 de Setembro de 2019, 13:15
  */
 
-#include "PickUp.h"
+#include "Exit.h"
 
 #include "Model.h"
 
-PickUp::PickUp(Model* model) : ModelComponent(model, Util::TypeOf<PickUp>()) {
+Exit::Exit(Model* model) : ModelComponent(model, Util::TypeOf<Exit>()) {
 }
 
-PickUp::PickUp(const PickUp& orig) : ModelComponent(orig) {
+Exit::Exit(const Exit& orig) : ModelComponent(orig) {
 }
 
-PickUp::~PickUp() {
+Exit::~Exit() {
 }
 
-std::string PickUp::show() {
+std::string Exit::show() {
     return ModelComponent::show() + "";
 }
 
-ModelComponent* PickUp::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
-    PickUp* newComponent = new PickUp(model);
+ModelComponent* Exit::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+    Exit* newComponent = new Exit(model);
     try {
 	newComponent->_loadInstance(fields);
     } catch (const std::exception& e) {
@@ -38,12 +38,12 @@ ModelComponent* PickUp::LoadInstance(Model* model, std::map<std::string, std::st
     return newComponent;
 }
 
-void PickUp::_execute(Entity* entity) {
+void Exit::_execute(Entity* entity) {
     _model->getTraceManager()->trace(Util::TraceLevel::blockInternal, "I'm just a dummy model and I'll just send the entity forward");
     this->_model->sendEntityToComponent(entity, this->getNextComponents()->frontConnection(), 0.0);
 }
 
-bool PickUp::_loadInstance(std::map<std::string, std::string>* fields) {
+bool Exit::_loadInstance(std::map<std::string, std::string>* fields) {
     bool res = ModelComponent::_loadInstance(fields);
     if (res) {
 	//...
@@ -51,23 +51,23 @@ bool PickUp::_loadInstance(std::map<std::string, std::string>* fields) {
     return res;
 }
 
-void PickUp::_initBetweenReplications() {
+void Exit::_initBetweenReplications() {
 }
 
-std::map<std::string, std::string>* PickUp::_saveInstance() {
+std::map<std::string, std::string>* Exit::_saveInstance() {
     std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
     //...
     return fields;
 }
 
-bool PickUp::_check(std::string* errorMessage) {
+bool Exit::_check(std::string* errorMessage) {
     bool resultAll = true;
     //...
     return resultAll;
 }
 
-PluginInformation* PickUp::GetPluginInformation(){
-    PluginInformation* info = new PluginInformation(Util::TypeOf<PickUp>(), &PickUp::LoadInstance);
+PluginInformation* Exit::GetPluginInformation(){
+    PluginInformation* info = new PluginInformation(Util::TypeOf<Exit>(), &Exit::LoadInstance);
     // ...
     return info;
 }

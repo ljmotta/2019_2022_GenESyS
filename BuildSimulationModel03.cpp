@@ -83,7 +83,6 @@ void _testaMeuModelo(Model* model) {
     model->getElementManager()->insert(Util::TypeOf<ODE>(), ode1);
 
     Dummy* dummy1 = new Dummy(model);
-    dummy1->setOde(ode1);
     model->getComponentManager()->insert(dummy1);
     //ODE* ode1 = new ODE(model);
     //model->getComponentManager()->insert(ode1);

@@ -5,25 +5,25 @@
  */
 
 /* 
- * File:   Hold.h
+ * File:   Alocate.h
  * Author: rlcancian
  *
- * Created on 03 de Junho de 2019, 15:20
+ * Created on 11 de Setembro de 2019, 13:16
  */
 
-#ifndef HOLD_H
-#define HOLD_H
+#ifndef ALOCATE_H
+#define ALOCATE_H
 
 #include "ModelComponent.h"
 
 /*!
  This component ...
  */
-class Hold : public ModelComponent {
+class Alocate : public ModelComponent {
 public: // constructors
-    Hold(Model* model);
-    Hold(const Hold& orig);
-    virtual ~Hold();
+    Alocate(Model* model);
+    Alocate(const Alocate& orig);
+    virtual ~Alocate();
 public:  // virtual
     virtual std::string show();
 public:  // static
@@ -41,5 +41,5 @@ private: // attributes 1:n
 };
 
 
-#endif /* HOLD_H */
+#endif /* ALOCATE_H */
 

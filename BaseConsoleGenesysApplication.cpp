@@ -82,28 +82,71 @@ void BaseConsoleGenesysApplication::setDefaultTraceHandlers(TraceManager* tm) {
 
 void BaseConsoleGenesysApplication::insertFakePluginsByHand(Simulator* simulator) {
     // model components
-    simulator->getPluginManager()->insert("assign.so");
+    // arena basic process
     simulator->getPluginManager()->insert("create.so");
-    simulator->getPluginManager()->insert("decide.so");
-    simulator->getPluginManager()->insert("delay.so");
     simulator->getPluginManager()->insert("dispose.so");
-    simulator->getPluginManager()->insert("dummy.so");
+    simulator->getPluginManager()->insert("decide.so");
+    simulator->getPluginManager()->insert("batch.so");
+    simulator->getPluginManager()->insert("separate.so");
+    simulator->getPluginManager()->insert("assign.so");
     simulator->getPluginManager()->insert("record.so");
-    simulator->getPluginManager()->insert("release.so");
-    simulator->getPluginManager()->insert("seize.so");
-    simulator->getPluginManager()->insert("route.so");
-    simulator->getPluginManager()->insert("enter.so");
-    simulator->getPluginManager()->insert("leave.so");
-    // model elements
+    simulator->getPluginManager()->insert("submodel.so");
+    simulator->getPluginManager()->insert("entitytype.so");
     simulator->getPluginManager()->insert("attribute.so");
     simulator->getPluginManager()->insert("counter.so");
-    simulator->getPluginManager()->insert("entitytype.so");
     simulator->getPluginManager()->insert("queue.so");
     simulator->getPluginManager()->insert("resource.so");
-    simulator->getPluginManager()->insert("statisticscollector.so");
     simulator->getPluginManager()->insert("variable.so");
+    simulator->getPluginManager()->insert("schedule.so");
     simulator->getPluginManager()->insert("group.so");
+    // arena advanced process
+    simulator->getPluginManager()->insert("delay.so");
+    simulator->getPluginManager()->insert("dropoff.so");
+    simulator->getPluginManager()->insert("hold.so");
+    simulator->getPluginManager()->insert("match.so");
+    simulator->getPluginManager()->insert("pickup.so");
+    simulator->getPluginManager()->insert("readwrite.so");
+    simulator->getPluginManager()->insert("release.so");
+    simulator->getPluginManager()->insert("remove.so");
+    simulator->getPluginManager()->insert("seize.so");
+    simulator->getPluginManager()->insert("search.so");
+    simulator->getPluginManager()->insert("signal.so");
+    simulator->getPluginManager()->insert("store.so");
+    simulator->getPluginManager()->insert("unstore.so");
+    simulator->getPluginManager()->insert("expression.so");
+    simulator->getPluginManager()->insert("failure.so");
+    simulator->getPluginManager()->insert("file.so");    
+    simulator->getPluginManager()->insert("statisticscollector.so");
+    simulator->getPluginManager()->insert("storage.so");
+    // arena transfer station
+    simulator->getPluginManager()->insert("enter.so");
+    simulator->getPluginManager()->insert("leave.so");
+    simulator->getPluginManager()->insert("pickstation.so");
+    simulator->getPluginManager()->insert("route.so");
+    simulator->getPluginManager()->insert("sequence.so");
     simulator->getPluginManager()->insert("station.so");
-    simulator->getPluginManager()->insert("formula.so");
-    simulator->getPluginManager()->insert("ode.so");
+    // arena transfer conveyour
+    simulator->getPluginManager()->insert("access.so");
+    simulator->getPluginManager()->insert("exit.so");
+    simulator->getPluginManager()->insert("start.so");
+    simulator->getPluginManager()->insert("stop.so");
+    simulator->getPluginManager()->insert("conveyour.so");
+    simulator->getPluginManager()->insert("segment.so");
+    // arena transfer transport
+    simulator->getPluginManager()->insert("alocate.so");
+    simulator->getPluginManager()->insert("free.so");
+    simulator->getPluginManager()->insert("halt.so");
+    simulator->getPluginManager()->insert("move.so");
+    simulator->getPluginManager()->insert("request.so");
+    simulator->getPluginManager()->insert("transporter.so");
+    simulator->getPluginManager()->insert("distance.so");
+    simulator->getPluginManager()->insert("network.so");
+    simulator->getPluginManager()->insert("networklink.so");
+    // others
+    simulator->getPluginManager()->insert("dummy.so");
+    simulator->getPluginManager()->insert("lsode.so");
+    simulator->getPluginManager()->insert("biochemical.so");
+    simulator->getPluginManager()->insert("markovchain.so");
+    simulator->getPluginManager()->insert("cellularautomata.so");
+    simulator->getPluginManager()->insert("cppforgenesys.so");
 }
