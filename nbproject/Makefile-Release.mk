@@ -93,8 +93,10 @@ OBJECTFILES= \
 	${OBJECTDIR}/Move.o \
 	${OBJECTDIR}/ODE.o \
 	${OBJECTDIR}/OnEventManager.o \
+	${OBJECTDIR}/ParserChangesInformation.o \
 	${OBJECTDIR}/ParserDefaultImpl1.o \
 	${OBJECTDIR}/ParserDummyImpl.o \
+	${OBJECTDIR}/ParserManager.o \
 	${OBJECTDIR}/PickStation.o \
 	${OBJECTDIR}/PickUp.o \
 	${OBJECTDIR}/Plugin.o \
@@ -140,6 +142,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/TestEnterLeaveRoute.o \
 	${OBJECTDIR}/TestInputAnalyserTools.o \
 	${OBJECTDIR}/TestParser.o \
+	${OBJECTDIR}/TestSimulationControlAndSimulationResponse.o \
 	${OBJECTDIR}/TestStatistics.o \
 	${OBJECTDIR}/ToolManager.o \
 	${OBJECTDIR}/TraceManager.o \
@@ -470,6 +473,11 @@ ${OBJECTDIR}/OnEventManager.o: OnEventManager.cpp nbproject/Makefile-${CND_CONF}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/OnEventManager.o OnEventManager.cpp
 
+${OBJECTDIR}/ParserChangesInformation.o: ParserChangesInformation.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ParserChangesInformation.o ParserChangesInformation.cpp
+
 ${OBJECTDIR}/ParserDefaultImpl1.o: ParserDefaultImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -479,6 +487,11 @@ ${OBJECTDIR}/ParserDummyImpl.o: ParserDummyImpl.cpp nbproject/Makefile-${CND_CON
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ParserDummyImpl.o ParserDummyImpl.cpp
+
+${OBJECTDIR}/ParserManager.o: ParserManager.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ParserManager.o ParserManager.cpp
 
 ${OBJECTDIR}/PickStation.o: PickStation.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -704,6 +717,11 @@ ${OBJECTDIR}/TestParser.o: TestParser.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestParser.o TestParser.cpp
+
+${OBJECTDIR}/TestSimulationControlAndSimulationResponse.o: TestSimulationControlAndSimulationResponse.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestSimulationControlAndSimulationResponse.o TestSimulationControlAndSimulationResponse.cpp
 
 ${OBJECTDIR}/TestStatistics.o: TestStatistics.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

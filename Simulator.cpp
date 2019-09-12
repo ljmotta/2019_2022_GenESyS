@@ -44,6 +44,10 @@ TraceManager* Simulator::getTraceManager() const {
     return _traceManager;
 }
 
+ParserManager* Simulator::getParserManager() const {
+    return _parserManager;
+}
+
 Simulator::Simulator(const Simulator& orig) {
 }
 

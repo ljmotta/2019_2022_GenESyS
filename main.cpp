@@ -22,9 +22,10 @@ int main(int argc, char** argv) {
     // do not change it. Set you own application in Traits file => Traits<GenesysApplication_if>::Application
     GenesysApplication_if *app = new Traits<GenesysApplication_if>::Application();
     int res = app->main(argc, argv);
+    // that's all folks!!
     std::cout << "Quiting application." << std::endl;
     for (unsigned int i=0; i<1e6;i++)
-	std::this_thread::yield();
+	std::this_thread::yield(); // Give the IDE a try to output previous traces
     return res;
 }
 

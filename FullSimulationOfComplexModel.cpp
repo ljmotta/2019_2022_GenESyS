@@ -63,7 +63,7 @@ int FullSimulationOfComplexModel::main(int argc, char** argv) {
     infos->setDescription("This simulation model tests the components and elements that have been implemented so far.");
     infos->setReplicationLength(1e3);
     infos->setReplicationLengthTimeUnit(Util::TimeUnit::minute);
-    infos->setNumberOfReplications(50);
+    infos->setNumberOfReplications(30);
 
     EntityType* entityType1 = new EntityType(elements, "Representative_EntityType");
     elements->insert(Util::TypeOf<EntityType>(), entityType1);

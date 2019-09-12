@@ -21,10 +21,9 @@
 Create::Create(Model* model) : SourceModelComponent(model, Util::TypeOf<Create>()) {
     _numberOut = new Counter(_model->getElementManager(), "Count number in", this);
     _model->getElementManager()->insert(Util::TypeOf<Counter>(), _numberOut);
-    model->getControls()->insert(new SimulationControl(Util::TypeOf<Create>(), "Entities Per Creation",
-	    DefineGetterMember<SourceModelComponent>(this, &Create::getEntitiesPerCreation),
-	    DefineSetterMember<SourceModelComponent>(this, &Create::setEntitiesPerCreation))
-	    );
+    GetterMember getter = DefineGetterMember<SourceModelComponent>(this, &Create::getEntitiesPerCreation);
+    SetterMember setter = DefineSetterMember<SourceModelComponent>(this, &Create::setEntitiesPerCreation);
+    model->getControls()->insert(new SimulationControl(Util::TypeOf<Create>(), "Entities Per Creation", getter,setter));
     /*
     model->getControls()->insert(new SimulationControl(Util::TypeOf<Create>(), "Time Between Creations",
 	    DefineGetterMember<SourceModelComponent>(this, &Create::getTimeBetweenCreationsExpression),
