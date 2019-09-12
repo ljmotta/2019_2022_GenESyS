@@ -17,7 +17,6 @@
 #include <string>
 #include <list>
 
-
 class ParserChangesInformation {
 public:
     typedef std::string token;
@@ -31,37 +30,27 @@ public:
     virtual ~ParserChangesInformation();
 
 public: // gets and sets
-    void setLexicalElementToRemove(std::list<ParserChangesInformation::lexicalelement*>* _lexicalElementToRemove);
     std::list<ParserChangesInformation::lexicalelement*>* getLexicalElementToRemove() const;
-    void setLexicalElementToAdd(std::list<ParserChangesInformation::lexicalelement*>* _lexicalElementToAdd);
     std::list<ParserChangesInformation::lexicalelement*>* getLexicalElementToAdd() const;
-    void setLexIncludeToRemove(std::list<ParserChangesInformation::lexinclude*>* _lexIncludeToRemove);
     std::list<ParserChangesInformation::lexinclude*>* getLexIncludeToRemove() const;
-    void setLexIncludeToAdd(std::list<ParserChangesInformation::lexinclude*>* _lexIncludeToAdd);
     std::list<ParserChangesInformation::lexinclude*>* getLexIncludeToAdd() const;
-    void setProductionToRemove(std::list<ParserChangesInformation::production*>* _productionToRemove);
     std::list<ParserChangesInformation::production*>* getProductionToRemove() const;
-    void setProductionToAdd(std::list<ParserChangesInformation::production*>* _productionToAdd);
     std::list<ParserChangesInformation::production*>* getProductionToAdd() const;
-    void setTypeobjToRemove(std::list<ParserChangesInformation::typeobj*>* _typeobjToRemove);
     std::list<ParserChangesInformation::typeobj*>* getTypeobjToRemove() const;
-    void setTypeobjToAdd(std::list<ParserChangesInformation::typeobj*>* _typeobjToAdd);
     std::list<ParserChangesInformation::typeobj*>* getTypeobjToAdd() const;
-    void setTokensToRemove(std::list<ParserChangesInformation::token*>* _tokensToRemove);
     std::list<ParserChangesInformation::token*>* getTokensToRemove() const;
-    void setTokensToAdd(std::list<ParserChangesInformation::token*>* _tokensToAdd);
     std::list<ParserChangesInformation::token*>* getTokensToAdd() const;
 private:
-    std::list<token*>* _tokensToAdd;
-    std::list<token*>* _tokensToRemove;
-    std::list<typeobj*>* _typeobjToAdd;
-    std::list<typeobj*>* _typeobjToRemove;
-    std::list<production*>* _productionToAdd;
-    std::list<production*>* _productionToRemove;
-    std::list<lexinclude*>* _lexIncludeToAdd;
-    std::list<lexinclude*>* _lexIncludeToRemove;
-    std::list<lexicalelement*>* _lexicalElementToAdd;
-    std::list<lexicalelement*>* _lexicalElementToRemove;
+    std::list<token*>* _tokensToAdd = new std::list<token*>();
+    std::list<token*>* _tokensToRemove = new std::list<token*>();
+    std::list<typeobj*>* _typeobjToAdd = new std::list<typeobj*>();
+    std::list<typeobj*>* _typeobjToRemove = new std::list<typeobj*>();
+    std::list<production*>* _productionToAdd = new std::list<production*>();
+    std::list<production*>* _productionToRemove = new std::list<production*>();
+    std::list<lexinclude*>* _lexIncludeToAdd = new std::list<lexinclude*>();
+    std::list<lexinclude*>* _lexIncludeToRemove = new std::list<lexinclude*>();
+    std::list<lexicalelement*>* _lexicalElementToAdd = new std::list<lexicalelement*>();
+    std::list<lexicalelement*>* _lexicalElementToRemove = new std::list<lexicalelement*>();
     
 };
 

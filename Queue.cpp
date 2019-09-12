@@ -134,3 +134,10 @@ std::map<std::string, std::string>* Queue::_saveInstance() {
 bool Queue::_check(std::string* errorMessage) {
     return _elems->check(Util::TypeOf<Attribute>(), _attributeName, "AttributeName", false, errorMessage);
 }
+
+ParserChangesInformation* Queue::_getParserChangesInformation() {
+    ParserChangesInformation* changes = new ParserChangesInformation();
+    //changes->getProductionToAdd()->insert(...);
+    //changes->getTokensToAdd()->insert(...);
+    return changes;
+}
