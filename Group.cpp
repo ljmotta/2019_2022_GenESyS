@@ -71,7 +71,8 @@ Entity* Group::first() {
 //}
 
 PluginInformation* Group::GetPluginInformation() {
-    PluginInformation* info = new PluginInformation(Util::TypeOf<Group>(), &Group::LoadInstance); return info;
+    PluginInformation* info = new PluginInformation(Util::TypeOf<Group>(), &Group::LoadInstance); 
+    return info;
 }
 
 ModelElement* Group::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {

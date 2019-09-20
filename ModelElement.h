@@ -42,7 +42,6 @@ public: // static
     static bool Check(ModelElement* element, std::string* errorMessage);
 public:
     virtual std::string show();
-    bool generateReportInformation() const;
     
 protected: // must be overriden by derived classes
     virtual bool _loadInstance(std::map<std::string, std::string>* fields);

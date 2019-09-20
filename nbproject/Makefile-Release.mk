@@ -65,6 +65,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/ExperimentDesignDefaultImpl1.o \
 	${OBJECTDIR}/ExperimentDesignDummyImpl.o \
 	${OBJECTDIR}/FactorOrInteractionContribution.o \
+	${OBJECTDIR}/Failure.o \
+	${OBJECTDIR}/File.o \
 	${OBJECTDIR}/FirstExampleOfSimulation.o \
 	${OBJECTDIR}/FitterDefaultImpl1.o \
 	${OBJECTDIR}/Formula.o \
@@ -137,6 +139,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/StatisticsDefaultImpl1.o \
 	${OBJECTDIR}/StatisticsDummyImpl.o \
 	${OBJECTDIR}/Stop.o \
+	${OBJECTDIR}/Storage.o \
 	${OBJECTDIR}/Store.o \
 	${OBJECTDIR}/Submodel.o \
 	${OBJECTDIR}/TestEnterLeaveRoute.o \
@@ -332,6 +335,16 @@ ${OBJECTDIR}/FactorOrInteractionContribution.o: FactorOrInteractionContribution.
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FactorOrInteractionContribution.o FactorOrInteractionContribution.cpp
+
+${OBJECTDIR}/Failure.o: Failure.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Failure.o Failure.cpp
+
+${OBJECTDIR}/File.o: File.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/File.o File.cpp
 
 ${OBJECTDIR}/FirstExampleOfSimulation.o: FirstExampleOfSimulation.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -692,6 +705,11 @@ ${OBJECTDIR}/Stop.o: Stop.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Stop.o Stop.cpp
+
+${OBJECTDIR}/Storage.o: Storage.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Storage.o Storage.cpp
 
 ${OBJECTDIR}/Store.o: Store.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

@@ -218,8 +218,14 @@
       </logicalFolder>
       <logicalFolder name="f1" displayName="Elements" projectFiles="true">
         <logicalFolder name="f1" displayName="Advanced Process" projectFiles="true">
+          <itemPath>Failure.cpp</itemPath>
+          <itemPath>Failure.h</itemPath>
+          <itemPath>File.cpp</itemPath>
+          <itemPath>File.h</itemPath>
           <itemPath>Resource.cpp</itemPath>
           <itemPath>Resource.h</itemPath>
+          <itemPath>Storage.cpp</itemPath>
+          <itemPath>Storage.h</itemPath>
         </logicalFolder>
         <logicalFolder name="f2" displayName="Basic Process" projectFiles="true">
           <itemPath>Counter.cpp</itemPath>
@@ -534,6 +540,14 @@
       </item>
       <item path="FactorOrInteractionContribution.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Failure.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Failure.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="File.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="File.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="FirstExampleOfSimulation.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="FirstExampleOfSimulation.h" ex="false" tool="3" flavor2="0">
@@ -851,6 +865,10 @@
       <item path="Stop.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Stop.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Storage.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Storage.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Store.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -1120,6 +1138,14 @@
       </item>
       <item path="FactorOrInteractionContribution.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Failure.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Failure.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="File.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="File.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="FirstExampleOfSimulation.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="FirstExampleOfSimulation.h" ex="false" tool="3" flavor2="0">
@@ -1437,6 +1463,10 @@
       <item path="Stop.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Stop.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Storage.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Storage.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Store.cpp" ex="false" tool="1" flavor2="0">
       </item>

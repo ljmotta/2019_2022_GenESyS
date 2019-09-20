@@ -5,26 +5,27 @@
  */
 
 /* 
- * File:   Set.h
+ * File:   Storage.h
  * Author: rlcancian
  *
- * Created on 03 de Junho de 2019, 15:11
+ * Created on 20 de Storageembro de 2019, 20:06
  */
 
-#ifndef SET_H
-#define SET_H
+#ifndef STORAGE_H
+#define STORAGE_H
+
 
 #include "ModelElement.h"
 #include "ElementManager.h"
 #include "ParserChangesInformation.h"
 #include "PluginInformation.h"
 
-class Set: public ModelElement {
+class Storage: public ModelElement {
 public:
-    Set(ElementManager* elems);
-    Set(ElementManager* elems, std::string name);
-    Set(const Set& orig);
-    virtual ~Set();
+    Storage(ElementManager* elems);
+    Storage(ElementManager* elems, std::string name);
+    Storage(const Storage& orig);
+    virtual ~Storage();
 public: // static
     static ModelElement* LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields); 
     static PluginInformation* GetPluginInformation();
@@ -40,6 +41,5 @@ protected: // could be overriden by derived classes
 private:
     ElementManager* _elems;
 };
-
-#endif /* SET_H */
+#endif /* STORAGE_H */
 
