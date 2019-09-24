@@ -147,13 +147,12 @@ OBJECTFILES= \
 	${OBJECTDIR}/TestParser.o \
 	${OBJECTDIR}/TestSimulationControlAndSimulationResponse.o \
 	${OBJECTDIR}/TestStatistics.o \
+	${OBJECTDIR}/ThirdExampleOfSimulation.o \
 	${OBJECTDIR}/ToolManager.o \
 	${OBJECTDIR}/TraceManager.o \
 	${OBJECTDIR}/Unstore.o \
 	${OBJECTDIR}/Util.o \
 	${OBJECTDIR}/Variable.o \
-	${OBJECTDIR}/Waiting.o \
-	${OBJECTDIR}/WaitingResource.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/parserBisonFlex/Genesys++-driver.o \
 	${OBJECTDIR}/parserBisonFlex/Genesys++-scanner.o \
@@ -746,6 +745,11 @@ ${OBJECTDIR}/TestStatistics.o: TestStatistics.cpp nbproject/Makefile-${CND_CONF}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestStatistics.o TestStatistics.cpp
 
+${OBJECTDIR}/ThirdExampleOfSimulation.o: ThirdExampleOfSimulation.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ThirdExampleOfSimulation.o ThirdExampleOfSimulation.cpp
+
 ${OBJECTDIR}/ToolManager.o: ToolManager.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -770,16 +774,6 @@ ${OBJECTDIR}/Variable.o: Variable.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Variable.o Variable.cpp
-
-${OBJECTDIR}/Waiting.o: Waiting.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Waiting.o Waiting.cpp
-
-${OBJECTDIR}/WaitingResource.o: WaitingResource.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/WaitingResource.o WaitingResource.cpp
 
 ${OBJECTDIR}/main.o: main.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

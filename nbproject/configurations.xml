@@ -47,12 +47,6 @@
       </logicalFolder>
       <logicalFolder name="f3" displayName="ModelParts" projectFiles="true">
         <logicalFolder name="f4" displayName="Elements" projectFiles="true">
-          <logicalFolder name="f1" displayName="SubElement" projectFiles="true">
-            <itemPath>Waiting.cpp</itemPath>
-            <itemPath>Waiting.h</itemPath>
-            <itemPath>WaitingResource.cpp</itemPath>
-            <itemPath>WaitingResource.h</itemPath>
-          </logicalFolder>
           <itemPath>Attribute.cpp</itemPath>
           <itemPath>Attribute.h</itemPath>
           <itemPath>Entity.cpp</itemPath>
@@ -336,6 +330,8 @@
         <itemPath>FirstExampleOfSimulation.h</itemPath>
         <itemPath>SecondExampleOfSimulation.cpp</itemPath>
         <itemPath>SecondExampleOfSimulation.h</itemPath>
+        <itemPath>ThirdExampleOfSimulation.cpp</itemPath>
+        <itemPath>ThirdExampleOfSimultion.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="Tests" projectFiles="true">
         <logicalFolder name="f1" displayName="Oldies" projectFiles="true">
@@ -904,6 +900,10 @@
       </item>
       <item path="TestStatistics.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="ThirdExampleOfSimulation.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ThirdExampleOfSimultion.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="ToolManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ToolManager.h" ex="false" tool="3" flavor2="0">
@@ -925,14 +925,6 @@
       <item path="Variable.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Variable.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Waiting.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Waiting.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="WaitingResource.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="WaitingResource.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -1502,6 +1494,10 @@
       </item>
       <item path="TestStatistics.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="ThirdExampleOfSimulation.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ThirdExampleOfSimultion.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="ToolManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ToolManager.h" ex="false" tool="3" flavor2="0">
@@ -1523,14 +1519,6 @@
       <item path="Variable.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Variable.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Waiting.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Waiting.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="WaitingResource.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="WaitingResource.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>

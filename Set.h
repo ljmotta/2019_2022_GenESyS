@@ -30,6 +30,10 @@ public: // static
     static PluginInformation* GetPluginInformation();
 public:
     virtual std::string show();
+public:
+    void setSetOfType(std::string* _setOfType);
+    std::string* getSetOfType() const;
+    List<ModelElement*>* getElementSet() const;
 
 protected: // must be overriden by derived classes
     virtual bool _loadInstance(std::map<std::string, std::string>* fields);
@@ -39,6 +43,8 @@ protected: // could be overriden by derived classes
     virtual ParserChangesInformation* _getParserChangesInformation();
 private:
     ElementManager* _elems;
+    List<ModelElement*>* _elementSet = new List<ModelElement*>();
+    std::string* _setOfType;
 };
 
 #endif /* SET_H */

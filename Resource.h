@@ -20,7 +20,6 @@
 #include "Counter.h"
 #include "Plugin.h"
 
-
 /*!
  * Resource represents a facility that...
  */

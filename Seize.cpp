@@ -12,7 +12,6 @@
  */
 
 #include "Seize.h"
-#include "WaitingResource.h"
 #include "Resource.h"
 #include "Attribute.h"
 

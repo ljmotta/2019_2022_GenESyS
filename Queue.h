@@ -17,11 +17,51 @@
 #include "ModelElement.h"
 #include "List.h"
 #include "Entity.h"
-#include "Waiting.h"
 #include "ElementManager.h"
 #include "StatisticsCollector.h"
 #include "Plugin.h"
+#include "ModelComponent.h"
 
+class Waiting {
+public:
+
+    Waiting(Entity* entity, ModelComponent* component, double timeStartedWaiting) {
+	_entity = entity;
+	_component = component;
+	_timeStartedWaiting = timeStartedWaiting;
+    }
+
+    Waiting(const Waiting& orig) {
+    }
+
+    virtual ~Waiting() {
+    }
+public:
+
+    virtual std::string show() {
+	return //ModelElement::show()+
+	",entity=" + std::to_string(_entity->getId()) +
+		",component=\"" + _component->getName() + "\"" +
+		",timeStatedWaiting=" + std::to_string(_timeStartedWaiting);
+    }
+public:
+
+    double getTimeStartedWaiting() const {
+	return _timeStartedWaiting;
+    }
+
+    ModelComponent* getComponent() const {
+	return _component;
+    }
+
+    Entity* getEntity() const {
+	return _entity;
+    }
+private:
+    Entity* _entity;
+    ModelComponent* _component;
+    double _timeStartedWaiting;
+};
 
 class Queue : public ModelElement {
 public:
@@ -52,14 +92,14 @@ public:
     Queue::OrderRule getOrderRule() const;
     //List<Waiting*>* getList() const; // can't give direct access so Queue can collect statistics
 
-public: 
+public:
     void initBetweenReplications();
 protected:
     virtual bool _loadInstance(std::map<std::string, std::string>* fields);
     virtual std::map<std::string, std::string>* _saveInstance();
     virtual bool _check(std::string* errorMessage);
     virtual ParserChangesInformation* _getParserChangesInformation();
-    
+
 private:
     void _initCStats();
 private:

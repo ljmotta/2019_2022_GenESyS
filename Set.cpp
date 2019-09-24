@@ -33,6 +33,18 @@ std::string Set::show() {
 	    "";
 }
 
+void Set::setSetOfType(std::string* _setOfType) {
+    this->_setOfType = _setOfType;
+}
+
+std::string* Set::getSetOfType() const {
+    return _setOfType;
+}
+
+List<ModelElement*>* Set::getElementSet() const {
+    return _elementSet;
+}
+
 PluginInformation* Set::GetPluginInformation() {
     PluginInformation* info = new PluginInformation(Util::TypeOf<Set>(), &Set::LoadInstance); 
     return info;

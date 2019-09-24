@@ -83,6 +83,7 @@ void Model::sendEntityToComponent(Entity* entity, Connection* connection, double
 
 void Model::sendEntityToComponent(Entity* entity, ModelComponent* component, double timeDelay, unsigned int componentInputNumber) {
     /* TODO -: event onEntityMove */
+    
     if (timeDelay > 0) {
 	// schedule to send it
 	Event* newEvent = new Event(this->getSimulation()->getSimulatedTime() + timeDelay, entity, component, componentInputNumber);

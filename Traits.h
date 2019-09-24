@@ -36,6 +36,7 @@
 #include "BuildSimulationModel03.h"
 #include "FirstExampleOfSimulation.h"
 #include "SecondExampleOfSimulation.h"
+#include "ThirdExampleOfSimultion.h"
 #include "GenesysGUI.h"
 #include "GenesysConsole.h"
 #include "TestEnterLeaveRoute.h"
@@ -72,9 +73,10 @@ struct Traits {
 template <> struct Traits<GenesysApplication_if> {
     //typedef GenesysGUI Application;
     //typedef GenesysConsole Application;
-    typedef FullSimulationOfComplexModel Application;
+    //typedef FullSimulationOfComplexModel Application;
     //typedef FirstExampleOfSimulation Application;
     //typedef SecondExampleOfSimulation Application;
+    typedef ThirdExampleOfSimulation Application;
     //typedef TestSimulationControlAndSimulationResponse Application;
 };
 
