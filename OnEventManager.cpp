@@ -70,6 +70,10 @@ void OnEventManager::NotifyReplicationEndHandlers(SimulationEvent* se) {
     this->_NotifyHandlers(this->_onReplicationEndHandlers, se);
 }
 
+void OnEventManager::NotifyEntityMoveHandlers(SimulationEvent* se) {
+    this->_NotifyHandlers(this->_onEntityMoveHandlers, se);
+}
+
 void OnEventManager::NotifyProcessEventHandlers(SimulationEvent* se) {
     this->_NotifyHandlers(this->_onProcessEventHandlers, se);
 }
