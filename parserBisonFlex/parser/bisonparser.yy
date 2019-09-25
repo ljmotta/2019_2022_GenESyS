@@ -11,10 +11,14 @@
 #include <cmath>
 #include "obj_t.h"
 #include "../Util.h"
+//
+// include to Plugin header files should be specified by plugins themselves
+//
 #include "../Variable.h"
 #include "../Queue.h"
 #include "../Formula.h"
 #include "../Resource.h"
+#include "../Set.h"
 class genesyspp_driver;
 
 }
@@ -297,8 +301,8 @@ illegal     : ILLEGAL           {
             ;
 
 
-// @TODO: Attribute IS fully implemented on GenESyS, BUT for now does nothing
-atributo    : ATRIB                            { $$.valor = $1.valor; }
+
+atributo    : ATRIB      { $$.valor = $1.valor; }
             ;
 
 //Check if want to set the atributo or variavel with expressao or just return the expressao value, for now just returns expressao value
@@ -321,46 +325,62 @@ funcaoPlugin  : CTEZERO                                        { $$.valor = 0; }
 ///////////////////////////////////
 // to be defined by the QUEUE plugin
 ///////////////////////////////////
-            |fNQ       "(" QUEUE ")"                           { $$.valor = ((Queue*)(driver.getModel()->getElementManager()->getElement(Util::TypeOf<Queue>(), $3.id)))->size();}
-            | fLASTINQ  "(" QUEUE ")"                           {/*For now does nothing because need acces to list of QUEUE, or at least the last element*/ }
-            | fFIRSTINQ "(" QUEUE ")"                           { if (((Queue*)(driver.getModel()->getElementManager()->getElement(Util::TypeOf<Queue>(), $3.id)))->size() > 0){
-                                                                    //id da 1a entidade da fila, talvez pegar nome
-                                                                    $$.valor = ((Queue*)(driver.getModel()->getElementManager()->getElement(Util::TypeOf<Queue>(), $3.id)))->first()->getEntity()->getId();
-                                                                  }else{
-                                                                    $$.valor = 0;
-                                                                  }
-                                                                }
+            |fNQ       "(" QUEUE ")"                    { $$.valor = ((Queue*)(driver.getModel()->getElementManager()->getElement(Util::TypeOf<Queue>(), $3.id)))->size();}
+            | fLASTINQ  "(" QUEUE ")"                   {/*For now does nothing because need acces to list of QUEUE, or at least the last element*/ }
+            | fFIRSTINQ "(" QUEUE ")"                   { if (((Queue*)(driver.getModel()->getElementManager()->getElement(Util::TypeOf<Queue>(), $3.id)))->size() > 0){
+                                                            //id da 1a entidade da fila, talvez pegar nome
+                                                            $$.valor = ((Queue*)(driver.getModel()->getElementManager()->getElement(Util::TypeOf<Queue>(), $3.id)))->first()->getEntity()->getId();
+                                                          }else{
+                                                            $$.valor = 0;
+                                                          }
+                                                        }
+	    | fSAQUE "(" QUEUE "," atributo ")"         {   // @TODO: how can I get the "name" of the atributo?
+							    $$.valor = 0;
+							}
+
 ///////////////////////////////////
 // to be defined by the RESOURCE plugin
 ///////////////////////////////////
-           | fMR        "(" RESOURCE ")"                            { $$.valor = ((Resource*)driver.getModel()->getElementManager()->getElement(Util::TypeOf<Resource>(), $3.id))->getCapacity();}
-           | fNR        "(" RESOURCE ")"                            { $$.valor = ((Resource*)driver.getModel()->getElementManager()->getElement(Util::TypeOf<Resource>(), $3.id))->getNumberBusy();}
-           | fRESSEIZES "(" RESOURCE ")"                            { /*For now does nothing because needs get Seizes, check with teacher*/}
-           | fSTATE     "(" RESOURCE ")"                            {  switch(((Resource*)driver.getModel()->getElementManager()->getElement(Util::TypeOf<Resource>(), $3.id))->getResourceState()){
-                                                                    case Resource::ResourceState::IDLE:
-                                                                      $$.valor = -1;
-                                                                      break;
-                                                                    case Resource::ResourceState::BUSY:
-                                                                      $$.valor = -2;
-                                                                      break;
-                                                                    case Resource::ResourceState::FAILED:
-                                                                      $$.valor = -4;
-                                                                      break;
-                                                                    case Resource::ResourceState::INACTIVE:
-                                                                      $$.valor = -3;
-                                                                    default:
-                                                                      $$.valor = -5;
-                                                                      break;
-                                                                  }
-                                                                }
+           | fMR        "(" RESOURCE ")"                { $$.valor = ((Resource*)driver.getModel()->getElementManager()->getElement(Util::TypeOf<Resource>(), $3.id))->getCapacity();}
+           | fNR        "(" RESOURCE ")"                { $$.valor = ((Resource*)driver.getModel()->getElementManager()->getElement(Util::TypeOf<Resource>(), $3.id))->getNumberBusy();}
+           | fRESSEIZES "(" RESOURCE ")"                { /*For now does nothing because needs get Seizes, check with teacher*/}
+           | fSTATE     "(" RESOURCE ")"                {  switch(((Resource*)driver.getModel()->getElementManager()->getElement(Util::TypeOf<Resource>(), $3.id))->getResourceState()){
+                                                            case Resource::ResourceState::IDLE:
+							      $$.valor = -1;
+							      break;
+							    case Resource::ResourceState::BUSY:
+							      $$.valor = -2;
+							      break;
+							    case Resource::ResourceState::FAILED:
+							      $$.valor = -4;
+							      break;
+							    case Resource::ResourceState::INACTIVE:
+							      $$.valor = -3;
+							    default:
+							      $$.valor = -5;
+							      break;
+							  }
+							}
 
-           | fIRF       "(" RESOURCE ")"                            { $$.valor = ((Resource*)driver.getModel()->getElementManager()->getElement(Util::TypeOf<Resource>(), $3.id))->getResourceState() == Resource::ResourceState::FAILED ? 1 : 0; }
-           | fSETSUM    "(" SET ")"                            { $$.valor = 0; }
+           | fIRF       "(" RESOURCE ")"                { $$.valor = ((Resource*)driver.getModel()->getElementManager()->getElement(Util::TypeOf<Resource>(), $3.id))->getResourceState() == Resource::ResourceState::FAILED ? 1 : 0; }
+           | fSETSUM    "(" SET ")"                     {   unsigned int count=0;
+							    Resource* res;
+							    List<ModelElement*>* setList = ((Set*)driver.getModel()->getElementManager()->getElement(Util::TypeOf<Set>(),$3.id))->getElementSet(); 
+							    for (std::list<ModelElement*>::iterator it = setList->getList()->begin(); it!=setList->getList()->end(); it++) {
+								res = dynamic_cast<Resource*>(*it);
+								if (res != nullptr) {
+								    if (res->getResourceState()==Resource::ResourceState::BUSY) {
+									count++;
+								    }
+								}
+							    }
+							    $$.valor = count; 
+							}
 
 ///////////////////////////////////
 // to be defined by the SET plugin
 ///////////////////////////////////
-           | fNUMSET    "(" SET ")"                            { $$.valor = 0; }
+           | fNUMSET    "(" SET ")"                     { $$.valor = ((Set*)driver.getModel()->getElementManager()->getElement(Util::TypeOf<Set>(),$3.id))->getElementSet()->size(); }
 
 
 ///////////////////////////////////

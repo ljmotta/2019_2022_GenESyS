@@ -31,8 +31,8 @@ public: // static
 public:
     virtual std::string show();
 public:
-    void setSetOfType(std::string* _setOfType);
-    std::string* getSetOfType() const;
+    void setSetOfType(std::string _setOfType);
+    std::string getSetOfType() const;
     List<ModelElement*>* getElementSet() const;
 
 protected: // must be overriden by derived classes
@@ -44,7 +44,7 @@ protected: // could be overriden by derived classes
 private:
     ElementManager* _elems;
     List<ModelElement*>* _elementSet = new List<ModelElement*>();
-    std::string* _setOfType;
+    std::string _setOfType;
 };
 
 #endif /* SET_H */

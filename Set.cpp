@@ -33,11 +33,11 @@ std::string Set::show() {
 	    "";
 }
 
-void Set::setSetOfType(std::string* _setOfType) {
+void Set::setSetOfType(std::string _setOfType) {
     this->_setOfType = _setOfType;
 }
 
-std::string* Set::getSetOfType() const {
+std::string Set::getSetOfType() const {
     return _setOfType;
 }
 

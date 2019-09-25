@@ -46,14 +46,18 @@
 #include <cmath>
 #include "obj_t.h"
 #include "../Util.h"
+//
+// include to Plugin header files should be specified by plugins themselves
+//
 #include "../Variable.h"
 #include "../Queue.h"
 #include "../Formula.h"
 #include "../Resource.h"
+#include "../Set.h"
 class genesyspp_driver;
 
 
-#line 57 "../GenesysParser.h" // lalr1.cc:377
+#line 61 "../GenesysParser.h" // lalr1.cc:377
 
 # include <cassert>
 # include <cstdlib> // std::abort
@@ -130,7 +134,7 @@ class genesyspp_driver;
 
 
 namespace yy {
-#line 134 "../GenesysParser.h" // lalr1.cc:377
+#line 138 "../GenesysParser.h" // lalr1.cc:377
 
 
 
@@ -1024,7 +1028,7 @@ namespace yy {
     enum
     {
       yyeof_ = 0,
-      yylast_ = 1038,     ///< Last index in yytable_.
+      yylast_ = 1059,     ///< Last index in yytable_.
       yynnts_ = 23,  ///< Number of nonterminal symbols.
       yyfinal_ = 6, ///< Termination state number.
       yyterror_ = 1,
@@ -1958,7 +1962,7 @@ namespace yy {
 
 
 } // yy
-#line 1962 "../GenesysParser.h" // lalr1.cc:377
+#line 1966 "../GenesysParser.h" // lalr1.cc:377
 
 
 

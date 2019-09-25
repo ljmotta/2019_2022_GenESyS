@@ -280,7 +280,7 @@ bool ModelCheckerDefaultImpl1::checkSymbols() {
 		for (std::list<ModelElement*>::iterator it = elements->getList()->begin(); it != elements->getList()->end(); it++) {
 		    element = (*it);
 		    // copyed from modelCOmponent. It is not inside the ModelElement::Check because ModelElement has no access to Model to call Tracer
-		    _model->getTraceManager()->trace(Util::TraceLevel::mostDetailed, "Checking " + element->getTypename() + ": " + element->getName()); //std::to_string(component->_id));
+		    _model->getTraceManager()->trace(Util::TraceLevel::mostDetailed, "Checking " + element->getTypename() + ": " + element->getName()+ " (id "+std::to_string(element->getId())+")"); //std::to_string(component->_id));
 		    Util::IncIndent();
 		    {
 			try {

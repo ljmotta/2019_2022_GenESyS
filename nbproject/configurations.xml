@@ -136,8 +136,6 @@
           <itemPath>Match.h</itemPath>
           <itemPath>PickUp.cpp</itemPath>
           <itemPath>PickUp.h</itemPath>
-          <itemPath>ReadWrite.cpp</itemPath>
-          <itemPath>ReadWrite.h</itemPath>
           <itemPath>Release.cpp</itemPath>
           <itemPath>Release.h</itemPath>
           <itemPath>Remove.cpp</itemPath>
@@ -152,6 +150,8 @@
           <itemPath>Store.h</itemPath>
           <itemPath>Unstore.cpp</itemPath>
           <itemPath>Unstore.h</itemPath>
+          <itemPath>Write.cpp</itemPath>
+          <itemPath>Write.h</itemPath>
         </logicalFolder>
         <logicalFolder name="f1" displayName="Basic Process" projectFiles="true">
           <itemPath>Assign.cpp</itemPath>
@@ -224,10 +224,10 @@
         <logicalFolder name="f2" displayName="Basic Process" projectFiles="true">
           <itemPath>Counter.cpp</itemPath>
           <itemPath>Counter.h</itemPath>
+          <itemPath>EntityGroup.cpp</itemPath>
+          <itemPath>EntityGroup.h</itemPath>
           <itemPath>Formula.cpp</itemPath>
           <itemPath>Formula.h</itemPath>
-          <itemPath>Group.cpp</itemPath>
-          <itemPath>Group.h</itemPath>
           <itemPath>Queue.cpp</itemPath>
           <itemPath>Queue.h</itemPath>
           <itemPath>Schedule.cpp</itemPath>
@@ -328,6 +328,8 @@
       <logicalFolder name="f3" displayName="Examples" projectFiles="true">
         <itemPath>FirstExampleOfSimulation.cpp</itemPath>
         <itemPath>FirstExampleOfSimulation.h</itemPath>
+        <itemPath>FourthExampleOfSimulation.cpp</itemPath>
+        <itemPath>FourthExampleOfSimulation.h</itemPath>
         <itemPath>SecondExampleOfSimulation.cpp</itemPath>
         <itemPath>SecondExampleOfSimulation.h</itemPath>
         <itemPath>ThirdExampleOfSimulation.cpp</itemPath>
@@ -335,6 +337,8 @@
       </logicalFolder>
       <logicalFolder name="f1" displayName="Tests" projectFiles="true">
         <logicalFolder name="f1" displayName="Oldies" projectFiles="true">
+          <itemPath>BuildSimulationModel03.cpp</itemPath>
+          <itemPath>BuildSimulationModel03.h</itemPath>
           <itemPath>TestInputAnalyserTools.cpp</itemPath>
           <itemPath>TestInputAnalyserTools.h</itemPath>
           <itemPath>TestStatistics.cpp</itemPath>
@@ -350,8 +354,6 @@
           <itemPath>TestSimulationControlAndSimulationResponse.cpp</itemPath>
           <itemPath>TestSimulationControlAndSimulationResponse.h</itemPath>
         </logicalFolder>
-        <itemPath>BuildSimulationModel03.cpp</itemPath>
-        <itemPath>BuildSimulationModel03.h</itemPath>
         <itemPath>FullSimulationOfComplexModel.cpp</itemPath>
         <itemPath>FullSimulationOfComplexModel.h</itemPath>
       </logicalFolder>
@@ -507,6 +509,10 @@
       </item>
       <item path="Entity.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="EntityGroup.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="EntityGroup.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="EntityType.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="EntityType.h" ex="false" tool="3" flavor2="0">
@@ -558,6 +564,10 @@
       </item>
       <item path="Formula.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="FourthExampleOfSimulation.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="FourthExampleOfSimulation.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Free.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Free.h" ex="false" tool="3" flavor2="0">
@@ -575,10 +585,6 @@
       <item path="GenesysGUI.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="GenesysGUI.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Group.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Group.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Halt.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -727,10 +733,6 @@
       <item path="Queue.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Queue.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ReadWrite.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ReadWrite.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Record.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -925,6 +927,10 @@
       <item path="Variable.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Variable.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Write.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Write.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -1101,6 +1107,10 @@
       </item>
       <item path="Entity.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="EntityGroup.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="EntityGroup.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="EntityType.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="EntityType.h" ex="false" tool="3" flavor2="0">
@@ -1152,6 +1162,10 @@
       </item>
       <item path="Formula.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="FourthExampleOfSimulation.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="FourthExampleOfSimulation.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Free.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Free.h" ex="false" tool="3" flavor2="0">
@@ -1169,10 +1183,6 @@
       <item path="GenesysGUI.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="GenesysGUI.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Group.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Group.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Halt.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -1321,10 +1331,6 @@
       <item path="Queue.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Queue.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="ReadWrite.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ReadWrite.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Record.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -1519,6 +1525,10 @@
       <item path="Variable.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Variable.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Write.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Write.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>

@@ -81,7 +81,7 @@ protected:
 
 private:
     void _initCStats();
-    void _notifyEventHandlers();
+    void _notifyEventHandlers(); ///< Notify observer classes that some of the resource capacity has been released. It is useful for allocation components (such as Seize) to know when an entity waiting into a queue can try to seize the resource again
 private:
     ElementManager* _elems;
 private:
