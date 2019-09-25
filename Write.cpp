@@ -38,7 +38,7 @@ ModelComponent* Write::LoadInstance(Model* model, std::map<std::string, std::str
     return newComponent;
 }
 
-List<Write::WriteElement*>* Write::getWriteElements() const {
+List<WriteElement*>* Write::getWriteElements() const {
     return _writeElements;
 }
 
@@ -60,11 +60,11 @@ Write::WriteToType Write::getWriteToType() const {
 
 void Write::_execute(Entity* entity) {
     //_model->getTraceManager()->trace(Util::TraceLevel::blockInternal, "I'm just a dummy model and I'll just send the entity forward");
-    Write::WriteElement* msgElem;
+    WriteElement* msgElem;
     if (this->_writeToType == Write::WriteToType::SCREEN) { //@TODO: Write To FILE not implemented
-	std::list<Write::WriteElement*>* msgs = this->_writeElements->getList();
+	std::list<WriteElement*>* msgs = this->_writeElements->getList();
 	std::string message = "";
-	for (std::list<Write::WriteElement*>::iterator it = msgs->begin(); it != msgs->end(); it++) {
+	for (std::list<WriteElement*>::iterator it = msgs->begin(); it != msgs->end(); it++) {
 	    msgElem = (*it);
 	    if (msgElem->isExpression) {
 		message += std::to_string(_model->parseExpression(msgElem->text));

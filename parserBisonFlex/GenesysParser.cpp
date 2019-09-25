@@ -787,7 +787,7 @@ namespace yy {
 
   case 10:
 #line 198 "bisonparser.yy" // lalr1.cc:859
-    {yylhs.value.as< obj_t > ().valor = yystack_[1].value.as< obj_t > ().valor;}
+    {yylhs.value.as< obj_t > ().valor = yystack_[0].value.as< obj_t > ().valor;}
 #line 792 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
@@ -805,7 +805,7 @@ namespace yy {
 
   case 13:
 #line 201 "bisonparser.yy" // lalr1.cc:859
-    {yylhs.value.as< obj_t > ().valor = yystack_[0].value.as< obj_t > ().valor;}
+    {yylhs.value.as< obj_t > ().valor = yystack_[1].value.as< obj_t > ().valor;}
 #line 810 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
@@ -816,283 +816,283 @@ namespace yy {
     break;
 
   case 15:
-#line 203 "bisonparser.yy" // lalr1.cc:859
+#line 204 "bisonparser.yy" // lalr1.cc:859
     {yylhs.value.as< obj_t > ().valor = yystack_[0].value.as< obj_t > ().valor;}
 #line 822 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 16:
-#line 204 "bisonparser.yy" // lalr1.cc:859
-    {}
+#line 206 "bisonparser.yy" // lalr1.cc:859
+    {yylhs.value.as< obj_t > ().valor = yystack_[0].value.as< obj_t > ().valor;}
 #line 828 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 17:
-#line 207 "bisonparser.yy" // lalr1.cc:859
+#line 209 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = yystack_[0].value.as< obj_t > ().valor;}
 #line 834 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 18:
-#line 208 "bisonparser.yy" // lalr1.cc:859
+#line 210 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = yystack_[0].value.as< obj_t > ().valor;}
 #line 840 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 19:
-#line 211 "bisonparser.yy" // lalr1.cc:859
+#line 213 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = yystack_[2].value.as< obj_t > ().valor + yystack_[0].value.as< obj_t > ().valor;}
 #line 846 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 20:
-#line 212 "bisonparser.yy" // lalr1.cc:859
+#line 214 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = yystack_[2].value.as< obj_t > ().valor - yystack_[0].value.as< obj_t > ().valor;}
 #line 852 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 21:
-#line 213 "bisonparser.yy" // lalr1.cc:859
+#line 215 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = yystack_[2].value.as< obj_t > ().valor / yystack_[0].value.as< obj_t > ().valor;}
 #line 858 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 22:
-#line 214 "bisonparser.yy" // lalr1.cc:859
+#line 216 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = yystack_[2].value.as< obj_t > ().valor * yystack_[0].value.as< obj_t > ().valor;}
 #line 864 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 23:
-#line 215 "bisonparser.yy" // lalr1.cc:859
+#line 217 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = pow(yystack_[2].value.as< obj_t > ().valor,yystack_[0].value.as< obj_t > ().valor);}
 #line 870 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 24:
-#line 216 "bisonparser.yy" // lalr1.cc:859
+#line 218 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = -yystack_[0].value.as< obj_t > ().valor;}
 #line 876 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 25:
-#line 219 "bisonparser.yy" // lalr1.cc:859
+#line 221 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = (int) yystack_[2].value.as< obj_t > ().valor && (int) yystack_[0].value.as< obj_t > ().valor;}
 #line 882 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 26:
-#line 220 "bisonparser.yy" // lalr1.cc:859
+#line 222 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = (int) yystack_[2].value.as< obj_t > ().valor || (int) yystack_[0].value.as< obj_t > ().valor;}
 #line 888 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 27:
-#line 221 "bisonparser.yy" // lalr1.cc:859
+#line 223 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = yystack_[2].value.as< obj_t > ().valor < yystack_[0].value.as< obj_t > ().valor ? 1 : 0;}
 #line 894 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 28:
-#line 222 "bisonparser.yy" // lalr1.cc:859
+#line 224 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = yystack_[2].value.as< obj_t > ().valor <= yystack_[0].value.as< obj_t > ().valor ? 1 : 0;}
 #line 900 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 29:
-#line 223 "bisonparser.yy" // lalr1.cc:859
+#line 225 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = yystack_[2].value.as< obj_t > ().valor > yystack_[0].value.as< obj_t > ().valor ? 1 : 0;}
 #line 906 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 30:
-#line 224 "bisonparser.yy" // lalr1.cc:859
+#line 226 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = yystack_[2].value.as< obj_t > ().valor >= yystack_[0].value.as< obj_t > ().valor ? 1 : 0;}
 #line 912 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 31:
-#line 225 "bisonparser.yy" // lalr1.cc:859
+#line 227 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = yystack_[2].value.as< obj_t > ().valor == yystack_[0].value.as< obj_t > ().valor ? 1 : 0;}
 #line 918 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 32:
-#line 226 "bisonparser.yy" // lalr1.cc:859
+#line 228 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = yystack_[2].value.as< obj_t > ().valor != yystack_[0].value.as< obj_t > ().valor ? 1 : 0;}
 #line 924 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 35:
-#line 233 "bisonparser.yy" // lalr1.cc:859
+#line 235 "bisonparser.yy" // lalr1.cc:859
     {yylhs.value.as< obj_t > ().valor = yystack_[4].value.as< obj_t > ().valor != 0 ? yystack_[2].value.as< obj_t > ().valor : yystack_[0].value.as< obj_t > ().valor;}
 #line 930 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 36:
-#line 234 "bisonparser.yy" // lalr1.cc:859
+#line 236 "bisonparser.yy" // lalr1.cc:859
     {yylhs.value.as< obj_t > ().valor = yystack_[2].value.as< obj_t > ().valor != 0 ? yystack_[0].value.as< obj_t > ().valor : 0;}
 #line 936 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 37:
-#line 237 "bisonparser.yy" // lalr1.cc:859
+#line 239 "bisonparser.yy" // lalr1.cc:859
     {yylhs.value.as< obj_t > ().valor = 0; }
 #line 942 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 38:
-#line 238 "bisonparser.yy" // lalr1.cc:859
+#line 240 "bisonparser.yy" // lalr1.cc:859
     {yylhs.value.as< obj_t > ().valor = 0; }
 #line 948 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 39:
-#line 241 "bisonparser.yy" // lalr1.cc:859
+#line 243 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = yystack_[0].value.as< obj_t > ().valor; }
 #line 954 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 40:
-#line 242 "bisonparser.yy" // lalr1.cc:859
+#line 244 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = yystack_[0].value.as< obj_t > ().valor; }
 #line 960 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 41:
-#line 243 "bisonparser.yy" // lalr1.cc:859
+#line 245 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = yystack_[0].value.as< obj_t > ().valor; }
 #line 966 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 42:
-#line 244 "bisonparser.yy" // lalr1.cc:859
+#line 246 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = yystack_[0].value.as< obj_t > ().valor; }
 #line 972 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 43:
-#line 245 "bisonparser.yy" // lalr1.cc:859
+#line 247 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = yystack_[0].value.as< obj_t > ().valor; }
 #line 978 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 44:
-#line 246 "bisonparser.yy" // lalr1.cc:859
+#line 248 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = yystack_[0].value.as< obj_t > ().valor; }
 #line 984 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 45:
-#line 249 "bisonparser.yy" // lalr1.cc:859
+#line 251 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = driver.getModel()->getSimulation()->getSimulatedTime();}
 #line 990 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 46:
-#line 250 "bisonparser.yy" // lalr1.cc:859
+#line 252 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = driver.getModel()->getInfos()->getReplicationLength();}
 #line 996 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 47:
-#line 253 "bisonparser.yy" // lalr1.cc:859
+#line 255 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = sin(yystack_[1].value.as< obj_t > ().valor); }
 #line 1002 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 48:
-#line 254 "bisonparser.yy" // lalr1.cc:859
+#line 256 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = cos(yystack_[1].value.as< obj_t > ().valor); }
 #line 1008 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 49:
-#line 257 "bisonparser.yy" // lalr1.cc:859
+#line 259 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = (int) yystack_[1].value.as< obj_t > ().valor;}
 #line 1014 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 50:
-#line 258 "bisonparser.yy" // lalr1.cc:859
+#line 260 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = yystack_[1].value.as< obj_t > ().valor - (int) yystack_[1].value.as< obj_t > ().valor;}
 #line 1020 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 51:
-#line 259 "bisonparser.yy" // lalr1.cc:859
+#line 261 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = (int) yystack_[1].value.as< obj_t > ().valor;}
 #line 1026 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 52:
-#line 260 "bisonparser.yy" // lalr1.cc:859
+#line 262 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = (int) yystack_[3].value.as< obj_t > ().valor % (int) yystack_[1].value.as< obj_t > ().valor; }
 #line 1032 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 53:
-#line 263 "bisonparser.yy" // lalr1.cc:859
+#line 265 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = driver.getProbs()->sampleExponential(yystack_[1].value.as< obj_t > ().valor); yylhs.value.as< obj_t > ().tipo = "Exponencial";}
 #line 1038 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 54:
-#line 264 "bisonparser.yy" // lalr1.cc:859
+#line 266 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = driver.getProbs()->sampleNormal(yystack_[3].value.as< obj_t > ().valor,yystack_[1].value.as< obj_t > ().valor); yylhs.value.as< obj_t > ().tipo = "Normal"; }
 #line 1044 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 55:
-#line 265 "bisonparser.yy" // lalr1.cc:859
+#line 267 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = driver.getProbs()->sampleUniform(yystack_[3].value.as< obj_t > ().valor,yystack_[1].value.as< obj_t > ().valor); yylhs.value.as< obj_t > ().tipo = "Unificada"; }
 #line 1050 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 56:
-#line 266 "bisonparser.yy" // lalr1.cc:859
+#line 268 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = driver.getProbs()->sampleWeibull(yystack_[3].value.as< obj_t > ().valor,yystack_[1].value.as< obj_t > ().valor); yylhs.value.as< obj_t > ().tipo = "Weibull"; }
 #line 1056 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 57:
-#line 267 "bisonparser.yy" // lalr1.cc:859
+#line 269 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = driver.getProbs()->sampleLogNormal(yystack_[3].value.as< obj_t > ().valor,yystack_[1].value.as< obj_t > ().valor); yylhs.value.as< obj_t > ().tipo = "LOGNormal"; }
 #line 1062 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 58:
-#line 268 "bisonparser.yy" // lalr1.cc:859
+#line 270 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = driver.getProbs()->sampleGamma(yystack_[3].value.as< obj_t > ().valor,yystack_[1].value.as< obj_t > ().valor); yylhs.value.as< obj_t > ().tipo = "Gamma"; }
 #line 1068 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 59:
-#line 269 "bisonparser.yy" // lalr1.cc:859
+#line 271 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = driver.getProbs()->sampleErlang(yystack_[3].value.as< obj_t > ().valor,yystack_[1].value.as< obj_t > ().valor); yylhs.value.as< obj_t > ().tipo = "Erlang"; }
 #line 1074 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 60:
-#line 270 "bisonparser.yy" // lalr1.cc:859
+#line 272 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = driver.getProbs()->sampleTriangular(yystack_[5].value.as< obj_t > ().valor,yystack_[3].value.as< obj_t > ().valor,yystack_[1].value.as< obj_t > ().valor); yylhs.value.as< obj_t > ().tipo = "Triangular"; }
 #line 1080 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 61:
-#line 271 "bisonparser.yy" // lalr1.cc:859
+#line 273 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = driver.getProbs()->sampleBeta(yystack_[7].value.as< obj_t > ().valor,yystack_[5].value.as< obj_t > ().valor,yystack_[3].value.as< obj_t > ().valor,yystack_[1].value.as< obj_t > ().valor); yylhs.value.as< obj_t > ().tipo = "Beta"; }
 #line 1086 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 63:
-#line 277 "bisonparser.yy" // lalr1.cc:859
+#line 279 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = yystack_[1].value.as< obj_t > ().valor; }
 #line 1092 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 66:
-#line 285 "bisonparser.yy" // lalr1.cc:859
+#line 287 "bisonparser.yy" // lalr1.cc:859
     {
 				  driver.setResult(-1);
 				  if(driver.getThrowsException()){
@@ -1113,67 +1113,67 @@ namespace yy {
     break;
 
   case 67:
-#line 305 "bisonparser.yy" // lalr1.cc:859
+#line 306 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = yystack_[0].value.as< obj_t > ().valor; }
 #line 1119 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 68:
-#line 309 "bisonparser.yy" // lalr1.cc:859
+#line 310 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = yystack_[0].value.as< obj_t > ().valor; }
 #line 1125 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 69:
-#line 310 "bisonparser.yy" // lalr1.cc:859
+#line 311 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = yystack_[0].value.as< obj_t > ().valor; }
 #line 1131 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 70:
-#line 313 "bisonparser.yy" // lalr1.cc:859
+#line 314 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = ((Variable*)(driver.getModel()->getElementManager()->getElement(Util::TypeOf<Variable>(), yystack_[0].value.as< obj_t > ().id)))->getValue();}
 #line 1137 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 71:
-#line 314 "bisonparser.yy" // lalr1.cc:859
+#line 315 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = ((Variable*)(driver.getModel()->getElementManager()->getElement(Util::TypeOf<Variable>(), yystack_[3].value.as< obj_t > ().id)))->getValue(std::to_string(yystack_[1].value.as< obj_t > ().valor));}
 #line 1143 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 72:
-#line 315 "bisonparser.yy" // lalr1.cc:859
+#line 316 "bisonparser.yy" // lalr1.cc:859
     { std::string index(std::to_string(yystack_[3].value.as< obj_t > ().valor)); index.append(","); index.append(std::to_string(yystack_[1].value.as< obj_t > ().valor)); yylhs.value.as< obj_t > ().valor = ((Variable*)(driver.getModel()->getElementManager()->getElement(Util::TypeOf<Variable>(), yystack_[5].value.as< obj_t > ().id)))->getValue(index);}
 #line 1149 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 73:
-#line 319 "bisonparser.yy" // lalr1.cc:859
+#line 320 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = ((Formula*)(driver.getModel()->getElementManager()->getElement(Util::TypeOf<Formula>(), yystack_[0].value.as< obj_t > ().id)))->getValue();}
 #line 1155 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 74:
-#line 323 "bisonparser.yy" // lalr1.cc:859
+#line 324 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = 0; }
 #line 1161 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 75:
-#line 328 "bisonparser.yy" // lalr1.cc:859
+#line 329 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = ((Queue*)(driver.getModel()->getElementManager()->getElement(Util::TypeOf<Queue>(), yystack_[1].value.as< obj_t > ().id)))->size();}
 #line 1167 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 76:
-#line 329 "bisonparser.yy" // lalr1.cc:859
+#line 330 "bisonparser.yy" // lalr1.cc:859
     {/*For now does nothing because need acces to list of QUEUE, or at least the last element*/ }
 #line 1173 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 77:
-#line 330 "bisonparser.yy" // lalr1.cc:859
+#line 331 "bisonparser.yy" // lalr1.cc:859
     { if (((Queue*)(driver.getModel()->getElementManager()->getElement(Util::TypeOf<Queue>(), yystack_[1].value.as< obj_t > ().id)))->size() > 0){
                                                             //id da 1a entidade da fila, talvez pegar nome
                                                             yylhs.value.as< obj_t > ().valor = ((Queue*)(driver.getModel()->getElementManager()->getElement(Util::TypeOf<Queue>(), yystack_[1].value.as< obj_t > ().id)))->first()->getEntity()->getId();
@@ -1185,7 +1185,7 @@ namespace yy {
     break;
 
   case 78:
-#line 337 "bisonparser.yy" // lalr1.cc:859
+#line 338 "bisonparser.yy" // lalr1.cc:859
     {   // @TODO: how can I get the "name" of the atributo?
 							    yylhs.value.as< obj_t > ().valor = 0;
 							}
@@ -1193,53 +1193,38 @@ namespace yy {
     break;
 
   case 79:
-#line 344 "bisonparser.yy" // lalr1.cc:859
+#line 345 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = ((Resource*)driver.getModel()->getElementManager()->getElement(Util::TypeOf<Resource>(), yystack_[1].value.as< obj_t > ().id))->getCapacity();}
 #line 1199 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 80:
-#line 345 "bisonparser.yy" // lalr1.cc:859
+#line 346 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = ((Resource*)driver.getModel()->getElementManager()->getElement(Util::TypeOf<Resource>(), yystack_[1].value.as< obj_t > ().id))->getNumberBusy();}
 #line 1205 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 81:
-#line 346 "bisonparser.yy" // lalr1.cc:859
+#line 347 "bisonparser.yy" // lalr1.cc:859
     { /*For now does nothing because needs get Seizes, check with teacher*/}
 #line 1211 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 82:
-#line 347 "bisonparser.yy" // lalr1.cc:859
-    {  switch(((Resource*)driver.getModel()->getElementManager()->getElement(Util::TypeOf<Resource>(), yystack_[1].value.as< obj_t > ().id))->getResourceState()){
-                                                            case Resource::ResourceState::IDLE:
-							      yylhs.value.as< obj_t > ().valor = -1;
-							      break;
-							    case Resource::ResourceState::BUSY:
-							      yylhs.value.as< obj_t > ().valor = -2;
-							      break;
-							    case Resource::ResourceState::FAILED:
-							      yylhs.value.as< obj_t > ().valor = -4;
-							      break;
-							    case Resource::ResourceState::INACTIVE:
-							      yylhs.value.as< obj_t > ().valor = -3;
-							    default:
-							      yylhs.value.as< obj_t > ().valor = -5;
-							      break;
-							  }
+#line 348 "bisonparser.yy" // lalr1.cc:859
+    {  yylhs.value.as< obj_t > ().valor = static_cast<int>(((Resource*)driver.getModel()->getElementManager()->getElement(Util::TypeOf<Resource>(), yystack_[1].value.as< obj_t > ().id))->getResourceState());
 							}
-#line 1233 "../GenesysParser.cpp" // lalr1.cc:859
+#line 1218 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 83:
-#line 365 "bisonparser.yy" // lalr1.cc:859
+#line 351 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = ((Resource*)driver.getModel()->getElementManager()->getElement(Util::TypeOf<Resource>(), yystack_[1].value.as< obj_t > ().id))->getResourceState() == Resource::ResourceState::FAILED ? 1 : 0; }
-#line 1239 "../GenesysParser.cpp" // lalr1.cc:859
+#line 1224 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 84:
-#line 366 "bisonparser.yy" // lalr1.cc:859
+#line 352 "bisonparser.yy" // lalr1.cc:859
     {   unsigned int count=0;
 							    Resource* res;
 							    List<ModelElement*>* setList = ((Set*)driver.getModel()->getElementManager()->getElement(Util::TypeOf<Set>(),yystack_[1].value.as< obj_t > ().id))->getElementSet(); 
@@ -1253,17 +1238,17 @@ namespace yy {
 							    }
 							    yylhs.value.as< obj_t > ().valor = count; 
 							}
-#line 1257 "../GenesysParser.cpp" // lalr1.cc:859
+#line 1242 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
   case 85:
-#line 383 "bisonparser.yy" // lalr1.cc:859
+#line 369 "bisonparser.yy" // lalr1.cc:859
     { yylhs.value.as< obj_t > ().valor = ((Set*)driver.getModel()->getElementManager()->getElement(Util::TypeOf<Set>(),yystack_[1].value.as< obj_t > ().id))->getElementSet()->size(); }
-#line 1263 "../GenesysParser.cpp" // lalr1.cc:859
+#line 1248 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
 
-#line 1267 "../GenesysParser.cpp" // lalr1.cc:859
+#line 1252 "../GenesysParser.cpp" // lalr1.cc:859
             default:
               break;
             }
@@ -1560,8 +1545,8 @@ namespace yy {
        0,     0,     0,     0,     0,     0,    45,    46,     0,     0,
       67,     0,     0,     0,     0,     0,     0,     0,     0,     0,
        0,     0,    70,    73,     0,     0,     3,     0,     4,     7,
-      15,     8,     9,    16,    33,    34,    11,    42,    40,    39,
-      41,    44,    12,    13,    14,    43,     0,     0,     0,     0,
+       8,    11,    12,    10,    33,    34,     9,    42,    40,    39,
+      41,    44,    14,    15,    16,    43,     0,     0,     0,     0,
        0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
        0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
        0,     0,     0,     0,     0,     0,     0,     0,    24,     0,
@@ -1569,7 +1554,7 @@ namespace yy {
        0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
        0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
        0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
-       0,     0,     0,     0,     0,    10,     0,    28,    30,    31,
+       0,     0,     0,     0,     0,    13,     0,    28,    30,    31,
       32,    25,    26,    19,    20,    22,    23,    21,    27,    29,
       47,    48,    49,     0,    51,    50,    53,     0,     0,     0,
        0,     0,     0,     0,     0,     0,    62,     0,     0,     0,
@@ -1868,7 +1853,7 @@ namespace yy {
   genesyspp_parser::yyr2_[] =
   {
        0,     2,     0,     2,     2,     1,     2,     1,     1,     1,
-       3,     1,     1,     1,     1,     1,     1,     1,     1,     3,
+       1,     1,     1,     3,     1,     1,     1,     1,     1,     3,
        3,     3,     3,     3,     2,     3,     3,     3,     3,     3,
        3,     3,     3,     1,     1,     7,     5,     8,     8,     1,
        1,     1,     1,     1,     1,     1,     1,     4,     4,     4,
@@ -1906,14 +1891,14 @@ namespace yy {
   genesyspp_parser::yyrline_[] =
   {
        0,   186,   186,   187,   188,   189,   190,   193,   196,   197,
-     198,   199,   200,   201,   202,   203,   204,   207,   208,   211,
-     212,   213,   214,   215,   216,   219,   220,   221,   222,   223,
-     224,   225,   226,   229,   230,   233,   234,   237,   238,   241,
-     242,   243,   244,   245,   246,   249,   250,   253,   254,   257,
-     258,   259,   260,   263,   264,   265,   266,   267,   268,   269,
-     270,   271,   272,   277,   281,   282,   285,   305,   309,   310,
-     313,   314,   315,   319,   323,   328,   329,   330,   337,   344,
-     345,   346,   347,   365,   366,   383
+     198,   199,   200,   201,   202,   204,   206,   209,   210,   213,
+     214,   215,   216,   217,   218,   221,   222,   223,   224,   225,
+     226,   227,   228,   231,   232,   235,   236,   239,   240,   243,
+     244,   245,   246,   247,   248,   251,   252,   255,   256,   259,
+     260,   261,   262,   265,   266,   267,   268,   269,   270,   271,
+     272,   273,   274,   279,   283,   284,   287,   306,   310,   311,
+     314,   315,   316,   320,   324,   329,   330,   331,   338,   345,
+     346,   347,   348,   351,   352,   369
   };
 
   // Print the state stack on the debug stream.
@@ -1948,8 +1933,8 @@ namespace yy {
 
 
 } // yy
-#line 1952 "../GenesysParser.cpp" // lalr1.cc:1167
-#line 393 "bisonparser.yy" // lalr1.cc:1168
+#line 1937 "../GenesysParser.cpp" // lalr1.cc:1167
+#line 379 "bisonparser.yy" // lalr1.cc:1168
 
 void
 yy::genesyspp_parser::error (const location_type& l,

@@ -55,16 +55,34 @@
       <rule number="7" usefulness="useful">
         <lhs>expressao</lhs>
         <rhs>
-          <symbol>aritmetica</symbol>
+          <symbol>numero</symbol>
         </rhs>
       </rule>
       <rule number="8" usefulness="useful">
         <lhs>expressao</lhs>
         <rhs>
-          <symbol>relacional</symbol>
+          <symbol>funcao</symbol>
         </rhs>
       </rule>
       <rule number="9" usefulness="useful">
+        <lhs>expressao</lhs>
+        <rhs>
+          <symbol>comando</symbol>
+        </rhs>
+      </rule>
+      <rule number="10" usefulness="useful">
+        <lhs>expressao</lhs>
+        <rhs>
+          <symbol>aritmetica</symbol>
+        </rhs>
+      </rule>
+      <rule number="11" usefulness="useful">
+        <lhs>expressao</lhs>
+        <rhs>
+          <symbol>relacional</symbol>
+        </rhs>
+      </rule>
+      <rule number="12" usefulness="useful">
         <lhs>expressao</lhs>
         <rhs>
           <symbol>&quot;(&quot;</symbol>
@@ -72,40 +90,22 @@
           <symbol>&quot;)&quot;</symbol>
         </rhs>
       </rule>
-      <rule number="10" usefulness="useful">
-        <lhs>expressao</lhs>
-        <rhs>
-          <symbol>funcao</symbol>
-        </rhs>
-      </rule>
-      <rule number="11" usefulness="useful">
+      <rule number="13" usefulness="useful">
         <lhs>expressao</lhs>
         <rhs>
           <symbol>atributo</symbol>
         </rhs>
       </rule>
-      <rule number="12" usefulness="useful">
+      <rule number="14" usefulness="useful">
         <lhs>expressao</lhs>
         <rhs>
           <symbol>variavel</symbol>
         </rhs>
       </rule>
-      <rule number="13" usefulness="useful">
-        <lhs>expressao</lhs>
-        <rhs>
-          <symbol>formula</symbol>
-        </rhs>
-      </rule>
-      <rule number="14" usefulness="useful">
-        <lhs>expressao</lhs>
-        <rhs>
-          <symbol>numero</symbol>
-        </rhs>
-      </rule>
       <rule number="15" usefulness="useful">
         <lhs>expressao</lhs>
         <rhs>
-          <symbol>comando</symbol>
+          <symbol>formula</symbol>
         </rhs>
       </rule>
       <rule number="16" usefulness="useful">
@@ -1732,10 +1732,10 @@
         <item rule-number="7" point="0"/>
         <item rule-number="8" point="0"/>
         <item rule-number="9" point="0"/>
-        <item rule-number="9" point="1"/>
         <item rule-number="10" point="0"/>
         <item rule-number="11" point="0"/>
         <item rule-number="12" point="0"/>
+        <item rule-number="12" point="1"/>
         <item rule-number="13" point="0"/>
         <item rule-number="14" point="0"/>
         <item rule-number="15" point="0"/>
@@ -2144,20 +2144,6 @@
 
     <state number="50">
       <itemset>
-        <item rule-number="14" point="1"/>
-      </itemset>
-      <actions>
-        <transitions/>
-        <errors/>
-        <reductions>
-          <reduction symbol="$default" rule="14" enabled="true"/>
-        </reductions>
-      </actions>
-      <solved-conflicts/>
-    </state>
-
-    <state number="51">
-      <itemset>
         <item rule-number="7" point="1"/>
       </itemset>
       <actions>
@@ -2170,15 +2156,29 @@
       <solved-conflicts/>
     </state>
 
-    <state number="52">
+    <state number="51">
       <itemset>
-        <item rule-number="8" point="1"/>
+        <item rule-number="10" point="1"/>
       </itemset>
       <actions>
         <transitions/>
         <errors/>
         <reductions>
-          <reduction symbol="$default" rule="8" enabled="true"/>
+          <reduction symbol="$default" rule="10" enabled="true"/>
+        </reductions>
+      </actions>
+      <solved-conflicts/>
+    </state>
+
+    <state number="52">
+      <itemset>
+        <item rule-number="11" point="1"/>
+      </itemset>
+      <actions>
+        <transitions/>
+        <errors/>
+        <reductions>
+          <reduction symbol="$default" rule="11" enabled="true"/>
         </reductions>
       </actions>
       <solved-conflicts/>
@@ -2186,13 +2186,13 @@
 
     <state number="53">
       <itemset>
-        <item rule-number="15" point="1"/>
+        <item rule-number="9" point="1"/>
       </itemset>
       <actions>
         <transitions/>
         <errors/>
         <reductions>
-          <reduction symbol="$default" rule="15" enabled="true"/>
+          <reduction symbol="$default" rule="9" enabled="true"/>
         </reductions>
       </actions>
       <solved-conflicts/>
@@ -2228,13 +2228,13 @@
 
     <state number="56">
       <itemset>
-        <item rule-number="10" point="1"/>
+        <item rule-number="8" point="1"/>
       </itemset>
       <actions>
         <transitions/>
         <errors/>
         <reductions>
-          <reduction symbol="$default" rule="10" enabled="true"/>
+          <reduction symbol="$default" rule="8" enabled="true"/>
         </reductions>
       </actions>
       <solved-conflicts/>
@@ -2312,34 +2312,6 @@
 
     <state number="62">
       <itemset>
-        <item rule-number="11" point="1"/>
-      </itemset>
-      <actions>
-        <transitions/>
-        <errors/>
-        <reductions>
-          <reduction symbol="$default" rule="11" enabled="true"/>
-        </reductions>
-      </actions>
-      <solved-conflicts/>
-    </state>
-
-    <state number="63">
-      <itemset>
-        <item rule-number="12" point="1"/>
-      </itemset>
-      <actions>
-        <transitions/>
-        <errors/>
-        <reductions>
-          <reduction symbol="$default" rule="12" enabled="true"/>
-        </reductions>
-      </actions>
-      <solved-conflicts/>
-    </state>
-
-    <state number="64">
-      <itemset>
         <item rule-number="13" point="1"/>
       </itemset>
       <actions>
@@ -2347,6 +2319,34 @@
         <errors/>
         <reductions>
           <reduction symbol="$default" rule="13" enabled="true"/>
+        </reductions>
+      </actions>
+      <solved-conflicts/>
+    </state>
+
+    <state number="63">
+      <itemset>
+        <item rule-number="14" point="1"/>
+      </itemset>
+      <actions>
+        <transitions/>
+        <errors/>
+        <reductions>
+          <reduction symbol="$default" rule="14" enabled="true"/>
+        </reductions>
+      </actions>
+      <solved-conflicts/>
+    </state>
+
+    <state number="64">
+      <itemset>
+        <item rule-number="15" point="1"/>
+      </itemset>
+      <actions>
+        <transitions/>
+        <errors/>
+        <reductions>
+          <reduction symbol="$default" rule="15" enabled="true"/>
         </reductions>
       </actions>
       <solved-conflicts/>
@@ -5129,7 +5129,7 @@
 
     <state number="97">
       <itemset>
-        <item rule-number="9" point="2"/>
+        <item rule-number="12" point="2"/>
         <item rule-number="18" point="1"/>
         <item rule-number="19" point="1"/>
         <item rule-number="20" point="1"/>
@@ -8456,13 +8456,13 @@
 
     <state number="145">
       <itemset>
-        <item rule-number="9" point="3"/>
+        <item rule-number="12" point="3"/>
       </itemset>
       <actions>
         <transitions/>
         <errors/>
         <reductions>
-          <reduction symbol="$default" rule="9" enabled="true"/>
+          <reduction symbol="$default" rule="12" enabled="true"/>
         </reductions>
       </actions>
       <solved-conflicts/>

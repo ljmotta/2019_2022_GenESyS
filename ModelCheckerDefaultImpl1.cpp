@@ -67,6 +67,9 @@ bool ModelCheckerDefaultImpl1::_recursiveConnectedTo(PluginManager* pluginManage
 		    this->_recursiveConnectedTo(pluginManager, nextComp, visited, unconnected, drenoFound);
 		    Util::DecIndent();
 		} else {
+		    Util::IncIndent();
+	            _model->getTraceManager()->trace(Util::TraceLevel::mostDetailed, "Connected to component " + nextComp->getName());
+		    Util::DecIndent();
 		    *drenoFound = true;
 		}
 	    }

@@ -4555,7 +4555,8 @@ YY_RULE_SETUP
             double variableValue = var->getValue();
             return yy::genesyspp_parser::make_VARI(obj_t(variableValue, Util::TypeOf<Variable>(), var->getId()),loc);
         }
-        
+
+        // Should be definied by plugin FORMULA
         // check FORMULA
         element = driver.getModel()->getElementManager()->getElement(Util::TypeOf<Formula>(), std::string(yytext));
         if (element != nullptr) { // it is a FORMULA
@@ -4563,44 +4564,48 @@ YY_RULE_SETUP
             double formulaValue = form->getValue();
             return yy::genesyspp_parser::make_FORM(obj_t(formulaValue, Util::TypeOf<Formula>(), form->getId()),loc);
         }
-        
+
+        // Should be definied by plugin QUEUE
         // check QUEUE
         element = driver.getModel()->getElementManager()->getElement(Util::TypeOf<Queue>(), std::string(yytext));
         if (element != nullptr) { 
-            return yy::genesyspp_parser::make_QUEUE(obj_t(0, Util::TypeOf<Variable>(), element->getId()),loc);
+            return yy::genesyspp_parser::make_QUEUE(obj_t(0, Util::TypeOf<Queue>(), element->getId()),loc);
         }
-        
+
+	// Should be definied by plugin RESOURCE
         // check RESOURCE
         element = driver.getModel()->getElementManager()->getElement(Util::TypeOf<Resource>(), std::string(yytext));
         if (element != nullptr) { 
             return yy::genesyspp_parser::make_RESOURCE(obj_t(0, Util::TypeOf<Resource>(), element->getId()),loc);
         }
-        
-        // check SET
-        //element = driver.getModel()->getElementManager()->getElement(Util::TypeOf<Set>(), std::string(yytext));
-        //if (element != nullptr) { 
-        //    return yy::genesyspp_parser::make_SET(obj_t(0, Util::TypeOf<Set>(), element->getId()),loc);
-        //}
 
+        // Should be definied by plugin SET
+        //check SET
+        element = driver.getModel()->getElementManager()->getElement(Util::TypeOf<Set>(), std::string(yytext));
+        if (element != nullptr) { 
+            return yy::genesyspp_parser::make_SET(obj_t(0, Util::TypeOf<Set>(), element->getId()),loc);
+        }
+
+	// If no one before has identified this literal, then it is an ILLEGAL (not found) literal 
         //Case not found retturns a illegal token
         return yy::genesyspp_parser::make_ILLEGAL(obj_t(0, std::string("Illegal")), loc);
       }
 	YY_BREAK
 case 63:
 YY_RULE_SETUP
-#line 222 "lexerparser.ll"
+#line 227 "lexerparser.ll"
 {return yy::genesyspp_parser::make_ILLEGAL(obj_t(1, std::string("Illegal")), loc);}
 	YY_BREAK
 case YY_STATE_EOF(INITIAL):
-#line 224 "lexerparser.ll"
+#line 229 "lexerparser.ll"
 {return yy::genesyspp_parser::make_END(loc);}
 	YY_BREAK
 case 64:
 YY_RULE_SETUP
-#line 227 "lexerparser.ll"
+#line 232 "lexerparser.ll"
 ECHO;
 	YY_BREAK
-#line 4604 "../Genesys++-scanner.cpp"
+#line 4609 "../Genesys++-scanner.cpp"
 
 	case YY_END_OF_BUFFER:
 		{
@@ -5561,7 +5566,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 227 "lexerparser.ll"
+#line 232 "lexerparser.ll"
 
 
 void

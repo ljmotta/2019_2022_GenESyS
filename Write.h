@@ -16,6 +16,19 @@
 
 #include "ModelComponent.h"
 
+class WriteElement {
+    public:
+
+	WriteElement(std::string text, bool isExpression=false, bool newline=false) {
+	    this->text = text;
+	    this->isExpression = isExpression;
+	    this->newline = newline;
+	}
+	std::string text;
+	bool isExpression;
+	bool newline;
+    };
+
 /*!
  This component ...
  */
@@ -26,18 +39,7 @@ public:
 	SCREEN = 1, FILE = 2
     };
 
-    class WriteElement {
-    public:
-
-	WriteElement(std::string text, bool isExpression, bool newline=false) {
-	    this->text = text;
-	    this->isExpression = isExpression;
-	    this->newline = newline;
-	}
-	std::string text;
-	bool isExpression;
-	bool newline;
-    };
+    
 
 public: // constructors
     Write(Model* model);
@@ -49,7 +51,7 @@ public: // static
     static PluginInformation* GetPluginInformation();
     static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 public:
-    List<Write::WriteElement*>* getWriteElements() const;
+    List<WriteElement*>* getWriteElements() const;
     void setFilename(std::string _filename);
     std::string getFilename() const;
     void setWriteToType(WriteToType _writeToType);
@@ -67,7 +69,7 @@ private: // attributes 1:1
     WriteToType _writeToType = Write::WriteToType::SCREEN;
     std::string _filename = "";
 private: // attributes 1:n
-    List<Write::WriteElement*>* _writeElements = new List<Write::WriteElement*>();
+    List<WriteElement*>* _writeElements = new List<WriteElement*>();
 };
 
 

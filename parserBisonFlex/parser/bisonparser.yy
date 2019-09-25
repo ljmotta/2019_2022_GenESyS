@@ -193,15 +193,17 @@ input	    : /* empty */
 programa    : expressao                         { $$.valor = $1.valor;}
      	    ;
 
-expressao   : aritmetica                       {$$.valor = $1.valor;}
+expressao   : numero                           {$$.valor = $1.valor;}
+            | funcao                           {$$.valor = $1.valor;}
+            | comando                          {$$.valor = $1.valor;}
+	    | aritmetica                       {$$.valor = $1.valor;}
             | relacional                       {$$.valor = $1.valor;}
             | "(" expressao ")"                {$$.valor = $2.valor;}
-            | funcao                           {$$.valor = $1.valor;}
             | atributo                         {$$.valor = $1.valor;}
-            | variavel                         {$$.valor = $1.valor;}  // to be defined by plugin
-            | formula                          {$$.valor = $1.valor;}  // to be defined by plugin
-            | numero                           {$$.valor = $1.valor;}
-            | comando                          {}
+// to be defined by plugin VARIABLE
+            | variavel                         {$$.valor = $1.valor;}
+// to be defined by plugin FORMULA
+            | formula                          {$$.valor = $1.valor;}
             ;
 
 numero      : NUMD                             { $$.valor = $1.valor;}
@@ -301,7 +303,6 @@ illegal     : ILLEGAL           {
             ;
 
 
-
 atributo    : ATRIB      { $$.valor = $1.valor; }
             ;
 
@@ -344,22 +345,7 @@ funcaoPlugin  : CTEZERO                                        { $$.valor = 0; }
            | fMR        "(" RESOURCE ")"                { $$.valor = ((Resource*)driver.getModel()->getElementManager()->getElement(Util::TypeOf<Resource>(), $3.id))->getCapacity();}
            | fNR        "(" RESOURCE ")"                { $$.valor = ((Resource*)driver.getModel()->getElementManager()->getElement(Util::TypeOf<Resource>(), $3.id))->getNumberBusy();}
            | fRESSEIZES "(" RESOURCE ")"                { /*For now does nothing because needs get Seizes, check with teacher*/}
-           | fSTATE     "(" RESOURCE ")"                {  switch(((Resource*)driver.getModel()->getElementManager()->getElement(Util::TypeOf<Resource>(), $3.id))->getResourceState()){
-                                                            case Resource::ResourceState::IDLE:
-							      $$.valor = -1;
-							      break;
-							    case Resource::ResourceState::BUSY:
-							      $$.valor = -2;
-							      break;
-							    case Resource::ResourceState::FAILED:
-							      $$.valor = -4;
-							      break;
-							    case Resource::ResourceState::INACTIVE:
-							      $$.valor = -3;
-							    default:
-							      $$.valor = -5;
-							      break;
-							  }
+           | fSTATE     "(" RESOURCE ")"                {  $$.valor = static_cast<int>(((Resource*)driver.getModel()->getElementManager()->getElement(Util::TypeOf<Resource>(), $3.id))->getResourceState());
 							}
 
            | fIRF       "(" RESOURCE ")"                { $$.valor = ((Resource*)driver.getModel()->getElementManager()->getElement(Util::TypeOf<Resource>(), $3.id))->getResourceState() == Resource::ResourceState::FAILED ? 1 : 0; }

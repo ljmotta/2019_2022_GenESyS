@@ -1,5 +1,5 @@
 # Genesys simulation model 
-# Last saved on Tue Sep 24 23:29:16 2019
+# Last saved on Wed Sep 25 13:08:09 2019
 # simulator infos
 name=ReGenESyS - Reborn Generic and Expansible System Simulator; typename=SimulatorInfo; version=190909; 
 
@@ -7,38 +7,54 @@ name=ReGenESyS - Reborn Generic and Expansible System Simulator; typename=Simula
 analystName=; description=; name=Model 1; numberOfReplications=1; projectTitle=; replicationLength=60.000000; replicationLengthTimeUnit=5; terminatingCondition=; typename=ModelInfo; version=1.0; warmUpTime=0.000000; warmUpTimeTimeUnit=5; 
 
 # model elements
-attributeName=; id=21; name=Queue_Seize_1; orderRule=1; typename=Queue; 
+attributeName=; id=22; name=Queue_Seize_1; orderRule=1; typename=Queue; 
 
-capacity=1; costBusyHour=1.000000; costIdleHour=1.000000; costPerUse=1.000000; id=12; name=Machine_2; typename=Resource; 
+attributeName=; id=28; name=Queue_Seize_2; orderRule=1; typename=Queue; 
 
-capacity=1; costBusyHour=1.000000; costIdleHour=1.000000; costPerUse=1.000000; id=16; name=Machine_3; typename=Resource; 
+attributeName=; id=34; name=Queue_Seize_3; orderRule=1; typename=Queue; 
 
 capacity=1; costBusyHour=1.000000; costIdleHour=1.000000; costPerUse=1.000000; id=8; name=Machine_1; typename=Resource; 
+
+capacity=2; costBusyHour=1.000000; costIdleHour=1.000000; costPerUse=1.000000; id=12; name=Machine_2; typename=Resource; 
+
+capacity=3; costBusyHour=1.000000; costIdleHour=1.000000; costPerUse=1.000000; id=16; name=Machine_3; typename=Resource; 
 
 id=1; initialNVACost=0.000000; initialOtherCost=0.000000; initialPicture=report; initialVACost=0.000000; initialWaitingCost=0.000000; name=Part; typename=EntityType; 
 
 id=20; name=Machine_Set; typename=Set; 
 
-id=29; name=Entity.ArrivalTime; typename=Attribute; 
+id=42; name=Entity.ArrivalTime; typename=Attribute; 
 
-id=30; name=Entity.WaitTime; typename=Attribute; 
+id=43; name=Entity.WaitTime; typename=Attribute; 
 
 id=5; name=index; typename=Attribute; 
 
-id=6; name=nextIndex; numCols=1; numRows=1; numValues=0; typename=Variable; 
+id=6; name=varNextIndex; numCols=1; numRows=1; numValues=0; typename=Variable; 
 
 # model components
-allocationType=0; id=24; name=Seize 1; nextId0=25; nextSize=1; priority==0; quantity=1; queueId=21; queueName=Queue_Seize_1; resourceId=8; resourceName=Machine_1; resourceType=2; rule=4; saveAttribute=; typename=Seize; 
+allocationType=0; id=25; name=Seize 1; nextId0=26; nextSize=1; priority==0; quantity=1; queueId=22; queueName=Queue_Seize_1; resourceId=8; resourceName=Machine_1; resourceType=2; rule=4; saveAttribute=; typename=Seize; 
 
-assignments=2; destination0=index; destinationType0=0; expression0=1; id=4; name=Assign 1; nextId0=7; nextSize=1; typename=Assign; 
+allocationType=0; id=31; name=Seize 2; nextId0=32; nextSize=1; priority==0; quantity=1; queueId=28; queueName=Queue_Seize_2; resourceId=12; resourceName=Machine_2; resourceType=2; rule=4; saveAttribute=; typename=Seize; 
 
-delayExpression=norm(6,1); delayExpressionTimeUnit=5; id=25; name=Delay 1; nextId0=26; nextSize=1; typename=Delay; 
+allocationType=0; id=37; name=Seize 3; nextId0=38; nextSize=1; priority==0; quantity=1; queueId=34; queueName=Queue_Seize_3; resourceId=16; resourceName=Machine_3; resourceType=2; rule=4; saveAttribute=; typename=Seize; 
 
-entitiesPerCreation=1; entityTypename=Part; firstCreation=0.000000; id=2; maxCreations=4294967295; name=Create 1; nextId0=4; nextSize=1; timeBetweenCreations=norm(3,1); timeBetweenCreationsTimeUnit=5; typename=Create; 
+assignments=2; destination0=varNextIndex; destinationType0=1; expression0=varNextIndex+1; id=4; name=Assign 1; nextId0=7; nextSize=1; typename=Assign; 
 
-id=26; name=Release 1; nextId0=27; nextSize=1; priority=0; quantity=1; resourceId=8; resourceName=Machine_1; resourceType=2; rule=4; saveAttribute=; typename=Release; 
+delayExpression=norm(15,1); delayExpressionTimeUnit=5; id=26; name=Delay 1; nextId0=27; nextSize=1; typename=Delay; 
 
-id=27; name=Dispose 1; nextSize=0; typename=Dispose; 
+delayExpression=norm(15,1); delayExpressionTimeUnit=5; id=32; name=Delay 2; nextId0=33; nextSize=1; typename=Delay; 
 
-id=7; name=Write 1; nextId0=24; nextSize=1; typename=Write; 
+delayExpression=norm(15,1); delayExpressionTimeUnit=5; id=38; name=Delay 3; nextId0=39; nextSize=1; typename=Delay; 
+
+entitiesPerCreation=1; entityTypename=Part; firstCreation=0.000000; id=2; maxCreations=4294967295; name=Create 1; nextId0=4; nextSize=1; timeBetweenCreations=norm(5,0.5); timeBetweenCreationsTimeUnit=5; typename=Create; 
+
+id=27; name=Release 1; nextId0=40; nextSize=1; priority=0; quantity=1; resourceId=8; resourceName=Machine_1; resourceType=2; rule=4; saveAttribute=; typename=Release; 
+
+id=33; name=Release 2; nextId0=40; nextSize=1; priority=0; quantity=1; resourceId=12; resourceName=Machine_2; resourceType=2; rule=4; saveAttribute=; typename=Release; 
+
+id=39; name=Release 3; nextId0=40; nextSize=1; priority=0; quantity=1; resourceId=16; resourceName=Machine_3; resourceType=2; rule=4; saveAttribute=; typename=Release; 
+
+id=40; name=Dispose 1; nextSize=0; typename=Dispose; 
+
+id=7; name=Write 1; nextId0=21; nextSize=1; typename=Write; 
 
