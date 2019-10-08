@@ -62,9 +62,9 @@ class genesyspp_driver;
 %token <obj_t> fCOS
 
 // aritmetic functions
-%token <obj_t> fAINT
+%token <obj_t> fROUND
 %token <obj_t> fMOD
-%token <obj_t> fINT
+%token <obj_t> fTRUNC
 %token <obj_t> fFRAC
 
 // probability distributions
@@ -116,6 +116,7 @@ class genesyspp_driver;
 %token <obj_t> fFIRSTINQ
 %token <obj_t> fLASTINQ
 %token <obj_t> fSAQUE
+%token <obj_t> fAQUE
 
 // to be defined by SET plugin
 %token <obj_t> fNUMSET
@@ -174,7 +175,7 @@ class genesyspp_driver;
 %left MINUS PLUS;
 %left STAR SLASH;
 %precedence NEG;
-%left fAINT fMOD fINT fFRAC;
+%left fROUND fMOD fTRUNC fFRAC;
 
 
 //%printer { yyoutput << $$; } <*>; //prints whren something
@@ -235,7 +236,7 @@ comando     : comandoIF
 comandoIF   : cIF "(" expressao ")" expressao cELSE expressao   {$$.valor = $3.valor != 0 ? $5.valor : $7.valor;}
             | cIF "(" expressao ")" expressao                   {$$.valor = $3.valor != 0 ? $5.valor : 0;}
             ;
-//Check for function/need, for now will let cout
+//Check for function/need, for now will let cout (these should be commands for program, not expression
 comandoFOR  : cFOR variavel "=" expressao cTO expressao cDO atribuicao  {$$.valor = 0; }
             | cFOR atributo "=" expressao cTO expressao cDO atribuicao  {$$.valor = 0; }
             ;
@@ -256,9 +257,9 @@ funcaoTrig  : fSIN   "(" expressao ")"         { $$.valor = sin($3.valor); }
             | fCOS   "(" expressao ")"         { $$.valor = cos($3.valor); }
             ;
 
-funcaoArit  : fAINT  "(" expressao ")"         { $$.valor = (int) $3.valor;}
+funcaoArit  : fROUND  "(" expressao ")"        { $$.valor = round($3.valor);}
             | fFRAC  "(" expressao ")"         { $$.valor = $3.valor - (int) $3.valor;}
-            | fINT   "(" expressao ")"         { $$.valor = (int) $3.valor;}
+            | fTRUNC   "(" expressao ")"       { $$.valor = trunc($3.valor);}
             | fMOD   "(" expressao "," expressao ")"            { $$.valor = (int) $3.valor % (int) $5.valor; }
             ;
 
@@ -303,7 +304,18 @@ illegal     : ILLEGAL           {
             ;
 
 
-atributo    : ATRIB      { $$.valor = $1.valor; }
+//atributo    : ATRIB      { $$.valor = $1.valor; }
+// 20181003  ATRIB now returns the attribute ID not the attribute value anymore. So, now get the attribute value for the current entity
+atributo    : ATRIB      {  double attributeValue = 0.0;
+			    if (driver.getModel()->getSimulation()->getCurrentEntity() != nullptr) {
+				try {
+				    // it could crach because there may be no current entity, if the parse is running before simulation and therefore there is no CurrentEntity
+				    attributeValue = driver.getModel()->getSimulation()->getCurrentEntity()->getAttributeValue($1.valor);
+				} catch(...) {
+				}
+			    }
+			    $$.valor = attributeValue; 
+			}
             ;
 
 //Check if want to set the atributo or variavel with expressao or just return the expressao value, for now just returns expressao value
@@ -335,9 +347,18 @@ funcaoPlugin  : CTEZERO                                        { $$.valor = 0; }
                                                             $$.valor = 0;
                                                           }
                                                         }
-	    | fSAQUE "(" QUEUE "," atributo ")"         {   // @TODO: how can I get the "name" of the atributo?
-							    $$.valor = 0;
-							}
+	    | fSAQUE "(" QUEUE "," ATRIB ")"   {   
+				 Util::identification queueID = $3.id;
+				 Util::identification attrID = $5.id;
+				 double sum = ((Queue*)(driver.getModel()->getElementManager()->getElement(Util::TypeOf<Queue>(), $3.id)))->sumAttributesFromWaiting(attrID);
+				  $$.valor = sum;
+				}
+	    | fAQUE "(" QUEUE "," NUMD "," ATRIB ")" {
+				 Util::identification queueID = $3.id;
+				 Util::identification attrID = $7.id;
+				 double value = ((Queue*)(driver.getModel()->getElementManager()->getElement(Util::TypeOf<Queue>(), $3.id)))->getAttributeFromWaitingRank($5.valor-1, attrID); // rank starts on 0 in genesys
+				  $$.valor = value;
+				}
 
 ///////////////////////////////////
 // to be defined by the RESOURCE plugin

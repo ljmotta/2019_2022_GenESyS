@@ -313,9 +313,9 @@ namespace yy {
       // oNOT
       // fSIN
       // fCOS
-      // fAINT
+      // fROUND
       // fMOD
-      // fINT
+      // fTRUNC
       // fFRAC
       // fEXPO
       // fNORM
@@ -348,6 +348,7 @@ namespace yy {
       // fFIRSTINQ
       // fLASTINQ
       // fSAQUE
+      // fAQUE
       // fNUMSET
       // SET
       // VARI
@@ -410,9 +411,9 @@ namespace yy {
         oNOT = 267,
         fSIN = 268,
         fCOS = 269,
-        fAINT = 270,
+        fROUND = 270,
         fMOD = 271,
-        fINT = 272,
+        fTRUNC = 272,
         fFRAC = 273,
         fEXPO = 274,
         fNORM = 275,
@@ -445,22 +446,23 @@ namespace yy {
         fFIRSTINQ = 302,
         fLASTINQ = 303,
         fSAQUE = 304,
-        fNUMSET = 305,
-        SET = 306,
-        VARI = 307,
-        FORM = 308,
-        LPAREN = 309,
-        RPAREN = 310,
-        PLUS = 311,
-        MINUS = 312,
-        STAR = 313,
-        POWER = 314,
-        SLASH = 315,
-        LESS = 316,
-        GREATER = 317,
-        ASSIGN = 318,
-        COMMA = 319,
-        NEG = 320
+        fAQUE = 305,
+        fNUMSET = 306,
+        SET = 307,
+        VARI = 308,
+        FORM = 309,
+        LPAREN = 310,
+        RPAREN = 311,
+        PLUS = 312,
+        MINUS = 313,
+        STAR = 314,
+        POWER = 315,
+        SLASH = 316,
+        LESS = 317,
+        GREATER = 318,
+        ASSIGN = 319,
+        COMMA = 320,
+        NEG = 321
       };
     };
 
@@ -621,7 +623,7 @@ namespace yy {
 
     static inline
     symbol_type
-    make_fAINT (const obj_t& v, const location_type& l);
+    make_fROUND (const obj_t& v, const location_type& l);
 
     static inline
     symbol_type
@@ -629,7 +631,7 @@ namespace yy {
 
     static inline
     symbol_type
-    make_fINT (const obj_t& v, const location_type& l);
+    make_fTRUNC (const obj_t& v, const location_type& l);
 
     static inline
     symbol_type
@@ -758,6 +760,10 @@ namespace yy {
     static inline
     symbol_type
     make_fSAQUE (const obj_t& v, const location_type& l);
+
+    static inline
+    symbol_type
+    make_fAQUE (const obj_t& v, const location_type& l);
 
     static inline
     symbol_type
@@ -1028,12 +1034,12 @@ namespace yy {
     enum
     {
       yyeof_ = 0,
-      yylast_ = 1059,     ///< Last index in yytable_.
+      yylast_ = 1037,     ///< Last index in yytable_.
       yynnts_ = 23,  ///< Number of nonterminal symbols.
       yyfinal_ = 6, ///< Termination state number.
       yyterror_ = 1,
       yyerrcode_ = 256,
-      yyntokens_ = 70  ///< Number of tokens.
+      yyntokens_ = 71  ///< Number of tokens.
     };
 
 
@@ -1051,7 +1057,7 @@ namespace yy {
     translate_table[] =
     {
      0,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-      66,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+      67,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
@@ -1082,9 +1088,9 @@ namespace yy {
       35,    36,    37,    38,    39,    40,    41,    42,    43,    44,
       45,    46,    47,    48,    49,    50,    51,    52,    53,    54,
       55,    56,    57,    58,    59,    60,    61,    62,    63,    64,
-      65,    67,    68,    69
+      65,    66,    68,    69,    70
     };
-    const unsigned int user_token_number_max_ = 323;
+    const unsigned int user_token_number_max_ = 324;
     const token_number_type undef_token_ = 2;
 
     if (static_cast<int>(t) <= yyeof_)
@@ -1129,9 +1135,9 @@ namespace yy {
       case 12: // oNOT
       case 13: // fSIN
       case 14: // fCOS
-      case 15: // fAINT
+      case 15: // fROUND
       case 16: // fMOD
-      case 17: // fINT
+      case 17: // fTRUNC
       case 18: // fFRAC
       case 19: // fEXPO
       case 20: // fNORM
@@ -1164,32 +1170,33 @@ namespace yy {
       case 47: // fFIRSTINQ
       case 48: // fLASTINQ
       case 49: // fSAQUE
-      case 50: // fNUMSET
-      case 51: // SET
-      case 52: // VARI
-      case 53: // FORM
-      case 71: // input
-      case 72: // programa
-      case 73: // expressao
-      case 74: // numero
-      case 75: // aritmetica
-      case 76: // relacional
-      case 77: // comando
-      case 78: // comandoIF
-      case 79: // comandoFOR
-      case 80: // funcao
-      case 81: // funcaoKernel
-      case 82: // funcaoTrig
-      case 83: // funcaoArit
-      case 84: // funcaoProb
-      case 85: // funcaoUser
-      case 86: // listaparm
-      case 87: // illegal
-      case 88: // atributo
-      case 89: // atribuicao
-      case 90: // variavel
-      case 91: // formula
-      case 92: // funcaoPlugin
+      case 50: // fAQUE
+      case 51: // fNUMSET
+      case 52: // SET
+      case 53: // VARI
+      case 54: // FORM
+      case 72: // input
+      case 73: // programa
+      case 74: // expressao
+      case 75: // numero
+      case 76: // aritmetica
+      case 77: // relacional
+      case 78: // comando
+      case 79: // comandoIF
+      case 80: // comandoFOR
+      case 81: // funcao
+      case 82: // funcaoKernel
+      case 83: // funcaoTrig
+      case 84: // funcaoArit
+      case 85: // funcaoProb
+      case 86: // funcaoUser
+      case 87: // listaparm
+      case 88: // illegal
+      case 89: // atributo
+      case 90: // atribuicao
+      case 91: // variavel
+      case 92: // formula
+      case 93: // funcaoPlugin
         value.copy< obj_t > (other.value);
         break;
 
@@ -1222,9 +1229,9 @@ namespace yy {
       case 12: // oNOT
       case 13: // fSIN
       case 14: // fCOS
-      case 15: // fAINT
+      case 15: // fROUND
       case 16: // fMOD
-      case 17: // fINT
+      case 17: // fTRUNC
       case 18: // fFRAC
       case 19: // fEXPO
       case 20: // fNORM
@@ -1257,32 +1264,33 @@ namespace yy {
       case 47: // fFIRSTINQ
       case 48: // fLASTINQ
       case 49: // fSAQUE
-      case 50: // fNUMSET
-      case 51: // SET
-      case 52: // VARI
-      case 53: // FORM
-      case 71: // input
-      case 72: // programa
-      case 73: // expressao
-      case 74: // numero
-      case 75: // aritmetica
-      case 76: // relacional
-      case 77: // comando
-      case 78: // comandoIF
-      case 79: // comandoFOR
-      case 80: // funcao
-      case 81: // funcaoKernel
-      case 82: // funcaoTrig
-      case 83: // funcaoArit
-      case 84: // funcaoProb
-      case 85: // funcaoUser
-      case 86: // listaparm
-      case 87: // illegal
-      case 88: // atributo
-      case 89: // atribuicao
-      case 90: // variavel
-      case 91: // formula
-      case 92: // funcaoPlugin
+      case 50: // fAQUE
+      case 51: // fNUMSET
+      case 52: // SET
+      case 53: // VARI
+      case 54: // FORM
+      case 72: // input
+      case 73: // programa
+      case 74: // expressao
+      case 75: // numero
+      case 76: // aritmetica
+      case 77: // relacional
+      case 78: // comando
+      case 79: // comandoIF
+      case 80: // comandoFOR
+      case 81: // funcao
+      case 82: // funcaoKernel
+      case 83: // funcaoTrig
+      case 84: // funcaoArit
+      case 85: // funcaoProb
+      case 86: // funcaoUser
+      case 87: // listaparm
+      case 88: // illegal
+      case 89: // atributo
+      case 90: // atribuicao
+      case 91: // variavel
+      case 92: // formula
+      case 93: // funcaoPlugin
         value.copy< obj_t > (v);
         break;
 
@@ -1346,9 +1354,9 @@ namespace yy {
       case 12: // oNOT
       case 13: // fSIN
       case 14: // fCOS
-      case 15: // fAINT
+      case 15: // fROUND
       case 16: // fMOD
-      case 17: // fINT
+      case 17: // fTRUNC
       case 18: // fFRAC
       case 19: // fEXPO
       case 20: // fNORM
@@ -1381,32 +1389,33 @@ namespace yy {
       case 47: // fFIRSTINQ
       case 48: // fLASTINQ
       case 49: // fSAQUE
-      case 50: // fNUMSET
-      case 51: // SET
-      case 52: // VARI
-      case 53: // FORM
-      case 71: // input
-      case 72: // programa
-      case 73: // expressao
-      case 74: // numero
-      case 75: // aritmetica
-      case 76: // relacional
-      case 77: // comando
-      case 78: // comandoIF
-      case 79: // comandoFOR
-      case 80: // funcao
-      case 81: // funcaoKernel
-      case 82: // funcaoTrig
-      case 83: // funcaoArit
-      case 84: // funcaoProb
-      case 85: // funcaoUser
-      case 86: // listaparm
-      case 87: // illegal
-      case 88: // atributo
-      case 89: // atribuicao
-      case 90: // variavel
-      case 91: // formula
-      case 92: // funcaoPlugin
+      case 50: // fAQUE
+      case 51: // fNUMSET
+      case 52: // SET
+      case 53: // VARI
+      case 54: // FORM
+      case 72: // input
+      case 73: // programa
+      case 74: // expressao
+      case 75: // numero
+      case 76: // aritmetica
+      case 77: // relacional
+      case 78: // comando
+      case 79: // comandoIF
+      case 80: // comandoFOR
+      case 81: // funcao
+      case 82: // funcaoKernel
+      case 83: // funcaoTrig
+      case 84: // funcaoArit
+      case 85: // funcaoProb
+      case 86: // funcaoUser
+      case 87: // listaparm
+      case 88: // illegal
+      case 89: // atributo
+      case 90: // atribuicao
+      case 91: // variavel
+      case 92: // formula
+      case 93: // funcaoPlugin
         value.template destroy< obj_t > ();
         break;
 
@@ -1445,9 +1454,9 @@ namespace yy {
       case 12: // oNOT
       case 13: // fSIN
       case 14: // fCOS
-      case 15: // fAINT
+      case 15: // fROUND
       case 16: // fMOD
-      case 17: // fINT
+      case 17: // fTRUNC
       case 18: // fFRAC
       case 19: // fEXPO
       case 20: // fNORM
@@ -1480,32 +1489,33 @@ namespace yy {
       case 47: // fFIRSTINQ
       case 48: // fLASTINQ
       case 49: // fSAQUE
-      case 50: // fNUMSET
-      case 51: // SET
-      case 52: // VARI
-      case 53: // FORM
-      case 71: // input
-      case 72: // programa
-      case 73: // expressao
-      case 74: // numero
-      case 75: // aritmetica
-      case 76: // relacional
-      case 77: // comando
-      case 78: // comandoIF
-      case 79: // comandoFOR
-      case 80: // funcao
-      case 81: // funcaoKernel
-      case 82: // funcaoTrig
-      case 83: // funcaoArit
-      case 84: // funcaoProb
-      case 85: // funcaoUser
-      case 86: // listaparm
-      case 87: // illegal
-      case 88: // atributo
-      case 89: // atribuicao
-      case 90: // variavel
-      case 91: // formula
-      case 92: // funcaoPlugin
+      case 50: // fAQUE
+      case 51: // fNUMSET
+      case 52: // SET
+      case 53: // VARI
+      case 54: // FORM
+      case 72: // input
+      case 73: // programa
+      case 74: // expressao
+      case 75: // numero
+      case 76: // aritmetica
+      case 77: // relacional
+      case 78: // comando
+      case 79: // comandoIF
+      case 80: // comandoFOR
+      case 81: // funcao
+      case 82: // funcaoKernel
+      case 83: // funcaoTrig
+      case 84: // funcaoArit
+      case 85: // funcaoProb
+      case 86: // funcaoUser
+      case 87: // listaparm
+      case 88: // illegal
+      case 89: // atributo
+      case 90: // atribuicao
+      case 91: // variavel
+      case 92: // formula
+      case 93: // funcaoPlugin
         value.move< obj_t > (s.value);
         break;
 
@@ -1570,7 +1580,8 @@ namespace yy {
      285,   286,   287,   288,   289,   290,   291,   292,   293,   294,
      295,   296,   297,   298,   299,   300,   301,   302,   303,   304,
      305,   306,   307,   308,   309,   310,   311,   312,   313,   314,
-     315,   316,   317,   318,   319,   320,    10,   321,   322,   323
+     315,   316,   317,   318,   319,   320,   321,    10,   322,   323,
+     324
     };
     return static_cast<token_type> (yytoken_number_[type]);
   }
@@ -1654,9 +1665,9 @@ namespace yy {
   }
 
   genesyspp_parser::symbol_type
-  genesyspp_parser::make_fAINT (const obj_t& v, const location_type& l)
+  genesyspp_parser::make_fROUND (const obj_t& v, const location_type& l)
   {
-    return symbol_type (token::fAINT, v, l);
+    return symbol_type (token::fROUND, v, l);
   }
 
   genesyspp_parser::symbol_type
@@ -1666,9 +1677,9 @@ namespace yy {
   }
 
   genesyspp_parser::symbol_type
-  genesyspp_parser::make_fINT (const obj_t& v, const location_type& l)
+  genesyspp_parser::make_fTRUNC (const obj_t& v, const location_type& l)
   {
-    return symbol_type (token::fINT, v, l);
+    return symbol_type (token::fTRUNC, v, l);
   }
 
   genesyspp_parser::symbol_type
@@ -1864,6 +1875,12 @@ namespace yy {
   }
 
   genesyspp_parser::symbol_type
+  genesyspp_parser::make_fAQUE (const obj_t& v, const location_type& l)
+  {
+    return symbol_type (token::fAQUE, v, l);
+  }
+
+  genesyspp_parser::symbol_type
   genesyspp_parser::make_fNUMSET (const obj_t& v, const location_type& l)
   {
     return symbol_type (token::fNUMSET, v, l);
@@ -1962,7 +1979,7 @@ namespace yy {
 
 
 } // yy
-#line 1966 "../GenesysParser.h" // lalr1.cc:377
+#line 1983 "../GenesysParser.h" // lalr1.cc:377
 
 
 

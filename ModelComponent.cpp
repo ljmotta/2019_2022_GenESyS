@@ -92,9 +92,9 @@ bool ModelComponent::_loadInstance(std::map<std::string, std::string>* fields) {
 	// Now it shoould load nextComponents. The problem is that the nextCOmponent may not be loaded yet.
 	// So, what can be done is to temporarily load the ID of the nextComponents, and to wait until all the components have been loaded to update nextComponents based on the temporarilyIDs now being loaded
 	unsigned short nextSize = std::stoi((*fields->find("nextSize")).second);
-	this->_tempLoadNextComponentsIDs = new List<Util::identitifcation>();
+	this->_tempLoadNextComponentsIDs = new List<Util::identification>();
 	for (unsigned short i = 0; i < nextSize; i++) {
-	    Util::identitifcation nextId = std::stoi((*fields->find("nextId" + std::to_string(i))).second);
+	    Util::identification nextId = std::stoi((*fields->find("nextId" + std::to_string(i))).second);
 	    this->_tempLoadNextComponentsIDs->insert(nextId);
 	}
     }

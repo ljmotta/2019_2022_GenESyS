@@ -17,7 +17,7 @@
 
 Queue::Queue(ElementManager* elems) : ModelElement(Util::TypeOf<Queue>()) {
     _elems = elems;
-    _initCStats(); 
+    _initCStats();
 }
 
 Queue::Queue(ElementManager* elems, std::string name) : ModelElement(Util::TypeOf<Queue>()) {
@@ -72,7 +72,7 @@ Waiting* Queue::first() {
     return _list->front();
 }
 
-Waiting* Queue::getAtRank(unsigned int rank){
+Waiting* Queue::getAtRank(unsigned int rank) {
     return _list->getAtRank(rank);
 }
 
@@ -92,14 +92,29 @@ Queue::OrderRule Queue::getOrderRule() const {
     return _orderRule;
 }
 
+double Queue::sumAttributesFromWaiting(Util::identification attributeID) {
+    double sum = 0.0;
+    for (std::list<Waiting*>::iterator it = _list->getList()->begin(); it != _list->getList()->end(); it++) {
+	sum += (*it)->getEntity()->getAttributeValue(attributeID);
+    }
+    return sum;
+}
 
+double Queue::getAttributeFromWaitingRank(unsigned int rank, Util::identification attributeID) {
+    Waiting* wait = _list->getAtRank(rank);
+    if (wait != nullptr) {
+	return wait->getEntity()->getAttributeValue(attributeID);
+    }
+    return 0.0;
+}
 
 //List<Waiting*>* Queue::getList() const {
 //	return _list;
 //}
 
 PluginInformation* Queue::GetPluginInformation() {
-    PluginInformation* info = new PluginInformation(Util::TypeOf<Queue>(), &Queue::LoadInstance); return info;
+    PluginInformation* info = new PluginInformation(Util::TypeOf<Queue>(), &Queue::LoadInstance);
+    return info;
 }
 
 ModelElement* Queue::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {

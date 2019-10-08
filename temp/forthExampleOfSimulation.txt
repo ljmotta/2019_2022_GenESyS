@@ -1,5 +1,5 @@
 # Genesys simulation model 
-# Last saved on Wed Sep 25 13:08:09 2019
+# Last saved on Mon Oct  7 21:41:51 2019
 # simulator infos
 name=ReGenESyS - Reborn Generic and Expansible System Simulator; typename=SimulatorInfo; version=190909; 
 
@@ -46,7 +46,7 @@ delayExpression=norm(15,1); delayExpressionTimeUnit=5; id=32; name=Delay 2; next
 
 delayExpression=norm(15,1); delayExpressionTimeUnit=5; id=38; name=Delay 3; nextId0=39; nextSize=1; typename=Delay; 
 
-entitiesPerCreation=1; entityTypename=Part; firstCreation=0.000000; id=2; maxCreations=4294967295; name=Create 1; nextId0=4; nextSize=1; timeBetweenCreations=norm(5,0.5); timeBetweenCreationsTimeUnit=5; typename=Create; 
+entitiesPerCreation=1; entityTypename=Part; firstCreation=0.000000; id=2; maxCreations=4294967295; name=Create 1; nextId0=4; nextSize=1; timeBetweenCreations=norm(1.5,0.5); timeBetweenCreationsTimeUnit=5; typename=Create; 
 
 id=27; name=Release 1; nextId0=40; nextSize=1; priority=0; quantity=1; resourceId=8; resourceName=Machine_1; resourceType=2; rule=4; saveAttribute=; typename=Release; 
 

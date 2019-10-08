@@ -73,7 +73,7 @@ std::string ModelElement::show() {
 }
 
 
-Util::identitifcation ModelElement::getId() const {
+Util::identification ModelElement::getId() const {
     return _id;
 }
 

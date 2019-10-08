@@ -91,7 +91,9 @@ public:
     void setOrderRule(OrderRule _orderRule);
     Queue::OrderRule getOrderRule() const;
     //List<Waiting*>* getList() const; // can't give direct access so Queue can collect statistics
-
+public: // to implement SIMAN functions
+    double sumAttributesFromWaiting(Util::identification attributeID); // use to implement SIMAN SAQUE function
+    double getAttributeFromWaitingRank(unsigned int rank, Util::identification attributeID);
 public:
     void initBetweenReplications();
 protected:

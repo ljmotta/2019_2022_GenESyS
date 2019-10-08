@@ -144,6 +144,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Submodel.o \
 	${OBJECTDIR}/TestEnterLeaveRoute.o \
 	${OBJECTDIR}/TestInputAnalyserTools.o \
+	${OBJECTDIR}/TestODE.o \
 	${OBJECTDIR}/TestParser.o \
 	${OBJECTDIR}/TestSimulationControlAndSimulationResponse.o \
 	${OBJECTDIR}/TestStatistics.o \
@@ -730,6 +731,11 @@ ${OBJECTDIR}/TestInputAnalyserTools.o: TestInputAnalyserTools.cpp nbproject/Make
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestInputAnalyserTools.o TestInputAnalyserTools.cpp
+
+${OBJECTDIR}/TestODE.o: TestODE.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestODE.o TestODE.cpp
 
 ${OBJECTDIR}/TestParser.o: TestParser.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

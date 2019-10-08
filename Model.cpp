@@ -281,7 +281,7 @@ ModelSimulation* Model::getSimulation() const {
 //	return ents;
 //}
 
-Util::identitifcation Model::getId() const {
+Util::identification Model::getId() const {
     return _id;
 }
 

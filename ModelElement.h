@@ -32,7 +32,7 @@ public:
     virtual ~ModelElement();
 
 public: // get & set
-    Util::identitifcation getId() const;
+    Util::identification getId() const;
     void setName(std::string _name);
     std::string getName() const;
     std::string getTypename() const;
@@ -50,7 +50,7 @@ protected: // could be overriden by derived classes
     virtual bool _check(std::string* errorMessage);
     virtual ParserChangesInformation* _getParserChangesInformation();
 protected:
-    Util::identitifcation _id;
+    Util::identification _id;
     std::string _name;
     std::string _typename;
 };

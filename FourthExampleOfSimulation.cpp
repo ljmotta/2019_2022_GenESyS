@@ -62,7 +62,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
     //
     Create* create1 = new Create(model);
     create1->setEntityType(part);
-    create1->setTimeBetweenCreationsExpression("norm(5,0.5)");
+    create1->setTimeBetweenCreationsExpression("norm(1.5,0.5)");
     create1->setTimeUnit(Util::TimeUnit::second);
     create1->setEntitiesPerCreation(1);
     components->insert(create1);
@@ -80,12 +80,13 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
     //
     Write* write1 = new Write(model);
     write1->setWriteToType(Write::WriteToType::SCREEN);
+    //write1->getWriteElements()->insert(new WriteElement("Atributo index: {index}"));
+    // write1->getWriteElements()->insert(new WriteElement("Variável nextIndex: {varNextIndex}"));
+    //write1->getWriteElements()->insert(new WriteElement("Quantidade de entidades nas filas: {NQ(Queue_Seize_1)}, {NQ(Queue_Seize_2)}, {NQ(Queue_Seize_3)}"));
     write1->getWriteElements()->insert(new WriteElement("Atributo index: "));
     write1->getWriteElements()->insert(new WriteElement("index",true,true));
     write1->getWriteElements()->insert(new WriteElement("Variável nextIndex: "));
     write1->getWriteElements()->insert(new WriteElement("varNextIndex",true,true));
-    write1->getWriteElements()->insert(new WriteElement("Quantidade de entidades na fila: "));
-    write1->getWriteElements()->insert(new WriteElement("NQ(Queue_Seize_1)",true,true));
     write1->getWriteElements()->insert(new WriteElement("Quantidade ocupada das máquinas: "));
     write1->getWriteElements()->insert(new WriteElement("NR(Machine_1)",true));
     write1->getWriteElements()->insert(new WriteElement(", "));
@@ -99,7 +100,13 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
     write1->getWriteElements()->insert(new WriteElement(", "));
     write1->getWriteElements()->insert(new WriteElement("STATE(Machine_3)",true, true));
     write1->getWriteElements()->insert(new WriteElement("Quantidade de máquinas ocupadas no Set: "));
-    write1->getWriteElements()->insert(new WriteElement("SETSUM(Machine_Set)",true));
+    write1->getWriteElements()->insert(new WriteElement("SETSUM(Machine_Set)",true,true));
+    write1->getWriteElements()->insert(new WriteElement("Quantidade de entidades na fila 3: "));
+    write1->getWriteElements()->insert(new WriteElement("NQ(Queue_Seize_3)",true,true));
+    write1->getWriteElements()->insert(new WriteElement("Somatório do atributo 'index' das entidades na fila 3: "));
+    write1->getWriteElements()->insert(new WriteElement("SAQUE(Queue_Seize_3,index)",true,true));
+    write1->getWriteElements()->insert(new WriteElement("Valor do atributo 'index' da 2ª entidade na fila 3: "));
+    write1->getWriteElements()->insert(new WriteElement("AQUE(Queue_Seize_3,2,index)",true,true));
     components->insert(write1);
     //
     Resource* machine1 = new Resource(elements, "Machine_1");
