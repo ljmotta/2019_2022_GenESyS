@@ -26,11 +26,11 @@ Resource::Resource(ElementManager* elems, std::string name) : ModelElement(Util:
 }
 
 void Resource::_initCStats() {
-    _cstatTimeSeized = new StatisticsCollector(_elems, "Time Seized", this);
+    _cstatTimeSeized = new StatisticsCollector(_elems, _name+"."+"Time_Seized", this);
     _elems->insert(Util::TypeOf<StatisticsCollector>(), _cstatTimeSeized);
-    _numSeizes = new Counter(_elems, "Seizes", this);
+    _numSeizes = new Counter(_elems, _name+"."+"Seizes", this);
     _elems->insert(Util::TypeOf<Counter>(), _numSeizes);
-    _numReleases = new Counter(_elems, "Releases", this);
+    _numReleases = new Counter(_elems, _name+"."+"Releases", this);
     _elems->insert(Util::TypeOf<Counter>(), _numReleases);
 
 }
@@ -178,4 +178,8 @@ std::map<std::string, std::string>* Resource::_saveInstance() {
 
 bool Resource::_check(std::string* errorMessage) {
     return true;
+}
+
+void Resource::_createInternalElements() {
+    //_initCStats();
 }

@@ -107,6 +107,8 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
     write1->getWriteElements()->insert(new WriteElement("SAQUE(Queue_Seize_3,index)",true,true));
     write1->getWriteElements()->insert(new WriteElement("Valor do atributo 'index' da 2ª entidade na fila 3: "));
     write1->getWriteElements()->insert(new WriteElement("AQUE(Queue_Seize_3,2,index)",true,true));
+    write1->getWriteElements()->insert(new WriteElement("Tempo médio das entidades na fila 3: "));
+    write1->getWriteElements()->insert(new WriteElement("TAVG(Queue_Seize_3.Time_In_Queue)",true,true));
     components->insert(write1);
     //
     Resource* machine1 = new Resource(elements, "Machine_1");

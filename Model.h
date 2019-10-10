@@ -85,6 +85,7 @@ private:
     void _showElements() const;
     void _showSimulationControls() const;
     void _showSimulationResponses() const;
+    void _createModelInternalElements();
 private: // read only public access (gets)
     Util::identification _id;
     Simulator* _parentSimulator; /*! The parente of the model */

@@ -78,6 +78,7 @@ protected:
     virtual bool _loadInstance(std::map<std::string, std::string>* fields);
     virtual std::map<std::string, std::string>* _saveInstance();
     virtual bool _check(std::string* errorMessage);
+    virtual void _createInternalElements();
 
 private:
     void _initCStats();
@@ -99,7 +100,7 @@ private: // not gets nor sets
     //unsigned int _seizes = 0;
     //double _whenSeized; // same as last? check
 private: //1:1
-    StatisticsCollector* _cstatTimeSeized; // = new StatisticsCollector("Time Seized");
+    StatisticsCollector* _cstatTimeSeized;
     Counter* _numSeizes;
     Counter* _numReleases;
 private: //1::n

@@ -102,7 +102,16 @@ std::map<std::string, std::string>* Write::_saveInstance() {
 
 bool Write::_check(std::string* errorMessage) {
     bool resultAll = true;
-    //...
+    WriteElement* msgElem;
+    unsigned short i=0;
+    std::list<WriteElement*>* msgs = this->_writeElements->getList();
+    for (std::list<WriteElement*>::iterator it = msgs->begin(); it != msgs->end(); it++) {
+	msgElem = (*it);
+	i++;
+	if (msgElem->isExpression) {
+	    /////////////////////////////// resultAll &= _model->checkExpression(msgElem->text, "writeExpression"+std::to_string(i), errorMessage);
+	}
+    }
     return resultAll;
 }
 

@@ -100,6 +100,7 @@ protected:
     virtual bool _loadInstance(std::map<std::string, std::string>* fields);
     virtual std::map<std::string, std::string>* _saveInstance();
     virtual bool _check(std::string* errorMessage);
+    virtual void _createInternalElements();
     virtual ParserChangesInformation* _getParserChangesInformation();
 
 private:
@@ -109,8 +110,8 @@ private:
 private: //1::n
     List<Waiting*>* _list = new List<Waiting*>();
 private: //1::1
-    StatisticsCollector* _cstatNumberInQueue; // = new StatisticsCollector("Number In Queue");
-    StatisticsCollector* _cstatTimeInQueue; // = new StatisticsCollector("Time In Queue ");
+    StatisticsCollector* _cstatNumberInQueue;
+    StatisticsCollector* _cstatTimeInQueue;
     OrderRule _orderRule = OrderRule::FIFO;
     std::string _attributeName = "";
 };

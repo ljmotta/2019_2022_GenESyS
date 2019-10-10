@@ -12,9 +12,10 @@
 # include "../List.h"
 # include "../Variable.h"
 # include "../Queue.h"
-# include "../Formula.h" 
+# include "../Formula.h"
 # include "../Resource.h"
-//# include "../Set.h"
+# include "../StatisticsCollector.h"
+# include "../Set.h"
 # include "../ModelElement.h"
 # include "../Attribute.h"
 
@@ -162,6 +163,13 @@ L      [A-Za-z0-9_.]+
   //%}
 [nN][uU][mM][sS][eE][tT]             {return yy::genesyspp_parser::make_fNUMSET(obj_t(0, std::string(yytext)), loc);}
 
+
+%{//
+  // to be defined by the CSTAT plugin
+  //%}
+[tT][aA][vV][gG]  {return yy::genesyspp_parser::make_fTAVG(obj_t(0, std::string(yytext)), loc);}
+
+
 [ \t\n]        ;
 
 
@@ -210,6 +218,13 @@ L      [A-Za-z0-9_.]+
         element = driver.getModel()->getElementManager()->getElement(Util::TypeOf<Set>(), std::string(yytext));
         if (element != nullptr) { 
             return yy::genesyspp_parser::make_SET(obj_t(0, Util::TypeOf<Set>(), element->getId()),loc);
+        }
+
+        // Should be definied by plugin STATISTICSCOLLECTOR
+        //check CSTAT
+        element = driver.getModel()->getElementManager()->getElement(Util::TypeOf<StatisticsCollector>(), std::string(yytext));
+        if (element != nullptr) { 
+            return yy::genesyspp_parser::make_CSTAT(obj_t(0, Util::TypeOf<StatisticsCollector>(), element->getId()),loc);
         }
 
 	// If no one before has identified this literal, then it is an ILLEGAL (not found) literal 

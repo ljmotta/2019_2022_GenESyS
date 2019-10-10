@@ -48,6 +48,15 @@ void ModelComponent::InitBetweenReplications(ModelComponent* component) {
     };
 }
 
+void ModelComponent::CreateInternalElements(ModelComponent* component) {
+    //component->_model->getTraceManager()->trace(Util::TraceLevel::blockArrival, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));
+    try {
+	component->_createInternalElements();
+    } catch (const std::exception& e) {
+	component->_model->getTraceManager()->traceError(e, "Error creating elements of component " + component->show());
+    };    
+}
+
 std::map<std::string, std::string>* ModelComponent::SaveInstance(ModelComponent* component) {
     component->_model->getTraceManager()->trace(Util::TraceLevel::blockArrival, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));
     std::map<std::string, std::string>* fields = new std::map<std::string, std::string>();
@@ -110,6 +119,10 @@ std::map<std::string, std::string>* ModelComponent::_saveInstance() {
 	i++;
     }
     return fields;
+}
+
+void ModelComponent::_createInternalElements() {
+    
 }
 
 /*

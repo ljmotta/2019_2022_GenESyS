@@ -119,8 +119,12 @@ class genesyspp_driver;
 %token <obj_t> fAQUE
 
 // to be defined by SET plugin
-%token <obj_t> fNUMSET
 %token <obj_t> SET
+%token <obj_t> fNUMSET
+
+// to be defined by STATISTICSCOLECTOR plugin
+%token <obj_t> CSTAT
+%token <obj_t> fTAVG
 
 // to be defined by VARIABLE plugin
 %token <obj_t> VARI
@@ -143,6 +147,7 @@ class genesyspp_driver;
 %token COMMA ","
 %token END 0 "end of file" //need to declare, as bison doesnt in especific situation
 
+///////////////////////////////
 ///////////////////////////////
 %type <obj_t> input
 %type <obj_t> programa
@@ -176,7 +181,6 @@ class genesyspp_driver;
 %left STAR SLASH;
 %precedence NEG;
 %left fROUND fMOD fTRUNC fFRAC;
-
 
 //%printer { yyoutput << $$; } <*>; //prints whren something
 %%
@@ -304,7 +308,6 @@ illegal     : ILLEGAL           {
             ;
 
 
-//atributo    : ATRIB      { $$.valor = $1.valor; }
 // 20181003  ATRIB now returns the attribute ID not the attribute value anymore. So, now get the attribute value for the current entity
 atributo    : ATRIB      {  double attributeValue = 0.0;
 			    if (driver.getModel()->getSimulation()->getCurrentEntity() != nullptr) {
@@ -388,6 +391,17 @@ funcaoPlugin  : CTEZERO                                        { $$.valor = 0; }
 // to be defined by the SET plugin
 ///////////////////////////////////
            | fNUMSET    "(" SET ")"                     { $$.valor = ((Set*)driver.getModel()->getElementManager()->getElement(Util::TypeOf<Set>(),$3.id))->getElementSet()->size(); }
+
+
+///////////////////////////////////
+// to be defined by the STATISTICSCOLLECTOR plugin
+///////////////////////////////////
+	   | CSTAT			{ $$.valor = 0; }
+           | fTAVG    "(" CSTAT ")"     {
+					    StatisticsCollector* cstat = ((StatisticsCollector*)(driver.getModel()->getElementManager()->getElement(Util::TypeOf<StatisticsCollector>(), $3.id)));
+					    double value = cstat->getStatistics()->average();
+					    $$.valor = value;
+					}
 
 
 ///////////////////////////////////
