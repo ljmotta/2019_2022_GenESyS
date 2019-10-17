@@ -51,12 +51,23 @@ PluginInformation* Formula::GetPluginInformation() {
 }
 
 ModelElement* Formula::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {
+    Formula* newElement = new Formula(elems);
+    try {
+	newElement->_loadInstance(fields);
+    } catch (const std::exception& e) {
+
+    }
+    return newElement;
 }
 
 bool Formula::_loadInstance(std::map<std::string, std::string>* fields) {
+    return ModelElement::_loadInstance(fields);
 }
 
 std::map<std::string, std::string>* Formula::_saveInstance() {
+    std::map<std::string, std::string>* fields = ModelElement::_saveInstance();
+    //fields->emplace("...", std::to_string(this->_...));
+    return fields;
 }
 
 bool Formula::_check(std::string* errorMessage) {

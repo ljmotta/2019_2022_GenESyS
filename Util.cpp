@@ -108,7 +108,7 @@ Util::identification Util::GetLastIdOfType(std::string objtype) {
 	Util::_S_lastIdOfType.insert(std::pair<std::string, Util::identification>(objtype, 0));
 	it = Util::_S_lastIdOfType.find(objtype);
     }
-    Util::identification next = (*it).second;
+    //Util::identification next = (*it).second;
     //next++;
     //(*it).second = next;
     return (*it).second;
@@ -133,11 +133,11 @@ double Util::TimeUnitConvert(Util::TimeUnit timeUnit1, Util::TimeUnit timeUnit2)
     intTimeUnit1 = static_cast<int> (timeUnit1);
     intTimeUnit2 = static_cast<int> (timeUnit2);
     if (intTimeUnit1 <= intTimeUnit2) {
-	for (unsigned int i = intTimeUnit1 + 1; i <= intTimeUnit2; i++) {
+	for (int i = intTimeUnit1 + 1; i <= intTimeUnit2; i++) {
 	    res /= scaleValues[i];
 	}
     } else {
-	for (unsigned int i = intTimeUnit2 + 1; i <= intTimeUnit1; i++) {
+	for (int i = intTimeUnit2 + 1; i <= intTimeUnit1; i++) {
 	    res *= scaleValues[i];
 	}
     }

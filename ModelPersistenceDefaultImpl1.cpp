@@ -41,7 +41,7 @@ bool ModelPersistenceDefaultImpl1::save(std::string filename) {
     Util::IncIndent();
     std::list<std::string> *simulInfosToSave, *modelInfosToSave, *modelElementsToSave, *modelComponentsToSave;
     {
-	bool res = true;
+	//bool res = true;
 	std::map<std::string, std::string>* fields;
 	fields = _getSimulatorInfoFieldsToSave();
 	simulInfosToSave = _adjustFieldsToSave(fields);
@@ -106,6 +106,7 @@ bool ModelPersistenceDefaultImpl1::save(std::string filename) {
 	Util::DecIndent();
     }
     Util::DecIndent();
+    return true; // todo: check if save really saved successfully
 }
 
 void ModelPersistenceDefaultImpl1::_saveContent(std::list<std::string>* content, std::ofstream* file) {

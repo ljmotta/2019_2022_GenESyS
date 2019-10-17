@@ -34,30 +34,39 @@ void StatisticsDummyImpl::collectorClearHandler() {
 }
 
 unsigned int StatisticsDummyImpl::numElements() {
+    return 0.0; // dummy
 }
 
 double StatisticsDummyImpl::min() {
+    return 0.0; // dummy
 }
 
 double StatisticsDummyImpl::max() {
+    return 0.0; // dummy
 }
 
 double StatisticsDummyImpl::average() {
+    return 0.0; // dummy
 }
 
 double StatisticsDummyImpl::variance() {
+    return 0.0; // dummy
 }
 
 double StatisticsDummyImpl::stddeviation() {
+    return 0.0; // dummy
 }
 
 double StatisticsDummyImpl::variationCoef() {
+    return 0.0; // dummy
 }
 
 double StatisticsDummyImpl::halfWidthConfidenceInterval() {
+    return 0.0; // dummy
 }
 
 unsigned int StatisticsDummyImpl::newSampleSize(double halfWidth) {
+    return 0; // dummy
 }
 
 void StatisticsDummyImpl::setConfidenceLevel(double confidencelevel) {
@@ -65,6 +74,7 @@ void StatisticsDummyImpl::setConfidenceLevel(double confidencelevel) {
 }
 
 double StatisticsDummyImpl::getConfidenceLevel() {
+    return 0.0; // dummy
 
 }
 

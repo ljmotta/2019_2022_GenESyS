@@ -29,26 +29,29 @@ ComponentManager::~ComponentManager() {
 }
 
 bool ComponentManager::insert(ModelComponent* comp) {
-    _components->insert(comp);
+    if (_components->find(comp) == _components->getList()->end()) {
+	_components->insert(comp);
+	return true;
+    }
+    return false;
 }
 
 void ComponentManager::remove(ModelComponent* comp) {
     _components->remove(comp);
 }
 
-void ComponentManager::clear(){
+void ComponentManager::clear() {
     this->_components->clear();
 }
 
-ModelComponent* ComponentManager::getComponent(Util::identification id) {
-}
+//ModelComponent* ComponentManager::getComponent(Util::identification id) {
+//}
 
-ModelComponent* ComponentManager::getComponent(std::string name) {
-    //_components->f
-}
+//ModelComponent* ComponentManager::getComponent(std::string name) {
+//}
 
 unsigned int ComponentManager::getNumberOfComponents() {
-    _components->size();
+    return _components->size();
 }
 
 std::list<ModelComponent*>::iterator ComponentManager::begin() {

@@ -42,6 +42,7 @@ void testStudentSoftwareDevelopments() {
     statVal = statistics->average();
     statVal = statistics->stddeviation();
     statVal = statistics->halfWidthConfidenceInterval();
+    std::cout << statVal << std::endl;
     /*
 	    statVal = statistics->quartil(2);
 	    statVal = statistics->mediane();
@@ -56,8 +57,7 @@ void testStudentSoftwareDevelopments() {
     fitter->setDataFilename(collector->getDataFilename());
     double sqrerror, p1, p2, p3; //, p4;
     std::string distribName;
-    bool res;
-    res = fitter->isNormalDistributed(0.95);
+    fitter->isNormalDistributed(0.95);
     fitter->fitUniform(&sqrerror, &p1, &p2);
     fitter->fitTriangular(&sqrerror, &p1, &p2, &p3);
     fitter->fitNormal(&sqrerror, &p1, &p2);
@@ -79,10 +79,12 @@ void testStudentSoftwareDevelopments() {
     // Test some hypothesis about the datafile
     HypothesisTester_if* tester = new Traits<HypothesisTester_if>::Implementation();
     tester->setDataFilename(collector->getDataFilename());
+    bool res;
     res = tester->testAverage(0.95, 5500, HypothesisTester_if::GREATER_THAN);
     res = tester->testAverage(0.95, 4500, HypothesisTester_if::LESS_THAN);
     res = tester->testAverage(0.95, 5100, HypothesisTester_if::DIFFERENT);
     res = tester->testVariance(0.95, 350 * 350, HypothesisTester_if::LESS_THAN);
+    std::cout << res << std::endl;
 
 }
 

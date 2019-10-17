@@ -171,7 +171,7 @@ void BuildSimulationModel03::builAndRunSimulationdModel() {
     Simulator* simulator = new Simulator();
 
     // traces handle and simulation events to output them
-    TraceManager* tm = simulator->getTraceManager();
+    //TraceManager* tm = simulator->getTraceManager();
     //tm->addTraceHandler(&traceHandlerFunction);
     //tm->addTraceReportHandler(&traceHandlerFunction);
     //tm->addTraceSimulationHandler(&traceSimulationHandlerFunction);  
@@ -182,7 +182,7 @@ void BuildSimulationModel03::builAndRunSimulationdModel() {
 
     Model* model = new Model(simulator);
 
-    OnEventManager* ev = model->getOnEventManager();
+    //OnEventManager* ev = model->getOnEventManager();
     //ev->addOnSimulationStartHandler(&onSimulationStartHandlerFunction);
     //ev->addOnReplicationStartHandler(&onReplicationStartHandlerFunction);
     //ev->addOnReplicationEndHandler(&onReplicationEndHandlerFunction);

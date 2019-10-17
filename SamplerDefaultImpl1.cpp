@@ -69,7 +69,7 @@ double SamplerDefaultImpl1::sampleLogNormal(double mean, double stddev) {
 double SamplerDefaultImpl1::sampleTriangular(double min, double mode, double max) {
 }
 
-double SamplerDefaultImpl1::sampleDiscrete(double value, double acumProb, ...) {
+double SamplerDefaultImpl1::sampleDiscrete(double acumProb, double value, ...) {
 }
 
 void SamplerDefaultImpl1::setRNGparameters(Sampler_if::RNG_Parameters* param) {

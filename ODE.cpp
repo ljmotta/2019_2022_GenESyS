@@ -34,9 +34,8 @@ std::string ODE::show() {
 }
 
 double ODE::solve() {
-    double expressionValue, k1, k2, k3, k4, w;
-    expressionValue  = _elems->getParentModel()->parseExpression(this->getODEfunctions()->front()->expression );
-    k1 = _stepH*expressionValue;
+    ////
+    return 0.0; // dummy
 }
 
 
@@ -66,12 +65,21 @@ PluginInformation* ODE::GetPluginInformation() {
 }
 
 ModelElement* ODE::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {
+    ODE* newElement = new ODE(elems);
+    try {
+	newElement->_loadInstance(fields);
+    } catch (const std::exception& e) {
+
+    }
+    return newElement;
 }
 
 bool ODE::_loadInstance(std::map<std::string, std::string>* fields) {
+    return ModelElement::_loadInstance(fields);    
 }
 
 std::map<std::string, std::string>* ODE::_saveInstance() {
+    return ModelElement::_saveInstance();
 }
 
 bool ODE::_check(std::string* errorMessage) {

@@ -145,7 +145,7 @@ void GenesysConsole::cmdModelShow() {
 }
 
 void GenesysConsole::cmdModelSave() {
-    this->_parameter;
+    //this->_parameter;
 }
 
 void GenesysConsole::cmdScript() {

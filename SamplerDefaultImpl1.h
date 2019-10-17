@@ -40,7 +40,7 @@ public: // probability distributions
     virtual double sampleWeibull(double alpha, double scale);
     virtual double sampleLogNormal(double mean, double stddev);
     virtual double sampleTriangular(double min, double mode, double max);
-    virtual double sampleDiscrete(double value, double acumProb, ...);
+    virtual double sampleDiscrete(double acumProb, double value, ...);
 public:
     void reset(); ///< reinitialize seed and other parameters so (pseudo) random number sequence will be generated again.
 public:

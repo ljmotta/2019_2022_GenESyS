@@ -44,4 +44,5 @@ int TestSimulationControlAndSimulationResponse::main(int argc, char** argv){
     control->setValue(20);
     std::cout << control->getName() << " depois: " << control->getValue() << std::endl;
     std::cout << "NumRepl depois: " << model->getInfos()->getNumberOfReplications() << std::endl;
+    return 0;
 }

@@ -50,17 +50,14 @@ static inline void trimwithin(std::string &str) {
     str.erase(remove(str.begin(), str.end(), ' '), str.end()); 
 }
 
-static std::string getFileName(const std::string& s) {
+static inline std::string getFileName(const std::string& s) {
    char sep = '/';
-
    size_t i = s.rfind(sep, s.length());
    if (i != std::string::npos) {
       return(s.substr(i+1, s.length() - i));
    }
    return s;
 }
-
-
 
 
 class Util {

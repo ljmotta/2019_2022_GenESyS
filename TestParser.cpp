@@ -38,4 +38,5 @@ int TestParser::main(int argc, char** argv) {
     std::cout << value << std::endl;
     value = model->parseExpression("1+2+3-10", &success, &errorMsg);
     std::cout << value << std::endl;
+    return 0;
 }

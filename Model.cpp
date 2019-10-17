@@ -151,9 +151,7 @@ void Model::_showElements() const {
     Util::IncIndent();
     {
 	std::string elementType;
-	bool result;
 	ModelElement* element;
-	std::string* errorMessage = new std::string();
 	std::list<std::string>* elementTypes = getElementManager()->getElementTypenames();
 	for (std::list<std::string>::iterator typeIt = elementTypes->begin(); typeIt != elementTypes->end(); typeIt++) {
 	    elementType = (*typeIt);

@@ -31,13 +31,17 @@ double IntegratorDummyImpl::getPrecision() {
 }
 
 double IntegratorDummyImpl::integrate(double min, double max, double (*f)(double, double), double p2) {
+    return 0.0; // dummy
 }
 
 double IntegratorDummyImpl::integrate(double min, double max, double (*f)(double, double, double), double p2, double p3) {
+    return 0.0; // dummy
 }
 
 double IntegratorDummyImpl::integrate(double min, double max, double (*f)(double, double, double, double), double p2, double p3, double p4) {
+    return 0.0; // dummy
 }
 
 double IntegratorDummyImpl::integrate(double min, double max, double (*f)(double, double, double, double, double), double p2, double p3, double p4, double p5) {
+    return 0.0; // dummy
 }

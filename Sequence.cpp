@@ -70,7 +70,7 @@ bool Sequence::_check(std::string* errorMessage) {
     /* include attributes needed */
     std::vector<std::string> neededNames = {"Entity.Sequence"};
     std::string neededName;
-    for (int i = 0; i < neededNames.size(); i++) {
+    for (unsigned int i = 0; i < neededNames.size(); i++) {
 	neededName = neededNames[i];
 	if (_elems->getElement(Util::TypeOf<Attribute>(), neededName) == nullptr) {
 	    Attribute* attr1 = new Attribute(neededName);

@@ -37,7 +37,7 @@ public: // probability distributions
     virtual double sampleWeibull(double alpha, double scale) = 0;
     virtual double sampleLogNormal(double mean, double stddev) = 0;
     virtual double sampleTriangular(double min, double mode, double max) = 0;
-    virtual double sampleDiscrete(double value, double acumProb, ...) = 0;
+    virtual double sampleDiscrete(double acumProb, double value, ...) = 0;
 public:
     virtual void setRNGparameters(RNG_Parameters* param) = 0;
     virtual RNG_Parameters* getRNGparameters() const = 0;

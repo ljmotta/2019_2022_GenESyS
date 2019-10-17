@@ -85,6 +85,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Leave.o \
 	${OBJECTDIR}/LicenceManager.o \
 	${OBJECTDIR}/Match.o \
+	${OBJECTDIR}/MathMeth.o \
 	${OBJECTDIR}/Model.o \
 	${OBJECTDIR}/ModelCheckerDefaultImpl1.o \
 	${OBJECTDIR}/ModelComponent.o \
@@ -436,6 +437,11 @@ ${OBJECTDIR}/Match.o: Match.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Match.o Match.cpp
+
+${OBJECTDIR}/MathMeth.o: MathMeth.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/MathMeth.o MathMeth.cpp
 
 ${OBJECTDIR}/Model.o: Model.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

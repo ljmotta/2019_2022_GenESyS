@@ -30,8 +30,8 @@ public:
     //bool check(ModelComponent* comp, std::string expressionName, std::string* errorMessage);
     //bool check(std::string compName, std::string expressionName, bool mandatory, std::string* errorMessage);    
 public:
-    ModelComponent* getComponent(Util::identification id);
-    ModelComponent* getComponent(std::string name);
+    //ModelComponent* getComponent(Util::identification id);
+    //ModelComponent* getComponent(std::string name);
     unsigned int getNumberOfComponents();
     std::list<ModelComponent*>::iterator begin();
     std::list<ModelComponent*>::iterator end();

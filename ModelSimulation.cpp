@@ -106,7 +106,7 @@ void ModelSimulation::_actualizeSimulationStatistics() {
     const std::string UtilTypeOfCounter = Util::TypeOf<Counter>();
 
     StatisticsCollector *sc, *scSim;
-    ModelElement* me;
+    //ModelElement* me;
     List<ModelElement*>* cstats = _model->getElementManager()->getElements(Util::TypeOf<StatisticsCollector>());
     for (std::list<ModelElement*>::iterator itMod = cstats->getList()->begin(); itMod != cstats->getList()->end(); itMod++) {
 	sc = dynamic_cast<StatisticsCollector*> ((*itMod));
@@ -129,11 +129,11 @@ void ModelSimulation::_actualizeSimulationStatistics() {
 	assert(scSim != nullptr);
 	scSim->getStatistics()->getCollector()->addValue(sc->getStatistics()->average());
     }
-    Counter *cnt, *cntSim;
+    Counter *cnt; //, *cntSim;
     List<ModelElement*>* counters = _model->getElementManager()->getElements(Util::TypeOf<Counter>());
     for (std::list<ModelElement*>::iterator itMod = counters->getList()->begin(); itMod != counters->getList()->end(); itMod++) {
 	cnt = dynamic_cast<Counter*> ((*itMod));
-	/**/cntSim = nullptr;
+	//cntSim = nullptr;
 	scSim = nullptr;
 	for (std::list<ModelElement*>::iterator itSim = _statsCountersSimulation->getList()->begin(); itSim != _statsCountersSimulation->getList()->end(); itSim++) {
 	    if ((*itSim)->getTypename() == UtilTypeOfStatisticsCollector) {

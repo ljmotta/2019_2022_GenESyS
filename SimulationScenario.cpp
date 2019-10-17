@@ -29,6 +29,7 @@ bool SimulationScenario::startSimulation(std::string* errorMessage) {
     // get the value of the _selectedResponses from the model and store results on _responseValues
     // clear selected controls and responses
     // close the model
+    return false;
 }
 
 void SimulationScenario::setScenarioName(std::string _name) {

@@ -23,25 +23,32 @@ HypothesisTesterDummyImpl::~HypothesisTesterDummyImpl() {
 }
 
 double HypothesisTesterDummyImpl::testAverage(double confidencelevel, double avg, H1Comparition comp) {
+    return 0.0; // dummy
 }
 
 double HypothesisTesterDummyImpl::testProportion(double confidencelevel, double prop, H1Comparition comp) {
+    return 0.0; // dummy
 }
 
 double HypothesisTesterDummyImpl::testVariance(double confidencelevel, double var, H1Comparition comp) {
+    return 0.0; // dummy
 }
 
 double HypothesisTesterDummyImpl::testAverage(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) {
+    return 0.0; // dummy
 }
 
 double HypothesisTesterDummyImpl::testProportion(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) {
+    return 0.0; // dummy
 }
 
 double HypothesisTesterDummyImpl::testVariance(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) {
+    return 0.0; // dummy
 }
 
 void HypothesisTesterDummyImpl::setDataFilename(std::string dataFilename) {
 }
 
 std::string HypothesisTesterDummyImpl::getDataFilename() {
+    return ""; // dummy
 }

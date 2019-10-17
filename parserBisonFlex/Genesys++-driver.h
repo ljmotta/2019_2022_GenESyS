@@ -14,7 +14,7 @@
 #define YY_DECL \
   yy::genesyspp_parser::symbol_type yylex (genesyspp_driver& driver)
 
-// # define YY_DECL \
+// # define YY_DECL 
 //   yy::genesyspp_parser::symbol_type yylex (semantic_type* yylval, location_type* yylloc, genesyspp_driver& driver)
 // ... and declare it for the parser's sake.
 YY_DECL;
