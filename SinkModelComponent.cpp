@@ -16,9 +16,6 @@
 SinkModelComponent::SinkModelComponent(Model* model, std::string componentTypename) : ModelComponent(model, componentTypename) {
 }
 
-SinkModelComponent::SinkModelComponent(const SinkModelComponent& orig) : ModelComponent(orig) {
-}
-// default destructor
 
 void SinkModelComponent::setCollectStatistics(bool _collectStatistics) {
     this->_collectStatistics = _collectStatistics;

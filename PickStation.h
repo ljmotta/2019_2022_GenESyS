@@ -22,7 +22,6 @@
 class PickStation : public ModelComponent {
 public: // constructors
     PickStation(Model* model);
-    PickStation(const PickStation& orig);
     virtual ~PickStation() = default;
 public:  // virtual
     virtual std::string show();

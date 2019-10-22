@@ -17,8 +17,6 @@ using namespace boost::random;
 
 SamplerBoostImpl::SamplerBoostImpl() {
 }
-// default destructor
-
 double SamplerBoostImpl::random() {
     uniform_int_distribution<> dist(0.0, 1.0);
     return dist(_gen);

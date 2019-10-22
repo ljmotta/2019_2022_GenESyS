@@ -22,9 +22,6 @@ ModelElement::ModelElement(std::string thistypename) {
     _typename = thistypename;
 }
 
-ModelElement::ModelElement(const ModelElement& orig) {
-}
-// default destructor
 
 bool ModelElement::_loadInstance(std::map<std::string, std::string>* fields) {
     //this->_id = std::stoi((*fields->find("id")).second);

@@ -22,7 +22,6 @@
 class Submodel : public ModelComponent {
 public: // constructors
     Submodel(Model* model);
-    Submodel(const Submodel& orig);
     virtual ~Submodel() = default;
 public:  // virtual
     virtual std::string show();

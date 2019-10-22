@@ -18,9 +18,6 @@
 Batch::Batch(Model* model) : ModelComponent(model, Util::TypeOf<Batch>()) {
 }
 
-Batch::Batch(const Batch& orig) : ModelComponent(orig) {
-}
-// default destructor
 
 std::string Batch::show() {
     return ModelComponent::show() + "";

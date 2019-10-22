@@ -18,9 +18,6 @@ ModelComponent::ModelComponent(Model* model, std::string componentTypename) : Mo
     _model = model;
 }
 
-ModelComponent::ModelComponent(const ModelComponent& orig) : ModelElement(orig) {
-}
-// default destructor
 
 void ModelComponent::Execute(Entity* entity, ModelComponent* component, unsigned int inputNumber) {
     std::string msg = "Entity " + std::to_string(entity->getEntityNumber()) + " has arrived at component \"" + component->_name + "\"";

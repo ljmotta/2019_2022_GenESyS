@@ -18,9 +18,6 @@
 Free::Free(Model* model) : ModelComponent(model, Util::TypeOf<Free>()) {
 }
 
-Free::Free(const Free& orig) : ModelComponent(orig) {
-}
-// default destructor
 
 std::string Free::show() {
     return ModelComponent::show() + "";

@@ -31,9 +31,6 @@ ModelSimulation::ModelSimulation(Model* model) {
     _simulationReporter = new Traits<SimulationReporter_if>::Implementation(this, model, this->_statsCountersSimulation);
 }
 
-ModelSimulation::ModelSimulation(const ModelSimulation& orig) {
-}
-// default destructor
 
 bool ModelSimulation::_isReplicationEndCondition() {
     bool finish = _model->getEvents()->size() == 0;

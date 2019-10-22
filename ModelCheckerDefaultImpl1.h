@@ -21,7 +21,6 @@
 class ModelCheckerDefaultImpl1 : public ModelChecker_if {
 public:
     ModelCheckerDefaultImpl1(Model* model);
-    ModelCheckerDefaultImpl1(const ModelCheckerDefaultImpl1& orig);
     virtual ~ModelCheckerDefaultImpl1() = default;
 public:
     virtual bool checkAll();

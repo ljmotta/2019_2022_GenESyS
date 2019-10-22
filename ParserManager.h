@@ -33,7 +33,6 @@ public:
     };
 public:
     ParserManager();
-    ParserManager(const ParserManager& orig);
     virtual ~ParserManager() = default;
 public:
     ParserManager::GenerateNewParserResult generateNewParser(ParserChangesInformation* changes);

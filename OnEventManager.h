@@ -54,7 +54,6 @@ typedef void (*simulationEventHandler)(SimulationEvent*);
 class OnEventManager {
 public:
     OnEventManager();
-    OnEventManager(const OnEventManager& orig);
     virtual ~OnEventManager() = default;
 public: // event listeners (handlers)
     void addOnReplicationStartHandler(simulationEventHandler EventHandler);

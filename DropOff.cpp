@@ -17,9 +17,6 @@
 DropOff::DropOff(Model* model) : ModelComponent(model, Util::TypeOf<DropOff>()) {
 }
 
-DropOff::DropOff(const DropOff& orig) : ModelComponent(orig) {
-}
-// default destructor
 
 std::string DropOff::show() {
     return ModelComponent::show() + "";

@@ -34,7 +34,6 @@ public:
     using CompFunct = std::function<bool(const T, const T) >;
 public:
     List();
-    List(const List& orig);
     virtual ~List() = default;
 public: // direct access to list
     unsigned int size();
@@ -88,9 +87,9 @@ unsigned int List<T>::size() {
     return _list->size();
 }
 
-template <typename T>
-List<T>::List(const List& orig) {
-}
+//template <typename T>
+//List<T>::List(const List& orig) {
+//}
 
 //template <typename T>
 //List<T>::~List() {

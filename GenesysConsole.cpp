@@ -40,9 +40,6 @@ GenesysConsole::GenesysConsole() {
     _commands->insert(new ShellCommand("tl", "tracelevel", "<0|1|2|...|7>", "Set the trace level (the bigger the most verbose).", DefineExecuterMember<GenesysConsole>(this, &GenesysConsole::cmdTraceLevel)));
 }
 
-GenesysConsole::GenesysConsole(const GenesysConsole& orig) {
-}
-// default destructor
 
 void GenesysConsole::cmdTraceLevel() {
     Trace("Set trace level");

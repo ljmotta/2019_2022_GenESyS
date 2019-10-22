@@ -22,7 +22,6 @@
 class Formula : public ModelElement {
 public:
     Formula(ElementManager* elements);
-    Formula(const Formula& orig);
     virtual ~Formula() = default;
 public:
     void setFormulaExpression(std::string _formulaExpression);

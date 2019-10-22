@@ -33,10 +33,6 @@ void Queue::_initCStats() {
     _elems->insert(Util::TypeOf<StatisticsCollector>(), _cstatTimeInQueue);
 
 }
-
-Queue::Queue(const Queue& orig) : ModelElement(orig) {
-}
-
 Queue::~Queue() {
     _elems->remove(Util::TypeOf<StatisticsCollector>(), _cstatNumberInQueue);
     _elems->remove(Util::TypeOf<StatisticsCollector>(), _cstatTimeInQueue);

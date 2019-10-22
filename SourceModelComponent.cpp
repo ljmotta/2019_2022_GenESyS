@@ -18,9 +18,6 @@
 SourceModelComponent::SourceModelComponent(Model* model, std::string componentTypename) : ModelComponent(model, componentTypename) {
 }
 
-SourceModelComponent::SourceModelComponent(const SourceModelComponent& orig) : ModelComponent(orig) {
-}
-// default destructor
 
 std::string SourceModelComponent::show() {
     std::string text = ModelComponent::show() +

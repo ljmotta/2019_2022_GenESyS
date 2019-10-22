@@ -17,9 +17,6 @@
 Search::Search(Model* model) : ModelComponent(model, Util::TypeOf<Search>()) {
 }
 
-Search::Search(const Search& orig) : ModelComponent(orig) {
-}
-// default destructor
 
 std::string Search::show() {
     return ModelComponent::show() + "";

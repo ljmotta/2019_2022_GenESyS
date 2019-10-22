@@ -22,7 +22,6 @@
 class PickUp : public ModelComponent {
 public: // constructors
     PickUp(Model* model);
-    PickUp(const PickUp& orig);
     virtual ~PickUp() = default;
 public:  // virtual
     virtual std::string show();

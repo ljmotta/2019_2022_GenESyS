@@ -19,7 +19,6 @@
 class StatisticsDataFileDummyImpl : public StatisticsDatafile_if {
 public:
     StatisticsDataFileDummyImpl();
-    StatisticsDataFileDummyImpl(const StatisticsDataFileDummyImpl& orig);
     virtual ~StatisticsDataFileDummyImpl() = default;
 public:
     virtual Collector_if* getCollector();

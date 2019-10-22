@@ -20,9 +20,6 @@ PluginManager::PluginManager(Simulator* simulator) {
     this->_pluginConnector = new Traits<PluginConnector_if>::Implementation();
 }
 
-PluginManager::PluginManager(const PluginManager& orig) {
-}
-// default destructor
 
 //bool PluginManager::check(Plugin* plugin){
 //    return true;

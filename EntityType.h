@@ -26,7 +26,6 @@ class EntityType : public ModelElement {
 public:
     EntityType(ElementManager* elemManager);
     EntityType(ElementManager* elemManager, std::string name);
-    EntityType(const EntityType& orig);
     virtual ~EntityType();
 public:
     virtual std::string show();

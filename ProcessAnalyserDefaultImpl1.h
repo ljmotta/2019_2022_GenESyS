@@ -22,7 +22,6 @@
 class ProcessAnalyserDefaultImpl1 : public ProcessAnalyser_if {
 public:
     ProcessAnalyserDefaultImpl1();
-    ProcessAnalyserDefaultImpl1(const ProcessAnalyserDefaultImpl1& orig);
     virtual ~ProcessAnalyserDefaultImpl1() = default;
 public:
     virtual List<SimulationScenario*>* getScenarios() const;

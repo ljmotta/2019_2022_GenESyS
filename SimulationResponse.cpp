@@ -20,9 +20,6 @@ SimulationResponse::SimulationResponse(std::string type, std::string name, Gette
     _getterMemberFunction = getterMember;
 }
 
-SimulationResponse::SimulationResponse(const SimulationResponse& orig) {
-}
-// default destructor
 
 std::string SimulationResponse::show() {
     return "name="+this->_name+", type="+this->_type;

@@ -18,9 +18,6 @@
 PickStation::PickStation(Model* model) : ModelComponent(model, Util::TypeOf<PickStation>()) {
 }
 
-PickStation::PickStation(const PickStation& orig) : ModelComponent(orig) {
-}
-// default destructor
 
 std::string PickStation::show() {
     return ModelComponent::show() + "";

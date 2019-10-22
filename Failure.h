@@ -24,7 +24,6 @@ class Failure: public ModelElement {
 public:
     Failure(ElementManager* elems);
     Failure(ElementManager* elems, std::string name);
-    Failure(const Failure& orig);
     virtual ~Failure() = default;
 public: // static
     static ModelElement* LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields); 

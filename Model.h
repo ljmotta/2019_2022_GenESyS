@@ -43,7 +43,6 @@ class Simulator;
 class Model {
 public:
     Model(Simulator* simulator);
-    Model(const Model& orig);
     virtual ~Model() = default;
 public: // model control
     //void showReports();

@@ -27,7 +27,6 @@ public:
     };
 public:
     SamplerDefaultImpl1();
-    SamplerDefaultImpl1(const SamplerDefaultImpl1& orig);
     virtual ~SamplerDefaultImpl1() = default;
 public: // probability distributions
     virtual double random();

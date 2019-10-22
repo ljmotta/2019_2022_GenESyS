@@ -20,7 +20,6 @@
 class HypothesisTesterBoostImpl : public HypothesisTester_if {
 public:
     HypothesisTesterBoostImpl();
-    HypothesisTesterBoostImpl(const HypothesisTesterBoostImpl& orig);
     virtual ~HypothesisTesterBoostImpl() = default;
 public:
     virtual double testAverage(double confidencelevel, double avg, H1Comparition comp);

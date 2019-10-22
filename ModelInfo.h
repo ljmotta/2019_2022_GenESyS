@@ -23,7 +23,6 @@
 class ModelInfo {
 public:
     ModelInfo();
-    ModelInfo(const ModelInfo& orig);
     virtual ~ModelInfo() = default;
 public:
     std::string show();

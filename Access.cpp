@@ -18,9 +18,6 @@
 Access::Access(Model* model) : ModelComponent(model, Util::TypeOf<Access>()) {
 }
 
-Access::Access(const Access& orig) : ModelComponent(orig) {
-}
-// default destructor
 
 std::string Access::show() {
     return ModelComponent::show() + "";

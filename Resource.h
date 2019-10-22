@@ -47,7 +47,6 @@ public:
 public:
     Resource(ElementManager* elems);
     Resource(ElementManager* elems, std::string name);
-    Resource(const Resource& orig);
     virtual ~Resource();
 public:
     virtual std::string show();

@@ -34,10 +34,6 @@ void Station::_initCStats() {
     _elems->insert(Util::TypeOf<StatisticsCollector>(), _cstatTimeInStation);
 
 }
-
-Station::Station(const Station& orig) : ModelElement(orig) {
-}
-
 Station::~Station() {
     _elems->remove(Util::TypeOf<StatisticsCollector>(), _cstatNumberInStation);
     _elems->remove(Util::TypeOf<StatisticsCollector>(), _cstatTimeInStation);

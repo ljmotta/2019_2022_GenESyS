@@ -20,9 +20,6 @@ IntegratorDefaultImpl1::IntegratorDefaultImpl1() {
     this->_precision = Traits<Integrator_if>::Precision;
 }
 
-IntegratorDefaultImpl1::IntegratorDefaultImpl1(const IntegratorDefaultImpl1& orig) {
-}
-// default destructor
 
 void IntegratorDefaultImpl1::setPrecision(double e) {
     _precision = e;

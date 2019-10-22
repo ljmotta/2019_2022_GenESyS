@@ -25,7 +25,6 @@
 class SimulationScenario {
 public:
     SimulationScenario();
-    SimulationScenario(const SimulationScenario& orig);
     virtual ~SimulationScenario() = default;
 public: // results
     bool startSimulation(std::string* errorMessage);

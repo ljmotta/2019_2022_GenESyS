@@ -22,7 +22,6 @@
 class Remove : public ModelComponent {
 public: // constructors
     Remove(Model* model);
-    Remove(const Remove& orig);
     virtual ~Remove() = default;
 public:  // virtual
     virtual std::string show();

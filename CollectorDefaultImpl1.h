@@ -19,7 +19,6 @@
 class CollectorDefaultImpl1 : public Collector_if {
 public:
     CollectorDefaultImpl1();
-    CollectorDefaultImpl1(const CollectorDefaultImpl1& orig);
     virtual ~CollectorDefaultImpl1() = default;
 public:
     void clear();

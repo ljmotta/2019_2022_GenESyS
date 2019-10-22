@@ -21,9 +21,6 @@ Variable::Variable(std::string name) : ModelElement(Util::TypeOf<Variable>()) {
     _name = name;
 }
 
-Variable::Variable(const Variable& orig) : ModelElement(orig) {
-}
-// default destructor
 
 std::string Variable::show() {
     return ModelElement::show(); // @TODO: include values

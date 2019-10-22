@@ -24,7 +24,6 @@ typedef std::pair<ModelComponent*, unsigned int> Connection;
 class ConnectionManager {
 public:
     ConnectionManager();
-    ConnectionManager(const ConnectionManager& orig);
     virtual ~ConnectionManager() = default;
 public:
     unsigned int size();

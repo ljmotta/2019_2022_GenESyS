@@ -21,10 +21,6 @@ Record::Record(Model* model) : ModelComponent(model, Util::TypeOf<Record>()) {
     _cstatExpression = new StatisticsCollector(_model->getElementManager(), _expressionName, this);
     _model->getElementManager()->insert(Util::TypeOf<StatisticsCollector>(), _cstatExpression);
 }
-
-Record::Record(const Record& orig) : ModelComponent(orig) {
-}
-
 Record::~Record() {
     _model->getElementManager()->remove(Util::TypeOf<StatisticsCollector>(), _cstatExpression);
 }

@@ -22,7 +22,6 @@
 class Store : public ModelComponent {
 public: // constructors
     Store(Model* model);
-    Store(const Store& orig);
     virtual ~Store() = default;
 public:  // virtual
     virtual std::string show();

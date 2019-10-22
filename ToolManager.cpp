@@ -22,12 +22,6 @@ ToolManager::ToolManager(Simulator* simulator) {
     _sampler = new Traits<Sampler_if>::Implementation();
     _processAnalyser = new Traits<ProcessAnalyser_if>::Implementation();
 }
-
-ToolManager::ToolManager(const ToolManager& orig) {
-}
-// default destructor
-
-
 Sampler_if* ToolManager::getSampler() const {
     return _sampler;
 }

@@ -21,7 +21,6 @@ class Model;
 class ParserDefaultImpl1 : public Parser_if {
 public:
     ParserDefaultImpl1(Model* model);
-    ParserDefaultImpl1(const ParserDefaultImpl1& orig);
     virtual ~ParserDefaultImpl1() = default;
 public:
     double parse(const std::string expression); // may throw exception

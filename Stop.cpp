@@ -18,9 +18,6 @@
 Stop::Stop(Model* model) : ModelComponent(model, Util::TypeOf<Stop>()) {
 }
 
-Stop::Stop(const Stop& orig) : ModelComponent(orig) {
-}
-// default destructor
 
 std::string Stop::show() {
     return ModelComponent::show() + "";

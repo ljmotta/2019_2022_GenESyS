@@ -23,7 +23,6 @@
 class FactorOrInteractionContribution {
 public:
     FactorOrInteractionContribution(double contribution, double modelCoefficient, std::list<SimulationControl*>* controls);
-    FactorOrInteractionContribution(const FactorOrInteractionContribution& orig);
     ~FactorOrInteractionContribution();
 public:
     double getModelCoefficient() const;

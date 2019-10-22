@@ -21,7 +21,6 @@ class Simulator;
 class LicenceManager {
 public:
     LicenceManager(Simulator* simulator);
-    LicenceManager(const LicenceManager& orig);
     virtual ~LicenceManager() = default;
     const std::string showLicence() const;
     const std::string showLimits() const;

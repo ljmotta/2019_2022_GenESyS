@@ -29,7 +29,6 @@ class Model;
 class ElementManager {
 public:
     ElementManager(Model* model);
-    ElementManager(const ElementManager& orig);
     virtual ~ElementManager() = default;
 public:
     bool insert(std::string infraTypename, ModelElement* infra);

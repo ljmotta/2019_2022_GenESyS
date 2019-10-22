@@ -18,9 +18,6 @@ HypothesisTesterDefaultImpl1::HypothesisTesterDefaultImpl1() {
     _integrator = new Traits<HypothesisTester_if>::IntegratorImplementation();
 }
 
-HypothesisTesterDefaultImpl1::HypothesisTesterDefaultImpl1(const HypothesisTesterDefaultImpl1& orig) {
-}
-// default destructor
 
 double HypothesisTesterDefaultImpl1::testAverage(double confidencelevel, double avg, H1Comparition comp) {
     return 0.0; //todo

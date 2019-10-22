@@ -16,7 +16,4 @@
 CelularAutomata::CelularAutomata() {
 }
 
-CelularAutomata::CelularAutomata(const CelularAutomata& orig) {
-}
-// default destructor
 

@@ -18,9 +18,6 @@
 Exit::Exit(Model* model) : ModelComponent(model, Util::TypeOf<Exit>()) {
 }
 
-Exit::Exit(const Exit& orig) : ModelComponent(orig) {
-}
-// default destructor
 
 std::string Exit::show() {
     return ModelComponent::show() + "";

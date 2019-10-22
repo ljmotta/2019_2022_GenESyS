@@ -27,9 +27,6 @@ Event::Event(double time, Entity* entity, Connection* connection) {
     _componentInputNumber = connection->second;
 }
 
-Event::Event(const Event& orig) {
-}
-// default destructor
 
 std::string Event::show() {
     return "time=" + std::to_string(_time) +

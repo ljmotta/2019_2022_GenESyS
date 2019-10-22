@@ -111,7 +111,6 @@ typedef std::function<void(TraceSimulationProcess) > traceSimulationProcessListe
 class TraceManager {
 public:
     TraceManager(Simulator* simulator); //(Model* model);
-    TraceManager(const TraceManager& orig);
     virtual ~TraceManager() = default;
 public: // add trace handlers
     // for handlers that are simple functions

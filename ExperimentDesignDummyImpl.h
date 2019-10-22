@@ -22,7 +22,6 @@
 class ExperimentDesignDummyImpl : public ExperimentDesign_if {
 public:
     ExperimentDesignDummyImpl();
-    ExperimentDesignDummyImpl(const ExperimentDesignDummyImpl& orig);
     virtual ~ExperimentDesignDummyImpl() = default;
 public:
     virtual ProcessAnalyser_if* getProcessAnalyser() const;

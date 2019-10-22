@@ -49,9 +49,6 @@ void StatisticsCollector::_initStaticsAndCollector() {
     _statistics = new StatisticsClass(collector);//Traits<ModelComponent>::StatisticsCollector_StatisticsImplementation(collector);
 }
 
-StatisticsCollector::StatisticsCollector(const StatisticsCollector& orig) : ModelElement(orig) {
-}
-// default destructor
 
 std::string StatisticsCollector::show() {
     std::string parentStr = "";

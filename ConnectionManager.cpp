@@ -16,9 +16,6 @@
 ConnectionManager::ConnectionManager() {
 }
 
-ConnectionManager::ConnectionManager(const ConnectionManager& orig) {
-}
-// default destructor
 
 unsigned int ConnectionManager::size() {
     return _nextConnections->size();

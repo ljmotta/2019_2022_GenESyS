@@ -21,9 +21,6 @@ List<std::string>* Decide::getConditions() const {
     return _conditions;
 }
 
-Decide::Decide(const Decide& orig) : ModelComponent(orig) {
-}
-// default destructor
 
 std::string Decide::show() {
     return ModelComponent::show() + "";

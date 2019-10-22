@@ -32,7 +32,6 @@ class Model;
 class ModelComponent : public ModelElement {
 public:
     ModelComponent(Model* model, std::string componentTypename);
-    ModelComponent(const ModelComponent& orig);
     virtual ~ModelComponent() = default;
 public:
     virtual std::string show();

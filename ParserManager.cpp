@@ -16,7 +16,4 @@
 ParserManager::ParserManager() {
 }
 
-ParserManager::ParserManager(const ParserManager& orig) {
-}
-// default destructor
 

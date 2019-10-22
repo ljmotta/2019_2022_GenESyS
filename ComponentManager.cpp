@@ -22,9 +22,6 @@ ComponentManager::ComponentManager(Model* model) {
     });
 }
 
-ComponentManager::ComponentManager(const ComponentManager& orig) {
-}
-// default destructor
 
 bool ComponentManager::insert(ModelComponent* comp) {
     if (_components->find(comp) == _components->getList()->end()) {

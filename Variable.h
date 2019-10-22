@@ -23,7 +23,6 @@ class Variable : public ModelElement {
 public:
     Variable();
     Variable(std::string name);
-    Variable(const Variable& orig);
     virtual ~Variable() = default;
 public:
     virtual std::string show();

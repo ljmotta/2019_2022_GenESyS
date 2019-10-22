@@ -30,9 +30,6 @@ Counter::Counter(ElementManager* elems, std::string name, ModelElement* parent) 
     _addSimulationResponse(elems);
 }
 
-Counter::Counter(const Counter& orig) : ModelElement(orig) {
-}
-// default destructor
 
 void Counter::_addSimulationResponse(ElementManager* elems) {
     GetterMember getterMember = DefineGetterMember<Counter>(this, &Counter::getCountValue);

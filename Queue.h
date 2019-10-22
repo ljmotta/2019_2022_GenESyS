@@ -73,7 +73,6 @@ public:
 public:
     Queue(ElementManager* elems);
     Queue(ElementManager* elems, std::string name);
-    Queue(const Queue& orig);
     virtual ~Queue();
 public:
     virtual std::string show();

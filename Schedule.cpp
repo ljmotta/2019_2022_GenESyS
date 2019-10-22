@@ -16,7 +16,4 @@
 Schedule::Schedule() {
 }
 
-Schedule::Schedule(const Schedule& orig) {
-}
-// default destructor
 

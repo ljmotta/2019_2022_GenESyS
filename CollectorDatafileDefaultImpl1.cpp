@@ -16,9 +16,6 @@
 CollectorDatafileDefaultImpl1::CollectorDatafileDefaultImpl1() {
 }
 
-CollectorDatafileDefaultImpl1::CollectorDatafileDefaultImpl1(const CollectorDatafileDefaultImpl1& orig) {
-}
-// default destructor
 
 void CollectorDatafileDefaultImpl1::clear() {
 }

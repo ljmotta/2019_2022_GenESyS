@@ -50,10 +50,6 @@ void EntityType::_initCostsAndStatistics() {
 //    responses->insert(new SimulationResponse(Util::TypeOf<EntityType>(), "Waiting time",
 //            DefineGetterMember<StatisticsDefaultImpl1>(this->_cstatWaitingTime, &StatisticsDefaultImpl1::average)));
 }
-
-EntityType::EntityType(const EntityType& orig) : ModelElement(orig) {
-}
-
 EntityType::~EntityType() {
     //_elemManager->remove(Util::TypeOf<StatisticsCollector>(), _cstatNVATime);
     //_elemManager->remove(Util::TypeOf<StatisticsCollector>(), _cstatOtherTime);

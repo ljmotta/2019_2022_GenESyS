@@ -18,10 +18,6 @@
 ModelInfo::ModelInfo() {
     _name = "Model " + std::to_string(Util::GenerateNewIdOfType<Model>());
 }
-
-ModelInfo::ModelInfo(const ModelInfo& orig) {
-}
-
 std::string ModelInfo::show(){
     return "analystName=\""+this->_analystName+"\""+
 	    ",description=\""+this->_description+"\""+

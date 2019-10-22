@@ -10,8 +10,6 @@ genesyspp_driver::genesyspp_driver(Model* model, bool throws) {
     probs = new Traits<Sampler_if>::Implementation();
     throwsException = throws;
 }
-// default destructor
-
 int
 genesyspp_driver::parse_file(const std::string &f) {
     result = 0;

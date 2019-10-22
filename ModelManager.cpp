@@ -19,9 +19,6 @@ ModelManager::ModelManager(Simulator* simulator) {
     _currentModel = nullptr;
 }
 
-ModelManager::ModelManager(const ModelManager& orig) {
-}
-// default destructor
 
 void ModelManager::insert(Model* model) {
     _models->insert(model);

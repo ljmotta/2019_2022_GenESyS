@@ -18,9 +18,6 @@
 Signal::Signal(Model* model) : ModelComponent(model, Util::TypeOf<Signal>()) {
 }
 
-Signal::Signal(const Signal& orig) : ModelComponent(orig) {
-}
-// default destructor
 
 std::string Signal::show() {
     return ModelComponent::show() + "";

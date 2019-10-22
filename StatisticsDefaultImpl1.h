@@ -21,7 +21,6 @@ class StatisticsDefaultImpl1 : public Statistics_if {
 public:
     StatisticsDefaultImpl1(); ///< When constructor is invoked without a Collector, it is taken from Traits<Statistics_if>::CollectorImplementation configuration
     StatisticsDefaultImpl1(Collector_if* collector);
-    StatisticsDefaultImpl1(const StatisticsDefaultImpl1& orig);
     virtual ~StatisticsDefaultImpl1() = default;
 public:
     virtual Collector_if* getCollector();

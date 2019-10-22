@@ -72,9 +72,6 @@ Model::Model(Simulator* simulator) {
 	    );
 }
 
-Model::Model(const Model& orig) {
-}
-// default destructor
 
 void Model::sendEntityToComponent(Entity* entity, Connection* connection, double timeDelay) {
     this->sendEntityToComponent(entity, connection->first, timeDelay, connection->second);

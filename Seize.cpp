@@ -17,10 +17,6 @@
 
 Seize::Seize(Model* model) : ModelComponent(model, Util::TypeOf<Seize>()) {
 }
-
-Seize::Seize(const Seize& orig) : ModelComponent(orig) {
-}
-
 std::string Seize::show() {
     return ModelComponent::show() +
 	    ",resourceType=" + std::to_string(static_cast<int> (this->_resourceType)) +
@@ -141,8 +137,6 @@ void Seize::setQueue(Queue* queue) {
 Queue* Seize::getQueue() const {
     return _queue;
 }
-// default destructor
-
 void Seize::_execute(Entity* entity) {
     /* TODO +: not implemented yet */
     Resource* resource = nullptr;

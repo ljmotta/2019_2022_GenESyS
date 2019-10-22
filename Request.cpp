@@ -17,9 +17,6 @@
 Request::Request(Model* model) : ModelComponent(model, Util::TypeOf<Request>()) {
 }
 
-Request::Request(const Request& orig) : ModelComponent(orig) {
-}
-// default destructor
 
 std::string Request::show() {
     return ModelComponent::show() + "";

@@ -22,7 +22,6 @@
 class Stop : public ModelComponent {
 public: // constructors
     Stop(Model* model);
-    Stop(const Stop& orig);
     virtual ~Stop() = default;
 public:  // virtual
     virtual std::string show();

@@ -20,7 +20,6 @@
 class Enter: public ModelComponent {
 public:
     Enter(Model* model);
-    Enter(const Enter& orig);
     virtual ~Enter() = default;
 public:
     virtual std::string show();

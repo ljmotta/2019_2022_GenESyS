@@ -22,7 +22,6 @@
 class Move : public ModelComponent {
 public: // constructors
     Move(Model* model);
-    Move(const Move& orig);
     virtual ~Move() = default;
 public:  // virtual
     virtual std::string show();

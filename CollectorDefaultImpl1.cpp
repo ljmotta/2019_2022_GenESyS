@@ -16,9 +16,6 @@
 CollectorDefaultImpl1::CollectorDefaultImpl1() {
 }
 
-CollectorDefaultImpl1::CollectorDefaultImpl1(const CollectorDefaultImpl1& orig) {
-}
-// default destructor
 
 void CollectorDefaultImpl1::clear() {
     _numElements = 0;

@@ -23,7 +23,6 @@ class Station: public ModelElement {
 public:
     Station(ElementManager* elems);
     Station(ElementManager* elems, std::string name);
-    Station(const Station& orig);
     virtual ~Station();
 public:
     virtual std::string show();

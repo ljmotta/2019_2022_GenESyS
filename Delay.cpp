@@ -19,9 +19,6 @@ Delay::Delay(Model* model) : ModelComponent(model, Util::TypeOf<Delay>()) {
     //_name = "Delay " + std::to_string(Util::GenerateNewIdOfType<Delay>());
 }
 
-Delay::Delay(const Delay& orig) : ModelComponent(orig) {
-}
-// default destructor
 
 std::string Delay::show() {
     return ModelComponent::show() +

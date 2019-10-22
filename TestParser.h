@@ -19,7 +19,6 @@
 class TestParser : public GenesysApplication_if {
 public:
     TestParser();
-    TestParser(const TestParser& orig);
     virtual ~TestParser() = default;
 public:
     virtual int main(int argc, char** argv);

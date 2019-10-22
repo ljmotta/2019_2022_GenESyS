@@ -19,9 +19,6 @@ Dispose::Dispose(Model* model) : SinkModelComponent(model, Util::TypeOf<Dispose>
     _model->getElementManager()->insert(Util::TypeOf<Counter>(), _numberOut);
 }
 
-Dispose::Dispose(const Dispose& orig) : SinkModelComponent(orig) {
-}
-// default destructor
 
 std::string Dispose::show() {
     return SinkModelComponent::show() +

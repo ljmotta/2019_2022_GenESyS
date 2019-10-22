@@ -22,7 +22,6 @@
 class Start : public ModelComponent {
 public: // constructors
     Start(Model* model);
-    Start(const Start& orig);
     virtual ~Start() = default;
 public:  // virtual
     virtual std::string show();

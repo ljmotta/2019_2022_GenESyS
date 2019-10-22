@@ -25,7 +25,6 @@ public:
     StatisticsCollector(ElementManager* elems);
     StatisticsCollector(ElementManager* elems, std::string name);
     StatisticsCollector(ElementManager* elems, std::string name, ModelElement* parent);
-    StatisticsCollector(const StatisticsCollector& orig);
     virtual ~StatisticsCollector() = default;
 public:
     virtual std::string show();

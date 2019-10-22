@@ -19,9 +19,6 @@
 TestParser::TestParser() {
 }
 
-TestParser::TestParser(const TestParser& orig) {
-}
-// default destructor
 
 int TestParser::main(int argc, char** argv) {
     Simulator* simulator = new Simulator();

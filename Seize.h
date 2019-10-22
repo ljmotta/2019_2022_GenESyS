@@ -54,7 +54,6 @@ private:
 class Seize : public ModelComponent {
 public:
     Seize(Model* model);
-    Seize(const Seize& orig);
     virtual ~Seize() = default;
 public:
     virtual std::string show();

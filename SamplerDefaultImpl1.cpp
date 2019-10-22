@@ -27,9 +27,6 @@ void SamplerDefaultImpl1::reset() {
     //_normalflag = true;
 }
 
-SamplerDefaultImpl1::SamplerDefaultImpl1(const SamplerDefaultImpl1& orig) {
-}
-// default destructor
 
 double SamplerDefaultImpl1::random() {
     double module = (double) static_cast<DefaultImpl1RNG_Parameters*> (_param)->module;

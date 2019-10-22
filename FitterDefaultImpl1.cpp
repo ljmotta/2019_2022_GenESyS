@@ -16,9 +16,6 @@
 FitterDefaultImpl1::FitterDefaultImpl1() {
 }
 
-FitterDefaultImpl1::FitterDefaultImpl1(const FitterDefaultImpl1& orig) {
-}
-// default destructor
 
 bool FitterDefaultImpl1::isNormalDistributed(double confidencelevel) {
     return true;

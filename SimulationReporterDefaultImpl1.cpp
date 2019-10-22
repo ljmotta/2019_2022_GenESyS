@@ -22,9 +22,6 @@ SimulationReporterDefaultImpl1::SimulationReporterDefaultImpl1(ModelSimulation* 
     _statsCountersSimulation = statsCountersSimulation;
 }
 
-SimulationReporterDefaultImpl1::SimulationReporterDefaultImpl1(const SimulationReporterDefaultImpl1& orig) {
-}
-// default destructor
 
 void SimulationReporterDefaultImpl1::showReplicationStatistics() {
     _model->getTraceManager()->traceReport(Util::TraceLevel::report, "");

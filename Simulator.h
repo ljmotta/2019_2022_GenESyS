@@ -33,7 +33,6 @@ class Simulator {
     typedef void (*eventHandler)();
 public:
     Simulator();
-    Simulator(const Simulator& orig);
     virtual ~Simulator() = default;
 public: // only get
     std::string getVersion() const;

@@ -17,9 +17,6 @@
 Enter::Enter(Model* model) : ModelComponent(model, Util::TypeOf<Enter>()) {
 }
 
-Enter::Enter(const Enter& orig) : ModelComponent(orig) {
-}
-// default destructor
 
 std::string Enter::show() {
     return ModelComponent::show() + ",station="+this->_station->getName();

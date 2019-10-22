@@ -23,7 +23,6 @@
 class SimulationControl : public SimulationResponse {
 public:
     SimulationControl(std::string type, std::string name, GetterMember getterMember, SetterMember setterMember);
-    SimulationControl(const SimulationControl& orig);
     virtual ~SimulationControl() = default;
 public:
     std::string show();

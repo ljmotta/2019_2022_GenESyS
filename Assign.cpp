@@ -21,9 +21,6 @@
 Assign::Assign(Model* model) : ModelComponent(model, Util::TypeOf<Assign>()) {
 }
 
-Assign::Assign(const Assign& orig) : ModelComponent(orig) {
-}
-// default destructor
 
 std::string Assign::show() {
     return ModelComponent::show() +

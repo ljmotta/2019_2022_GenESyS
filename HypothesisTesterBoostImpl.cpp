@@ -15,12 +15,6 @@
 
 HypothesisTesterBoostImpl::HypothesisTesterBoostImpl() {
 }
-
-HypothesisTesterBoostImpl::HypothesisTesterBoostImpl(const HypothesisTesterBoostImpl& orig) {
-}
-// default destructor
-
-
 double HypothesisTesterBoostImpl::testAverage(double confidencelevel, double avg, H1Comparition comp) {
     return 0.0; //todo
 }

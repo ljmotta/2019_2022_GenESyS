@@ -24,7 +24,6 @@
 class Release : public ModelComponent {
 public:
     Release(Model* model);
-    Release(const Release& orig);
     virtual ~Release() = default;
 public:
     virtual std::string show();

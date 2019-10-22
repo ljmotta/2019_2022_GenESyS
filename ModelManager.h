@@ -20,7 +20,6 @@
 class ModelManager {
 public:
     ModelManager(Simulator* simulator);
-    ModelManager(const ModelManager& orig);
     virtual ~ModelManager() = default;
 public:
     void insert(Model* model);

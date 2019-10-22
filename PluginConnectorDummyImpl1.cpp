@@ -43,9 +43,6 @@
 PluginConnectorDummyImpl1::PluginConnectorDummyImpl1() {
 }
 
-PluginConnectorDummyImpl1::PluginConnectorDummyImpl1(const PluginConnectorDummyImpl1& orig) {
-}
-// default destructor
 
 Plugin* PluginConnectorDummyImpl1::check(const std::string dynamicLibraryFilename) {
     return nullptr; /**@ TODO:To implement */

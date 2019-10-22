@@ -43,7 +43,6 @@ public:
 
 public: // constructors
     Write(Model* model);
-    Write(const Write& orig);
     virtual ~Write() = default;
 public: // virtual
     virtual std::string show();

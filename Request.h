@@ -22,7 +22,6 @@
 class Request : public ModelComponent {
 public: // constructors
     Request(Model* model);
-    Request(const Request& orig);
     virtual ~Request() = default;
 public:  // virtual
     virtual std::string show();

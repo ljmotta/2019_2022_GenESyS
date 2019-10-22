@@ -28,7 +28,6 @@
 class ModelElement {
 public:
     ModelElement(std::string elementTypename);
-    ModelElement(const ModelElement& orig);
     virtual ~ModelElement() = default;
 
 public: // get & set

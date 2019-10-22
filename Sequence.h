@@ -29,7 +29,6 @@ public:
 public:
     Sequence(ElementManager* elems);
     Sequence(ElementManager* elems, std::string name);
-    Sequence(const Sequence& orig);
     virtual ~Sequence() = default;
 public:
     virtual std::string show();

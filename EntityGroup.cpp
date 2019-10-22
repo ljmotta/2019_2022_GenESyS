@@ -30,10 +30,6 @@ void EntityGroup::_initCStats() {
     _cstatNumberInGroup = new StatisticsCollector(_elements, "Number In Group", this);
     _elements->insert(Util::TypeOf<StatisticsCollector>(), _cstatNumberInGroup);
 }
-
-EntityGroup::EntityGroup(const EntityGroup& orig) : ModelElement(orig) {
-}
-
 EntityGroup::~EntityGroup() {
     _elements->remove(Util::TypeOf<StatisticsCollector>(), _cstatNumberInGroup);
 }

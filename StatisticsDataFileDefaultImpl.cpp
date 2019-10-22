@@ -19,9 +19,6 @@ StatisticsDataFileDummyImpl::StatisticsDataFileDummyImpl() {
     _collector = new Traits<Statistics_if>::CollectorImplementation();
 }
 
-StatisticsDataFileDummyImpl::StatisticsDataFileDummyImpl(const StatisticsDataFileDummyImpl& orig) {
-}
-// default destructor
 
 unsigned int StatisticsDataFileDummyImpl::numElements() {
     return 0; // dummy

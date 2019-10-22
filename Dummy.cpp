@@ -17,9 +17,6 @@
 Dummy::Dummy(Model* model) : ModelComponent(model, Util::TypeOf<Dummy>()) {
 }
 
-Dummy::Dummy(const Dummy& orig) : ModelComponent(orig) {
-}
-// default destructor
 
 std::string Dummy::show() {
     return ModelComponent::show() + "";

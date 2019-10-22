@@ -23,7 +23,6 @@ class Simulator;
 class PluginManager {
 public:
     PluginManager(Simulator* simulator);
-    PluginManager(const PluginManager& orig);
     virtual ~PluginManager() = default;
 public:
     bool check(const std::string dynamicLibraryFilename);

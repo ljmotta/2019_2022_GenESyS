@@ -23,9 +23,6 @@ ModelCheckerDefaultImpl1::ModelCheckerDefaultImpl1(Model* model) {
     _model = model;
 }
 
-ModelCheckerDefaultImpl1::ModelCheckerDefaultImpl1(const ModelCheckerDefaultImpl1& orig) {
-}
-// default destructor
 
 bool ModelCheckerDefaultImpl1::checkAll() {
     bool res = true;
@@ -247,9 +244,6 @@ begin
 end;
  
  */
-
-
-
 bool ModelCheckerDefaultImpl1::checkSymbols() {
     bool res = true;
     _model->getTraceManager()->trace(Util::TraceLevel::blockArrival, "Checking symbols");

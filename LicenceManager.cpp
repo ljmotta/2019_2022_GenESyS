@@ -18,9 +18,6 @@ LicenceManager::LicenceManager(Simulator* simulator) {
     this->setDefaultLicenceAndLimits();
 }
 
-LicenceManager::LicenceManager(const LicenceManager& orig) {
-}
-// default destructor
 
 void LicenceManager::setDefaultLicenceAndLimits() {
     _licence = "LICENCE: Academic Mode. In academic mode this software has full functionality and executing training-size simulation models. This software may be duplicated and used for educational purposes only; any commercial application is a violation of the license agreement. Designed and developed by prof. Dr. Ing Rafael Luiz Cancian, 2018-2019";

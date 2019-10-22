@@ -34,10 +34,6 @@ void Resource::_initCStats() {
     _elems->insert(Util::TypeOf<Counter>(), _numReleases);
 
 }
-
-Resource::Resource(const Resource& orig) : ModelElement(orig) {
-}
-
 Resource::~Resource() {
     _elems->remove(Util::TypeOf<StatisticsCollector>(), _cstatTimeSeized);
     _cstatTimeSeized->~StatisticsCollector();

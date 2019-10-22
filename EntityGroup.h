@@ -23,7 +23,6 @@ class EntityGroup : public ModelElement {
 public:
     EntityGroup(ElementManager* elems);
     EntityGroup(ElementManager* elems, std::string name);
-    EntityGroup(const EntityGroup& orig);
     virtual ~EntityGroup();
 public:
     virtual std::string show();

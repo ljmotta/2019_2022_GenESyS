@@ -23,9 +23,6 @@ File::File(ElementManager* elems, std::string name) : ModelElement(Util::TypeOf<
     _elems = elems;
 }
 
-File::File(const File& orig) : ModelElement(orig) {
-}
-// default destructor
 
 std::string File::show() {
     return ModelElement::show() +

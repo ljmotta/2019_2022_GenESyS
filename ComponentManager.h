@@ -21,7 +21,6 @@
 class ComponentManager {
 public:
     ComponentManager(Model* model);
-    ComponentManager(const ComponentManager& orig);
     virtual ~ComponentManager() = default;
 public:
     bool insert(ModelComponent* comp);

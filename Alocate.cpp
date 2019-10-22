@@ -18,9 +18,6 @@
 Alocate::Alocate(Model* model) : ModelComponent(model, Util::TypeOf<Alocate>()) {
 }
 
-Alocate::Alocate(const Alocate& orig) : ModelComponent(orig) {
-}
-// default destructor
 
 std::string Alocate::show() {
     return ModelComponent::show() + "";

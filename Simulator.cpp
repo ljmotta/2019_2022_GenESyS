@@ -48,9 +48,6 @@ ParserManager* Simulator::getParserManager() const {
     return _parserManager;
 }
 
-Simulator::Simulator(const Simulator& orig) {
-}
-// default destructor
 
 std::string Simulator::getVersion() const {
     return _version;

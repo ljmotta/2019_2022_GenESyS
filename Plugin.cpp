@@ -43,9 +43,6 @@ bool Plugin::isIsValidPlugin() const {
 //    _drain = drain;
 //}
 
-Plugin::Plugin(const Plugin& orig) {
-}
-// default destructor
 
 ModelElement* Plugin::loadNew(Model* model, std::map<std::string, std::string>* fields) {
     if (this->_pluginInfo->isComponent()) {

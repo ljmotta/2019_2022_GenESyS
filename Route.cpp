@@ -19,9 +19,6 @@
 Route::Route(Model* model) : ModelComponent(model, Util::TypeOf<Route>()) {
 }
 
-Route::Route(const Route& orig) : ModelComponent(orig) {
-}
-// default destructor
 
 std::string Route::show() {
     std::string msg= ModelComponent::show() + 

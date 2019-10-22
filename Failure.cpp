@@ -22,9 +22,6 @@ Failure::Failure(ElementManager* elems, std::string name) : ModelElement(Util::T
     _elems = elems;
 }
 
-Failure::Failure(const Failure& orig) : ModelElement(orig) {
-}
-// default destructor
 
 std::string Failure::show() {
     return ModelElement::show() +

@@ -25,7 +25,6 @@ class Attribute : public ModelElement {
 public:
     Attribute();
     Attribute(std::string name);
-    Attribute(const Attribute& orig);
     virtual ~Attribute() = default;
 public:
     virtual std::string show();

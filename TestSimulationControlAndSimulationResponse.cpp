@@ -21,9 +21,6 @@
 TestSimulationControlAndSimulationResponse::TestSimulationControlAndSimulationResponse() {
 }
 
-TestSimulationControlAndSimulationResponse::TestSimulationControlAndSimulationResponse(const TestSimulationControlAndSimulationResponse& orig) {
-}
-// default destructor
 
 int TestSimulationControlAndSimulationResponse::main(int argc, char** argv){
     Simulator* simulator = new Simulator();

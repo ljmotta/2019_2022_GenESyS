@@ -19,7 +19,6 @@
 class IntegratorDefaultImpl1 : public Integrator_if {
 public:
     IntegratorDefaultImpl1();
-    IntegratorDefaultImpl1(const IntegratorDefaultImpl1& orig);
     virtual ~IntegratorDefaultImpl1() = default;
 public:
     virtual void setPrecision(double e);

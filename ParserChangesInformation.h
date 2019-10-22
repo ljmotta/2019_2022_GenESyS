@@ -26,7 +26,6 @@ public:
     typedef std::pair<std::string,std::string> lexicalelement;
 public:
     ParserChangesInformation();
-    ParserChangesInformation(const ParserChangesInformation& orig);
     virtual ~ParserChangesInformation() = default;
 
 public: // gets and sets
