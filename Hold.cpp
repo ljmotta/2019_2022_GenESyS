@@ -19,9 +19,7 @@ Hold::Hold(Model* model) : ModelComponent(model, Util::TypeOf<Hold>()) {
 
 Hold::Hold(const Hold& orig) : ModelComponent(orig) {
 }
-
-Hold::~Hold() {
-}
+// default destructor
 
 std::string Hold::show() {
     return ModelComponent::show() + "";

@@ -19,8 +19,7 @@
 class GenesysGUI : public GenesysApplication_if {
 public:
     GenesysGUI();
-    GenesysGUI(const GenesysGUI& orig);
-    virtual ~GenesysGUI();
+    ~GenesysGUI() = default;
 public:
     virtual int main(int argc, char** argv);
 };

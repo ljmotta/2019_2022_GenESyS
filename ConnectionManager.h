@@ -25,7 +25,7 @@ class ConnectionManager {
 public:
     ConnectionManager();
     ConnectionManager(const ConnectionManager& orig);
-    virtual ~ConnectionManager();
+    virtual ~ConnectionManager() = default;
 public:
     unsigned int size();
     ModelComponent* front(); /*!< DEPRECTED. Use  frontConnection instead */    

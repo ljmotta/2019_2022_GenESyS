@@ -24,9 +24,7 @@ Set::Set(ElementManager* elems, std::string name) : ModelElement(Util::TypeOf<Se
 
 Set::Set(const Set& orig) : ModelElement(orig) {
 }
-
-Set::~Set() {
-}
+// default destructor
 
 std::string Set::show() {
     return ModelElement::show() +

@@ -22,9 +22,7 @@ SimulationResponse::SimulationResponse(std::string type, std::string name, Gette
 
 SimulationResponse::SimulationResponse(const SimulationResponse& orig) {
 }
-
-SimulationResponse::~SimulationResponse() {
-}
+// default destructor
 
 std::string SimulationResponse::show() {
     return "name="+this->_name+", type="+this->_type;

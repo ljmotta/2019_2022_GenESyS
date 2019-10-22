@@ -26,7 +26,7 @@ class Entity : public ModelElement {
 public:
     Entity(ElementManager* elements);
     Entity(const Entity& orig);
-    virtual ~Entity();
+    virtual ~Entity() = default;
 public:
     virtual std::string show();
 

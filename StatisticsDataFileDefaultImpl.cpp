@@ -11,7 +11,7 @@
  * Created on 22 de Novembro de 2018, 01:24
  */
 
-#include "StatisticsDataFileDummyImpl.h"
+#include "StatisticsDataFileDefaultImpl.h"
 
 #include "Traits.h"
 
@@ -21,9 +21,7 @@ StatisticsDataFileDummyImpl::StatisticsDataFileDummyImpl() {
 
 StatisticsDataFileDummyImpl::StatisticsDataFileDummyImpl(const StatisticsDataFileDummyImpl& orig) {
 }
-
-StatisticsDataFileDummyImpl::~StatisticsDataFileDummyImpl() {
-}
+// default destructor
 
 unsigned int StatisticsDataFileDummyImpl::numElements() {
     return 0; // dummy

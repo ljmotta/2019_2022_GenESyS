@@ -23,7 +23,7 @@ class Signal : public ModelComponent {
 public: // constructors
     Signal(Model* model);
     Signal(const Signal& orig);
-    virtual ~Signal();
+    virtual ~Signal() = default;
 public:  // virtual
     virtual std::string show();
 public:  // static

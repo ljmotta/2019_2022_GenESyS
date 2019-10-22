@@ -23,7 +23,7 @@ class Alocate : public ModelComponent {
 public: // constructors
     Alocate(Model* model);
     Alocate(const Alocate& orig);
-    virtual ~Alocate();
+    virtual ~Alocate() = default;
 public:  // virtual
     virtual std::string show();
 public:  // static

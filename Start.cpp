@@ -20,9 +20,7 @@ Start::Start(Model* model) : ModelComponent(model, Util::TypeOf<Start>()) {
 
 Start::Start(const Start& orig) : ModelComponent(orig) {
 }
-
-Start::~Start() {
-}
+// default destructor
 
 std::string Start::show() {
     return ModelComponent::show() + "";

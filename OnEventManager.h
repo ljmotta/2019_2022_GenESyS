@@ -55,7 +55,7 @@ class OnEventManager {
 public:
     OnEventManager();
     OnEventManager(const OnEventManager& orig);
-    virtual ~OnEventManager();
+    virtual ~OnEventManager() = default;
 public: // event listeners (handlers)
     void addOnReplicationStartHandler(simulationEventHandler EventHandler);
     void addOnReplicationStepHandler(simulationEventHandler EventHandler);

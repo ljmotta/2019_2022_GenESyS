@@ -25,9 +25,7 @@ Storage::Storage(ElementManager* elems, std::string name) : ModelElement(Util::T
 
 Storage::Storage(const Storage& orig) : ModelElement(orig) {
 }
-
-Storage::~Storage() {
-}
+// default destructor
 
 std::string Storage::show() {
     return ModelElement::show() +

@@ -21,9 +21,7 @@ FactorOrInteractionContribution::FactorOrInteractionContribution(double contribu
 
 FactorOrInteractionContribution::FactorOrInteractionContribution(const FactorOrInteractionContribution& orig) {
 }
-
-FactorOrInteractionContribution::~FactorOrInteractionContribution() {
-}
+// default destructor
 
 double FactorOrInteractionContribution::getModelCoefficient() const {
     return _modelCoefficient;

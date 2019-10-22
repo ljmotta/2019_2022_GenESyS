@@ -20,9 +20,7 @@ Write::Write(Model* model) : ModelComponent(model, Util::TypeOf<Write>()) {
 
 Write::Write(const Write& orig) : ModelComponent(orig) {
 }
-
-Write::~Write() {
-}
+// default destructor
 
 std::string Write::show() {
     return ModelComponent::show() + "";

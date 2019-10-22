@@ -30,7 +30,7 @@ public:
     Plugin(std::string filename_so_dll);
     Plugin(StaticGetPluginInformation getInformation); // temporary. Just while compiled together
     Plugin(const Plugin& orig);
-    virtual ~Plugin();
+    virtual ~Plugin() = default;
 public:
     bool isIsValidPlugin() const;
     PluginInformation* getPluginInfo() const;

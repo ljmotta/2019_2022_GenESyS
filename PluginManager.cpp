@@ -22,9 +22,7 @@ PluginManager::PluginManager(Simulator* simulator) {
 
 PluginManager::PluginManager(const PluginManager& orig) {
 }
-
-PluginManager::~PluginManager() {
-}
+// default destructor
 
 //bool PluginManager::check(Plugin* plugin){
 //    return true;

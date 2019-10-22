@@ -27,7 +27,7 @@ public:
 public:
     ParserChangesInformation();
     ParserChangesInformation(const ParserChangesInformation& orig);
-    virtual ~ParserChangesInformation();
+    virtual ~ParserChangesInformation() = default;
 
 public: // gets and sets
     std::list<ParserChangesInformation::lexicalelement*>* getLexicalElementToRemove() const;

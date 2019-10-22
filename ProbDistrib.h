@@ -14,29 +14,29 @@
 #ifndef PROBDISTRIB_IF_H
 #define PROBDISTRIB_IF_H
 
+#include <boost/math/distributions.hpp>
+#include <boost/math/distributions/normal.hpp>
+
 class ProbDistrib {
 public:
-    static double uniform(double x, double min, double max);
-    static double exponential(double x, double mean);
-    static double erlang(double x, double mean, double M); // int M
-    static double normal(double x, double mean, double stddev);
-    static double gamma(double x, unsigned int alpha, double beta);
-    //static double gamma(double x, double k, double theta);
     static double beta(double x, double alpha, double beta);
-    static double weibull(double x, double alpha, double scale);
+    static double chi2(double x, double m);
+    static double erlang(double x, double shape, double scale); // int M
+    static double exponential(double x, double mean);
+    static double fFisher(double x, double k, double m);
+    static double gamma(double x, double shape, double scale);
     static double logNormal(double x, double mean, double stddev);
+    static double normal(double x, double mean, double stddev);
+    static double poisson(double x, double mean);
     static double triangular(double x, double min, double mode, double max);
     static double tStudent(double x, double mean, double stddev, unsigned int degreeFreedom);
-    static double fFisher(double x, double k, double m);
-    static double chi2(double x, double m);
+    static double uniform(double x, double min, double max);
+    static double weibull(double x, double shape, double scale);
     // inverse
+    static double inverseChi2(double cumulativeProbability, double m);
+    static double inverseFFisher(double cumulativeProbability, double k, double m);
     static double inverseNormal(double cumulativeProbability, double mean, double stddev);
     static double inverseTStudent(double cumulativeProbability, double mean, double stddev, double degreeFreedom);
-    static double inverseFSnedecor(double cumulativeProbability, double u, double v);
-    static double inverseChi2(double cumulativeProbability, double m);
-public:
-    //static double _gammaFunction(unsigned int x);
-    static long double _gammaFunction(double z); //TODO: HOW???
 
 };
 

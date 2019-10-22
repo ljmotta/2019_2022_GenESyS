@@ -20,9 +20,7 @@ SourceModelComponent::SourceModelComponent(Model* model, std::string componentTy
 
 SourceModelComponent::SourceModelComponent(const SourceModelComponent& orig) : ModelComponent(orig) {
 }
-
-SourceModelComponent::~SourceModelComponent() {
-}
+// default destructor
 
 std::string SourceModelComponent::show() {
     std::string text = ModelComponent::show() +

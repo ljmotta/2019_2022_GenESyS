@@ -26,9 +26,7 @@ Sequence::Sequence(ElementManager* elems, std::string name) : ModelElement(Util:
 
 Sequence::Sequence(const Sequence& orig) : ModelElement(orig) {
 }
-
-Sequence::~Sequence() {
-}
+// default destructor
 
 std::string Sequence::show() {
     std::string msg = ModelElement::show();

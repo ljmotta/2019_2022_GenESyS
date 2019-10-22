@@ -19,9 +19,7 @@ Leave::Leave(Model* model) : ModelComponent(model, Util::TypeOf<Leave>()) {
 
 Leave::Leave(const Leave& orig) : ModelComponent(orig) {
 }
-
-Leave::~Leave() {
-}
+// default destructor
 
 std::string Leave::show() {
     return ModelComponent::show() + ",station="+this->_station->getName();

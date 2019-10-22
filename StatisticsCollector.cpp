@@ -51,9 +51,7 @@ void StatisticsCollector::_initStaticsAndCollector() {
 
 StatisticsCollector::StatisticsCollector(const StatisticsCollector& orig) : ModelElement(orig) {
 }
-
-StatisticsCollector::~StatisticsCollector() {
-}
+// default destructor
 
 std::string StatisticsCollector::show() {
     std::string parentStr = "";

@@ -116,13 +116,13 @@ template <> struct Traits<SimulationReporter_if> {
     typedef SimulationReporterDefaultImpl1 Implementation;
 };
 
+template <> struct Traits<ModelChecker_if> {
+    typedef ModelCheckerDefaultImpl1 Implementation;
+};
+
 template <> struct Traits<ModelComponent> {
     typedef StatisticsDefaultImpl1 StatisticsCollector_StatisticsImplementation;
     typedef CollectorDefaultImpl1 StatisticsCollector_CollectorImplementation;
-};
-
-template <> struct Traits<ModelChecker_if> {
-    typedef ModelCheckerDefaultImpl1 Implementation;
 };
 
 /*
@@ -131,8 +131,6 @@ template <> struct Traits<ModelChecker_if> {
 
 template <> struct Traits<Collector_if> {
     typedef CollectorDatafileDefaultImpl1 Implementation;
-    //typedef CollectorDatafileDummyImpl Implementation;
-    //typedef CollectorDummyImpl ModelImplementation; //TEMP
 };
 
 template <> struct Traits<Statistics_if> {

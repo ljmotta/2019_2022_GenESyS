@@ -18,9 +18,7 @@ ExperimentDesignDefaultImpl1::ExperimentDesignDefaultImpl1() {
 
 ExperimentDesignDefaultImpl1::ExperimentDesignDefaultImpl1(const ExperimentDesignDefaultImpl1& orig) {
 }
-
-ExperimentDesignDefaultImpl1::~ExperimentDesignDefaultImpl1() {
-}
+// default destructor
 
 std::list<FactorOrInteractionContribution*>* ExperimentDesignDefaultImpl1::getContributions() const {
     return _contributions;

@@ -23,7 +23,7 @@ class Hold : public ModelComponent {
 public: // constructors
     Hold(Model* model);
     Hold(const Hold& orig);
-    virtual ~Hold();
+    virtual ~Hold() = default;
 public:  // virtual
     virtual std::string show();
 public:  // static

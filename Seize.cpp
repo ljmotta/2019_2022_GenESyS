@@ -141,9 +141,7 @@ void Seize::setQueue(Queue* queue) {
 Queue* Seize::getQueue() const {
     return _queue;
 }
-
-Seize::~Seize() {
-}
+// default destructor
 
 void Seize::_execute(Entity* entity) {
     /* TODO +: not implemented yet */

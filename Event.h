@@ -28,7 +28,7 @@ public:
     Event(double time, Entity* entity, ModelComponent* component, unsigned int componentInputNumber = 0);
     Event(double time, Entity* entity, Connection* connection);
     Event(const Event& orig);
-    virtual ~Event();
+    virtual ~Event() = default;
 public:
     double getTime() const;
     ModelComponent* getComponent() const;

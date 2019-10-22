@@ -20,9 +20,7 @@ Separate::Separate(Model* model) : ModelComponent(model, Util::TypeOf<Separate>(
 
 Separate::Separate(const Separate& orig) : ModelComponent(orig) {
 }
-
-Separate::~Separate() {
-}
+// default destructor
 
 std::string Separate::show() {
     return ModelComponent::show() + "";

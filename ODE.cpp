@@ -20,9 +20,7 @@ ODE::ODE(ElementManager* elems) : ModelElement(Util::TypeOf<ODE>()) {
 
 ODE::ODE(const ODE& orig) : ModelElement(orig) {
 }
-
-ODE::~ODE() {
-}
+// default destructor
 
 std::string ODE::show() {
     std::string txt =  ModelElement::show();

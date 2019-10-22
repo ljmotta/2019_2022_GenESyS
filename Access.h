@@ -23,7 +23,7 @@ class Access : public ModelComponent {
 public: // constructors
     Access(Model* model);
     Access(const Access& orig);
-    virtual ~Access();
+    virtual ~Access() = default;
 public:  // virtual
     virtual std::string show();
 public:  // static

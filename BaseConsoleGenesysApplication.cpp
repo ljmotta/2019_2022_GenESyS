@@ -22,11 +22,6 @@
 BaseConsoleGenesysApplication::BaseConsoleGenesysApplication() {
 }
 
-BaseConsoleGenesysApplication::BaseConsoleGenesysApplication(const BaseConsoleGenesysApplication& orig) {
-}
-
-BaseConsoleGenesysApplication::~BaseConsoleGenesysApplication() {
-}
 
 // default Trace Handlers
 

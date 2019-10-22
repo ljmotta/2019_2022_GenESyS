@@ -34,7 +34,7 @@ class Simulator {
 public:
     Simulator();
     Simulator(const Simulator& orig);
-    virtual ~Simulator();
+    virtual ~Simulator() = default;
 public: // only get
     std::string getVersion() const;
     std::string getName() const;

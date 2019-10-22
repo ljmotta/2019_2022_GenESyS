@@ -23,7 +23,7 @@ class Batch : public ModelComponent {
 public: // constructors
     Batch(Model* model);
     Batch(const Batch& orig);
-    virtual ~Batch();
+    virtual ~Batch() = default;
 public:  // virtual
     virtual std::string show();
 public:  // static

@@ -42,9 +42,7 @@ GenesysConsole::GenesysConsole() {
 
 GenesysConsole::GenesysConsole(const GenesysConsole& orig) {
 }
-
-GenesysConsole::~GenesysConsole() {
-}
+// default destructor
 
 void GenesysConsole::cmdTraceLevel() {
     Trace("Set trace level");

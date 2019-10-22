@@ -22,9 +22,6 @@ ModelInfo::ModelInfo() {
 ModelInfo::ModelInfo(const ModelInfo& orig) {
 }
 
-ModelInfo::~ModelInfo() {
-
-}
 std::string ModelInfo::show(){
     return "analystName=\""+this->_analystName+"\""+
 	    ",description=\""+this->_description+"\""+

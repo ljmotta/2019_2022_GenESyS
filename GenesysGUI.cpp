@@ -16,12 +16,6 @@
 GenesysGUI::GenesysGUI() {
 }
 
-GenesysGUI::GenesysGUI(const GenesysGUI& orig) {
-}
-
-GenesysGUI::~GenesysGUI() {
-}
-
 int GenesysGUI::main(int argc, char** argv) {
     return 0;
 }

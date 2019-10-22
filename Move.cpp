@@ -20,9 +20,7 @@ Move::Move(Model* model) : ModelComponent(model, Util::TypeOf<Move>()) {
 
 Move::Move(const Move& orig) : ModelComponent(orig) {
 }
-
-Move::~Move() {
-}
+// default destructor
 
 std::string Move::show() {
     return ModelComponent::show() + "";

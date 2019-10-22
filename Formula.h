@@ -23,7 +23,7 @@ class Formula : public ModelElement {
 public:
     Formula(ElementManager* elements);
     Formula(const Formula& orig);
-    virtual ~Formula();
+    virtual ~Formula() = default;
 public:
     void setFormulaExpression(std::string _formulaExpression);
     std::string getFormulaExpression() const;

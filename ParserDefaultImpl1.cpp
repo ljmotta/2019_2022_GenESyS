@@ -19,9 +19,7 @@ ParserDefaultImpl1::ParserDefaultImpl1(Model* model) {
 
 ParserDefaultImpl1::ParserDefaultImpl1(const ParserDefaultImpl1& orig) {
 }
-
-ParserDefaultImpl1::~ParserDefaultImpl1() {
-}
+// default destructor
 
 double ParserDefaultImpl1::parse(const std::string expression) { // may throw exception
     double result = std::atof(expression.c_str()); // change by a real parser

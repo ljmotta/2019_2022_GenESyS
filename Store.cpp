@@ -19,9 +19,7 @@ Store::Store(Model* model) : ModelComponent(model, Util::TypeOf<Store>()) {
 
 Store::Store(const Store& orig) : ModelComponent(orig) {
 }
-
-Store::~Store() {
-}
+// default destructor
 
 std::string Store::show() {
     return ModelComponent::show() + "";

@@ -150,7 +150,7 @@ public: // template implementations
 private:
     Util();
     Util(const Util& orig);
-    virtual ~Util();
+    virtual ~Util() = default;
 };
 
 #endif /* UTIL_H */

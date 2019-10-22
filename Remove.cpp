@@ -19,9 +19,7 @@ Remove::Remove(Model* model) : ModelComponent(model, Util::TypeOf<Remove>()) {
 
 Remove::Remove(const Remove& orig) : ModelComponent(orig) {
 }
-
-Remove::~Remove() {
-}
+// default destructor
 
 std::string Remove::show() {
     return ModelComponent::show() + "";

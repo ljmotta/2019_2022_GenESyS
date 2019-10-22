@@ -22,7 +22,7 @@ class CollectorDatafileDefaultImpl1 : public CollectorDatafile_if {
 public:
     CollectorDatafileDefaultImpl1();
     CollectorDatafileDefaultImpl1(const CollectorDatafileDefaultImpl1& orig);
-    virtual ~CollectorDatafileDefaultImpl1();
+    virtual ~CollectorDatafileDefaultImpl1() = default;
 public: // inherited from Collector_if
     void clear();
     void addValue(double value);

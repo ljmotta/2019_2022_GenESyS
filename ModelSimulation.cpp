@@ -33,9 +33,7 @@ ModelSimulation::ModelSimulation(Model* model) {
 
 ModelSimulation::ModelSimulation(const ModelSimulation& orig) {
 }
-
-ModelSimulation::~ModelSimulation() {
-}
+// default destructor
 
 bool ModelSimulation::_isReplicationEndCondition() {
     bool finish = _model->getEvents()->size() == 0;

@@ -24,7 +24,7 @@ class ModelInfo {
 public:
     ModelInfo();
     ModelInfo(const ModelInfo& orig);
-    virtual ~ModelInfo();
+    virtual ~ModelInfo() = default;
 public:
     std::string show();
 public: // gets and sets

@@ -34,9 +34,7 @@ Create::Create(Model* model) : SourceModelComponent(model, Util::TypeOf<Create>(
 
 Create::Create(const Create& orig) : SourceModelComponent(orig) {
 }
-
-Create::~Create() {
-}
+// default destructor
 
 std::string Create::show() {
     return SourceModelComponent::show();

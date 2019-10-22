@@ -22,9 +22,7 @@ TraceManager::TraceManager(Simulator* simulator) {//(Model* model) {
 
 TraceManager::TraceManager(const TraceManager& orig) {
 }
-
-TraceManager::~TraceManager() {
-}
+// default destructor
 
 void TraceManager::setTraceLevel(Util::TraceLevel _traceLevel) {
     this->_traceLevel = _traceLevel;

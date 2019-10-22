@@ -18,9 +18,7 @@ ParserChangesInformation::ParserChangesInformation() {
 
 ParserChangesInformation::ParserChangesInformation(const ParserChangesInformation& orig) {
 }
-
-ParserChangesInformation::~ParserChangesInformation() {
-}
+// default destructor
 
 std::list<ParserChangesInformation::ParserChangesInformation::lexicalelement*>* ParserChangesInformation::getLexicalElementToRemove() const {
     return _lexicalElementToRemove;

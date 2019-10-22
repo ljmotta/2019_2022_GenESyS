@@ -30,7 +30,7 @@ class ModelSimulation {
 public:
     ModelSimulation(Model* model);
     ModelSimulation(const ModelSimulation& orig);
-    virtual ~ModelSimulation();
+    virtual ~ModelSimulation() = default;
 public: // simulation control
     void startSimulation(); ///< Starts a sequential execution of a simulation, ie, a set of replications of this model.
     void pauseSimulation();

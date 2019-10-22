@@ -26,9 +26,7 @@ Entity::Entity(ElementManager* elements) : ModelElement(Util::TypeOf<Entity>()) 
 
 Entity::Entity(const Entity& orig) : ModelElement(orig) {
 }
-
-Entity::~Entity() {
-}
+// default destructor
 
 void Entity::setEntityTypeName(std::string entityTypeName) throw () {
     EntityType* entitytype = dynamic_cast<EntityType*> (this->_elements->getElement(Util::TypeOf<EntityType>(), entityTypeName));

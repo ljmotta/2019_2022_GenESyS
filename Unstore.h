@@ -23,7 +23,7 @@ class Unstore : public ModelComponent {
 public: // constructors
     Unstore(Model* model);
     Unstore(const Unstore& orig);
-    virtual ~Unstore();
+    virtual ~Unstore() = default;
 public:  // virtual
     virtual std::string show();
 public:  // static

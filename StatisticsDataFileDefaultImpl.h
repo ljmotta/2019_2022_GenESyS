@@ -5,14 +5,14 @@
  */
 
 /* 
- * File:   StatisticsDataFileDummyImpl.h
+ * File:   StatisticsDataFileDefaultImpl.h
  * Author: rafael.luiz.cancian
  *
  * Created on 22 de Novembro de 2018, 01:24
  */
 
-#ifndef STATISTICSDATAFILEDUMMYIMPL_H
-#define STATISTICSDATAFILEDUMMYIMPL_H
+#ifndef STATISTICSDATAFILEDEFAULTIMPL_H
+#define STATISTICSDATAFILEDEFAULTIMPL_H
 
 #include "StatisticsDataFile_if.h"
 
@@ -20,7 +20,7 @@ class StatisticsDataFileDummyImpl : public StatisticsDatafile_if {
 public:
     StatisticsDataFileDummyImpl();
     StatisticsDataFileDummyImpl(const StatisticsDataFileDummyImpl& orig);
-    virtual ~StatisticsDataFileDummyImpl();
+    virtual ~StatisticsDataFileDummyImpl() = default;
 public:
     virtual Collector_if* getCollector();
     void setCollector(Collector_if* collector);
@@ -48,5 +48,5 @@ private:
     Collector_if* _collector;
 };
 
-#endif /* STATISTICSDATAFILEDUMMYIMPL_H */
+#endif /* STATISTICSDATAFILEDEFAULTIMPL_H */
 

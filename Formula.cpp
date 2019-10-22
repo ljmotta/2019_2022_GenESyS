@@ -37,9 +37,7 @@ double Formula::getValue() const {
 
 Formula::Formula(const Formula& orig) : ModelElement(orig) {
 }
-
-Formula::~Formula() {
-}
+// default destructor
 
 std::string Formula::show() {
     return ModelElement::show()+

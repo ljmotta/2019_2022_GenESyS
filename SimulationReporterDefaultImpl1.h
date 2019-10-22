@@ -25,7 +25,7 @@ class SimulationReporterDefaultImpl1 : public SimulationReporter_if {
 public:
     SimulationReporterDefaultImpl1(ModelSimulation* simulation, Model* model, List<ModelElement*>* statsCountersSimulation);
     SimulationReporterDefaultImpl1(const SimulationReporterDefaultImpl1& orig);
-    virtual ~SimulationReporterDefaultImpl1();
+    virtual ~SimulationReporterDefaultImpl1() = default;
 public:
     virtual void showReplicationStatistics();
     virtual void showSimulationStatistics(); //List<StatisticsCollector*>* cstatsSimulation);

@@ -23,12 +23,6 @@ ParserDefaultImpl2::ParserDefaultImpl2(Model* model, bool throws) {
     _wrapper = genesyspp_driver(_model, throws);
 }
 
-ParserDefaultImpl2::ParserDefaultImpl2(const ParserDefaultImpl2& orig) {
-}
-
-ParserDefaultImpl2::~ParserDefaultImpl2() {
-}
-
 double ParserDefaultImpl2::parse(const std::string expression) { // may throw exception
     _wrapper.setThrowsException(true);
     try {

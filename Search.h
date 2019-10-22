@@ -23,7 +23,7 @@ class Search : public ModelComponent {
 public: // constructors
     Search(Model* model);
     Search(const Search& orig);
-    virtual ~Search();
+    virtual ~Search() = default;
 public:  // virtual
     virtual std::string show();
 public:  // static

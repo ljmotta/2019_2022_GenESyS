@@ -25,7 +25,7 @@ public:
     File(ElementManager* elems);
     File(ElementManager* elems, std::string name);
     File(const File& orig);
-    virtual ~File();
+    virtual ~File() = default;
 public: // static
     static ModelElement* LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields); 
     static PluginInformation* GetPluginInformation();

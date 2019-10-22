@@ -20,7 +20,7 @@ class PluginConnectorDummyImpl1 : public PluginConnector_if {
 public:
     PluginConnectorDummyImpl1();
     PluginConnectorDummyImpl1(const PluginConnectorDummyImpl1& orig);
-    virtual ~PluginConnectorDummyImpl1();
+    virtual ~PluginConnectorDummyImpl1() = default;
 public:
     virtual Plugin* check(const std::string dynamicLibraryFilename);
     virtual Plugin* connect(const std::string dynamicLibraryFilename);

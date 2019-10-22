@@ -21,7 +21,7 @@ class ModelPersistenceDefaultImpl1 : public ModelPersistence_if {
 public:
     ModelPersistenceDefaultImpl1(Model* model);
     ModelPersistenceDefaultImpl1(const ModelPersistenceDefaultImpl1& orig);
-    virtual ~ModelPersistenceDefaultImpl1();
+    virtual ~ModelPersistenceDefaultImpl1() = default;
 public:
     virtual bool save(std::string filename);
     virtual bool load(std::string filename);

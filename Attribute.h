@@ -26,7 +26,7 @@ public:
     Attribute();
     Attribute(std::string name);
     Attribute(const Attribute& orig);
-    virtual ~Attribute();
+    virtual ~Attribute() = default;
 public:
     virtual std::string show();
 public:

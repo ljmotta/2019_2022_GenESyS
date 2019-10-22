@@ -20,9 +20,7 @@ Submodel::Submodel(Model* model) : ModelComponent(model, Util::TypeOf<Submodel>(
 
 Submodel::Submodel(const Submodel& orig) : ModelComponent(orig) {
 }
-
-Submodel::~Submodel() {
-}
+// default destructor
 
 std::string Submodel::show() {
     return ModelComponent::show() + "";

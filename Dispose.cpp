@@ -21,9 +21,7 @@ Dispose::Dispose(Model* model) : SinkModelComponent(model, Util::TypeOf<Dispose>
 
 Dispose::Dispose(const Dispose& orig) : SinkModelComponent(orig) {
 }
-
-Dispose::~Dispose() {
-}
+// default destructor
 
 std::string Dispose::show() {
     return SinkModelComponent::show() +

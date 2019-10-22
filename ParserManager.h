@@ -34,7 +34,7 @@ public:
 public:
     ParserManager();
     ParserManager(const ParserManager& orig);
-    virtual ~ParserManager();
+    virtual ~ParserManager() = default;
 public:
     ParserManager::GenerateNewParserResult generateNewParser(ParserChangesInformation* changes);
     bool connectNewParser(ParserManager::NewParser newParser);

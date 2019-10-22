@@ -36,14 +36,8 @@
         </logicalFolder>
         <itemPath>ParserDefaultImpl1.cpp</itemPath>
         <itemPath>ParserDefaultImpl1.h</itemPath>
-        <itemPath>ParserDummyImpl.cpp</itemPath>
-        <itemPath>ParserDummyImpl.h</itemPath>
         <itemPath>PluginConnectorDummyImpl1.cpp</itemPath>
         <itemPath>PluginConnectorDummyImpl1.h</itemPath>
-        <itemPath>SamplerDefaultImpl1.cpp</itemPath>
-        <itemPath>SamplerDefaultImpl1.h</itemPath>
-        <itemPath>SamplerDummyImpl.cpp</itemPath>
-        <itemPath>SamplerDummyImpl.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f3" displayName="ModelParts" projectFiles="true">
         <logicalFolder name="f4" displayName="Elements" projectFiles="true">
@@ -109,7 +103,6 @@
           <itemPath>PluginConnector_if.h</itemPath>
           <itemPath>PluginInformation.cpp</itemPath>
           <itemPath>PluginInformation.h</itemPath>
-          <itemPath>Sampler_if.h</itemPath>
         </logicalFolder>
         <itemPath>LicenceManager.cpp</itemPath>
         <itemPath>LicenceManager.h</itemPath>
@@ -259,28 +252,24 @@
       <logicalFolder name="f1" displayName="Impl" projectFiles="true">
         <itemPath>CollectorDatafileDefaultImpl1.cpp</itemPath>
         <itemPath>CollectorDatafileDefaultImpl1.h</itemPath>
-        <itemPath>CollectorDatafileDummyImpl.cpp</itemPath>
-        <itemPath>CollectorDatafileDummyImpl.h</itemPath>
         <itemPath>CollectorDefaultImpl1.cpp</itemPath>
         <itemPath>CollectorDefaultImpl1.h</itemPath>
-        <itemPath>CollectorDummyImpl.cpp</itemPath>
-        <itemPath>CollectorDummyImpl.h</itemPath>
         <itemPath>FitterDefaultImpl1.cpp</itemPath>
         <itemPath>FitterDefaultImpl1.h</itemPath>
+        <itemPath>HypothesisTesterBoostImpl.cpp</itemPath>
+        <itemPath>HypothesisTesterBoostImpl.h</itemPath>
         <itemPath>HypothesisTesterDefaultImpl1.cpp</itemPath>
         <itemPath>HypothesisTesterDefaultImpl1.h</itemPath>
-        <itemPath>HypothesisTesterDummyImpl.cpp</itemPath>
-        <itemPath>HypothesisTesterDummyImpl.h</itemPath>
         <itemPath>IntegratorDefaultImpl1.cpp</itemPath>
         <itemPath>IntegratorDefaultImpl1.h</itemPath>
-        <itemPath>IntegratorDummyImpl.cpp</itemPath>
-        <itemPath>IntegratorDummyImpl.h</itemPath>
-        <itemPath>StatisticsDataFileDummyImpl.cpp</itemPath>
-        <itemPath>StatisticsDataFileDummyImpl.h</itemPath>
+        <itemPath>SamplerBoostImpl.cpp</itemPath>
+        <itemPath>SamplerBoostImpl.h</itemPath>
+        <itemPath>SamplerDefaultImpl1.cpp</itemPath>
+        <itemPath>SamplerDefaultImpl1.h</itemPath>
+        <itemPath>StatisticsDataFileDefaultImpl.cpp</itemPath>
+        <itemPath>StatisticsDataFileDefaultImpl.h</itemPath>
         <itemPath>StatisticsDefaultImpl1.cpp</itemPath>
         <itemPath>StatisticsDefaultImpl1.h</itemPath>
-        <itemPath>StatisticsDummyImpl.cpp</itemPath>
-        <itemPath>StatisticsDummyImpl.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="Interfaces" projectFiles="true">
         <itemPath>AnalysisOfVariance_if.h</itemPath>
@@ -289,6 +278,7 @@
         <itemPath>Fitter_if.h</itemPath>
         <itemPath>HypothesisTester_if.h</itemPath>
         <itemPath>Integrator_if.h</itemPath>
+        <itemPath>Sampler_if.h</itemPath>
         <itemPath>StatisticsDataFile_if.h</itemPath>
         <itemPath>Statistics_if.h</itemPath>
       </logicalFolder>
@@ -309,11 +299,13 @@
           <itemPath>ProcessAnalyserDefaultImpl1.cpp</itemPath>
           <itemPath>ProcessAnalyserDefaultImpl1.h</itemPath>
         </logicalFolder>
-        <itemPath>ExperimentDesign_if.h</itemPath>
+        <logicalFolder name="f2" displayName="Interfaces" projectFiles="true">
+          <itemPath>ExperimentDesign_if.h</itemPath>
+          <itemPath>ProcessAnalyser_if.h</itemPath>
+          <itemPath>ScenarioExperiment_if.h</itemPath>
+        </logicalFolder>
         <itemPath>FactorOrInteractionContribution.cpp</itemPath>
         <itemPath>FactorOrInteractionContribution.h</itemPath>
-        <itemPath>ProcessAnalyser_if.h</itemPath>
-        <itemPath>ScenarioExperiment_if.h</itemPath>
         <itemPath>SimulationScenario.cpp</itemPath>
         <itemPath>SimulationScenario.h</itemPath>
       </logicalFolder>
@@ -401,7 +393,6 @@
         <ccTool>
           <standard>8</standard>
           <commandLine>-fpermissive</commandLine>
-          <warningLevel>2</warningLevel>
         </ccTool>
         <asmTool>
           <warningLevel>2</warningLevel>
@@ -445,19 +436,11 @@
       </item>
       <item path="CollectorDatafileDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="CollectorDatafileDummyImpl.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="CollectorDatafileDummyImpl.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="CollectorDatafile_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="CollectorDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="CollectorDefaultImpl1.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="CollectorDummyImpl.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="CollectorDummyImpl.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Collector_if.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -596,23 +579,19 @@
       </item>
       <item path="Hold.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="HypothesisTesterBoostImpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="HypothesisTesterBoostImpl.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="HypothesisTesterDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="HypothesisTesterDefaultImpl1.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="HypothesisTesterDummyImpl.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="HypothesisTesterDummyImpl.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="HypothesisTester_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="IntegratorDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="IntegratorDefaultImpl1.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="IntegratorDummyImpl.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="IntegratorDummyImpl.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Integrator_if.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -690,10 +669,6 @@
       </item>
       <item path="ParserDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="ParserDummyImpl.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ParserDummyImpl.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="ParserManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ParserManager.h" ex="false" tool="3" flavor2="0">
@@ -764,13 +739,13 @@
       </item>
       <item path="Route.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="SamplerBoostImpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SamplerBoostImpl.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="SamplerDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="SamplerDefaultImpl1.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="SamplerDummyImpl.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="SamplerDummyImpl.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Sampler_if.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -850,19 +825,15 @@
       </item>
       <item path="StatisticsCollector.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="StatisticsDataFileDummyImpl.cpp" ex="false" tool="1" flavor2="0">
+      <item path="StatisticsDataFileDefaultImpl.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="StatisticsDataFileDummyImpl.h" ex="false" tool="3" flavor2="0">
+      <item path="StatisticsDataFileDefaultImpl.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="StatisticsDataFile_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="StatisticsDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="StatisticsDefaultImpl1.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="StatisticsDummyImpl.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="StatisticsDummyImpl.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Statistics_if.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -1049,19 +1020,11 @@
       </item>
       <item path="CollectorDatafileDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="CollectorDatafileDummyImpl.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="CollectorDatafileDummyImpl.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="CollectorDatafile_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="CollectorDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="CollectorDefaultImpl1.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="CollectorDummyImpl.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="CollectorDummyImpl.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Collector_if.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -1200,23 +1163,19 @@
       </item>
       <item path="Hold.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="HypothesisTesterBoostImpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="HypothesisTesterBoostImpl.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="HypothesisTesterDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="HypothesisTesterDefaultImpl1.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="HypothesisTesterDummyImpl.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="HypothesisTesterDummyImpl.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="HypothesisTester_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="IntegratorDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="IntegratorDefaultImpl1.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="IntegratorDummyImpl.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="IntegratorDummyImpl.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Integrator_if.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -1294,10 +1253,6 @@
       </item>
       <item path="ParserDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="ParserDummyImpl.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ParserDummyImpl.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="ParserManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ParserManager.h" ex="false" tool="3" flavor2="0">
@@ -1368,13 +1323,13 @@
       </item>
       <item path="Route.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="SamplerBoostImpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SamplerBoostImpl.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="SamplerDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="SamplerDefaultImpl1.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="SamplerDummyImpl.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="SamplerDummyImpl.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Sampler_if.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -1454,19 +1409,15 @@
       </item>
       <item path="StatisticsCollector.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="StatisticsDataFileDummyImpl.cpp" ex="false" tool="1" flavor2="0">
+      <item path="StatisticsDataFileDefaultImpl.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="StatisticsDataFileDummyImpl.h" ex="false" tool="3" flavor2="0">
+      <item path="StatisticsDataFileDefaultImpl.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="StatisticsDataFile_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="StatisticsDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="StatisticsDefaultImpl1.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="StatisticsDummyImpl.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="StatisticsDummyImpl.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Statistics_if.h" ex="false" tool="3" flavor2="0">
       </item>

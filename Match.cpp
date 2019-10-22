@@ -20,9 +20,7 @@ Match::Match(Model* model) : ModelComponent(model, Util::TypeOf<Match>()) {
 
 Match::Match(const Match& orig) : ModelComponent(orig) {
 }
-
-Match::~Match() {
-}
+// default destructor
 
 std::string Match::show() {
     return ModelComponent::show() + "";

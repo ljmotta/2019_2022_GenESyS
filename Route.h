@@ -26,7 +26,7 @@ public:
 public:
     Route(Model* model);
     Route(const Route& orig);
-    virtual ~Route();
+    virtual ~Route() = default;
 public:
     virtual std::string show();
 public:

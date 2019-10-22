@@ -35,7 +35,7 @@ class ODE : public ModelElement {
 public:
     ODE(ElementManager* elems);
     ODE(const ODE& orig);
-    virtual ~ODE();
+    virtual ~ODE() = default;
 public:
     virtual std::string show();
 public:

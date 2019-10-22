@@ -112,7 +112,7 @@ class TraceManager {
 public:
     TraceManager(Simulator* simulator); //(Model* model);
     TraceManager(const TraceManager& orig);
-    virtual ~TraceManager();
+    virtual ~TraceManager() = default;
 public: // add trace handlers
     // for handlers that are simple functions
     void addTraceHandler(traceListener traceListener);

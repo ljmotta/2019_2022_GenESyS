@@ -18,9 +18,7 @@ ProcessAnalyserDefaultImpl1::ProcessAnalyserDefaultImpl1() {
 
 ProcessAnalyserDefaultImpl1::ProcessAnalyserDefaultImpl1(const ProcessAnalyserDefaultImpl1& orig) {
 }
-
-ProcessAnalyserDefaultImpl1::~ProcessAnalyserDefaultImpl1() {
-}
+// default destructor
 
 List<SimulationScenario*>* ProcessAnalyserDefaultImpl1::getScenarios() const {
 }

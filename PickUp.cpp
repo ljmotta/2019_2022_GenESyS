@@ -20,9 +20,7 @@ PickUp::PickUp(Model* model) : ModelComponent(model, Util::TypeOf<PickUp>()) {
 
 PickUp::PickUp(const PickUp& orig) : ModelComponent(orig) {
 }
-
-PickUp::~PickUp() {
-}
+// default destructor
 
 std::string PickUp::show() {
     return ModelComponent::show() + "";

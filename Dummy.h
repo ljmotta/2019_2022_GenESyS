@@ -23,7 +23,7 @@ class Dummy : public ModelComponent {
 public: // constructors
     Dummy(Model* model);
     Dummy(const Dummy& orig);
-    virtual ~Dummy();
+    virtual ~Dummy() = default;
 public:  // virtual
     virtual std::string show();
 public:  // static

@@ -25,9 +25,7 @@ ModelCheckerDefaultImpl1::ModelCheckerDefaultImpl1(Model* model) {
 
 ModelCheckerDefaultImpl1::ModelCheckerDefaultImpl1(const ModelCheckerDefaultImpl1& orig) {
 }
-
-ModelCheckerDefaultImpl1::~ModelCheckerDefaultImpl1() {
-}
+// default destructor
 
 bool ModelCheckerDefaultImpl1::checkAll() {
     bool res = true;

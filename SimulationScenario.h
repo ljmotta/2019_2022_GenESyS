@@ -26,7 +26,7 @@ class SimulationScenario {
 public:
     SimulationScenario();
     SimulationScenario(const SimulationScenario& orig);
-    virtual ~SimulationScenario();
+    virtual ~SimulationScenario() = default;
 public: // results
     bool startSimulation(std::string* errorMessage);
     std::list<std::pair<std::string,double>*>* getResponseValues() const;/*!< The final result of the simulationScenario */

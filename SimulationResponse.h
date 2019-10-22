@@ -24,7 +24,7 @@ class SimulationResponse {
 public:
     SimulationResponse(std::string type, std::string name, GetterMember getterMember);
     SimulationResponse(const SimulationResponse& orig);
-    virtual ~SimulationResponse();
+    virtual ~SimulationResponse() = default;
 public:
     std::string show();
 public:

@@ -20,7 +20,7 @@ class TestSimulationControlAndSimulationResponse: public BaseConsoleGenesysAppli
 public:
     TestSimulationControlAndSimulationResponse();
     TestSimulationControlAndSimulationResponse(const TestSimulationControlAndSimulationResponse& orig);
-    virtual ~TestSimulationControlAndSimulationResponse();
+    virtual ~TestSimulationControlAndSimulationResponse() = default;
 public:
     virtual int main(int argc, char** argv);
 private:

@@ -24,7 +24,7 @@ class ToolManager {
 public:
     ToolManager(Simulator* _simulator);
     ToolManager(const ToolManager& orig);
-    virtual ~ToolManager();
+    virtual ~ToolManager() = default;
 public:
     Sampler_if* getSampler() const; ///< Returns the Sampler, used to generate samples accordingly to a probability distribution
     Fitter_if* getFitter() const;

@@ -20,7 +20,7 @@ class FitterDefaultImpl1 : public Fitter_if {
 public:
     FitterDefaultImpl1();
     FitterDefaultImpl1(const FitterDefaultImpl1& orig);
-    virtual ~FitterDefaultImpl1();
+    virtual ~FitterDefaultImpl1() = default;
 public:
     bool isNormalDistributed(double confidencelevel);
     void fitUniform(double *sqrerror, double *min, double *max);

@@ -21,8 +21,7 @@
 class BaseConsoleGenesysApplication : public GenesysApplication_if {
 public:
     BaseConsoleGenesysApplication();
-    BaseConsoleGenesysApplication(const BaseConsoleGenesysApplication& orig);
-    virtual ~BaseConsoleGenesysApplication();
+    virtual ~BaseConsoleGenesysApplication() = default;
 public:
     virtual int main(int argc, char** argv) = 0;
 public:

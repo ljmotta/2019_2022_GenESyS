@@ -29,7 +29,7 @@ class Create : public SourceModelComponent {
 public:
     Create(Model* model);
     Create(const Create& orig);
-    virtual ~Create();
+    virtual ~Create() = default;
 public:
     virtual std::string show();
 public:

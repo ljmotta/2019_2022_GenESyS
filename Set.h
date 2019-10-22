@@ -24,7 +24,7 @@ public:
     Set(ElementManager* elems);
     Set(ElementManager* elems, std::string name);
     Set(const Set& orig);
-    virtual ~Set();
+    virtual ~Set() = default;
 public: // static
     static ModelElement* LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields); 
     static PluginInformation* GetPluginInformation();

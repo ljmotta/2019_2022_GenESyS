@@ -46,7 +46,7 @@ private:
 public:
     GenesysConsole();
     GenesysConsole(const GenesysConsole& orig);
-    virtual ~GenesysConsole();
+    virtual ~GenesysConsole() = default;
 public:
     virtual int main(int argc, char** argv);
 public: // commands

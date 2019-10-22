@@ -45,9 +45,7 @@ bool Plugin::isIsValidPlugin() const {
 
 Plugin::Plugin(const Plugin& orig) {
 }
-
-Plugin::~Plugin() {
-}
+// default destructor
 
 ModelElement* Plugin::loadNew(Model* model, std::map<std::string, std::string>* fields) {
     if (this->_pluginInfo->isComponent()) {

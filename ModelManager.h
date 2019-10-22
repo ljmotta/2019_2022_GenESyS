@@ -21,7 +21,7 @@ class ModelManager {
 public:
     ModelManager(Simulator* simulator);
     ModelManager(const ModelManager& orig);
-    virtual ~ModelManager();
+    virtual ~ModelManager() = default;
 public:
     void insert(Model* model);
     void remove(Model* model);

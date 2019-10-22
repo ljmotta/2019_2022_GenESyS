@@ -18,7 +18,7 @@ class Schedule {
 public:
     Schedule();
     Schedule(const Schedule& orig);
-    virtual ~Schedule();
+    virtual ~Schedule() = default;
 private:
 
 };

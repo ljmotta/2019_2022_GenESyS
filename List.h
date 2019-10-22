@@ -35,7 +35,7 @@ public:
 public:
     List();
     List(const List& orig);
-    virtual ~List();
+    virtual ~List() = default;
 public: // direct access to list
     unsigned int size();
     bool empty();
@@ -92,9 +92,9 @@ template <typename T>
 List<T>::List(const List& orig) {
 }
 
-template <typename T>
-List<T>::~List() {
-}
+//template <typename T>
+//List<T>::~List() {
+//}
 
 template <typename T>
 std::string List<T>::show() {

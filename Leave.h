@@ -21,7 +21,7 @@ class Leave: public ModelComponent {
 public:
     Leave(Model* model);
     Leave(const Leave& orig);
-    virtual ~Leave();
+    virtual ~Leave() = default;
 public:
     virtual std::string show();
 public:

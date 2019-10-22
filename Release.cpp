@@ -22,9 +22,7 @@ Release::Release(Model* model) : ModelComponent(model, Util::TypeOf<Release>()) 
 
 Release::Release(const Release& orig) : ModelComponent(orig) {
 }
-
-Release::~Release() {
-}
+// default destructor
 
 std::string Release::show() {
     return ModelComponent::show() +

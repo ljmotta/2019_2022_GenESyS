@@ -22,7 +22,7 @@ class ComponentManager {
 public:
     ComponentManager(Model* model);
     ComponentManager(const ComponentManager& orig);
-    virtual ~ComponentManager();
+    virtual ~ComponentManager() = default;
 public:
     bool insert(ModelComponent* comp);
     void remove(ModelComponent* comp);

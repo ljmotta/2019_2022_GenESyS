@@ -20,9 +20,7 @@ SimulationControl::SimulationControl(std::string type, std::string name, GetterM
 
 SimulationControl::SimulationControl(const SimulationControl& orig) : SimulationResponse(orig) {
 }
-
-SimulationControl::~SimulationControl() {
-}
+// default destructor
 
 std::string SimulationControl::show() {
     return "name="+this->_name+", type="+this->_type;

@@ -20,7 +20,7 @@ class Decide : public ModelComponent {
 public:
     Decide(Model* model);
     Decide(const Decide& orig);
-    virtual ~Decide();
+    virtual ~Decide() = default;
 public:
     List<std::string>* getConditions() const;
 

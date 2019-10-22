@@ -20,9 +20,7 @@ HypothesisTesterDefaultImpl1::HypothesisTesterDefaultImpl1() {
 
 HypothesisTesterDefaultImpl1::HypothesisTesterDefaultImpl1(const HypothesisTesterDefaultImpl1& orig) {
 }
-
-HypothesisTesterDefaultImpl1::~HypothesisTesterDefaultImpl1() {
-}
+// default destructor
 
 double HypothesisTesterDefaultImpl1::testAverage(double confidencelevel, double avg, H1Comparition comp) {
     return 0.0; //todo

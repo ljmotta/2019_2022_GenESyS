@@ -25,9 +25,7 @@ ToolManager::ToolManager(Simulator* simulator) {
 
 ToolManager::ToolManager(const ToolManager& orig) {
 }
-
-ToolManager::~ToolManager() {
-}
+// default destructor
 
 
 Sampler_if* ToolManager::getSampler() const {

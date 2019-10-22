@@ -26,9 +26,7 @@ ElementManager::ElementManager(Model* model) {
 
 ElementManager::ElementManager(const ElementManager& orig) {
 }
-
-ElementManager::~ElementManager() {
-}
+// default destructor
 
 bool ElementManager::insert(std::string infraTypename, ModelElement* infra) {
     List<ModelElement*>* listElements = getElements(infraTypename);

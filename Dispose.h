@@ -23,7 +23,7 @@ class Dispose : public SinkModelComponent {
 public:
     Dispose(Model* model);
     Dispose(const Dispose& orig);
-    virtual ~Dispose();
+    virtual ~Dispose() = default;
 public:
     virtual std::string show();
 public:

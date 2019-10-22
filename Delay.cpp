@@ -21,9 +21,7 @@ Delay::Delay(Model* model) : ModelComponent(model, Util::TypeOf<Delay>()) {
 
 Delay::Delay(const Delay& orig) : ModelComponent(orig) {
 }
-
-Delay::~Delay() {
-}
+// default destructor
 
 std::string Delay::show() {
     return ModelComponent::show() +

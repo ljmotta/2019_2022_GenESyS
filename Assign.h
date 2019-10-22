@@ -74,7 +74,7 @@ public:
 public:
     Assign(Model* model);
     Assign(const Assign& orig);
-    virtual ~Assign();
+    virtual ~Assign() = default;
 public:
     virtual std::string show();
 public:

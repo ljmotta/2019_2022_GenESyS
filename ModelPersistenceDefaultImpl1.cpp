@@ -24,9 +24,7 @@ ModelPersistenceDefaultImpl1::ModelPersistenceDefaultImpl1(Model* model) {
 
 ModelPersistenceDefaultImpl1::ModelPersistenceDefaultImpl1(const ModelPersistenceDefaultImpl1& orig) {
 }
-
-ModelPersistenceDefaultImpl1::~ModelPersistenceDefaultImpl1() {
-}
+// default destructor
 
 std::map<std::string, std::string>* ModelPersistenceDefaultImpl1::_getSimulatorInfoFieldsToSave() {
     std::map<std::string, std::string>* fields = new std::map<std::string, std::string>();

@@ -18,9 +18,7 @@ SimulationScenario::SimulationScenario() {
 
 SimulationScenario::SimulationScenario(const SimulationScenario& orig) {
 }
-
-SimulationScenario::~SimulationScenario() {
-}
+// default destructor
 
 bool SimulationScenario::startSimulation(std::string* errorMessage) {
     // model->loadmodel _modelFilename

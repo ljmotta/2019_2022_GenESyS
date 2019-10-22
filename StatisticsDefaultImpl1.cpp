@@ -36,9 +36,7 @@ StatisticsDefaultImpl1::StatisticsDefaultImpl1(Collector_if* collector) {
 
 StatisticsDefaultImpl1::StatisticsDefaultImpl1(const StatisticsDefaultImpl1& orig) {
 }
-
-StatisticsDefaultImpl1::~StatisticsDefaultImpl1() {
-}
+// default destructor
 
 void StatisticsDefaultImpl1::collectorAddHandler(double newValue) {
     _elems = _collector->numElements();

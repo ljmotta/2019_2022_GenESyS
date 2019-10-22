@@ -24,7 +24,7 @@ class genesyspp_driver {
 public:
     genesyspp_driver();
     genesyspp_driver(Model* model, bool throws);
-    virtual ~genesyspp_driver();
+    virtual ~genesyspp_driver() = default;
 
     // Handling the scanner.
     void scan_begin_file();

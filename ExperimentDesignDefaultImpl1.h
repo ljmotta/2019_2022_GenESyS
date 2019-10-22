@@ -20,7 +20,7 @@ class ExperimentDesignDefaultImpl1 : public ExperimentDesign_if {
 public:
     ExperimentDesignDefaultImpl1();
     ExperimentDesignDefaultImpl1(const ExperimentDesignDefaultImpl1& orig);
-    virtual ~ExperimentDesignDefaultImpl1();
+    virtual ~ExperimentDesignDefaultImpl1() = default;
 public:
     virtual ProcessAnalyser_if* getProcessAnalyser() const;
 public:

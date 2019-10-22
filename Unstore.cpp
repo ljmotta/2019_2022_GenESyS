@@ -19,9 +19,7 @@ Unstore::Unstore(Model* model) : ModelComponent(model, Util::TypeOf<Unstore>()) 
 
 Unstore::Unstore(const Unstore& orig) : ModelComponent(orig) {
 }
-
-Unstore::~Unstore() {
-}
+// default destructor
 
 std::string Unstore::show() {
     return ModelComponent::show() + "";

@@ -44,9 +44,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/BuildSimulationModel03.o \
 	${OBJECTDIR}/CellularAutomata.o \
 	${OBJECTDIR}/CollectorDatafileDefaultImpl1.o \
-	${OBJECTDIR}/CollectorDatafileDummyImpl.o \
 	${OBJECTDIR}/CollectorDefaultImpl1.o \
-	${OBJECTDIR}/CollectorDummyImpl.o \
 	${OBJECTDIR}/ComponentManager.o \
 	${OBJECTDIR}/ConnectionManager.o \
 	${OBJECTDIR}/Counter.o \
@@ -78,10 +76,9 @@ OBJECTFILES= \
 	${OBJECTDIR}/GenesysGUI.o \
 	${OBJECTDIR}/Halt.o \
 	${OBJECTDIR}/Hold.o \
+	${OBJECTDIR}/HypothesisTesterBoostImpl.o \
 	${OBJECTDIR}/HypothesisTesterDefaultImpl1.o \
-	${OBJECTDIR}/HypothesisTesterDummyImpl.o \
 	${OBJECTDIR}/IntegratorDefaultImpl1.o \
-	${OBJECTDIR}/IntegratorDummyImpl.o \
 	${OBJECTDIR}/Leave.o \
 	${OBJECTDIR}/LicenceManager.o \
 	${OBJECTDIR}/Match.o \
@@ -99,7 +96,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/OnEventManager.o \
 	${OBJECTDIR}/ParserChangesInformation.o \
 	${OBJECTDIR}/ParserDefaultImpl1.o \
-	${OBJECTDIR}/ParserDummyImpl.o \
 	${OBJECTDIR}/ParserManager.o \
 	${OBJECTDIR}/PickStation.o \
 	${OBJECTDIR}/PickUp.o \
@@ -116,8 +112,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/Request.o \
 	${OBJECTDIR}/Resource.o \
 	${OBJECTDIR}/Route.o \
+	${OBJECTDIR}/SamplerBoostImpl.o \
 	${OBJECTDIR}/SamplerDefaultImpl1.o \
-	${OBJECTDIR}/SamplerDummyImpl.o \
 	${OBJECTDIR}/Schedule.o \
 	${OBJECTDIR}/Search.o \
 	${OBJECTDIR}/SecondExampleOfSimulation.o \
@@ -136,9 +132,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/Start.o \
 	${OBJECTDIR}/Station.o \
 	${OBJECTDIR}/StatisticsCollector.o \
-	${OBJECTDIR}/StatisticsDataFileDummyImpl.o \
+	${OBJECTDIR}/StatisticsDataFileDefaultImpl.o \
 	${OBJECTDIR}/StatisticsDefaultImpl1.o \
-	${OBJECTDIR}/StatisticsDummyImpl.o \
 	${OBJECTDIR}/Stop.o \
 	${OBJECTDIR}/Storage.o \
 	${OBJECTDIR}/Store.o \
@@ -233,20 +228,10 @@ ${OBJECTDIR}/CollectorDatafileDefaultImpl1.o: CollectorDatafileDefaultImpl1.cpp 
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/CollectorDatafileDefaultImpl1.o CollectorDatafileDefaultImpl1.cpp
 
-${OBJECTDIR}/CollectorDatafileDummyImpl.o: CollectorDatafileDummyImpl.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/CollectorDatafileDummyImpl.o CollectorDatafileDummyImpl.cpp
-
 ${OBJECTDIR}/CollectorDefaultImpl1.o: CollectorDefaultImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/CollectorDefaultImpl1.o CollectorDefaultImpl1.cpp
-
-${OBJECTDIR}/CollectorDummyImpl.o: CollectorDummyImpl.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/CollectorDummyImpl.o CollectorDummyImpl.cpp
 
 ${OBJECTDIR}/ComponentManager.o: ComponentManager.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -403,25 +388,20 @@ ${OBJECTDIR}/Hold.o: Hold.cpp nbproject/Makefile-${CND_CONF}.mk
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Hold.o Hold.cpp
 
+${OBJECTDIR}/HypothesisTesterBoostImpl.o: HypothesisTesterBoostImpl.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/HypothesisTesterBoostImpl.o HypothesisTesterBoostImpl.cpp
+
 ${OBJECTDIR}/HypothesisTesterDefaultImpl1.o: HypothesisTesterDefaultImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/HypothesisTesterDefaultImpl1.o HypothesisTesterDefaultImpl1.cpp
 
-${OBJECTDIR}/HypothesisTesterDummyImpl.o: HypothesisTesterDummyImpl.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/HypothesisTesterDummyImpl.o HypothesisTesterDummyImpl.cpp
-
 ${OBJECTDIR}/IntegratorDefaultImpl1.o: IntegratorDefaultImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/IntegratorDefaultImpl1.o IntegratorDefaultImpl1.cpp
-
-${OBJECTDIR}/IntegratorDummyImpl.o: IntegratorDummyImpl.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/IntegratorDummyImpl.o IntegratorDummyImpl.cpp
 
 ${OBJECTDIR}/Leave.o: Leave.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -508,11 +488,6 @@ ${OBJECTDIR}/ParserDefaultImpl1.o: ParserDefaultImpl1.cpp nbproject/Makefile-${C
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ParserDefaultImpl1.o ParserDefaultImpl1.cpp
 
-${OBJECTDIR}/ParserDummyImpl.o: ParserDummyImpl.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ParserDummyImpl.o ParserDummyImpl.cpp
-
 ${OBJECTDIR}/ParserManager.o: ParserManager.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -593,15 +568,15 @@ ${OBJECTDIR}/Route.o: Route.cpp nbproject/Makefile-${CND_CONF}.mk
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Route.o Route.cpp
 
+${OBJECTDIR}/SamplerBoostImpl.o: SamplerBoostImpl.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SamplerBoostImpl.o SamplerBoostImpl.cpp
+
 ${OBJECTDIR}/SamplerDefaultImpl1.o: SamplerDefaultImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SamplerDefaultImpl1.o SamplerDefaultImpl1.cpp
-
-${OBJECTDIR}/SamplerDummyImpl.o: SamplerDummyImpl.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SamplerDummyImpl.o SamplerDummyImpl.cpp
 
 ${OBJECTDIR}/Schedule.o: Schedule.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -693,20 +668,15 @@ ${OBJECTDIR}/StatisticsCollector.o: StatisticsCollector.cpp nbproject/Makefile-$
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/StatisticsCollector.o StatisticsCollector.cpp
 
-${OBJECTDIR}/StatisticsDataFileDummyImpl.o: StatisticsDataFileDummyImpl.cpp nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/StatisticsDataFileDefaultImpl.o: StatisticsDataFileDefaultImpl.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/StatisticsDataFileDummyImpl.o StatisticsDataFileDummyImpl.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/StatisticsDataFileDefaultImpl.o StatisticsDataFileDefaultImpl.cpp
 
 ${OBJECTDIR}/StatisticsDefaultImpl1.o: StatisticsDefaultImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/StatisticsDefaultImpl1.o StatisticsDefaultImpl1.cpp
-
-${OBJECTDIR}/StatisticsDummyImpl.o: StatisticsDummyImpl.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/StatisticsDummyImpl.o StatisticsDummyImpl.cpp
 
 ${OBJECTDIR}/Stop.o: Stop.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

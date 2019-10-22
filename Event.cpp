@@ -29,9 +29,7 @@ Event::Event(double time, Entity* entity, Connection* connection) {
 
 Event::Event(const Event& orig) {
 }
-
-Event::~Event() {
-}
+// default destructor
 
 std::string Event::show() {
     return "time=" + std::to_string(_time) +

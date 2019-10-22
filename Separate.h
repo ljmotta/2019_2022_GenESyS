@@ -23,7 +23,7 @@ class Separate : public ModelComponent {
 public: // constructors
     Separate(Model* model);
     Separate(const Separate& orig);
-    virtual ~Separate();
+    virtual ~Separate() = default;
 public:  // virtual
     virtual std::string show();
 public:  // static

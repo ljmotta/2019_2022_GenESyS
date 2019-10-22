@@ -22,9 +22,7 @@ Attribute::Attribute(std::string name) : ModelElement(Util::TypeOf<Attribute>())
 
 Attribute::Attribute(const Attribute& orig) : ModelElement(orig) {
 }
-
-Attribute::~Attribute() {
-}
+// default destructor
 
 std::string Attribute::show() {
     return ModelElement::show();

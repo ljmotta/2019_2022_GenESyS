@@ -19,9 +19,7 @@ Halt::Halt(Model* model) : ModelComponent(model, Util::TypeOf<Halt>()) {
 
 Halt::Halt(const Halt& orig) : ModelComponent(orig) {
 }
-
-Halt::~Halt() {
-}
+// default destructor
 
 std::string Halt::show() {
     return ModelComponent::show() + "";

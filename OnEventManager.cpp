@@ -18,9 +18,7 @@ OnEventManager::OnEventManager() {
 
 OnEventManager::OnEventManager(const OnEventManager& orig) {
 }
-
-OnEventManager::~OnEventManager() {
-}
+// default destructor
 
 void OnEventManager::addOnReplicationStartHandler(simulationEventHandler EventHandler) {
     this->_onReplicationStartHandlers->insert(this->_onReplicationStartHandlers->end(), EventHandler);

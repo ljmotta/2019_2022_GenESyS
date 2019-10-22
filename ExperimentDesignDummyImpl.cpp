@@ -23,9 +23,7 @@ std::list<FactorOrInteractionContribution*>* ExperimentDesignDummyImpl::getContr
 
 ExperimentDesignDummyImpl::ExperimentDesignDummyImpl(const ExperimentDesignDummyImpl& orig) {
 }
-
-ExperimentDesignDummyImpl::~ExperimentDesignDummyImpl() {
-}
+// default destructor
 
 bool ExperimentDesignDummyImpl::generate2krScenarioExperiments() {
     return true;

@@ -24,7 +24,7 @@ public:
     Counter(ElementManager* elems, std::string name);
     Counter(ElementManager* elems, std::string name, ModelElement* parent);
     Counter(const Counter& orig);
-    virtual ~Counter();
+    virtual ~Counter() = default;
 public:
     virtual std::string show();
 public:

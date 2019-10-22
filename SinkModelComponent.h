@@ -24,7 +24,7 @@ class SinkModelComponent : public ModelComponent {
 public:
     SinkModelComponent(Model* model, std::string componentTypename);
     SinkModelComponent(const SinkModelComponent& orig);
-    virtual ~SinkModelComponent();
+    virtual ~SinkModelComponent() = default;
 public:
     void setCollectStatistics(bool _collectStatistics);
     bool isCollectStatistics() const;

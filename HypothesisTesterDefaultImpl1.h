@@ -21,7 +21,7 @@ class HypothesisTesterDefaultImpl1 : public HypothesisTester_if {
 public:
     HypothesisTesterDefaultImpl1();
     HypothesisTesterDefaultImpl1(const HypothesisTesterDefaultImpl1& orig);
-    virtual ~HypothesisTesterDefaultImpl1();
+    virtual ~HypothesisTesterDefaultImpl1() = default;
 public:
     virtual double testAverage(double confidencelevel, double avg, H1Comparition comp);
     virtual double testProportion(double confidencelevel, double prop, H1Comparition comp);

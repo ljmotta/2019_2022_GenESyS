@@ -23,7 +23,7 @@ class Halt : public ModelComponent {
 public: // constructors
     Halt(Model* model);
     Halt(const Halt& orig);
-    virtual ~Halt();
+    virtual ~Halt() = default;
 public:  // virtual
     virtual std::string show();
 public:  // static

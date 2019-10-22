@@ -18,7 +18,7 @@ class CelularAutomata {
 public:
     CelularAutomata();
     CelularAutomata(const CelularAutomata& orig);
-    virtual ~CelularAutomata();
+    virtual ~CelularAutomata() = default;
 private:
 
 };

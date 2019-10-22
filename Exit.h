@@ -23,7 +23,7 @@ class Exit : public ModelComponent {
 public: // constructors
     Exit(Model* model);
     Exit(const Exit& orig);
-    virtual ~Exit();
+    virtual ~Exit() = default;
 public:  // virtual
     virtual std::string show();
 public:  // static

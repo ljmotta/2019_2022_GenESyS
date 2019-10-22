@@ -44,7 +44,7 @@ class Model {
 public:
     Model(Simulator* simulator);
     Model(const Model& orig);
-    virtual ~Model();
+    virtual ~Model() = default;
 public: // model control
     //void showReports();
     bool saveModel(std::string filename);
