@@ -235,8 +235,8 @@
         <logicalFolder name="f3" displayName="Conveyours" projectFiles="true">
         </logicalFolder>
         <logicalFolder name="f6" displayName="Others" projectFiles="true">
-          <itemPath>ODE.cpp</itemPath>
-          <itemPath>ODE.h</itemPath>
+          <itemPath>OLD_ODEelement.cpp</itemPath>
+          <itemPath>OLD_ODEelement.h</itemPath>
         </logicalFolder>
         <logicalFolder name="f4" displayName="Transfers" projectFiles="true">
           <itemPath>Sequence.cpp</itemPath>
@@ -653,9 +653,9 @@
       </item>
       <item path="Move.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="ODE.cpp" ex="false" tool="1" flavor2="0">
+      <item path="OLD_ODEelement.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="ODE.h" ex="false" tool="3" flavor2="0">
+      <item path="OLD_ODEelement.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="OnEventManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -1237,9 +1237,9 @@
       </item>
       <item path="Move.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="ODE.cpp" ex="false" tool="1" flavor2="0">
+      <item path="OLD_ODEelement.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="ODE.h" ex="false" tool="3" flavor2="0">
+      <item path="OLD_ODEelement.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="OnEventManager.cpp" ex="false" tool="1" flavor2="0">
       </item>

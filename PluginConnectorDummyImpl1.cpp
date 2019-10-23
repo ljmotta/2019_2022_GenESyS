@@ -36,7 +36,7 @@
 #include "EntityGroup.h"
 #include "Station.h"
 #include "Formula.h"
-#include "ODE.h"
+#include "OLD_ODEelement.h"
 
 #include "Util.h"
 
@@ -74,7 +74,7 @@ Plugin* PluginConnectorDummyImpl1::connect(const std::string dynamicLibraryFilen
     else if (fn == "formula.so")
 	GetInfo = &Formula::GetPluginInformation;
     else if (fn == "ode.so")
-	GetInfo = &ODE::GetPluginInformation;
+	GetInfo = &OLD_ODEelement::GetPluginInformation;
     else if (fn == "assign.so")
 	// model components
 	GetInfo = &Assign::GetPluginInformation;

@@ -134,18 +134,19 @@ public:
     Util::TraceLevel getTraceLevel() const;
     Simulator* getSimulator() const;
 private:
+    //void _addHandler(List<traceListener>* list, )
     bool _traceConditionPassed(Util::TraceLevel level);
 private: // trace listener
     // for handlers that are simple functions
-    std::list<traceListener>* _traceHandlers = new std::list<traceListener>();
-    std::list<traceErrorListener>* _traceErrorHandlers = new std::list<traceErrorListener>();
-    std::list<traceListener>* _traceReportHandlers = new std::list<traceListener>();
-    std::list<traceSimulationListener>* _traceSimulationHandlers = new std::list<traceSimulationListener>();
+    List<traceListener>* _traceHandlers = new List<traceListener>();
+    List<traceErrorListener>* _traceErrorHandlers = new List<traceErrorListener>();
+    List<traceListener>* _traceReportHandlers = new List<traceListener>();
+    List<traceSimulationListener>* _traceSimulationHandlers = new List<traceSimulationListener>();
     // for handlers that are class members (methods)
-    std::list<traceListenerMethod>* _traceHandlersMethod = new std::list<traceListenerMethod>();
-    std::list<traceErrorListenerMethod>* _traceErrorHandlersMethod = new std::list<traceErrorListenerMethod>();
-    std::list<traceListenerMethod>* _traceReportHandlersMethod = new std::list<traceListenerMethod>();
-    std::list<traceSimulationListenerMethod>* _traceSimulationHandlersMethod = new std::list<traceSimulationListenerMethod>();
+    List<traceListenerMethod>* _traceHandlersMethod = new List<traceListenerMethod>();
+    List<traceErrorListenerMethod>* _traceErrorHandlersMethod = new List<traceErrorListenerMethod>();
+    List<traceListenerMethod>* _traceReportHandlersMethod = new List<traceListenerMethod>();
+    List<traceSimulationListenerMethod>* _traceSimulationHandlersMethod = new List<traceSimulationListenerMethod>();
 private:
     //Model* _model;
     Simulator* _simulator;
@@ -159,20 +160,22 @@ private:
 
 };
 
+// implementation for template methods
+
 template<typename Class> void TraceManager::addTraceHandler(Class * object, void (Class::*function)(TraceEvent)) {
-    this->_traceHandlersMethod->insert(_traceHandlersMethod->end(), std::bind(function, object, std::placeholders::_1));
+    this->_traceHandlersMethod->insert(std::bind(function, object, std::placeholders::_1));
 }
 
 template<typename Class> void TraceManager::addTraceErrorHandler(Class * object, void (Class::*function)(TraceErrorEvent)) {
-    this->_traceErrorHandlersMethod->insert(_traceErrorHandlersMethod->end(), std::bind(function, object, std::placeholders::_1));
+    this->_traceErrorHandlersMethod->insert(std::bind(function, object, std::placeholders::_1));
 }
 
 template<typename Class> void TraceManager::addTraceReportHandler(Class * object, void (Class::*function)(TraceEvent)) {
-    this->_traceReportHandlersMethod->insert(_traceReportHandlersMethod->end(), std::bind(function, object, std::placeholders::_1));
+    this->_traceReportHandlersMethod->insert(std::bind(function, object, std::placeholders::_1));
 }
 
 template<typename Class> void TraceManager::addTraceSimulationHandler(Class * object, void (Class::*function)(TraceSimulationEvent)) {
-    this->_traceSimulationHandlersMethod->insert(_traceSimulationHandlersMethod->end(), std::bind(function, object, std::placeholders::_1));
+    this->_traceSimulationHandlersMethod->insert(std::bind(function, object, std::placeholders::_1));
 }
 
 #endif /* TRACEMANAGER_H */

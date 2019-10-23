@@ -11,8 +11,8 @@
  * Created on 13 de Junho de 2019, 19:12
  */
 
-#ifndef ODE_H
-#define ODE_H
+#ifndef OLD_ODEELEMENT_H
+#define OLD_ODEELEMENT_H
 
 #include "ModelElement.h"
 #include "ElementManager.h"
@@ -31,10 +31,10 @@ public:
     double initialValue;
 };
 
-class ODE : public ModelElement {
+class OLD_ODEelement : public ModelElement {
 public:
-    ODE(ElementManager* elems);
-    virtual ~ODE() = default;
+    OLD_ODEelement(ElementManager* elems);
+    virtual ~OLD_ODEelement() = default;
 public:
     virtual std::string show();
 public:
@@ -60,5 +60,5 @@ private:
     ElementManager* _elems;
 };
 
-#endif /* ODE_H */
+#endif /* OLD_ODEELEMENT_H */
 

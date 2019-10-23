@@ -14,7 +14,7 @@
 #ifndef ONEVENTMANAGER_H
 #define ONEVENTMANAGER_H
 
-#include <list>
+#include "List.h"
 #include "Event.h"
 
 /* TODO: To implement as item (1) for DS3
@@ -46,6 +46,8 @@ private:
 };
 
 typedef void (*simulationEventHandler)(SimulationEvent*);
+// for handlers that are class members (methods)
+typedef std::function<void(SimulationEvent*) > simulationEventHandlerMethod;
 
 /*!
  * OnEventManager allows external methods to hook interval simulation events as listeners (or observers) of pecific events.
@@ -64,6 +66,9 @@ public: // event listeners (handlers)
     void addOnSimulationStartHandler(simulationEventHandler EventHandler);
     void addOnSimulationEndHandler(simulationEventHandler EventHandler);
     void addOnEntityRemoveHandler(simulationEventHandler EventHandler);
+    // for handlers that are class members (methods)
+    template<typename Class> void addOnProcessEventHandler(Class * object, void (Class::*function)(SimulationEvent*));
+    // TODO ...
 public:
     void NotifyReplicationStartHandlers(SimulationEvent* se);
     void NotifyReplicationStepHandlers(SimulationEvent* se);
@@ -73,17 +78,35 @@ public:
     void NotifySimulationStartHandlers(SimulationEvent* se);
     void NotifySimulationEndHandlers(SimulationEvent* se);
 private:
-    void _NotifyHandlers(std::list<simulationEventHandler>* list, SimulationEvent* se);
+    void _NotifyHandlers(List<simulationEventHandler>* list, SimulationEvent* se);
+    void _NotifyHandlerMethods(List<simulationEventHandlerMethod>* list, SimulationEvent* se);
+    void _addOnHandler(List<simulationEventHandler>* list, simulationEventHandler EventHandler);
 private: // events listener
-    std::list<simulationEventHandler>* _onReplicationStartHandlers = new std::list<simulationEventHandler>();
-    std::list<simulationEventHandler>* _onReplicationStepHandlers = new std::list<simulationEventHandler>();
-    std::list<simulationEventHandler>* _onReplicationEndHandlers = new std::list<simulationEventHandler>();
-    std::list<simulationEventHandler>* _onProcessEventHandlers = new std::list<simulationEventHandler>();
-    std::list<simulationEventHandler>* _onEntityMoveHandlers = new std::list<simulationEventHandler>();
-    std::list<simulationEventHandler>* _onSimulationStartHandlers = new std::list<simulationEventHandler>();
-    std::list<simulationEventHandler>* _onSimulationEndHandlers = new std::list<simulationEventHandler>();
-private:
+    List<simulationEventHandler>* _onReplicationStartHandlers = new List<simulationEventHandler>();
+    List<simulationEventHandler>* _onReplicationStepHandlers = new List<simulationEventHandler>();
+    List<simulationEventHandler>* _onReplicationEndHandlers = new List<simulationEventHandler>();
+    List<simulationEventHandler>* _onProcessEventHandlers = new List<simulationEventHandler>();
+    List<simulationEventHandler>* _onEntityMoveHandlers = new List<simulationEventHandler>();
+    List<simulationEventHandler>* _onSimulationStartHandlers = new List<simulationEventHandler>();
+    List<simulationEventHandler>* _onSimulationEndHandlers = new List<simulationEventHandler>();
+    // for handlers that are class members (methods)
+    List<simulationEventHandlerMethod>* _onProcessEventHandlerMethods = new List<simulationEventHandlerMethod>();
+    // TODO ...
 };
+
+// implementation for template methods
+
+template<typename Class> void OnEventManager::addOnProcessEventHandler(Class * object, void (Class::*function)(SimulationEvent*)) {
+    simulationEventHandlerMethod handlerMethod = std::bind(function, object, std::placeholders::_1);
+    // TODO: if handlerMethod already insert, should not insert it again. Problem to solve <...> for function
+    //if (_onProcessEventHandlerMethods->find(handlerMethod) == _onProcessEventHandlerMethods->getList()->end())
+    this->_onProcessEventHandlerMethods->insert(handlerMethod);
+    // trying unique to solve the issue
+    //this->_onProcessEventHandlerMethods->getList()->unique(); // does not work
+    // TODO probabily to override == operator for type simulationEventHandlerMethod
+}
+
+// ... 
 
 #endif /* ONEVENTMANAGER_H */
 

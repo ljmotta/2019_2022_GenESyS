@@ -37,31 +37,33 @@ Simulator* TraceManager::getSimulator() const {
  void TraceManager::traceSimulation(Util::TraceLevel tracelevel, std::string text) {
 	if (_traceConditionPassed(tracelevel)) {
 		TraceSimulationEvent e = TraceEvent(tracelevel, text);
-		for (std::list<traceSimulationListener>::iterator it = this->_traceSimulationHandlers->begin(); it != _traceSimulationHandlers->end(); it++) {
+		for (std::list<traceSimulationListener>::iterator it = this->_traceSimulationHandlers->getList()->begin(); it != _traceSimulationHandlers->getList()->end(); it++) {
 			(*it)(e);
 		}
 	}
 }
  */
 
+
+
 void TraceManager::addTraceHandler(traceListener traceListener) {
-    this->_traceHandlers->insert(_traceHandlers->end(), traceListener);
+    this->_traceHandlers->insert(traceListener);
 }
 
 //void TraceManager::addTraceSimulationHandler(traceListener traceListener) {
-//	this->_traceSimulationHandlers->insert(_traceSimulationHandlers->end(), traceListener);
+//	this->_traceSimulationHandlers->insert(_traceSimulationHandlers->getList()->end(), traceListener);
 //}
 
 void TraceManager::addTraceSimulationHandler(traceSimulationListener traceSimulationListener) {
-    this->_traceSimulationHandlers->insert(_traceSimulationHandlers->end(), traceSimulationListener);
+    this->_traceSimulationHandlers->insert(traceSimulationListener);
 }
 
 void TraceManager::addTraceErrorHandler(traceErrorListener traceErrorListener) {
-    this->_traceErrorHandlers->insert(_traceErrorHandlers->end(), traceErrorListener);
+    this->_traceErrorHandlers->insert(traceErrorListener);
 }
 
 void TraceManager::addTraceReportHandler(traceListener traceReportListener) {
-    this->_traceReportHandlers->insert(_traceReportHandlers->end(), traceReportListener);
+    this->_traceReportHandlers->insert(traceReportListener);
 }
 
 void TraceManager::trace(Util::TraceLevel tracelevel, std::string text) {
@@ -69,10 +71,10 @@ void TraceManager::trace(Util::TraceLevel tracelevel, std::string text) {
 	text = Util::Indent() + text;
 	TraceEvent e = TraceEvent(tracelevel, text);
 	/* TODO--: somewhere in future it should be interesting to use "auto" and c++17 at least */
-	for (std::list<traceListener>::iterator it = this->_traceHandlers->begin(); it != _traceHandlers->end(); it++) {
+	for (std::list<traceListener>::iterator it = this->_traceHandlers->getList()->begin(); it != _traceHandlers->getList()->end(); it++) {
 	    (*it)(e);
 	}
-	for (std::list<traceListenerMethod>::iterator it = this->_traceHandlersMethod->begin(); it != _traceHandlersMethod->end(); it++) {
+	for (std::list<traceListenerMethod>::iterator it = this->_traceHandlersMethod->getList()->begin(); it != _traceHandlersMethod->getList()->end(); it++) {
 	    (*it)(e);
 	}
 
@@ -82,10 +84,10 @@ void TraceManager::trace(Util::TraceLevel tracelevel, std::string text) {
 void TraceManager::traceError(std::exception e, std::string text) {
     TraceErrorEvent exceptEvent = TraceErrorEvent(text, e);
     /* TODO--: somewhere in future it should be interesting to use "auto" and c++17 at least */
-    for (std::list<traceErrorListener>::iterator it = this->_traceErrorHandlers->begin(); it != _traceErrorHandlers->end(); it++) {
+    for (std::list<traceErrorListener>::iterator it = this->_traceErrorHandlers->getList()->begin(); it != _traceErrorHandlers->getList()->end(); it++) {
 	(*it)(exceptEvent);
     }
-    for (std::list<traceErrorListenerMethod>::iterator it = this->_traceErrorHandlersMethod->begin(); it != _traceErrorHandlersMethod->end(); it++) {
+    for (std::list<traceErrorListenerMethod>::iterator it = this->_traceErrorHandlersMethod->getList()->begin(); it != _traceErrorHandlersMethod->getList()->end(); it++) {
 	(*it)(exceptEvent);
     }
 }
@@ -94,10 +96,10 @@ void TraceManager::traceSimulation(Util::TraceLevel tracelevel, double time, Ent
     if (_traceConditionPassed(tracelevel)) {
 	text = Util::Indent() + text;
 	TraceSimulationEvent e = TraceSimulationEvent(tracelevel, time, entity, component, text);
-	for (std::list<traceSimulationListener>::iterator it = this->_traceSimulationHandlers->begin(); it != _traceSimulationHandlers->end(); it++) {
+	for (std::list<traceSimulationListener>::iterator it = this->_traceSimulationHandlers->getList()->begin(); it != _traceSimulationHandlers->getList()->end(); it++) {
 	    (*it)(e);
 	}
-	for (std::list<traceSimulationListenerMethod>::iterator it = this->_traceSimulationHandlersMethod->begin(); it != _traceSimulationHandlersMethod->end(); it++) {
+	for (std::list<traceSimulationListenerMethod>::iterator it = this->_traceSimulationHandlersMethod->getList()->begin(); it != _traceSimulationHandlersMethod->getList()->end(); it++) {
 	    (*it)(e);
 	}
     }
@@ -107,10 +109,10 @@ void TraceManager::traceReport(Util::TraceLevel tracelevel, std::string text) {
     if (_traceConditionPassed(tracelevel)) {
 	text = Util::Indent() + text;
 	TraceEvent e = TraceEvent(tracelevel, text);
-	for (std::list<traceListener>::iterator it = this->_traceReportHandlers->begin(); it != _traceReportHandlers->end(); it++) {
+	for (std::list<traceListener>::iterator it = this->_traceReportHandlers->getList()->begin(); it != _traceReportHandlers->getList()->end(); it++) {
 	    (*it)(e);
 	}
-	for (std::list<traceListenerMethod>::iterator it = this->_traceReportHandlersMethod->begin(); it != _traceReportHandlersMethod->end(); it++) {
+	for (std::list<traceListenerMethod>::iterator it = this->_traceReportHandlersMethod->getList()->begin(); it != _traceReportHandlersMethod->getList()->end(); it++) {
 	    (*it)(e);
 	}
     }

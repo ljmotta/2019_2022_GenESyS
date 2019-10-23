@@ -16,37 +16,47 @@
 OnEventManager::OnEventManager() {
 }
 
+void OnEventManager::_addOnHandler(List<simulationEventHandler>* list, simulationEventHandler EventHandler) {
+    if (list->find(EventHandler) == list->getList()->end())
+	list->insert(EventHandler);
+}
 
 void OnEventManager::addOnReplicationStartHandler(simulationEventHandler EventHandler) {
-    this->_onReplicationStartHandlers->insert(this->_onReplicationStartHandlers->end(), EventHandler);
+    _addOnHandler(_onReplicationStartHandlers, EventHandler);
 }
 
 void OnEventManager::addOnReplicationStepHandler(simulationEventHandler EventHandler) {
-    this->_onReplicationStepHandlers->insert(this->_onReplicationStepHandlers->end(), EventHandler);
+    _addOnHandler(_onReplicationStepHandlers, EventHandler);
 }
 
 void OnEventManager::addOnProcessEventHandler(simulationEventHandler EventHandler) {
-    this->_onProcessEventHandlers->insert(this->_onProcessEventHandlers->end(), EventHandler);
+    _addOnHandler(_onEntityMoveHandlers, EventHandler);
 }
 
 void OnEventManager::addOnEntityMoveHandler(simulationEventHandler EventHandler) {
-    this->_onEntityMoveHandlers->insert(this->_onEntityMoveHandlers->end(), EventHandler);
+    _addOnHandler(_onEntityMoveHandlers, EventHandler);
 }
 
 void OnEventManager::addOnReplicationEndHandler(simulationEventHandler EventHandler) {
-    this->_onReplicationEndHandlers->insert(this->_onReplicationEndHandlers->end(), EventHandler);
+    _addOnHandler(_onReplicationEndHandlers, EventHandler);
 }
 
 void OnEventManager::addOnSimulationStartHandler(simulationEventHandler EventHandler) {
-    this->_onSimulationStartHandlers->insert(this->_onSimulationStartHandlers->end(), EventHandler);
+    _addOnHandler(_onSimulationStartHandlers, EventHandler);
 }
 
 void OnEventManager::addOnSimulationEndHandler(simulationEventHandler EventHandler) {
-    this->_onSimulationEndHandlers->insert(this->_onSimulationEndHandlers->end(), EventHandler);
+    _addOnHandler(_onSimulationEndHandlers, EventHandler);
 }
 
-void OnEventManager::_NotifyHandlers(std::list<simulationEventHandler>* list, SimulationEvent* se) {
-    for (std::list<simulationEventHandler>::iterator it = list->begin(); it != list->end(); it++) {
+void OnEventManager::_NotifyHandlers(List<simulationEventHandler>* list, SimulationEvent* se) {
+    for (std::list<simulationEventHandler>::iterator it = list->getList()->begin(); it != list->getList()->end(); it++) {
+	(*it)(se);
+    }
+}
+
+void OnEventManager::_NotifyHandlerMethods(List<simulationEventHandlerMethod>* list, SimulationEvent* se) {
+    for (std::list<simulationEventHandlerMethod>::iterator it = list->getList()->begin(); it != list->getList()->end(); it++) {
 	(*it)(se);
     }
 }
@@ -58,7 +68,6 @@ void OnEventManager::NotifyReplicationStartHandlers(SimulationEvent* se) {
 
 void OnEventManager::NotifyReplicationStepHandlers(SimulationEvent* se) {
     this->_NotifyHandlers(this->_onReplicationStepHandlers, se);
-
 }
 
 void OnEventManager::NotifyReplicationEndHandlers(SimulationEvent* se) {
@@ -71,6 +80,7 @@ void OnEventManager::NotifyEntityMoveHandlers(SimulationEvent* se) {
 
 void OnEventManager::NotifyProcessEventHandlers(SimulationEvent* se) {
     this->_NotifyHandlers(this->_onProcessEventHandlers, se);
+    this->_NotifyHandlerMethods(this->_onProcessEventHandlerMethods, se);
 }
 
 void OnEventManager::NotifySimulationStartHandlers(SimulationEvent* se) {

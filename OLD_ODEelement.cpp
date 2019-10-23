@@ -11,15 +11,15 @@
  * Created on 13 de Junho de 2019, 19:12
  */
 
-#include "ODE.h"
+#include "OLD_ODEelement.h"
 #include "Model.h"
 
-ODE::ODE(ElementManager* elems) : ModelElement(Util::TypeOf<ODE>()) {
+OLD_ODEelement::OLD_ODEelement(ElementManager* elems) : ModelElement(Util::TypeOf<OLD_ODEelement>()) {
     _elems = elems;
 }
 
 
-std::string ODE::show() {
+std::string OLD_ODEelement::show() {
     std::string txt =  ModelElement::show();
     unsigned short i=0;
     for (std::list<ODEfunction*>::iterator it = _ODEfunctions->getList()->begin(); it != _ODEfunctions->getList()->end(); it++) {
@@ -28,39 +28,39 @@ std::string ODE::show() {
     return txt;
 }
 
-double ODE::solve() {
+double OLD_ODEelement::solve() {
     ////
     return 0.0; // dummy
 }
 
 
-void ODE::setStepH(double _h) {
+void OLD_ODEelement::setStepH(double _h) {
     this->_stepH = _h;
 }
 
-double ODE::getStepH() const {
+double OLD_ODEelement::getStepH() const {
     return _stepH;
 }
 
-void ODE::setEndTime(double _endTime) {
+void OLD_ODEelement::setEndTime(double _endTime) {
     this->_endTime = _endTime;
 }
 
-double ODE::getEndTime() const {
+double OLD_ODEelement::getEndTime() const {
     return _endTime;
 }
 
-List<ODEfunction*>* ODE::getODEfunctions() const {
+List<ODEfunction*>* OLD_ODEelement::getODEfunctions() const {
     return _ODEfunctions;
 }
 
-PluginInformation* ODE::GetPluginInformation() {
-    PluginInformation* info = new PluginInformation(Util::TypeOf<ODE>(), &ODE::LoadInstance); 
+PluginInformation* OLD_ODEelement::GetPluginInformation() {
+    PluginInformation* info = new PluginInformation(Util::TypeOf<OLD_ODEelement>(), &OLD_ODEelement::LoadInstance); 
     return info;
 }
 
-ModelElement* ODE::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {
-    ODE* newElement = new ODE(elems);
+ModelElement* OLD_ODEelement::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {
+    OLD_ODEelement* newElement = new OLD_ODEelement(elems);
     try {
 	newElement->_loadInstance(fields);
     } catch (const std::exception& e) {
@@ -69,15 +69,15 @@ ModelElement* ODE::LoadInstance(ElementManager* elems, std::map<std::string, std
     return newElement;
 }
 
-bool ODE::_loadInstance(std::map<std::string, std::string>* fields) {
+bool OLD_ODEelement::_loadInstance(std::map<std::string, std::string>* fields) {
     return ModelElement::_loadInstance(fields);    
 }
 
-std::map<std::string, std::string>* ODE::_saveInstance() {
+std::map<std::string, std::string>* OLD_ODEelement::_saveInstance() {
     return ModelElement::_saveInstance();
 }
 
-bool ODE::_check(std::string* errorMessage) {
+bool OLD_ODEelement::_check(std::string* errorMessage) {
     bool result = true;
     unsigned short i=0;
     ODEfunction* func;

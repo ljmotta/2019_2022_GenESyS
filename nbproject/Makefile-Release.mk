@@ -92,7 +92,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/ModelPersistenceDefaultImpl1.o \
 	${OBJECTDIR}/ModelSimulation.o \
 	${OBJECTDIR}/Move.o \
-	${OBJECTDIR}/ODE.o \
+	${OBJECTDIR}/OLD_ODEelement.o \
 	${OBJECTDIR}/OnEventManager.o \
 	${OBJECTDIR}/ParserChangesInformation.o \
 	${OBJECTDIR}/ParserDefaultImpl1.o \
@@ -468,10 +468,10 @@ ${OBJECTDIR}/Move.o: Move.cpp nbproject/Makefile-${CND_CONF}.mk
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Move.o Move.cpp
 
-${OBJECTDIR}/ODE.o: ODE.cpp nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/OLD_ODEelement.o: OLD_ODEelement.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ODE.o ODE.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/OLD_ODEelement.o OLD_ODEelement.cpp
 
 ${OBJECTDIR}/OnEventManager.o: OnEventManager.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

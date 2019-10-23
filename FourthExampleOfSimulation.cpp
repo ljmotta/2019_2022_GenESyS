@@ -51,6 +51,9 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
     ComponentManager* components = model->getComponentManager();
     ElementManager* elements = model->getElementManager();
     //
+    OnEventManager* oem = model->getOnEventManager();
+    this->setDefaultEventHandlers(oem);
+    //
     // build the simulation model
     ModelInfo* infos = model->getInfos();
     infos->setReplicationLength(60);

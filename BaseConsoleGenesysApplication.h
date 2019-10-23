@@ -26,6 +26,7 @@ public:
     virtual int main(int argc, char** argv) = 0;
 public:
     void setDefaultTraceHandlers(TraceManager* tm);
+    void setDefaultEventHandlers(OnEventManager* oem);
     void insertFakePluginsByHand(Simulator* simulator);
 protected:
     // default Trace Handlers
