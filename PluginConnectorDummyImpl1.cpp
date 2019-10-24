@@ -28,6 +28,7 @@
 #include "Leave.h"
 #include "Write.h"
 #include "LSODE.h"
+#include "MarkovChain.h"
 
 // Model elements
 #include "EntityType.h"
@@ -37,6 +38,7 @@
 #include "EntityGroup.h"
 #include "Station.h"
 #include "Formula.h"
+#include "Set.h"
 #include "OLD_ODEelement.h"
 
 #include "Util.h"
@@ -56,29 +58,31 @@ Plugin* PluginConnectorDummyImpl1::connect(const std::string dynamicLibraryFilen
     // model elements
     if (fn == "attribute.so")
 	GetInfo = &Attribute::GetPluginInformation;
+    else if (fn == "assign.so")
+	GetInfo = &Assign::GetPluginInformation;
     else if (fn == "counter.so")
 	GetInfo = &Counter::GetPluginInformation;
-    else if (fn == "entitytype.so")
-	GetInfo = &EntityType::GetPluginInformation;
-    else if (fn == "queue.so")
-	GetInfo = &Queue::GetPluginInformation;
-    else if (fn == "resource.so")
-	GetInfo = &Resource::GetPluginInformation;
-    else if (fn == "statisticscollector.so")
-	GetInfo = &StatisticsCollector::GetPluginInformation;
-    else if (fn == "variable.so")
-	GetInfo = &Variable::GetPluginInformation;
     else if (fn == "entitygroup.so")
 	GetInfo = &EntityGroup::GetPluginInformation;
-    else if (fn == "station.so")
-	GetInfo = &Station::GetPluginInformation;
+    else if (fn == "entitytype.so")
+	GetInfo = &EntityType::GetPluginInformation;
     else if (fn == "formula.so")
 	GetInfo = &Formula::GetPluginInformation;
     else if (fn == "ode.so")
 	GetInfo = &OLD_ODEelement::GetPluginInformation;
-    else if (fn == "assign.so")
+    else if (fn == "queue.so")
+	GetInfo = &Queue::GetPluginInformation;
+    else if (fn == "resource.so")
+	GetInfo = &Resource::GetPluginInformation;
+    else if (fn == "set.so")
+	GetInfo = &Set::GetPluginInformation;
+    else if (fn == "statisticscollector.so")
+	GetInfo = &StatisticsCollector::GetPluginInformation;
+    else if (fn == "station.so")
+	GetInfo = &Station::GetPluginInformation;
+    else if (fn == "variable.so")
+	GetInfo = &Variable::GetPluginInformation;
 	// model components
-	GetInfo = &Assign::GetPluginInformation;
     else if (fn == "create.so")
 	GetInfo = &Create::GetPluginInformation;
     else if (fn == "write.so")
@@ -105,6 +109,8 @@ Plugin* PluginConnectorDummyImpl1::connect(const std::string dynamicLibraryFilen
 	GetInfo = &Leave::GetPluginInformation;
     else if (fn == "lsode.so")
 	GetInfo = &LSODE::GetPluginInformation;
+    else if (fn == "markovchain.so")
+	GetInfo = &MarkovChain::GetPluginInformation;
     //else if (fn=="")
 
     if (GetInfo != nullptr) {

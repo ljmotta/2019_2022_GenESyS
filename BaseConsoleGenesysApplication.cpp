@@ -96,9 +96,11 @@ void BaseConsoleGenesysApplication::insertFakePluginsByHand(Simulator* simulator
     simulator->getPluginManager()->insert("record.so");
     simulator->getPluginManager()->insert("submodel.so");
     simulator->getPluginManager()->insert("entitytype.so");
+    simulator->getPluginManager()->insert("entitygroup.so");
     simulator->getPluginManager()->insert("attribute.so");
     simulator->getPluginManager()->insert("counter.so");
     simulator->getPluginManager()->insert("queue.so");
+    simulator->getPluginManager()->insert("set.so");
     simulator->getPluginManager()->insert("resource.so");
     simulator->getPluginManager()->insert("variable.so");
     simulator->getPluginManager()->insert("schedule.so");

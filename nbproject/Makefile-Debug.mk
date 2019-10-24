@@ -82,6 +82,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/LSODE.o \
 	${OBJECTDIR}/Leave.o \
 	${OBJECTDIR}/LicenceManager.o \
+	${OBJECTDIR}/MarkovChain.o \
 	${OBJECTDIR}/Match.o \
 	${OBJECTDIR}/MathMeth.o \
 	${OBJECTDIR}/Model.o \
@@ -143,6 +144,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/TestFunctions.o \
 	${OBJECTDIR}/TestInputAnalyserTools.o \
 	${OBJECTDIR}/TestLSODE.o \
+	${OBJECTDIR}/TestMarkovChain.o \
 	${OBJECTDIR}/TestParser.o \
 	${OBJECTDIR}/TestSimulationControlAndSimulationResponse.o \
 	${OBJECTDIR}/TestStatistics.o \
@@ -419,6 +421,11 @@ ${OBJECTDIR}/LicenceManager.o: LicenceManager.cpp nbproject/Makefile-${CND_CONF}
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/LicenceManager.o LicenceManager.cpp
+
+${OBJECTDIR}/MarkovChain.o: MarkovChain.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/MarkovChain.o MarkovChain.cpp
 
 ${OBJECTDIR}/Match.o: Match.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -724,6 +731,11 @@ ${OBJECTDIR}/TestLSODE.o: TestLSODE.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestLSODE.o TestLSODE.cpp
+
+${OBJECTDIR}/TestMarkovChain.o: TestMarkovChain.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestMarkovChain.o TestMarkovChain.cpp
 
 ${OBJECTDIR}/TestParser.o: TestParser.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

@@ -97,7 +97,7 @@ bool Model::saveModel(std::string filename) {
 }
 
 bool Model::loadModel(std::string filename) {
-    //this->clear(); // clear the model before loading on an existing model
+    this->clear();
     return this->_modelPersistence->load(filename);
 }
 

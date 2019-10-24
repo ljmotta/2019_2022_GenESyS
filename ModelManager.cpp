@@ -40,10 +40,13 @@ bool ModelManager::saveModel(std::string filename) {
 }
 
 bool ModelManager::loadModel(std::string filename) {
-    //if (_currentModel == nullptr)
-    // always load into a new model
-    this->insert(new Model(_simulator));
-    return _currentModel->loadModel(filename);
+    Model* model = new Model(_simulator);
+    bool res = model->loadModel(filename);
+    if (res) 
+	this->insert(model);
+    else
+	model->~Model();
+    return res;
 }
 
 void ModelManager::setCurrent(Model* model) {

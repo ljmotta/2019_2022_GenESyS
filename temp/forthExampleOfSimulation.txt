@@ -1,5 +1,5 @@
 # Genesys simulation model 
-# Last saved on Tue Oct 22 20:59:32 2019
+# Last saved on Thu Oct 24 19:31:37 2019
 # simulator infos
 name=ReGenESyS - Reborn Generic and Expansible System Simulator; typename=SimulatorInfo; version=190909; 
 
@@ -32,29 +32,31 @@ id=5; name=index; typename=Attribute;
 id=6; name=varNextIndex; numCols=1; numRows=1; numValues=0; typename=Variable; 
 
 # model components
-allocationType=0; id=25; name=Seize_1; nextId0=26; nextSize=1; priority==0; quantity=1; queueId=22; queueName=Queue_Seize_1; resourceId=8; resourceName=Machine_1; resourceType=2; rule=4; saveAttribute=; typename=Seize; 
+allocationType=0; id=25; name=Seize_1; nextId0=26; nextInputNumber0=0; nextSize=1; priority==0; quantity=1; queueId=22; queueName=Queue_Seize_1; resourceId=8; resourceName=Machine_1; resourceType=2; rule=4; saveAttribute=; typename=Seize; 
 
-allocationType=0; id=31; name=Seize_2; nextId0=32; nextSize=1; priority==0; quantity=1; queueId=28; queueName=Queue_Seize_2; resourceId=12; resourceName=Machine_2; resourceType=2; rule=4; saveAttribute=; typename=Seize; 
+allocationType=0; id=31; name=Seize_2; nextId0=32; nextInputNumber0=0; nextSize=1; priority==0; quantity=1; queueId=28; queueName=Queue_Seize_2; resourceId=12; resourceName=Machine_2; resourceType=2; rule=4; saveAttribute=; typename=Seize; 
 
-allocationType=0; id=37; name=Seize_3; nextId0=38; nextSize=1; priority==0; quantity=1; queueId=34; queueName=Queue_Seize_3; resourceId=16; resourceName=Machine_3; resourceType=2; rule=4; saveAttribute=; typename=Seize; 
+allocationType=0; id=37; name=Seize_3; nextId0=38; nextInputNumber0=0; nextSize=1; priority==0; quantity=1; queueId=34; queueName=Queue_Seize_3; resourceId=16; resourceName=Machine_3; resourceType=2; rule=4; saveAttribute=; typename=Seize; 
 
-assignments=2; destination0=varNextIndex; destinationType0=1; expression0=varNextIndex+1; id=4; name=Assign_1; nextId0=7; nextSize=1; typename=Assign; 
+assignments=2; destination0=varNextIndex; destinationType0=1; expression0=varNextIndex+1; id=4; name=Assign_1; nextId0=7; nextInputNumber0=0; nextSize=1; typename=Assign; 
 
-delayExpression=norm(15,1); delayExpressionTimeUnit=5; id=26; name=Delay_1; nextId0=27; nextSize=1; typename=Delay; 
+condition0=NR(Machine_1)<MR(Machine_1); condition1=NR(Machine_2)<MR(Machine_2); conditions=2; id=21; name=Decide_1; nextId0=25; nextId1=31; nextId2=37; nextInputNumber0=0; nextInputNumber1=0; nextInputNumber2=0; nextSize=3; typename=Decide; 
 
-delayExpression=norm(15,1); delayExpressionTimeUnit=5; id=32; name=Delay_2; nextId0=33; nextSize=1; typename=Delay; 
+delayExpression=norm(15,1); delayExpressionTimeUnit=5; id=26; name=Delay_1; nextId0=27; nextInputNumber0=0; nextSize=1; typename=Delay; 
 
-delayExpression=norm(15,1); delayExpressionTimeUnit=5; id=38; name=Delay_3; nextId0=39; nextSize=1; typename=Delay; 
+delayExpression=norm(15,1); delayExpressionTimeUnit=5; id=32; name=Delay_2; nextId0=33; nextInputNumber0=0; nextSize=1; typename=Delay; 
 
-entitiesPerCreation=1; entityTypename=Part; firstCreation=0.000000; id=2; maxCreations=4294967295; name=Create_1; nextId0=4; nextSize=1; timeBetweenCreations=norm(1.5,0.5); timeBetweenCreationsTimeUnit=5; typename=Create; 
+delayExpression=norm(15,1); delayExpressionTimeUnit=5; id=38; name=Delay_3; nextId0=39; nextInputNumber0=0; nextSize=1; typename=Delay; 
 
-id=27; name=Release_1; nextId0=40; nextSize=1; priority=0; quantity=1; resourceId=8; resourceName=Machine_1; resourceType=2; rule=4; saveAttribute=; typename=Release; 
+entitiesPerCreation=1; entityTypename=Part; firstCreation=0.000000; id=2; maxCreations=4294967295; name=Create_1; nextId0=4; nextInputNumber0=0; nextSize=1; timeBetweenCreations=norm(1.5,0.5); timeBetweenCreationsTimeUnit=5; typename=Create; 
 
-id=33; name=Release_2; nextId0=40; nextSize=1; priority=0; quantity=1; resourceId=12; resourceName=Machine_2; resourceType=2; rule=4; saveAttribute=; typename=Release; 
+id=27; name=Release_1; nextId0=40; nextInputNumber0=0; nextSize=1; priority=0; quantity=1; resourceId=8; resourceName=Machine_1; resourceType=2; rule=4; saveAttribute=; typename=Release; 
 
-id=39; name=Release_3; nextId0=40; nextSize=1; priority=0; quantity=1; resourceId=16; resourceName=Machine_3; resourceType=2; rule=4; saveAttribute=; typename=Release; 
+id=33; name=Release_2; nextId0=40; nextInputNumber0=0; nextSize=1; priority=0; quantity=1; resourceId=12; resourceName=Machine_2; resourceType=2; rule=4; saveAttribute=; typename=Release; 
+
+id=39; name=Release_3; nextId0=40; nextInputNumber0=0; nextSize=1; priority=0; quantity=1; resourceId=16; resourceName=Machine_3; resourceType=2; rule=4; saveAttribute=; typename=Release; 
 
 id=40; name=Dispose_1; nextSize=0; typename=Dispose; 
 
-id=7; name=Write_1; nextId0=21; nextSize=1; typename=Write; 
+id=7; name=Write_1; nextId0=21; nextInputNumber0=0; nextSize=1; typename=Write; 
 

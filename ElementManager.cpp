@@ -24,18 +24,30 @@ ElementManager::ElementManager(Model* model) {
 
 }
 
-
-bool ElementManager::insert(std::string infraTypename, ModelElement* infra) {
+bool ElementManager::insert(ModelElement* infra) {
+    std::string infraTypename = infra->getTypename();
     List<ModelElement*>* listElements = getElements(infraTypename);
     if (listElements->find(infra) == listElements->getList()->end()) { //not found
-	//if (dynamic_cast<ModelElement*> (infra) == nullptr) { // how? remove it. test only because of seg faults
-	//	return false;
-	//}
-	//infra->SaveInstance(infra);
 	listElements->insert(infra);
 	return true;
     }
     return false;
+}
+
+bool ElementManager::insert(std::string infraTypename, ModelElement* infra) {
+    List<ModelElement*>* listElements = getElements(infraTypename);
+    if (listElements->find(infra) == listElements->getList()->end()) { //not found
+	listElements->insert(infra);
+	return true;
+    }
+    return false;
+}
+
+void ElementManager::remove(ModelElement* infra) {
+    std::string infraTypename = infra->getTypename();
+    List<ModelElement*>* listElements = getElements(infraTypename);
+    listElements->remove(infra);
+    infra->~ModelElement(); /* TODO: Check: Should really destroy infra here? */
 }
 
 void ElementManager::remove(std::string infraTypename, ModelElement* infra) {

@@ -157,6 +157,7 @@ bool ModelPersistenceDefaultImpl1::_loadFields(std::string line) {
 			// save fields for components, in order to allow to connect components after all of them have been loaded
 			if (res && plugin->getPluginInfo()->isComponent()) {
 			    _componentFields->insert(_componentFields->end(), fields);
+			    //_model->getTraceManager()->trace(Util::TraceLevel::errors, "Inserindo fields do componente "+plugin->getPluginInfo()->getPluginTypename());
 			}
 		    } else {
 			_model->getTraceManager()->trace(Util::TraceLevel::errors, "Error loading file: Could not identity typename \"" + thistypename + "\"");
@@ -231,15 +232,16 @@ bool ModelPersistenceDefaultImpl1::load(std::string filename) {
 		    unsigned short nextInputNumber = 0;
 		    if (fields->find("nextInputNumber" + std::to_string(i)) != fields->end())
 			nextInputNumber = std::stoi((*fields->find("nextInputNumber" + std::to_string(i))).second);
-
+		    ModelComponent* nextComponent = nullptr;
 		    for (std::list<ModelComponent*>::iterator itcomp = cm->begin(); itcomp != cm->end(); itcomp++) {// connect the components 
 			if ((*itcomp)->getId() == nextId) { // connect the components 
-			    ModelComponent* nextComponent = (*itcomp);
+			    nextComponent = (*itcomp);
 			    thisComponent->getNextComponents()->insert(nextComponent, nextInputNumber);
 			    _model->getTraceManager()->trace(Util::TraceLevel::blockInternal, thisComponent->getName() + " -> " + nextComponent->getName());
 			    break;
 			}
 		    }
+		    assert(nextComponent!=nullptr);
 		}
 
 	    }

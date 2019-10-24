@@ -68,7 +68,7 @@ void TraceManager::addTraceReportHandler(traceListener traceReportListener) {
 
 void TraceManager::trace(Util::TraceLevel tracelevel, std::string text) {
     if (_traceConditionPassed(tracelevel)) {
-	text = Util::Indent() + text;
+	text = std::to_string(static_cast<int>(tracelevel))+". "+ Util::Indent() + text;
 	TraceEvent e = TraceEvent(tracelevel, text);
 	/* TODO--: somewhere in future it should be interesting to use "auto" and c++17 at least */
 	for (std::list<traceListener>::iterator it = this->_traceHandlers->getList()->begin(); it != _traceHandlers->getList()->end(); it++) {

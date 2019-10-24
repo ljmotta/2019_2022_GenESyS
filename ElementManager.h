@@ -31,7 +31,9 @@ public:
     ElementManager(Model* model);
     virtual ~ElementManager() = default;
 public:
-    bool insert(std::string infraTypename, ModelElement* infra);
+    bool insert(ModelElement* infra);
+    void remove(ModelElement* infra); ///< Deprected
+    bool insert(std::string infraTypename, ModelElement* infra); ///< Deprected
     void remove(std::string infraTypename, ModelElement* infra);
     bool check(std::string infraTypename, ModelElement* infra, std::string expressionName, std::string* errorMessage);
     bool check(std::string infraTypename, std::string infraName, std::string expressionName, bool mandatory, std::string* errorMessage);

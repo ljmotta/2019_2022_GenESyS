@@ -322,21 +322,23 @@ bool ModelCheckerDefaultImpl1::checkActivationCode() {
 bool ModelCheckerDefaultImpl1::checkLimits() {
     bool res = true;
     std::string text;
-    unsigned int value;
+    unsigned int value, limit;
     LicenceManager *licence = _model->getParentSimulator()->getLicenceManager();
     _model->getTraceManager()->trace(Util::TraceLevel::blockArrival, "Checking model limits");
     Util::IncIndent();
     {
 	value = _model->getComponentManager()->getNumberOfComponents();
-	res &= value <= licence->getModelComponentsLimit();
-	_model->getTraceManager()->trace(Util::TraceLevel::blockInternal, "Model has "+std::to_string(value)+" components");
+	limit=licence->getModelComponentsLimit();
+	res &= value <= limit;
+	_model->getTraceManager()->trace(Util::TraceLevel::blockInternal, "Model has "+std::to_string(value)+"/"+std::to_string(limit)+" components");
 	if (!res) {
 	    text = "Model has " + std::to_string(_model->getComponentManager()->getNumberOfComponents()) + " components, exceding the limit of " + std::to_string(licence->getModelComponentsLimit()) + " components imposed by the current activation code";
 	    //_model->getTraceManager()->trace(Util::TraceLevel::errors, text);
 	} else {
 	    value = _model->getElementManager()->getNumberOfElements();
-	    res &= value <= licence->getModelElementsLimit();
-	    _model->getTraceManager()->trace(Util::TraceLevel::blockInternal, "Model has "+std::to_string(value)+" elements");
+	    limit = licence->getModelElementsLimit();
+	    res &= value <= limit;
+	    _model->getTraceManager()->trace(Util::TraceLevel::blockInternal, "Model has "+std::to_string(value)+"/"+std::to_string(limit)+" elements");
 	    if (!res) {
 		text = "Model has " + std::to_string(_model->getElementManager()->getNumberOfElements()) + " elements, exceding the limit of " + std::to_string(licence->getModelElementsLimit()) + " elements imposed by the current activation code";
 		//_model->getTraceManager()->trace(Util::TraceLevel::errors, text);
