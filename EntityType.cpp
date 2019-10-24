@@ -38,12 +38,12 @@ void EntityType::_initCostsAndStatistics() {
     //_cstatVATime = new StatisticsCollector("Value Added Time", this);
     //_cstatNVATime = new StatisticsCollector("Non Value Added Time", this);
     //_cstatTotalTime = new StatisticsCollector("Time In System", this);
-    //_elemManager->insert(Util::TypeOf<StatisticsCollector>(), _cstatNVATime);
-    //_elemManager->insert(Util::TypeOf<StatisticsCollector>(), _cstatOtherTime);
-    //_elemManager->insert(Util::TypeOf<StatisticsCollector>(), _cstatTotalTime);
-    //_elemManager->insert(Util::TypeOf<StatisticsCollector>(), _cstatTransferTime);
-    //_elemManager->insert(Util::TypeOf<StatisticsCollector>(), _cstatVATime);
-    //_elemManager->insert(Util::TypeOf<StatisticsCollector>(), _cstatWaitingTime);
+    //_elemManager->insert(_cstatNVATime);
+    //_elemManager->insert(_cstatOtherTime);
+    //_elemManager->insert(_cstatTotalTime);
+    //_elemManager->insert(_cstatTransferTime);
+    //_elemManager->insert(_cstatVATime);
+    //_elemManager->insert(_cstatWaitingTime);
     // insert cstats as simulation responses
 
 //    List<::SimulationResponse*>* responses = this->_elemManager->getParentModel()->getResponses();
@@ -143,7 +143,7 @@ StatisticsCollector* EntityType::getStatisticsCollector(std::string name) {
     // not found. Create it, insert it into the list of cstats, into the model element manager, and then return it
     cstat = new StatisticsCollector(_elemManager, name, this);
     _statisticsCollectors->insert(cstat);
-    this->_elemManager->insert(Util::TypeOf<StatisticsCollector>(), cstat);
+    this->_elemManager->insert(cstat);
     return cstat;
 }
 

@@ -29,8 +29,8 @@ Queue::Queue(ElementManager* elems, std::string name) : ModelElement(Util::TypeO
 void Queue::_initCStats() {
     _cstatNumberInQueue = new StatisticsCollector(_elems, _name+"."+"Number_In_Queue", this); /* TODO: ++ WHY THIS INSERT "DISPOSE" AND "10ENTITYTYPE" STATCOLL ?? */
     _cstatTimeInQueue = new StatisticsCollector(_elems, _name+"."+"Time_In_Queue", this);
-    _elems->insert(Util::TypeOf<StatisticsCollector>(), _cstatNumberInQueue);
-    _elems->insert(Util::TypeOf<StatisticsCollector>(), _cstatTimeInQueue);
+    _elems->insert(_cstatNumberInQueue);
+    _elems->insert(_cstatTimeInQueue);
 
 }
 Queue::~Queue() {

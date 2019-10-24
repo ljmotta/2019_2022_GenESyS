@@ -20,7 +20,7 @@
 
 Create::Create(Model* model) : SourceModelComponent(model, Util::TypeOf<Create>()) {
     _numberOut = new Counter(_model->getElementManager(), "Count number in", this);
-    _model->getElementManager()->insert(Util::TypeOf<Counter>(), _numberOut);
+    _model->getElementManager()->insert(_numberOut);
     GetterMember getter = DefineGetterMember<SourceModelComponent>(this, &Create::getEntitiesPerCreation);
     SetterMember setter = DefineSetterMember<SourceModelComponent>(this, &Create::setEntitiesPerCreation);
     model->getControls()->insert(new SimulationControl(Util::TypeOf<Create>(), "Entities Per Creation", getter,setter));
@@ -48,7 +48,7 @@ void Create::_execute(Entity* entity) {
 	    _entitiesCreatedSoFar++;
 	    Entity* newEntity = new Entity(this->_model->getElementManager());
 	    newEntity->setEntityType(entity->getEntityType());
-	    _model->getElementManager()->insert(Util::TypeOf<Entity>(), newEntity); // ->getEntities()->insert(newEntity);
+	    _model->getElementManager()->insert(newEntity); // ->getEntities()->insert(newEntity);
 	    timeBetweenCreations = _model->parseExpression(this->_timeBetweenCreationsExpression);
 	    timeScale = Util::TimeUnitConvert(this->_timeBetweenCreationsTimeUnit, _model->getInfos()->getReplicationLengthTimeUnit());
 	    newArrivalTime = tnow + timeBetweenCreations*timeScale;

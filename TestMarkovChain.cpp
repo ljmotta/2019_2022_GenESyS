@@ -33,8 +33,8 @@ int TestMarkovChain::main(int argc, char** argv) {
     var1->setValue("1", 0.4);
     var1->setValue("2", 0.4);
     var1->setValue("3", 0.1);
-    elems->insert(Util::TypeOf<Variable>(), var1);
+    elems->insert(var1);
     Variable* var2 = new Variable("ProcessState");
-    elems->insert()
+    elems->insert(var2);
     return 0;
 }

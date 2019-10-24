@@ -69,7 +69,7 @@ bool Sequence::_check(std::string* errorMessage) {
 	neededName = neededNames[i];
 	if (_elems->getElement(Util::TypeOf<Attribute>(), neededName) == nullptr) {
 	    Attribute* attr1 = new Attribute(neededName);
-	    _elems->insert(Util::TypeOf<Attribute>(), attr1);
+	    _elems->insert(attr1);
 	}
     }
     //

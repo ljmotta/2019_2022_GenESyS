@@ -28,7 +28,7 @@ EntityGroup::EntityGroup(ElementManager* elems, std::string name) : ModelElement
 
 void EntityGroup::_initCStats() {
     _cstatNumberInGroup = new StatisticsCollector(_elements, "Number In Group", this);
-    _elements->insert(Util::TypeOf<StatisticsCollector>(), _cstatNumberInGroup);
+    _elements->insert(_cstatNumberInGroup);
 }
 EntityGroup::~EntityGroup() {
     _elements->remove(Util::TypeOf<StatisticsCollector>(), _cstatNumberInGroup);
@@ -100,7 +100,7 @@ bool EntityGroup::_check(std::string* errorMessage) {
     std::string newNeededAttributeName = "Entity.Group";
     if (_elements->getElement(Util::TypeOf<Attribute>(), newNeededAttributeName ) == nullptr) {
 	    Attribute* attr1 = new Attribute(newNeededAttributeName );
-	    _elements->insert(Util::TypeOf<Attribute>(), attr1);
+	    _elements->insert(attr1);
 	}
     return true;
 }

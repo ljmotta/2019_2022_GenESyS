@@ -27,11 +27,11 @@ Resource::Resource(ElementManager* elems, std::string name) : ModelElement(Util:
 
 void Resource::_initCStats() {
     _cstatTimeSeized = new StatisticsCollector(_elems, _name+"."+"Time_Seized", this);
-    _elems->insert(Util::TypeOf<StatisticsCollector>(), _cstatTimeSeized);
+    _elems->insert(_cstatTimeSeized);
     _numSeizes = new Counter(_elems, _name+"."+"Seizes", this);
-    _elems->insert(Util::TypeOf<Counter>(), _numSeizes);
+    _elems->insert(_numSeizes);
     _numReleases = new Counter(_elems, _name+"."+"Releases", this);
-    _elems->insert(Util::TypeOf<Counter>(), _numReleases);
+    _elems->insert(_numReleases);
 
 }
 Resource::~Resource() {

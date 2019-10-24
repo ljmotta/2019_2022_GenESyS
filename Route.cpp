@@ -123,7 +123,7 @@ bool Route::_check(std::string* errorMessage) {
 	neededName = neededNames[i];
 	if (elements->getElement(Util::TypeOf<Attribute>(), neededName) == nullptr) {
 	    Attribute* attr1 = new Attribute(neededName);
-	    elements->insert(Util::TypeOf<Attribute>(), attr1);
+	    elements->insert(attr1);
 	}
     } 
     // include StatisticsCollector needed in EntityType

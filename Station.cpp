@@ -30,8 +30,8 @@ Station::Station(ElementManager* elems, std::string name) : ModelElement(Util::T
 void Station::_initCStats() {
     _cstatNumberInStation = new StatisticsCollector(_elems, _name+"."+"Number_In_Station", this);
     _cstatTimeInStation = new StatisticsCollector(_elems, _name+"."+"Time_In_Station", this);
-    _elems->insert(Util::TypeOf<StatisticsCollector>(), _cstatNumberInStation);
-    _elems->insert(Util::TypeOf<StatisticsCollector>(), _cstatTimeInStation);
+    _elems->insert(_cstatNumberInStation);
+    _elems->insert(_cstatTimeInStation);
 
 }
 Station::~Station() {
@@ -120,7 +120,7 @@ bool Station::_check(std::string* errorMessage) {
 	neededName = neededNames[i];
 	if (_elems->getElement(Util::TypeOf<Attribute>(), neededName) == nullptr) {
 	    Attribute* attr1 = new Attribute(neededName);
-	    _elems->insert(Util::TypeOf<Attribute>(), attr1);
+	    _elems->insert(attr1);
 	}
     }
     // include StatisticsCollector needed in EntityType

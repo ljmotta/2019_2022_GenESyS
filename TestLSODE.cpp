@@ -34,7 +34,7 @@ int TestLSODE::main(int argc, char** argv) {
     ElementManager* elements = model->getElementManager();
     //
     EntityType* entityType1 = new EntityType(elements, "EntType_1");
-    elements->insert(Util::TypeOf<EntityType>(), entityType1); 
+    elements->insert(entityType1); 
     Create* create1 = new Create(model);
     create1->setEntityType(entityType1);
     create1->setTimeBetweenCreationsExpression("1.0"); 

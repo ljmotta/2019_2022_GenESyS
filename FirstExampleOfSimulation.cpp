@@ -62,7 +62,7 @@ int FirstExampleOfSimulation::main(int argc, char** argv) {
     
     // create a (Source)ModelElement of type EntityType, used by a ModelComponent that follows
     EntityType* entityType1 = new EntityType(elements, "Type_of_Representative_Entity");
-    elements->insert(Util::TypeOf<EntityType>(), entityType1); // insert the element into the model
+    elements->insert(entityType1); // insert the element into the model
 
     // create a ModelComponent of type Create, used to insert entities into the model
     Create* create1 = new Create(model);

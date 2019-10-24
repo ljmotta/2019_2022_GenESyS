@@ -58,7 +58,7 @@ void _buildMostCompleteModel(Model* model) {
     ElementManager* elements = model->getElementManager();
 
     EntityType* entityType1 = new EntityType(elements, "Representative_EntityType");
-    elements->insert(Util::TypeOf<EntityType>(), entityType1);
+    elements->insert(entityType1);
 
     Create* create1 = new Create(model);
     create1->setEntityType(entityType1);
@@ -68,9 +68,9 @@ void _buildMostCompleteModel(Model* model) {
     components->insert(create1);
 
     Attribute* attribute1 = new Attribute("Attribute_1");
-    elements->insert(Util::TypeOf<Attribute>(), attribute1);
+    elements->insert(attribute1);
     Variable* variable1 = new Variable("Variable_1");
-    elements->insert(Util::TypeOf<Variable>(), variable1);
+    elements->insert(variable1);
 
     Assign* assign1 = new Assign(model);
     Assign::Assignment* attrib2Assignment = new Assign::Assignment(Assign::DestinationType::Variable, "Variable_1", "Variable_1 + 1");
@@ -85,11 +85,11 @@ void _buildMostCompleteModel(Model* model) {
 
     Resource* machine1 = new Resource(elements, "Machine_1");
     machine1->setCapacity(1);
-    elements->insert(Util::TypeOf<Resource>(), machine1);
+    elements->insert(machine1);
 
     Queue* queueSeize1 = new Queue(elements, "Queue_Machine_1");
     queueSeize1->setOrderRule(Queue::OrderRule::FIFO);
-    elements->insert(Util::TypeOf<Queue>(), queueSeize1);
+    elements->insert(queueSeize1);
 
     Seize* seize1 = new Seize(model);
     seize1->setResource(machine1);
@@ -116,11 +116,11 @@ void _buildMostCompleteModel(Model* model) {
 
     Resource* machine2 = new Resource(elements, "Machine_2");
     machine2->setCapacity(1);
-    elements->insert(Util::TypeOf<Resource>(), machine2);
+    elements->insert(machine2);
 
     Queue* queueSeize2 = new Queue(elements, "Queue_Machine_2");
     queueSeize2->setOrderRule(Queue::OrderRule::FIFO);
-    elements->insert(Util::TypeOf<Queue>(), queueSeize2);
+    elements->insert(queueSeize2);
 
     Seize* seize2 = new Seize(model);
     seize2->setResource(machine2);

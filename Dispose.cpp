@@ -16,7 +16,7 @@
 
 Dispose::Dispose(Model* model) : SinkModelComponent(model, Util::TypeOf<Dispose>()) {
     _numberOut = new Counter(_model->getElementManager(), _name + "." + "Count_number_out", this);
-    _model->getElementManager()->insert(Util::TypeOf<Counter>(), _numberOut);
+    _model->getElementManager()->insert(_numberOut);
 }
 
 

@@ -57,7 +57,7 @@ int ThirdExampleOfSimulation::main(int argc, char** argv) {
     infos->setNumberOfReplications(3);
     //
     EntityType* customer = new EntityType(elements, "Customer");
-    elements->insert(Util::TypeOf<EntityType>(), customer);
+    elements->insert(customer);
     //
     Create* create1 = new Create(model);
     create1->setEntityType(customer);
@@ -68,11 +68,11 @@ int ThirdExampleOfSimulation::main(int argc, char** argv) {
     //
     Resource* machine1 = new Resource(elements, "Machine_1");
     machine1->setCapacity(1);
-    elements->insert(Util::TypeOf<Resource>(), machine1);
+    elements->insert(machine1);
     //
     Queue* queueSeize1 = new Queue(elements, "Queue_Machine_1");
     queueSeize1->setOrderRule(Queue::OrderRule::FIFO);
-    elements->insert(Util::TypeOf<Queue>(), queueSeize1);
+    elements->insert(queueSeize1);
     //
     Seize* seize1 = new Seize(model);
     seize1->setResource(machine1);
