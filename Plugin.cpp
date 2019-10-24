@@ -43,7 +43,6 @@ bool Plugin::isIsValidPlugin() const {
 //    _drain = drain;
 //}
 
-
 ModelElement* Plugin::loadNew(Model* model, std::map<std::string, std::string>* fields) {
     if (this->_pluginInfo->isComponent()) {
 	return _loadNewComponent(model, fields);
@@ -55,11 +54,18 @@ ModelElement* Plugin::loadNew(Model* model, std::map<std::string, std::string>* 
 bool Plugin::loadAndInsertNew(Model* model, std::map<std::string, std::string>* fields) {
     if (this->_pluginInfo->isComponent()) {
 	ModelComponent* newComp = _loadNewComponent(model, fields);
-	return model->getComponentManager()->insert(newComp);
+	if (newComp != nullptr) {
+	    model->getTraceManager()->trace(Util::TraceLevel::blockInternal, newComp->show());
+	    return model->getComponentManager()->insert(newComp);
+	}
     } else {
 	ModelElement* newElem = _loadNewElement(model->getElementManager(), fields);
-	return model->getElementManager()->insert(this->_pluginInfo->getPluginTypename(), newElem);
+	if (newElem != nullptr) {
+	    model->getTraceManager()->trace(Util::TraceLevel::blockInternal, newElem->show());
+	    return model->getElementManager()->insert(this->_pluginInfo->getPluginTypename(), newElem);
+	}
     }
+    return false;
 }
 
 ModelComponent* Plugin::_loadNewComponent(Model* model, std::map<std::string, std::string>* fields) {

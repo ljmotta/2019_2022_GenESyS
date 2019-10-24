@@ -11,7 +11,7 @@
  * Created on 26 de Setembro de 2019, 13:00
  */
 
-#include "TestODE.h"
+#include "TestFunctions.h"
 #include "ProbDistrib.h"
 
 #include <iostream>

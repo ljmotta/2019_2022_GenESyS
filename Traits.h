@@ -41,8 +41,9 @@
 #include "GenesysGUI.h"
 #include "GenesysConsole.h"
 #include "TestEnterLeaveRoute.h"
-#include "TestODE.h"
+#include "TestFunctions.h"
 #include "TestSimulationControlAndSimulationResponse.h"
+#include "TestLSODE.h"
 
 //  Default implementations
 //statistics
@@ -76,10 +77,10 @@ template <> struct Traits<GenesysApplication_if> {
     //typedef GenesysGUI Application;
     //typedef GenesysConsole Application;
     //typedef FullSimulationOfComplexModel Application;
-    //typedef FirstExampleOfSimulation Application;
+    typedef FirstExampleOfSimulation Application;
     //typedef SecondExampleOfSimulation Application;
-    typedef FourthExampleOfSimulation Application;
-    //typedef TestODE Application;
+    //typedef FourthExampleOfSimulation Application;
+    //typedef TestLSODE Application;
     //typedef TestSimulationControlAndSimulationResponse Application;
 };
 

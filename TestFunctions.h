@@ -11,8 +11,8 @@
  * Created on 26 de Setembro de 2019, 13:00
  */
 
-#ifndef TESTODE_H
-#define TESTODE_H
+#ifndef TESTFUNCTIONS_H
+#define TESTFUNCTIONS_H
 
 #include "BaseConsoleGenesysApplication.h"
 
@@ -23,5 +23,5 @@ public:
     virtual int main(int argc, char** argv) ;
 };
 
-#endif /* TESTODE_H */
+#endif /* TESTFUNCTIONS_H */
 

@@ -37,15 +37,18 @@ FirstExampleOfSimulation::FirstExampleOfSimulation() {
 int FirstExampleOfSimulation::main(int argc, char** argv) {
     Simulator* simulator = new Simulator();
 
+    // set the trace level of simulation to "blockArrival" level, which is an intermediate level of tracing
+    simulator->getTraceManager()->setTraceLevel(Util::TraceLevel::mostDetailed);
+    // Handle traces and simulation events to output them
+    this->setDefaultTraceHandlers(simulator->getTraceManager());
+
     // insert "fake plugins" since plugins based on dynamic loaded library are not implemented yet
     this->insertFakePluginsByHand(simulator);
 
+    /*
+    
     // creates an empty model
     Model* model = new Model(simulator);
-
-    // Handle traces and simulation events to output them
-    TraceManager* tm = model->getTraceManager();
-    this->setDefaultTraceHandlers(tm);
 
     // get easy access to classes used to insert components and elements into a model
     ComponentManager* components = model->getComponentManager();
@@ -57,9 +60,6 @@ int FirstExampleOfSimulation::main(int argc, char** argv) {
 
     // if no ModelInfo is provided, then the model will be simulated once (one replication) and the replication length will be 60 seconds (simulated time)
     
-    // set the trace level of simulation to "blockArrival" level, which is an intermediate level of tracing
-    simulator->getTraceManager()->setTraceLevel(Util::TraceLevel::blockArrival);
-
     // create a (Source)ModelElement of type EntityType, used by a ModelComponent that follows
     EntityType* entityType1 = new EntityType(elements, "Type_of_Representative_Entity");
     elements->insert(Util::TypeOf<EntityType>(), entityType1); // insert the element into the model
@@ -82,13 +82,17 @@ int FirstExampleOfSimulation::main(int argc, char** argv) {
     // connect model components to create a "workflow" -- should always start from a SourceModelComponent and end at a SinkModelComponent (it will be checked)
     create1->getNextComponents()->insert(delay1);
     delay1->getNextComponents()->insert(dispose1);
-
+    
     // insert the model into the simulator 
     simulator->getModelManager()->insert(model);
+    */
+    
+    simulator->getModelManager()->loadModel("./temp/firstExampleOfSimulation.txt");
+    Model* model = simulator->getModelManager()->current();
 
     // if the model is ok then save the model into a text file 
     if (model->checkModel()) {
-	model->saveModel("./temp/firstExampleOfSimulation.txt");
+	//model->saveModel("./temp/firstExampleOfSimulation.txt");
 	// if the model is saved into a file, it could be just loaded instead of built (as above)
     }
 

@@ -79,6 +79,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/HypothesisTesterBoostImpl.o \
 	${OBJECTDIR}/HypothesisTesterDefaultImpl1.o \
 	${OBJECTDIR}/IntegratorDefaultImpl1.o \
+	${OBJECTDIR}/LSODE.o \
 	${OBJECTDIR}/Leave.o \
 	${OBJECTDIR}/LicenceManager.o \
 	${OBJECTDIR}/Match.o \
@@ -139,8 +140,9 @@ OBJECTFILES= \
 	${OBJECTDIR}/Store.o \
 	${OBJECTDIR}/Submodel.o \
 	${OBJECTDIR}/TestEnterLeaveRoute.o \
+	${OBJECTDIR}/TestFunctions.o \
 	${OBJECTDIR}/TestInputAnalyserTools.o \
-	${OBJECTDIR}/TestODE.o \
+	${OBJECTDIR}/TestLSODE.o \
 	${OBJECTDIR}/TestParser.o \
 	${OBJECTDIR}/TestSimulationControlAndSimulationResponse.o \
 	${OBJECTDIR}/TestStatistics.o \
@@ -402,6 +404,11 @@ ${OBJECTDIR}/IntegratorDefaultImpl1.o: IntegratorDefaultImpl1.cpp nbproject/Make
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/IntegratorDefaultImpl1.o IntegratorDefaultImpl1.cpp
+
+${OBJECTDIR}/LSODE.o: LSODE.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/LSODE.o LSODE.cpp
 
 ${OBJECTDIR}/Leave.o: Leave.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -703,15 +710,20 @@ ${OBJECTDIR}/TestEnterLeaveRoute.o: TestEnterLeaveRoute.cpp nbproject/Makefile-$
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestEnterLeaveRoute.o TestEnterLeaveRoute.cpp
 
+${OBJECTDIR}/TestFunctions.o: TestFunctions.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestFunctions.o TestFunctions.cpp
+
 ${OBJECTDIR}/TestInputAnalyserTools.o: TestInputAnalyserTools.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestInputAnalyserTools.o TestInputAnalyserTools.cpp
 
-${OBJECTDIR}/TestODE.o: TestODE.cpp nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/TestLSODE.o: TestLSODE.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestODE.o TestODE.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestLSODE.o TestLSODE.cpp
 
 ${OBJECTDIR}/TestParser.o: TestParser.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

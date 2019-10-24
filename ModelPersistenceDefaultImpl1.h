@@ -32,6 +32,8 @@ private:
     std::list<std::string>* _adjustFieldsToSave(std::map<std::string, std::string>* fields);
     std::map<std::string, std::string>* _getSimulatorInfoFieldsToSave();
 private:
+    std::list<std::map<std::string, std::string>*>* _componentFields = new std::list<std::map<std::string, std::string>*>();
+private:
     Model* _model = nullptr;
     bool _isSaved = false;
     std::string _linefieldseparator = "; ";

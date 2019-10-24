@@ -27,6 +27,7 @@
 #include "Enter.h"
 #include "Leave.h"
 #include "Write.h"
+#include "LSODE.h"
 
 // Model elements
 #include "EntityType.h"
@@ -102,6 +103,8 @@ Plugin* PluginConnectorDummyImpl1::connect(const std::string dynamicLibraryFilen
 	GetInfo = &Enter::GetPluginInformation;
     else if (fn == "leave.so")
 	GetInfo = &Leave::GetPluginInformation;
+    else if (fn == "lsode.so")
+	GetInfo = &LSODE::GetPluginInformation;
     //else if (fn=="")
 
     if (GetInfo != nullptr) {

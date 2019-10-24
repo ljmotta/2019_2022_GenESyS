@@ -27,9 +27,9 @@ bool ModelElement::_loadInstance(std::map<std::string, std::string>* fields) {
     //this->_id = std::stoi((*fields->find("id")).second);
     bool res = true;
     std::map<std::string, std::string>::iterator it;
-    // WE DO NOT LOAD ID!!! IDs ARE UNIQUELLY GENERATED WHEN OBJECTS ARE CREATED
-    //it = fields->find("id");
-    //it != fields->end() ? this->_id = std::stoi((*it).second) : res = false;
+    //// WE DO NOT LOAD ID!!! IDs ARE UNIQUELLY GENERATED WHEN OBJECTS ARE CREATED
+    it = fields->find("id");
+    it != fields->end() ? this->_id = std::stoi((*it).second) : res = false;
     it = fields->find("name");
     if (it != fields->end()) {
 	this->_name = (*it).second;

@@ -46,7 +46,7 @@ public:
     static std::map<std::string, std::string>* SaveInstance(ModelComponent* component);
 private:
     ConnectionManager* _nextComponents = new ConnectionManager();
-    List<Util::identification>* _tempLoadNextComponentsIDs; // initialize only when loading 
+    //List<Util::identification>* _tempLoadNextComponentsIDs; // initialize only when loading 
 protected:
     virtual void _execute(Entity* entity) = 0;
     virtual void _initBetweenReplications() = 0;
