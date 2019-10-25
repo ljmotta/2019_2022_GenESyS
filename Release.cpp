@@ -24,7 +24,7 @@ Release::Release(Model* model) : ModelComponent(model, Util::TypeOf<Release>()) 
 std::string Release::show() {
     return ModelComponent::show() +
 	    ",resourceType=" + std::to_string(static_cast<int> (this->_resourceType)) +
-	    ",resource=\"" + this->_resource->getName() + "\"" +
+	    ",resource=\"" + this->_resource->name() + "\"" +
 	    ",quantity=" + this->_quantity;
 }
 
@@ -85,9 +85,9 @@ void Release::_execute(Entity* entity) {
     }
     unsigned int quantity = _model->parseExpression(this->_quantity);
     assert(_resource->getNumberBusy() >= quantity);
-    _model->tracer()->traceSimulation(Util::TraceLevel::blockInternal, _model->simulation()->getSimulatedTime(), entity, this, "Entity frees " + std::to_string(quantity) + " units of resource \"" + resource->getName() + "\" seized on time " + std::to_string(_resource->getLastTimeSeized()));
+    _model->tracer()->traceSimulation(Util::TraceLevel::blockInternal, _model->simulation()->getSimulatedTime(), entity, this, "Entity frees " + std::to_string(quantity) + " units of resource \"" + resource->name() + "\" seized on time " + std::to_string(_resource->getLastTimeSeized()));
     _resource->release(quantity, _model->simulation()->getSimulatedTime()); //{releases and sets the 'LastTimeSeized'property}
-    _model->sendEntityToComponent(entity, this->getNextComponents()->frontConnection(), 0.0);
+    _model->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
 }
 
 void Release::_initBetweenReplications() {
@@ -103,9 +103,9 @@ bool Release::_loadInstance(std::map<std::string, std::string>* fields) {
 	this->_rule = static_cast<Resource::ResourceRule> (std::stoi((*(fields->find("rule"))).second));
 	this->_saveAttribute = ((*(fields->find("saveAttribute"))).second);
 	//Util::identitifcation resourceId = std::stoi((*(fields->find("resourceId"))).second);
-	//Resource* res = dynamic_cast<Resource*> (_model->getElementManager()->getElement(Util::TypeOf<Resource>(), resourceId));
+	//Resource* res = dynamic_cast<Resource*> (_model->elements()->element(Util::TypeOf<Resource>(), resourceId));
 	std::string resourceName = ((*(fields->find("resourceName"))).second);
-	Resource* res = dynamic_cast<Resource*> (_model->elements()->getElement(Util::TypeOf<Resource>(), resourceName));
+	Resource* res = dynamic_cast<Resource*> (_model->elements()->element(Util::TypeOf<Resource>(), resourceName));
 	this->_resource = res;
     }
     return res;
@@ -116,8 +116,8 @@ std::map<std::string, std::string>* Release::_saveInstance() {
     fields->emplace("priority", std::to_string(this->_priority));
     fields->emplace("quantity", this->_quantity);
     fields->emplace("resourceType", std::to_string(static_cast<int> (this->_resourceType)));
-    fields->emplace("resourceId", std::to_string(this->_resource->getId()));
-    fields->emplace("resourceName", (this->_resource->getName()));
+    fields->emplace("resourceId", std::to_string(this->_resource->id()));
+    fields->emplace("resourceName", (this->_resource->name()));
     fields->emplace("rule", std::to_string(static_cast<int> (this->_rule)));
     fields->emplace("saveAttribute", this->_saveAttribute);
     return fields;
@@ -133,7 +133,7 @@ bool Release::_check(std::string* errorMessage) {
 }
 
 void Release::setResourceName(std::string resourceName) throw () {
-    ModelElement* resource = _model->elements()->getElement(Util::TypeOf<Resource>(), resourceName);
+    ModelElement* resource = _model->elements()->element(Util::TypeOf<Resource>(), resourceName);
     if (resource != nullptr) {
 	this->_resource = dynamic_cast<Resource*> (resource);
     } else {
@@ -142,7 +142,7 @@ void Release::setResourceName(std::string resourceName) throw () {
 }
 
 std::string Release::getResourceName() const {
-    return _resource->getName();
+    return _resource->name();
 }
 
 PluginInformation* Release::GetPluginInformation() {

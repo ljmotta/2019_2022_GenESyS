@@ -31,7 +31,7 @@ Event::Event(double time, Entity* entity, Connection* connection) {
 std::string Event::show() {
     return "time=" + std::to_string(_time) +
 	    ",entity=" + std::to_string(_entity->getEntityNumber()) +
-	    ",comp=\"" + _component->getName() + "\""; //+std::to_string(_component->getId())+"}";
+	    ",comp=\"" + _component->name() + "\""; //+std::to_string(_component->getId())+"}";
 }
 
 unsigned int Event::getComponentInputNumber() const {

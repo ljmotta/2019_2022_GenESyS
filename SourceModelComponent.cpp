@@ -21,7 +21,7 @@ SourceModelComponent::SourceModelComponent(Model* model, std::string componentTy
 
 std::string SourceModelComponent::show() {
     std::string text = ModelComponent::show() +
-	    ",entityType=\"" + _entityType->getName() + "\"" +
+	    ",entityType=\"" + _entityType->name() + "\"" +
 	    ",firstCreation=" + std::to_string(_firstCreation);
     return text;
 }
@@ -35,7 +35,7 @@ bool SourceModelComponent::_loadInstance(std::map<std::string, std::string>* fie
 	this->_timeBetweenCreationsTimeUnit = static_cast<Util::TimeUnit> (std::stoi((*fields->find("timeBetweenCreationsTimeUnit")).second));
 	this->_maxCreationsExpression = (*fields->find("maxCreations")).second;
 	std::string entityTypename = (*fields->find("entityTypename")).second;
-	this->_entityType = dynamic_cast<EntityType*> (_model->elements()->getElement(Util::TypeOf<EntityType>(), entityTypename));
+	this->_entityType = dynamic_cast<EntityType*> (_model->elements()->element(Util::TypeOf<EntityType>(), entityTypename));
     }
     return res;
 }
@@ -51,7 +51,7 @@ std::map<std::string, std::string>* SourceModelComponent::_saveInstance() {
     fields->emplace("timeBetweenCreations", this->_timeBetweenCreationsExpression);
     fields->emplace("timeBetweenCreationsTimeUnit", std::to_string(static_cast<int> (this->_timeBetweenCreationsTimeUnit)));
     fields->emplace("maxCreations", this->_maxCreationsExpression);
-    fields->emplace("entityTypename", (this->_entityType->getName())); // save the name
+    fields->emplace("entityTypename", (this->_entityType->name())); // save the name
     //fields->emplace("collectStatistics" , std::to_string(this->_collectStatistics));
     return fields;
 }
@@ -63,7 +63,7 @@ bool SourceModelComponent::_check(std::string* errorMessage) {
     std::string neededName;
     for (unsigned int i = 0; i < neededNames.size(); i++) {
 	neededName = neededNames[i];
-	if (elements->getElement(Util::TypeOf<Attribute>(), neededName) == nullptr) {
+	if (elements->element(Util::TypeOf<Attribute>(), neededName) == nullptr) {
 	    Attribute* attr1 = new Attribute(neededName);
 	    elements->insert(attr1);
 	}

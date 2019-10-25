@@ -66,7 +66,7 @@ std::string ModelElement::show() {
 }
 
 
-Util::identification ModelElement::getId() const {
+Util::identification ModelElement::id() const {
     return _id;
 }
 
@@ -74,11 +74,11 @@ void ModelElement::setName(std::string _name) {
     this->_name = _name;
 }
 
-std::string ModelElement::getName() const {
+std::string ModelElement::name() const {
     return _name;
 }
 
-std::string ModelElement::getTypename() const {
+std::string ModelElement::classname() const {
     return _typename;
 }
 

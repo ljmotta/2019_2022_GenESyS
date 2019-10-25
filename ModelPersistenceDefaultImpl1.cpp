@@ -45,15 +45,15 @@ bool ModelPersistenceDefaultImpl1::save(std::string filename) {
 	modelInfosToSave = _adjustFieldsToSave(fields);
 	// save infras
 	modelElementsToSave = new std::list<std::string>();
-	std::list<std::string>* infraTypenames = _model->elements()->getElementTypenames();
+	std::list<std::string>* infraTypenames = _model->elements()->elementClassnames();
 	for (std::list<std::string>::iterator itTypenames = infraTypenames->begin(); itTypenames != infraTypenames->end(); itTypenames++) {
 	    if ((*itTypenames) != Util::TypeOf<StatisticsCollector>() && (*itTypenames) != Util::TypeOf<Counter>()) { // STATISTICSCOLLECTR and COUNTERs do NOT need to be saved
-		List<ModelElement*>* infras = _model->elements()->getElements((*itTypenames));
+		List<ModelElement*>* infras = _model->elements()->elementList((*itTypenames));
 		_model->tracer()->trace(Util::TraceLevel::mostDetailed, "Writing elements of type \"" + (*itTypenames) + "\":");
 		Util::IncIndent();
 		{
 		    for (std::list<ModelElement*>::iterator it = infras->list()->begin(); it != infras->list()->end(); it++) {
-			_model->tracer()->trace(Util::TraceLevel::mostDetailed, "Writing " + (*itTypenames) + " \"" + (*it)->getName() + "\"");
+			_model->tracer()->trace(Util::TraceLevel::mostDetailed, "Writing " + (*itTypenames) + " \"" + (*it)->name() + "\"");
 			fields = (*it)->SaveInstance((*it));
 			Util::IncIndent();
 			modelElementsToSave->merge(*_adjustFieldsToSave(fields));
@@ -218,7 +218,7 @@ bool ModelPersistenceDefaultImpl1::load(std::string filename) {
 		ModelComponent* thisComponent = nullptr;
 		Util::identification thisId = std::stoi((*fields->find("id")).second);
 		for (std::list<ModelComponent*>::iterator itcomp = cm->begin(); itcomp != cm->end(); itcomp++) {
-		    if ((*itcomp)->getId() == thisId) {
+		    if ((*itcomp)->id() == thisId) {
 			thisComponent = (*itcomp);
 			break; // end inner for loop
 		    }
@@ -234,10 +234,10 @@ bool ModelPersistenceDefaultImpl1::load(std::string filename) {
 			nextInputNumber = std::stoi((*fields->find("nextInputNumber" + std::to_string(i))).second);
 		    ModelComponent* nextComponent = nullptr;
 		    for (std::list<ModelComponent*>::iterator itcomp = cm->begin(); itcomp != cm->end(); itcomp++) {// connect the components 
-			if ((*itcomp)->getId() == nextId) { // connect the components 
+			if ((*itcomp)->id() == nextId) { // connect the components 
 			    nextComponent = (*itcomp);
-			    thisComponent->getNextComponents()->insert(nextComponent, nextInputNumber);
-			    _model->tracer()->trace(Util::TraceLevel::blockInternal, thisComponent->getName() + " -> " + nextComponent->getName());
+			    thisComponent->nextComponents()->insert(nextComponent, nextInputNumber);
+			    _model->tracer()->trace(Util::TraceLevel::blockInternal, thisComponent->name() + " -> " + nextComponent->name());
 			    break;
 			}
 		    }

@@ -53,7 +53,7 @@ private: // attributes 1:1 objects
     ParserManager* _parserManager;
 private: // attributes 1:1 native
     const std::string _name = "ReGenESyS - Reborn Generic and Expansible System Simulator";
-    const std::string _version = "190909";
+    const std::string _version = "19.1030";
 };
 
 #endif /* GENESYS_H */

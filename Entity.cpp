@@ -18,7 +18,7 @@
 Entity::Entity(ElementManager* elements) : ModelElement(Util::TypeOf<Entity>()) {
     _elements = elements;
     _entityNumber = Util::GetLastIdOfType(Util::TypeOf<Entity>());
-    unsigned int numAttributes = _elements->getNumberOfElements(Util::TypeOf<Attribute>());
+    unsigned int numAttributes = _elements->numberOfElements(Util::TypeOf<Attribute>());
     for (unsigned i = 0; i < numAttributes; i++) {
 	_attributeValues->insert(0.0);
     }
@@ -26,7 +26,7 @@ Entity::Entity(ElementManager* elements) : ModelElement(Util::TypeOf<Entity>()) 
 
 
 void Entity::setEntityTypeName(std::string entityTypeName) throw () {
-    EntityType* entitytype = dynamic_cast<EntityType*> (this->_elements->getElement(Util::TypeOf<EntityType>(), entityTypeName));
+    EntityType* entitytype = dynamic_cast<EntityType*> (this->_elements->element(Util::TypeOf<EntityType>(), entityTypeName));
     if (entitytype != nullptr) {
 	this->_entityType = entitytype;
     } else {
@@ -35,7 +35,7 @@ void Entity::setEntityTypeName(std::string entityTypeName) throw () {
 }
 
 std::string Entity::getEntityTypeName() const {
-    return this->_entityType->getName();
+    return this->_entityType->name();
 }
 
 void Entity::setEntityType(EntityType* entityType) {
@@ -49,7 +49,7 @@ EntityType* Entity::getEntityType() const {
 std::string Entity::show() {
     std::string message = ModelElement::show();
     if (this->_entityType != nullptr) {
-	message += ",entityType=\"" + this->_entityType->getName() + "\"";
+	message += ",entityType=\"" + this->_entityType->name() + "\"";
     }
     message += ",attributeValues=[";
     _attributeValues->front();
@@ -62,7 +62,7 @@ std::string Entity::show() {
 }
 
 double Entity::getAttributeValue(std::string attributeName) {
-    int rank = this->_elements->getRankOf(Util::TypeOf<Attribute>(), attributeName);
+    int rank = this->_elements->rankOf(Util::TypeOf<Attribute>(), attributeName);
     if (rank >= 0) {
 	return this->_attributeValues->getAtRank(rank);
     } else
@@ -70,15 +70,15 @@ double Entity::getAttributeValue(std::string attributeName) {
 }
 
 double Entity::getAttributeValue(Util::identification attributeID) {
-    ModelElement* element = this->_elements->getElement(Util::TypeOf<Attribute>(), attributeID);
+    ModelElement* element = this->_elements->element(Util::TypeOf<Attribute>(), attributeID);
     if (element != nullptr) {
-	return getAttributeValue(element->getName());
+	return getAttributeValue(element->name());
     }
     return 0.0; // attribute not found
 }
 
 void Entity::setAttributeValue(std::string attributeName, double value) {
-    int rank = this->_elements->getRankOf(Util::TypeOf<Attribute>(), attributeName);
+    int rank = this->_elements->rankOf(Util::TypeOf<Attribute>(), attributeName);
     if (rank >= 0) {
 	this->_attributeValues->setAtRank(rank, value);
     }

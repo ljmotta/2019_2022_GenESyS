@@ -53,7 +53,7 @@ void ModelComponent::CreateInternalElements(ModelComponent* component) {
 }
 
 std::map<std::string, std::string>* ModelComponent::SaveInstance(ModelComponent* component) {
-    component->_model->tracer()->trace(Util::TraceLevel::blockArrival, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));
+    component->_model->tracer()->trace(Util::TraceLevel::mostDetailed, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));
     std::map<std::string, std::string>* fields = new std::map<std::string, std::string>();
     try {
 	fields = component->_saveInstance();
@@ -82,7 +82,7 @@ bool ModelComponent::Check(ModelComponent* component) {
     return res;
 }
 
-ConnectionManager* ModelComponent::getNextComponents() const {
+ConnectionManager* ModelComponent::nextComponents() const {
     return _nextComponents;
 }
 

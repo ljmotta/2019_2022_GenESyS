@@ -19,7 +19,7 @@ Leave::Leave(Model* model) : ModelComponent(model, Util::TypeOf<Leave>()) {
 
 
 std::string Leave::show() {
-    return ModelComponent::show() + ",station="+this->_station->getName();
+    return ModelComponent::show() + ",station="+this->_station->name();
 }
 
 ModelComponent* Leave::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
@@ -42,14 +42,14 @@ Station* Leave::getStation() const {
 
 void Leave::_execute(Entity* entity) {
     _station->leave(entity);
-    _model->sendEntityToComponent(entity, this->getNextComponents()->frontConnection(), 0.0);
+    _model->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
 }
 
 bool Leave::_loadInstance(std::map<std::string, std::string>* fields) {
     bool res = ModelComponent::_loadInstance(fields);
     if (res) {
 	std::string stationName = ((*(fields->find("stationName"))).second);
-	Station* station = dynamic_cast<Station*> (_model->elements()->getElement(Util::TypeOf<Station>(), stationName));
+	Station* station = dynamic_cast<Station*> (_model->elements()->element(Util::TypeOf<Station>(), stationName));
 	this->_station = station;
     }
     return res;
@@ -60,7 +60,7 @@ void Leave::_initBetweenReplications() {
 
 std::map<std::string, std::string>* Leave::_saveInstance() {
     std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
-    fields->emplace("stationName", (this->_station->getName()));
+    fields->emplace("stationName", (this->_station->name()));
     return fields;
 }
 

@@ -59,15 +59,15 @@ Model::Model(Simulator* simulator) {
     _controls = new List<SimulationControl*>();
     // insert controls
     _controls->insert(new SimulationControl("Model Info", "Number of Replications",
-	    DefineGetterMember<ModelInfo>(this->_modelInfo, &ModelInfo::getNumberOfReplications),
+	    DefineGetterMember<ModelInfo>(this->_modelInfo, &ModelInfo::numberOfReplications),
 	    DefineSetterMember<ModelInfo>(this->_modelInfo, &ModelInfo::setNumberOfReplications))
 	    );
     _controls->insert(new SimulationControl("Model Info", "Replication Length",
-	    DefineGetterMember<ModelInfo>(this->_modelInfo, &ModelInfo::getReplicationLength),
+	    DefineGetterMember<ModelInfo>(this->_modelInfo, &ModelInfo::replicationLength),
 	    DefineSetterMember<ModelInfo>(this->_modelInfo, &ModelInfo::setReplicationLength))
 	    );
     _controls->insert(new SimulationControl("Model Info", "Warmup Period",
-	    DefineGetterMember<ModelInfo>(this->_modelInfo, &ModelInfo::getWarmUpPeriod),
+	    DefineGetterMember<ModelInfo>(this->_modelInfo, &ModelInfo::warmUpPeriod),
 	    DefineSetterMember<ModelInfo>(this->_modelInfo, &ModelInfo::setWarmUpPeriod))
 	    );
 }
@@ -164,10 +164,10 @@ void Model::_showElements() const {
     {
 	std::string elementType;
 	ModelElement* element;
-	std::list<std::string>* elementTypes = elements()->getElementTypenames();
+	std::list<std::string>* elementTypes = elements()->elementClassnames();
 	for (std::list<std::string>::iterator typeIt = elementTypes->begin(); typeIt != elementTypes->end(); typeIt++) {
 	    elementType = (*typeIt);
-	    List<ModelElement*>* em = elements()->getElements(elementType);
+	    List<ModelElement*>* em = elements()->elementList(elementType);
 	    tracer()->trace(Util::TraceLevel::report, elementType + ":");
 	    Util::IncIndent();
 	    {
@@ -221,8 +221,8 @@ void Model::_createModelInternalElements() {
     }
     /*
     std::list<ModelElement*>* modelElements;
-    for (std::list<std::string>::iterator itty = getElementManager()->getElementTypenames()->begin(); itty != getElementManager()->getElementTypenames()->end(); itty++) {
-	modelElements = getElementManager()->getElements((*itty))->list();
+    for (std::list<std::string>::iterator itty = elements()->getElementTypenames()->begin(); itty != elements()->getElementTypenames()->end(); itty++) {
+	modelElements = elements()->getElements((*itty))->list();
 	for (std::list<ModelElement*>::iterator itel = modelElements->begin(); itel != modelElements->end(); itel++) {
 	    ModelElement::CreateInternalElements((*itel));
 	}

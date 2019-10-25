@@ -39,9 +39,9 @@ void StatisticsCollector::_addSimulationResponse(ElementManager* elems) {
     GetterMember getterMember = DefineGetterMember<StatisticsClass>(static_cast<StatisticsClass*>(this->_statistics), &StatisticsClass::average); 
     std::string parentName = "";
     if (_parent != nullptr)
-	parentName = _parent->getName();
+	parentName = _parent->name();
     SimulationResponse* resp = new SimulationResponse(Util::TypeOf<StatisticsClass>(), parentName+":"+_name+".average", getterMember);
-    elems->getParentModel()->responses()->insert(resp);
+    elems->parentModel()->responses()->insert(resp);
 }
 
 void StatisticsCollector::_initStaticsAndCollector() {
@@ -54,7 +54,7 @@ std::string StatisticsCollector::show() {
     std::string parentStr = "";
     if (_parent != nullptr) {
 	try {
-	    parentStr = _parent->getName();
+	    parentStr = _parent->name();
 	} catch (...) { // if parent changed or deleted, can cause seg fault
 	    parentStr = "<<INCONSISTENT>>"; /*TODO ++*/
 	}
@@ -99,8 +99,8 @@ std::map<std::string, std::string>* StatisticsCollector::_saveInstance() {
     std::map<std::string, std::string>* fields = ModelElement::_saveInstance(); //Util::TypeOf<StatisticsCollector>());
     std::string parentId = "", parentTypename = "";
     if (this->_parent != nullptr) {
-	parentId = std::to_string(_parent->getId());
-	parentTypename = _parent->getTypename();
+	parentId = std::to_string(_parent->id());
+	parentTypename = _parent->classname();
     }
     fields->emplace("parentTypename", parentTypename);
     fields->emplace("parentId", parentId);

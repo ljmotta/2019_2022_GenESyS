@@ -146,19 +146,19 @@ void _buildMostCompleteModel(Model* model) {
     components->insert(dummy1);
 
     // connect model components to create a "workflow" -- should always start from a SourceModelComponent and end at a SinkModelComponent (it will be checked)
-    create1->getNextComponents()->insert(assign1);
-    assign1->getNextComponents()->insert(decide1);
-    decide1->getNextComponents()->insert(seize1);
-    decide1->getNextComponents()->insert(seize2);
-    seize1->getNextComponents()->insert(delay1);
-    delay1->getNextComponents()->insert(release1);
-    release1->getNextComponents()->insert(record1);
-    record1->getNextComponents()->insert(dispose1);
-    seize2->getNextComponents()->insert(delay2);
-    delay2->getNextComponents()->insert(release2);
-    release2->getNextComponents()->insert(record2);
-    record2->getNextComponents()->insert(dummy1);
-    dummy1->getNextComponents()->insert(dispose1);
+    create1->nextComponents()->insert(assign1);
+    assign1->nextComponents()->insert(decide1);
+    decide1->nextComponents()->insert(seize1);
+    decide1->nextComponents()->insert(seize2);
+    seize1->nextComponents()->insert(delay1);
+    delay1->nextComponents()->insert(release1);
+    release1->nextComponents()->insert(record1);
+    record1->nextComponents()->insert(dispose1);
+    seize2->nextComponents()->insert(delay2);
+    delay2->nextComponents()->insert(release2);
+    release2->nextComponents()->insert(record2);
+    record2->nextComponents()->insert(dummy1);
+    dummy1->nextComponents()->insert(dispose1);
 }
 
 /**
@@ -191,7 +191,7 @@ void BuildSimulationModel03::builAndRunSimulationdModel() {
     _buildMostCompleteModel(model);
 
     //simulator->getModelManager()->insert(model);
-    //model->saveModel(model->getInfos()->getDescription());
+    //model->saveModel(model->infos()->getDescription());
 
     //simulator->getModelManager()->loadModel("./models/model99_AllTogether.txt");
     //simulator->getModelManager()->loadModel("./models/model01_CreDelDis.txt");

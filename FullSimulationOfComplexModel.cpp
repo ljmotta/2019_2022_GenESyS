@@ -123,14 +123,14 @@ int FullSimulationOfComplexModel::main(int argc, char** argv) {
     components->insert(dispose1);
 
     // connect model components to create a "workflow" -- should always start from a SourceModelComponent and end at a SinkModelComponent (it will be checked)
-    create1->getNextComponents()->insert(assign1);
-    assign1->getNextComponents()->insert(decide1);
-    decide1->getNextComponents()->insert(seize1);
-    decide1->getNextComponents()->insert(dispose1);
-    seize1->getNextComponents()->insert(delay1);
-    delay1->getNextComponents()->insert(release1);
-    release1->getNextComponents()->insert(record1);
-    record1->getNextComponents()->insert(dispose1);
+    create1->nextComponents()->insert(assign1);
+    assign1->nextComponents()->insert(decide1);
+    decide1->nextComponents()->insert(seize1);
+    decide1->nextComponents()->insert(dispose1);
+    seize1->nextComponents()->insert(delay1);
+    delay1->nextComponents()->insert(release1);
+    release1->nextComponents()->insert(record1);
+    record1->nextComponents()->insert(dispose1);
 
     // insert the model into the simulator 
     simulator->models()->insert(model);

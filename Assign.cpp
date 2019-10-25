@@ -57,14 +57,14 @@ void Assign::_execute(Entity* entity) {
 	_model->tracer()->trace(Util::TraceLevel::blockInternal, "Let \"" + let->getDestination() + "\" = " + std::to_string(value) + "  // " + let->getExpression());
 	/* TODO: this is NOT the best way to do it (enum comparision) */
 	if (let->getDestinationType() == DestinationType::Variable) {
-	    Variable* myvar = (Variable*) this->_model->elements()->getElement(Util::TypeOf<Variable>(), let->getDestination());
+	    Variable* myvar = (Variable*) this->_model->elements()->element(Util::TypeOf<Variable>(), let->getDestination());
 	    myvar->setValue(value);
 	} else if (let->getDestinationType() == DestinationType::Attribute) {
 	    entity->setAttributeValue(let->getDestination(), value);
 	}
     }
 
-    this->_model->sendEntityToComponent(entity, this->getNextComponents()->frontConnection(), 0.0);
+    this->_model->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
 }
 
 void Assign::_initBetweenReplications() {

@@ -49,7 +49,7 @@ void Queue::insertElement(Waiting* element) {
 }
 
 void Queue::removeElement(Waiting* element) {
-    double tnow = this->_elems->getParentModel()->simulation()->getSimulatedTime();
+    double tnow = this->_elems->parentModel()->simulation()->getSimulatedTime();
     _list->remove(element);
     this->_cstatNumberInQueue->getStatistics()->getCollector()->addValue(_list->size());
     double timeInQueue = tnow - element->getTimeStartedWaiting();

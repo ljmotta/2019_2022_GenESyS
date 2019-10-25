@@ -39,20 +39,20 @@ public:
     bool check(std::string infraTypename, std::string infraName, std::string expressionName, bool mandatory, std::string* errorMessage);
     void clear();
 public:
-    ModelElement* getElement(std::string infraTypename, Util::identification id);
-    ModelElement* getElement(std::string infraTypename, std::string name);
-    unsigned int getNumberOfElements(std::string infraTypename);
-    unsigned int getNumberOfElements();
-    int getRankOf(std::string infraTypename, std::string name); ///< returns the position (1st position=0) of the element if found, or negative value if not found
-    std::list<std::string>* getElementTypenames() const;
+    ModelElement* element(std::string infraTypename, Util::identification id);
+    ModelElement* element(std::string infraTypename, std::string name);
+    unsigned int numberOfElements(std::string infraTypename);
+    unsigned int numberOfElements();
+    int rankOf(std::string infraTypename, std::string name); ///< returns the position (1st position=0) of the element if found, or negative value if not found
+    std::list<std::string>* elementClassnames() const;
 
     //private:
 public:
     // TODO: MUST BE PRIVATE
-    List<ModelElement*>* getElements(std::string infraTypename) const;
+    List<ModelElement*>* elementList(std::string infraTypename) const;
 public:
     void show();
-    Model* getParentModel() const;
+    Model* parentModel() const;
 private:
     std::map<std::string, List<ModelElement*>*>* _elements;
     Model* _model;

@@ -41,14 +41,14 @@ FourthExampleOfSimulation::FourthExampleOfSimulation() {
 
 int FourthExampleOfSimulation::main(int argc, char** argv) {
     Simulator* simulator = new Simulator();
-    simulator->tracer()->setTraceLevel(Util::TraceLevel::mostDetailed);
+//    simulator->tracer()->setTraceLevel(Util::TraceLevel::blockArrival);
     this->setDefaultTraceHandlers(simulator->tracer());
     this->insertFakePluginsByHand(simulator);
     bool wantToCreateNewModelAndSaveInsteadOfJustLoad = true;
     Model* model;
     if (wantToCreateNewModelAndSaveInsteadOfJustLoad) {
-	Model* model = new Model(simulator);
-	ElementManager* em = em;
+	model = new Model(simulator);
+	ElementManager* em = model->elements();
 	// build the simulation model
 	ModelInfo* infos = model->infos();
 	infos->setNumberOfReplications(1);
@@ -59,6 +59,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	create1->setTimeBetweenCreationsExpression("norm(1.5,0.5)");
 	create1->setTimeUnit(Util::TimeUnit::second);
 	create1->setEntitiesPerCreation(1);
+	model->insert(create1);
 	Assign* assign1 = new Assign(model);
 	assign1->getAssignments()->insert(new Assign::Assignment(Assign::DestinationType::Variable, "varNextIndex", "varNextIndex+1"));
 	assign1->getAssignments()->insert(new Assign::Assignment(Assign::DestinationType::Attribute, "index", "varNextIndex"));
@@ -137,52 +138,45 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	seize2->setResource(machine2);
 	seize2->setQueue(queueSeize2);
 	model->insert(seize2);
-	//
 	Delay* delay2 = new Delay(model);
 	delay2->setDelayExpression("norm(15,1)");
 	delay2->setDelayTimeUnit(Util::TimeUnit::second);
 	model->insert(delay2);
-	//
 	Release* release2 = new Release(model);
 	release2->setResource(machine2);
 	model->insert(release2);
-	//
 	Queue* queueSeize3 = new Queue(em, "Queue_Seize_3");
 	queueSeize3->setOrderRule(Queue::OrderRule::FIFO);
 	model->insert(queueSeize3);
-	//
 	Seize* seize3 = new Seize(model);
 	seize3->setResource(machine3);
 	seize3->setQueue(queueSeize3);
 	model->insert(seize3);
-	//
 	Delay* delay3 = new Delay(model);
 	delay3->setDelayExpression("norm(15,1)");
 	delay3->setDelayTimeUnit(Util::TimeUnit::second);
 	model->insert(delay3);
-	//
 	Release* release3 = new Release(model);
 	release3->setResource(machine3);
 	model->insert(release3);
-	//
 	Dispose* dispose1 = new Dispose(model);
 	model->insert(dispose1);
 	//
-	create1->getNextComponents()->insert(assign1);
-	assign1->getNextComponents()->insert(write1);
-	write1->getNextComponents()->insert(decide1);
-	decide1->getNextComponents()->insert(seize1);
-	decide1->getNextComponents()->insert(seize2);
-	decide1->getNextComponents()->insert(seize3);
-	seize1->getNextComponents()->insert(delay1);
-	delay1->getNextComponents()->insert(release1);
-	release1->getNextComponents()->insert(dispose1);
-	seize2->getNextComponents()->insert(delay2);
-	delay2->getNextComponents()->insert(release2);
-	release2->getNextComponents()->insert(dispose1);
-	seize3->getNextComponents()->insert(delay3);
-	delay3->getNextComponents()->insert(release3);
-	release3->getNextComponents()->insert(dispose1);
+	create1->nextComponents()->insert(assign1);
+	assign1->nextComponents()->insert(write1);
+	write1->nextComponents()->insert(decide1);
+	decide1->nextComponents()->insert(seize1);
+	decide1->nextComponents()->insert(seize2);
+	decide1->nextComponents()->insert(seize3);
+	seize1->nextComponents()->insert(delay1);
+	delay1->nextComponents()->insert(release1);
+	release1->nextComponents()->insert(dispose1);
+	seize2->nextComponents()->insert(delay2);
+	delay2->nextComponents()->insert(release2);
+	release2->nextComponents()->insert(dispose1);
+	seize3->nextComponents()->insert(delay3);
+	delay3->nextComponents()->insert(release3);
+	release3->nextComponents()->insert(dispose1);
 	//
 	simulator->models()->insert(model);
 	if (model->check()) {

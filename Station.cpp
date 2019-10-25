@@ -44,7 +44,7 @@ std::string Station::show() {
     if (_enterIntoStationComponent == nullptr)
 	msg += "NULL";
     else
-	msg += _enterIntoStationComponent->getName();
+	msg += _enterIntoStationComponent->name();
     return msg;
 }
 
@@ -53,19 +53,19 @@ void Station::initBetweenReplications() {
 }
 
 void Station::enter(Entity* entity) {
-    std::string attributeName = "Entity.ArrivalAt" + this->getName();
+    std::string attributeName = "Entity.ArrivalAt" + this->name();
     trimwithin(attributeName);
-    entity->setAttributeValue(attributeName, _elems->getParentModel()->simulation()->getSimulatedTime());
+    entity->setAttributeValue(attributeName, _elems->parentModel()->simulation()->getSimulatedTime());
     entity->setAttributeValue("Entity.Station", _id);
     _numberInStation++;
     this->_cstatNumberInStation->getStatistics()->getCollector()->addValue(_numberInStation);
 }
 
 void Station::leave(Entity* entity) {
-    std::string attributeName = "Entity.ArrivalAt" + this->getName();
+    std::string attributeName = "Entity.ArrivalAt" + this->name();
     trimwithin(attributeName);
     double arrivalTime = entity->getAttributeValue(attributeName);
-    double timeInStation = _elems->getParentModel()->simulation()->getSimulatedTime() - arrivalTime;
+    double timeInStation = _elems->parentModel()->simulation()->getSimulatedTime() - arrivalTime;
     _cstatTimeInStation->getStatistics()->getCollector()->addValue(timeInStation);
     entity->getEntityType()->getStatisticsCollector("Time in Stations")->getStatistics()->getCollector()->addValue(timeInStation);
     entity->setAttributeValue("Entity.Station", 0.0);
@@ -114,17 +114,17 @@ std::map<std::string, std::string>* Station::_saveInstance() {
 bool Station::_check(std::string* errorMessage) {
     /* include attributes needed */
     std::vector<std::string> neededNames = {"Entity.Station"};
-    neededNames.insert(neededNames.begin(), "Entity.ArrivalAt" + this->getName());
+    neededNames.insert(neededNames.begin(), "Entity.ArrivalAt" + this->name());
     std::string neededName;
     for (unsigned int i = 0; i < neededNames.size(); i++) {
 	neededName = neededNames[i];
-	if (_elems->getElement(Util::TypeOf<Attribute>(), neededName) == nullptr) {
+	if (_elems->element(Util::TypeOf<Attribute>(), neededName) == nullptr) {
 	    Attribute* attr1 = new Attribute(neededName);
 	    _elems->insert(attr1);
 	}
     }
     // include StatisticsCollector needed in EntityType
-    std::list<ModelElement*>* enttypes = _elems->getElements(Util::TypeOf<EntityType>())->list();
+    std::list<ModelElement*>* enttypes = _elems->elementList(Util::TypeOf<EntityType>())->list();
     for (std::list<ModelElement*>::iterator it = enttypes->begin(); it != enttypes->end(); it++) {
 	static_cast<EntityType*> ((*it))->getStatisticsCollector("Time in Stations"); // force create this CStat before simulation starts
     }

@@ -40,8 +40,8 @@ public:
 
     virtual std::string show() {
 	return //ModelElement::show()+
-	",entity=" + std::to_string(_entity->getId()) +
-		",component=\"" + _component->getName() + "\"" +
+	",entity=" + std::to_string(_entity->id()) +
+		",component=\"" + _component->name() + "\"" +
 		",timeStatedWaiting=" + std::to_string(_timeStartedWaiting);
     }
 public:

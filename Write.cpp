@@ -75,7 +75,7 @@ void Write::_execute(Entity* entity) {
 	    _model->tracer()->trace(Util::TraceLevel::report, message);
 	}
     }
-    this->_model->sendEntityToComponent(entity, this->getNextComponents()->frontConnection(), 0.0);
+    this->_model->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
 }
 
 bool Write::_loadInstance(std::map<std::string, std::string>* fields) {

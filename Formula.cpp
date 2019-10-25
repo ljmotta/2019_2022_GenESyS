@@ -19,7 +19,7 @@
 
 Formula::Formula(ElementManager* elements) : ModelElement(Util::TypeOf<Formula>()) {
     _elements = elements;
-    _myPrivateParser = new Traits<Parser_if>::Implementation(elements->getParentModel());
+    _myPrivateParser = new Traits<Parser_if>::Implementation(elements->parentModel());
 }
 
 void Formula::setFormulaExpression(std::string _formulaExpression) {
@@ -67,6 +67,6 @@ std::map<std::string, std::string>* Formula::_saveInstance() {
 
 bool Formula::_check(std::string* errorMessage) {
     std::string errorMsg="";
-    bool res  = _elements->getParentModel()->checkExpression(this->_formulaExpression,"formula expression", &errorMsg);
+    bool res  = _elements->parentModel()->checkExpression(this->_formulaExpression,"formula expression", &errorMsg);
     return res;
 }

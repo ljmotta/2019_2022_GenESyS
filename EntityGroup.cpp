@@ -45,7 +45,7 @@ void EntityGroup::insertElement(Entity* element) {
 }
 
 void EntityGroup::removeElement(Entity* element) {
-    //double tnow = this->_elements->getParentModel()->getSimulation()->getSimulatedTime();
+    //double tnow = this->_elements->getParentModel()->simulation()->getSimulatedTime();
     _list->remove(element);
     this->_cstatNumberInGroup->getStatistics()->getCollector()->addValue(_list->size());
 }
@@ -98,7 +98,7 @@ std::map<std::string, std::string>* EntityGroup::_saveInstance() {
 
 bool EntityGroup::_check(std::string* errorMessage) {
     std::string newNeededAttributeName = "Entity.Group";
-    if (_elements->getElement(Util::TypeOf<Attribute>(), newNeededAttributeName ) == nullptr) {
+    if (_elements->element(Util::TypeOf<Attribute>(), newNeededAttributeName ) == nullptr) {
 	    Attribute* attr1 = new Attribute(newNeededAttributeName );
 	    _elements->insert(attr1);
 	}

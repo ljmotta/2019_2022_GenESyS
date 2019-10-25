@@ -53,11 +53,11 @@ Util::TimeUnit Delay::getDelayTimeUnit() const {
 }
 
 void Delay::_execute(Entity* entity) {
-    double waitTime = _model->parseExpression(_delayExpression) * Util::TimeUnitConvert(_delayTimeUnit, _model->infos()->getReplicationLengthTimeUnit());
+    double waitTime = _model->parseExpression(_delayExpression) * Util::TimeUnitConvert(_delayTimeUnit, _model->infos()->replicationLengthTimeUnit());
     entity->getEntityType()->getStatisticsCollector(_name+"."+"Waiting_Time")->getStatistics()->getCollector()->addValue(waitTime);
     entity->setAttributeValue("Entity.WaitTime", entity->getAttributeValue("Entity.WaitTime") + waitTime);
     double delayEndTime = _model->simulation()->getSimulatedTime() + waitTime;
-    Event* newEvent = new Event(delayEndTime, entity, this->getNextComponents()->frontConnection());
+    Event* newEvent = new Event(delayEndTime, entity, this->nextComponents()->frontConnection());
     _model->futureEvents()->insert(newEvent);
     _model->tracer()->trace(Util::TraceLevel::blockInternal, "End of delay of entity " + std::to_string(entity->getEntityNumber()) + " scheduled to time " + std::to_string(delayEndTime));
 }
@@ -88,7 +88,7 @@ bool Delay::_check(std::string* errorMessage) {
     std::string neededName;
     for (unsigned int i = 0; i < neededNames.size(); i++) {
 	neededName = neededNames[i];
-	if (elements->getElement(Util::TypeOf<Attribute>(), neededName) == nullptr) {
+	if (elements->element(Util::TypeOf<Attribute>(), neededName) == nullptr) {
 	    Attribute* attr1 = new Attribute(neededName);
 	    elements->insert(attr1);
 	}
@@ -99,7 +99,7 @@ bool Delay::_check(std::string* errorMessage) {
 void Delay::_createInternalElements() {
     // include StatisticsCollector needed in EntityType
     ElementManager* elements = _model->elements();
-    std::list<ModelElement*>* enttypes = elements->getElements(Util::TypeOf<EntityType>())->list();
+    std::list<ModelElement*>* enttypes = elements->elementList(Util::TypeOf<EntityType>())->list();
     for (std::list<ModelElement*>::iterator it= enttypes->begin(); it!= enttypes->end(); it++) {
 	static_cast<EntityType*>((*it))->getStatisticsCollector(_name+"."+"Waiting_Time"); // force create this CStat before simulation starts
     }    

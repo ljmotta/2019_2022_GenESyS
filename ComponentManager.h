@@ -31,7 +31,7 @@ public:
 public:
     //ModelComponent* getComponent(Util::identification id);
     //ModelComponent* getComponent(std::string name);
-    unsigned int getNumberOfComponents();
+    unsigned int numberOfComponents();
     std::list<ModelComponent*>::iterator begin();
     std::list<ModelComponent*>::iterator end();
     //int getRankOf(std::string name);

@@ -33,13 +33,13 @@ void Decide::_execute(Entity* entity) {
 	value = _model->parseExpression((*it));
 	_model->tracer()->traceSimulation(Util::TraceLevel::blockInternal, _model->simulation()->getSimulatedTime(), entity, this, std::to_string(i + 1) + "th condition evaluated to " + std::to_string(value) + "  // " + (*it));
 	if (value) {
-	    _model->sendEntityToComponent(entity, this->getNextComponents()->getConnectionAtRank(i), 0.0);
+	    _model->sendEntityToComponent(entity, this->nextComponents()->getConnectionAtRank(i), 0.0);
 	    return;
 	}
 	i++;
     }
     _model->tracer()->traceSimulation(Util::TraceLevel::blockInternal, _model->simulation()->getSimulatedTime(), entity, this, "No condition has been evaluated true");
-    _model->sendEntityToComponent(entity, this->getNextComponents()->getConnectionAtRank(i), 0.0);
+    _model->sendEntityToComponent(entity, this->nextComponents()->getConnectionAtRank(i), 0.0);
 }
 
 void Decide::_initBetweenReplications() {

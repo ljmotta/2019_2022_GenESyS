@@ -88,10 +88,10 @@ int ThirdExampleOfSimulation::main(int argc, char** argv) {
 	Dispose* dispose1 = new Dispose(model);
 	model->insert(dispose1);
 	// connect model components to create a "workflow"
-	create1->getNextComponents()->insert(seize1);
-	seize1->getNextComponents()->insert(delay1);
-	delay1->getNextComponents()->insert(release1);
-	release1->getNextComponents()->insert(dispose1);
+	create1->nextComponents()->insert(seize1);
+	seize1->nextComponents()->insert(delay1);
+	delay1->nextComponents()->insert(release1);
+	release1->nextComponents()->insert(dispose1);
 	// insert the model into the simulator 
 	simulator->models()->insert(model);
 	// if the model is ok then save the model into a text file 

@@ -253,8 +253,8 @@ funcao      : funcaoArit                       { $$.valor = $1.valor; }
             | funcaoUser                       { $$.valor = $1.valor; }
             ;
 
-funcaoKernel : fTNOW      { $$.valor = driver.getModel()->getSimulation()->getSimulatedTime();}
-             | fTFIN      { $$.valor = driver.getModel()->getInfos()->getReplicationLength();}
+funcaoKernel : fTNOW      { $$.valor = driver.getModel()->simulation()->simulatedTime();}
+             | fTFIN      { $$.valor = driver.getModel()->infos()->replicationLength();}
              ;
 
 funcaoTrig  : fSIN   "(" expressao ")"         { $$.valor = sin($3.valor); }
@@ -310,10 +310,10 @@ illegal     : ILLEGAL           {
 
 // 20181003  ATRIB now returns the attribute ID not the attribute value anymore. So, now get the attribute value for the current entity
 atributo    : ATRIB      {  double attributeValue = 0.0;
-			    if (driver.getModel()->getSimulation()->getCurrentEntity() != nullptr) {
+			    if (driver.getModel()->simulation()->getCurrentEntity() != nullptr) {
 				try {
 				    // it could crach because there may be no current entity, if the parse is running before simulation and therefore there is no CurrentEntity
-				    attributeValue = driver.getModel()->getSimulation()->getCurrentEntity()->getAttributeValue($1.valor);
+				    attributeValue = driver.getModel()->simulation()->getCurrentEntity()->getAttributeValue($1.valor);
 				} catch(...) {
 				}
 			    }
@@ -326,13 +326,13 @@ atribuicao  : atributo "=" expressao           { $$.valor = $3.valor; }
             | variavel "=" expressao           { $$.valor = $3.valor; }
             ;
 
-variavel    : VARI                                              { $$.valor = ((Variable*)(driver.getModel()->getElementManager()->getElement(Util::TypeOf<Variable>(), $1.id)))->getValue();} 
-            | VARI "[" expressao "]"                            { $$.valor = ((Variable*)(driver.getModel()->getElementManager()->getElement(Util::TypeOf<Variable>(), $1.id)))->getValue(std::to_string($3.valor));}
-            | VARI "[" expressao "," expressao "]"              { std::string index(std::to_string($3.valor)); index.append(","); index.append(std::to_string($5.valor)); $$.valor = ((Variable*)(driver.getModel()->getElementManager()->getElement(Util::TypeOf<Variable>(), $1.id)))->getValue(index);}
+variavel    : VARI                                              { $$.valor = ((Variable*)(driver.getModel()->elements()->element(Util::TypeOf<Variable>(), $1.id)))->getValue();} 
+            | VARI "[" expressao "]"                            { $$.valor = ((Variable*)(driver.getModel()->elements()->element(Util::TypeOf<Variable>(), $1.id)))->getValue(std::to_string($3.valor));}
+            | VARI "[" expressao "," expressao "]"              { std::string index(std::to_string($3.valor)); index.append(","); index.append(std::to_string($5.valor)); $$.valor = ((Variable*)(driver.getModel()->elements()->element(Util::TypeOf<Variable>(), $1.id)))->getValue(index);}
             ;
 
 // TODO: THERE IS A PROBLEM WITH FORMULA: TO EVALUATE THE FORMULA EXPRESSION, PARSER IS REINVOKED, AND THEN IT CRASHES (NO REENTRACE?)
-formula     : FORM                                              { $$.valor = ((Formula*)(driver.getModel()->getElementManager()->getElement(Util::TypeOf<Formula>(), $1.id)))->getValue();} 
+formula     : FORM                                              { $$.valor = ((Formula*)(driver.getModel()->elements()->element(Util::TypeOf<Formula>(), $1.id)))->getValue();} 
             ;
 
 
@@ -341,11 +341,11 @@ funcaoPlugin  : CTEZERO                                        { $$.valor = 0; }
 ///////////////////////////////////
 // to be defined by the QUEUE plugin
 ///////////////////////////////////
-            |fNQ       "(" QUEUE ")"                    { $$.valor = ((Queue*)(driver.getModel()->getElementManager()->getElement(Util::TypeOf<Queue>(), $3.id)))->size();}
+            |fNQ       "(" QUEUE ")"                    { $$.valor = ((Queue*)(driver.getModel()->elements()->element(Util::TypeOf<Queue>(), $3.id)))->size();}
             | fLASTINQ  "(" QUEUE ")"                   {/*For now does nothing because need acces to list of QUEUE, or at least the last element*/ }
-            | fFIRSTINQ "(" QUEUE ")"                   { if (((Queue*)(driver.getModel()->getElementManager()->getElement(Util::TypeOf<Queue>(), $3.id)))->size() > 0){
+            | fFIRSTINQ "(" QUEUE ")"                   { if (((Queue*)(driver.getModel()->elements()->element(Util::TypeOf<Queue>(), $3.id)))->size() > 0){
                                                             //id da 1a entidade da fila, talvez pegar nome
-                                                            $$.valor = ((Queue*)(driver.getModel()->getElementManager()->getElement(Util::TypeOf<Queue>(), $3.id)))->first()->getEntity()->getId();
+                                                            $$.valor = ((Queue*)(driver.getModel()->elements()->element(Util::TypeOf<Queue>(), $3.id)))->first()->getEntity()->id();
                                                           }else{
                                                             $$.valor = 0;
                                                           }
@@ -353,30 +353,30 @@ funcaoPlugin  : CTEZERO                                        { $$.valor = 0; }
 	    | fSAQUE "(" QUEUE "," ATRIB ")"   {   
 				 Util::identification queueID = $3.id;
 				 Util::identification attrID = $5.id;
-				 double sum = ((Queue*)(driver.getModel()->getElementManager()->getElement(Util::TypeOf<Queue>(), $3.id)))->sumAttributesFromWaiting(attrID);
+				 double sum = ((Queue*)(driver.getModel()->elements()->element(Util::TypeOf<Queue>(), $3.id)))->sumAttributesFromWaiting(attrID);
 				  $$.valor = sum;
 				}
 	    | fAQUE "(" QUEUE "," NUMD "," ATRIB ")" {
 				 Util::identification queueID = $3.id;
 				 Util::identification attrID = $7.id;
-				 double value = ((Queue*)(driver.getModel()->getElementManager()->getElement(Util::TypeOf<Queue>(), $3.id)))->getAttributeFromWaitingRank($5.valor-1, attrID); // rank starts on 0 in genesys
+				 double value = ((Queue*)(driver.getModel()->elements()->element(Util::TypeOf<Queue>(), $3.id)))->getAttributeFromWaitingRank($5.valor-1, attrID); // rank starts on 0 in genesys
 				  $$.valor = value;
 				}
 
 ///////////////////////////////////
 // to be defined by the RESOURCE plugin
 ///////////////////////////////////
-           | fMR        "(" RESOURCE ")"                { $$.valor = ((Resource*)driver.getModel()->getElementManager()->getElement(Util::TypeOf<Resource>(), $3.id))->getCapacity();}
-           | fNR        "(" RESOURCE ")"                { $$.valor = ((Resource*)driver.getModel()->getElementManager()->getElement(Util::TypeOf<Resource>(), $3.id))->getNumberBusy();}
+           | fMR        "(" RESOURCE ")"                { $$.valor = ((Resource*)driver.getModel()->elements()->element(Util::TypeOf<Resource>(), $3.id))->getCapacity();}
+           | fNR        "(" RESOURCE ")"                { $$.valor = ((Resource*)driver.getModel()->elements()->element(Util::TypeOf<Resource>(), $3.id))->getNumberBusy();}
            | fRESSEIZES "(" RESOURCE ")"                { /*For now does nothing because needs get Seizes, check with teacher*/}
-           | fSTATE     "(" RESOURCE ")"                {  $$.valor = static_cast<int>(((Resource*)driver.getModel()->getElementManager()->getElement(Util::TypeOf<Resource>(), $3.id))->getResourceState());
+           | fSTATE     "(" RESOURCE ")"                {  $$.valor = static_cast<int>(((Resource*)driver.getModel()->elements()->element(Util::TypeOf<Resource>(), $3.id))->getResourceState());
 							}
 
-           | fIRF       "(" RESOURCE ")"                { $$.valor = ((Resource*)driver.getModel()->getElementManager()->getElement(Util::TypeOf<Resource>(), $3.id))->getResourceState() == Resource::ResourceState::FAILED ? 1 : 0; }
+           | fIRF       "(" RESOURCE ")"                { $$.valor = ((Resource*)driver.getModel()->elements()->element(Util::TypeOf<Resource>(), $3.id))->getResourceState() == Resource::ResourceState::FAILED ? 1 : 0; }
            | fSETSUM    "(" SET ")"                     {   unsigned int count=0;
 							    Resource* res;
-							    List<ModelElement*>* setList = ((Set*)driver.getModel()->getElementManager()->getElement(Util::TypeOf<Set>(),$3.id))->getElementSet(); 
-							    for (std::list<ModelElement*>::iterator it = setList->getList()->begin(); it!=setList->getList()->end(); it++) {
+							    List<ModelElement*>* setList = ((Set*)driver.getModel()->elements()->element(Util::TypeOf<Set>(),$3.id))->getElementSet(); 
+							    for (std::list<ModelElement*>::iterator it = setList->list()->begin(); it!=setList->list()->end(); it++) {
 								res = dynamic_cast<Resource*>(*it);
 								if (res != nullptr) {
 								    if (res->getResourceState()==Resource::ResourceState::BUSY) {
@@ -390,7 +390,7 @@ funcaoPlugin  : CTEZERO                                        { $$.valor = 0; }
 ///////////////////////////////////
 // to be defined by the SET plugin
 ///////////////////////////////////
-           | fNUMSET    "(" SET ")"                     { $$.valor = ((Set*)driver.getModel()->getElementManager()->getElement(Util::TypeOf<Set>(),$3.id))->getElementSet()->size(); }
+           | fNUMSET    "(" SET ")"                     { $$.valor = ((Set*)driver.getModel()->elements()->element(Util::TypeOf<Set>(),$3.id))->getElementSet()->size(); }
 
 
 ///////////////////////////////////
@@ -398,7 +398,7 @@ funcaoPlugin  : CTEZERO                                        { $$.valor = 0; }
 ///////////////////////////////////
 	   | CSTAT			{ $$.valor = 0; }
            | fTAVG    "(" CSTAT ")"     {
-					    StatisticsCollector* cstat = ((StatisticsCollector*)(driver.getModel()->getElementManager()->getElement(Util::TypeOf<StatisticsCollector>(), $3.id)));
+					    StatisticsCollector* cstat = ((StatisticsCollector*)(driver.getModel()->elements()->element(Util::TypeOf<StatisticsCollector>(), $3.id)));
 					    double value = cstat->getStatistics()->average();
 					    $$.valor = value;
 					}

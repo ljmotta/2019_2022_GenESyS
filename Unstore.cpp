@@ -34,7 +34,7 @@ ModelComponent* Unstore::LoadInstance(Model* model, std::map<std::string, std::s
 
 void Unstore::_execute(Entity* entity) {
     _model->tracer()->trace(Util::TraceLevel::blockInternal, "I'm just a dummy model and I'll just send the entity forward");
-    this->_model->sendEntityToComponent(entity, this->getNextComponents()->frontConnection(), 0.0);
+    this->_model->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
 }
 
 bool Unstore::_loadInstance(std::map<std::string, std::string>* fields) {

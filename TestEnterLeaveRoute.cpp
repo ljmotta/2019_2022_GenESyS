@@ -119,19 +119,19 @@ int TestEnterLeaveRoute::main(int argc, char** argv) {
     Dispose* dispose1 = new Dispose(model);
     components->insert(dispose1);
     // connect model components to create a "workflow" 
-    create1->getNextComponents()->insert(route0);
+    create1->nextComponents()->insert(route0);
     //
-    enter1->getNextComponents()->insert(delay1);
-    delay1->getNextComponents()->insert(leave1);
-    leave1->getNextComponents()->insert(route1);
+    enter1->nextComponents()->insert(delay1);
+    delay1->nextComponents()->insert(leave1);
+    leave1->nextComponents()->insert(route1);
     //
-    enter2->getNextComponents()->insert(delay2);
-    delay2->getNextComponents()->insert(leave2);
-    leave2->getNextComponents()->insert(route2);
+    enter2->nextComponents()->insert(delay2);
+    delay2->nextComponents()->insert(leave2);
+    leave2->nextComponents()->insert(route2);
     //
-    enter3->getNextComponents()->insert(delay3);
-    delay3->getNextComponents()->insert(leave3);
-    leave3->getNextComponents()->insert(dispose1);
+    enter3->nextComponents()->insert(delay3);
+    delay3->nextComponents()->insert(leave3);
+    leave3->nextComponents()->insert(dispose1);
     // insert the model into the simulator 
     simulator->models()->insert(model);
     // check the model

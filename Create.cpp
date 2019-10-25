@@ -50,7 +50,7 @@ void Create::_execute(Entity* entity) {
 	    newEntity->setEntityType(entity->getEntityType());
 	    _model->elements()->insert(newEntity); // ->getEntities()->insert(newEntity);
 	    timeBetweenCreations = _model->parseExpression(this->_timeBetweenCreationsExpression);
-	    timeScale = Util::TimeUnitConvert(this->_timeBetweenCreationsTimeUnit, _model->infos()->getReplicationLengthTimeUnit());
+	    timeScale = Util::TimeUnitConvert(this->_timeBetweenCreationsTimeUnit, _model->infos()->replicationLengthTimeUnit());
 	    newArrivalTime = tnow + timeBetweenCreations*timeScale;
 	    Event* newEvent = new Event(newArrivalTime, newEntity, this);
 	    _model->futureEvents()->insert(newEvent);
@@ -59,7 +59,7 @@ void Create::_execute(Entity* entity) {
 	}
     }
     _numberOut->incCountValue();
-    _model->sendEntityToComponent(entity, this->getNextComponents()->frontConnection(), 0.0);
+    _model->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
 }
 
 PluginInformation* Create::GetPluginInformation() {

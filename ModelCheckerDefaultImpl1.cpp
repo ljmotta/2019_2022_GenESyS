@@ -41,20 +41,20 @@ bool ModelCheckerDefaultImpl1::checkAll() {
 
 void ModelCheckerDefaultImpl1::_recursiveConnectedTo(PluginManager* pluginManager, ModelComponent* comp, List<ModelComponent*>* visited, List<ModelComponent*>* unconnected, bool* drenoFound) {
     visited->insert(comp);
-    _model->tracer()->trace(Util::TraceLevel::mostDetailed, "Connected to component " + comp->getName());
-    Plugin* plugin = pluginManager->find(comp->getTypename());
+    _model->tracer()->trace(Util::TraceLevel::mostDetailed, "Connected to component " + comp->name());
+    Plugin* plugin = pluginManager->find(comp->classname());
     assert(plugin!= nullptr);
-    if (plugin->getPluginInfo()->isSink() || (plugin->getPluginInfo()->isSendTransfer() && comp->getNextComponents()->size()==0)) {//(dynamic_cast<SinkModelComponent*> (comp) != nullptr) { 
+    if (plugin->getPluginInfo()->isSink() || (plugin->getPluginInfo()->isSendTransfer() && comp->nextComponents()->size()==0)) {//(dynamic_cast<SinkModelComponent*> (comp) != nullptr) { 
 	// it is a sink OR it can send entities throught a transfer and has no nextConnections
 	*drenoFound = true;
     } else { // it is not a sink
-	if (comp->getNextComponents()->size() == 0) {
+	if (comp->nextComponents()->size() == 0) {
 	    unconnected->insert(comp);
-	    _model->tracer()->trace(Util::TraceLevel::errors, "Component \"" + comp->getName() + "\" is unconnected (not a sink with no next componentes connected to)");
+	    _model->tracer()->trace(Util::TraceLevel::errors, "Component \"" + comp->name() + "\" is unconnected (not a sink with no next componentes connected to)");
 	    *drenoFound = false;
 	} else {
 	    ModelComponent* nextComp;
-	    for (std::list<Connection*>::iterator it = comp->getNextComponents()->list()->begin(); it != comp->getNextComponents()->list()->end(); it++) {
+	    for (std::list<Connection*>::iterator it = comp->nextComponents()->list()->begin(); it != comp->nextComponents()->list()->end(); it++) {
 		nextComp = (*it)->first;
 		if (visited->find(nextComp) == visited->list()->end()) { // not visited yet
 		    *drenoFound = false;
@@ -63,7 +63,7 @@ void ModelCheckerDefaultImpl1::_recursiveConnectedTo(PluginManager* pluginManage
 		    Util::DecIndent();
 		} else {
 		    Util::IncIndent();
-	            _model->tracer()->trace(Util::TraceLevel::mostDetailed, "Connected to component " + nextComp->getName());
+	            _model->tracer()->trace(Util::TraceLevel::mostDetailed, "Connected to " + nextComp->name());
 		    Util::DecIndent();
 		    *drenoFound = true;
 		}
@@ -157,7 +157,7 @@ bool ModelCheckerDefaultImpl1::checkConnected() {
 	ModelComponent* comp;
 	for (std::list<ModelComponent*>::iterator it = _model->components()->begin(); it != _model->components()->end(); it++) {
 	    comp = (*it);
-	    plugin = pluginManager->find(comp->getTypename());
+	    plugin = pluginManager->find(comp->classname());
 	    assert(plugin != nullptr);
 	    if (plugin->getPluginInfo()->isSource() || plugin->getPluginInfo()->isReceiveTransfer()) { //(dynamic_cast<SourceModelComponent*> (comp) != nullptr) {
 		// it is a source component OR it can receive enetities from transfer
@@ -170,7 +170,7 @@ bool ModelCheckerDefaultImpl1::checkConnected() {
 	    comp = (*it);
 	    if (visited->find(comp) == visited->list()->end()) { //not found
 		resultAll = false;
-		_model->tracer()->trace(Util::TraceLevel::errors, "Component \"" + comp->getName() + "\" is unconnected.");
+		_model->tracer()->trace(Util::TraceLevel::errors, "Component \"" + comp->name() + "\" is unconnected.");
 	    }
 	}
 
@@ -268,14 +268,14 @@ bool ModelCheckerDefaultImpl1::checkSymbols() {
 	    bool result;
 	    ModelElement* element;
 	    std::string* errorMessage = new std::string();
-	    std::list<std::string>* elementTypes = _model->elements()->getElementTypenames();
+	    std::list<std::string>* elementTypes = _model->elements()->elementClassnames();
 	    for (std::list<std::string>::iterator typeIt = elementTypes->begin(); typeIt != elementTypes->end(); typeIt++) {
 		elementType = (*typeIt);
-		List<ModelElement*>* elements = _model->elements()->getElements(elementType);
+		List<ModelElement*>* elements = _model->elements()->elementList(elementType);
 		for (std::list<ModelElement*>::iterator it = elements->list()->begin(); it != elements->list()->end(); it++) {
 		    element = (*it);
 		    // copyed from modelCOmponent. It is not inside the ModelElement::Check because ModelElement has no access to Model to call Tracer
-		    _model->tracer()->trace(Util::TraceLevel::mostDetailed, "Checking " + element->getTypename() + ": " + element->getName()+ " (id "+std::to_string(element->getId())+")"); //std::to_string(component->_id));
+		    _model->tracer()->trace(Util::TraceLevel::mostDetailed, "Checking " + element->classname() + ": " + element->name()+ " (id "+std::to_string(element->id())+")"); //std::to_string(component->_id));
 		    Util::IncIndent();
 		    {
 			try {
@@ -327,20 +327,20 @@ bool ModelCheckerDefaultImpl1::checkLimits() {
     _model->tracer()->trace(Util::TraceLevel::blockArrival, "Checking model limits");
     Util::IncIndent();
     {
-	value = _model->components()->getNumberOfComponents();
+	value = _model->components()->numberOfComponents();
 	limit=licence->getModelComponentsLimit();
 	res &= value <= limit;
 	_model->tracer()->trace(Util::TraceLevel::blockInternal, "Model has "+std::to_string(value)+"/"+std::to_string(limit)+" components");
 	if (!res) {
-	    text = "Model has " + std::to_string(_model->components()->getNumberOfComponents()) + " components, exceding the limit of " + std::to_string(licence->getModelComponentsLimit()) + " components imposed by the current activation code";
+	    text = "Model has " + std::to_string(_model->components()->numberOfComponents()) + " components, exceding the limit of " + std::to_string(licence->getModelComponentsLimit()) + " components imposed by the current activation code";
 	    //_model->getTraceManager()->trace(Util::TraceLevel::errors, text);
 	} else {
-	    value = _model->elements()->getNumberOfElements();
+	    value = _model->elements()->numberOfElements();
 	    limit = licence->getModelElementsLimit();
 	    res &= value <= limit;
 	    _model->tracer()->trace(Util::TraceLevel::blockInternal, "Model has "+std::to_string(value)+"/"+std::to_string(limit)+" elements");
 	    if (!res) {
-		text = "Model has " + std::to_string(_model->elements()->getNumberOfElements()) + " elements, exceding the limit of " + std::to_string(licence->getModelElementsLimit()) + " elements imposed by the current activation code";
+		text = "Model has " + std::to_string(_model->elements()->numberOfElements()) + " elements, exceding the limit of " + std::to_string(licence->getModelElementsLimit()) + " elements imposed by the current activation code";
 		//_model->getTraceManager()->trace(Util::TraceLevel::errors, text);
 	    }
 	}

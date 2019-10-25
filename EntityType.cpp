@@ -136,7 +136,7 @@ StatisticsCollector* EntityType::getStatisticsCollector(std::string name) {
     StatisticsCollector* cstat;
     for (std::list<StatisticsCollector*>::iterator it = _statisticsCollectors->list()->begin(); it!= _statisticsCollectors->list()->end(); it++) {
 	cstat = (*it);
-	if (cstat->getName()==name) {
+	if (cstat->name()==name) {
 	    return cstat;
 	}
     }

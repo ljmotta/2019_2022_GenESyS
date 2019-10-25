@@ -83,7 +83,7 @@ bool OLD_ODEelement::_check(std::string* errorMessage) {
     ODEfunction* func;
     for (std::list<ODEfunction*>::iterator it = _ODEfunctions->list()->begin(); it != _ODEfunctions->list()->end(); it++) {
 	func = (*it);
-	result &= _elems->getParentModel()->checkExpression(func->expression, "expression["+std::to_string(i++)+"]", errorMessage);
+	result &= _elems->parentModel()->checkExpression(func->expression, "expression["+std::to_string(i++)+"]", errorMessage);
     }
     return result;
 }

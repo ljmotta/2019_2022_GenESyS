@@ -33,7 +33,7 @@ void ModelInfo::setName(std::string _name) {
     this->_name = _name;
 }
 
-std::string ModelInfo::getName() const {
+std::string ModelInfo::name() const {
     return _name;
 }
 
@@ -41,7 +41,7 @@ void ModelInfo::setAnalystName(std::string _analystName) {
     this->_analystName = _analystName;
 }
 
-std::string ModelInfo::getAnalystName() const {
+std::string ModelInfo::analystName() const {
     return _analystName;
 }
 
@@ -49,7 +49,7 @@ void ModelInfo::setDescription(std::string _description) {
     this->_description = _description;
 }
 
-std::string ModelInfo::getDescription() const {
+std::string ModelInfo::description() const {
     return _description;
 }
 
@@ -57,7 +57,7 @@ void ModelInfo::setProjectTitle(std::string _projectTitle) {
     this->_projectTitle = _projectTitle;
 }
 
-std::string ModelInfo::getProjectTitle() const {
+std::string ModelInfo::projectTitle() const {
     return _projectTitle;
 }
 
@@ -65,7 +65,7 @@ void ModelInfo::setVersion(std::string _version) {
     this->_version = _version;
 }
 
-std::string ModelInfo::getVersion() const {
+std::string ModelInfo::version() const {
     return _version;
 }
 
@@ -73,7 +73,7 @@ void ModelInfo::setNumberOfReplications(unsigned int _numberOfReplications) {
     this->_numberOfReplications = _numberOfReplications;
 }
 
-unsigned int ModelInfo::getNumberOfReplications() const {
+unsigned int ModelInfo::numberOfReplications() const {
     return _numberOfReplications;
 }
 
@@ -81,7 +81,7 @@ void ModelInfo::setReplicationLength(double _replicationLength) {
     this->_replicationLength = _replicationLength;
 }
 
-double ModelInfo::getReplicationLength() const {
+double ModelInfo::replicationLength() const {
     return _replicationLength;
 }
 
@@ -89,7 +89,7 @@ void ModelInfo::setReplicationLengthTimeUnit(Util::TimeUnit _replicationLengthTi
     this->_replicationLengthTimeUnit = _replicationLengthTimeUnit;
 }
 
-Util::TimeUnit ModelInfo::getReplicationLengthTimeUnit() const {
+Util::TimeUnit ModelInfo::replicationLengthTimeUnit() const {
     return _replicationLengthTimeUnit;
 }
 
@@ -97,7 +97,7 @@ void ModelInfo::setWarmUpPeriod(double _warmUpPeriod) {
     this->_warmUpPeriod = _warmUpPeriod;
 }
 
-double ModelInfo::getWarmUpPeriod() const {
+double ModelInfo::warmUpPeriod() const {
     return _warmUpPeriod;
 }
 
@@ -105,7 +105,7 @@ void ModelInfo::setWarmUpPeriodTimeUnit(Util::TimeUnit _warmUpPeriodTimeUnit) {
     this->_warmUpPeriodTimeUnit = _warmUpPeriodTimeUnit;
 }
 
-Util::TimeUnit ModelInfo::getWarmUpPeriodTimeUnit() const {
+Util::TimeUnit ModelInfo::warmUpPeriodTimeUnit() const {
     return _warmUpPeriodTimeUnit;
 }
 
@@ -113,7 +113,7 @@ void ModelInfo::setTerminatingCondition(std::string _terminatingCondition) {
     this->_terminatingCondition = _terminatingCondition;
 }
 
-std::string ModelInfo::getTerminatingCondition() const {
+std::string ModelInfo::terminatingCondition() const {
     return _terminatingCondition;
 }
 
@@ -136,16 +136,16 @@ void ModelInfo::loadInstance(std::map<std::string, std::string>* fields) {
 std::map<std::string, std::string>* ModelInfo::saveInstance() {
     std::map<std::string, std::string>* fields = new std::map<std::string, std::string>();
     fields->emplace("typename", "ModelInfo");
-    fields->emplace("analystName", getAnalystName());
-    fields->emplace("description", getDescription());
-    fields->emplace("name", getName());
-    fields->emplace("numberOfReplications", std::to_string(getNumberOfReplications()));
-    fields->emplace("projectTitle", getProjectTitle());
-    fields->emplace("replicationLength", std::to_string(getReplicationLength()));
-    fields->emplace("replicationLengthTimeUnit", std::to_string(static_cast<int> (getReplicationLengthTimeUnit())));
-    fields->emplace("terminatingCondition", getTerminatingCondition());
-    fields->emplace("version", getVersion());
-    fields->emplace("warmUpTime", std::to_string(getWarmUpPeriod()));
-    fields->emplace("warmUpTimeTimeUnit", std::to_string(static_cast<int> (getWarmUpPeriodTimeUnit())));
+    fields->emplace("analystName", analystName());
+    fields->emplace("description", description());
+    fields->emplace("name", name());
+    fields->emplace("numberOfReplications", std::to_string(numberOfReplications()));
+    fields->emplace("projectTitle", projectTitle());
+    fields->emplace("replicationLength", std::to_string(replicationLength()));
+    fields->emplace("replicationLengthTimeUnit", std::to_string(static_cast<int> (replicationLengthTimeUnit())));
+    fields->emplace("terminatingCondition", terminatingCondition());
+    fields->emplace("version", version());
+    fields->emplace("warmUpTime", std::to_string(warmUpPeriod()));
+    fields->emplace("warmUpTimeTimeUnit", std::to_string(static_cast<int> (warmUpPeriodTimeUnit())));
     return fields;
 }

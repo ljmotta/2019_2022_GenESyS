@@ -69,7 +69,7 @@ void Record::_execute(Entity* entity) {
     file << value << std::endl;
     file.close(); // TODO: open and close for every data is not a good idea. Should open when replication starts and close when it finishes.    
     _model->tracer()->traceSimulation(Util::TraceLevel::blockInternal, _model->simulation()->getSimulatedTime(), entity, this, "Recording value " + std::to_string(value));
-    _model->sendEntityToComponent(entity, this->getNextComponents()->frontConnection(), 0.0);
+    _model->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
 
 }
 

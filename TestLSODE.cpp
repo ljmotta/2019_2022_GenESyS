@@ -45,8 +45,8 @@ int TestLSODE::main(int argc, char** argv) {
     //components->insert(delay1); 
     Dispose* dispose1 = new Dispose(model); 
     components->insert(dispose1);
-    create1->getNextComponents()->insert(ode1);
-    ode1->getNextComponents()->insert(dispose1);
+    create1->nextComponents()->insert(ode1);
+    ode1->nextComponents()->insert(dispose1);
     //delay1->getNextComponents()->insert(dispose1);
     simulator->models()->insert(model);
     //

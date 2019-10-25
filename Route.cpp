@@ -25,7 +25,7 @@ std::string Route::show() {
 	    ",destinationType="+std::to_string(static_cast<int>(this->_routeDestinationType))+
 	    ",timeExpression="+this->_routeTimeExpression+" "+Util::StrTimeUnit(this->_routeTimeTimeUnit);
     if (_station != nullptr)
-	msg += ",station="+this->_station->getName();
+	msg += ",station="+this->_station->name();
     return msg;
 }
 
@@ -73,7 +73,7 @@ Route::DestinationType Route::getRouteDestinationType() const {
 
 void Route::_execute(Entity* entity) {
     // adds the route time to the TransferTime statistics / attribute related to the Entitys 
-    double routeTime = _model->parseExpression(_routeTimeExpression) * Util::TimeUnitConvert(_routeTimeTimeUnit, _model->infos()->getReplicationLengthTimeUnit());
+    double routeTime = _model->parseExpression(_routeTimeExpression) * Util::TimeUnitConvert(_routeTimeTimeUnit, _model->infos()->replicationLengthTimeUnit());
     entity->getEntityType()->getStatisticsCollector("Transfer Time")->getStatistics()->getCollector()->addValue(routeTime);
     entity->setAttributeValue("Entity.TransferTime", entity->getAttributeValue("Entity.TransferTime") + routeTime);
     if (routeTime > 0.0) {
@@ -81,7 +81,7 @@ void Route::_execute(Entity* entity) {
 	double routeEndTime = _model->simulation()->getSimulatedTime() + routeTime;
 	Event* newEvent = new Event(routeEndTime, entity, _station->getEnterIntoStationComponent());
 	_model->futureEvents()->insert(newEvent);
-	_model->tracer()->trace(Util::TraceLevel::blockInternal, "End of route of entity " + std::to_string(entity->getEntityNumber()) + " to the component \"" + _station->getEnterIntoStationComponent()->getName() + "\" was scheduled to time " + std::to_string(routeEndTime));
+	_model->tracer()->trace(Util::TraceLevel::blockInternal, "End of route of entity " + std::to_string(entity->getEntityNumber()) + " to the component \"" + _station->getEnterIntoStationComponent()->name() + "\" was scheduled to time " + std::to_string(routeEndTime));
     } else {
 	// send without delay
 	_model->sendEntityToComponent(entity, _station->getEnterIntoStationComponent(), 0.0);
@@ -95,7 +95,7 @@ bool Route::_loadInstance(std::map<std::string, std::string>* fields) {
 	this->_routeTimeTimeUnit = static_cast<Util::TimeUnit> (std::stoi((*fields->find("routeTimeTimeUnit")).second));
 	this->_routeDestinationType = static_cast<Route::DestinationType> (std::stoi((*fields->find("routeDestinationType")).second));
 	std::string stationName = ((*(fields->find("stationName"))).second);
-	Station* station = dynamic_cast<Station*> (_model->elements()->getElement(Util::TypeOf<Station>(), stationName));
+	Station* station = dynamic_cast<Station*> (_model->elements()->element(Util::TypeOf<Station>(), stationName));
 	this->_station = station;
     }
     return res;
@@ -106,8 +106,8 @@ void Route::_initBetweenReplications() {
 
 std::map<std::string, std::string>* Route::_saveInstance() {
     std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
-    fields->emplace("stationId", std::to_string(this->_station->getId()));
-    fields->emplace("stationName", (this->_station->getName()));
+    fields->emplace("stationId", std::to_string(this->_station->id()));
+    fields->emplace("stationName", (this->_station->name()));
     fields->emplace("routeTimeExpression", this->_routeTimeExpression);
     fields->emplace("routeTimeTimeUnit", std::to_string(static_cast<int> (this->_routeTimeTimeUnit)));
     fields->emplace("routeDestinationType", std::to_string(static_cast<int> (this->_routeDestinationType)));
@@ -121,13 +121,13 @@ bool Route::_check(std::string* errorMessage) {
     std::string neededName;
     for (unsigned int i = 0; i < neededNames.size(); i++) {
 	neededName = neededNames[i];
-	if (elements->getElement(Util::TypeOf<Attribute>(), neededName) == nullptr) {
+	if (elements->element(Util::TypeOf<Attribute>(), neededName) == nullptr) {
 	    Attribute* attr1 = new Attribute(neededName);
 	    elements->insert(attr1);
 	}
     } 
     // include StatisticsCollector needed in EntityType
-    std::list<ModelElement*>* enttypes = elements->getElements(Util::TypeOf<EntityType>())->list();
+    std::list<ModelElement*>* enttypes = elements->elementList(Util::TypeOf<EntityType>())->list();
     for (std::list<ModelElement*>::iterator it= enttypes->begin(); it!= enttypes->end(); it++) {
 	static_cast<EntityType*>((*it))->getStatisticsCollector("Transfer Time"); // force create this CStat before simulation starts
     }

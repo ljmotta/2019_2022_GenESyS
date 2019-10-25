@@ -31,10 +31,10 @@ public:
     virtual ~ModelElement() = default;
 
 public: // get & set
-    Util::identification getId() const;
+    Util::identification id() const;
     void setName(std::string _name);
-    std::string getName() const;
-    std::string getTypename() const;
+    std::string name() const;
+    std::string classname() const;
 public: // static
     static ModelElement* LoadInstance(std::map<std::string, std::string>* fields); // TODO: return ModelComponent* ?
     static std::map<std::string, std::string>* SaveInstance(ModelElement* element);
