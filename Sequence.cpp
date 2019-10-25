@@ -70,7 +70,7 @@ bool Sequence::_check(std::string* errorMessage) {
 	neededName = neededNames[i];
 	if (_parentModel->elements()->element(Util::TypeOf<Attribute>(), neededName) == nullptr) {
 	    Attribute* attr1 = new Attribute(_parentModel, neededName);
-	    _parentModel->insert(attr1);
+	    //_parentModel->insert(attr1);
 	}
     }
     //

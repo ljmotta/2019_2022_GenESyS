@@ -47,13 +47,11 @@ void ElementManager::remove(ModelElement* infra) {
     std::string infraTypename = infra->classname();
     List<ModelElement*>* listElements = elementList(infraTypename);
     listElements->remove(infra);
-    infra->~ModelElement(); /* TODO: Check: Should really destroy infra here? */
 }
 
 void ElementManager::remove(std::string infraTypename, ModelElement* infra) {
     List<ModelElement*>* listElements = elementList(infraTypename);
     listElements->remove(infra);
-    infra->~ModelElement(); /* TODO: Check: Should really destroy infra here? */
 }
 
 bool ElementManager::check(std::string infraTypename, std::string infraName, std::string expressionName, bool mandatory, std::string* errorMessage) {

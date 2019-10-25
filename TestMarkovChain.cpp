@@ -34,13 +34,13 @@ int TestMarkovChain::main(int argc, char** argv) {
     var1->setValue("1", 0.4);
     var1->setValue("2", 0.4);
     var1->setValue("3", 0.1);
-    model->insert(var1);
+    // model->insert(var1);
     Variable* var2 = new Variable(model,"ProcessState");
-    model->insert(var2);
+    // model->insert(var2);
     Create* create1 = new Create(model);
-    //model->insert(create1);
+    //// model->insert(create1);
     MarkovChain* markov1 = new MarkovChain(model);
-    //model->insert(markov1);
+    //// model->insert(markov1);
     Dispose* dispose1 = new Dispose(model);
     std::cout << "size:" << model->components()->numberOfComponents() << std::endl;
     create1->~Create();

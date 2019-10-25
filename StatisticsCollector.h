@@ -24,7 +24,7 @@ class StatisticsCollector : public ModelElement {//, public Statistics_if {
 public:
     StatisticsCollector(Model* model);
     StatisticsCollector(Model* model, std::string name);
-    StatisticsCollector(Model* model, std::string name, ModelElement* parent);
+    StatisticsCollector(Model* model, std::string name, ModelElement* parent, bool insertIntoModel = true);
     virtual ~StatisticsCollector() = default;
 public:
     virtual std::string show();

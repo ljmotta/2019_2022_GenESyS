@@ -27,7 +27,7 @@ StatisticsCollector::StatisticsCollector(Model* model,std::string name) : ModelE
     _addSimulationResponse();
 }
 
-StatisticsCollector::StatisticsCollector(Model* model,std::string name, ModelElement* parent) : ModelElement(model, Util::TypeOf<StatisticsCollector>()) {
+StatisticsCollector::StatisticsCollector(Model* model,std::string name, ModelElement* parent, bool insertIntoModel) : ModelElement(model, Util::TypeOf<StatisticsCollector>(), insertIntoModel) {
     _name = name;
     _parent = parent;
     _initStaticsAndCollector();

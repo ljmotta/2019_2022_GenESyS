@@ -28,11 +28,11 @@ Resource::Resource(Model* model, std::string name) : ModelElement(model, Util::T
 
 void Resource::_initCStats() {
     _cstatTimeSeized = new StatisticsCollector(_parentModel, _name+"."+"Time_Seized", this);
-    _parentModel->insert(_cstatTimeSeized);
+    //_parentModel->insert(_cstatTimeSeized);
     _numSeizes = new Counter(_parentModel, _name+"."+"Seizes", this);
-    _parentModel->insert(_numSeizes);
+    //_parentModel->insert(_numSeizes);
     _numReleases = new Counter(_parentModel, _name+"."+"Releases", this);
-    _parentModel->insert(_numReleases);
+    //_parentModel->insert(_numReleases);
 
 }
 Resource::~Resource() {

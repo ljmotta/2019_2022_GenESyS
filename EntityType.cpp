@@ -143,7 +143,7 @@ StatisticsCollector* EntityType::getStatisticsCollector(std::string name) {
     // not found. Create it, insert it into the list of cstats, into the model element manager, and then return it
     cstat = new StatisticsCollector(_parentModel, name, this);
     _statisticsCollectors->insert(cstat);
-    _parentModel->insert(cstat); // unnecessary
+    //_parentModel->insert(cstat); // unnecessary
     return cstat;
 }
 

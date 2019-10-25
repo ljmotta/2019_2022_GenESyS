@@ -58,22 +58,22 @@ int SecondExampleOfSimulation::main(int argc, char** argv) {
 	infos->setNumberOfReplications(3); // replicates the simulation 3 times
 	// create a (Source)ModelElement of type EntityType, used by a ModelComponent that follows
 	EntityType* entityType1 = new EntityType(model, "Type_of_Representative_Entity");
-	model->insert(entityType1);
+	// model->insert(entityType1);
 	// create a ModelComponent of type Create, used to insert entities into the model
 	Create* create1 = new Create(model);
 	create1->setEntityType(entityType1);
 	create1->setTimeBetweenCreationsExpression("Expo(2)");
 	create1->setTimeUnit(Util::TimeUnit::minute);
 	create1->setEntitiesPerCreation(1);
-	model->insert(create1);
+	// model->insert(create1);
 	// create a ModelComponent of type Delay, used to represent a time delay 
 	Delay* delay1 = new Delay(model);
 	delay1->setDelayExpression("NORM(1,0.2)");
 	delay1->setDelayTimeUnit(Util::TimeUnit::minute);
-	model->insert(delay1);
+	// model->insert(delay1);
 	// create a (Sink)ModelComponent of type Dispose, used to remove entities from the model
 	Dispose* dispose1 = new Dispose(model);
-	model->insert(dispose1);
+	// model->insert(dispose1);
 	// connect model components to create a "workflow" 
 	create1->nextComponents()->insert(delay1);
 	delay1->nextComponents()->insert(dispose1);

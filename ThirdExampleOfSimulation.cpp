@@ -54,39 +54,39 @@ int ThirdExampleOfSimulation::main(int argc, char** argv) {
 	infos->setNumberOfReplications(3);
 	//
 	EntityType* customer = new EntityType(model, "Customer");
-	model->insert(customer);
+	// model->insert(customer);
 	//
 	Create* create1 = new Create(model);
 	create1->setEntityType(customer);
 	create1->setTimeBetweenCreationsExpression("norm(3,1)");
 	create1->setTimeUnit(Util::TimeUnit::second);
 	create1->setEntitiesPerCreation(1);
-	model->insert(create1);
+	// model->insert(create1);
 	//
 	Resource* machine1 = new Resource(model, "Machine_1");
 	machine1->setCapacity(1);
-	model->insert(machine1);
+	// model->insert(machine1);
 	//
 	Queue* queueSeize1 = new Queue(model, "Queue_Machine_1");
 	queueSeize1->setOrderRule(Queue::OrderRule::FIFO);
-	model->insert(queueSeize1);
+	// model->insert(queueSeize1);
 	//
 	Seize* seize1 = new Seize(model);
 	seize1->setResource(machine1);
 	seize1->setQueue(queueSeize1);
-	model->insert(seize1);
+	// model->insert(seize1);
 	//
 	Delay* delay1 = new Delay(model);
 	delay1->setDelayExpression("norm(3,1)");
 	delay1->setDelayTimeUnit(Util::TimeUnit::second);
-	model->insert(delay1);
+	// model->insert(delay1);
 	//
 	Release* release1 = new Release(model);
 	release1->setResource(machine1);
-	model->insert(release1);
+	// model->insert(release1);
 	//
 	Dispose* dispose1 = new Dispose(model);
-	model->insert(dispose1);
+	// model->insert(dispose1);
 	// connect model components to create a "workflow"
 	create1->nextComponents()->insert(seize1);
 	seize1->nextComponents()->insert(delay1);

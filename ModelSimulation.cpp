@@ -197,7 +197,9 @@ void ModelSimulation::_initSimulation() {
     List<ModelElement*>* cstats = _model->elements()->elementList(Util::TypeOf<StatisticsCollector>());
     for (std::list<ModelElement*>::iterator it = cstats->list()->begin(); it != cstats->list()->end(); it++) {
 	cstat = dynamic_cast<StatisticsCollector*> ((*it));
-	StatisticsCollector* newCStatSimul = new StatisticsCollector(_model, _cte_stCountSimulNamePrefix + cstat->name(), cstat->getParent());
+	// this new CSat should NOT be inserted into the model
+	StatisticsCollector* newCStatSimul = new StatisticsCollector(_model, _cte_stCountSimulNamePrefix + cstat->name(), cstat->getParent(), false);
+	//_model->elements()->remove(Util::TypeOf<StatisticsCollector>(), newCStatSimul); // remove from model, since it is automatically inserted by the constructor
 	this->_statsCountersSimulation->insert(newCStatSimul);
     }
     // copy all Counters (used in a replication) to Counters for the whole simulation
@@ -212,7 +214,7 @@ void ModelSimulation::_initSimulation() {
 	this->_statsCountersSimulation->insert(newCountSimul);
 	 */
 	// addin a cstat (to stat the counts)
-	StatisticsCollector* newCStatSimul = new StatisticsCollector(_model, _cte_stCountSimulNamePrefix + counter->name(), counter->getParent());
+	StatisticsCollector* newCStatSimul = new StatisticsCollector(_model, _cte_stCountSimulNamePrefix + counter->name(), counter->getParent(), false);
 	this->_statsCountersSimulation->insert(newCStatSimul);
     }
 }

@@ -16,13 +16,13 @@
 #include "ModelElement.h"
 #include "Model.h"
 
-ModelElement::ModelElement(Model* model, std::string thistypename, bool isModelComponent) {
+ModelElement::ModelElement(Model* model, std::string thistypename, bool insertIntoModel) {
     // ID is UNIQUE FOR EVERY ELEMENT AND COMPONENT in the entire simulator
     _id = Util::GenerateNewId(); //GenerateNewIdOfType(thistypename);
     _name = thistypename + "_" + std::to_string(Util::GenerateNewIdOfType(thistypename)); //std::to_string(_id);
     _typename = thistypename;
     _parentModel = model;
-    if (!isModelComponent)
+    if (insertIntoModel)
 	model->insert(this);
 }
 

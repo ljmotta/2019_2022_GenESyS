@@ -29,7 +29,7 @@ class Model;
  */
 class ModelElement {
 public:
-    ModelElement(Model* model, std::string elementTypename, bool isModelComponent = false);
+    ModelElement(Model* model, std::string elementTypename, bool insertIntoModel = true);
     virtual ~ModelElement();
 
 public: // get & set
