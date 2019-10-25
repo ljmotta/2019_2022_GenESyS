@@ -24,8 +24,8 @@ class ModelComponent;
 class TraceEvent {
 public:
 
-    TraceEvent(Util::TraceLevel tracelevel, std::string text) {
-	_tracelevel = tracelevel;
+    TraceEvent(Util::TraceLevel level, std::string text) {
+	_tracelevel = level;
 	_text = text;
     }
 
@@ -58,7 +58,7 @@ private:
 class TraceSimulationEvent : public TraceEvent {
 public:
 
-    TraceSimulationEvent(Util::TraceLevel tracelevel, double time, Entity* entity, ModelComponent* component, std::string text) : TraceEvent(tracelevel, text) {
+    TraceSimulationEvent(Util::TraceLevel level, double time, Entity* entity, ModelComponent* component, std::string text) : TraceEvent(level, text) {
 	_time = time;
 	_entity = entity;
 	_component = component;
@@ -89,7 +89,7 @@ private:
 class TraceSimulationProcess : public TraceEvent {
 public:
 
-    TraceSimulationProcess(Util::TraceLevel tracelevel, std::string text) : TraceEvent(tracelevel, text) {
+    TraceSimulationProcess(Util::TraceLevel level, std::string text) : TraceEvent(level, text) {
     }
 };
 
@@ -123,11 +123,16 @@ public: // add trace handlers
     template<typename Class> void addTraceErrorHandler(Class * object, void (Class::*function)(TraceErrorEvent));
     template<typename Class> void addTraceReportHandler(Class * object, void (Class::*function)(TraceEvent));
     template<typename Class> void addTraceSimulationHandler(Class * object, void (Class::*function)(TraceSimulationEvent));
-public: // traces (invoke trace handlers)
-    void trace(Util::TraceLevel tracelevel, std::string text);
+public: // traces (invoke trace handlers) 
+    void trace(Util::TraceLevel level, std::string text);
     void traceError(std::exception e, std::string text);
-    void traceReport(Util::TraceLevel tracelevel, std::string text);
-    void traceSimulation(Util::TraceLevel tracelevel, double time, Entity* entity, ModelComponent* component, std::string text);
+    void traceReport(Util::TraceLevel level, std::string text);
+    void traceSimulation(Util::TraceLevel level, double time, Entity* entity, ModelComponent* component, std::string text);
+public: // traces (invoke trace handlers) SINCE 20191025 NEW TRACES JUST INVERTED THE PARAMETERS, MAKING TRACELEVEL OPTIONAL
+    void trace(std::string text, Util::TraceLevel level = Util::TraceLevel::blockInternal);
+    void traceError(std::string text, std::exception e);
+    void traceReport(std::string text, Util::TraceLevel level = Util::TraceLevel::report);
+    void traceSimulation(double time, Entity* entity, ModelComponent* component, std::string text, Util::TraceLevel level = Util::TraceLevel::blockInternal);
 public:
     List<std::string>* errorMessages() const;
     void setTraceLevel(Util::TraceLevel _traceLevel);

@@ -13,13 +13,13 @@
 
 #include "Failure.h"
 
-Failure::Failure(ElementManager* elems) : ModelElement(Util::TypeOf<Failure>()) {
-    _elems = elems;
+Failure::Failure(Model* model) : ModelElement(model, Util::TypeOf<Failure>()) {
+    //_elems = elems;
 }
 
-Failure::Failure(ElementManager* elems, std::string name) : ModelElement(Util::TypeOf<Failure>()) {
+Failure::Failure(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Failure>()) {
     _name = name;
-    _elems = elems;
+    //_elems = elems;
 }
 
 
@@ -33,8 +33,8 @@ PluginInformation* Failure::GetPluginInformation() {
     return info;
 }
 
-ModelElement* Failure::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {
-    Failure* newElement = new Failure(elems);
+ModelElement* Failure::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+    Failure* newElement = new Failure(model);
     try {
 	newElement->_loadInstance(fields);
     } catch (const std::exception& e) {

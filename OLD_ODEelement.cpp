@@ -14,8 +14,8 @@
 #include "OLD_ODEelement.h"
 #include "Model.h"
 
-OLD_ODEelement::OLD_ODEelement(ElementManager* elems) : ModelElement(Util::TypeOf<OLD_ODEelement>()) {
-    _elems = elems;
+OLD_ODEelement::OLD_ODEelement(Model* model) : ModelElement(model, Util::TypeOf<OLD_ODEelement>()) {
+    //_elems = elems;
 }
 
 
@@ -59,8 +59,8 @@ PluginInformation* OLD_ODEelement::GetPluginInformation() {
     return info;
 }
 
-ModelElement* OLD_ODEelement::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {
-    OLD_ODEelement* newElement = new OLD_ODEelement(elems);
+ModelElement* OLD_ODEelement::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+    OLD_ODEelement* newElement = new OLD_ODEelement(model);
     try {
 	newElement->_loadInstance(fields);
     } catch (const std::exception& e) {
@@ -83,7 +83,7 @@ bool OLD_ODEelement::_check(std::string* errorMessage) {
     ODEfunction* func;
     for (std::list<ODEfunction*>::iterator it = _ODEfunctions->list()->begin(); it != _ODEfunctions->list()->end(); it++) {
 	func = (*it);
-	result &= _elems->parentModel()->checkExpression(func->expression, "expression["+std::to_string(i++)+"]", errorMessage);
+	result &= _parentModel->checkExpression(func->expression, "expression["+std::to_string(i++)+"]", errorMessage);
     }
     return result;
 }

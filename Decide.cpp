@@ -30,16 +30,16 @@ void Decide::_execute(Entity* entity) {
     double value;
     unsigned short i = 0;
     for (std::list<std::string>::iterator it = _conditions->list()->begin(); it != _conditions->list()->end(); it++) {
-	value = _model->parseExpression((*it));
-	_model->tracer()->traceSimulation(Util::TraceLevel::blockInternal, _model->simulation()->getSimulatedTime(), entity, this, std::to_string(i + 1) + "th condition evaluated to " + std::to_string(value) + "  // " + (*it));
+	value = _parentModel->parseExpression((*it));
+	_parentModel->tracer()->traceSimulation(_parentModel->simulation()->getSimulatedTime(), entity, this, std::to_string(i + 1) + "th condition evaluated to " + std::to_string(value) + "  // " + (*it));
 	if (value) {
-	    _model->sendEntityToComponent(entity, this->nextComponents()->getConnectionAtRank(i), 0.0);
+	    _parentModel->sendEntityToComponent(entity, this->nextComponents()->getConnectionAtRank(i), 0.0);
 	    return;
 	}
 	i++;
     }
-    _model->tracer()->traceSimulation(Util::TraceLevel::blockInternal, _model->simulation()->getSimulatedTime(), entity, this, "No condition has been evaluated true");
-    _model->sendEntityToComponent(entity, this->nextComponents()->getConnectionAtRank(i), 0.0);
+    _parentModel->tracer()->traceSimulation(_parentModel->simulation()->getSimulatedTime(), entity, this, "No condition has been evaluated true");
+    _parentModel->sendEntityToComponent(entity, this->nextComponents()->getConnectionAtRank(i), 0.0);
 }
 
 void Decide::_initBetweenReplications() {
@@ -71,7 +71,7 @@ bool Decide::_check(std::string* errorMessage) {
     std::string condition;
     for (std::list<std::string>::iterator it = _conditions->list()->begin(); it != _conditions->list()->end(); it++) {
 	condition = (*it);
-	allResult &= _model->checkExpression(condition, "condition", errorMessage);
+	allResult &= _parentModel->checkExpression(condition, "condition", errorMessage);
     }
     return allResult;
 }

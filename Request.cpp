@@ -33,8 +33,8 @@ ModelComponent* Request::LoadInstance(Model* model, std::map<std::string, std::s
 }
 
 void Request::_execute(Entity* entity) {
-    _model->tracer()->trace(Util::TraceLevel::blockInternal, "I'm just a dummy model and I'll just send the entity forward");
-    this->_model->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
+    _parentModel->tracer()->trace("I'm just a dummy model and I'll just send the entity forward");
+    this->_parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
 }
 
 bool Request::_loadInstance(std::map<std::string, std::string>* fields) {

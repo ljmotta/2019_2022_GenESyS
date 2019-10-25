@@ -16,32 +16,32 @@
 
 typedef Traits<ModelComponent>::StatisticsCollector_StatisticsImplementation StatisticsClass;
 
-StatisticsCollector::StatisticsCollector(ElementManager* elems) : ModelElement(Util::TypeOf<StatisticsCollector>()) {
+StatisticsCollector::StatisticsCollector(Model* model) : ModelElement(model, Util::TypeOf<StatisticsCollector>()) {
     _initStaticsAndCollector();
-    _addSimulationResponse(elems);
+    _addSimulationResponse();
 }
 
-StatisticsCollector::StatisticsCollector(ElementManager* elems,std::string name) : ModelElement(Util::TypeOf<StatisticsCollector>()) {
+StatisticsCollector::StatisticsCollector(Model* model,std::string name) : ModelElement(model, Util::TypeOf<StatisticsCollector>()) {
     _name = name;
     _initStaticsAndCollector();
-    _addSimulationResponse(elems);
+    _addSimulationResponse();
 }
 
-StatisticsCollector::StatisticsCollector(ElementManager* elems,std::string name, ModelElement* parent) : ModelElement(Util::TypeOf<StatisticsCollector>()) {
+StatisticsCollector::StatisticsCollector(Model* model,std::string name, ModelElement* parent) : ModelElement(model, Util::TypeOf<StatisticsCollector>()) {
     _name = name;
     _parent = parent;
     _initStaticsAndCollector();
-    _addSimulationResponse(elems);
+    _addSimulationResponse();
 }
 
-void StatisticsCollector::_addSimulationResponse(ElementManager* elems) {
+void StatisticsCollector::_addSimulationResponse() {
     
     GetterMember getterMember = DefineGetterMember<StatisticsClass>(static_cast<StatisticsClass*>(this->_statistics), &StatisticsClass::average); 
     std::string parentName = "";
     if (_parent != nullptr)
 	parentName = _parent->name();
     SimulationResponse* resp = new SimulationResponse(Util::TypeOf<StatisticsClass>(), parentName+":"+_name+".average", getterMember);
-    elems->parentModel()->responses()->insert(resp);
+    _parentModel->responses()->insert(resp);
 }
 
 void StatisticsCollector::_initStaticsAndCollector() {
@@ -78,8 +78,8 @@ PluginInformation* StatisticsCollector::GetPluginInformation() {
     return info;
 }
 
-ModelElement* StatisticsCollector::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {
-    StatisticsCollector* newElement = new StatisticsCollector(elems);
+ModelElement* StatisticsCollector::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+    StatisticsCollector* newElement = new StatisticsCollector(model);
     try {
 	newElement->_loadInstance(fields);
     } catch (const std::exception& e) {

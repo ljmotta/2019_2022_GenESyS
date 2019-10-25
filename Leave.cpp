@@ -42,14 +42,14 @@ Station* Leave::getStation() const {
 
 void Leave::_execute(Entity* entity) {
     _station->leave(entity);
-    _model->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
+    _parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
 }
 
 bool Leave::_loadInstance(std::map<std::string, std::string>* fields) {
     bool res = ModelComponent::_loadInstance(fields);
     if (res) {
 	std::string stationName = ((*(fields->find("stationName"))).second);
-	Station* station = dynamic_cast<Station*> (_model->elements()->element(Util::TypeOf<Station>(), stationName));
+	Station* station = dynamic_cast<Station*> (_parentModel->elements()->element(Util::TypeOf<Station>(), stationName));
 	this->_station = station;
     }
     return res;
@@ -66,7 +66,7 @@ std::map<std::string, std::string>* Leave::_saveInstance() {
 
 bool Leave::_check(std::string* errorMessage) {
     bool resultAll = true;
-    resultAll &= _model->elements()->check(Util::TypeOf<Station>(), _station, "Station", errorMessage);
+    resultAll &= _parentModel->elements()->check(Util::TypeOf<Station>(), _station, "Station", errorMessage);
     return resultAll;
 }
 

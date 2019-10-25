@@ -15,9 +15,9 @@
 
 
     PluginInformation::PluginInformation(std::string pluginTypename, StaticLoaderComponentInstance componentloader) {
-	this->_componentloader = componentloader;
-	this->_elementloader = nullptr;
-	this->_isComponent = true;
+	this->_componentloader = componentloader; ////TODO
+	this->_elementloader = nullptr; ///TODO
+	this->_isComponent = true;  ////TODO
 	this->_pluginTypename = pluginTypename;
     }
 
@@ -32,7 +32,7 @@
         return _elementloader;
     }
 
-    StaticLoaderComponentInstance PluginInformation::getComponentloader() const {
+    StaticLoaderComponentInstance PluginInformation::getComponentLoader() const {
         return _componentloader;
     }
 

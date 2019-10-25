@@ -20,7 +20,6 @@ TraceManager::TraceManager(Simulator* simulator) {//(Model* model) {
     _traceLevel = Traits<Model>::traceLevel;
 }
 
-
 void TraceManager::setTraceLevel(Util::TraceLevel _traceLevel) {
     this->_traceLevel = _traceLevel;
 }
@@ -34,7 +33,7 @@ Simulator* TraceManager::parentSimulator() const {
 }
 
 /*
- void TraceManager::traceSimulation(Util::TraceLevel tracelevel, std::string text) {
+ void TraceManager::traceSimulation(Util::TraceLevel level, std::string text) {
 	if (_traceConditionPassed(tracelevel)) {
 		TraceSimulationEvent e = TraceEvent(tracelevel, text);
 		for (std::list<traceSimulationListener>::iterator it = this->_traceSimulationHandlers->list()->begin(); it != _traceSimulationHandlers->list()->end(); it++) {
@@ -66,10 +65,14 @@ void TraceManager::addTraceReportHandler(traceListener traceReportListener) {
     this->_traceReportHandlers->insert(traceReportListener);
 }
 
-void TraceManager::trace(Util::TraceLevel tracelevel, std::string text) {
-    if (_traceConditionPassed(tracelevel)) {
-	text = std::to_string(static_cast<int>(tracelevel))+". "+ Util::Indent() + text;
-	TraceEvent e = TraceEvent(tracelevel, text);
+void TraceManager::trace(Util::TraceLevel level, std::string text) {
+    trace(text, level);
+}
+
+void TraceManager::trace(std::string text, Util::TraceLevel level) {
+    if (_traceConditionPassed(level)) {
+	text = std::to_string(static_cast<int> (level)) + ". " + Util::Indent() + text;
+	TraceEvent e = TraceEvent(level, text);
 	/* TODO--: somewhere in future it should be interesting to use "auto" and c++17 at least */
 	for (std::list<traceListener>::iterator it = this->_traceHandlers->list()->begin(); it != _traceHandlers->list()->end(); it++) {
 	    (*it)(e);
@@ -82,6 +85,10 @@ void TraceManager::trace(Util::TraceLevel tracelevel, std::string text) {
 }
 
 void TraceManager::traceError(std::exception e, std::string text) {
+    traceError(text, e);
+}
+
+void TraceManager::traceError(std::string text, std::exception e) {
     TraceErrorEvent exceptEvent = TraceErrorEvent(text, e);
     /* TODO--: somewhere in future it should be interesting to use "auto" and c++17 at least */
     for (std::list<traceErrorListener>::iterator it = this->_traceErrorHandlers->list()->begin(); it != _traceErrorHandlers->list()->end(); it++) {
@@ -92,10 +99,14 @@ void TraceManager::traceError(std::exception e, std::string text) {
     }
 }
 
-void TraceManager::traceSimulation(Util::TraceLevel tracelevel, double time, Entity* entity, ModelComponent* component, std::string text) {
-    if (_traceConditionPassed(tracelevel)) {
+void TraceManager::traceSimulation(Util::TraceLevel level, double time, Entity* entity, ModelComponent* component, std::string text) {
+    traceSimulation(time, entity, component, text, level);
+}
+
+void TraceManager::traceSimulation(double time, Entity* entity, ModelComponent* component, std::string text, Util::TraceLevel level) {
+    if (_traceConditionPassed(level)) {
 	text = Util::Indent() + text;
-	TraceSimulationEvent e = TraceSimulationEvent(tracelevel, time, entity, component, text);
+	TraceSimulationEvent e = TraceSimulationEvent(level, time, entity, component, text);
 	for (std::list<traceSimulationListener>::iterator it = this->_traceSimulationHandlers->list()->begin(); it != _traceSimulationHandlers->list()->end(); it++) {
 	    (*it)(e);
 	}
@@ -105,10 +116,14 @@ void TraceManager::traceSimulation(Util::TraceLevel tracelevel, double time, Ent
     }
 }
 
-void TraceManager::traceReport(Util::TraceLevel tracelevel, std::string text) {
-    if (_traceConditionPassed(tracelevel)) {
+void TraceManager::traceReport(Util::TraceLevel level, std::string text) {
+    traceReport(text, level);
+}
+
+void TraceManager::traceReport(std::string text, Util::TraceLevel level) {
+    if (_traceConditionPassed(level)) {
 	text = Util::Indent() + text;
-	TraceEvent e = TraceEvent(tracelevel, text);
+	TraceEvent e = TraceEvent(level, text);
 	for (std::list<traceListener>::iterator it = this->_traceReportHandlers->list()->begin(); it != _traceReportHandlers->list()->end(); it++) {
 	    (*it)(e);
 	}

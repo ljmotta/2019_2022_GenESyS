@@ -38,7 +38,7 @@ public:
     bool loadAndInsertNew(Model* model, std::map<std::string, std::string>* fields);
 private:
     ModelComponent* _loadNewComponent(Model* model, std::map<std::string, std::string>* fields);
-    ModelElement* _loadNewElement(ElementManager* model, std::map<std::string, std::string>* fields);
+    ModelElement* _loadNewElement(Model* model, std::map<std::string, std::string>* fields);
 private: // read only
     bool _isValidPlugin;
     PluginInformation* _pluginInfo;

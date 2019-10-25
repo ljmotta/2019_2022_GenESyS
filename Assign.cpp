@@ -53,18 +53,18 @@ void Assign::_execute(Entity* entity) {
     std::list<Assignment*>* lets = this->_assignments->list();
     for (std::list<Assignment*>::iterator it = lets->begin(); it != lets->end(); it++) {
 	let = (*it);
-	double value = _model->parseExpression(let->getExpression());
-	_model->tracer()->trace(Util::TraceLevel::blockInternal, "Let \"" + let->getDestination() + "\" = " + std::to_string(value) + "  // " + let->getExpression());
+	double value = _parentModel->parseExpression(let->getExpression());
+	_parentModel->tracer()->trace("Let \"" + let->getDestination() + "\" = " + std::to_string(value) + "  // " + let->getExpression());
 	/* TODO: this is NOT the best way to do it (enum comparision) */
 	if (let->getDestinationType() == DestinationType::Variable) {
-	    Variable* myvar = (Variable*) this->_model->elements()->element(Util::TypeOf<Variable>(), let->getDestination());
+	    Variable* myvar = (Variable*) this->_parentModel->elements()->element(Util::TypeOf<Variable>(), let->getDestination());
 	    myvar->setValue(value);
 	} else if (let->getDestinationType() == DestinationType::Attribute) {
 	    entity->setAttributeValue(let->getDestination(), value);
 	}
     }
 
-    this->_model->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
+    this->_parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
 }
 
 void Assign::_initBetweenReplications() {
@@ -105,11 +105,11 @@ bool Assign::_check(std::string* errorMessage) {
     bool resultAll = true;
     for (std::list<Assignment*>::iterator it = _assignments->list()->begin(); it != _assignments->list()->end(); it++) {
 	let = (*it);
-	resultAll &= _model->checkExpression(let->getExpression(), "assignment", errorMessage);
+	resultAll &= _parentModel->checkExpression(let->getExpression(), "assignment", errorMessage);
 	if (let->getDestinationType() == DestinationType::Attribute) { // TODO I dont like the way we check the destination
-	    resultAll &= _model->elements()->check(Util::TypeOf<Attribute>(), let->getDestination(), "destination", true, errorMessage);
+	    resultAll &= _parentModel->elements()->check(Util::TypeOf<Attribute>(), let->getDestination(), "destination", true, errorMessage);
 	} else if (let->getDestinationType() == DestinationType::Variable) {
-	    resultAll &= _model->elements()->check(Util::TypeOf<Variable>(), let->getDestination(), "destination", true, errorMessage);
+	    resultAll &= _parentModel->elements()->check(Util::TypeOf<Variable>(), let->getDestination(), "destination", true, errorMessage);
 	}
     }
     return resultAll;

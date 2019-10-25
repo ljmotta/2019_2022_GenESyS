@@ -23,14 +23,14 @@
 
 class Attribute : public ModelElement {
 public:
-    Attribute();
-    Attribute(std::string name);
+    Attribute(Model* model);
+    Attribute(Model* model, std::string name);
     virtual ~Attribute() = default;
 public:
     virtual std::string show();
 public:
     static PluginInformation* GetPluginInformation();
-    static ModelElement* LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields);
+    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 protected:
     virtual bool _loadInstance(std::map<std::string, std::string>* fields);
     virtual std::map<std::string, std::string>* _saveInstance();

@@ -13,15 +13,16 @@
 
 #include "Sequence.h"
 #include "Attribute.h"
+#include "Model.h"
 
 
-Sequence::Sequence(ElementManager* elems) : ModelElement(Util::TypeOf<Sequence>()) {
-    _elems = elems;
+Sequence::Sequence(Model* model) : ModelElement(model, Util::TypeOf<Sequence>()) {
+   // _elems = elems;
 }
 
-Sequence::Sequence(ElementManager* elems, std::string name) : ModelElement(Util::TypeOf<Sequence>()) {
+Sequence::Sequence(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Sequence>()) {
     _name = name;
-    _elems = elems;
+    //_elems = elems;
 }
 
 
@@ -36,8 +37,8 @@ PluginInformation* Sequence::GetPluginInformation() {
     return info;
 }
 
-ModelElement* Sequence::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {
-    Sequence* newElement = new Sequence(elems);
+ModelElement* Sequence::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+    Sequence* newElement = new Sequence(model);
     try {
 	newElement->_loadInstance(fields);
     } catch (const std::exception& e) {
@@ -67,9 +68,9 @@ bool Sequence::_check(std::string* errorMessage) {
     std::string neededName;
     for (unsigned int i = 0; i < neededNames.size(); i++) {
 	neededName = neededNames[i];
-	if (_elems->element(Util::TypeOf<Attribute>(), neededName) == nullptr) {
-	    Attribute* attr1 = new Attribute(neededName);
-	    _elems->insert(attr1);
+	if (_parentModel->elements()->element(Util::TypeOf<Attribute>(), neededName) == nullptr) {
+	    Attribute* attr1 = new Attribute(_parentModel, neededName);
+	    _parentModel->insert(attr1);
 	}
     }
     //

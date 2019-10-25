@@ -13,10 +13,10 @@
 
 #include "Attribute.h"
 
-Attribute::Attribute() : ModelElement(Util::TypeOf<Attribute>()) {
+Attribute::Attribute(Model* model) : ModelElement(model, Util::TypeOf<Attribute>()) {
 }
 
-Attribute::Attribute(std::string name) : ModelElement(Util::TypeOf<Attribute>()) {
+Attribute::Attribute(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Attribute>()) {
     _name = name;
 }
 
@@ -35,8 +35,8 @@ PluginInformation* Attribute::GetPluginInformation() {
 
 }
 
-ModelElement* Attribute::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {
-    Attribute* newElement = new Attribute();
+ModelElement* Attribute::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+    Attribute* newElement = new Attribute(model);
     try {
 	newElement->_loadInstance(fields);
     } catch (const std::exception& e) {

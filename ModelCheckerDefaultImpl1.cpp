@@ -250,7 +250,7 @@ bool ModelCheckerDefaultImpl1::checkSymbols() {
     Util::IncIndent();
     {
 	// check components
-	_model->tracer()->trace(Util::TraceLevel::blockInternal, "Components:");
+	_model->tracer()->trace("Components:");
 	Util::IncIndent();
 	{
 	    //List<ModelComponent*>* components = _model->getComponents();
@@ -261,7 +261,7 @@ bool ModelCheckerDefaultImpl1::checkSymbols() {
 	Util::DecIndent();
 
 	// check elements
-	_model->tracer()->trace(Util::TraceLevel::blockInternal, "Elements:");
+	_model->tracer()->trace("Elements:");
 	Util::IncIndent();
 	{
 	    std::string elementType;
@@ -330,7 +330,7 @@ bool ModelCheckerDefaultImpl1::checkLimits() {
 	value = _model->components()->numberOfComponents();
 	limit=licence->getModelComponentsLimit();
 	res &= value <= limit;
-	_model->tracer()->trace(Util::TraceLevel::blockInternal, "Model has "+std::to_string(value)+"/"+std::to_string(limit)+" components");
+	_model->tracer()->trace("Model has "+std::to_string(value)+"/"+std::to_string(limit)+" components");
 	if (!res) {
 	    text = "Model has " + std::to_string(_model->components()->numberOfComponents()) + " components, exceding the limit of " + std::to_string(licence->getModelComponentsLimit()) + " components imposed by the current activation code";
 	    //_model->getTraceManager()->trace(Util::TraceLevel::errors, text);
@@ -338,7 +338,7 @@ bool ModelCheckerDefaultImpl1::checkLimits() {
 	    value = _model->elements()->numberOfElements();
 	    limit = licence->getModelElementsLimit();
 	    res &= value <= limit;
-	    _model->tracer()->trace(Util::TraceLevel::blockInternal, "Model has "+std::to_string(value)+"/"+std::to_string(limit)+" elements");
+	    _model->tracer()->trace("Model has "+std::to_string(value)+"/"+std::to_string(limit)+" elements");
 	    if (!res) {
 		text = "Model has " + std::to_string(_model->elements()->numberOfElements()) + " elements, exceding the limit of " + std::to_string(licence->getModelElementsLimit()) + " elements imposed by the current activation code";
 		//_model->getTraceManager()->trace(Util::TraceLevel::errors, text);

@@ -47,7 +47,7 @@ ModelElement* Plugin::loadNew(Model* model, std::map<std::string, std::string>* 
     if (this->_pluginInfo->isComponent()) {
 	return _loadNewComponent(model, fields);
     } else {
-	return _loadNewElement(model->elements(), fields);
+	return _loadNewElement(model, fields);
     }
 }
 
@@ -55,13 +55,13 @@ bool Plugin::loadAndInsertNew(Model* model, std::map<std::string, std::string>* 
     if (this->_pluginInfo->isComponent()) {
 	ModelComponent* newComp = _loadNewComponent(model, fields);
 	if (newComp != nullptr) {
-	    //model->getTraceManager()->trace(Util::TraceLevel::blockInternal, newComp->show());
+	    //model->getTraceManager()->trace(newComp->show());
 	    return model->components()->insert(newComp);
 	}
     } else {
-	ModelElement* newElem = _loadNewElement(model->elements(), fields);
+	ModelElement* newElem = _loadNewElement(model, fields);
 	if (newElem != nullptr) {
-	    //model->getTraceManager()->trace(Util::TraceLevel::blockInternal, newElem->show());
+	    //model->getTraceManager()->trace(newElem->show());
 	    return model->elements()->insert(this->_pluginInfo->getPluginTypename(), newElem);
 	}
     }
@@ -70,13 +70,13 @@ bool Plugin::loadAndInsertNew(Model* model, std::map<std::string, std::string>* 
 
 ModelComponent* Plugin::_loadNewComponent(Model* model, std::map<std::string, std::string>* fields) {
     //return this->_pluginInfo->loader(model, fields);
-    StaticLoaderComponentInstance loader = this->_pluginInfo->getComponentloader();
+    StaticLoaderComponentInstance loader = this->_pluginInfo->getComponentLoader();
     ModelComponent* newElementOrComponent = loader(model, fields);
     return newElementOrComponent;
 }
 
-ModelElement* Plugin::_loadNewElement(ElementManager* elems, std::map<std::string, std::string>* fields) {
+ModelElement* Plugin::_loadNewElement(Model* model, std::map<std::string, std::string>* fields) {
     StaticLoaderElementInstance loader = this->_pluginInfo->getElementloader();
-    ModelElement* newElementOrComponent = loader(elems, fields);
+    ModelElement* newElementOrComponent = loader(model, fields);
     return newElementOrComponent;
 }

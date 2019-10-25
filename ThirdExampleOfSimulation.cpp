@@ -53,7 +53,7 @@ int ThirdExampleOfSimulation::main(int argc, char** argv) {
 	infos->setReplicationLengthTimeUnit(Util::TimeUnit::second);
 	infos->setNumberOfReplications(3);
 	//
-	EntityType* customer = new EntityType(model->elements(), "Customer");
+	EntityType* customer = new EntityType(model, "Customer");
 	model->insert(customer);
 	//
 	Create* create1 = new Create(model);
@@ -63,11 +63,11 @@ int ThirdExampleOfSimulation::main(int argc, char** argv) {
 	create1->setEntitiesPerCreation(1);
 	model->insert(create1);
 	//
-	Resource* machine1 = new Resource(model->elements(), "Machine_1");
+	Resource* machine1 = new Resource(model, "Machine_1");
 	machine1->setCapacity(1);
 	model->insert(machine1);
 	//
-	Queue* queueSeize1 = new Queue(model->elements(), "Queue_Machine_1");
+	Queue* queueSeize1 = new Queue(model, "Queue_Machine_1");
 	queueSeize1->setOrderRule(Queue::OrderRule::FIFO);
 	model->insert(queueSeize1);
 	//

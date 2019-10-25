@@ -19,7 +19,6 @@ Delay::Delay(Model* model) : ModelComponent(model, Util::TypeOf<Delay>()) {
     //_name = "Delay " + std::to_string(Util::GenerateNewIdOfType<Delay>());
 }
 
-
 std::string Delay::show() {
     return ModelComponent::show() +
 	    ",delayExpression=" + this->_delayExpression +
@@ -53,13 +52,13 @@ Util::TimeUnit Delay::getDelayTimeUnit() const {
 }
 
 void Delay::_execute(Entity* entity) {
-    double waitTime = _model->parseExpression(_delayExpression) * Util::TimeUnitConvert(_delayTimeUnit, _model->infos()->replicationLengthTimeUnit());
-    entity->getEntityType()->getStatisticsCollector(_name+"."+"Waiting_Time")->getStatistics()->getCollector()->addValue(waitTime);
+    double waitTime = _parentModel->parseExpression(_delayExpression) * Util::TimeUnitConvert(_delayTimeUnit, _parentModel->infos()->replicationLengthTimeUnit());
+    entity->getEntityType()->getStatisticsCollector(_name + "." + "Waiting_Time")->getStatistics()->getCollector()->addValue(waitTime);
     entity->setAttributeValue("Entity.WaitTime", entity->getAttributeValue("Entity.WaitTime") + waitTime);
-    double delayEndTime = _model->simulation()->getSimulatedTime() + waitTime;
+    double delayEndTime = _parentModel->simulation()->getSimulatedTime() + waitTime;
     Event* newEvent = new Event(delayEndTime, entity, this->nextComponents()->frontConnection());
-    _model->futureEvents()->insert(newEvent);
-    _model->tracer()->trace(Util::TraceLevel::blockInternal, "End of delay of entity " + std::to_string(entity->getEntityNumber()) + " scheduled to time " + std::to_string(delayEndTime));
+    _parentModel->futureEvents()->insert(newEvent);
+    _parentModel->tracer()->trace("End of delay of entity " + std::to_string(entity->getEntityNumber()) + " scheduled to time " + std::to_string(delayEndTime));
 }
 
 bool Delay::_loadInstance(std::map<std::string, std::string>* fields) {
@@ -83,28 +82,30 @@ std::map<std::string, std::string>* Delay::_saveInstance() {
 
 bool Delay::_check(std::string* errorMessage) {
     //include attributes needed
-    ElementManager* elements = _model->elements();
+    ElementManager* elements = _parentModel->elements();
     std::vector<std::string> neededNames = {"Entity.WaitTime"};
     std::string neededName;
     for (unsigned int i = 0; i < neededNames.size(); i++) {
 	neededName = neededNames[i];
 	if (elements->element(Util::TypeOf<Attribute>(), neededName) == nullptr) {
-	    Attribute* attr1 = new Attribute(neededName);
+	    Attribute* attr1 = new Attribute(_parentModel, neededName);
 	    elements->insert(attr1);
 	}
     }
-    return _model->checkExpression(_delayExpression, "Delay expression", errorMessage);
+    return _parentModel->checkExpression(_delayExpression, "Delay expression", errorMessage);
 }
 
 void Delay::_createInternalElements() {
     // include StatisticsCollector needed in EntityType
-    ElementManager* elements = _model->elements();
+    ElementManager* elements = _parentModel->elements();
     std::list<ModelElement*>* enttypes = elements->elementList(Util::TypeOf<EntityType>())->list();
-    for (std::list<ModelElement*>::iterator it= enttypes->begin(); it!= enttypes->end(); it++) {
-	static_cast<EntityType*>((*it))->getStatisticsCollector(_name+"."+"Waiting_Time"); // force create this CStat before simulation starts
-    }    
+    for (std::list<ModelElement*>::iterator it = enttypes->begin(); it != enttypes->end(); it++) {
+	EntityType* enttype = static_cast<EntityType*> ((*it));
+	enttype->getStatisticsCollector(_name + "." + "Waiting_Time"); // force create this CStat before simulation starts
+    }
 }
 
-PluginInformation* Delay::GetPluginInformation(){
-    PluginInformation* info = new PluginInformation(Util::TypeOf<Delay>(), &Delay::LoadInstance); return info;
+PluginInformation* Delay::GetPluginInformation() {
+    PluginInformation* info = new PluginInformation(Util::TypeOf<Delay>(), &Delay::LoadInstance);
+    return info;
 }

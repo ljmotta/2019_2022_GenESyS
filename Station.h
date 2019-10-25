@@ -21,14 +21,14 @@
 
 class Station: public ModelElement {
 public:
-    Station(ElementManager* elems);
-    Station(ElementManager* elems, std::string name);
+    Station(Model* model);
+    Station(Model* model, std::string name);
     virtual ~Station();
 public:
     virtual std::string show();
 public: // static 
     static PluginInformation* GetPluginInformation();
-    static ModelElement* LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields);
+    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 public:
     void initBetweenReplications();
     void enter(Entity* entity);
@@ -42,8 +42,8 @@ protected:
     virtual void _createInternalElements();
 private:
     void _initCStats();
-private:
-    ElementManager* _elems;
+//private:
+ //   ElementManager* _elems;
 private:
     StatisticsCollector* _cstatNumberInStation;
     StatisticsCollector* _cstatTimeInStation;

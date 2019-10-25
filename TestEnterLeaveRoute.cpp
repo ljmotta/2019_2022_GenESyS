@@ -57,7 +57,7 @@ int TestEnterLeaveRoute::main(int argc, char** argv) {
     infos->setReplicationLength(30);
     infos->setNumberOfReplications(3);
     // create a (Source)ModelElement of type EntityType, used by a ModelComponent that follows
-    EntityType* entityType1 = new EntityType(elements, "AnyEntityType");
+    EntityType* entityType1 = new EntityType(model, "AnyEntityType");
     elements->insert(entityType1);
     // create a ModelComponent of type Create, used to insert entities into the model
     Create* create1 = new Create(model);
@@ -66,9 +66,9 @@ int TestEnterLeaveRoute::main(int argc, char** argv) {
     create1->setEntitiesPerCreation(1);
     components->insert(create1);
     // create stations to enter and route to
-    Station* station1 = new Station(elements, "Station 1");
-    Station* station2 = new Station(elements, "Station 2");
-    Station* station3 = new Station(elements, "Station 3");
+    Station* station1 = new Station(model, "Station 1");
+    Station* station2 = new Station(model, "Station 2");
+    Station* station3 = new Station(model, "Station 3");
     elements->insert(station1);
     elements->insert(station2);
     elements->insert(station3);

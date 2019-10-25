@@ -45,14 +45,14 @@ public:
     };
 
 public:
-    Resource(ElementManager* elems);
-    Resource(ElementManager* elems, std::string name);
+    Resource(Model* model);
+    Resource(Model* model, std::string name);
     virtual ~Resource();
 public:
     virtual std::string show();
 public:
     static PluginInformation* GetPluginInformation();
-    static ModelElement* LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields);
+    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 public:
     void seize(unsigned int quantity, double tnow);
     void release(unsigned int quantity, double tnow);
@@ -82,8 +82,8 @@ protected:
 private:
     void _initCStats();
     void _notifyEventHandlers(); ///< Notify observer classes that some of the resource capacity has been released. It is useful for allocation components (such as Seize) to know when an entity waiting into a queue can try to seize the resource again
-private:
-    ElementManager* _elems;
+//private:
+//    ElementManager* _elems;
 private:
     unsigned int _capacity = 1;
     double _costBusyHour = 1.0;

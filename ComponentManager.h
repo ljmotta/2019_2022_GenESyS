@@ -38,7 +38,7 @@ public:
 public:
 private:
     List<ModelComponent*>* _components;
-    Model* _model;
+    Model* _parentModel;
 };
 
 #endif /* COMPONENTMANAGER_H */

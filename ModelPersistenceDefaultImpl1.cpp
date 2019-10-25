@@ -112,7 +112,7 @@ void ModelPersistenceDefaultImpl1::_saveContent(std::list<std::string>* content,
 
 bool ModelPersistenceDefaultImpl1::_loadFields(std::string line) {
     //std::regex regex{R"([=]+)"}; // split on space R"([\s]+)" TODO: HOW SEPARATOR WITH MORE THAN ONE CHAR
-    _model->tracer()->trace(Util::TraceLevel::blockInternal, line);
+    _model->tracer()->trace(line);
     bool res = true;
     std::regex regex{R"([;]+)"}; // split on "; ".TODO: How change it by the attribute _linefieldseparator ??
     std::sregex_token_iterator tit{line.begin(), line.end(), regex, -1};
@@ -140,7 +140,7 @@ bool ModelPersistenceDefaultImpl1::_loadFields(std::string line) {
 	Util::IncIndent();
 	{
 	    std::string thistypename = (*fields->find("typename")).second;
-	    _model->tracer()->trace(Util::TraceLevel::blockInternal, "loading " + thistypename + "");
+	    _model->tracer()->trace("loading " + thistypename + "");
 	    if (thistypename == "SimulatorInfo") {
 		this->_loadSimulatorInfoFields(fields);
 	    } else if (thistypename == "ModelInfo") {
@@ -148,7 +148,7 @@ bool ModelPersistenceDefaultImpl1::_loadFields(std::string line) {
 	    } else {
 		// this should be a ModelComponent or ModelElement. 
 		//std::string thistypename = (*fields->find("typename")).second;
-		ModelElement* newTemUselessElement = ModelElement::LoadInstance(fields);
+		ModelElement* newTemUselessElement = ModelElement::LoadInstance(_model, fields);
 		if (newTemUselessElement != nullptr) {
 		    newTemUselessElement->~ModelElement();
 		    Plugin* plugin = this->_model->parentSimulator()->plugins()->find(thistypename);
@@ -237,7 +237,7 @@ bool ModelPersistenceDefaultImpl1::load(std::string filename) {
 			if ((*itcomp)->id() == nextId) { // connect the components 
 			    nextComponent = (*itcomp);
 			    thisComponent->nextComponents()->insert(nextComponent, nextInputNumber);
-			    _model->tracer()->trace(Util::TraceLevel::blockInternal, thisComponent->name() + " -> " + nextComponent->name());
+			    _model->tracer()->trace(thisComponent->name() + " -> " + nextComponent->name());
 			    break;
 			}
 		    }

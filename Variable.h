@@ -21,14 +21,14 @@
 
 class Variable : public ModelElement {
 public:
-    Variable();
-    Variable(std::string name);
+    Variable(Model* model);
+    Variable(Model* model, std::string name);
     virtual ~Variable() = default;
 public:
     virtual std::string show();
 public:
     static PluginInformation* GetPluginInformation();
-    static ModelElement* LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields);
+    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 public:
     double getValue();
     double getValue(std::string index);

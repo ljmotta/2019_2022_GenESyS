@@ -24,7 +24,7 @@
 
 class Entity : public ModelElement {
 public:
-    Entity(ElementManager* elements);
+    Entity(Model* model);
     virtual ~Entity() = default;
 public:
     virtual std::string show();
@@ -45,8 +45,8 @@ protected:
     virtual std::map<std::string, std::string>* _saveInstance();
     virtual bool _check(std::string* errorMessage);
 
-private:
-    ElementManager* _elements;    
+//private:
+//    ElementManager* _elements;    
 private: 
     Util::identification _entityNumber;
     EntityType* _entityType = nullptr;

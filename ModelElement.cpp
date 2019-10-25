@@ -14,14 +14,21 @@
 //#include <typeinfo>
 #include <iostream>   
 #include "ModelElement.h"
+#include "Model.h"
 
-ModelElement::ModelElement(std::string thistypename) {
+ModelElement::ModelElement(Model* model, std::string thistypename, bool isModelComponent) {
     // ID is UNIQUE FOR EVERY ELEMENT AND COMPONENT in the entire simulator
     _id = Util::GenerateNewId(); //GenerateNewIdOfType(thistypename);
     _name = thistypename + "_" + std::to_string(Util::GenerateNewIdOfType(thistypename)); //std::to_string(_id);
     _typename = thistypename;
+    _parentModel = model;
+    if (!isModelComponent)
+	model->insert(this);
 }
 
+ModelElement::~ModelElement() {
+    _parentModel->remove(this);
+}
 
 bool ModelElement::_loadInstance(std::map<std::string, std::string>* fields) {
     bool res = true;
@@ -65,7 +72,6 @@ std::string ModelElement::show() {
     return "id=" + std::to_string(_id) + ",name=\"" + _name + "\"";
 }
 
-
 Util::identification ModelElement::id() const {
     return _id;
 }
@@ -87,8 +93,8 @@ std::string ModelElement::classname() const {
 //	return fields;
 //}
 
-ModelElement* ModelElement::LoadInstance(std::map<std::string, std::string>* fields) {
-    ModelElement* newElement = new ModelElement("ModelElement");
+ModelElement* ModelElement::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+    ModelElement* newElement = new ModelElement(model, "ModelElement");
     try {
 	newElement->_loadInstance(fields);
     } catch (const std::exception& e) {
@@ -130,9 +136,9 @@ void ModelElement::CreateInternalElements(ModelElement* element) {
 	element->_createInternalElements();
     } catch (const std::exception& e) {
 	//element->...->_model->getTraceManager()->traceError(e, "Error creating elements of element " + element->show());
-    };    
+    };
 }
 
 void ModelElement::_createInternalElements() {
-    
+
 }

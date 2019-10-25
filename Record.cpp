@@ -18,11 +18,11 @@
 #include <iostream>
 
 Record::Record(Model* model) : ModelComponent(model, Util::TypeOf<Record>()) {
-    _cstatExpression = new StatisticsCollector(_model->elements(), _expressionName, this);
-    _model->elements()->insert(_cstatExpression);
+    _cstatExpression = new StatisticsCollector(_parentModel, _expressionName, this);
+    _parentModel->elements()->insert(_cstatExpression);
 }
 Record::~Record() {
-    _model->elements()->remove(Util::TypeOf<StatisticsCollector>(), _cstatExpression);
+    _parentModel->elements()->remove(Util::TypeOf<StatisticsCollector>(), _cstatExpression);
 }
 
 std::string Record::show() {
@@ -62,14 +62,14 @@ std::string Record::getExpression() const {
 }
 
 void Record::_execute(Entity* entity) {
-    double value = _model->parseExpression(_expression);
+    double value = _parentModel->parseExpression(_expression);
     _cstatExpression->getStatistics()->getCollector()->addValue(value);
     std::ofstream file;
     file.open(_filename, std::ofstream::out | std::ofstream::app);
     file << value << std::endl;
     file.close(); // TODO: open and close for every data is not a good idea. Should open when replication starts and close when it finishes.    
-    _model->tracer()->traceSimulation(Util::TraceLevel::blockInternal, _model->simulation()->getSimulatedTime(), entity, this, "Recording value " + std::to_string(value));
-    _model->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
+    _parentModel->tracer()->traceSimulation(_parentModel->simulation()->getSimulatedTime(), entity, this, "Recording value " + std::to_string(value));
+    _parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
 
 }
 
@@ -97,7 +97,7 @@ void Record::_initBetweenReplications() {
 bool Record::_check(std::string* errorMessage) {
     // when cheking the model (before simulating it), remove the file if exists
     std::remove(_filename.c_str());
-    return _model->checkExpression(_expression, "expression", errorMessage);
+    return _parentModel->checkExpression(_expression, "expression", errorMessage);
 }
 
 PluginInformation* Record::GetPluginInformation(){

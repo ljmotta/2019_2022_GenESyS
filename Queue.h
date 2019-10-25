@@ -71,14 +71,14 @@ public:
     };
 
 public:
-    Queue(ElementManager* elems);
-    Queue(ElementManager* elems, std::string name);
+    Queue(Model* model);
+    Queue(Model* model, std::string name);
     virtual ~Queue();
 public:
     virtual std::string show();
 public:
     static PluginInformation* GetPluginInformation();
-    static ModelElement* LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields);
+    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 public:
     void insertElement(Waiting* element);
     void removeElement(Waiting* element);
@@ -104,8 +104,8 @@ protected:
 
 private:
     void _initCStats();
-private:
-    ElementManager* _elems;
+//private:
+//    ElementManager* _elems;
 private: //1::n
     List<Waiting*>* _list = new List<Waiting*>();
 private: //1::1

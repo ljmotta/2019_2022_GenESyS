@@ -20,15 +20,15 @@
 
 class Counter : public ModelElement {
 public:
-    Counter(ElementManager* elems);
-    Counter(ElementManager* elems, std::string name);
-    Counter(ElementManager* elems, std::string name, ModelElement* parent);
+    Counter(Model* model);
+    Counter(Model* model, std::string name);
+    Counter(Model* model, std::string name, ModelElement* parent);
     virtual ~Counter() = default;
 public:
     virtual std::string show();
 public:
     static PluginInformation* GetPluginInformation();
-    static ModelElement* LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields);
+    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 public:
     void clear();
     void incCountValue(int value = 1);
@@ -40,7 +40,7 @@ protected: // from ModelElement
     //virtual std::list<std::map<std::string,std::string>*>* _saveInstance(std::string type);
     virtual bool _check(std::string* errorMessage);
 protected:
-    void _addSimulationResponse(ElementManager* elems);
+    void _addSimulationResponse();
 private:
     ModelElement* _parent;
     unsigned long _count = 0;

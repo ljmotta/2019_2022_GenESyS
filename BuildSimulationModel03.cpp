@@ -57,7 +57,7 @@ void _buildMostCompleteModel(Model* model) {
     ComponentManager* components = model->components();
     ElementManager* elements = model->elements();
 
-    EntityType* entityType1 = new EntityType(elements, "Representative_EntityType");
+    EntityType* entityType1 = new EntityType(model, "Representative_EntityType");
     elements->insert(entityType1);
 
     Create* create1 = new Create(model);
@@ -67,9 +67,9 @@ void _buildMostCompleteModel(Model* model) {
     create1->setEntitiesPerCreation(1);
     components->insert(create1);
 
-    Attribute* attribute1 = new Attribute("Attribute_1");
+    Attribute* attribute1 = new Attribute(model, "Attribute_1");
     elements->insert(attribute1);
-    Variable* variable1 = new Variable("Variable_1");
+    Variable* variable1 = new Variable(model, "Variable_1");
     elements->insert(variable1);
 
     Assign* assign1 = new Assign(model);
@@ -83,11 +83,11 @@ void _buildMostCompleteModel(Model* model) {
     //decide1->getConditions()->insert("UNIF(0,1)>=0.5");
     decide1->getConditions()->insert("NQ(Queue_Machine_1) <= 2*NQ(Queue_Machine_2)");
 
-    Resource* machine1 = new Resource(elements, "Machine_1");
+    Resource* machine1 = new Resource(model, "Machine_1");
     machine1->setCapacity(1);
     elements->insert(machine1);
 
-    Queue* queueSeize1 = new Queue(elements, "Queue_Machine_1");
+    Queue* queueSeize1 = new Queue(model, "Queue_Machine_1");
     queueSeize1->setOrderRule(Queue::OrderRule::FIFO);
     elements->insert(queueSeize1);
 
@@ -114,11 +114,11 @@ void _buildMostCompleteModel(Model* model) {
     Dispose* dispose1 = new Dispose(model);
     components->insert(dispose1);
 
-    Resource* machine2 = new Resource(elements, "Machine_2");
+    Resource* machine2 = new Resource(model, "Machine_2");
     machine2->setCapacity(1);
     elements->insert(machine2);
 
-    Queue* queueSeize2 = new Queue(elements, "Queue_Machine_2");
+    Queue* queueSeize2 = new Queue(model, "Queue_Machine_2");
     queueSeize2->setOrderRule(Queue::OrderRule::FIFO);
     elements->insert(queueSeize2);
 

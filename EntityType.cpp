@@ -15,13 +15,13 @@
 #include "Model.h"
 #include "SimulationResponse.h"
 
-EntityType::EntityType(ElementManager* elemManager) : ModelElement(Util::TypeOf<EntityType>()) {
-    _elemManager = elemManager;
+EntityType::EntityType(Model* model) : ModelElement(model, Util::TypeOf<EntityType>()) {
+    //_elemManager = elemManager;
     _initCostsAndStatistics();
 }
 
-EntityType::EntityType(ElementManager* elemManager, std::string name) : ModelElement(Util::TypeOf<EntityType>()) {
-    _elemManager = elemManager;
+EntityType::EntityType(Model* model, std::string name) : ModelElement(model, Util::TypeOf<EntityType>()) {
+    //_elemManager = elemManager;
     _name = name;
     _initCostsAndStatistics();
 }
@@ -59,7 +59,7 @@ EntityType::~EntityType() {
     //_elemManager->remove(Util::TypeOf<StatisticsCollector>(), _cstatWaitingTime);
     // remove all CStats
     for (std::list<StatisticsCollector*>::iterator it = this->_statisticsCollectors->list()->begin(); it != this->_statisticsCollectors->list()->end(); it++) {
-	 _elemManager->remove(Util::TypeOf<StatisticsCollector>(), (*it));
+	 _parentModel->elements()->remove(Util::TypeOf<StatisticsCollector>(), (*it));
     }
 }
 
@@ -141,9 +141,9 @@ StatisticsCollector* EntityType::getStatisticsCollector(std::string name) {
 	}
     }
     // not found. Create it, insert it into the list of cstats, into the model element manager, and then return it
-    cstat = new StatisticsCollector(_elemManager, name, this);
+    cstat = new StatisticsCollector(_parentModel, name, this);
     _statisticsCollectors->insert(cstat);
-    this->_elemManager->insert(cstat);
+    _parentModel->insert(cstat); // unnecessary
     return cstat;
 }
 
@@ -151,8 +151,8 @@ PluginInformation* EntityType::GetPluginInformation() {
     PluginInformation* info = new PluginInformation(Util::TypeOf<EntityType>(), &EntityType::LoadInstance); return info;
 }
 
-ModelElement* EntityType::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {
-    EntityType* newElement = new EntityType(elems);
+ModelElement* EntityType::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+    EntityType* newElement = new EntityType(model);
     try {
 	newElement->_loadInstance(fields);
     } catch (const std::exception& e) {

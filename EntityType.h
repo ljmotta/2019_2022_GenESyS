@@ -24,14 +24,14 @@
 
 class EntityType : public ModelElement {
 public:
-    EntityType(ElementManager* elemManager);
-    EntityType(ElementManager* elemManager, std::string name);
+    EntityType(Model* model);
+    EntityType(Model* model, std::string name);
     virtual ~EntityType();
 public:
     virtual std::string show();
 public:
     static PluginInformation* GetPluginInformation();
-    static ModelElement* LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields);
+    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 public: //get & set
     void setInitialWaitingCost(double _initialWaitingCost);
     double getInitialWaitingCost() const;
@@ -65,10 +65,10 @@ private:
     double _initialNVACost = 0.0;
     double _initialOtherCost = 0.0;
     double _initialWaitingCost = 0.0;
-private:
-    ElementManager* _elemManager;
-    private: //1:n
-    List<StatisticsCollector*>* _statisticsCollectors = new List<StatisticsCollector*>(); 
+    //private:
+    //ElementManager* _elemManager;
+private: //1:n
+    List<StatisticsCollector*>* _statisticsCollectors = new List<StatisticsCollector*>();
     //StatisticsCollector* _cstatWaitingTime; //  = new StatisticsCollector("Waiting Time");
     //StatisticsCollector* _cstatTransferTime; //  = new StatisticsCollector("Transfer Time");
     //StatisticsCollector* _cstatOtherTime; //  = new StatisticsCollector("Other Time");

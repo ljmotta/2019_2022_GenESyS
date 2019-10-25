@@ -21,14 +21,16 @@
 
 #include "ParserChangesInformation.h"
 
+class Model;
+
 /*!
  * This class is the basis for any element of the model (such as Queue, Resource, Variable, etc.) and also for any component of the model. 
  * It has the infrastructure to read and write on file and to verify symbols.
  */
 class ModelElement {
 public:
-    ModelElement(std::string elementTypename);
-    virtual ~ModelElement() = default;
+    ModelElement(Model* model, std::string elementTypename, bool isModelComponent = false);
+    virtual ~ModelElement();
 
 public: // get & set
     Util::identification id() const;
@@ -36,14 +38,14 @@ public: // get & set
     std::string name() const;
     std::string classname() const;
 public: // static
-    static ModelElement* LoadInstance(std::map<std::string, std::string>* fields); // TODO: return ModelComponent* ?
+    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields); // TODO: return ModelComponent* ?
     static std::map<std::string, std::string>* SaveInstance(ModelElement* element);
     static bool Check(ModelElement* element, std::string* errorMessage);
     static void CreateInternalElements(ModelElement* element);
 
 public:
     virtual std::string show();
-    
+
 protected: // must be overriden by derived classes
     virtual bool _loadInstance(std::map<std::string, std::string>* fields);
     virtual std::map<std::string, std::string>* _saveInstance();
@@ -55,6 +57,7 @@ protected:
     Util::identification _id;
     std::string _name;
     std::string _typename;
+    Model* _parentModel;
 };
 
 #endif /* MODELELEMENT_H */

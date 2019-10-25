@@ -57,7 +57,7 @@ int SecondExampleOfSimulation::main(int argc, char** argv) {
 	infos->setReplicationLengthTimeUnit(Util::TimeUnit::minute); // each replication will last 30 minutes (simulated time)
 	infos->setNumberOfReplications(3); // replicates the simulation 3 times
 	// create a (Source)ModelElement of type EntityType, used by a ModelComponent that follows
-	EntityType* entityType1 = new EntityType(model->elements(), "Type_of_Representative_Entity");
+	EntityType* entityType1 = new EntityType(model, "Type_of_Representative_Entity");
 	model->insert(entityType1);
 	// create a ModelComponent of type Create, used to insert entities into the model
 	Create* create1 = new Create(model);

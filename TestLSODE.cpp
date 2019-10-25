@@ -33,7 +33,7 @@ int TestLSODE::main(int argc, char** argv) {
     ComponentManager* components = model->components();
     ElementManager* elements = model->elements();
     //
-    EntityType* entityType1 = new EntityType(elements, "EntType_1");
+    EntityType* entityType1 = new EntityType(model, "EntType_1");
     elements->insert(entityType1); 
     Create* create1 = new Create(model);
     create1->setEntityType(entityType1);

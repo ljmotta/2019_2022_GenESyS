@@ -54,7 +54,7 @@ Write::WriteToType Write::getWriteToType() const {
 }
 
 void Write::_execute(Entity* entity) {
-    //_model->getTraceManager()->trace(Util::TraceLevel::blockInternal, "I'm just a dummy model and I'll just send the entity forward");
+    //_model->getTraceManager()->trace("I'm just a dummy model and I'll just send the entity forward");
     WriteElement* msgElem;
     if (this->_writeToType == Write::WriteToType::SCREEN) { //@TODO: Write To FILE not implemented
 	std::list<WriteElement*>* msgs = this->_writeElements->list();
@@ -62,20 +62,20 @@ void Write::_execute(Entity* entity) {
 	for (std::list<WriteElement*>::iterator it = msgs->begin(); it != msgs->end(); it++) {
 	    msgElem = (*it);
 	    if (msgElem->isExpression) {
-		message += std::to_string(_model->parseExpression(msgElem->text));
+		message += std::to_string(_parentModel->parseExpression(msgElem->text));
 	    } else {
 		message += msgElem->text;
 	    }
 	    if (msgElem->newline) {
-		_model->tracer()->trace(Util::TraceLevel::report, message);
+		_parentModel->tracer()->trace(Util::TraceLevel::report, message);
 		message = "";
 	    }
 	}
 	if (message != "") {
-	    _model->tracer()->trace(Util::TraceLevel::report, message);
+	    _parentModel->tracer()->trace(Util::TraceLevel::report, message);
 	}
     }
-    this->_model->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
+    this->_parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
 }
 
 bool Write::_loadInstance(std::map<std::string, std::string>* fields) {

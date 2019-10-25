@@ -33,13 +33,13 @@ public:
 
 class OLD_ODEelement : public ModelElement {
 public:
-    OLD_ODEelement(ElementManager* elems);
+    OLD_ODEelement(Model* model);
     virtual ~OLD_ODEelement() = default;
 public:
     virtual std::string show();
 public:
     static PluginInformation* GetPluginInformation();
-    static ModelElement* LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields);
+    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 public:
     double solve();
     void setStepH(double _h);
@@ -57,7 +57,7 @@ private:
     List<ODEfunction*>* _ODEfunctions = new List<ODEfunction*>();
     double _stepH = 0.1;
     double _endTime;
-    ElementManager* _elems;
+    //ElementManager* _elems;
 };
 
 #endif /* OLD_ODEELEMENT_H */

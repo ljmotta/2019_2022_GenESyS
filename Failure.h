@@ -22,11 +22,11 @@
 
 class Failure: public ModelElement {
 public:
-    Failure(ElementManager* elems);
-    Failure(ElementManager* elems, std::string name);
+    Failure(Model* model);
+    Failure(Model* model, std::string name);
     virtual ~Failure() = default;
 public: // static
-    static ModelElement* LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields); 
+    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields); 
     static PluginInformation* GetPluginInformation();
 public:
     virtual std::string show();
@@ -37,8 +37,8 @@ protected: // must be overriden by derived classes
 protected: // could be overriden by derived classes
     virtual bool _check(std::string* errorMessage);
     virtual ParserChangesInformation* _getParserChangesInformation();
-private:
-    ElementManager* _elems;
+//private:
+//    ElementManager* _elems;
 };
 
 #endif /* FAILURE_H */

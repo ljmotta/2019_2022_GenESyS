@@ -37,6 +37,7 @@ int FirstExampleOfSimulation::main(int argc, char** argv) {
     Simulator* simulator = new Simulator();
     // Handle traces and simulation events to output them
     this->setDefaultTraceHandlers(simulator->tracer());
+    simulator->tracer()->setTraceLevel(Util::TraceLevel::mostDetailed);
     // insert "fake plugins" since plugins based on dynamic loaded library are not implemented yet
     this->insertFakePluginsByHand(simulator);
     bool wantToCreateNewModelAndSaveInsteadOfJustLoad = true;
@@ -46,27 +47,18 @@ int FirstExampleOfSimulation::main(int argc, char** argv) {
 	model = new Model(simulator);
 	//
 	// build the simulation model
-	//
 	// if no ModelInfo is provided, then the model will be simulated once (one replication) and the replication length will be 60 seconds (simulated time)
 	// create a (Source)ModelElement of type EntityType, used by a ModelComponent that follows
-	EntityType* entityType1 = new EntityType(model->elements(), "Type_of_Representative_Entity");
-	model->insert(entityType1); // insert the element into the model
-
+	EntityType* entityType1 = new EntityType(model, "Type_of_Representative_Entity");
 	// create a ModelComponent of type Create, used to insert entities into the model
 	Create* create1 = new Create(model);
 	create1->setEntityType(entityType1);
 	create1->setTimeBetweenCreationsExpression("1.5"); // create one new entity every 1.5 seconds
-	model->insert(create1); // insert the component into the model
-
 	// create a ModelComponent of type Delay, used to represent a time delay 
 	Delay* delay1 = new Delay(model);
 	// if nothing else is set, the delay will take 1 second
-	model->insert(delay1); // insert the component into the model
-
 	// create a (Sink)ModelComponent of type Dispose, used to remove entities from the model
 	Dispose* dispose1 = new Dispose(model); // insert the component into the model
-	model->insert(dispose1);
-
 	// connect model components to create a "workflow" -- should always start from a SourceModelComponent and end at a SinkModelComponent (it will be checked)
 	create1->nextComponents()->insert(delay1);
 	delay1->nextComponents()->insert(dispose1);

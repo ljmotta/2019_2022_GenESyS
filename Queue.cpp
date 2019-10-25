@@ -15,27 +15,27 @@
 #include "Model.h"
 #include "Attribute.h"
 
-Queue::Queue(ElementManager* elems) : ModelElement(Util::TypeOf<Queue>()) {
-    _elems = elems;
+Queue::Queue(Model* model) : ModelElement(model, Util::TypeOf<Queue>()) {
+   // _elems = elems;
     _initCStats();
 }
 
-Queue::Queue(ElementManager* elems, std::string name) : ModelElement(Util::TypeOf<Queue>()) {
+Queue::Queue(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Queue>()) {
     _name = name;
-    _elems = elems;
+    //_elems = elems;
     _initCStats();
 }
 
 void Queue::_initCStats() {
-    _cstatNumberInQueue = new StatisticsCollector(_elems, _name+"."+"Number_In_Queue", this); /* TODO: ++ WHY THIS INSERT "DISPOSE" AND "10ENTITYTYPE" STATCOLL ?? */
-    _cstatTimeInQueue = new StatisticsCollector(_elems, _name+"."+"Time_In_Queue", this);
-    _elems->insert(_cstatNumberInQueue);
-    _elems->insert(_cstatTimeInQueue);
+    _cstatNumberInQueue = new StatisticsCollector(_parentModel, _name+"."+"Number_In_Queue", this); /* TODO: ++ WHY THIS INSERT "DISPOSE" AND "10ENTITYTYPE" STATCOLL ?? */
+    _cstatTimeInQueue = new StatisticsCollector(_parentModel, _name+"."+"Time_In_Queue", this);
+    _parentModel->insert(_cstatNumberInQueue);
+    _parentModel->insert(_cstatTimeInQueue);
 
 }
 Queue::~Queue() {
-    _elems->remove(Util::TypeOf<StatisticsCollector>(), _cstatNumberInQueue);
-    _elems->remove(Util::TypeOf<StatisticsCollector>(), _cstatTimeInQueue);
+    _parentModel->elements()->remove(Util::TypeOf<StatisticsCollector>(), _cstatNumberInQueue);
+    _parentModel->elements()->remove(Util::TypeOf<StatisticsCollector>(), _cstatTimeInQueue);
 }
 
 std::string Queue::show() {
@@ -49,7 +49,7 @@ void Queue::insertElement(Waiting* element) {
 }
 
 void Queue::removeElement(Waiting* element) {
-    double tnow = this->_elems->parentModel()->simulation()->getSimulatedTime();
+    double tnow = _parentModel->simulation()->getSimulatedTime();
     _list->remove(element);
     this->_cstatNumberInQueue->getStatistics()->getCollector()->addValue(_list->size());
     double timeInQueue = tnow - element->getTimeStartedWaiting();
@@ -113,8 +113,8 @@ PluginInformation* Queue::GetPluginInformation() {
     return info;
 }
 
-ModelElement* Queue::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {
-    Queue* newElement = new Queue(elems);
+ModelElement* Queue::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+    Queue* newElement = new Queue(model);
     try {
 	newElement->_loadInstance(fields);
     } catch (const std::exception& e) {
@@ -143,7 +143,7 @@ std::map<std::string, std::string>* Queue::_saveInstance() {
 }
 
 bool Queue::_check(std::string* errorMessage) {
-    return _elems->check(Util::TypeOf<Attribute>(), _attributeName, "AttributeName", false, errorMessage);
+    return _parentModel->elements()->check(Util::TypeOf<Attribute>(), _attributeName, "AttributeName", false, errorMessage);
 }
 
 void Queue::_createInternalElements(){

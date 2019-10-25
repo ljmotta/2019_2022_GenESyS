@@ -14,13 +14,13 @@
 #include "Storage.h"
 
 
-Storage::Storage(ElementManager* elems) : ModelElement(Util::TypeOf<Storage>()) {
-    _elems = elems;
+Storage::Storage(Model* model) : ModelElement(model, Util::TypeOf<Storage>()) {
+    //_elems = elems;
 }
 
-Storage::Storage(ElementManager* elems, std::string name) : ModelElement(Util::TypeOf<Storage>()) {
+Storage::Storage(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Storage>()) {
     _name = name;
-    _elems = elems;
+    //_elems = elems;
 }
 
 
@@ -34,8 +34,8 @@ PluginInformation* Storage::GetPluginInformation() {
     return info;
 }
 
-ModelElement* Storage::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {
-    Storage* newElement = new Storage(elems);
+ModelElement* Storage::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+    Storage* newElement = new Storage(model);
     try {
 	newElement->_loadInstance(fields);
     } catch (const std::exception& e) {

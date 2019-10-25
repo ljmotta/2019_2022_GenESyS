@@ -16,27 +16,27 @@
 #include "Model.h"
 #include "Attribute.h"
 
-Station::Station(ElementManager* elems) : ModelElement(Util::TypeOf<Station>()) {
-    _elems = elems;
+Station::Station(Model* model) : ModelElement(model, Util::TypeOf<Station>()) {
+   // _elems = elems;
     _initCStats();
 }
 
-Station::Station(ElementManager* elems, std::string name) : ModelElement(Util::TypeOf<Station>()) {
+Station::Station(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Station>()) {
     _name = name;
-    _elems = elems;
+    //_elems = elems;
     _initCStats();
 }
 
 void Station::_initCStats() {
-    _cstatNumberInStation = new StatisticsCollector(_elems, _name+"."+"Number_In_Station", this);
-    _cstatTimeInStation = new StatisticsCollector(_elems, _name+"."+"Time_In_Station", this);
-    _elems->insert(_cstatNumberInStation);
-    _elems->insert(_cstatTimeInStation);
+    _cstatNumberInStation = new StatisticsCollector(_parentModel, _name+"."+"Number_In_Station", this);
+    _cstatTimeInStation = new StatisticsCollector(_parentModel, _name+"."+"Time_In_Station", this);
+    _parentModel->insert(_cstatNumberInStation);
+    _parentModel->insert(_cstatTimeInStation);
 
 }
 Station::~Station() {
-    _elems->remove(Util::TypeOf<StatisticsCollector>(), _cstatNumberInStation);
-    _elems->remove(Util::TypeOf<StatisticsCollector>(), _cstatTimeInStation);
+    _parentModel->elements()->remove(Util::TypeOf<StatisticsCollector>(), _cstatNumberInStation);
+    _parentModel->elements()->remove(Util::TypeOf<StatisticsCollector>(), _cstatTimeInStation);
 }
 
 std::string Station::show() {
@@ -55,7 +55,7 @@ void Station::initBetweenReplications() {
 void Station::enter(Entity* entity) {
     std::string attributeName = "Entity.ArrivalAt" + this->name();
     trimwithin(attributeName);
-    entity->setAttributeValue(attributeName, _elems->parentModel()->simulation()->getSimulatedTime());
+    entity->setAttributeValue(attributeName, _parentModel->simulation()->getSimulatedTime());
     entity->setAttributeValue("Entity.Station", _id);
     _numberInStation++;
     this->_cstatNumberInStation->getStatistics()->getCollector()->addValue(_numberInStation);
@@ -65,7 +65,7 @@ void Station::leave(Entity* entity) {
     std::string attributeName = "Entity.ArrivalAt" + this->name();
     trimwithin(attributeName);
     double arrivalTime = entity->getAttributeValue(attributeName);
-    double timeInStation = _elems->parentModel()->simulation()->getSimulatedTime() - arrivalTime;
+    double timeInStation = _parentModel->simulation()->getSimulatedTime() - arrivalTime;
     _cstatTimeInStation->getStatistics()->getCollector()->addValue(timeInStation);
     entity->getEntityType()->getStatisticsCollector("Time in Stations")->getStatistics()->getCollector()->addValue(timeInStation);
     entity->setAttributeValue("Entity.Station", 0.0);
@@ -86,8 +86,8 @@ PluginInformation* Station::GetPluginInformation() {
     return info;
 }
 
-ModelElement* Station::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {
-    Station* newElement = new Station(elems);
+ModelElement* Station::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+    Station* newElement = new Station(model);
     try {
 	newElement->_loadInstance(fields);
     } catch (const std::exception& e) {
@@ -118,13 +118,13 @@ bool Station::_check(std::string* errorMessage) {
     std::string neededName;
     for (unsigned int i = 0; i < neededNames.size(); i++) {
 	neededName = neededNames[i];
-	if (_elems->element(Util::TypeOf<Attribute>(), neededName) == nullptr) {
-	    Attribute* attr1 = new Attribute(neededName);
-	    _elems->insert(attr1);
+	if (_parentModel->elements()->element(Util::TypeOf<Attribute>(), neededName) == nullptr) {
+	    Attribute* attr1 = new Attribute(_parentModel, neededName);
+	    _parentModel->insert(attr1);
 	}
     }
     // include StatisticsCollector needed in EntityType
-    std::list<ModelElement*>* enttypes = _elems->elementList(Util::TypeOf<EntityType>())->list();
+    std::list<ModelElement*>* enttypes = _parentModel->elements()->elementList(Util::TypeOf<EntityType>())->list();
     for (std::list<ModelElement*>::iterator it = enttypes->begin(); it != enttypes->end(); it++) {
 	static_cast<EntityType*> ((*it))->getStatisticsCollector("Time in Stations"); // force create this CStat before simulation starts
     }

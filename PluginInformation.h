@@ -22,8 +22,9 @@ class ModelComponent;
 class Model;
 class ElementManager;
 
+// TODO: the following 2 types were diffferent but now on they are the same and should be merged
 typedef ModelComponent* (*StaticLoaderComponentInstance)(Model*, std::map<std::string, std::string>*);
-typedef ModelElement* (*StaticLoaderElementInstance)(ElementManager*, std::map<std::string, std::string>*);
+typedef ModelElement* (*StaticLoaderElementInstance)(Model*, std::map<std::string, std::string>*);
 class PluginInformation;
 typedef PluginInformation* (*StaticGetPluginInformation)();
 
@@ -35,7 +36,7 @@ public:
 public:
     // gets
     StaticLoaderElementInstance getElementloader() const;
-    StaticLoaderComponentInstance getComponentloader() const;
+    StaticLoaderComponentInstance getComponentLoader() const;
     bool isGenerateReport() const;
     bool isComponent() const;
     bool isSendTransfer() const;

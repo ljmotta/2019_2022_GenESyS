@@ -14,13 +14,13 @@
 #include "File.h"
 
 
-File::File(ElementManager* elems) : ModelElement(Util::TypeOf<File>()) {
-    _elems = elems;
+File::File(Model* model) : ModelElement(model, Util::TypeOf<File>()) {
+    //_elems = elems;
 }
 
-File::File(ElementManager* elems, std::string name) : ModelElement(Util::TypeOf<File>()) {
+File::File(Model* model, std::string name) : ModelElement(model, Util::TypeOf<File>()) {
     _name = name;
-    _elems = elems;
+    //_elems = elems;
 }
 
 
@@ -34,8 +34,8 @@ PluginInformation* File::GetPluginInformation() {
     return info;
 }
 
-ModelElement* File::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {
-    File* newElement = new File(elems);
+ModelElement* File::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+    File* newElement = new File(model);
     try {
 	newElement->_loadInstance(fields);
     } catch (const std::exception& e) {

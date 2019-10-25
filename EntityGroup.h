@@ -21,14 +21,14 @@
 
 class EntityGroup : public ModelElement {
 public:
-    EntityGroup(ElementManager* elems);
-    EntityGroup(ElementManager* elems, std::string name);
+    EntityGroup(Model* model);
+    EntityGroup(Model* model, std::string name);
     virtual ~EntityGroup();
 public:
     virtual std::string show();
 public:
     static PluginInformation* GetPluginInformation();
-    static ModelElement* LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields);
+    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 public:
     void insertElement(Entity* element);
     void removeElement(Entity* element);
@@ -43,8 +43,8 @@ protected:
     virtual bool _check(std::string* errorMessage);
 private:
     void _initCStats();
-private:
-    ElementManager* _elements;
+//private:
+ //   ElementManager* _elements;
 private: //1::n
     List<Entity*>* _list = new List<Entity*>();
 private: //1::1

@@ -14,10 +14,10 @@
 #include "Variable.h"
 #include "Plugin.h"
 
-Variable::Variable() : ModelElement(Util::TypeOf<Variable>()) {
+Variable::Variable(Model* model) : ModelElement(model, Util::TypeOf<Variable>()) {
 }
 
-Variable::Variable(std::string name) : ModelElement(Util::TypeOf<Variable>()) {
+Variable::Variable(Model* model,std::string name) : ModelElement(model, Util::TypeOf<Variable>()) {
     _name = name;
 }
 
@@ -57,8 +57,8 @@ void Variable::setValue(std::string index, double value) {
     }
 }
 
-ModelElement* Variable::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {
-    Variable* newElement = new Variable();
+ModelElement* Variable::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+    Variable* newElement = new Variable(model);
     try {
 	newElement->_loadInstance(fields);
     } catch (const std::exception& e) {

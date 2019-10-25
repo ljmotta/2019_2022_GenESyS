@@ -118,7 +118,7 @@ void ModelSimulation::_actualizeSimulationStatistics() {
 	//scSim = dynamic_cast<StatisticsCollector*> (*(this->_statsCountersSimulation->find((*it))));
 	if (scSim == nullptr) {
 	    // this is a cstat created during the last replication
-	    scSim = new StatisticsCollector(_model->elements(), sc->name(), sc->getParent());
+//	    scSim = new StatisticsCollector(_model->elements(), sc->name(), sc->getParent());
 	    _statsCountersSimulation->insert(scSim);
 	}
 	assert(scSim != nullptr);
@@ -197,7 +197,7 @@ void ModelSimulation::_initSimulation() {
     List<ModelElement*>* cstats = _model->elements()->elementList(Util::TypeOf<StatisticsCollector>());
     for (std::list<ModelElement*>::iterator it = cstats->list()->begin(); it != cstats->list()->end(); it++) {
 	cstat = dynamic_cast<StatisticsCollector*> ((*it));
-	StatisticsCollector* newCStatSimul = new StatisticsCollector(_model->elements(), _cte_stCountSimulNamePrefix + cstat->name(), cstat->getParent());
+	StatisticsCollector* newCStatSimul = new StatisticsCollector(_model, _cte_stCountSimulNamePrefix + cstat->name(), cstat->getParent());
 	this->_statsCountersSimulation->insert(newCStatSimul);
     }
     // copy all Counters (used in a replication) to Counters for the whole simulation
@@ -212,7 +212,7 @@ void ModelSimulation::_initSimulation() {
 	this->_statsCountersSimulation->insert(newCountSimul);
 	 */
 	// addin a cstat (to stat the counts)
-	StatisticsCollector* newCStatSimul = new StatisticsCollector(_model->elements(), _cte_stCountSimulNamePrefix + counter->name(), counter->getParent());
+	StatisticsCollector* newCStatSimul = new StatisticsCollector(_model, _cte_stCountSimulNamePrefix + counter->name(), counter->getParent());
 	this->_statsCountersSimulation->insert(newCStatSimul);
     }
 }
@@ -247,7 +247,7 @@ void ModelSimulation::_initReplication() {
 	    creationTime = source->getFirstCreation();
 	    numToCreate = source->getEntitiesPerCreation();
 	    for (unsigned int i = 1; i <= numToCreate; i++) {
-		newEntity = new Entity(_model->elements());
+		newEntity = new Entity(_model);
 		newEntity->setEntityType(source->getEntityType());
 		newEvent = new Event(creationTime, newEntity, (*it));
 		_model->futureEvents()->insert(newEvent);
@@ -302,7 +302,7 @@ void ModelSimulation::_stepSimulation() {
 
 void ModelSimulation::_processEvent(Event* event) {
     _model->tracer()->trace(Util::TraceLevel::simulation, "Processing event=(" + event->show() + ")");
-    _model->tracer()->trace(Util::TraceLevel::blockInternal, "Current Entity: " + event->getEntity()->show());
+    _model->tracer()->trace("Current Entity: " + event->getEntity()->show());
     this->_currentEntity = event->getEntity();
     this->_currentComponent = event->getComponent();
     this->_currentInputNumber = event->getComponentInputNumber();

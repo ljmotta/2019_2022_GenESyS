@@ -48,11 +48,10 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
     Model* model;
     if (wantToCreateNewModelAndSaveInsteadOfJustLoad) {
 	model = new Model(simulator);
-	ElementManager* em = model->elements();
 	// build the simulation model
 	ModelInfo* infos = model->infos();
 	infos->setNumberOfReplications(1);
-	EntityType* part = new EntityType(em, "Part");
+	EntityType* part = new EntityType(model, "Part");
 	model->insert(part);
 	Create* create1 = new Create(model);
 	create1->setEntityType(part);
@@ -64,9 +63,9 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	assign1->getAssignments()->insert(new Assign::Assignment(Assign::DestinationType::Variable, "varNextIndex", "varNextIndex+1"));
 	assign1->getAssignments()->insert(new Assign::Assignment(Assign::DestinationType::Attribute, "index", "varNextIndex"));
 	model->insert(assign1);
-	Attribute* attr1 = new Attribute("index");
+	Attribute* attr1 = new Attribute(model, "index");
 	model->insert(attr1);
-	Variable* var1 = new Variable("varNextIndex");
+	Variable* var1 = new Variable(model, "varNextIndex");
 	model->insert(var1);
 	Write* write1 = new Write(model);
 	write1->setWriteToType(Write::WriteToType::SCREEN);
@@ -98,16 +97,16 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	write1->getWriteElements()->insert(new WriteElement("TAVG(Queue_Seize_3.Time_In_Queue)", true, true));
 	model->insert(write1);
 	//
-	Resource* machine1 = new Resource(em, "Machine_1");
+	Resource* machine1 = new Resource(model, "Machine_1");
 	machine1->setCapacity(1);
 	model->insert(machine1);
-	Resource* machine2 = new Resource(em, "Machine_2");
+	Resource* machine2 = new Resource(model, "Machine_2");
 	machine2->setCapacity(2);
 	model->insert(machine2);
-	Resource* machine3 = new Resource(em, "Machine_3");
+	Resource* machine3 = new Resource(model, "Machine_3");
 	machine3->setCapacity(3);
 	model->insert(machine3);
-	Set* machSet = new Set(em, "Machine_Set");
+	Set* machSet = new Set(model, "Machine_Set");
 	machSet->setSetOfType(Util::TypeOf<Resource>());
 	machSet->getElementSet()->insert(machine1);
 	machSet->getElementSet()->insert(machine2);
@@ -117,7 +116,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	decide1->getConditions()->insert("NR(Machine_1)<MR(Machine_1)");
 	decide1->getConditions()->insert("NR(Machine_2)<MR(Machine_2)");
 	model->insert(decide1);
-	Queue* queueSeize1 = new Queue(em, "Queue_Seize_1");
+	Queue* queueSeize1 = new Queue(model, "Queue_Seize_1");
 	queueSeize1->setOrderRule(Queue::OrderRule::FIFO);
 	model->insert(queueSeize1);
 	Seize* seize1 = new Seize(model);
@@ -131,7 +130,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	Release* release1 = new Release(model);
 	release1->setResource(machine1);
 	model->insert(release1);
-	Queue* queueSeize2 = new Queue(em, "Queue_Seize_2");
+	Queue* queueSeize2 = new Queue(model, "Queue_Seize_2");
 	queueSeize2->setOrderRule(Queue::OrderRule::FIFO);
 	model->insert(queueSeize2);
 	Seize* seize2 = new Seize(model);
@@ -145,7 +144,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	Release* release2 = new Release(model);
 	release2->setResource(machine2);
 	model->insert(release2);
-	Queue* queueSeize3 = new Queue(em, "Queue_Seize_3");
+	Queue* queueSeize3 = new Queue(model, "Queue_Seize_3");
 	queueSeize3->setOrderRule(Queue::OrderRule::FIFO);
 	model->insert(queueSeize3);
 	Seize* seize3 = new Seize(model);

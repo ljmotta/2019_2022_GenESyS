@@ -65,7 +65,7 @@ int FullSimulationOfComplexModel::main(int argc, char** argv) {
     infos->setReplicationLengthTimeUnit(Util::TimeUnit::minute);
     infos->setNumberOfReplications(30);
 
-    EntityType* entityType1 = new EntityType(elements, "Representative_EntityType");
+    EntityType* entityType1 = new EntityType(model, "Representative_EntityType");
     elements->insert(entityType1);
 
     Create* create1 = new Create(model);
@@ -75,9 +75,9 @@ int FullSimulationOfComplexModel::main(int argc, char** argv) {
     create1->setEntitiesPerCreation(1);
     components->insert(create1);
 
-    Attribute* attribute1 = new Attribute("Attribute_1");
+    Attribute* attribute1 = new Attribute(model, "Attribute_1");
     elements->insert(attribute1);
-    Variable* variable1 = new Variable("Variable_1");
+    Variable* variable1 = new Variable(model, "Variable_1");
     elements->insert(variable1);
 
     Assign* assign1 = new Assign(model);
@@ -90,11 +90,11 @@ int FullSimulationOfComplexModel::main(int argc, char** argv) {
     Decide* decide1 = new Decide(model);
     decide1->getConditions()->insert("UNIF(0,1)>0.5");
 
-    Resource* maquina1 = new Resource(elements, "Máquina 1");
+    Resource* maquina1 = new Resource(model, "Máquina 1");
     maquina1->setCapacity(1);
     elements->insert(maquina1);
 
-    Queue* filaSeize1 = new Queue(elements);
+    Queue* filaSeize1 = new Queue(model);
     filaSeize1->setOrderRule(Queue::OrderRule::FIFO);
     elements->insert(filaSeize1);
 

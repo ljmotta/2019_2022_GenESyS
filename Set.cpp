@@ -13,13 +13,13 @@
 
 #include "Set.h"
 
-Set::Set(ElementManager* elems) : ModelElement(Util::TypeOf<Set>()) {
-    _elems = elems;
+Set::Set(Model* model) : ModelElement(model, Util::TypeOf<Set>()) {
+    //_elems = elems;
 }
 
-Set::Set(ElementManager* elems, std::string name) : ModelElement(Util::TypeOf<Set>()) {
+Set::Set(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Set>()) {
     _name = name;
-    _elems = elems;
+    //_elems = elems;
 }
 
 
@@ -45,8 +45,8 @@ PluginInformation* Set::GetPluginInformation() {
     return info;
 }
 
-ModelElement* Set::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {
-    Set* newElement = new Set(elems);
+ModelElement* Set::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+    Set* newElement = new Set(model);
     try {
 	newElement->_loadInstance(fields);
     } catch (const std::exception& e) {

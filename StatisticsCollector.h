@@ -22,15 +22,15 @@
 
 class StatisticsCollector : public ModelElement {//, public Statistics_if {
 public:
-    StatisticsCollector(ElementManager* elems);
-    StatisticsCollector(ElementManager* elems, std::string name);
-    StatisticsCollector(ElementManager* elems, std::string name, ModelElement* parent);
+    StatisticsCollector(Model* model);
+    StatisticsCollector(Model* model, std::string name);
+    StatisticsCollector(Model* model, std::string name, ModelElement* parent);
     virtual ~StatisticsCollector() = default;
 public:
     virtual std::string show();
 public:
     static PluginInformation* GetPluginInformation();
-    static ModelElement* LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields);
+    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 public:
     ModelElement* getParent() const;
     Statistics_if* getStatistics() const;
@@ -40,7 +40,7 @@ protected:
     virtual std::map<std::string, std::string>* _saveInstance();
     virtual bool _check(std::string* errorMessage);
 protected:
-    void _addSimulationResponse(ElementManager* elems);
+    void _addSimulationResponse();
 private:
     void _initStaticsAndCollector();
 private:

@@ -15,23 +15,23 @@
 #include "Model.h"
 #include "Attribute.h"
 
-EntityGroup::EntityGroup(ElementManager* elems) : ModelElement(Util::TypeOf<EntityGroup>()) {
-    _elements = elems;
+EntityGroup::EntityGroup(Model* model) : ModelElement(model, Util::TypeOf<EntityGroup>()) {
+    //_elements = elems;
     _initCStats(); 
 }
 
-EntityGroup::EntityGroup(ElementManager* elems, std::string name) : ModelElement(Util::TypeOf<EntityGroup>()) {
+EntityGroup::EntityGroup(Model* model, std::string name) : ModelElement(model, Util::TypeOf<EntityGroup>()) {
     _name = name;
-    _elements = elems;
+    //_elements = elems;
     _initCStats();
 }
 
 void EntityGroup::_initCStats() {
-    _cstatNumberInGroup = new StatisticsCollector(_elements, "Number In Group", this);
-    _elements->insert(_cstatNumberInGroup);
+    _cstatNumberInGroup = new StatisticsCollector(_parentModel, "Number In Group", this);
+    _parentModel->insert(_cstatNumberInGroup);
 }
 EntityGroup::~EntityGroup() {
-    _elements->remove(Util::TypeOf<StatisticsCollector>(), _cstatNumberInGroup);
+    _parentModel->elements()->remove(Util::TypeOf<StatisticsCollector>(), _cstatNumberInGroup);
 }
 
 std::string EntityGroup::show() {
@@ -71,8 +71,8 @@ PluginInformation* EntityGroup::GetPluginInformation() {
     return info;
 }
 
-ModelElement* EntityGroup::LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields) {
-    EntityGroup* newElement = new EntityGroup(elems);
+ModelElement* EntityGroup::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+    EntityGroup* newElement = new EntityGroup(model);
     try {
 	newElement->_loadInstance(fields);
     } catch (const std::exception& e) {
@@ -98,9 +98,9 @@ std::map<std::string, std::string>* EntityGroup::_saveInstance() {
 
 bool EntityGroup::_check(std::string* errorMessage) {
     std::string newNeededAttributeName = "Entity.Group";
-    if (_elements->element(Util::TypeOf<Attribute>(), newNeededAttributeName ) == nullptr) {
-	    Attribute* attr1 = new Attribute(newNeededAttributeName );
-	    _elements->insert(attr1);
+    if (_parentModel->elements()->element(Util::TypeOf<Attribute>(), newNeededAttributeName ) == nullptr) {
+	    Attribute* attr1 = new Attribute(_parentModel, newNeededAttributeName );
+	    _parentModel->insert(attr1);
 	}
     return true;
 }

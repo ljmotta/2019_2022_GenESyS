@@ -14,9 +14,11 @@
 #ifndef SCHEDULE_H
 #define SCHEDULE_H
 
+class Model;
+
 class Schedule {
 public:
-    Schedule();
+    Schedule(Model* model);
     virtual ~Schedule() = default;
 private:
 

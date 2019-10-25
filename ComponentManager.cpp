@@ -13,9 +13,10 @@
 
 #include "ComponentManager.h"
 #include "List.h"
+#include "Model.h"
 
 ComponentManager::ComponentManager(Model* model) {
-    _model = model;
+    _parentModel = model;
     _components = new List<ModelComponent*>();
     _components->setSortFunc([](const ModelComponent* a, const ModelComponent * b) {
 	return a->id() < b->id(); /// Components are sorted by ID
@@ -26,6 +27,7 @@ ComponentManager::ComponentManager(Model* model) {
 bool ComponentManager::insert(ModelComponent* comp) {
     if (_components->find(comp) == _components->list()->end()) {
 	_components->insert(comp);
+	this->_parentModel->tracer()->trace("Component "+comp->name()+" successfully inserted.");
 	return true;
     }
     return false;

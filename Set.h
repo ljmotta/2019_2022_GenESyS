@@ -21,11 +21,11 @@
 
 class Set: public ModelElement {
 public:
-    Set(ElementManager* elems);
-    Set(ElementManager* elems, std::string name);
+    Set(Model* model);
+    Set(Model* model, std::string name);
     virtual ~Set() = default;
 public: // static
-    static ModelElement* LoadInstance(ElementManager* elems, std::map<std::string, std::string>* fields); 
+    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields); 
     static PluginInformation* GetPluginInformation();
 public:
     virtual std::string show();
@@ -41,7 +41,7 @@ protected: // could be overriden by derived classes
     virtual bool _check(std::string* errorMessage);
     virtual ParserChangesInformation* _getParserChangesInformation();
 private:
-    ElementManager* _elems;
+    //ElementManager* _elems;
     List<ModelElement*>* _elementSet = new List<ModelElement*>();
     std::string _setOfType;
 };
