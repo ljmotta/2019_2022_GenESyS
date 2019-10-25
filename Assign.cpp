@@ -57,7 +57,7 @@ void Assign::_execute(Entity* entity) {
 	_model->getTraceManager()->trace(Util::TraceLevel::blockInternal, "Let \"" + let->getDestination() + "\" = " + std::to_string(value) + "  // " + let->getExpression());
 	/* TODO: this is NOT the best way to do it (enum comparision) */
 	if (let->getDestinationType() == DestinationType::Variable) {
-	    Variable* myvar = (Variable*) this->_model->getElementManager()->getElement(Util::TypeOf<Variable>(), let->getDestination());
+	    Variable* myvar = (Variable*) this->_model->elementManager()->getElement(Util::TypeOf<Variable>(), let->getDestination());
 	    myvar->setValue(value);
 	} else if (let->getDestinationType() == DestinationType::Attribute) {
 	    entity->setAttributeValue(let->getDestination(), value);
@@ -107,9 +107,9 @@ bool Assign::_check(std::string* errorMessage) {
 	let = (*it);
 	resultAll &= _model->checkExpression(let->getExpression(), "assignment", errorMessage);
 	if (let->getDestinationType() == DestinationType::Attribute) { // TODO I dont like the way we check the destination
-	    resultAll &= _model->getElementManager()->check(Util::TypeOf<Attribute>(), let->getDestination(), "destination", true, errorMessage);
+	    resultAll &= _model->elementManager()->check(Util::TypeOf<Attribute>(), let->getDestination(), "destination", true, errorMessage);
 	} else if (let->getDestinationType() == DestinationType::Variable) {
-	    resultAll &= _model->getElementManager()->check(Util::TypeOf<Variable>(), let->getDestination(), "destination", true, errorMessage);
+	    resultAll &= _model->elementManager()->check(Util::TypeOf<Variable>(), let->getDestination(), "destination", true, errorMessage);
 	}
     }
     return resultAll;

@@ -95,7 +95,7 @@ bool Route::_loadInstance(std::map<std::string, std::string>* fields) {
 	this->_routeTimeTimeUnit = static_cast<Util::TimeUnit> (std::stoi((*fields->find("routeTimeTimeUnit")).second));
 	this->_routeDestinationType = static_cast<Route::DestinationType> (std::stoi((*fields->find("routeDestinationType")).second));
 	std::string stationName = ((*(fields->find("stationName"))).second);
-	Station* station = dynamic_cast<Station*> (_model->getElementManager()->getElement(Util::TypeOf<Station>(), stationName));
+	Station* station = dynamic_cast<Station*> (_model->elementManager()->getElement(Util::TypeOf<Station>(), stationName));
 	this->_station = station;
     }
     return res;
@@ -116,7 +116,7 @@ std::map<std::string, std::string>* Route::_saveInstance() {
 
 bool Route::_check(std::string* errorMessage) {
     //include attributes needed
-    ElementManager* elements = _model->getElementManager();
+    ElementManager* elements = _model->elementManager();
     std::vector<std::string> neededNames = {"Entity.TransferTime", "Entity.Station"};
     std::string neededName;
     for (unsigned int i = 0; i < neededNames.size(); i++) {
@@ -133,7 +133,7 @@ bool Route::_check(std::string* errorMessage) {
     }
     bool resultAll = true;
     resultAll &= _model->checkExpression(_routeTimeExpression, "Route time expression", errorMessage);
-    resultAll &= _model->getElementManager()->check(Util::TypeOf<Station>(), _station, "Station", errorMessage);
+    resultAll &= _model->elementManager()->check(Util::TypeOf<Station>(), _station, "Station", errorMessage);
     if (resultAll) {
 	resultAll &= _station->getEnterIntoStationComponent() != nullptr;
 	if (!resultAll) {

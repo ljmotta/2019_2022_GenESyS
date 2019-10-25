@@ -35,14 +35,14 @@ public:
     Simulator();
     virtual ~Simulator() = default;
 public: // only get
-    std::string getVersion() const;
-    std::string getName() const;
-    LicenceManager* getLicenceManager() const;
-    PluginManager* getPluginManager() const;
-    ModelManager* getModelManager() const;
-    ToolManager* getToolManager() const;
-    TraceManager* getTraceManager() const;
-    ParserManager* getParserManager() const;
+    std::string version() const;
+    std::string name() const;
+    LicenceManager* licenceManager() const;
+    PluginManager* plugins() const;
+    ModelManager* models() const;
+    ToolManager* tools() const;
+    TraceManager* tracer() const;
+    ParserManager* parser() const;
 private: 
 private: // attributes 1:1 objects
     LicenceManager* _licenceManager;

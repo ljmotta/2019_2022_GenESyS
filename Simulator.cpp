@@ -28,36 +28,36 @@ Simulator::Simulator() {
     std::cout << _licenceManager->showLimits() << std::endl;
 }
 
-PluginManager* Simulator::getPluginManager() const {
+PluginManager* Simulator::plugins() const {
     return _pluginManager;
 }
 
-ModelManager* Simulator::getModelManager() const {
+ModelManager* Simulator::models() const {
     return _modelManager;
 }
 
-ToolManager* Simulator::getToolManager() const {
+ToolManager* Simulator::tools() const {
     return _toolManager;
 }
 
-TraceManager* Simulator::getTraceManager() const {
+TraceManager* Simulator::tracer() const {
     return _traceManager;
 }
 
-ParserManager* Simulator::getParserManager() const {
+ParserManager* Simulator::parser() const {
     return _parserManager;
 }
 
 
-std::string Simulator::getVersion() const {
+std::string Simulator::version() const {
     return _version;
 }
 
-std::string Simulator::getName() const {
+std::string Simulator::name() const {
     return _name;
 }
 
-LicenceManager* Simulator::getLicenceManager() const {
+LicenceManager* Simulator::licenceManager() const {
     return _licenceManager;
 }
 

@@ -46,11 +46,13 @@ public:
     virtual ~Model() = default;
 public: // model control
     //void showReports();
-    bool saveModel(std::string filename);
-    bool loadModel(std::string filename);
+    bool save(std::string filename);
+    bool load(std::string filename);
     bool checkModel(); ///< Checks the integrity and consistency of the model, possibly corrects some inconsistencies, and returns if the model is in position to the simulated.
     void clear();
     void show();
+    bool insert(ModelElement* elemOrComp); ///< Insert a new ModelElement or ModelComponent into the model (since 20191015). It's a generic access to ComponentManager->insert() or ModelElemento->insert()
+    void remove(ModelElement* elemOrComp); ///< Remove a new ModelElement or ModelComponent into the model (since 20191015). It's a generic access to ComponentManager->remove() or ModelElemento->remove()
     //bool verifySymbol(std::string componentName, std::string expressionName, std::string expression, std::string expressionResult, bool mandatory); ///< Verifies if a symbol defined in a component (ModelComponent) or element is syntactically valid and addresses existing components or elements. It's used only by and directed by the component that defines the symbol.
     void removeEntity(Entity* entity, bool collectStatistics);
     void sendEntityToComponent(Entity* entity, Connection* connection, double timeDelay); ///< Used by components (ModelComponent) to send entities to another specific component, usually the next one connected to it, or used by the model itself, when processing an event (Event). 
@@ -63,9 +65,9 @@ public: // only gets
     // 1:1
     List<SimulationControl*>* getControls() const; ///< Returns a list of values that can be externally controlled (changed). They usually correspond to input parameters in the simulation model that must be changed for an experimental design.
     List<SimulationResponse*>* getResponses() const; ///< Returns a list of exits or simulation results that can be read externally. They usually correspond to statistics resulting from the simulation that must be read for an experiment design.
-    OnEventManager* getOnEventManager() const;
-    ElementManager* getElementManager() const; ///< Provides access to the class that manages the most basic elements of the simulation model (such as queues, resources, variables, etc.).
-    ComponentManager* getComponentManager() const; ///< The future events list chronologically sorted; Events are scheduled by components when processing other events, and a replication evolves over time by sequentially processing the very first event in this list. It's initialized with events first described by source components (SourceComponentModel).
+    OnEventManager* onEventManager() const;
+    ElementManager* elementManager() const; ///< Provides access to the class that manages the most basic elements of the simulation model (such as queues, resources, variables, etc.).
+    ComponentManager* componentManager() const; ///< The future events list chronologically sorted; Events are scheduled by components when processing other events, and a replication evolves over time by sequentially processing the very first event in this list. It's initialized with events first described by source components (SourceComponentModel).
     ModelInfo* getInfos() const;
     Simulator* getParentSimulator() const;
     ModelSimulation* getSimulation() const; ///< Provides access to the class that manages the model simulation.

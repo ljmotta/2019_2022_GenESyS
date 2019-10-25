@@ -4690,13 +4690,13 @@ YY_RULE_SETUP
         ModelElement* element; 
 
         // check if it is an ATTRIBUTE (and return the attribute ID (and not the value!)
-        element = driver.getModel()->getElementManager()->getElement(Util::TypeOf<Attribute>(), std::string(yytext));
+        element = driver.getModel()->elementManager()->getElement(Util::TypeOf<Attribute>(), std::string(yytext));
         if (element != nullptr) { 
             return yy::genesyspp_parser::make_ATRIB(obj_t(0, Util::TypeOf<Attribute>(), element->getId()),loc);
         }
 
         // check VARIABLE
-        element = driver.getModel()->getElementManager()->getElement(Util::TypeOf<Variable>(), std::string(yytext));
+        element = driver.getModel()->elementManager()->getElement(Util::TypeOf<Variable>(), std::string(yytext));
         if (element != nullptr) { // it is a variable
             Variable* var = static_cast<Variable*>(element);
             double variableValue = var->getValue();
@@ -4705,7 +4705,7 @@ YY_RULE_SETUP
 
         // Should be definied by plugin FORMULA
         // check FORMULA
-        element = driver.getModel()->getElementManager()->getElement(Util::TypeOf<Formula>(), std::string(yytext));
+        element = driver.getModel()->elementManager()->getElement(Util::TypeOf<Formula>(), std::string(yytext));
         if (element != nullptr) { // it is a FORMULA
             Formula* form = static_cast<Formula*>(element);
             double formulaValue = form->getValue();
@@ -4714,28 +4714,28 @@ YY_RULE_SETUP
 
         // Should be definied by plugin QUEUE
         // check QUEUE
-        element = driver.getModel()->getElementManager()->getElement(Util::TypeOf<Queue>(), std::string(yytext));
+        element = driver.getModel()->elementManager()->getElement(Util::TypeOf<Queue>(), std::string(yytext));
         if (element != nullptr) { 
             return yy::genesyspp_parser::make_QUEUE(obj_t(0, Util::TypeOf<Queue>(), element->getId()),loc);
         }
 
 	// Should be definied by plugin RESOURCE
         // check RESOURCE
-        element = driver.getModel()->getElementManager()->getElement(Util::TypeOf<Resource>(), std::string(yytext));
+        element = driver.getModel()->elementManager()->getElement(Util::TypeOf<Resource>(), std::string(yytext));
         if (element != nullptr) { 
             return yy::genesyspp_parser::make_RESOURCE(obj_t(0, Util::TypeOf<Resource>(), element->getId()),loc);
         }
 
         // Should be definied by plugin SET
         //check SET
-        element = driver.getModel()->getElementManager()->getElement(Util::TypeOf<Set>(), std::string(yytext));
+        element = driver.getModel()->elementManager()->getElement(Util::TypeOf<Set>(), std::string(yytext));
         if (element != nullptr) { 
             return yy::genesyspp_parser::make_SET(obj_t(0, Util::TypeOf<Set>(), element->getId()),loc);
         }
 
         // Should be definied by plugin STATISTICSCOLLECTOR
         //check CSTAT
-        element = driver.getModel()->getElementManager()->getElement(Util::TypeOf<StatisticsCollector>(), std::string(yytext));
+        element = driver.getModel()->elementManager()->getElement(Util::TypeOf<StatisticsCollector>(), std::string(yytext));
         if (element != nullptr) { 
             return yy::genesyspp_parser::make_CSTAT(obj_t(0, Util::TypeOf<StatisticsCollector>(), element->getId()),loc);
         }

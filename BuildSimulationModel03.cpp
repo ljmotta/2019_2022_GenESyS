@@ -54,8 +54,8 @@ void _buildMostCompleteModel(Model* model) {
     infos->setWarmUpPeriodTimeUnit(Util::TimeUnit::minute);
     infos->setDescription("./models/model99_AllTogether.txt");
 
-    ComponentManager* components = model->getComponentManager();
-    ElementManager* elements = model->getElementManager();
+    ComponentManager* components = model->componentManager();
+    ElementManager* elements = model->elementManager();
 
     EntityType* entityType1 = new EntityType(elements, "Representative_EntityType");
     elements->insert(entityType1);

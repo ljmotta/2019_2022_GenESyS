@@ -51,8 +51,8 @@ int FullSimulationOfComplexModel::main(int argc, char** argv) {
     this->setDefaultTraceHandlers(tm);
 
     // get easy access to classes used to insert components and elements into a model
-    ComponentManager* components = model->getComponentManager();
-    ElementManager* elements = model->getElementManager();
+    ComponentManager* components = model->componentManager();
+    ElementManager* elements = model->elementManager();
 
     //
     // build the simulation model
@@ -133,11 +133,11 @@ int FullSimulationOfComplexModel::main(int argc, char** argv) {
     record1->getNextComponents()->insert(dispose1);
 
     // insert the model into the simulator 
-    simulator->getModelManager()->insert(model);
+    simulator->models()->insert(model);
 
     // if the model is ok then save the model into a text file 
     if (model->checkModel()) {
-	model->saveModel("./temp/fullSimulationModel.txt");
+	model->save("./temp/fullSimulationModel.txt");
     }
 
     // execute the simulation

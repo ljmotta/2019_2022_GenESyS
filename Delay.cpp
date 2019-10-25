@@ -83,7 +83,7 @@ std::map<std::string, std::string>* Delay::_saveInstance() {
 
 bool Delay::_check(std::string* errorMessage) {
     //include attributes needed
-    ElementManager* elements = _model->getElementManager();
+    ElementManager* elements = _model->elementManager();
     std::vector<std::string> neededNames = {"Entity.WaitTime"};
     std::string neededName;
     for (unsigned int i = 0; i < neededNames.size(); i++) {
@@ -98,7 +98,7 @@ bool Delay::_check(std::string* errorMessage) {
 
 void Delay::_createInternalElements() {
     // include StatisticsCollector needed in EntityType
-    ElementManager* elements = _model->getElementManager();
+    ElementManager* elements = _model->elementManager();
     std::list<ModelElement*>* enttypes = elements->getElements(Util::TypeOf<EntityType>())->getList();
     for (std::list<ModelElement*>::iterator it= enttypes->begin(); it!= enttypes->end(); it++) {
 	static_cast<EntityType*>((*it))->getStatisticsCollector(_name+"."+"Waiting_Time"); // force create this CStat before simulation starts

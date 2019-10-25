@@ -81,7 +81,7 @@ unsigned int Seize::getAllocationType() const {
 }
 
 void Seize::setQueueName(std::string queueName) throw () {
-    Queue* queue = dynamic_cast<Queue*> (_model->getElementManager()->getElement(Util::TypeOf<Queue>(), queueName));
+    Queue* queue = dynamic_cast<Queue*> (_model->elementManager()->getElement(Util::TypeOf<Queue>(), queueName));
     if (queue != nullptr) {
 	_queue = queue;
     } else {
@@ -105,7 +105,7 @@ void Seize::_handlerForResourceEvent(Resource* resource) {
 }
 
 void Seize::setResourceName(std::string resourceName) throw () {
-    Resource* resource = dynamic_cast<Resource*> (_model->getElementManager()->getElement(Util::TypeOf<Resource>(), resourceName));
+    Resource* resource = dynamic_cast<Resource*> (_model->elementManager()->getElement(Util::TypeOf<Resource>(), resourceName));
     if (resource != nullptr) {
 	_resource = resource;
     } else {
@@ -176,12 +176,12 @@ bool Seize::_loadInstance(std::map<std::string, std::string>* fields) {
 	//Util::identitifcation queueId = std::stoi((*(fields->find("queueId"))).second);
 	//Queue* queue = dynamic_cast<Queue*> (_model->getElementManager()->getElement(Util::TypeOf<Queue>(), queueId));
 	std::string queueName = ((*(fields->find("queueName"))).second);
-	Queue* queue = dynamic_cast<Queue*> (_model->getElementManager()->getElement(Util::TypeOf<Queue>(), queueName));
+	Queue* queue = dynamic_cast<Queue*> (_model->elementManager()->getElement(Util::TypeOf<Queue>(), queueName));
 	this->_queue = queue;
 	//Util::identitifcation resourceId = std::stoi((*(fields->find("resourceId"))).second);
 	//Resource* resource = dynamic_cast<Resource*> (_model->getElementManager()->getElement(Util::TypeOf<Resource>(), resourceId));
 	std::string resourceName = ((*(fields->find("resourceName"))).second);
-	Resource* resource = dynamic_cast<Resource*> (_model->getElementManager()->getElement(Util::TypeOf<Resource>(), resourceName));
+	Resource* resource = dynamic_cast<Resource*> (_model->elementManager()->getElement(Util::TypeOf<Resource>(), resourceName));
 	this->_resource = resource;
 	_resource->addResourceEventHandler(Resource::SetResourceEventHandler<Seize>(&Seize::_handlerForResourceEvent, this));
 
@@ -207,9 +207,9 @@ std::map<std::string, std::string>* Seize::_saveInstance() {
 bool Seize::_check(std::string* errorMessage) {
     bool resultAll = true;
     resultAll &= _model->checkExpression(_quantity, "quantity", errorMessage);
-    resultAll &= _model->getElementManager()->check(Util::TypeOf<Resource>(), _resource, "Resource", errorMessage);
-    resultAll &= _model->getElementManager()->check(Util::TypeOf<Queue>(), _queue, "Queue", errorMessage);
-    resultAll &= _model->getElementManager()->check(Util::TypeOf<Attribute>(), _saveAttribute, "SaveAttribute", false, errorMessage);
+    resultAll &= _model->elementManager()->check(Util::TypeOf<Resource>(), _resource, "Resource", errorMessage);
+    resultAll &= _model->elementManager()->check(Util::TypeOf<Queue>(), _queue, "Queue", errorMessage);
+    resultAll &= _model->elementManager()->check(Util::TypeOf<Attribute>(), _saveAttribute, "SaveAttribute", false, errorMessage);
     return resultAll;
 }
 

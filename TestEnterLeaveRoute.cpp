@@ -47,8 +47,8 @@ int TestEnterLeaveRoute::main(int argc, char** argv) {
     // insert "fake plugins" since plugins based on dynamic loaded library are not implemented yet
     this->insertFakePluginsByHand(simulator);
     // get easy access to classes used to insert components and elements into a model
-    ComponentManager* components = model->getComponentManager();
-    ElementManager* elements = model->getElementManager();
+    ComponentManager* components = model->componentManager();
+    ElementManager* elements = model->elementManager();
     //
     // build the simulation model
     //
@@ -133,11 +133,11 @@ int TestEnterLeaveRoute::main(int argc, char** argv) {
     delay3->getNextComponents()->insert(leave3);
     leave3->getNextComponents()->insert(dispose1);
     // insert the model into the simulator 
-    simulator->getModelManager()->insert(model);
+    simulator->models()->insert(model);
     // check the model
     model->checkModel();
     // save the model into a text file 
-    model->saveModel("./temp/testEnterLeaveRoute.txt");
+    model->save("./temp/testEnterLeaveRoute.txt");
     // show the model
     model->show();
     // execute the simulation

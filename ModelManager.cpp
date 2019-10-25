@@ -35,13 +35,13 @@ void ModelManager::remove(Model* model) {
 
 bool ModelManager::saveModel(std::string filename) {
     if (_currentModel != nullptr)
-	return _currentModel->saveModel(filename);
+	return _currentModel->save(filename);
     return false;
 }
 
 bool ModelManager::loadModel(std::string filename) {
     Model* model = new Model(_simulator);
-    bool res = model->loadModel(filename);
+    bool res = model->load(filename);
     if (res) 
 	this->insert(model);
     else

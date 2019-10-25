@@ -42,7 +42,7 @@ Model::Model(Simulator* simulator) {
     _eventManager = new OnEventManager(); // should be on .h (all that does not depends on THIS)
     _elementManager = new ElementManager(this);
     _componentManager = new ComponentManager(this);
-    _traceManager = simulator->getTraceManager(); // every model starts with the same tracer, unless a specific one is set
+    _traceManager = simulator->tracer(); // every model starts with the same tracer, unless a specific one is set
     // 1:1 associations (Traits)
     _parser = new Traits<Parser_if>::Implementation(this);
     _modelChecker = new Traits<ModelChecker_if>::Implementation(this);
@@ -78,7 +78,7 @@ void Model::sendEntityToComponent(Entity* entity, Connection* connection, double
 }
 
 void Model::sendEntityToComponent(Entity* entity, ModelComponent* component, double timeDelay, unsigned int componentInputNumber) {
-    this->getOnEventManager()->NotifyEntityMoveHandlers(new SimulationEvent(_simulation->getCurrentReplicationNumber(), new Event(_simulation->getSimulatedTime(), entity, component, componentInputNumber))); //@TODO: Event should include information about "from component" and timeDelay, but it doesn't 
+    this->onEventManager()->NotifyEntityMoveHandlers(new SimulationEvent(_simulation->getCurrentReplicationNumber(), new Event(_simulation->getSimulatedTime(), entity, component, componentInputNumber))); //@TODO: Event should include information about "from component" and timeDelay, but it doesn't 
     if (timeDelay > 0) {
 	// schedule to send it
 	Event* newEvent = new Event(this->getSimulation()->getSimulatedTime() + timeDelay, entity, component, componentInputNumber);
@@ -92,11 +92,11 @@ void Model::sendEntityToComponent(Entity* entity, ModelComponent* component, dou
     }
 }
 
-bool Model::saveModel(std::string filename) {
+bool Model::save(std::string filename) {
     return this->_modelPersistence->save(filename);
 }
 
-bool Model::loadModel(std::string filename) {
+bool Model::load(std::string filename) {
     this->clear();
     return this->_modelPersistence->load(filename);
 }
@@ -141,16 +141,33 @@ void Model::show() {
     getTraceManager()->trace(Util::TraceLevel::report, "End of Simulation Model");
 }
 
+bool Model::insert(ModelElement* elemOrComp) {
+    ModelComponent* comp = dynamic_cast<ModelComponent*>(elemOrComp);
+    if (comp==nullptr) // it's a ModelElement
+	return this->elementManager()->insert(elemOrComp);
+    else // it's a ModelComponent
+	return this->componentManager()->insert(comp);
+}
+
+void Model::remove(ModelElement* elemOrComp){
+    ModelComponent* comp = dynamic_cast<ModelComponent*>(elemOrComp);
+    if (comp==nullptr) // it's a ModelElement
+	this->elementManager()->remove(elemOrComp);
+    else // it's a ModelComponent
+	this->componentManager()->remove(comp);    
+}
+
+
 void Model::_showElements() const {
     getTraceManager()->trace(Util::TraceLevel::report, "Elements:");
     Util::IncIndent();
     {
 	std::string elementType;
 	ModelElement* element;
-	std::list<std::string>* elementTypes = getElementManager()->getElementTypenames();
+	std::list<std::string>* elementTypes = elementManager()->getElementTypenames();
 	for (std::list<std::string>::iterator typeIt = elementTypes->begin(); typeIt != elementTypes->end(); typeIt++) {
 	    elementType = (*typeIt);
-	    List<ModelElement*>* elements = getElementManager()->getElements(elementType);
+	    List<ModelElement*>* elements = elementManager()->getElements(elementType);
 	    getTraceManager()->trace(Util::TraceLevel::report, elementType + ":");
 	    Util::IncIndent();
 	    {
@@ -168,7 +185,7 @@ void Model::_showElements() const {
 void Model::_showComponents() const {
     getTraceManager()->trace(Util::TraceLevel::report, "Components:");
     Util::IncIndent();
-    for (std::list<ModelComponent*>::iterator it = getComponentManager()->begin(); it != getComponentManager()->end(); it++) {
+    for (std::list<ModelComponent*>::iterator it = componentManager()->begin(); it != componentManager()->end(); it++) {
 	getTraceManager()->trace(Util::TraceLevel::report, (*it)->show()); ////
     }
     Util::DecIndent();
@@ -237,7 +254,7 @@ bool Model::checkModel() {
 void Model::removeEntity(Entity* entity, bool collectStatistics) {
     /* TODO -: event onEntityRemove */
     std::string entId = std::to_string(entity->getEntityNumber());
-    this->getElementManager()->remove(Util::TypeOf<Entity>(), entity);
+    this->elementManager()->remove(Util::TypeOf<Entity>(), entity);
     getTraceManager()->trace(Util::TraceLevel::blockInternal, "Entity " + entId + " was removed from the system");
 }
 
@@ -253,7 +270,7 @@ TraceManager * Model::getTraceManager() const {
     return _traceManager;
 }
 
-ComponentManager * Model::getComponentManager() const {
+ComponentManager * Model::componentManager() const {
     return _componentManager;
 }
 
@@ -265,11 +282,11 @@ List<SimulationResponse*>* Model::getResponses() const {
     return _responses;
 }
 
-OnEventManager * Model::getOnEventManager() const {
+OnEventManager * Model::onEventManager() const {
     return _eventManager;
 }
 
-ElementManager * Model::getElementManager() const {
+ElementManager * Model::elementManager() const {
     return _elementManager;
 }
 

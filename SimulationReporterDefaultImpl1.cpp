@@ -35,8 +35,8 @@ void SimulationReporterDefaultImpl1::showReplicationStatistics() {
     // runs over all elements and list the statistics for each one, and then the statistics with no parent
     Util::IncIndent();
     // copy the ist of statistics and counters into a single new list
-    std::list<ModelElement*>* statisticsAndCounters = new std::list<ModelElement*>(*(_model->getElementManager()->getElements(UtilTypeOfStatisticsCollector)->getList()));
-    std::list<ModelElement*>* counters = new std::list<ModelElement*>(*(_model->getElementManager()->getElements(UtilTypeOfCounter)->getList()));
+    std::list<ModelElement*>* statisticsAndCounters = new std::list<ModelElement*>(*(_model->elementManager()->getElements(UtilTypeOfStatisticsCollector)->getList()));
+    std::list<ModelElement*>* counters = new std::list<ModelElement*>(*(_model->elementManager()->getElements(UtilTypeOfCounter)->getList()));
     statisticsAndCounters->merge(*counters);
     // organizes statistics into a map of maps
     std::map< std::string, std::map<std::string, std::list<ModelElement*>*>* >* mapMapTypeStat = new std::map<std::string, std::map<std::string, std::list<ModelElement*>*>*>();

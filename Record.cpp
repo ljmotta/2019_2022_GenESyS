@@ -18,11 +18,11 @@
 #include <iostream>
 
 Record::Record(Model* model) : ModelComponent(model, Util::TypeOf<Record>()) {
-    _cstatExpression = new StatisticsCollector(_model->getElementManager(), _expressionName, this);
-    _model->getElementManager()->insert(_cstatExpression);
+    _cstatExpression = new StatisticsCollector(_model->elementManager(), _expressionName, this);
+    _model->elementManager()->insert(_cstatExpression);
 }
 Record::~Record() {
-    _model->getElementManager()->remove(Util::TypeOf<StatisticsCollector>(), _cstatExpression);
+    _model->elementManager()->remove(Util::TypeOf<StatisticsCollector>(), _cstatExpression);
 }
 
 std::string Record::show() {

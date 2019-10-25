@@ -26,8 +26,8 @@ ModelPersistenceDefaultImpl1::ModelPersistenceDefaultImpl1(Model* model) {
 std::map<std::string, std::string>* ModelPersistenceDefaultImpl1::_getSimulatorInfoFieldsToSave() {
     std::map<std::string, std::string>* fields = new std::map<std::string, std::string>();
     fields->emplace("typename", "SimulatorInfo");
-    fields->emplace("name", _model->getParentSimulator()->getName());
-    fields->emplace("version", _model->getParentSimulator()->getVersion());
+    fields->emplace("name", _model->getParentSimulator()->name());
+    fields->emplace("version", _model->getParentSimulator()->version());
     return fields;
 }
 
@@ -45,10 +45,10 @@ bool ModelPersistenceDefaultImpl1::save(std::string filename) {
 	modelInfosToSave = _adjustFieldsToSave(fields);
 	// save infras
 	modelElementsToSave = new std::list<std::string>();
-	std::list<std::string>* infraTypenames = _model->getElementManager()->getElementTypenames();
+	std::list<std::string>* infraTypenames = _model->elementManager()->getElementTypenames();
 	for (std::list<std::string>::iterator itTypenames = infraTypenames->begin(); itTypenames != infraTypenames->end(); itTypenames++) {
 	    if ((*itTypenames) != Util::TypeOf<StatisticsCollector>() && (*itTypenames) != Util::TypeOf<Counter>()) { // STATISTICSCOLLECTR and COUNTERs do NOT need to be saved
-		List<ModelElement*>* infras = _model->getElementManager()->getElements((*itTypenames));
+		List<ModelElement*>* infras = _model->elementManager()->getElements((*itTypenames));
 		_model->getTraceManager()->trace(Util::TraceLevel::mostDetailed, "Writing elements of type \"" + (*itTypenames) + "\":");
 		Util::IncIndent();
 		{
@@ -69,7 +69,7 @@ bool ModelPersistenceDefaultImpl1::save(std::string filename) {
 	modelComponentsToSave = new std::list<std::string>();
 	Util::IncIndent();
 	{
-	    for (std::list<ModelComponent*>::iterator it = _model->getComponentManager()->begin(); it != _model->getComponentManager()->end(); it++) {
+	    for (std::list<ModelComponent*>::iterator it = _model->componentManager()->begin(); it != _model->componentManager()->end(); it++) {
 		fields = (*it)->SaveInstance((*it));
 		Util::IncIndent();
 		modelComponentsToSave->merge(*_adjustFieldsToSave(fields));
@@ -151,7 +151,7 @@ bool ModelPersistenceDefaultImpl1::_loadFields(std::string line) {
 		ModelElement* newTemUselessElement = ModelElement::LoadInstance(fields);
 		if (newTemUselessElement != nullptr) {
 		    newTemUselessElement->~ModelElement();
-		    Plugin* plugin = this->_model->getParentSimulator()->getPluginManager()->find(thistypename);
+		    Plugin* plugin = this->_model->getParentSimulator()->plugins()->find(thistypename);
 		    if (plugin != nullptr) {
 			res = plugin->loadAndInsertNew(_model, fields);
 			// save fields for components, in order to allow to connect components after all of them have been loaded
@@ -208,7 +208,7 @@ bool ModelPersistenceDefaultImpl1::load(std::string filename) {
     }
     if (res) {
 	// connect loaded components
-	ComponentManager* cm = _model->getComponentManager();
+	ComponentManager* cm = _model->componentManager();
 	_model->getTraceManager()->trace(Util::TraceLevel::blockArrival, "Connecting loaded components");
 	Util::IncIndent();
 	{

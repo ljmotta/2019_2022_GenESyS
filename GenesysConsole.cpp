@@ -46,7 +46,7 @@ void GenesysConsole::cmdTraceLevel() {
     try {
 	int tlnum = std::stoi(_parameter);
 	Util::TraceLevel tl = static_cast<Util::TraceLevel> (tlnum);
-	_simulator->getModelManager()->current()->getTraceManager()->setTraceLevel(tl);
+	_simulator->models()->current()->getTraceManager()->setTraceLevel(tl);
     } catch (...) {
 	Trace("Error setting trace level");
     }
@@ -55,7 +55,7 @@ void GenesysConsole::cmdTraceLevel() {
 void GenesysConsole::cmdModelCheck() {
     Trace("Check model");
     try {
-	_simulator->getModelManager()->current()->checkModel();
+	_simulator->models()->current()->checkModel();
     } catch (...) {
 	Trace("Error checking model");
     }
@@ -64,7 +64,7 @@ void GenesysConsole::cmdModelCheck() {
 void GenesysConsole::cmdStart() {
     Trace("Start simulation");
     try {
-	_simulator->getModelManager()->current()->getSimulation()->startSimulation();
+	_simulator->models()->current()->getSimulation()->startSimulation();
     } catch (...) {
 	Trace("Error starting simulation");
     }
@@ -73,7 +73,7 @@ void GenesysConsole::cmdStart() {
 void GenesysConsole::cmdStep() {
     Trace("Step simulation");
     try {
-	_simulator->getModelManager()->current()->getSimulation()->stepSimulation();
+	_simulator->models()->current()->getSimulation()->stepSimulation();
     } catch (...) {
 	Trace("Error stepping simulation");
     }
@@ -82,7 +82,7 @@ void GenesysConsole::cmdStep() {
 void GenesysConsole::cmdStop() {
     Trace("Stop simulation");
     try {
-	_simulator->getModelManager()->current()->getSimulation()->stopSimulation();
+	_simulator->models()->current()->getSimulation()->stopSimulation();
     } catch (...) {
 	Trace("Error stopping simulation");
     }
@@ -91,7 +91,7 @@ void GenesysConsole::cmdStop() {
 void GenesysConsole::cmdShowReport() {
     Trace("Show report");
     try {
-	_simulator->getModelManager()->current()->getSimulation()->getSimulationReporter()->showSimulationStatistics();
+	_simulator->models()->current()->getSimulation()->getSimulationReporter()->showSimulationStatistics();
     } catch (...) {
 	Trace("Error showing reports");
     }
@@ -122,7 +122,7 @@ void GenesysConsole::cmdModelLoad() {
     try {
 	std::string filename = _parameter;
 	Model* model = new Model(this->_simulator);
-	model->loadModel(filename);
+	model->load(filename);
     } catch (...) {
 	//        _commands
 	Trace("   Error loading");
@@ -132,7 +132,7 @@ void GenesysConsole::cmdModelLoad() {
 void GenesysConsole::cmdModelShow() {
     Trace("Model Show");
     try {
-	_simulator->getModelManager()->current()->show();
+	_simulator->models()->current()->show();
     } catch (...) {
 	//        _commands
 	Trace("   Error showing");
