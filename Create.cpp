@@ -19,11 +19,11 @@
 #include "Assign.h"
 
 Create::Create(Model* model) : SourceModelComponent(model, Util::TypeOf<Create>()) {
-    _numberOut = new Counter(_model->elementManager(), "Count number in", this);
-    _model->elementManager()->insert(_numberOut);
+    _numberOut = new Counter(_model->elements(), "Count number in", this);
+    _model->elements()->insert(_numberOut);
     GetterMember getter = DefineGetterMember<SourceModelComponent>(this, &Create::getEntitiesPerCreation);
     SetterMember setter = DefineSetterMember<SourceModelComponent>(this, &Create::setEntitiesPerCreation);
-    model->getControls()->insert(new SimulationControl(Util::TypeOf<Create>(), "Entities Per Creation", getter,setter));
+    model->controls()->insert(new SimulationControl(Util::TypeOf<Create>(), "Entities Per Creation", getter,setter));
     /*
     model->getControls()->insert(new SimulationControl(Util::TypeOf<Create>(), "Time Between Creations",
 	    DefineGetterMember<SourceModelComponent>(this, &Create::getTimeBetweenCreationsExpression),
@@ -38,7 +38,7 @@ std::string Create::show() {
 }
 
 void Create::_execute(Entity* entity) {
-    double tnow = _model->getSimulation()->getSimulatedTime();
+    double tnow = _model->simulation()->getSimulatedTime();
     entity->setAttributeValue("Entity.ArrivalTime", tnow); // ->find("Entity.ArrivalTime")->second->setValue(tnow);
     //entity->setAttributeValue("Entity.Picture", 1); // ->find("Entity.ArrivalTime")->second->setValue(tnow);
     double timeBetweenCreations, timeScale, newArrivalTime;
@@ -46,15 +46,15 @@ void Create::_execute(Entity* entity) {
     for (unsigned int i = 0; i<this->_entitiesPerCreation; i++) {
 	if (_entitiesCreatedSoFar < _maxCreations) {
 	    _entitiesCreatedSoFar++;
-	    Entity* newEntity = new Entity(this->_model->elementManager());
+	    Entity* newEntity = new Entity(this->_model->elements());
 	    newEntity->setEntityType(entity->getEntityType());
-	    _model->elementManager()->insert(newEntity); // ->getEntities()->insert(newEntity);
+	    _model->elements()->insert(newEntity); // ->getEntities()->insert(newEntity);
 	    timeBetweenCreations = _model->parseExpression(this->_timeBetweenCreationsExpression);
-	    timeScale = Util::TimeUnitConvert(this->_timeBetweenCreationsTimeUnit, _model->getInfos()->getReplicationLengthTimeUnit());
+	    timeScale = Util::TimeUnitConvert(this->_timeBetweenCreationsTimeUnit, _model->infos()->getReplicationLengthTimeUnit());
 	    newArrivalTime = tnow + timeBetweenCreations*timeScale;
 	    Event* newEvent = new Event(newArrivalTime, newEntity, this);
-	    _model->getEvents()->insert(newEvent);
-	    _model->getTraceManager()->traceSimulation(Util::TraceLevel::blockInternal, tnow, entity, this, "Arrival of entity " + std::to_string(newEntity->getEntityNumber()) + " schedule for time " + std::to_string(newArrivalTime));
+	    _model->futureEvents()->insert(newEvent);
+	    _model->tracer()->traceSimulation(Util::TraceLevel::blockInternal, tnow, entity, this, "Arrival of entity " + std::to_string(newEntity->getEntityNumber()) + " schedule for time " + std::to_string(newArrivalTime));
 	    //_model->getTrace()->trace(Util::TraceLevel::blockInternal, "Arrival of entity "+std::to_string(entity->getId()) + " schedule for time " +std::to_string(newArrivalTime));
 	}
     }

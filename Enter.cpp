@@ -49,7 +49,7 @@ bool Enter::_loadInstance(std::map<std::string, std::string>* fields) {
     bool res = ModelComponent::_loadInstance(fields);
     if (res) {
 	std::string stationName = ((*(fields->find("stationName"))).second);
-	Station* station = dynamic_cast<Station*> (_model->elementManager()->getElement(Util::TypeOf<Station>(), stationName));
+	Station* station = dynamic_cast<Station*> (_model->elements()->getElement(Util::TypeOf<Station>(), stationName));
 	this->_station = station;
     }
     return res;
@@ -66,7 +66,7 @@ std::map<std::string, std::string>* Enter::_saveInstance() {
 
 bool Enter::_check(std::string* errorMessage) {
     bool resultAll = true;
-    resultAll &= _model->elementManager()->check(Util::TypeOf<Station>(), _station, "Station", errorMessage);
+    resultAll &= _model->elements()->check(Util::TypeOf<Station>(), _station, "Station", errorMessage);
     if (resultAll) {
 	_station->setEnterIntoStationComponent(this); // this component will be executed when an entity enters into the station
     }

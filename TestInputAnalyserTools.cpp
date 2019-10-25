@@ -12,7 +12,7 @@
 
 void testStudentSoftwareDevelopments() {
     Simulator* simulator = new Simulator();
-    Sampler_if* mmc = simulator->tools()->getSampler(); // Sampler is the new MMC
+    Sampler_if* mmc = simulator->tools()->sampler(); // Sampler is the new MMC
     CollectorDatafile_if* collector = (new Traits<Collector_if>::Implementation());
     collector->setDataFilename("./datafile.txt");
     // just to show how to change MMC parameters
@@ -53,7 +53,7 @@ void testStudentSoftwareDevelopments() {
 	    }
      */
     // fit datafile to different probability distributions
-    Fitter_if* fitter = simulator->tools()->getFitter();
+    Fitter_if* fitter = simulator->tools()->fitter();
     fitter->setDataFilename(collector->getDataFilename());
     double sqrerror, p1, p2, p3; //, p4;
     std::string distribName;

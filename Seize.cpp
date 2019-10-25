@@ -81,7 +81,7 @@ unsigned int Seize::getAllocationType() const {
 }
 
 void Seize::setQueueName(std::string queueName) throw () {
-    Queue* queue = dynamic_cast<Queue*> (_model->elementManager()->getElement(Util::TypeOf<Queue>(), queueName));
+    Queue* queue = dynamic_cast<Queue*> (_model->elements()->getElement(Util::TypeOf<Queue>(), queueName));
     if (queue != nullptr) {
 	_queue = queue;
     } else {
@@ -94,18 +94,18 @@ void Seize::_handlerForResourceEvent(Resource* resource) {
     if (first != nullptr) { // there are entities waiting in the queue
 	unsigned int quantity = _model->parseExpression(this->_quantity);
 	if ((resource->getCapacity() - resource->getNumberBusy()) >= quantity) { //enought quantity to seize
-	    double tnow = _model->getSimulation()->getSimulatedTime();
+	    double tnow = _model->simulation()->getSimulatedTime();
 	    resource->seize(quantity, tnow);
-	    _model->getEvents()->insert(new Event(tnow, first->getEntity(), this->getNextComponents()->frontConnection()));
+	    _model->futureEvents()->insert(new Event(tnow, first->getEntity(), this->getNextComponents()->frontConnection()));
 	    _queue->removeElement(first);
-	    _model->getTraceManager()->traceSimulation(Util::TraceLevel::blockInternal, tnow, first->getEntity(), this, "Waiting entity " + std::to_string(first->getEntity()->getEntityNumber()) + " now seizes " + std::to_string(quantity) + " elements of resource \"" + resource->getName() + "\"");
+	    _model->tracer()->traceSimulation(Util::TraceLevel::blockInternal, tnow, first->getEntity(), this, "Waiting entity " + std::to_string(first->getEntity()->getEntityNumber()) + " now seizes " + std::to_string(quantity) + " elements of resource \"" + resource->getName() + "\"");
 
 	}
     }
 }
 
 void Seize::setResourceName(std::string resourceName) throw () {
-    Resource* resource = dynamic_cast<Resource*> (_model->elementManager()->getElement(Util::TypeOf<Resource>(), resourceName));
+    Resource* resource = dynamic_cast<Resource*> (_model->elements()->getElement(Util::TypeOf<Resource>(), resourceName));
     if (resource != nullptr) {
 	_resource = resource;
     } else {
@@ -147,13 +147,13 @@ void Seize::_execute(Entity* entity) {
     }
     unsigned int quantity = _model->parseExpression(this->_quantity);
     if (resource->getCapacity() - resource->getNumberBusy() < quantity) { // not enought free quantity to allocate. Entity goes to the queue
-	WaitingResource* waitingRec = new WaitingResource(entity, this, _model->getSimulation()->getSimulatedTime(), quantity);
-	this->_queue->insertElement(waitingRec); // ->getList()->insert(waitingRec);
-	_model->getTraceManager()->traceSimulation(Util::TraceLevel::blockInternal, _model->getSimulation()->getSimulatedTime(), entity, this, "Entity starts to wait for resource in queue \"" + _queue->getName() + "\" with " + std::to_string(_queue->size()) + " elements");
+	WaitingResource* waitingRec = new WaitingResource(entity, this, _model->simulation()->getSimulatedTime(), quantity);
+	this->_queue->insertElement(waitingRec); // ->list()->insert(waitingRec);
+	_model->tracer()->traceSimulation(Util::TraceLevel::blockInternal, _model->simulation()->getSimulatedTime(), entity, this, "Entity starts to wait for resource in queue \"" + _queue->getName() + "\" with " + std::to_string(_queue->size()) + " elements");
 
     } else { // alocate the resource
-	_model->getTraceManager()->traceSimulation(Util::TraceLevel::blockInternal, _model->getSimulation()->getSimulatedTime(), entity, this, "Entity seizes " + std::to_string(quantity) + " elements of resource \"" + resource->getName() + "\" (capacity:"+std::to_string(resource->getCapacity()) +", numberbusy:"+std::to_string(resource->getNumberBusy())+")");
-	resource->seize(quantity, _model->getSimulation()->getSimulatedTime());
+	_model->tracer()->traceSimulation(Util::TraceLevel::blockInternal, _model->simulation()->getSimulatedTime(), entity, this, "Entity seizes " + std::to_string(quantity) + " elements of resource \"" + resource->getName() + "\" (capacity:"+std::to_string(resource->getCapacity()) +", numberbusy:"+std::to_string(resource->getNumberBusy())+")");
+	resource->seize(quantity, _model->simulation()->getSimulatedTime());
 	_model->sendEntityToComponent(entity, this->getNextComponents()->frontConnection(), 0.0);
     }
 }
@@ -176,12 +176,12 @@ bool Seize::_loadInstance(std::map<std::string, std::string>* fields) {
 	//Util::identitifcation queueId = std::stoi((*(fields->find("queueId"))).second);
 	//Queue* queue = dynamic_cast<Queue*> (_model->getElementManager()->getElement(Util::TypeOf<Queue>(), queueId));
 	std::string queueName = ((*(fields->find("queueName"))).second);
-	Queue* queue = dynamic_cast<Queue*> (_model->elementManager()->getElement(Util::TypeOf<Queue>(), queueName));
+	Queue* queue = dynamic_cast<Queue*> (_model->elements()->getElement(Util::TypeOf<Queue>(), queueName));
 	this->_queue = queue;
 	//Util::identitifcation resourceId = std::stoi((*(fields->find("resourceId"))).second);
 	//Resource* resource = dynamic_cast<Resource*> (_model->getElementManager()->getElement(Util::TypeOf<Resource>(), resourceId));
 	std::string resourceName = ((*(fields->find("resourceName"))).second);
-	Resource* resource = dynamic_cast<Resource*> (_model->elementManager()->getElement(Util::TypeOf<Resource>(), resourceName));
+	Resource* resource = dynamic_cast<Resource*> (_model->elements()->getElement(Util::TypeOf<Resource>(), resourceName));
 	this->_resource = resource;
 	_resource->addResourceEventHandler(Resource::SetResourceEventHandler<Seize>(&Seize::_handlerForResourceEvent, this));
 
@@ -207,9 +207,9 @@ std::map<std::string, std::string>* Seize::_saveInstance() {
 bool Seize::_check(std::string* errorMessage) {
     bool resultAll = true;
     resultAll &= _model->checkExpression(_quantity, "quantity", errorMessage);
-    resultAll &= _model->elementManager()->check(Util::TypeOf<Resource>(), _resource, "Resource", errorMessage);
-    resultAll &= _model->elementManager()->check(Util::TypeOf<Queue>(), _queue, "Queue", errorMessage);
-    resultAll &= _model->elementManager()->check(Util::TypeOf<Attribute>(), _saveAttribute, "SaveAttribute", false, errorMessage);
+    resultAll &= _model->elements()->check(Util::TypeOf<Resource>(), _resource, "Resource", errorMessage);
+    resultAll &= _model->elements()->check(Util::TypeOf<Queue>(), _queue, "Queue", errorMessage);
+    resultAll &= _model->elements()->check(Util::TypeOf<Attribute>(), _saveAttribute, "SaveAttribute", false, errorMessage);
     return resultAll;
 }
 

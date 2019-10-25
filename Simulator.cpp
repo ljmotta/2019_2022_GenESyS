@@ -17,15 +17,15 @@
 
 Simulator::Simulator() {
     // This is the ONLY method in the entire software where std::cout is allowed.
-    std::cout << "RUNNING " << _name << ", version " << _version << std::endl;
+    std::cout << "STARTING " << _name << ", version " << _version << std::endl;
     _licenceManager = new LicenceManager(this);
     _pluginManager = new PluginManager(this);
     _modelManager = new ModelManager(this);
     _toolManager = new ToolManager(this);
     _traceManager = new TraceManager(this);
-    std::cout << _licenceManager->showLicence() << std::endl;
-    std::cout << _licenceManager->showActivationCode() << std::endl;
-    std::cout << _licenceManager->showLimits() << std::endl;
+    std::cout << '|' << '\t' << _licenceManager->showLicence() << std::endl;
+    std::cout << '|' << '\t' << _licenceManager->showActivationCode() << std::endl;
+    std::cout << '|' << '\t' << _licenceManager->showLimits() << std::endl;
 }
 
 PluginManager* Simulator::plugins() const {
@@ -47,7 +47,6 @@ TraceManager* Simulator::tracer() const {
 ParserManager* Simulator::parser() const {
     return _parserManager;
 }
-
 
 std::string Simulator::version() const {
     return _version;

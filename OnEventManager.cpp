@@ -17,7 +17,7 @@ OnEventManager::OnEventManager() {
 }
 
 void OnEventManager::_addOnHandler(List<simulationEventHandler>* list, simulationEventHandler EventHandler) {
-    if (list->find(EventHandler) == list->getList()->end())
+    if (list->find(EventHandler) == list->list()->end())
 	list->insert(EventHandler);
 }
 
@@ -50,13 +50,13 @@ void OnEventManager::addOnSimulationEndHandler(simulationEventHandler EventHandl
 }
 
 void OnEventManager::_NotifyHandlers(List<simulationEventHandler>* list, SimulationEvent* se) {
-    for (std::list<simulationEventHandler>::iterator it = list->getList()->begin(); it != list->getList()->end(); it++) {
+    for (std::list<simulationEventHandler>::iterator it = list->list()->begin(); it != list->list()->end(); it++) {
 	(*it)(se);
     }
 }
 
 void OnEventManager::_NotifyHandlerMethods(List<simulationEventHandlerMethod>* list, SimulationEvent* se) {
-    for (std::list<simulationEventHandlerMethod>::iterator it = list->getList()->begin(); it != list->getList()->end(); it++) {
+    for (std::list<simulationEventHandlerMethod>::iterator it = list->list()->begin(); it != list->list()->end(); it++) {
 	(*it)(se);
     }
 }

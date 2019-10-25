@@ -48,12 +48,12 @@ int ThirdExampleOfSimulation::main(int argc, char** argv) {
 	model = new Model(simulator);
 	// build the simulation model
 	// set model infos
-	ModelInfo* infos = model->getInfos();
+	ModelInfo* infos = model->infos();
 	infos->setReplicationLength(60);
 	infos->setReplicationLengthTimeUnit(Util::TimeUnit::second);
 	infos->setNumberOfReplications(3);
 	//
-	EntityType* customer = new EntityType(model->elementManager(), "Customer");
+	EntityType* customer = new EntityType(model->elements(), "Customer");
 	model->insert(customer);
 	//
 	Create* create1 = new Create(model);
@@ -63,11 +63,11 @@ int ThirdExampleOfSimulation::main(int argc, char** argv) {
 	create1->setEntitiesPerCreation(1);
 	model->insert(create1);
 	//
-	Resource* machine1 = new Resource(model->elementManager(), "Machine_1");
+	Resource* machine1 = new Resource(model->elements(), "Machine_1");
 	machine1->setCapacity(1);
 	model->insert(machine1);
 	//
-	Queue* queueSeize1 = new Queue(model->elementManager(), "Queue_Machine_1");
+	Queue* queueSeize1 = new Queue(model->elements(), "Queue_Machine_1");
 	queueSeize1->setOrderRule(Queue::OrderRule::FIFO);
 	model->insert(queueSeize1);
 	//
@@ -95,7 +95,7 @@ int ThirdExampleOfSimulation::main(int argc, char** argv) {
 	// insert the model into the simulator 
 	simulator->models()->insert(model);
 	// if the model is ok then save the model into a text file 
-	if (model->checkModel()) {
+	if (model->check()) {
 	    model->save("./temp/thirdExampleOfSimulation.txt");
 	}
     } else {
@@ -103,7 +103,7 @@ int ThirdExampleOfSimulation::main(int argc, char** argv) {
 	model =  simulator->models()->current();
     }
     // execute the simulation
-    model->getSimulation()->startSimulation();
+    model->simulation()->startSimulation();
 
     return 0;
 };

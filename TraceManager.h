@@ -129,10 +129,10 @@ public: // traces (invoke trace handlers)
     void traceReport(Util::TraceLevel tracelevel, std::string text);
     void traceSimulation(Util::TraceLevel tracelevel, double time, Entity* entity, ModelComponent* component, std::string text);
 public:
-    List<std::string>* getErrorMessages() const;
+    List<std::string>* errorMessages() const;
     void setTraceLevel(Util::TraceLevel _traceLevel);
-    Util::TraceLevel getTraceLevel() const;
-    Simulator* getSimulator() const;
+    Util::TraceLevel traceLevel() const;
+    Simulator* parentSimulator() const;
 private:
     //void _addHandler(List<traceListener>* list, )
     bool _traceConditionPassed(Util::TraceLevel level);

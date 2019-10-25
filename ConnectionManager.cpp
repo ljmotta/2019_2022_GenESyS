@@ -41,6 +41,6 @@ void ConnectionManager::insert(ModelComponent* component, unsigned int inputNumb
     _nextConnections->insert(new Connection(component, inputNumber));
 }
 
-std::list<Connection*>* ConnectionManager::getList() const {
-    return _nextConnections->getList();
+std::list<Connection*>* ConnectionManager::list() const {
+    return _nextConnections->list();
 }

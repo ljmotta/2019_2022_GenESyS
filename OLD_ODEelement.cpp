@@ -22,7 +22,7 @@ OLD_ODEelement::OLD_ODEelement(ElementManager* elems) : ModelElement(Util::TypeO
 std::string OLD_ODEelement::show() {
     std::string txt =  ModelElement::show();
     unsigned short i=0;
-    for (std::list<ODEfunction*>::iterator it = _ODEfunctions->getList()->begin(); it != _ODEfunctions->getList()->end(); it++) {
+    for (std::list<ODEfunction*>::iterator it = _ODEfunctions->list()->begin(); it != _ODEfunctions->list()->end(); it++) {
 	txt += ",func["+std::to_string(i)+"]=\""+(*it)->expression+"\",(func["+std::to_string(i)+"]["+std::to_string((*it)->initialPoint)+"]="+std::to_string((*it)->initialValue)+")";
     }
     return txt;
@@ -81,7 +81,7 @@ bool OLD_ODEelement::_check(std::string* errorMessage) {
     bool result = true;
     unsigned short i=0;
     ODEfunction* func;
-    for (std::list<ODEfunction*>::iterator it = _ODEfunctions->getList()->begin(); it != _ODEfunctions->getList()->end(); it++) {
+    for (std::list<ODEfunction*>::iterator it = _ODEfunctions->list()->begin(); it != _ODEfunctions->list()->end(); it++) {
 	func = (*it);
 	result &= _elems->getParentModel()->checkExpression(func->expression, "expression["+std::to_string(i++)+"]", errorMessage);
     }

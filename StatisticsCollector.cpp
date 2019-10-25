@@ -41,7 +41,7 @@ void StatisticsCollector::_addSimulationResponse(ElementManager* elems) {
     if (_parent != nullptr)
 	parentName = _parent->getName();
     SimulationResponse* resp = new SimulationResponse(Util::TypeOf<StatisticsClass>(), parentName+":"+_name+".average", getterMember);
-    elems->getParentModel()->getResponses()->insert(resp);
+    elems->getParentModel()->responses()->insert(resp);
 }
 
 void StatisticsCollector::_initStaticsAndCollector() {

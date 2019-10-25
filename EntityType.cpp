@@ -58,7 +58,7 @@ EntityType::~EntityType() {
     //_elemManager->remove(Util::TypeOf<StatisticsCollector>(), _cstatVATime);
     //_elemManager->remove(Util::TypeOf<StatisticsCollector>(), _cstatWaitingTime);
     // remove all CStats
-    for (std::list<StatisticsCollector*>::iterator it = this->_statisticsCollectors->getList()->begin(); it != this->_statisticsCollectors->getList()->end(); it++) {
+    for (std::list<StatisticsCollector*>::iterator it = this->_statisticsCollectors->list()->begin(); it != this->_statisticsCollectors->list()->end(); it++) {
 	 _elemManager->remove(Util::TypeOf<StatisticsCollector>(), (*it));
     }
 }
@@ -134,7 +134,7 @@ std::string EntityType::getInitialPicture() const {
 
 StatisticsCollector* EntityType::getStatisticsCollector(std::string name) {
     StatisticsCollector* cstat;
-    for (std::list<StatisticsCollector*>::iterator it = _statisticsCollectors->getList()->begin(); it!= _statisticsCollectors->getList()->end(); it++) {
+    for (std::list<StatisticsCollector*>::iterator it = _statisticsCollectors->list()->begin(); it!= _statisticsCollectors->list()->end(); it++) {
 	cstat = (*it);
 	if (cstat->getName()==name) {
 	    return cstat;

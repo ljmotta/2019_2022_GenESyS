@@ -49,7 +49,7 @@ void Queue::insertElement(Waiting* element) {
 }
 
 void Queue::removeElement(Waiting* element) {
-    double tnow = this->_elems->getParentModel()->getSimulation()->getSimulatedTime();
+    double tnow = this->_elems->getParentModel()->simulation()->getSimulatedTime();
     _list->remove(element);
     this->_cstatNumberInQueue->getStatistics()->getCollector()->addValue(_list->size());
     double timeInQueue = tnow - element->getTimeStartedWaiting();
@@ -90,7 +90,7 @@ Queue::OrderRule Queue::getOrderRule() const {
 
 double Queue::sumAttributesFromWaiting(Util::identification attributeID) {
     double sum = 0.0;
-    for (std::list<Waiting*>::iterator it = _list->getList()->begin(); it != _list->getList()->end(); it++) {
+    for (std::list<Waiting*>::iterator it = _list->list()->begin(); it != _list->list()->end(); it++) {
 	sum += (*it)->getEntity()->getAttributeValue(attributeID);
     }
     return sum;

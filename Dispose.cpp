@@ -15,8 +15,8 @@
 #include "Model.h"
 
 Dispose::Dispose(Model* model) : SinkModelComponent(model, Util::TypeOf<Dispose>()) {
-    _numberOut = new Counter(_model->elementManager(), _name + "." + "Count_number_out", this);
-    _model->elementManager()->insert(_numberOut);
+    _numberOut = new Counter(_model->elements(), _name + "." + "Count_number_out", this);
+    _model->elements()->insert(_numberOut);
 }
 
 
@@ -28,7 +28,7 @@ std::string Dispose::show() {
 void Dispose::_execute(Entity* entity) {
     _numberOut->incCountValue();
     if (_collectStatistics) {
-	double timeInSystem = _model->getSimulation()->getSimulatedTime() - entity->getAttributeValue("Entity.ArrivalTime");
+	double timeInSystem = _model->simulation()->getSimulatedTime() - entity->getAttributeValue("Entity.ArrivalTime");
 	entity->getEntityType()->getStatisticsCollector(entity->getEntityType()->getName() + "." + "Total_Time")->getStatistics()->getCollector()->addValue(timeInSystem);
     }
 
@@ -56,7 +56,7 @@ bool Dispose::_check(std::string* errorMessage) {
 
 void Dispose::_createInternalElements() {
     // include StatisticsCollector needed for each EntityType
-    std::list<ModelElement*>* enttypes = _model->elementManager()->getElements(Util::TypeOf<EntityType>())->getList();
+    std::list<ModelElement*>* enttypes = _model->elements()->getElements(Util::TypeOf<EntityType>())->list();
     for (std::list<ModelElement*>::iterator it = enttypes->begin(); it != enttypes->end(); it++) {
 	static_cast<EntityType*> ((*it))->getStatisticsCollector((*it)->getName() + "." + "Total_Time"); // force create this CStat before model checking
     }

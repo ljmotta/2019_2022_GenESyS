@@ -34,7 +34,7 @@ ModelComponent* Exit::LoadInstance(Model* model, std::map<std::string, std::stri
 }
 
 void Exit::_execute(Entity* entity) {
-    _model->getTraceManager()->trace(Util::TraceLevel::blockInternal, "I'm just a dummy model and I'll just send the entity forward");
+    _model->tracer()->trace(Util::TraceLevel::blockInternal, "I'm just a dummy model and I'll just send the entity forward");
     this->_model->sendEntityToComponent(entity, this->getNextComponents()->frontConnection(), 0.0);
 }
 

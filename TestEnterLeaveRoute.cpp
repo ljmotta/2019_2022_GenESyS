@@ -40,20 +40,20 @@ int TestEnterLeaveRoute::main(int argc, char** argv) {
     // creates an empty model
     Model* model = new Model(simulator);
     // Handle traces and simulation events to output them
-    TraceManager* tm = model->getTraceManager();
+    TraceManager* tm = model->tracer();
     this->setDefaultTraceHandlers(tm);
     // set the trace level of simulation to "blockArrival" level, which is an intermediate level of tracing
     tm->setTraceLevel(Util::TraceLevel::blockArrival);
     // insert "fake plugins" since plugins based on dynamic loaded library are not implemented yet
     this->insertFakePluginsByHand(simulator);
     // get easy access to classes used to insert components and elements into a model
-    ComponentManager* components = model->componentManager();
-    ElementManager* elements = model->elementManager();
+    ComponentManager* components = model->components();
+    ElementManager* elements = model->elements();
     //
     // build the simulation model
     //
     // set general info about the model
-    ModelInfo* infos = model->getInfos();
+    ModelInfo* infos = model->infos();
     infos->setReplicationLength(30);
     infos->setNumberOfReplications(3);
     // create a (Source)ModelElement of type EntityType, used by a ModelComponent that follows
@@ -135,13 +135,13 @@ int TestEnterLeaveRoute::main(int argc, char** argv) {
     // insert the model into the simulator 
     simulator->models()->insert(model);
     // check the model
-    model->checkModel();
+    model->check();
     // save the model into a text file 
     model->save("./temp/testEnterLeaveRoute.txt");
     // show the model
     model->show();
     // execute the simulation
-    model->getSimulation()->startSimulation();
+    model->simulation()->startSimulation();
     return 0;
 }
 

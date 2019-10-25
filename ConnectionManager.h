@@ -32,7 +32,7 @@ public:
     Connection* frontConnection();
     Connection* getConnectionAtRank(unsigned int rank);
     void insert(ModelComponent* component, unsigned int inputNumber = 0);
-    std::list<Connection*>* getList() const;
+    std::list<Connection*>* list() const;
 private:
     List<Connection*>* _nextConnections = new List<Connection*>();
 };

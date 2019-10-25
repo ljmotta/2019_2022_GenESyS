@@ -35,7 +35,7 @@ bool SourceModelComponent::_loadInstance(std::map<std::string, std::string>* fie
 	this->_timeBetweenCreationsTimeUnit = static_cast<Util::TimeUnit> (std::stoi((*fields->find("timeBetweenCreationsTimeUnit")).second));
 	this->_maxCreationsExpression = (*fields->find("maxCreations")).second;
 	std::string entityTypename = (*fields->find("entityTypename")).second;
-	this->_entityType = dynamic_cast<EntityType*> (_model->elementManager()->getElement(Util::TypeOf<EntityType>(), entityTypename));
+	this->_entityType = dynamic_cast<EntityType*> (_model->elements()->getElement(Util::TypeOf<EntityType>(), entityTypename));
     }
     return res;
 }
@@ -58,7 +58,7 @@ std::map<std::string, std::string>* SourceModelComponent::_saveInstance() {
 
 bool SourceModelComponent::_check(std::string* errorMessage) {
     /* include attributes needed */
-    ElementManager* elements = _model->elementManager();
+    ElementManager* elements = _model->elements();
     std::vector<std::string> neededNames = {"Entity.ArrivalTime"}; // "Entity.VATime", "Entity.NVATime", "Entity.WaitTime", "Entity.TransferTime", "Entity.OtherTime"
     std::string neededName;
     for (unsigned int i = 0; i < neededNames.size(); i++) {
@@ -69,7 +69,7 @@ bool SourceModelComponent::_check(std::string* errorMessage) {
 	}
     }
     bool resultAll = true;
-    resultAll &= _model->elementManager()->check(Util::TypeOf<EntityType>(), _entityType, "entitytype", errorMessage);
+    resultAll &= _model->elements()->check(Util::TypeOf<EntityType>(), _entityType, "entitytype", errorMessage);
     resultAll &= _model->checkExpression(this->_timeBetweenCreationsExpression, "time between creations", errorMessage);
     return resultAll;
 }

@@ -25,9 +25,9 @@ public:
     ToolManager(Simulator* _simulator);
     virtual ~ToolManager() = default;
 public:
-    Sampler_if* getSampler() const; ///< Returns the Sampler, used to generate samples accordingly to a probability distribution
-    Fitter_if* getFitter() const;
-    ProcessAnalyser_if* getExperimentDesigner() const; ///< Returns the fitter, responsible for carrying out tests of adherence of theoretical distributions of probability with sampled data.
+    Sampler_if* sampler() const; ///< Returns the Sampler, used to generate samples accordingly to a probability distribution
+    Fitter_if* fitter() const;
+    ProcessAnalyser_if* experimentDesigner() const; ///< Returns the fitter, responsible for carrying out tests of adherence of theoretical distributions of probability with sampled data.
 public: // event handlers
 private:
     Fitter_if* _fitter; // = new Traits<Fitter_if>::Implementation();

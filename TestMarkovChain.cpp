@@ -26,8 +26,8 @@ int TestMarkovChain::main(int argc, char** argv) {
     tm->setTraceLevel(Util::TraceLevel::mostDetailed);
     //
     Model* model = new Model(simulator);
-    ComponentManager* comps = model->componentManager();
-    ElementManager* elems = model->elementManager();
+    ComponentManager* comps = model->components();
+    ElementManager* elems = model->elements();
     Variable* var1 = new Variable("InitCond");
     var1->setValue("0", 0.1);
     var1->setValue("1", 0.4);

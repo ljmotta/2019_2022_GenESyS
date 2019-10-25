@@ -30,8 +30,8 @@ int TestLSODE::main(int argc, char** argv) {
     tm->setTraceLevel(Util::TraceLevel::mostDetailed);
     this->insertFakePluginsByHand(simulator);
     Model* model = new Model(simulator);
-    ComponentManager* components = model->componentManager();
-    ElementManager* elements = model->elementManager();
+    ComponentManager* components = model->components();
+    ElementManager* elements = model->elements();
     //
     EntityType* entityType1 = new EntityType(elements, "EntType_1");
     elements->insert(entityType1); 
@@ -50,9 +50,9 @@ int TestLSODE::main(int argc, char** argv) {
     //delay1->getNextComponents()->insert(dispose1);
     simulator->models()->insert(model);
     //
-    if (model->checkModel()) {
+    if (model->check()) {
 	model->save("./temp/testLSODE.txt");
     }
-    model->getSimulation()->startSimulation();
+    model->simulation()->startSimulation();
     return 0;    
 }

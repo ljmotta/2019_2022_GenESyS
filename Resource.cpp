@@ -133,7 +133,7 @@ double Resource::getLastTimeSeized() const {
 }
 
 void Resource::_notifyEventHandlers() {
-    for (std::list<ResourceEventHandler>::iterator it = this->_resourceEventHandlers->getList()->begin(); it != _resourceEventHandlers->getList()->end(); it++) {
+    for (std::list<ResourceEventHandler>::iterator it = this->_resourceEventHandlers->list()->begin(); it != _resourceEventHandlers->list()->end(); it++) {
 	(*it)(this);
     }
 }

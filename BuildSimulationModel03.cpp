@@ -43,7 +43,7 @@ BuildSimulationModel03::BuildSimulationModel03() {
 
 void _buildMostCompleteModel(Model* model) {
     // buildModelWithAllImplementedComponents
-    ModelInfo* infos = model->getInfos();
+    ModelInfo* infos = model->infos();
     infos->setAnalystName("Your name");
     infos->setProjectTitle("The title of the project");
     infos->setDescription("The description of the project");
@@ -54,8 +54,8 @@ void _buildMostCompleteModel(Model* model) {
     infos->setWarmUpPeriodTimeUnit(Util::TimeUnit::minute);
     infos->setDescription("./models/model99_AllTogether.txt");
 
-    ComponentManager* components = model->componentManager();
-    ElementManager* elements = model->elementManager();
+    ComponentManager* components = model->components();
+    ElementManager* elements = model->elements();
 
     EntityType* entityType1 = new EntityType(elements, "Representative_EntityType");
     elements->insert(entityType1);
@@ -198,7 +198,7 @@ void BuildSimulationModel03::builAndRunSimulationdModel() {
 
     //model->checkModel();
     //model->show();
-    model->getSimulation()->startSimulation();
+    model->simulation()->startSimulation();
 }
 
 int BuildSimulationModel03::main(int argc, char** argv) {

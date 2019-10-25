@@ -22,14 +22,14 @@ ToolManager::ToolManager(Simulator* simulator) {
     _sampler = new Traits<Sampler_if>::Implementation();
     _processAnalyser = new Traits<ProcessAnalyser_if>::Implementation();
 }
-Sampler_if* ToolManager::getSampler() const {
+Sampler_if* ToolManager::sampler() const {
     return _sampler;
 }
 
-Fitter_if* ToolManager::getFitter() const {
+Fitter_if* ToolManager::fitter() const {
     return _fitter;
 }
 
-ProcessAnalyser_if* ToolManager::getExperimentDesigner() const {
+ProcessAnalyser_if* ToolManager::experimentDesigner() const {
     return _processAnalyser;
 }

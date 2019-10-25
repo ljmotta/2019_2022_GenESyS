@@ -57,7 +57,7 @@ void Write::_execute(Entity* entity) {
     //_model->getTraceManager()->trace(Util::TraceLevel::blockInternal, "I'm just a dummy model and I'll just send the entity forward");
     WriteElement* msgElem;
     if (this->_writeToType == Write::WriteToType::SCREEN) { //@TODO: Write To FILE not implemented
-	std::list<WriteElement*>* msgs = this->_writeElements->getList();
+	std::list<WriteElement*>* msgs = this->_writeElements->list();
 	std::string message = "";
 	for (std::list<WriteElement*>::iterator it = msgs->begin(); it != msgs->end(); it++) {
 	    msgElem = (*it);
@@ -67,12 +67,12 @@ void Write::_execute(Entity* entity) {
 		message += msgElem->text;
 	    }
 	    if (msgElem->newline) {
-		_model->getTraceManager()->trace(Util::TraceLevel::report, message);
+		_model->tracer()->trace(Util::TraceLevel::report, message);
 		message = "";
 	    }
 	}
 	if (message != "") {
-	    _model->getTraceManager()->trace(Util::TraceLevel::report, message);
+	    _model->tracer()->trace(Util::TraceLevel::report, message);
 	}
     }
     this->_model->sendEntityToComponent(entity, this->getNextComponents()->frontConnection(), 0.0);
@@ -99,7 +99,7 @@ bool Write::_check(std::string* errorMessage) {
     bool resultAll = true;
     WriteElement* msgElem;
     unsigned short i=0;
-    std::list<WriteElement*>* msgs = this->_writeElements->getList();
+    std::list<WriteElement*>* msgs = this->_writeElements->list();
     for (std::list<WriteElement*>::iterator it = msgs->begin(); it != msgs->end(); it++) {
 	msgElem = (*it);
 	i++;

@@ -50,7 +50,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	Model* model = new Model(simulator);
 	ElementManager* em = em;
 	// build the simulation model
-	ModelInfo* infos = model->getInfos();
+	ModelInfo* infos = model->infos();
 	infos->setNumberOfReplications(1);
 	EntityType* part = new EntityType(em, "Part");
 	model->insert(part);
@@ -185,15 +185,15 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	release3->getNextComponents()->insert(dispose1);
 	//
 	simulator->models()->insert(model);
-	if (model->checkModel()) {
+	if (model->check()) {
 	    model->save("./temp/forthExampleOfSimulation.txt");
 	}
     } else { // load previously saved model
 	simulator->models()->loadModel("./temp/forthExampleOfSimulation.txt");
 	model = simulator->models()->current();
     }
-    this->setDefaultEventHandlers(model->onEventManager());
-    model->getSimulation()->startSimulation();
+    this->setDefaultEventHandlers(model->onEvents());
+    model->simulation()->startSimulation();
     return 0;
 }
 

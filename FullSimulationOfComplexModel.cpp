@@ -47,17 +47,17 @@ int FullSimulationOfComplexModel::main(int argc, char** argv) {
     Model* model = new Model(simulator);
 
     // Handle traces and simulation events to output them
-    TraceManager* tm = model->getTraceManager();
+    TraceManager* tm = model->tracer();
     this->setDefaultTraceHandlers(tm);
 
     // get easy access to classes used to insert components and elements into a model
-    ComponentManager* components = model->componentManager();
-    ElementManager* elements = model->elementManager();
+    ComponentManager* components = model->components();
+    ElementManager* elements = model->elements();
 
     //
     // build the simulation model
     //
-    ModelInfo* infos = model->getInfos();
+    ModelInfo* infos = model->infos();
     infos->setAnalystName("Your name");
     infos->setProjectTitle("The title of the project");
     infos->setDescription("This simulation model tests the components and elements that have been implemented so far.");
@@ -136,12 +136,12 @@ int FullSimulationOfComplexModel::main(int argc, char** argv) {
     simulator->models()->insert(model);
 
     // if the model is ok then save the model into a text file 
-    if (model->checkModel()) {
+    if (model->check()) {
 	model->save("./temp/fullSimulationModel.txt");
     }
 
     // execute the simulation
-    model->getSimulation()->startSimulation();
+    model->simulation()->startSimulation();
 
     return 0;
 };

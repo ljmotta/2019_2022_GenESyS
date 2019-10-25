@@ -49,7 +49,7 @@ int SecondExampleOfSimulation::main(int argc, char** argv) {
 	model = new Model(simulator);
 	// build the simulation model
 	// set general info about the model
-	ModelInfo* infos = model->getInfos();
+	ModelInfo* infos = model->infos();
 	infos->setAnalystName("Your name");
 	infos->setProjectTitle("The title of the project");
 	infos->setDescription("This simulation model tests one of the most basic models possible.");
@@ -57,7 +57,7 @@ int SecondExampleOfSimulation::main(int argc, char** argv) {
 	infos->setReplicationLengthTimeUnit(Util::TimeUnit::minute); // each replication will last 30 minutes (simulated time)
 	infos->setNumberOfReplications(3); // replicates the simulation 3 times
 	// create a (Source)ModelElement of type EntityType, used by a ModelComponent that follows
-	EntityType* entityType1 = new EntityType(model->elementManager(), "Type_of_Representative_Entity");
+	EntityType* entityType1 = new EntityType(model->elements(), "Type_of_Representative_Entity");
 	model->insert(entityType1);
 	// create a ModelComponent of type Create, used to insert entities into the model
 	Create* create1 = new Create(model);
@@ -80,14 +80,14 @@ int SecondExampleOfSimulation::main(int argc, char** argv) {
 	// insert the model into the simulator 
 	simulator->models()->insert(model);
 	// if the model is ok then save the model into a text file 
-	if (model->checkModel())
+	if (model->check())
 	    model->save("./temp/secondExampleOfSimulation.txt");
     } else {
 	simulator->models()->loadModel("./temp/secondExampleOfSimulation.txt");
 	model =  simulator->models()->current();
     }
     // execute the simulation
-    model->getSimulation()->startSimulation();
+    model->simulation()->startSimulation();
 
     return 0;
 };

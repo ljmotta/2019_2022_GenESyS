@@ -24,7 +24,7 @@ ComponentManager::ComponentManager(Model* model) {
 
 
 bool ComponentManager::insert(ModelComponent* comp) {
-    if (_components->find(comp) == _components->getList()->end()) {
+    if (_components->find(comp) == _components->list()->end()) {
 	_components->insert(comp);
 	return true;
     }
@@ -50,9 +50,9 @@ unsigned int ComponentManager::getNumberOfComponents() {
 }
 
 std::list<ModelComponent*>::iterator ComponentManager::begin() {
-    return _components->getList()->begin();
+    return _components->list()->begin();
 }
 
 std::list<ModelComponent*>::iterator ComponentManager::end() {
-    return _components->getList()->end();
+    return _components->list()->end();
 }

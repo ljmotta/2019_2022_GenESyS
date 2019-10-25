@@ -73,15 +73,15 @@ Route::DestinationType Route::getRouteDestinationType() const {
 
 void Route::_execute(Entity* entity) {
     // adds the route time to the TransferTime statistics / attribute related to the Entitys 
-    double routeTime = _model->parseExpression(_routeTimeExpression) * Util::TimeUnitConvert(_routeTimeTimeUnit, _model->getInfos()->getReplicationLengthTimeUnit());
+    double routeTime = _model->parseExpression(_routeTimeExpression) * Util::TimeUnitConvert(_routeTimeTimeUnit, _model->infos()->getReplicationLengthTimeUnit());
     entity->getEntityType()->getStatisticsCollector("Transfer Time")->getStatistics()->getCollector()->addValue(routeTime);
     entity->setAttributeValue("Entity.TransferTime", entity->getAttributeValue("Entity.TransferTime") + routeTime);
     if (routeTime > 0.0) {
 	// calculates when this Entity will reach the end of this route and schedule this Event
-	double routeEndTime = _model->getSimulation()->getSimulatedTime() + routeTime;
+	double routeEndTime = _model->simulation()->getSimulatedTime() + routeTime;
 	Event* newEvent = new Event(routeEndTime, entity, _station->getEnterIntoStationComponent());
-	_model->getEvents()->insert(newEvent);
-	_model->getTraceManager()->trace(Util::TraceLevel::blockInternal, "End of route of entity " + std::to_string(entity->getEntityNumber()) + " to the component \"" + _station->getEnterIntoStationComponent()->getName() + "\" was scheduled to time " + std::to_string(routeEndTime));
+	_model->futureEvents()->insert(newEvent);
+	_model->tracer()->trace(Util::TraceLevel::blockInternal, "End of route of entity " + std::to_string(entity->getEntityNumber()) + " to the component \"" + _station->getEnterIntoStationComponent()->getName() + "\" was scheduled to time " + std::to_string(routeEndTime));
     } else {
 	// send without delay
 	_model->sendEntityToComponent(entity, _station->getEnterIntoStationComponent(), 0.0);
@@ -95,7 +95,7 @@ bool Route::_loadInstance(std::map<std::string, std::string>* fields) {
 	this->_routeTimeTimeUnit = static_cast<Util::TimeUnit> (std::stoi((*fields->find("routeTimeTimeUnit")).second));
 	this->_routeDestinationType = static_cast<Route::DestinationType> (std::stoi((*fields->find("routeDestinationType")).second));
 	std::string stationName = ((*(fields->find("stationName"))).second);
-	Station* station = dynamic_cast<Station*> (_model->elementManager()->getElement(Util::TypeOf<Station>(), stationName));
+	Station* station = dynamic_cast<Station*> (_model->elements()->getElement(Util::TypeOf<Station>(), stationName));
 	this->_station = station;
     }
     return res;
@@ -116,7 +116,7 @@ std::map<std::string, std::string>* Route::_saveInstance() {
 
 bool Route::_check(std::string* errorMessage) {
     //include attributes needed
-    ElementManager* elements = _model->elementManager();
+    ElementManager* elements = _model->elements();
     std::vector<std::string> neededNames = {"Entity.TransferTime", "Entity.Station"};
     std::string neededName;
     for (unsigned int i = 0; i < neededNames.size(); i++) {
@@ -127,13 +127,13 @@ bool Route::_check(std::string* errorMessage) {
 	}
     } 
     // include StatisticsCollector needed in EntityType
-    std::list<ModelElement*>* enttypes = elements->getElements(Util::TypeOf<EntityType>())->getList();
+    std::list<ModelElement*>* enttypes = elements->getElements(Util::TypeOf<EntityType>())->list();
     for (std::list<ModelElement*>::iterator it= enttypes->begin(); it!= enttypes->end(); it++) {
 	static_cast<EntityType*>((*it))->getStatisticsCollector("Transfer Time"); // force create this CStat before simulation starts
     }
     bool resultAll = true;
     resultAll &= _model->checkExpression(_routeTimeExpression, "Route time expression", errorMessage);
-    resultAll &= _model->elementManager()->check(Util::TypeOf<Station>(), _station, "Station", errorMessage);
+    resultAll &= _model->elements()->check(Util::TypeOf<Station>(), _station, "Station", errorMessage);
     if (resultAll) {
 	resultAll &= _station->getEnterIntoStationComponent() != nullptr;
 	if (!resultAll) {

@@ -42,7 +42,7 @@ public: // direct access to list
     void pop_front();
     template<class Compare>
     void sort(Compare comp);
-    std::list<T>* getList() const;
+    std::list<T>* list() const;
 public: // new methods 
     T create();
     template<typename U>
@@ -78,7 +78,7 @@ List<T>::List() {
 }
 
 template <typename T>
-std::list<T>* List<T>::getList() const {
+std::list<T>* List<T>::list() const {
     return _list;
 }
 

@@ -18,11 +18,11 @@
 #include <iostream>
 
 Record::Record(Model* model) : ModelComponent(model, Util::TypeOf<Record>()) {
-    _cstatExpression = new StatisticsCollector(_model->elementManager(), _expressionName, this);
-    _model->elementManager()->insert(_cstatExpression);
+    _cstatExpression = new StatisticsCollector(_model->elements(), _expressionName, this);
+    _model->elements()->insert(_cstatExpression);
 }
 Record::~Record() {
-    _model->elementManager()->remove(Util::TypeOf<StatisticsCollector>(), _cstatExpression);
+    _model->elements()->remove(Util::TypeOf<StatisticsCollector>(), _cstatExpression);
 }
 
 std::string Record::show() {
@@ -68,7 +68,7 @@ void Record::_execute(Entity* entity) {
     file.open(_filename, std::ofstream::out | std::ofstream::app);
     file << value << std::endl;
     file.close(); // TODO: open and close for every data is not a good idea. Should open when replication starts and close when it finishes.    
-    _model->getTraceManager()->traceSimulation(Util::TraceLevel::blockInternal, _model->getSimulation()->getSimulatedTime(), entity, this, "Recording value " + std::to_string(value));
+    _model->tracer()->traceSimulation(Util::TraceLevel::blockInternal, _model->simulation()->getSimulatedTime(), entity, this, "Recording value " + std::to_string(value));
     _model->sendEntityToComponent(entity, this->getNextComponents()->frontConnection(), 0.0);
 
 }

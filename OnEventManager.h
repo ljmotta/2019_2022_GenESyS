@@ -99,10 +99,10 @@ private: // events listener
 template<typename Class> void OnEventManager::addOnProcessEventHandler(Class * object, void (Class::*function)(SimulationEvent*)) {
     simulationEventHandlerMethod handlerMethod = std::bind(function, object, std::placeholders::_1);
     // TODO: if handlerMethod already insert, should not insert it again. Problem to solve <...> for function
-    //if (_onProcessEventHandlerMethods->find(handlerMethod) == _onProcessEventHandlerMethods->getList()->end())
+    //if (_onProcessEventHandlerMethods->find(handlerMethod) == _onProcessEventHandlerMethods->list()->end())
     this->_onProcessEventHandlerMethods->insert(handlerMethod);
     // trying unique to solve the issue
-    //this->_onProcessEventHandlerMethods->getList()->unique(); // does not work
+    //this->_onProcessEventHandlerMethods->list()->unique(); // does not work
     // TODO probabily to override == operator for type simulationEventHandlerMethod
 }
 

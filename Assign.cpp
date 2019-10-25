@@ -50,14 +50,14 @@ ModelComponent* Assign::LoadInstance(Model* model, std::map<std::string, std::st
 
 void Assign::_execute(Entity* entity) {
     Assignment* let;
-    std::list<Assignment*>* lets = this->_assignments->getList();
+    std::list<Assignment*>* lets = this->_assignments->list();
     for (std::list<Assignment*>::iterator it = lets->begin(); it != lets->end(); it++) {
 	let = (*it);
 	double value = _model->parseExpression(let->getExpression());
-	_model->getTraceManager()->trace(Util::TraceLevel::blockInternal, "Let \"" + let->getDestination() + "\" = " + std::to_string(value) + "  // " + let->getExpression());
+	_model->tracer()->trace(Util::TraceLevel::blockInternal, "Let \"" + let->getDestination() + "\" = " + std::to_string(value) + "  // " + let->getExpression());
 	/* TODO: this is NOT the best way to do it (enum comparision) */
 	if (let->getDestinationType() == DestinationType::Variable) {
-	    Variable* myvar = (Variable*) this->_model->elementManager()->getElement(Util::TypeOf<Variable>(), let->getDestination());
+	    Variable* myvar = (Variable*) this->_model->elements()->getElement(Util::TypeOf<Variable>(), let->getDestination());
 	    myvar->setValue(value);
 	} else if (let->getDestinationType() == DestinationType::Attribute) {
 	    entity->setAttributeValue(let->getDestination(), value);
@@ -90,7 +90,7 @@ std::map<std::string, std::string>* Assign::_saveInstance() {
     Assignment* let;
     fields->emplace("assignments", std::to_string(_assignments->size()));
     unsigned short i = 0;
-    for (std::list<Assignment*>::iterator it = _assignments->getList()->begin(); it != _assignments->getList()->end(); it++) {
+    for (std::list<Assignment*>::iterator it = _assignments->list()->begin(); it != _assignments->list()->end(); it++) {
 	let = (*it);
 
 	fields->emplace("destinationType" + std::to_string(i), std::to_string(static_cast<int> (let->getDestinationType())));
@@ -103,13 +103,13 @@ std::map<std::string, std::string>* Assign::_saveInstance() {
 bool Assign::_check(std::string* errorMessage) {
     Assignment* let;
     bool resultAll = true;
-    for (std::list<Assignment*>::iterator it = _assignments->getList()->begin(); it != _assignments->getList()->end(); it++) {
+    for (std::list<Assignment*>::iterator it = _assignments->list()->begin(); it != _assignments->list()->end(); it++) {
 	let = (*it);
 	resultAll &= _model->checkExpression(let->getExpression(), "assignment", errorMessage);
 	if (let->getDestinationType() == DestinationType::Attribute) { // TODO I dont like the way we check the destination
-	    resultAll &= _model->elementManager()->check(Util::TypeOf<Attribute>(), let->getDestination(), "destination", true, errorMessage);
+	    resultAll &= _model->elements()->check(Util::TypeOf<Attribute>(), let->getDestination(), "destination", true, errorMessage);
 	} else if (let->getDestinationType() == DestinationType::Variable) {
-	    resultAll &= _model->elementManager()->check(Util::TypeOf<Variable>(), let->getDestination(), "destination", true, errorMessage);
+	    resultAll &= _model->elements()->check(Util::TypeOf<Variable>(), let->getDestination(), "destination", true, errorMessage);
 	}
     }
     return resultAll;

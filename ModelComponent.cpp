@@ -24,12 +24,12 @@ void ModelComponent::Execute(Entity* entity, ModelComponent* component, unsigned
     //TODO: How can I know the number of inputs?
     if (inputNumber > 0)
 	msg += " by input " + std::to_string(inputNumber);
-    component->_model->getTraceManager()->trace(Util::TraceLevel::blockArrival, msg);
+    component->_model->tracer()->trace(Util::TraceLevel::blockArrival, msg);
     Util::IncIndent();
     try {
 	component->_execute(entity);
     } catch (const std::exception& e) {
-	component->_model->getTraceManager()->traceError(e, "Error executing component " + component->show());
+	component->_model->tracer()->traceError(e, "Error executing component " + component->show());
     }
     Util::DecIndent();
 }
@@ -39,7 +39,7 @@ void ModelComponent::InitBetweenReplications(ModelComponent* component) {
     try {
 	component->_initBetweenReplications();
     } catch (const std::exception& e) {
-	component->_model->getTraceManager()->traceError(e, "Error initing component " + component->show());
+	component->_model->tracer()->traceError(e, "Error initing component " + component->show());
     };
 }
 
@@ -48,23 +48,23 @@ void ModelComponent::CreateInternalElements(ModelComponent* component) {
     try {
 	component->_createInternalElements();
     } catch (const std::exception& e) {
-	component->_model->getTraceManager()->traceError(e, "Error creating elements of component " + component->show());
+	component->_model->tracer()->traceError(e, "Error creating elements of component " + component->show());
     };    
 }
 
 std::map<std::string, std::string>* ModelComponent::SaveInstance(ModelComponent* component) {
-    component->_model->getTraceManager()->trace(Util::TraceLevel::blockArrival, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));
+    component->_model->tracer()->trace(Util::TraceLevel::blockArrival, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));
     std::map<std::string, std::string>* fields = new std::map<std::string, std::string>();
     try {
 	fields = component->_saveInstance();
     } catch (const std::exception& e) {
-	component->_model->getTraceManager()->traceError(e, "Error executing component " + component->show());
+	component->_model->tracer()->traceError(e, "Error executing component " + component->show());
     }
     return fields;
 }
 
 bool ModelComponent::Check(ModelComponent* component) {
-    component->_model->getTraceManager()->trace(Util::TraceLevel::mostDetailed, "Checking " + component->_typename + ": " + component->_name); //std::to_string(component->_id));
+    component->_model->tracer()->trace(Util::TraceLevel::mostDetailed, "Checking " + component->_typename + ": " + component->_name); //std::to_string(component->_id));
     bool res = false;
     std::string* errorMessage = new std::string();
     Util::IncIndent();
@@ -72,10 +72,10 @@ bool ModelComponent::Check(ModelComponent* component) {
 	try {
 	    res = component->_check(errorMessage);
 	    if (!res) {
-		component->_model->getTraceManager()->trace(Util::TraceLevel::errors, "Error: Checking has failed with message '" + *errorMessage + "'");
+		component->_model->tracer()->trace(Util::TraceLevel::errors, "Error: Checking has failed with message '" + *errorMessage + "'");
 	    }
 	} catch (const std::exception& e) {
-	    component->_model->getTraceManager()->traceError(e, "Error verifying component " + component->show());
+	    component->_model->tracer()->traceError(e, "Error verifying component " + component->show());
 	}
     }
     Util::DecIndent();
@@ -109,7 +109,7 @@ std::map<std::string, std::string>* ModelComponent::_saveInstance() {
     std::map<std::string, std::string>* fields = ModelElement::_saveInstance();
     fields->emplace("nextSize", std::to_string(this->_nextComponents->size()));
     unsigned short i = 0;
-    for (std::list<Connection*>::iterator it = _nextComponents->getList()->begin(); it != _nextComponents->getList()->end(); it++) {
+    for (std::list<Connection*>::iterator it = _nextComponents->list()->begin(); it != _nextComponents->list()->end(); it++) {
 	fields->emplace("nextId" + std::to_string(i), std::to_string((*it)->first->_id));
 	fields->emplace("nextInputNumber" + std::to_string(i), std::to_string((*it)->second));
 	i++;

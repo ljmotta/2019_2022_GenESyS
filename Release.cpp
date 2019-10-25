@@ -85,8 +85,8 @@ void Release::_execute(Entity* entity) {
     }
     unsigned int quantity = _model->parseExpression(this->_quantity);
     assert(_resource->getNumberBusy() >= quantity);
-    _model->getTraceManager()->traceSimulation(Util::TraceLevel::blockInternal, _model->getSimulation()->getSimulatedTime(), entity, this, "Entity frees " + std::to_string(quantity) + " units of resource \"" + resource->getName() + "\" seized on time " + std::to_string(_resource->getLastTimeSeized()));
-    _resource->release(quantity, _model->getSimulation()->getSimulatedTime()); //{releases and sets the 'LastTimeSeized'property}
+    _model->tracer()->traceSimulation(Util::TraceLevel::blockInternal, _model->simulation()->getSimulatedTime(), entity, this, "Entity frees " + std::to_string(quantity) + " units of resource \"" + resource->getName() + "\" seized on time " + std::to_string(_resource->getLastTimeSeized()));
+    _resource->release(quantity, _model->simulation()->getSimulatedTime()); //{releases and sets the 'LastTimeSeized'property}
     _model->sendEntityToComponent(entity, this->getNextComponents()->frontConnection(), 0.0);
 }
 
@@ -105,7 +105,7 @@ bool Release::_loadInstance(std::map<std::string, std::string>* fields) {
 	//Util::identitifcation resourceId = std::stoi((*(fields->find("resourceId"))).second);
 	//Resource* res = dynamic_cast<Resource*> (_model->getElementManager()->getElement(Util::TypeOf<Resource>(), resourceId));
 	std::string resourceName = ((*(fields->find("resourceName"))).second);
-	Resource* res = dynamic_cast<Resource*> (_model->elementManager()->getElement(Util::TypeOf<Resource>(), resourceName));
+	Resource* res = dynamic_cast<Resource*> (_model->elements()->getElement(Util::TypeOf<Resource>(), resourceName));
 	this->_resource = res;
     }
     return res;
@@ -127,13 +127,13 @@ std::map<std::string, std::string>* Release::_saveInstance() {
 bool Release::_check(std::string* errorMessage) {
     bool resultAll = true;
     resultAll &= _model->checkExpression(_quantity, "quantity", errorMessage);
-    resultAll &= _model->elementManager()->check(Util::TypeOf<Resource>(), _resource, "resource", errorMessage);
-    resultAll &= _model->elementManager()->check(Util::TypeOf<Attribute>(), _saveAttribute, "SaveAttribute", false, errorMessage);
+    resultAll &= _model->elements()->check(Util::TypeOf<Resource>(), _resource, "resource", errorMessage);
+    resultAll &= _model->elements()->check(Util::TypeOf<Attribute>(), _saveAttribute, "SaveAttribute", false, errorMessage);
     return resultAll;
 }
 
 void Release::setResourceName(std::string resourceName) throw () {
-    ModelElement* resource = _model->elementManager()->getElement(Util::TypeOf<Resource>(), resourceName);
+    ModelElement* resource = _model->elements()->getElement(Util::TypeOf<Resource>(), resourceName);
     if (resource != nullptr) {
 	this->_resource = dynamic_cast<Resource*> (resource);
     } else {

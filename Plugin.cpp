@@ -47,7 +47,7 @@ ModelElement* Plugin::loadNew(Model* model, std::map<std::string, std::string>* 
     if (this->_pluginInfo->isComponent()) {
 	return _loadNewComponent(model, fields);
     } else {
-	return _loadNewElement(model->elementManager(), fields);
+	return _loadNewElement(model->elements(), fields);
     }
 }
 
@@ -56,13 +56,13 @@ bool Plugin::loadAndInsertNew(Model* model, std::map<std::string, std::string>* 
 	ModelComponent* newComp = _loadNewComponent(model, fields);
 	if (newComp != nullptr) {
 	    //model->getTraceManager()->trace(Util::TraceLevel::blockInternal, newComp->show());
-	    return model->componentManager()->insert(newComp);
+	    return model->components()->insert(newComp);
 	}
     } else {
-	ModelElement* newElem = _loadNewElement(model->elementManager(), fields);
+	ModelElement* newElem = _loadNewElement(model->elements(), fields);
 	if (newElem != nullptr) {
 	    //model->getTraceManager()->trace(Util::TraceLevel::blockInternal, newElem->show());
-	    return model->elementManager()->insert(this->_pluginInfo->getPluginTypename(), newElem);
+	    return model->elements()->insert(this->_pluginInfo->getPluginTypename(), newElem);
 	}
     }
     return false;

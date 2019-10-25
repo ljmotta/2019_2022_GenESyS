@@ -46,7 +46,7 @@ void GenesysConsole::cmdTraceLevel() {
     try {
 	int tlnum = std::stoi(_parameter);
 	Util::TraceLevel tl = static_cast<Util::TraceLevel> (tlnum);
-	_simulator->models()->current()->getTraceManager()->setTraceLevel(tl);
+	_simulator->models()->current()->tracer()->setTraceLevel(tl);
     } catch (...) {
 	Trace("Error setting trace level");
     }
@@ -55,7 +55,7 @@ void GenesysConsole::cmdTraceLevel() {
 void GenesysConsole::cmdModelCheck() {
     Trace("Check model");
     try {
-	_simulator->models()->current()->checkModel();
+	_simulator->models()->current()->check();
     } catch (...) {
 	Trace("Error checking model");
     }
@@ -64,7 +64,7 @@ void GenesysConsole::cmdModelCheck() {
 void GenesysConsole::cmdStart() {
     Trace("Start simulation");
     try {
-	_simulator->models()->current()->getSimulation()->startSimulation();
+	_simulator->models()->current()->simulation()->startSimulation();
     } catch (...) {
 	Trace("Error starting simulation");
     }
@@ -73,7 +73,7 @@ void GenesysConsole::cmdStart() {
 void GenesysConsole::cmdStep() {
     Trace("Step simulation");
     try {
-	_simulator->models()->current()->getSimulation()->stepSimulation();
+	_simulator->models()->current()->simulation()->stepSimulation();
     } catch (...) {
 	Trace("Error stepping simulation");
     }
@@ -82,7 +82,7 @@ void GenesysConsole::cmdStep() {
 void GenesysConsole::cmdStop() {
     Trace("Stop simulation");
     try {
-	_simulator->models()->current()->getSimulation()->stopSimulation();
+	_simulator->models()->current()->simulation()->stopSimulation();
     } catch (...) {
 	Trace("Error stopping simulation");
     }
@@ -91,7 +91,7 @@ void GenesysConsole::cmdStop() {
 void GenesysConsole::cmdShowReport() {
     Trace("Show report");
     try {
-	_simulator->models()->current()->getSimulation()->getSimulationReporter()->showSimulationStatistics();
+	_simulator->models()->current()->simulation()->getSimulationReporter()->showSimulationStatistics();
     } catch (...) {
 	Trace("Error showing reports");
     }
@@ -101,7 +101,7 @@ void GenesysConsole::cmdHelp() {
     ShellCommand* command;
     Trace("List of commands:");
     Trace(Util::SetW("Short", 6) + Util::SetW("Long", 12) + Util::SetW("Parameters", 15) + "Description");
-    for (std::list<ShellCommand*>::iterator it = _commands->getList()->begin(); it != _commands->getList()->end(); it++) {
+    for (std::list<ShellCommand*>::iterator it = _commands->list()->begin(); it != _commands->list()->end(); it++) {
 	//Trace("Unknown command. Type \"-h\" or \"help\" for help on possible commands.");
 	command = (*it);
 	Trace(Util::SetW(command->shortname, 6) + Util::SetW(command->longname, 12) + Util::SetW(command->parameters, 15) + command->descrition);
@@ -196,7 +196,7 @@ void GenesysConsole::tryExecuteCommand(std::string inputText, std::string shortP
     std::transform(typedCommandStr.begin(), typedCommandStr.end(), typedCommandStr.begin(), ::tolower);
     if (typedCommandStr.substr(0, 1) != "#") {
 	found = false;
-	for (std::list<ShellCommand*>::iterator it = _commands->getList()->begin(); it != _commands->getList()->end(); it++) {
+	for (std::list<ShellCommand*>::iterator it = _commands->list()->begin(); it != _commands->list()->end(); it++) {
 	    //Trace("Unknown command. Type \"-h\" or \"help\" for help on possible commands.");
 	    command = (*it);
 	    if (typedCommandStr == shortPrefix + command->shortname || typedCommandStr == longPrefix + command->longname) {

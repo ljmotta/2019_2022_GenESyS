@@ -49,7 +49,7 @@ int FirstExampleOfSimulation::main(int argc, char** argv) {
 	//
 	// if no ModelInfo is provided, then the model will be simulated once (one replication) and the replication length will be 60 seconds (simulated time)
 	// create a (Source)ModelElement of type EntityType, used by a ModelComponent that follows
-	EntityType* entityType1 = new EntityType(model->elementManager(), "Type_of_Representative_Entity");
+	EntityType* entityType1 = new EntityType(model->elements(), "Type_of_Representative_Entity");
 	model->insert(entityType1); // insert the element into the model
 
 	// create a ModelComponent of type Create, used to insert entities into the model
@@ -73,7 +73,7 @@ int FirstExampleOfSimulation::main(int argc, char** argv) {
 	// insert the model into the simulator 
 	simulator->models()->insert(model);
 	// if the model is ok then save the model into a text file 
-	if (model->checkModel())
+	if (model->check())
 	    model->save("./temp/firstExampleOfSimulation.txt");
     } else {
 	simulator->models()->loadModel("./temp/firstExampleOfSimulation.txt");
@@ -81,7 +81,7 @@ int FirstExampleOfSimulation::main(int argc, char** argv) {
     }
 
     // execute the simulation util completed and show the report
-    model->getSimulation()->startSimulation();
+    model->simulation()->startSimulation();
 
     return 0;
 };

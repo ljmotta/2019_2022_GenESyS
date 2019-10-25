@@ -37,7 +37,7 @@ void Counter::_addSimulationResponse(ElementManager* elems) {
     if (_parent != nullptr)
 	parentName = _parent->getName();
     SimulationResponse* resp = new SimulationResponse(Util::TypeOf<Counter>(), parentName+":"+_name, getterMember);
-    elems->getParentModel()->getResponses()->insert(resp);
+    elems->getParentModel()->responses()->insert(resp);
 }
 
 std::string Counter::show() {
