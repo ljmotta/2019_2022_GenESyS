@@ -32,7 +32,7 @@ class Model;
 class ModelComponent : public ModelElement {
 public:
     ModelComponent(Model* model, std::string componentTypename);
-    virtual ~ModelComponent() = default;
+    virtual ~ModelComponent();
 public:
     virtual std::string show();
 public:

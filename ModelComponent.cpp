@@ -19,9 +19,9 @@ ModelComponent::ModelComponent(Model* model, std::string componentTypename) : Mo
     model->components()->insert(this);
 }
 
-//ModelComponent::~ModelComponent(){
-//    _parentModel->components()->remove(this);
-//}
+ModelComponent::~ModelComponent(){
+    _parentModel->components()->remove(this);
+}
 
 void ModelComponent::Execute(Entity* entity, ModelComponent* component, unsigned int inputNumber) {
     std::string msg = "Entity " + std::to_string(entity->getEntityNumber()) + " has arrived at component \"" + component->_name + "\"";

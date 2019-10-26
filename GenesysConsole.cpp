@@ -91,7 +91,7 @@ void GenesysConsole::cmdStop() {
 void GenesysConsole::cmdShowReport() {
     Trace("Show report");
     try {
-	_simulator->models()->current()->simulation()->getSimulationReporter()->showSimulationStatistics();
+	_simulator->models()->current()->simulation()->reporter()->showSimulationStatistics();
     } catch (...) {
 	Trace("Error showing reports");
     }

@@ -57,6 +57,10 @@ void Variable::setValue(std::string index, double value) {
     }
 }
 
+List<unsigned int>* Variable::getDimensionSizes() const {
+    return _dimensionSizes;
+}
+
 ModelElement* Variable::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
     Variable* newElement = new Variable(model);
     try {
@@ -70,8 +74,8 @@ ModelElement* Variable::LoadInstance(Model* model, std::map<std::string, std::st
 bool Variable::_loadInstance(std::map<std::string, std::string>* fields) {
     bool res= ModelElement::_loadInstance(fields);
     if (res) {
-	this->_numCols=std::stoi((*(fields->find("numCols"))).second);
-	this->_numRows=std::stoi((*(fields->find("numRows"))).second);
+	///////////this->_numCols=std::stoi((*(fields->find("numCols"))).second);
+	///////////this->_numRows=std::stoi((*(fields->find("numRows"))).second);
 	unsigned int nv = std::stoi((*(fields->find("numValues"))).second);
 	std::string pos;
 	double value;
@@ -86,8 +90,8 @@ bool Variable::_loadInstance(std::map<std::string, std::string>* fields) {
 
 std::map<std::string, std::string>* Variable::_saveInstance() {
     std::map<std::string, std::string>* fields = ModelElement::_saveInstance(); //Util::TypeOf<Variable>());
-    fields->emplace("numCols" , std::to_string(this->_numCols));
-    fields->emplace("numRows" , std::to_string(this->_numRows));
+    ///////////fields->emplace("numCols" , std::to_string(this->_numCols));
+    ///////////fields->emplace("numRows" , std::to_string(this->_numRows));
     fields->emplace("numValues", std::to_string(this->_values->size()));
     unsigned int i=0;
     for (std::map<std::string, double>::iterator it = this->_values->begin(); it != _values->end(); it++) {

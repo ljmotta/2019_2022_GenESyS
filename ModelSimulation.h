@@ -48,13 +48,13 @@ public:
     void setPauseOnReplication(bool _pauseBetweenReplications);
     bool isPauseOnReplication() const;
 public: // only gets
-    double getSimulatedTime() const; /*! The current time in the model being simulated, i.e., the instant when the current event was triggered */
+    double simulatedTime() const; /*! The current time in the model being simulated, i.e., the instant when the current event was triggered */
     bool isRunning() const;
-    unsigned int getCurrentReplicationNumber() const;
-    ModelComponent* getCurrentComponent() const;
-    Entity* getCurrentEntity() const;
-    unsigned int getCurrentInputNumber() const;
-    SimulationReporter_if* getSimulationReporter() const;
+    unsigned int currentReplicationNumber() const;
+    ModelComponent* currentComponent() const;
+    Entity* currentEntity() const;
+    unsigned int currentInputNumber() const;
+    SimulationReporter_if* reporter() const;
     /*
      * PRIVATE
      */

@@ -78,10 +78,10 @@ void Model::sendEntityToComponent(Entity* entity, Connection* connection, double
 }
 
 void Model::sendEntityToComponent(Entity* entity, ModelComponent* component, double timeDelay, unsigned int componentInputNumber) {
-    this->onEvents()->NotifyEntityMoveHandlers(new SimulationEvent(_simulation->getCurrentReplicationNumber(), new Event(_simulation->getSimulatedTime(), entity, component, componentInputNumber))); //@TODO: Event should include information about "from component" and timeDelay, but it doesn't 
+    this->onEvents()->NotifyEntityMoveHandlers(new SimulationEvent(_simulation->currentReplicationNumber(), new Event(_simulation->simulatedTime(), entity, component, componentInputNumber))); //@TODO: Event should include information about "from component" and timeDelay, but it doesn't 
     if (timeDelay > 0) {
 	// schedule to send it
-	Event* newEvent = new Event(this->simulation()->getSimulatedTime() + timeDelay, entity, component, componentInputNumber);
+	Event* newEvent = new Event(this->simulation()->simulatedTime() + timeDelay, entity, component, componentInputNumber);
 	this->futureEvents()->insert(newEvent);
     } else {
 	// send it now

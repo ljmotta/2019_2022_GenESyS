@@ -15,17 +15,27 @@
 #define MARKOVCHAIN_H
 
 #include "ModelComponent.h"
+#include "Variable.h"
 
 class MarkovChain : public ModelComponent {
 public: // constructors
     MarkovChain(Model* model);
     virtual ~MarkovChain() = default;
-public:  // virtual
+public: // virtual
     virtual std::string show();
-public:  // static
+public: // static
     static PluginInformation* GetPluginInformation();
     static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
-protected:  // virtual
+public: // get and set
+    void setTransitionProbabilityMatrix(Variable* _transitionMatrix);
+    Variable* getTransitionMatrix() const;
+    Variable* getCurrentState() const;
+    void setInitialDistribution(Variable* _initialDistribution);
+    Variable* getInitialState() const;
+    void setInitilized(bool _initilized);
+    bool isInitilized() const;
+    void setCurrentState(Variable* _currentState);
+protected: // virtual
     virtual void _execute(Entity* entity);
     virtual void _initBetweenReplications();
     virtual bool _loadInstance(std::map<std::string, std::string>* fields);
@@ -33,6 +43,10 @@ protected:  // virtual
     virtual bool _check(std::string* errorMessage);
 private: // methods
 private: // attributes 1:1
+    Variable* _transitionProbMatrix;
+    Variable* _initialDistribution;
+    Variable* _currentState;
+    bool _initilized = false;
 private: // attributes 1:n
 };
 

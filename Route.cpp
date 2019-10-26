@@ -78,7 +78,7 @@ void Route::_execute(Entity* entity) {
     entity->setAttributeValue("Entity.TransferTime", entity->getAttributeValue("Entity.TransferTime") + routeTime);
     if (routeTime > 0.0) {
 	// calculates when this Entity will reach the end of this route and schedule this Event
-	double routeEndTime = _parentModel->simulation()->getSimulatedTime() + routeTime;
+	double routeEndTime = _parentModel->simulation()->simulatedTime() + routeTime;
 	Event* newEvent = new Event(routeEndTime, entity, _station->getEnterIntoStationComponent());
 	_parentModel->futureEvents()->insert(newEvent);
 	_parentModel->tracer()->trace("End of route of entity " + std::to_string(entity->getEntityNumber()) + " to the component \"" + _station->getEnterIntoStationComponent()->name() + "\" was scheduled to time " + std::to_string(routeEndTime));

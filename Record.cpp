@@ -68,7 +68,7 @@ void Record::_execute(Entity* entity) {
     file.open(_filename, std::ofstream::out | std::ofstream::app);
     file << value << std::endl;
     file.close(); // TODO: open and close for every data is not a good idea. Should open when replication starts and close when it finishes.    
-    _parentModel->tracer()->traceSimulation(_parentModel->simulation()->getSimulatedTime(), entity, this, "Recording value " + std::to_string(value));
+    _parentModel->tracer()->traceSimulation(_parentModel->simulation()->simulatedTime(), entity, this, "Recording value " + std::to_string(value));
     _parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
 
 }

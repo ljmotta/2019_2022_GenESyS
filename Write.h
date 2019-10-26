@@ -62,8 +62,8 @@ protected: // virtual
     virtual bool _loadInstance(std::map<std::string, std::string>* fields);
     virtual std::map<std::string, std::string>* _saveInstance();
     virtual bool _check(std::string* errorMessage);
-
 private: // methods
+    //std::string _buildText();
 private: // attributes 1:1
     WriteToType _writeToType = Write::WriteToType::SCREEN;
     std::string _filename = "";

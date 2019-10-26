@@ -994,7 +994,7 @@ namespace yy {
 
   case 45:
 #line 256 "bisonparser.yy" // lalr1.cc:859
-    { yylhs.value.as< obj_t > ().valor = driver.getModel()->simulation()->getSimulatedTime();}
+    { yylhs.value.as< obj_t > ().valor = driver.getModel()->simulation()->simulatedTime();}
 #line 999 "../GenesysParser.cpp" // lalr1.cc:859
     break;
 
@@ -1124,10 +1124,10 @@ namespace yy {
   case 67:
 #line 312 "bisonparser.yy" // lalr1.cc:859
     {  double attributeValue = 0.0;
-			    if (driver.getModel()->simulation()->getCurrentEntity() != nullptr) {
+			    if (driver.getModel()->simulation()->currentEntity() != nullptr) {
 				try {
 				    // it could crach because there may be no current entity, if the parse is running before simulation and therefore there is no CurrentEntity
-				    attributeValue = driver.getModel()->simulation()->getCurrentEntity()->getAttributeValue(yystack_[0].value.as< obj_t > ().valor);
+				    attributeValue = driver.getModel()->simulation()->currentEntity()->getAttributeValue(yystack_[0].value.as< obj_t > ().valor);
 				} catch(...) {
 				}
 			    }

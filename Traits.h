@@ -78,11 +78,11 @@ template <> struct Traits<GenesysApplication_if> {
     //typedef GenesysGUI Application;
     //typedef GenesysConsole Application;
     //typedef FullSimulationOfComplexModel Application;
-    typedef FirstExampleOfSimulation Application;
+    //typedef FirstExampleOfSimulation Application;
     //typedef SecondExampleOfSimulation Application;
     //typedef FourthExampleOfSimulation Application;
     //typedef TestLSODE Application;
-    //typedef TestMarkovChain Application;
+    typedef TestMarkovChain Application;
     //typedef TestSimulationControlAndSimulationResponse Application;
 };
 

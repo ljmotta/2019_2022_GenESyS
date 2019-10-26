@@ -27,7 +27,7 @@ ModelElement::ModelElement(Model* model, std::string thistypename, bool insertIn
 }
 
 ModelElement::~ModelElement() {
-    _parentModel->remove(this);
+    _parentModel->elements()->remove(this);
 }
 
 bool ModelElement::_loadInstance(std::map<std::string, std::string>* fields) {

@@ -14,10 +14,12 @@
 #include "MarkovChain.h"
 
 #include "Model.h"
+#include "Variable.h"
+#include "ProbDistrib.h"
+#include "Simulator.h"
 
 MarkovChain::MarkovChain(Model* model) : ModelComponent(model, Util::TypeOf<MarkovChain>()) {
 }
-
 
 std::string MarkovChain::show() {
     return ModelComponent::show() + "";
@@ -33,9 +35,73 @@ ModelComponent* MarkovChain::LoadInstance(Model* model, std::map<std::string, st
     return newComponent;
 }
 
+void MarkovChain::setTransitionProbabilityMatrix(Variable* _transitionMatrix) {
+    this->_transitionProbMatrix = _transitionMatrix;
+}
+
+Variable* MarkovChain::getTransitionMatrix() const {
+    return _transitionProbMatrix;
+}
+
+Variable* MarkovChain::getCurrentState() const {
+    return _currentState;
+}
+
+void MarkovChain::setCurrentState(Variable* _currentState) {
+        this->_currentState = _currentState;
+    }
+
+void MarkovChain::setInitialDistribution(Variable* _initialDistribution) {
+    this->_initialDistribution = _initialDistribution;
+}
+
+Variable* MarkovChain::getInitialState() const {
+    return _initialDistribution;
+}
+
+void MarkovChain::setInitilized(bool _initilized) {
+    this->_initilized = _initilized;
+}
+
+bool MarkovChain::isInitilized() const {
+    return _initilized;
+}
+
 void MarkovChain::_execute(Entity* entity) {
-    _parentModel->tracer()->trace("I'm just a dummy model and I'll just send the entity forward");
-    this->_parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
+    //_parentModel->tracer()->trace("I'm just a dummy model and I'll just send the entity forward");
+    unsigned int size;
+    double rnd, sum, value;
+    if (!_initilized) {
+	// define the initial state based on initial probabilities
+	size = _initialDistribution->getDimensionSizes()->front();
+	rnd = _parentModel->parentSimulator()->tools()->sampler()->random();
+	sum = 0.0;
+	for (unsigned int i = 0; i < size; i++) {
+	    value = _initialDistribution->getValue(std::to_string(i));
+	    sum += value;
+	    if (sum > rnd) {
+		_currentState->setValue(i); // _currentState =  i;
+		break;
+	    }
+	}
+	_parentModel->tracer()->trace("Initial current state=" + std::to_string(_currentState->getValue()));
+	_initilized = true;
+    } else {
+	size = _transitionProbMatrix->getDimensionSizes()->front();
+	rnd = _parentModel->parentSimulator()->tools()->sampler()->random();
+	sum = 0.0;
+	for (unsigned int i = 0; i < size; i++) {
+	    std::string index = std::to_string(static_cast<unsigned int>(_currentState->getValue())) + "," + std::to_string(i);
+	    value = _transitionProbMatrix->getValue(index);
+	    sum += value;
+	    if (sum > rnd) {
+		_currentState->setValue(i);
+		break;
+	    }
+	}
+	_parentModel->tracer()->trace("Current state=" + std::to_string(_currentState->getValue()));
+    }
+    _parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
 }
 
 bool MarkovChain::_loadInstance(std::map<std::string, std::string>* fields) {
@@ -47,6 +113,7 @@ bool MarkovChain::_loadInstance(std::map<std::string, std::string>* fields) {
 }
 
 void MarkovChain::_initBetweenReplications() {
+    this->_initilized = false;
 }
 
 std::map<std::string, std::string>* MarkovChain::_saveInstance() {
@@ -61,7 +128,7 @@ bool MarkovChain::_check(std::string* errorMessage) {
     return resultAll;
 }
 
-PluginInformation* MarkovChain::GetPluginInformation(){
+PluginInformation* MarkovChain::GetPluginInformation() {
     PluginInformation* info = new PluginInformation(Util::TypeOf<MarkovChain>(), &MarkovChain::LoadInstance);
     // ...
     return info;

@@ -85,8 +85,8 @@ void Release::_execute(Entity* entity) {
     }
     unsigned int quantity = _parentModel->parseExpression(this->_quantity);
     assert(_resource->getNumberBusy() >= quantity);
-    _parentModel->tracer()->traceSimulation(_parentModel->simulation()->getSimulatedTime(), entity, this, "Entity frees " + std::to_string(quantity) + " units of resource \"" + resource->name() + "\" seized on time " + std::to_string(_resource->getLastTimeSeized()));
-    _resource->release(quantity, _parentModel->simulation()->getSimulatedTime()); //{releases and sets the 'LastTimeSeized'property}
+    _parentModel->tracer()->traceSimulation(_parentModel->simulation()->simulatedTime(), entity, this, "Entity frees " + std::to_string(quantity) + " units of resource \"" + resource->name() + "\" seized on time " + std::to_string(_resource->getLastTimeSeized()));
+    _resource->release(quantity, _parentModel->simulation()->simulatedTime()); //{releases and sets the 'LastTimeSeized'property}
     _parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
 }
 

@@ -28,7 +28,7 @@ std::string Dispose::show() {
 void Dispose::_execute(Entity* entity) {
     _numberOut->incCountValue();
     if (_collectStatistics) {
-	double timeInSystem = _parentModel->simulation()->getSimulatedTime() - entity->getAttributeValue("Entity.ArrivalTime");
+	double timeInSystem = _parentModel->simulation()->simulatedTime() - entity->getAttributeValue("Entity.ArrivalTime");
 	entity->getEntityType()->getStatisticsCollector(entity->getEntityType()->name() + "." + "Total_Time")->getStatistics()->getCollector()->addValue(timeInSystem);
     }
 

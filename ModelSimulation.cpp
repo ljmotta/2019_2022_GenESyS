@@ -281,7 +281,7 @@ void ModelSimulation::_initStatistics() {
 void ModelSimulation::_checkWarmUpTime(Event* nextEvent) {
     double warmupTime = Util::TimeUnitConvert(_model->infos()->warmUpPeriodTimeUnit(), _model->infos()->replicationLengthTimeUnit());
     warmupTime *= _model->infos()->warmUpPeriod();
-    if (warmupTime > 0.0 && _model->simulation()->getSimulatedTime() <= warmupTime && nextEvent->getTime() > warmupTime) {// warmuTime. Time to initStats
+    if (warmupTime > 0.0 && _model->simulation()->simulatedTime() <= warmupTime && nextEvent->getTime() > warmupTime) {// warmuTime. Time to initStats
 	_model->tracer()->trace(Util::TraceLevel::simulation, "Warmup time reached. Statistics are being reseted.");
 	_initStatistics();
     }
@@ -382,7 +382,7 @@ bool ModelSimulation::isPauseOnReplication() const {
     return _pauseOnReplication;
 }
 
-double ModelSimulation::getSimulatedTime() const {
+double ModelSimulation::simulatedTime() const {
     return _simulatedTime;
 }
 
@@ -390,22 +390,22 @@ bool ModelSimulation::isRunning() const {
     return _running;
 }
 
-unsigned int ModelSimulation::getCurrentReplicationNumber() const {
+unsigned int ModelSimulation::currentReplicationNumber() const {
     return _currentReplicationNumber;
 }
 
-ModelComponent* ModelSimulation::getCurrentComponent() const {
+ModelComponent* ModelSimulation::currentComponent() const {
     return _currentComponent;
 }
 
-Entity* ModelSimulation::getCurrentEntity() const {
+Entity* ModelSimulation::currentEntity() const {
     return _currentEntity;
 }
 
-SimulationReporter_if* ModelSimulation::getSimulationReporter() const {
+SimulationReporter_if* ModelSimulation::reporter() const {
     return _simulationReporter;
 }
 
-unsigned int ModelSimulation::getCurrentInputNumber() const {
+unsigned int ModelSimulation::currentInputNumber() const {
     return _currentInputNumber;
 }

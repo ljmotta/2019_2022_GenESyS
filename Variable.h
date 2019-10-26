@@ -34,6 +34,7 @@ public:
     double getValue(std::string index);
     void setValue(double value);
     void setValue(std::string index, double value);
+    List<unsigned int>* getDimensionSizes() const;
 
 protected:
     virtual bool _loadInstance(std::map<std::string, std::string>* fields);
@@ -41,8 +42,7 @@ protected:
     virtual bool _check(std::string* errorMessage);
 
 private:
-    unsigned int _numRows = 1;
-    unsigned int _numCols = 1;
+    List<unsigned int>* _dimensionSizes = new List<unsigned int>();
     std::map<std::string, double>* _values = new std::map<std::string, double>();
 };
 

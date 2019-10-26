@@ -38,7 +38,7 @@ std::string Create::show() {
 }
 
 void Create::_execute(Entity* entity) {
-    double tnow = _parentModel->simulation()->getSimulatedTime();
+    double tnow = _parentModel->simulation()->simulatedTime();
     entity->setAttributeValue("Entity.ArrivalTime", tnow); // ->find("Entity.ArrivalTime")->second->setValue(tnow);
     //entity->setAttributeValue("Entity.Picture", 1); // ->find("Entity.ArrivalTime")->second->setValue(tnow);
     double timeBetweenCreations, timeScale, newArrivalTime;
@@ -54,7 +54,7 @@ void Create::_execute(Entity* entity) {
 	    newArrivalTime = tnow + timeBetweenCreations*timeScale;
 	    Event* newEvent = new Event(newArrivalTime, newEntity, this);
 	    _parentModel->futureEvents()->insert(newEvent);
-	    _parentModel->tracer()->traceSimulation(tnow, entity, this, "Arrival of entity " + std::to_string(newEntity->getEntityNumber()) + " schedule for time " + std::to_string(newArrivalTime));
+	    _parentModel->tracer()->trace("Arrival of entity " + std::to_string(newEntity->getEntityNumber()) + " schedule for time " + std::to_string(newArrivalTime));
 	    //_model->getTrace()->trace("Arrival of entity "+std::to_string(entity->getId()) + " schedule for time " +std::to_string(newArrivalTime));
 	}
     }

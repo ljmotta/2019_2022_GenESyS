@@ -55,7 +55,7 @@ void Delay::_execute(Entity* entity) {
     double waitTime = _parentModel->parseExpression(_delayExpression) * Util::TimeUnitConvert(_delayTimeUnit, _parentModel->infos()->replicationLengthTimeUnit());
     entity->getEntityType()->getStatisticsCollector(_name + "." + "Waiting_Time")->getStatistics()->getCollector()->addValue(waitTime);
     entity->setAttributeValue("Entity.WaitTime", entity->getAttributeValue("Entity.WaitTime") + waitTime);
-    double delayEndTime = _parentModel->simulation()->getSimulatedTime() + waitTime;
+    double delayEndTime = _parentModel->simulation()->simulatedTime() + waitTime;
     Event* newEvent = new Event(delayEndTime, entity, this->nextComponents()->frontConnection());
     _parentModel->futureEvents()->insert(newEvent);
     _parentModel->tracer()->trace("End of delay of entity " + std::to_string(entity->getEntityNumber()) + " scheduled to time " + std::to_string(delayEndTime));

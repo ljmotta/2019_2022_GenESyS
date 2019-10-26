@@ -94,7 +94,7 @@ void Seize::_handlerForResourceEvent(Resource* resource) {
     if (first != nullptr) { // there are entities waiting in the queue
 	unsigned int quantity = _parentModel->parseExpression(this->_quantity);
 	if ((resource->getCapacity() - resource->getNumberBusy()) >= quantity) { //enought quantity to seize
-	    double tnow = _parentModel->simulation()->getSimulatedTime();
+	    double tnow = _parentModel->simulation()->simulatedTime();
 	    resource->seize(quantity, tnow);
 	    _parentModel->futureEvents()->insert(new Event(tnow, first->getEntity(), this->nextComponents()->frontConnection()));
 	    _queue->removeElement(first);
@@ -147,13 +147,13 @@ void Seize::_execute(Entity* entity) {
     }
     unsigned int quantity = _parentModel->parseExpression(this->_quantity);
     if (resource->getCapacity() - resource->getNumberBusy() < quantity) { // not enought free quantity to allocate. Entity goes to the queue
-	WaitingResource* waitingRec = new WaitingResource(entity, this, _parentModel->simulation()->getSimulatedTime(), quantity);
+	WaitingResource* waitingRec = new WaitingResource(entity, this, _parentModel->simulation()->simulatedTime(), quantity);
 	this->_queue->insertElement(waitingRec); // ->list()->insert(waitingRec);
-	_parentModel->tracer()->traceSimulation(_parentModel->simulation()->getSimulatedTime(), entity, this, "Entity starts to wait for resource in queue \"" + _queue->name() + "\" with " + std::to_string(_queue->size()) + " elements");
+	_parentModel->tracer()->traceSimulation(_parentModel->simulation()->simulatedTime(), entity, this, "Entity starts to wait for resource in queue \"" + _queue->name() + "\" with " + std::to_string(_queue->size()) + " elements");
 
     } else { // alocate the resource
-	_parentModel->tracer()->traceSimulation(_parentModel->simulation()->getSimulatedTime(), entity, this, "Entity seizes " + std::to_string(quantity) + " elements of resource \"" + resource->name() + "\" (capacity:"+std::to_string(resource->getCapacity()) +", numberbusy:"+std::to_string(resource->getNumberBusy())+")");
-	resource->seize(quantity, _parentModel->simulation()->getSimulatedTime());
+	_parentModel->tracer()->traceSimulation(_parentModel->simulation()->simulatedTime(), entity, this, "Entity seizes " + std::to_string(quantity) + " elements of resource \"" + resource->name() + "\" (capacity:"+std::to_string(resource->getCapacity()) +", numberbusy:"+std::to_string(resource->getNumberBusy())+")");
+	resource->seize(quantity, _parentModel->simulation()->simulatedTime());
 	_parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
     }
 }
