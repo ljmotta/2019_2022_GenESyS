@@ -457,16 +457,18 @@ namespace yy {
         FORM = 311,
         LPAREN = 312,
         RPAREN = 313,
-        PLUS = 314,
-        MINUS = 315,
-        STAR = 316,
-        POWER = 317,
-        SLASH = 318,
-        LESS = 319,
-        GREATER = 320,
-        ASSIGN = 321,
-        COMMA = 322,
-        NEG = 323
+        LBRACKET = 314,
+        RBRACKET = 315,
+        PLUS = 316,
+        MINUS = 317,
+        STAR = 318,
+        POWER = 319,
+        SLASH = 320,
+        LESS = 321,
+        GREATER = 322,
+        ASSIGN = 323,
+        COMMA = 324,
+        NEG = 325
       };
     };
 
@@ -803,6 +805,14 @@ namespace yy {
 
     static inline
     symbol_type
+    make_LBRACKET (const location_type& l);
+
+    static inline
+    symbol_type
+    make_RBRACKET (const location_type& l);
+
+    static inline
+    symbol_type
     make_PLUS (const location_type& l);
 
     static inline
@@ -899,7 +909,7 @@ namespace yy {
     /// \param yyvalue   the value to check
     static bool yy_table_value_is_error_ (int yyvalue);
 
-    static const signed char yypact_ninf_;
+    static const short int yypact_ninf_;
     static const signed char yytable_ninf_;
 
     /// Convert a scanner token number \a t to a symbol number.
@@ -916,7 +926,7 @@ namespace yy {
   static const unsigned char yydefact_[];
 
   // YYPGOTO[NTERM-NUM].
-  static const signed char yypgoto_[];
+  static const short int yypgoto_[];
 
   // YYDEFGOTO[NTERM-NUM].
   static const short int yydefgoto_[];
@@ -1046,7 +1056,7 @@ namespace yy {
     enum
     {
       yyeof_ = 0,
-      yylast_ = 1074,     ///< Last index in yytable_.
+      yylast_ = 1299,     ///< Last index in yytable_.
       yynnts_ = 23,  ///< Number of nonterminal symbols.
       yyfinal_ = 6, ///< Termination state number.
       yyterror_ = 1,
@@ -1069,7 +1079,7 @@ namespace yy {
     translate_table[] =
     {
      0,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-      69,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+      71,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
@@ -1100,7 +1110,7 @@ namespace yy {
       35,    36,    37,    38,    39,    40,    41,    42,    43,    44,
       45,    46,    47,    48,    49,    50,    51,    52,    53,    54,
       55,    56,    57,    58,    59,    60,    61,    62,    63,    64,
-      65,    66,    67,    68,    70,    71,    72
+      65,    66,    67,    68,    69,    70,    72
     };
     const unsigned int user_token_number_max_ = 326;
     const token_number_type undef_token_ = 2;
@@ -1600,8 +1610,8 @@ namespace yy {
      285,   286,   287,   288,   289,   290,   291,   292,   293,   294,
      295,   296,   297,   298,   299,   300,   301,   302,   303,   304,
      305,   306,   307,   308,   309,   310,   311,   312,   313,   314,
-     315,   316,   317,   318,   319,   320,   321,   322,   323,    10,
-     324,   325,   326
+     315,   316,   317,   318,   319,   320,   321,   322,   323,   324,
+     325,    10,   326
     };
     return static_cast<token_type> (yytoken_number_[type]);
   }
@@ -1949,6 +1959,18 @@ namespace yy {
   }
 
   genesyspp_parser::symbol_type
+  genesyspp_parser::make_LBRACKET (const location_type& l)
+  {
+    return symbol_type (token::LBRACKET, l);
+  }
+
+  genesyspp_parser::symbol_type
+  genesyspp_parser::make_RBRACKET (const location_type& l)
+  {
+    return symbol_type (token::RBRACKET, l);
+  }
+
+  genesyspp_parser::symbol_type
   genesyspp_parser::make_PLUS (const location_type& l)
   {
     return symbol_type (token::PLUS, l);
@@ -2011,7 +2033,7 @@ namespace yy {
 
 
 } // yy
-#line 2015 "../GenesysParser.h" // lalr1.cc:377
+#line 2037 "../GenesysParser.h" // lalr1.cc:377
 
 
 

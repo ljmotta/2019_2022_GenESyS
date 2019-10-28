@@ -92,6 +92,8 @@ L      [A-Za-z0-9_.]+
 [/] {return yy::genesyspp_parser::make_SLASH(loc);}
 [=] {return yy::genesyspp_parser::make_ASSIGN(loc);}
 [,] {return yy::genesyspp_parser::make_COMMA(loc);}
+[\[] {return yy::genesyspp_parser::make_LBRACKET(loc);}
+[\]] {return yy::genesyspp_parser::make_RBRACKET(loc);}
 
 %{// boolean values %}
 [tT][rR][uU][eE]      {return yy::genesyspp_parser::make_NUMD(obj_t(1, std::string(yytext)), loc);}
@@ -186,8 +188,9 @@ L      [A-Za-z0-9_.]+
         element = driver.getModel()->elements()->element(Util::TypeOf<Variable>(), std::string(yytext));
         if (element != nullptr) { // it is a variable
             Variable* var = static_cast<Variable*>(element);
-            double variableValue = var->getValue();
-            return yy::genesyspp_parser::make_VARI(obj_t(variableValue, Util::TypeOf<Variable>(), var->id()),loc);
+            //double variableID = var->id();// ->getValue(); // var->id()
+	    //std::cout << "FOUND VARIABLE " << var->name() <<" ID " << var->id() << std::endl;
+            return yy::genesyspp_parser::make_VARI(obj_t(0, Util::TypeOf<Variable>(), var->id()),loc);
         }
 
         // Should be definied by plugin FORMULA

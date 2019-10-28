@@ -60,6 +60,10 @@ ParserChangesInformation* ModelElement::_getParserChangesInformation() {
     return new ParserChangesInformation(); // if there is no override, return no changes
 }
 
+void ModelElement::_initBetweenReplications() {
+    
+}
+
 /*
 std::list<std::map<std::string,std::string>*>* ModelElement::_saveInstance(std::string type) {
     std::list<std::map<std::string,std::string>*>* fields = ModelElement::_saveInstance();
@@ -92,6 +96,17 @@ std::string ModelElement::classname() const {
 //	std::list<std::map<std::string,std::string>*>* fiels = new std::map<std::string,std::string>();
 //	return fields;
 //}
+
+
+void ModelElement::InitBetweenReplications(ModelElement* element) {
+    //component->_model->getTraceManager()->trace(Util::TraceLevel::blockArrival, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));
+    try {
+	element->_initBetweenReplications();
+    } catch (const std::exception& e) {
+	element->_parentModel->tracer()->traceError(e, "Error initing component " + element->show());
+    };
+}
+
 
 ModelElement* ModelElement::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
     ModelElement* newElement = new ModelElement(model, "ModelElement");

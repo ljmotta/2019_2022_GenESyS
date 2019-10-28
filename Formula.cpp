@@ -22,27 +22,24 @@ Formula::Formula(Model* model) : ModelElement(model, Util::TypeOf<Formula>()) {
     _myPrivateParser = new Traits<Parser_if>::Implementation(_parentModel);
 }
 
-void Formula::setFormulaExpression(std::string _formulaExpression) {
-    this->_formulaExpression = _formulaExpression;
+double Formula::getValue(unsigned int index = 0) const {
+    std::string expression = this->_formulaExpressions->getAtRank(index);
+    double value = _parentModel->parseExpression(expression);
 }
-
-std::string Formula::getFormulaExpression() const {
-    return _formulaExpression;
-}
-
-double Formula::getValue() const {
-    double value = -99.9;//_myPrivateParser->parse(_formulaExpression);
-    return value;
-}
-
 
 std::string Formula::show() {
-    return ModelElement::show()+
-	    ",formulaExpression=\""+this->_formulaExpression+"\"";
+    std::string expressions = "";
+    unsigned int i=0;
+    for (std::list<std::string>::iterator it = _formulaExpressions->list()->begin(); it != _formulaExpressions->list()->end(); it++) {
+	expressions += "expression["+std::to_string(i++)+"]=\""+(*it)+"\"; "; 
+    }
+    
+    return ModelElement::show() + expressions;
 }
 
 PluginInformation* Formula::GetPluginInformation() {
-    PluginInformation* info = new PluginInformation(Util::TypeOf<Formula>(), &Formula::LoadInstance); return info;
+    PluginInformation* info = new PluginInformation(Util::TypeOf<Formula>(), &Formula::LoadInstance);
+    return info;
 }
 
 ModelElement* Formula::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
@@ -53,6 +50,10 @@ ModelElement* Formula::LoadInstance(Model* model, std::map<std::string, std::str
 
     }
     return newElement;
+}
+
+List<std::string>* Formula::getFormulaExpressions() const {
+    return _formulaExpressions;
 }
 
 bool Formula::_loadInstance(std::map<std::string, std::string>* fields) {
@@ -66,7 +67,15 @@ std::map<std::string, std::string>* Formula::_saveInstance() {
 }
 
 bool Formula::_check(std::string* errorMessage) {
-    std::string errorMsg="";
-    bool res  = _parentModel->checkExpression(this->_formulaExpression,"formula expression", &errorMsg);
-    return res;
+    std::string errorMsg = "";
+    bool res, resAll = true;
+    unsigned int i = 0;
+    for (std::list<std::string>::iterator it = _formulaExpressions->list()->begin(); it != _formulaExpressions->list()->end(); it++) {
+	res= _parentModel->checkExpression((*it), "formula expression["+std::to_string(i++)+"]", &errorMsg);
+	if (!res) {
+	    _parentModel->tracer()->trace(Util::TraceLevel::errors, "Error parsing expression \""+(*it)+"\"");
+	}
+	resAll &= res;
+    }
+    return resAll;
 }

@@ -39,7 +39,7 @@ public:
     ConnectionManager* nextComponents() const; ///< Returns a list of components directly connected to the output. Usually the components have a single output, but they may have none (such as Dispose) or more than one (as Decide). In addition to the component, NextComponents specifies the inputNumber of the next component where the entity will be sent to. Ussually the components have a single input, but they may have none (such as Create) or more than one (as Match).
 public:
     static void Execute(Entity* entity, ModelComponent* component, unsigned int inputNumber); ///< This method triggers the simulation of the behavior of the component. It is invoked when an event (corresponding to this component) is taken from the list of future events or when an entity arrives at this component by connection.
-    static void InitBetweenReplications(ModelComponent* component);
+    //static void InitBetweenReplications(ModelComponent* component);
     static void CreateInternalElements(ModelComponent* component);
     static bool Check(ModelComponent* component);
     static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
@@ -47,10 +47,8 @@ public:
 private:
     ConnectionManager* _nextComponents = new ConnectionManager();
     //List<Util::identification>* _tempLoadNextComponentsIDs; // initialize only when loading 
-protected:
+protected: // pure virtual methods
     virtual void _execute(Entity* entity) = 0;
-    virtual void _initBetweenReplications() = 0;
-
 protected:
     virtual std::map<std::string, std::string>* _saveInstance();
     virtual bool _loadInstance(std::map<std::string, std::string>* fields);

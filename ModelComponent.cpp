@@ -38,6 +38,7 @@ void ModelComponent::Execute(Entity* entity, ModelComponent* component, unsigned
     Util::DecIndent();
 }
 
+/*
 void ModelComponent::InitBetweenReplications(ModelComponent* component) {
     //component->_model->getTraceManager()->trace(Util::TraceLevel::blockArrival, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));
     try {
@@ -46,6 +47,7 @@ void ModelComponent::InitBetweenReplications(ModelComponent* component) {
 	component->_parentModel->tracer()->traceError(e, "Error initing component " + component->show());
     };
 }
+ */
 
 void ModelComponent::CreateInternalElements(ModelComponent* component) {
     //component->_model->getTraceManager()->trace(Util::TraceLevel::blockArrival, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));

@@ -16,9 +16,12 @@
 #include "Simulator.h"
 #include "Model.h"
 #include "Create.h"
+#include "Assign.h"
+#include "Formula.h"
 #include "Delay.h"
 #include "LSODE.h"
 #include "Dispose.h"
+#include "Variable.h"
 
 TestLSODE::TestLSODE() {
 }
@@ -26,33 +29,46 @@ TestLSODE::TestLSODE() {
 int TestLSODE::main(int argc, char** argv) {
     Simulator* simulator = new Simulator();
     TraceManager* tm = simulator->tracer();
-    this->setDefaultTraceHandlers(tm);
     tm->setTraceLevel(Util::TraceLevel::mostDetailed);
+    this->setDefaultTraceHandlers(tm);
     this->insertFakePluginsByHand(simulator);
     Model* model = new Model(simulator);
-    ComponentManager* components = model->components();
-    ElementManager* elements = model->elements();
-    //
     EntityType* entityType1 = new EntityType(model, "EntType_1");
-    elements->insert(entityType1); 
     Create* create1 = new Create(model);
     create1->setEntityType(entityType1);
     create1->setTimeBetweenCreationsExpression("1.0"); 
-    components->insert(create1); 
+    /*
+    new Variable(model, "var1");
+    Variable* var2 = new Variable(model, "var2");
+    var2->setValue(1.0);
+    Formula* formula1 = new Formula(model);
+    formula1->getFormulaExpressions()->insert("var1 + cos(var2)");
+    formula1->getFormulaExpressions()->insert("var1*var1 -6*var2");    
+    */
+    Variable* var1 = new Variable(model,"var1");
+    var1->getDimensionSizes()->insert(2);
+    Variable* var2 = new Variable(model, "var2");
+    var1->setInitialValue("0",1.0);
+    var1->setInitialValue("1",1.1);
+    var2->getDimensionSizes()->insert(2);
+    var2->setInitialValue("0",2.0);
+    var2->setInitialValue("1",2.1);
+    Formula* formula1 = new Formula(model);
+    formula1->getFormulaExpressions()->insert("var1[2]");    
+    formula1->getFormulaExpressions()->insert("var2[2]");    
+    formula1->getFormulaExpressions()->insert("var1[2] = var1[0] + var1[1]");
+    formula1->getFormulaExpressions()->insert("var2[2] = var2[1] + var2[0]");    
+    formula1->getFormulaExpressions()->insert("var1[2]");    
+    formula1->getFormulaExpressions()->insert("var2[2]");    
     LSODE* ode1 = new LSODE(model);
-    components->insert(ode1);
+    ode1->setFormula(formula1);
     //Delay* delay1 = new Delay(model);
-    //components->insert(delay1); 
     Dispose* dispose1 = new Dispose(model); 
-    components->insert(dispose1);
     create1->nextComponents()->insert(ode1);
     ode1->nextComponents()->insert(dispose1);
     //delay1->getNextComponents()->insert(dispose1);
     simulator->models()->insert(model);
-    //
-    if (model->check()) {
-	model->save("./temp/testLSODE.txt");
-    }
+    model->save("./temp/testLSODE.txt");
     model->simulation()->startSimulation();
     return 0;    
 }

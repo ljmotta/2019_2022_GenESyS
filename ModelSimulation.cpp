@@ -118,7 +118,7 @@ void ModelSimulation::_actualizeSimulationStatistics() {
 	//scSim = dynamic_cast<StatisticsCollector*> (*(this->_statsCountersSimulation->find((*it))));
 	if (scSim == nullptr) {
 	    // this is a cstat created during the last replication
-//	    scSim = new StatisticsCollector(_model->elements(), sc->name(), sc->getParent());
+	    //	    scSim = new StatisticsCollector(_model->elements(), sc->name(), sc->getParent());
 	    _statsCountersSimulation->insert(scSim);
 	}
 	assert(scSim != nullptr);
@@ -228,9 +228,23 @@ void ModelSimulation::_initReplication() {
     _simulatedTime = 0.0;
     _pauseRequested = false;
 
-    //if (_currentReplicationNumber > 1) { // init all components between replications
+    //if (_currentReplicationNumber > 1) { 
+    // init all components between replications
     for (std::list<ModelComponent*>::iterator it = _model->components()->begin(); it != _model->components()->end(); it++) {
-	ModelComponent::InitBetweenReplications((*it));
+	ModelElement::InitBetweenReplications((*it));
+    }
+    // init all elements between replications
+    ModelElement* element;
+    std::string elementType;
+    std::string* errorMessage = new std::string();
+    std::list<std::string>* elementTypes = _model->elements()->elementClassnames();
+    for (std::list<std::string>::iterator typeIt = elementTypes->begin(); typeIt != elementTypes->end(); typeIt++) {
+	elementType = (*typeIt);
+	List<ModelElement*>* elements = _model->elements()->elementList(elementType);
+	for (std::list<ModelElement*>::iterator it = elements->list()->begin(); it != elements->list()->end(); it++) {
+	    element = (*it);
+	    ModelElement::InitBetweenReplications(element);
+	}
     }
     //}
     Util::ResetIdOfType(Util::TypeOf<Entity>());

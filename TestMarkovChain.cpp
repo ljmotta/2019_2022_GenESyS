@@ -32,6 +32,7 @@ int TestMarkovChain::main(int argc, char** argv) {
     insertFakePluginsByHand(simulator);
     Model* model = new Model(simulator);
     model->infos()->setNumberOfReplications(5);
+    model->infos()->setReplicationLength(100);
     Variable* varInitDist = new Variable(model, "InitialDistribution");
     varInitDist->setValue("0", 0.7);
     varInitDist->setValue("1", 0.1);

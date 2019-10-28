@@ -15,6 +15,8 @@
 #define LSODE_H
 
 #include "ModelComponent.h"
+#include "Formula.h"
+
 /*!
  This component ...
  */
@@ -22,12 +24,15 @@ class LSODE : public ModelComponent {
 public: // constructors
     LSODE(Model* model);
     virtual ~LSODE() = default;
-public:  // virtual
+public: // virtual
     virtual std::string show();
-public:  // static
+public: // static
     static PluginInformation* GetPluginInformation();
     static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
-protected:  // virtual
+public: // g&s
+    void setFormula(Formula* formula);
+    Formula* getFormula() const;
+protected: // virtual
     virtual void _execute(Entity* entity);
     virtual void _initBetweenReplications();
     virtual bool _loadInstance(std::map<std::string, std::string>* fields);
@@ -36,6 +41,7 @@ protected:  // virtual
     //virtual void _createInternalElements();
 private: // methods
 private: // attributes 1:1
+    Formula* _formula;
 private: // attributes 1:n
 };
 

@@ -26,24 +26,30 @@ public:
     virtual ~Variable() = default;
 public:
     virtual std::string show();
-public:
+public: //static
     static PluginInformation* GetPluginInformation();
     static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 public:
     double getValue();
-    double getValue(std::string index);
     void setValue(double value);
+    double getValue(std::string index);
     void setValue(std::string index, double value);
+    double getInitialValue();
+    void setInitialValue(double value);
+    double getInitialValue(std::string index);
+    void setInitialValue(std::string index, double value);
     List<unsigned int>* getDimensionSizes() const;
 
 protected:
     virtual bool _loadInstance(std::map<std::string, std::string>* fields);
     virtual std::map<std::string, std::string>* _saveInstance();
     virtual bool _check(std::string* errorMessage);
+    virtual void _initBetweenReplications();
 
 private:
     List<unsigned int>* _dimensionSizes = new List<unsigned int>();
     std::map<std::string, double>* _values = new std::map<std::string, double>();
+    std::map<std::string, double>* _initialValues = new std::map<std::string, double>();
 };
 
 #endif /* VARIABLE_H */

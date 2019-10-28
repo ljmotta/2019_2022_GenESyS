@@ -136,6 +136,8 @@ class genesyspp_driver;
 ///////////////////////////////
 %token LPAREN "("
 %token RPAREN ")"
+%token LBRACKET "["
+%token RBRACKET "]"
 %token PLUS "+"
 %token MINUS "-"
 %token STAR "*"
@@ -176,7 +178,7 @@ class genesyspp_driver;
 
 %left oNOT;
 %left oAND oOR;
-%left oLE oGE oEQ oNE LESS GREATER;
+%left oLE oGE oEQ oNE LESS GREATER LBRACKET;
 %left MINUS PLUS;
 %left STAR SLASH;
 %precedence NEG;
@@ -201,6 +203,7 @@ programa    : expressao                         { $$.valor = $1.valor;}
 expressao   : numero                           {$$.valor = $1.valor;}
             | funcao                           {$$.valor = $1.valor;}
             | comando                          {$$.valor = $1.valor;}
+            | atribuicao                       {$$.valor = $1.valor;}
 	    | aritmetica                       {$$.valor = $1.valor;}
             | relacional                       {$$.valor = $1.valor;}
             | "(" expressao ")"                {$$.valor = $2.valor;}
@@ -310,10 +313,10 @@ illegal     : ILLEGAL           {
 
 // 20181003  ATRIB now returns the attribute ID not the attribute value anymore. So, now get the attribute value for the current entity
 atributo    : ATRIB      {  double attributeValue = 0.0;
-			    if (driver.getModel()->simulation()->getCurrentEntity() != nullptr) {
+			    if (driver.getModel()->simulation()->currentEntity() != nullptr) {
 				try {
 				    // it could crach because there may be no current entity, if the parse is running before simulation and therefore there is no CurrentEntity
-				    attributeValue = driver.getModel()->simulation()->getCurrentEntity()->getAttributeValue($1.valor);
+				    attributeValue = driver.getModel()->simulation()->currentEntity()->getAttributeValue($1.valor);
 				} catch(...) {
 				}
 			    }
@@ -322,13 +325,29 @@ atributo    : ATRIB      {  double attributeValue = 0.0;
             ;
 
 //Check if want to set the atributo or variavel with expressao or just return the expressao value, for now just returns expressao value
-atribuicao  : atributo "=" expressao           { $$.valor = $3.valor; }
-            | variavel "=" expressao           { $$.valor = $3.valor; }
+atribuicao  : atributo ASSIGN expressao           { $$.valor = $3.valor; }
+            | VARI ASSIGN expressao           {((Variable*)(driver.getModel()->elements()->element(Util::TypeOf<Variable>(), $1.id)))->setValue($3.valor);
+						$$.valor = $3.valor; }
+            | VARI LBRACKET expressao RBRACKET ASSIGN expressao           { std::string index = std::to_string(static_cast<unsigned int>($3.valor));
+									    ((Variable*)(driver.getModel()->elements()->element(Util::TypeOf<Variable>(), $1.id)))->setValue(index, $6.valor); 
+									    $$.valor = $6.valor;}
+            | VARI LBRACKET expressao "," expressao RBRACKET ASSIGN expressao           {std::string index = std::to_string(static_cast<unsigned int>($3.valor))+","+std::to_string(static_cast<unsigned int>($5.valor)); 
+											((Variable*)(driver.getModel()->elements()->element(Util::TypeOf<Variable>(), $1.id)))->setValue(index, $8.valor);
+											$$.valor = $8.valor;}
+            | VARI LBRACKET expressao "," expressao "," expressao RBRACKET ASSIGN expressao           { std::string index = std::to_string(static_cast<unsigned int>($3.valor))+","+std::to_string(static_cast<unsigned int>($5.valor))+","+std::to_string(static_cast<unsigned int>($7.valor));
+													((Variable*)(driver.getModel()->elements()->element(Util::TypeOf<Variable>(), $1.id)))->setValue(index, $10.valor); 
+													$$.valor = $10.valor;}
             ;
 
-variavel    : VARI                                              { $$.valor = ((Variable*)(driver.getModel()->elements()->element(Util::TypeOf<Variable>(), $1.id)))->getValue();} 
-            | VARI "[" expressao "]"                            { $$.valor = ((Variable*)(driver.getModel()->elements()->element(Util::TypeOf<Variable>(), $1.id)))->getValue(std::to_string($3.valor));}
-            | VARI "[" expressao "," expressao "]"              { std::string index(std::to_string($3.valor)); index.append(","); index.append(std::to_string($5.valor)); $$.valor = ((Variable*)(driver.getModel()->elements()->element(Util::TypeOf<Variable>(), $1.id)))->getValue(index);}
+variavel    : VARI                                              {   //std::cout << "VARI" << std::endl;
+								    $$.valor = ((Variable*)(driver.getModel()->elements()->element(Util::TypeOf<Variable>(), $1.id)))->getValue();} 
+            | VARI LBRACKET expressao RBRACKET                            { //std::cout << "VARI[exp]" << std::endl;
+								    std::string index = std::to_string(static_cast<unsigned int>($3.valor));
+								  $$.valor = ((Variable*)(driver.getModel()->elements()->element(Util::TypeOf<Variable>(), $1.id)))->getValue(index);}
+            | VARI LBRACKET expressao "," expressao RBRACKET              { std::string index = std::to_string(static_cast<unsigned int>($3.valor))+","+std::to_string(static_cast<unsigned int>($5.valor)); 
+								  $$.valor = ((Variable*)(driver.getModel()->elements()->element(Util::TypeOf<Variable>(), $1.id)))->getValue(index);}
+            | VARI LBRACKET expressao "," expressao "," expressao RBRACKET    { std::string index = std::to_string(static_cast<unsigned int>($3.valor))+","+std::to_string(static_cast<unsigned int>($5.valor))+","+std::to_string(static_cast<unsigned int>($7.valor));
+								      $$.valor = ((Variable*)(driver.getModel()->elements()->element(Util::TypeOf<Variable>(), $1.id)))->getValue(index);}
             ;
 
 // TODO: THERE IS A PROBLEM WITH FORMULA: TO EVALUATE THE FORMULA EXPRESSION, PARSER IS REINVOKED, AND THEN IT CRASHES (NO REENTRACE?)

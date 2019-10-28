@@ -24,9 +24,8 @@ public:
     Formula(Model* model);
     virtual ~Formula() = default;
 public:
-    void setFormulaExpression(std::string _formulaExpression);
-    std::string getFormulaExpression() const;
-    double getValue() const;
+    List<std::string>* getFormulaExpressions() const;
+    double getValue(unsigned int index = 0) const;
 public:
     virtual std::string show();
 public:
@@ -37,11 +36,11 @@ protected: // must be overriden by derived classes
     virtual std::map<std::string, std::string>* _saveInstance();
     virtual bool _check(std::string* errorMessage);
 private:
-//    ElementManager* _elements;
+    //    ElementManager* _elements;
     //Model* _model;
     Parser_if* _myPrivateParser;
 private:
-    std::string _formulaExpression;
+    List<std::string>* _formulaExpressions = new List<std::string>();
 };
 
 #endif /* FORMULA_H */
