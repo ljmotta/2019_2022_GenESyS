@@ -73,7 +73,7 @@ int FirstExampleOfSimulation::main(int argc, char** argv) {
     }
 
     // execute the simulation util completed and show the report
-    model->simulation()->startSimulation();
+    model->simulation()->start();
     simulator->~Simulator();
     return 0;
 };

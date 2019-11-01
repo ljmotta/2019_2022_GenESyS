@@ -36,21 +36,21 @@ public: // g & s
     EntityType* getEntityType() const;
 public:
     double getAttributeValue(std::string attributeName);
+    double getAttributeValue(std::string index, std::string attributeName);
     double getAttributeValue(Util::identification attributeID);
+    double getAttributeValue(std::string index, Util::identification attributeID);
     void setAttributeValue(std::string attributeName, double value);
+    void setAttributeValue(std::string index, std::string attributeName, double value);
     //void setAttributeValue(Util::identitifcation attributeID, double value);
     Util::identification getEntityNumber() const;
 protected:
     virtual bool _loadInstance(std::map<std::string, std::string>* fields);
     virtual std::map<std::string, std::string>* _saveInstance();
     virtual bool _check(std::string* errorMessage);
-
-//private:
-//    ElementManager* _elements;    
 private: 
     Util::identification _entityNumber;
     EntityType* _entityType = nullptr;
-    List<double>* _attributeValues = new List<double>();
+    List< std::map<std::string,double>* >* _attributeValues = new List<std::map<std::string,double>*>();
 };
 
 #endif /* ENTITY_H */

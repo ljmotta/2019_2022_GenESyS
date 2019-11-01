@@ -141,7 +141,7 @@ int TestEnterLeaveRoute::main(int argc, char** argv) {
     // show the model
     model->show();
     // execute the simulation
-    model->simulation()->startSimulation();
+    model->simulation()->start();
     return 0;
 }
 

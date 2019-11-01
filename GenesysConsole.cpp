@@ -64,7 +64,7 @@ void GenesysConsole::cmdModelCheck() {
 void GenesysConsole::cmdStart() {
     Trace("Start simulation");
     try {
-	_simulator->models()->current()->simulation()->startSimulation();
+	_simulator->models()->current()->simulation()->start();
     } catch (...) {
 	Trace("Error starting simulation");
     }
@@ -73,7 +73,7 @@ void GenesysConsole::cmdStart() {
 void GenesysConsole::cmdStep() {
     Trace("Step simulation");
     try {
-	_simulator->models()->current()->simulation()->stepSimulation();
+	_simulator->models()->current()->simulation()->step();
     } catch (...) {
 	Trace("Error stepping simulation");
     }
@@ -82,7 +82,7 @@ void GenesysConsole::cmdStep() {
 void GenesysConsole::cmdStop() {
     Trace("Stop simulation");
     try {
-	_simulator->models()->current()->simulation()->stopSimulation();
+	_simulator->models()->current()->simulation()->stop();
     } catch (...) {
 	Trace("Error stopping simulation");
     }

@@ -351,6 +351,8 @@
           <itemPath>TestLSODE.h</itemPath>
           <itemPath>TestMarkovChain.cpp</itemPath>
           <itemPath>TestMarkovChain.h</itemPath>
+          <itemPath>TestMatricesOfAttributesAndVariables.cpp</itemPath>
+          <itemPath>TestMatricesOfAttributesAndVariables.h</itemPath>
           <itemPath>TestParser.cpp</itemPath>
           <itemPath>TestParser.h</itemPath>
           <itemPath>TestSimulationControlAndSimulationResponse.cpp</itemPath>
@@ -888,6 +890,16 @@
       <item path="TestMarkovChain.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="TestMarkovChain.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="TestMatricesOfAttributesAndVariables.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="TestMatricesOfAttributesAndVariables.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="TestParser.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -1488,6 +1500,16 @@
       <item path="TestMarkovChain.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="TestMarkovChain.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="TestMatricesOfAttributesAndVariables.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="TestMatricesOfAttributesAndVariables.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
       </item>
       <item path="TestParser.cpp" ex="false" tool="1" flavor2="0">
       </item>

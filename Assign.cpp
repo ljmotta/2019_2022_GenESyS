@@ -21,13 +21,12 @@
 Assign::Assign(Model* model) : ModelComponent(model, Util::TypeOf<Assign>()) {
 }
 
-
 std::string Assign::show() {
     return ModelComponent::show() +
 	    "";
 }
 
-List<Assign::Assignment*>* Assign::getAssignments() const {
+List<Assign::Assignment*>* Assign::assignments() const {
     return _assignments;
 }
 
@@ -54,14 +53,8 @@ void Assign::_execute(Entity* entity) {
     for (std::list<Assignment*>::iterator it = lets->begin(); it != lets->end(); it++) {
 	let = (*it);
 	double value = _parentModel->parseExpression(let->getExpression());
+	_parentModel->parseExpression(let->getDestination() + "=" + std::to_string(value));
 	_parentModel->tracer()->trace("Let \"" + let->getDestination() + "\" = " + std::to_string(value) + "  // " + let->getExpression());
-	/* TODO: this is NOT the best way to do it (enum comparision) */
-	if (let->getDestinationType() == DestinationType::Variable) {
-	    Variable* myvar = (Variable*) this->_parentModel->elements()->element(Util::TypeOf<Variable>(), let->getDestination());
-	    myvar->setValue(value);
-	} else if (let->getDestinationType() == DestinationType::Attribute) {
-	    entity->setAttributeValue(let->getDestination(), value);
-	}
     }
 
     this->_parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
@@ -75,10 +68,10 @@ bool Assign::_loadInstance(std::map<std::string, std::string>* fields) {
     if (res) {
 	unsigned int nv = std::stoi((*(fields->find("assignments"))).second);
 	for (unsigned int i = 0; i < nv; i++) {
-	    DestinationType dt = static_cast<DestinationType> (std::stoi((*(fields->find("destinationType" + std::to_string(i)))).second));
+	    //DestinationType dt = static_cast<DestinationType> (std::stoi((*(fields->find("destinationType" + std::to_string(i)))).second));
 	    std::string dest = ((*(fields->find("destination" + std::to_string(i)))).second);
 	    std::string exp = ((*(fields->find("expression" + std::to_string(i)))).second);
-	    Assignment* assmt = new Assignment(dt, dest, exp);
+	    Assignment* assmt = new Assignment(dest, exp);
 	    this->_assignments->insert(assmt);
 	}
     }
@@ -93,7 +86,7 @@ std::map<std::string, std::string>* Assign::_saveInstance() {
     for (std::list<Assignment*>::iterator it = _assignments->list()->begin(); it != _assignments->list()->end(); it++) {
 	let = (*it);
 
-	fields->emplace("destinationType" + std::to_string(i), std::to_string(static_cast<int> (let->getDestinationType())));
+	//fields->emplace("destinationType" + std::to_string(i), std::to_string(static_cast<int> (let->getDestinationType())));
 	fields->emplace("destination" + std::to_string(i), let->getDestination());
 	fields->emplace("expression" + std::to_string(i), let->getExpression());
     }
@@ -103,14 +96,10 @@ std::map<std::string, std::string>* Assign::_saveInstance() {
 bool Assign::_check(std::string* errorMessage) {
     Assignment* let;
     bool resultAll = true;
+    // TODO: Reimplement it. Since 201910, attributes may have index, just like "atrrib1[2]" or "att[10,1]". Because of that, the string may contain not only the name of the attribute, but also its index and therefore, fails on the test bellow.
     for (std::list<Assignment*>::iterator it = _assignments->list()->begin(); it != _assignments->list()->end(); it++) {
 	let = (*it);
 	resultAll &= _parentModel->checkExpression(let->getExpression(), "assignment", errorMessage);
-	if (let->getDestinationType() == DestinationType::Attribute) { // TODO I dont like the way we check the destination
-	    resultAll &= _parentModel->elements()->check(Util::TypeOf<Attribute>(), let->getDestination(), "destination", true, errorMessage);
-	} else if (let->getDestinationType() == DestinationType::Variable) {
-	    resultAll &= _parentModel->elements()->check(Util::TypeOf<Variable>(), let->getDestination(), "destination", true, errorMessage);
-	}
     }
     return resultAll;
 }

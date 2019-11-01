@@ -44,7 +44,7 @@ bool ModelSimulation::_isReplicationEndCondition() {
 /*!
  * Checks the model and if ok then initialize the simulation, execute repeatedly each replication and then show simulation statistics
  */
-void ModelSimulation::startSimulation() {
+void ModelSimulation::start() {
     if (!_model->check()) {
 	_model->tracer()->trace(Util::TraceLevel::errors, "Model check failed. Cannot start simulation.");
 	return;
@@ -334,10 +334,10 @@ void ModelSimulation::_processEvent(Event* event) {
     Util::DecIndent();
 }
 
-void ModelSimulation::pauseSimulation() {
+void ModelSimulation::pause() {
 }
 
-void ModelSimulation::stepSimulation() {
+void ModelSimulation::step() {
     if (_simulationIsInitiated && _replicationIsInitiaded) {
 	if (!_isReplicationEndCondition()) {
 	    try {
@@ -350,10 +350,10 @@ void ModelSimulation::stepSimulation() {
 
 }
 
-void ModelSimulation::stopSimulation() {
+void ModelSimulation::stop() {
 }
 
-void ModelSimulation::restartSimulation() {
+void ModelSimulation::restart() {
 }
 
 void ModelSimulation::setPauseOnEvent(bool _pauseOnEvent) {

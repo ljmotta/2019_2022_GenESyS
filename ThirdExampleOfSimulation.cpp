@@ -103,7 +103,7 @@ int ThirdExampleOfSimulation::main(int argc, char** argv) {
 	model =  simulator->models()->current();
     }
     // execute the simulation
-    model->simulation()->startSimulation();
+    model->simulation()->start();
 
     return 0;
 };

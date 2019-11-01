@@ -67,6 +67,6 @@ int TestLSODE::main(int argc, char** argv) {
     //delay1->getNextComponents()->insert(dispose1);
     simulator->models()->insert(model);
     model->save("./temp/testLSODE.txt");
-    model->simulation()->startSimulation();
+    model->simulation()->start();
     return 0;    
 }

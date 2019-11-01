@@ -31,11 +31,11 @@ public:
     ModelSimulation(Model* model);
     virtual ~ModelSimulation() = default;
 public: // simulation control
-    void startSimulation(); ///< Starts a sequential execution of a simulation, ie, a set of replications of this model.
-    void pauseSimulation();
-    void stepSimulation(); ///< Executes the processing of a single event, the next one in the future events list.
-    void stopSimulation();
-    void restartSimulation();
+    void start(); ///< Starts a sequential execution of a simulation, ie, a set of replications of this model.
+    void pause();
+    void step(); ///< Executes the processing of a single event, the next one in the future events list.
+    void stop();
+    void restart();
 public:
     void setPauseOnEvent(bool _pauseOnEvent);
     bool isPauseOnEvent() const;

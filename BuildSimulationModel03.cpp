@@ -73,10 +73,10 @@ void _buildMostCompleteModel(Model* model) {
     elements->insert(variable1);
 
     Assign* assign1 = new Assign(model);
-    Assign::Assignment* attrib2Assignment = new Assign::Assignment(Assign::DestinationType::Variable, "Variable_1", "Variable_1 + 1");
-    assign1->getAssignments()->insert(attrib2Assignment);
-    Assign::Assignment* attrib1Assignment = new Assign::Assignment(Assign::DestinationType::Attribute, "Attribute_1", "Variable_1");
-    assign1->getAssignments()->insert(attrib1Assignment);
+    Assign::Assignment* attrib2Assignment = new Assign::Assignment("Variable_1", "Variable_1 + 1");
+    assign1->assignments()->insert(attrib2Assignment);
+    Assign::Assignment* attrib1Assignment = new Assign::Assignment("Attribute_1", "Variable_1");
+    assign1->assignments()->insert(attrib1Assignment);
     components->insert(assign1);
 
     Decide* decide1 = new Decide(model);
@@ -198,7 +198,7 @@ void BuildSimulationModel03::builAndRunSimulationdModel() {
 
     //model->checkModel();
     //model->show();
-    model->simulation()->startSimulation();
+    model->simulation()->start();
 }
 
 int BuildSimulationModel03::main(int argc, char** argv) {

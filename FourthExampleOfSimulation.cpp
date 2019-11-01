@@ -41,7 +41,7 @@ FourthExampleOfSimulation::FourthExampleOfSimulation() {
 
 int FourthExampleOfSimulation::main(int argc, char** argv) {
     Simulator* simulator = new Simulator();
-//    simulator->tracer()->setTraceLevel(Util::TraceLevel::blockArrival);
+    //    simulator->tracer()->setTraceLevel(Util::TraceLevel::blockArrival);
     this->setDefaultTraceHandlers(simulator->tracer());
     this->insertFakePluginsByHand(simulator);
     bool wantToCreateNewModelAndSaveInsteadOfJustLoad = true;
@@ -60,8 +60,8 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	create1->setEntitiesPerCreation(1);
 	// model->insert(create1);
 	Assign* assign1 = new Assign(model);
-	assign1->getAssignments()->insert(new Assign::Assignment(Assign::DestinationType::Variable, "varNextIndex", "varNextIndex+1"));
-	assign1->getAssignments()->insert(new Assign::Assignment(Assign::DestinationType::Attribute, "index", "varNextIndex"));
+	assign1->assignments()->insert(new Assign::Assignment("varNextIndex", "varNextIndex+1"));
+	assign1->assignments()->insert(new Assign::Assignment("index", "varNextIndex"));
 	// model->insert(assign1);
 	Attribute* attr1 = new Attribute(model, "index");
 	// model->insert(attr1);
@@ -186,7 +186,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	model = simulator->models()->current();
     }
     this->setDefaultEventHandlers(model->onEvents());
-    model->simulation()->startSimulation();
+    model->simulation()->start();
     return 0;
 }
 

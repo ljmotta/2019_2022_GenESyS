@@ -22,7 +22,7 @@ Formula::Formula(Model* model) : ModelElement(model, Util::TypeOf<Formula>()) {
     _myPrivateParser = new Traits<Parser_if>::Implementation(_parentModel);
 }
 
-double Formula::getValue(unsigned int index = 0) const {
+double Formula::getValue(unsigned int index) const {
     std::string expression = this->_formulaExpressions->getAtRank(index);
     double value = _parentModel->parseExpression(expression);
 }

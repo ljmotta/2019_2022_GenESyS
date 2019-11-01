@@ -79,6 +79,6 @@ int TestMarkovChain::main(int argc, char** argv) {
     write1->nextComponents()->insert(dispose1);
     simulator->models()->insert(model);
     model->save("./temp/testmarkovchain.txt");
-    model->simulation()->startSimulation();
+    model->simulation()->start();
     return 0;
 }

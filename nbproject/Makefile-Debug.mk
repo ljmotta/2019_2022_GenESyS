@@ -145,6 +145,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/TestInputAnalyserTools.o \
 	${OBJECTDIR}/TestLSODE.o \
 	${OBJECTDIR}/TestMarkovChain.o \
+	${OBJECTDIR}/TestMatricesOfAttributesAndVariables.o \
 	${OBJECTDIR}/TestParser.o \
 	${OBJECTDIR}/TestSimulationControlAndSimulationResponse.o \
 	${OBJECTDIR}/TestStatistics.o \
@@ -736,6 +737,11 @@ ${OBJECTDIR}/TestMarkovChain.o: TestMarkovChain.cpp nbproject/Makefile-${CND_CON
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestMarkovChain.o TestMarkovChain.cpp
+
+${OBJECTDIR}/TestMatricesOfAttributesAndVariables.o: TestMatricesOfAttributesAndVariables.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestMatricesOfAttributesAndVariables.o TestMatricesOfAttributesAndVariables.cpp
 
 ${OBJECTDIR}/TestParser.o: TestParser.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

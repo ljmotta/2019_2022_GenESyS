@@ -45,6 +45,7 @@
 #include "TestSimulationControlAndSimulationResponse.h"
 #include "TestLSODE.h"
 #include "TestMarkovChain.h"
+#include "TestMatricesOfAttributesAndVariables.h"
 
 //  Default implementations
 //statistics
@@ -81,9 +82,10 @@ template <> struct Traits<GenesysApplication_if> {
     //typedef FirstExampleOfSimulation Application;
     //typedef SecondExampleOfSimulation Application;
     //typedef FourthExampleOfSimulation Application;
-    typedef TestLSODE Application;
+    //typedef TestLSODE Application;
     //typedef TestMarkovChain Application;
     //typedef TestSimulationControlAndSimulationResponse Application;
+    typedef TestMatricesOfAttributesAndVariables Application;
 };
 
 

@@ -59,7 +59,7 @@ public: // improved (easier) methods
     T front();
     T last();
     T previous();
-    T actual(); // get current element on the list (the last used)
+    T current(); // get current element on the list (the last used)
     void setSortFunc(CompFunct _sortFunc);
 private:
     //std::map<Util::identitifcation, T>* _map;
@@ -220,8 +220,8 @@ T List<T>::previous() {
 }
 
 template <typename T>
-T List<T>::actual() {
-    /* TODO: To implement. Must actualize _it on other methods when other elements are accessed */
+T List<T>::current() {
+    /* TODO: To implement (i thing it's just to check). Must actualize _it on other methods when other elements are accessed */
     return(*_it);
 }
 
