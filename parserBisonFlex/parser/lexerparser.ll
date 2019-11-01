@@ -120,6 +120,7 @@ L      [A-Za-z0-9_.]+
 [mM][oO][dD]          {return yy::genesyspp_parser::make_fMOD(obj_t(0, std::string(yytext)), loc);}
 [tT][rR][uU][nN][cC]  {return yy::genesyspp_parser::make_fTRUNC(obj_t(0, std::string(yytext)), loc);}
 [fF][rR][aA][cC]      {return yy::genesyspp_parser::make_fFRAC(obj_t(0, std::string(yytext)), loc);}
+[eE][xX][pP]          {return yy::genesyspp_parser::make_fEXP(obj_t(0, std::string(yytext)), loc);}
 
 %{// probability distributions %}
 [eE][xX][pP][oO]  {return yy::genesyspp_parser::make_fEXPO(obj_t(0, std::string(yytext)), loc);}

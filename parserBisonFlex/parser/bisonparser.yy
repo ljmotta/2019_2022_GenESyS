@@ -66,6 +66,7 @@ class genesyspp_driver;
 %token <obj_t> fMOD
 %token <obj_t> fTRUNC
 %token <obj_t> fFRAC
+%token <obj_t> fEXP
 
 // probability distributions
 %token <obj_t> fEXPO
@@ -223,6 +224,7 @@ aritmetica  : expressao PLUS expressao         { $$.valor = $1.valor + $3.valor;
             | expressao SLASH expressao        { $$.valor = $1.valor / $3.valor;}
             | expressao STAR expressao         { $$.valor = $1.valor * $3.valor;}
             | expressao POWER expressao        { $$.valor = pow($1.valor,$3.valor);}
+            | fEXP "(" expressao ")"	       { $$.valor = exp($3.valor);}
             | MINUS expressao %prec NEG        { $$.valor = -$2.valor;}
             ;
 
@@ -316,7 +318,7 @@ atributo    : ATRIB      {  double attributeValue = 0.0;
 			    if (driver.getModel()->simulation()->currentEntity() != nullptr) {
 				try {
 				    // it could crach because there may be no current entity, if the parse is running before simulation and therefore there is no CurrentEntity
-				    attributeValue = driver.getModel()->simulation()->currentEntity()->getAttributeValue($1.valor);
+				    attributeValue = driver.getModel()->simulation()->currentEntity()->getAttributeValue($1.id);
 				} catch(...) {
 				}
 			    }

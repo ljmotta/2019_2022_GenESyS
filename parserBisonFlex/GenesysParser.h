@@ -317,6 +317,7 @@ namespace yy {
       // fMOD
       // fTRUNC
       // fFRAC
+      // fEXP
       // fEXPO
       // fNORM
       // fUNIF
@@ -417,58 +418,59 @@ namespace yy {
         fMOD = 271,
         fTRUNC = 272,
         fFRAC = 273,
-        fEXPO = 274,
-        fNORM = 275,
-        fUNIF = 276,
-        fWEIB = 277,
-        fLOGN = 278,
-        fGAMM = 279,
-        fERLA = 280,
-        fTRIA = 281,
-        fBETA = 282,
-        fDISC = 283,
-        fTNOW = 284,
-        fTFIN = 285,
-        cIF = 286,
-        cELSE = 287,
-        cFOR = 288,
-        cTO = 289,
-        cDO = 290,
-        ATRIB = 291,
-        ILLEGAL = 292,
-        RESOURCE = 293,
-        fNR = 294,
-        fMR = 295,
-        fIRF = 296,
-        fRESSEIZES = 297,
-        fSTATE = 298,
-        fSETSUM = 299,
-        QUEUE = 300,
-        fNQ = 301,
-        fFIRSTINQ = 302,
-        fLASTINQ = 303,
-        fSAQUE = 304,
-        fAQUE = 305,
-        SET = 306,
-        fNUMSET = 307,
-        CSTAT = 308,
-        fTAVG = 309,
-        VARI = 310,
-        FORM = 311,
-        LPAREN = 312,
-        RPAREN = 313,
-        LBRACKET = 314,
-        RBRACKET = 315,
-        PLUS = 316,
-        MINUS = 317,
-        STAR = 318,
-        POWER = 319,
-        SLASH = 320,
-        LESS = 321,
-        GREATER = 322,
-        ASSIGN = 323,
-        COMMA = 324,
-        NEG = 325
+        fEXP = 274,
+        fEXPO = 275,
+        fNORM = 276,
+        fUNIF = 277,
+        fWEIB = 278,
+        fLOGN = 279,
+        fGAMM = 280,
+        fERLA = 281,
+        fTRIA = 282,
+        fBETA = 283,
+        fDISC = 284,
+        fTNOW = 285,
+        fTFIN = 286,
+        cIF = 287,
+        cELSE = 288,
+        cFOR = 289,
+        cTO = 290,
+        cDO = 291,
+        ATRIB = 292,
+        ILLEGAL = 293,
+        RESOURCE = 294,
+        fNR = 295,
+        fMR = 296,
+        fIRF = 297,
+        fRESSEIZES = 298,
+        fSTATE = 299,
+        fSETSUM = 300,
+        QUEUE = 301,
+        fNQ = 302,
+        fFIRSTINQ = 303,
+        fLASTINQ = 304,
+        fSAQUE = 305,
+        fAQUE = 306,
+        SET = 307,
+        fNUMSET = 308,
+        CSTAT = 309,
+        fTAVG = 310,
+        VARI = 311,
+        FORM = 312,
+        LPAREN = 313,
+        RPAREN = 314,
+        LBRACKET = 315,
+        RBRACKET = 316,
+        PLUS = 317,
+        MINUS = 318,
+        STAR = 319,
+        POWER = 320,
+        SLASH = 321,
+        LESS = 322,
+        GREATER = 323,
+        ASSIGN = 324,
+        COMMA = 325,
+        NEG = 326
       };
     };
 
@@ -642,6 +644,10 @@ namespace yy {
     static inline
     symbol_type
     make_fFRAC (const obj_t& v, const location_type& l);
+
+    static inline
+    symbol_type
+    make_fEXP (const obj_t& v, const location_type& l);
 
     static inline
     symbol_type
@@ -1056,12 +1062,12 @@ namespace yy {
     enum
     {
       yyeof_ = 0,
-      yylast_ = 1299,     ///< Last index in yytable_.
+      yylast_ = 1290,     ///< Last index in yytable_.
       yynnts_ = 23,  ///< Number of nonterminal symbols.
       yyfinal_ = 6, ///< Termination state number.
       yyterror_ = 1,
       yyerrcode_ = 256,
-      yyntokens_ = 73  ///< Number of tokens.
+      yyntokens_ = 74  ///< Number of tokens.
     };
 
 
@@ -1079,7 +1085,7 @@ namespace yy {
     translate_table[] =
     {
      0,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-      71,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+      72,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
@@ -1110,9 +1116,9 @@ namespace yy {
       35,    36,    37,    38,    39,    40,    41,    42,    43,    44,
       45,    46,    47,    48,    49,    50,    51,    52,    53,    54,
       55,    56,    57,    58,    59,    60,    61,    62,    63,    64,
-      65,    66,    67,    68,    69,    70,    72
+      65,    66,    67,    68,    69,    70,    71,    73
     };
-    const unsigned int user_token_number_max_ = 326;
+    const unsigned int user_token_number_max_ = 327;
     const token_number_type undef_token_ = 2;
 
     if (static_cast<int>(t) <= yyeof_)
@@ -1161,66 +1167,67 @@ namespace yy {
       case 16: // fMOD
       case 17: // fTRUNC
       case 18: // fFRAC
-      case 19: // fEXPO
-      case 20: // fNORM
-      case 21: // fUNIF
-      case 22: // fWEIB
-      case 23: // fLOGN
-      case 24: // fGAMM
-      case 25: // fERLA
-      case 26: // fTRIA
-      case 27: // fBETA
-      case 28: // fDISC
-      case 29: // fTNOW
-      case 30: // fTFIN
-      case 31: // cIF
-      case 32: // cELSE
-      case 33: // cFOR
-      case 34: // cTO
-      case 35: // cDO
-      case 36: // ATRIB
-      case 37: // ILLEGAL
-      case 38: // RESOURCE
-      case 39: // fNR
-      case 40: // fMR
-      case 41: // fIRF
-      case 42: // fRESSEIZES
-      case 43: // fSTATE
-      case 44: // fSETSUM
-      case 45: // QUEUE
-      case 46: // fNQ
-      case 47: // fFIRSTINQ
-      case 48: // fLASTINQ
-      case 49: // fSAQUE
-      case 50: // fAQUE
-      case 51: // SET
-      case 52: // fNUMSET
-      case 53: // CSTAT
-      case 54: // fTAVG
-      case 55: // VARI
-      case 56: // FORM
-      case 74: // input
-      case 75: // programa
-      case 76: // expressao
-      case 77: // numero
-      case 78: // aritmetica
-      case 79: // relacional
-      case 80: // comando
-      case 81: // comandoIF
-      case 82: // comandoFOR
-      case 83: // funcao
-      case 84: // funcaoKernel
-      case 85: // funcaoTrig
-      case 86: // funcaoArit
-      case 87: // funcaoProb
-      case 88: // funcaoUser
-      case 89: // listaparm
-      case 90: // illegal
-      case 91: // atributo
-      case 92: // atribuicao
-      case 93: // variavel
-      case 94: // formula
-      case 95: // funcaoPlugin
+      case 19: // fEXP
+      case 20: // fEXPO
+      case 21: // fNORM
+      case 22: // fUNIF
+      case 23: // fWEIB
+      case 24: // fLOGN
+      case 25: // fGAMM
+      case 26: // fERLA
+      case 27: // fTRIA
+      case 28: // fBETA
+      case 29: // fDISC
+      case 30: // fTNOW
+      case 31: // fTFIN
+      case 32: // cIF
+      case 33: // cELSE
+      case 34: // cFOR
+      case 35: // cTO
+      case 36: // cDO
+      case 37: // ATRIB
+      case 38: // ILLEGAL
+      case 39: // RESOURCE
+      case 40: // fNR
+      case 41: // fMR
+      case 42: // fIRF
+      case 43: // fRESSEIZES
+      case 44: // fSTATE
+      case 45: // fSETSUM
+      case 46: // QUEUE
+      case 47: // fNQ
+      case 48: // fFIRSTINQ
+      case 49: // fLASTINQ
+      case 50: // fSAQUE
+      case 51: // fAQUE
+      case 52: // SET
+      case 53: // fNUMSET
+      case 54: // CSTAT
+      case 55: // fTAVG
+      case 56: // VARI
+      case 57: // FORM
+      case 75: // input
+      case 76: // programa
+      case 77: // expressao
+      case 78: // numero
+      case 79: // aritmetica
+      case 80: // relacional
+      case 81: // comando
+      case 82: // comandoIF
+      case 83: // comandoFOR
+      case 84: // funcao
+      case 85: // funcaoKernel
+      case 86: // funcaoTrig
+      case 87: // funcaoArit
+      case 88: // funcaoProb
+      case 89: // funcaoUser
+      case 90: // listaparm
+      case 91: // illegal
+      case 92: // atributo
+      case 93: // atribuicao
+      case 94: // variavel
+      case 95: // formula
+      case 96: // funcaoPlugin
         value.copy< obj_t > (other.value);
         break;
 
@@ -1257,66 +1264,67 @@ namespace yy {
       case 16: // fMOD
       case 17: // fTRUNC
       case 18: // fFRAC
-      case 19: // fEXPO
-      case 20: // fNORM
-      case 21: // fUNIF
-      case 22: // fWEIB
-      case 23: // fLOGN
-      case 24: // fGAMM
-      case 25: // fERLA
-      case 26: // fTRIA
-      case 27: // fBETA
-      case 28: // fDISC
-      case 29: // fTNOW
-      case 30: // fTFIN
-      case 31: // cIF
-      case 32: // cELSE
-      case 33: // cFOR
-      case 34: // cTO
-      case 35: // cDO
-      case 36: // ATRIB
-      case 37: // ILLEGAL
-      case 38: // RESOURCE
-      case 39: // fNR
-      case 40: // fMR
-      case 41: // fIRF
-      case 42: // fRESSEIZES
-      case 43: // fSTATE
-      case 44: // fSETSUM
-      case 45: // QUEUE
-      case 46: // fNQ
-      case 47: // fFIRSTINQ
-      case 48: // fLASTINQ
-      case 49: // fSAQUE
-      case 50: // fAQUE
-      case 51: // SET
-      case 52: // fNUMSET
-      case 53: // CSTAT
-      case 54: // fTAVG
-      case 55: // VARI
-      case 56: // FORM
-      case 74: // input
-      case 75: // programa
-      case 76: // expressao
-      case 77: // numero
-      case 78: // aritmetica
-      case 79: // relacional
-      case 80: // comando
-      case 81: // comandoIF
-      case 82: // comandoFOR
-      case 83: // funcao
-      case 84: // funcaoKernel
-      case 85: // funcaoTrig
-      case 86: // funcaoArit
-      case 87: // funcaoProb
-      case 88: // funcaoUser
-      case 89: // listaparm
-      case 90: // illegal
-      case 91: // atributo
-      case 92: // atribuicao
-      case 93: // variavel
-      case 94: // formula
-      case 95: // funcaoPlugin
+      case 19: // fEXP
+      case 20: // fEXPO
+      case 21: // fNORM
+      case 22: // fUNIF
+      case 23: // fWEIB
+      case 24: // fLOGN
+      case 25: // fGAMM
+      case 26: // fERLA
+      case 27: // fTRIA
+      case 28: // fBETA
+      case 29: // fDISC
+      case 30: // fTNOW
+      case 31: // fTFIN
+      case 32: // cIF
+      case 33: // cELSE
+      case 34: // cFOR
+      case 35: // cTO
+      case 36: // cDO
+      case 37: // ATRIB
+      case 38: // ILLEGAL
+      case 39: // RESOURCE
+      case 40: // fNR
+      case 41: // fMR
+      case 42: // fIRF
+      case 43: // fRESSEIZES
+      case 44: // fSTATE
+      case 45: // fSETSUM
+      case 46: // QUEUE
+      case 47: // fNQ
+      case 48: // fFIRSTINQ
+      case 49: // fLASTINQ
+      case 50: // fSAQUE
+      case 51: // fAQUE
+      case 52: // SET
+      case 53: // fNUMSET
+      case 54: // CSTAT
+      case 55: // fTAVG
+      case 56: // VARI
+      case 57: // FORM
+      case 75: // input
+      case 76: // programa
+      case 77: // expressao
+      case 78: // numero
+      case 79: // aritmetica
+      case 80: // relacional
+      case 81: // comando
+      case 82: // comandoIF
+      case 83: // comandoFOR
+      case 84: // funcao
+      case 85: // funcaoKernel
+      case 86: // funcaoTrig
+      case 87: // funcaoArit
+      case 88: // funcaoProb
+      case 89: // funcaoUser
+      case 90: // listaparm
+      case 91: // illegal
+      case 92: // atributo
+      case 93: // atribuicao
+      case 94: // variavel
+      case 95: // formula
+      case 96: // funcaoPlugin
         value.copy< obj_t > (v);
         break;
 
@@ -1384,66 +1392,67 @@ namespace yy {
       case 16: // fMOD
       case 17: // fTRUNC
       case 18: // fFRAC
-      case 19: // fEXPO
-      case 20: // fNORM
-      case 21: // fUNIF
-      case 22: // fWEIB
-      case 23: // fLOGN
-      case 24: // fGAMM
-      case 25: // fERLA
-      case 26: // fTRIA
-      case 27: // fBETA
-      case 28: // fDISC
-      case 29: // fTNOW
-      case 30: // fTFIN
-      case 31: // cIF
-      case 32: // cELSE
-      case 33: // cFOR
-      case 34: // cTO
-      case 35: // cDO
-      case 36: // ATRIB
-      case 37: // ILLEGAL
-      case 38: // RESOURCE
-      case 39: // fNR
-      case 40: // fMR
-      case 41: // fIRF
-      case 42: // fRESSEIZES
-      case 43: // fSTATE
-      case 44: // fSETSUM
-      case 45: // QUEUE
-      case 46: // fNQ
-      case 47: // fFIRSTINQ
-      case 48: // fLASTINQ
-      case 49: // fSAQUE
-      case 50: // fAQUE
-      case 51: // SET
-      case 52: // fNUMSET
-      case 53: // CSTAT
-      case 54: // fTAVG
-      case 55: // VARI
-      case 56: // FORM
-      case 74: // input
-      case 75: // programa
-      case 76: // expressao
-      case 77: // numero
-      case 78: // aritmetica
-      case 79: // relacional
-      case 80: // comando
-      case 81: // comandoIF
-      case 82: // comandoFOR
-      case 83: // funcao
-      case 84: // funcaoKernel
-      case 85: // funcaoTrig
-      case 86: // funcaoArit
-      case 87: // funcaoProb
-      case 88: // funcaoUser
-      case 89: // listaparm
-      case 90: // illegal
-      case 91: // atributo
-      case 92: // atribuicao
-      case 93: // variavel
-      case 94: // formula
-      case 95: // funcaoPlugin
+      case 19: // fEXP
+      case 20: // fEXPO
+      case 21: // fNORM
+      case 22: // fUNIF
+      case 23: // fWEIB
+      case 24: // fLOGN
+      case 25: // fGAMM
+      case 26: // fERLA
+      case 27: // fTRIA
+      case 28: // fBETA
+      case 29: // fDISC
+      case 30: // fTNOW
+      case 31: // fTFIN
+      case 32: // cIF
+      case 33: // cELSE
+      case 34: // cFOR
+      case 35: // cTO
+      case 36: // cDO
+      case 37: // ATRIB
+      case 38: // ILLEGAL
+      case 39: // RESOURCE
+      case 40: // fNR
+      case 41: // fMR
+      case 42: // fIRF
+      case 43: // fRESSEIZES
+      case 44: // fSTATE
+      case 45: // fSETSUM
+      case 46: // QUEUE
+      case 47: // fNQ
+      case 48: // fFIRSTINQ
+      case 49: // fLASTINQ
+      case 50: // fSAQUE
+      case 51: // fAQUE
+      case 52: // SET
+      case 53: // fNUMSET
+      case 54: // CSTAT
+      case 55: // fTAVG
+      case 56: // VARI
+      case 57: // FORM
+      case 75: // input
+      case 76: // programa
+      case 77: // expressao
+      case 78: // numero
+      case 79: // aritmetica
+      case 80: // relacional
+      case 81: // comando
+      case 82: // comandoIF
+      case 83: // comandoFOR
+      case 84: // funcao
+      case 85: // funcaoKernel
+      case 86: // funcaoTrig
+      case 87: // funcaoArit
+      case 88: // funcaoProb
+      case 89: // funcaoUser
+      case 90: // listaparm
+      case 91: // illegal
+      case 92: // atributo
+      case 93: // atribuicao
+      case 94: // variavel
+      case 95: // formula
+      case 96: // funcaoPlugin
         value.template destroy< obj_t > ();
         break;
 
@@ -1486,66 +1495,67 @@ namespace yy {
       case 16: // fMOD
       case 17: // fTRUNC
       case 18: // fFRAC
-      case 19: // fEXPO
-      case 20: // fNORM
-      case 21: // fUNIF
-      case 22: // fWEIB
-      case 23: // fLOGN
-      case 24: // fGAMM
-      case 25: // fERLA
-      case 26: // fTRIA
-      case 27: // fBETA
-      case 28: // fDISC
-      case 29: // fTNOW
-      case 30: // fTFIN
-      case 31: // cIF
-      case 32: // cELSE
-      case 33: // cFOR
-      case 34: // cTO
-      case 35: // cDO
-      case 36: // ATRIB
-      case 37: // ILLEGAL
-      case 38: // RESOURCE
-      case 39: // fNR
-      case 40: // fMR
-      case 41: // fIRF
-      case 42: // fRESSEIZES
-      case 43: // fSTATE
-      case 44: // fSETSUM
-      case 45: // QUEUE
-      case 46: // fNQ
-      case 47: // fFIRSTINQ
-      case 48: // fLASTINQ
-      case 49: // fSAQUE
-      case 50: // fAQUE
-      case 51: // SET
-      case 52: // fNUMSET
-      case 53: // CSTAT
-      case 54: // fTAVG
-      case 55: // VARI
-      case 56: // FORM
-      case 74: // input
-      case 75: // programa
-      case 76: // expressao
-      case 77: // numero
-      case 78: // aritmetica
-      case 79: // relacional
-      case 80: // comando
-      case 81: // comandoIF
-      case 82: // comandoFOR
-      case 83: // funcao
-      case 84: // funcaoKernel
-      case 85: // funcaoTrig
-      case 86: // funcaoArit
-      case 87: // funcaoProb
-      case 88: // funcaoUser
-      case 89: // listaparm
-      case 90: // illegal
-      case 91: // atributo
-      case 92: // atribuicao
-      case 93: // variavel
-      case 94: // formula
-      case 95: // funcaoPlugin
+      case 19: // fEXP
+      case 20: // fEXPO
+      case 21: // fNORM
+      case 22: // fUNIF
+      case 23: // fWEIB
+      case 24: // fLOGN
+      case 25: // fGAMM
+      case 26: // fERLA
+      case 27: // fTRIA
+      case 28: // fBETA
+      case 29: // fDISC
+      case 30: // fTNOW
+      case 31: // fTFIN
+      case 32: // cIF
+      case 33: // cELSE
+      case 34: // cFOR
+      case 35: // cTO
+      case 36: // cDO
+      case 37: // ATRIB
+      case 38: // ILLEGAL
+      case 39: // RESOURCE
+      case 40: // fNR
+      case 41: // fMR
+      case 42: // fIRF
+      case 43: // fRESSEIZES
+      case 44: // fSTATE
+      case 45: // fSETSUM
+      case 46: // QUEUE
+      case 47: // fNQ
+      case 48: // fFIRSTINQ
+      case 49: // fLASTINQ
+      case 50: // fSAQUE
+      case 51: // fAQUE
+      case 52: // SET
+      case 53: // fNUMSET
+      case 54: // CSTAT
+      case 55: // fTAVG
+      case 56: // VARI
+      case 57: // FORM
+      case 75: // input
+      case 76: // programa
+      case 77: // expressao
+      case 78: // numero
+      case 79: // aritmetica
+      case 80: // relacional
+      case 81: // comando
+      case 82: // comandoIF
+      case 83: // comandoFOR
+      case 84: // funcao
+      case 85: // funcaoKernel
+      case 86: // funcaoTrig
+      case 87: // funcaoArit
+      case 88: // funcaoProb
+      case 89: // funcaoUser
+      case 90: // listaparm
+      case 91: // illegal
+      case 92: // atributo
+      case 93: // atribuicao
+      case 94: // variavel
+      case 95: // formula
+      case 96: // funcaoPlugin
         value.move< obj_t > (s.value);
         break;
 
@@ -1611,7 +1621,7 @@ namespace yy {
      295,   296,   297,   298,   299,   300,   301,   302,   303,   304,
      305,   306,   307,   308,   309,   310,   311,   312,   313,   314,
      315,   316,   317,   318,   319,   320,   321,   322,   323,   324,
-     325,    10,   326
+     325,   326,    10,   327
     };
     return static_cast<token_type> (yytoken_number_[type]);
   }
@@ -1716,6 +1726,12 @@ namespace yy {
   genesyspp_parser::make_fFRAC (const obj_t& v, const location_type& l)
   {
     return symbol_type (token::fFRAC, v, l);
+  }
+
+  genesyspp_parser::symbol_type
+  genesyspp_parser::make_fEXP (const obj_t& v, const location_type& l)
+  {
+    return symbol_type (token::fEXP, v, l);
   }
 
   genesyspp_parser::symbol_type
@@ -2033,7 +2049,7 @@ namespace yy {
 
 
 } // yy
-#line 2037 "../GenesysParser.h" // lalr1.cc:377
+#line 2053 "../GenesysParser.h" // lalr1.cc:377
 
 
 

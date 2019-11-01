@@ -3992,8 +3992,8 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 68
-#define YY_END_OF_BUFFER 69
+#define YY_NUM_RULES 69
+#define YY_END_OF_BUFFER 70
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -4003,29 +4003,29 @@ struct yy_trans_info
 	};
 static const flex_int16_t yy_accept[210] =
     {   0,
-        0,    0,   69,   67,   65,   65,   10,   11,   14,   12,
-       17,   13,   66,   15,    3,    3,    8,   16,    9,   66,
-       66,   66,   66,   66,   66,   66,   66,   66,   66,   66,
-       66,   66,   66,   66,   66,   66,   18,   19,   66,   66,
-        3,   66,   66,    4,    7,    6,    5,   66,   66,   66,
-       66,   66,   66,   26,   66,   66,   66,   66,   66,   66,
-       66,   66,   66,   22,   66,   66,   66,   66,   66,   49,
-       66,   58,   48,   66,   28,   66,   66,   66,   66,   66,
-       66,   66,   66,   66,   25,   66,   66,   66,    2,    0,
-        3,    1,    1,   27,   66,   66,   66,   31,   66,   66,
+        0,    0,   70,   68,   66,   66,   10,   11,   14,   12,
+       17,   13,   67,   15,    3,    3,    8,   16,    9,   67,
+       67,   67,   67,   67,   67,   67,   67,   67,   67,   67,
+       67,   67,   67,   67,   67,   67,   18,   19,   67,   67,
+        3,   67,   67,    4,    7,    6,    5,   67,   67,   67,
+       67,   67,   67,   26,   67,   67,   67,   67,   67,   67,
+       67,   67,   67,   22,   67,   67,   67,   67,   67,   50,
+       67,   59,   49,   67,   28,   67,   67,   67,   67,   67,
+       67,   67,   67,   67,   25,   67,   67,   67,    2,    0,
+        3,    1,    1,   27,   67,   67,   67,   31,   67,   67,
 
-       66,   66,   66,   66,   66,   24,   66,   66,   66,   66,
-       50,   66,   66,   33,   66,   29,   66,   66,   66,   66,
-       66,   30,   66,   66,   66,   66,   66,   66,   66,   66,
-       66,    3,   62,   44,   66,   45,   23,   42,   36,   66,
-       66,   66,   35,   41,   66,   66,   66,   40,   37,   66,
-       66,   66,   66,   66,   66,   64,   47,   46,   43,   20,
-       66,   38,   39,    0,    2,   66,   66,   21,   66,   66,
-       66,   66,   66,   66,   32,   61,   66,   51,   34,    2,
-       66,   66,   66,   66,   66,   66,   63,   66,   52,   66,
-       66,   66,   66,   66,   59,   66,   55,   66,   60,   54,
+       67,   36,   67,   67,   67,   24,   67,   67,   67,   67,
+       51,   67,   67,   33,   67,   29,   67,   67,   67,   67,
+       67,   30,   67,   67,   67,   67,   67,   67,   67,   67,
+       67,    3,   63,   45,   67,   46,   23,   43,   37,   67,
+       67,   67,   35,   42,   67,   67,   67,   41,   38,   67,
+       67,   67,   67,   67,   67,   65,   48,   47,   44,   20,
+       67,   39,   40,    0,    2,   67,   67,   21,   67,   67,
+       67,   67,   67,   67,   32,   62,   67,   52,   34,    2,
+       67,   67,   67,   67,   67,   67,   64,   67,   53,   67,
+       67,   67,   67,   67,   60,   67,   56,   67,   61,   55,
 
-       66,   66,   66,   66,   53,   57,   66,   66,   56
+       67,   67,   67,   67,   54,   58,   67,   67,   57
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -4563,174 +4563,179 @@ YY_RULE_SETUP
 #line 123 "lexerparser.ll"
 {return yy::genesyspp_parser::make_fFRAC(obj_t(0, std::string(yytext)), loc);}
 	YY_BREAK
-// probability distributions
 case 36:
 YY_RULE_SETUP
-#line 126 "lexerparser.ll"
-{return yy::genesyspp_parser::make_fEXPO(obj_t(0, std::string(yytext)), loc);}
+#line 124 "lexerparser.ll"
+{return yy::genesyspp_parser::make_fEXP(obj_t(0, std::string(yytext)), loc);}
 	YY_BREAK
+// probability distributions
 case 37:
 YY_RULE_SETUP
 #line 127 "lexerparser.ll"
-{return yy::genesyspp_parser::make_fNORM(obj_t(0, std::string(yytext)), loc);}
+{return yy::genesyspp_parser::make_fEXPO(obj_t(0, std::string(yytext)), loc);}
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
 #line 128 "lexerparser.ll"
-{return yy::genesyspp_parser::make_fUNIF(obj_t(0, std::string(yytext)), loc);}
+{return yy::genesyspp_parser::make_fNORM(obj_t(0, std::string(yytext)), loc);}
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
 #line 129 "lexerparser.ll"
-{return yy::genesyspp_parser::make_fWEIB(obj_t(0, std::string(yytext)), loc);}
+{return yy::genesyspp_parser::make_fUNIF(obj_t(0, std::string(yytext)), loc);}
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
 #line 130 "lexerparser.ll"
-{return yy::genesyspp_parser::make_fLOGN(obj_t(0, std::string(yytext)), loc);}
+{return yy::genesyspp_parser::make_fWEIB(obj_t(0, std::string(yytext)), loc);}
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
 #line 131 "lexerparser.ll"
-{return yy::genesyspp_parser::make_fGAMM(obj_t(0, std::string(yytext)), loc);}
+{return yy::genesyspp_parser::make_fLOGN(obj_t(0, std::string(yytext)), loc);}
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
 #line 132 "lexerparser.ll"
-{return yy::genesyspp_parser::make_fERLA(obj_t(0, std::string(yytext)), loc);}
+{return yy::genesyspp_parser::make_fGAMM(obj_t(0, std::string(yytext)), loc);}
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
 #line 133 "lexerparser.ll"
-{return yy::genesyspp_parser::make_fTRIA(obj_t(0, std::string(yytext)), loc);}
+{return yy::genesyspp_parser::make_fERLA(obj_t(0, std::string(yytext)), loc);}
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
 #line 134 "lexerparser.ll"
-{return yy::genesyspp_parser::make_fBETA(obj_t(0, std::string(yytext)), loc);}
+{return yy::genesyspp_parser::make_fTRIA(obj_t(0, std::string(yytext)), loc);}
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
 #line 135 "lexerparser.ll"
+{return yy::genesyspp_parser::make_fBETA(obj_t(0, std::string(yytext)), loc);}
+	YY_BREAK
+case 46:
+YY_RULE_SETUP
+#line 136 "lexerparser.ll"
 {return yy::genesyspp_parser::make_fDISC(obj_t(0, std::string(yytext)), loc);}
 	YY_BREAK
 // simulation infos
-case 46:
-YY_RULE_SETUP
-#line 138 "lexerparser.ll"
-{return yy::genesyspp_parser::make_fTNOW(obj_t(0, std::string(yytext)), loc);}
-	YY_BREAK
 case 47:
 YY_RULE_SETUP
 #line 139 "lexerparser.ll"
+{return yy::genesyspp_parser::make_fTNOW(obj_t(0, std::string(yytext)), loc);}
+	YY_BREAK
+case 48:
+YY_RULE_SETUP
+#line 140 "lexerparser.ll"
 {return yy::genesyspp_parser::make_fTFIN(obj_t(0, std::string(yytext)), loc);}
 	YY_BREAK
 //
   // to be defined by the RESOURCE plugin
   //
-case 48:
-YY_RULE_SETUP
-#line 144 "lexerparser.ll"
-{return yy::genesyspp_parser::make_fNR(obj_t(0, std::string(yytext)), loc);}
-	YY_BREAK
 case 49:
 YY_RULE_SETUP
 #line 145 "lexerparser.ll"
-{return yy::genesyspp_parser::make_fMR(obj_t(0, std::string(yytext)), loc);}
+{return yy::genesyspp_parser::make_fNR(obj_t(0, std::string(yytext)), loc);}
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
 #line 146 "lexerparser.ll"
-{return yy::genesyspp_parser::make_fIRF(obj_t(0, std::string(yytext)), loc);}
+{return yy::genesyspp_parser::make_fMR(obj_t(0, std::string(yytext)), loc);}
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
 #line 147 "lexerparser.ll"
-{return yy::genesyspp_parser::make_fSTATE(obj_t(0, std::string(yytext)), loc);}
+{return yy::genesyspp_parser::make_fIRF(obj_t(0, std::string(yytext)), loc);}
 	YY_BREAK
 case 52:
 YY_RULE_SETUP
 #line 148 "lexerparser.ll"
-{return yy::genesyspp_parser::make_fSETSUM(obj_t(0, std::string(yytext)), loc);}
+{return yy::genesyspp_parser::make_fSTATE(obj_t(0, std::string(yytext)), loc);}
 	YY_BREAK
 case 53:
 YY_RULE_SETUP
 #line 149 "lexerparser.ll"
-{return yy::genesyspp_parser::make_fRESSEIZES(obj_t(0, std::string(yytext)), loc);}
+{return yy::genesyspp_parser::make_fSETSUM(obj_t(0, std::string(yytext)), loc);}
 	YY_BREAK
 case 54:
 YY_RULE_SETUP
 #line 150 "lexerparser.ll"
-{return yy::genesyspp_parser::make_NUMD(obj_t(-1, std::string(yytext)), loc);}
+{return yy::genesyspp_parser::make_fRESSEIZES(obj_t(0, std::string(yytext)), loc);}
 	YY_BREAK
 case 55:
 YY_RULE_SETUP
 #line 151 "lexerparser.ll"
-{return yy::genesyspp_parser::make_NUMD(obj_t(-2, std::string(yytext)), loc);}
+{return yy::genesyspp_parser::make_NUMD(obj_t(-1, std::string(yytext)), loc);}
 	YY_BREAK
 case 56:
 YY_RULE_SETUP
 #line 152 "lexerparser.ll"
-{return yy::genesyspp_parser::make_NUMD(obj_t(-3, std::string(yytext)), loc);}
+{return yy::genesyspp_parser::make_NUMD(obj_t(-2, std::string(yytext)), loc);}
 	YY_BREAK
 case 57:
 YY_RULE_SETUP
 #line 153 "lexerparser.ll"
+{return yy::genesyspp_parser::make_NUMD(obj_t(-3, std::string(yytext)), loc);}
+	YY_BREAK
+case 58:
+YY_RULE_SETUP
+#line 154 "lexerparser.ll"
 {return yy::genesyspp_parser::make_NUMD(obj_t(-4, std::string(yytext)), loc);}
 	YY_BREAK
 //
   // to be defined by the QUEUE plugin
   //
-case 58:
-YY_RULE_SETUP
-#line 158 "lexerparser.ll"
-{return yy::genesyspp_parser::make_fNQ(obj_t(0, std::string(yytext)), loc);}
-	YY_BREAK
 case 59:
 YY_RULE_SETUP
 #line 159 "lexerparser.ll"
-{return yy::genesyspp_parser::make_fLASTINQ(obj_t(0, std::string(yytext)), loc);}
+{return yy::genesyspp_parser::make_fNQ(obj_t(0, std::string(yytext)), loc);}
 	YY_BREAK
 case 60:
 YY_RULE_SETUP
 #line 160 "lexerparser.ll"
-{return yy::genesyspp_parser::make_fFIRSTINQ(obj_t(0, std::string(yytext)), loc);}
+{return yy::genesyspp_parser::make_fLASTINQ(obj_t(0, std::string(yytext)), loc);}
 	YY_BREAK
 case 61:
 YY_RULE_SETUP
 #line 161 "lexerparser.ll"
-{return yy::genesyspp_parser::make_fSAQUE(obj_t(0, std::string(yytext)), loc);}
+{return yy::genesyspp_parser::make_fFIRSTINQ(obj_t(0, std::string(yytext)), loc);}
 	YY_BREAK
 case 62:
 YY_RULE_SETUP
 #line 162 "lexerparser.ll"
+{return yy::genesyspp_parser::make_fSAQUE(obj_t(0, std::string(yytext)), loc);}
+	YY_BREAK
+case 63:
+YY_RULE_SETUP
+#line 163 "lexerparser.ll"
 {return yy::genesyspp_parser::make_fAQUE(obj_t(0, std::string(yytext)), loc);}
 	YY_BREAK
 //
   // to be defined by the SET plugin
   //
-case 63:
+case 64:
 YY_RULE_SETUP
-#line 167 "lexerparser.ll"
+#line 168 "lexerparser.ll"
 {return yy::genesyspp_parser::make_fNUMSET(obj_t(0, std::string(yytext)), loc);}
 	YY_BREAK
 //
   // to be defined by the CSTAT plugin
   //
-case 64:
+case 65:
 YY_RULE_SETUP
-#line 173 "lexerparser.ll"
+#line 174 "lexerparser.ll"
 {return yy::genesyspp_parser::make_fTAVG(obj_t(0, std::string(yytext)), loc);}
 	YY_BREAK
-case 65:
-/* rule 65 can match eol */
+case 66:
+/* rule 66 can match eol */
 YY_RULE_SETUP
-#line 176 "lexerparser.ll"
+#line 177 "lexerparser.ll"
 ;
 	YY_BREAK
-case 66:
+case 67:
 YY_RULE_SETUP
-#line 179 "lexerparser.ll"
+#line 180 "lexerparser.ll"
 {
         ModelElement* element; 
 
@@ -4791,21 +4796,21 @@ YY_RULE_SETUP
         return yy::genesyspp_parser::make_ILLEGAL(obj_t(0, std::string("Illegal")), loc);
       }
 	YY_BREAK
-case 67:
+case 68:
 YY_RULE_SETUP
-#line 239 "lexerparser.ll"
+#line 240 "lexerparser.ll"
 {return yy::genesyspp_parser::make_ILLEGAL(obj_t(1, std::string("Illegal")), loc);}
 	YY_BREAK
 case YY_STATE_EOF(INITIAL):
-#line 241 "lexerparser.ll"
+#line 242 "lexerparser.ll"
 {return yy::genesyspp_parser::make_END(loc);}
 	YY_BREAK
-case 68:
+case 69:
 YY_RULE_SETUP
-#line 244 "lexerparser.ll"
+#line 245 "lexerparser.ll"
 ECHO;
 	YY_BREAK
-#line 4809 "../Genesys++-scanner.cpp"
+#line 4814 "../Genesys++-scanner.cpp"
 
 	case YY_END_OF_BUFFER:
 		{
@@ -5766,7 +5771,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 244 "lexerparser.ll"
+#line 245 "lexerparser.ll"
 
 
 void

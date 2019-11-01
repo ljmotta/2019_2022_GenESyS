@@ -16,6 +16,7 @@
 
 #include "ModelComponent.h"
 #include "Formula.h"
+#include "Variable.h"
 
 /*!
  This component ...
@@ -30,8 +31,14 @@ public: // static
     static PluginInformation* GetPluginInformation();
     static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 public: // g&s
-    void setFormula(Formula* formula);
-    Formula* getFormula() const;
+    void setDiffEquations(Formula* formula);
+    Formula* getDiffEquations() const;
+    void setTimeVariable(Variable* _timeVariable);
+    Variable* getTimeVariable() const;
+    void setStep(double _step);
+    double getStep() const;
+    void setVariables(Variable* _variables);
+    Variable* getVariables() const;
 protected: // virtual
     virtual void _execute(Entity* entity);
     virtual void _initBetweenReplications();
@@ -40,8 +47,12 @@ protected: // virtual
     virtual bool _check(std::string* errorMessage);
     //virtual void _createInternalElements();
 private: // methods
+    bool _doStep();
 private: // attributes 1:1
-    Formula* _formula;
+    Formula* _diffEquations;
+    Variable* _variables;
+    Variable* _timeVariable;
+    double _step;
 private: // attributes 1:n
 };
 
