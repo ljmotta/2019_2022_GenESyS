@@ -30,6 +30,7 @@ class Model;
 class ModelElement {
 public:
     ModelElement(Model* model, std::string elementTypename, bool insertIntoModel = true);
+    //ModelElement(const ModelElement &orig);
     virtual ~ModelElement();
 
 public: // get & set

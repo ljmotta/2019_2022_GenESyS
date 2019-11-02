@@ -32,8 +32,6 @@ public:
 	    // an assignment is always in the form:
 	    // (destinationType) destination = expression
 	};
-    public:
-
 	void setDestination(std::string _destination) {
 	    this->_destination = _destination;
 	}

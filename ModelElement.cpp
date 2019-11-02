@@ -26,6 +26,12 @@ ModelElement::ModelElement(Model* model, std::string thistypename, bool insertIn
 	model->insert(this);
 }
 
+//ModelElement::ModelElement(const ModelElement &orig) {
+    //this->_parentModel = orig->_parentModel;
+    //this->_name = "copy_of_" + orig->_name;
+    //this->_typename = orig->_typename;
+//}
+
 ModelElement::~ModelElement() {
     _parentModel->elements()->remove(this);
 }

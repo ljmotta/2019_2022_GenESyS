@@ -25,6 +25,7 @@
 class Entity : public ModelElement {
 public:
     Entity(Model* model);
+    //Entity(const Entity &orig);
     virtual ~Entity() = default;
 public:
     virtual std::string show();
@@ -41,7 +42,8 @@ public:
     double getAttributeValue(std::string index, Util::identification attributeID);
     void setAttributeValue(std::string attributeName, double value);
     void setAttributeValue(std::string index, std::string attributeName, double value);
-    //void setAttributeValue(Util::identitifcation attributeID, double value);
+    void setAttributeValue(Util::identification attributeID, double value);
+    void setAttributeValue(std::string index, Util::identification attributeID, double value);
     Util::identification getEntityNumber() const;
 protected:
     virtual bool _loadInstance(std::map<std::string, std::string>* fields);

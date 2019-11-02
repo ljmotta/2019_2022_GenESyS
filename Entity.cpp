@@ -26,6 +26,11 @@ Entity::Entity(Model* model) : ModelElement(model, Util::TypeOf<Entity>()) {
     }
 }
 
+//Entity::Entity(const Entity &orig): ModelElement(orig) {
+    //this->_attributeValues = new List<std::map<std::string,double>*>(orig._attributeValues);
+    //this->_entityType = orig._entityType;
+//}
+
 void Entity::setEntityTypeName(std::string entityTypeName) throw () {
     EntityType* entitytype = dynamic_cast<EntityType*> (_parentModel->elements()->element(Util::TypeOf<EntityType>(), entityTypeName));
     if (entitytype != nullptr) {
@@ -86,8 +91,9 @@ double Entity::getAttributeValue(std::string index, std::string attributeName) {
 	} else { // not found
 	    return 0.0;
 	}
-    } else
-	return 0.0; /* TODO: !! Never should happen. check how to report */
+    }
+    _parentModel->tracer()->trace(Util::TraceLevel::errors, "Attribute \"" + attributeName + "\" not found");
+    return 0.0; /* TODO: !! Never should happen. check how to report */
 }
 
 double Entity::getAttributeValue(Util::identification attributeID) {
@@ -109,21 +115,25 @@ void Entity::setAttributeValue(std::string attributeName, double value) {
 void Entity::setAttributeValue(std::string index, std::string attributeName, double value) {
     int rank = _parentModel->elements()->rankOf(Util::TypeOf<Attribute>(), attributeName);
     if (rank >= 0) {
-	std::map<std::string,double>* map = _attributeValues->getAtRank(rank);
-	std::map<std::string,double>::iterator mapIt = map->find(index);
-	if (mapIt!=map->end()) {//found
+	std::map<std::string, double>* map = _attributeValues->getAtRank(rank);
+	std::map<std::string, double>::iterator mapIt = map->find(index);
+	if (mapIt != map->end()) {//found
 	    (*mapIt).second = value;
 	} else { // not found
-	    map->insert(map->end(), std::pair<std::string,double>(index, value));
+	    map->insert({index,value});// (map->end(), std::pair<std::string, double>(index, value));
 	}
-	//this->_attributeValues->setAtRank(rank, value);
-    }
-    /*
-    std::map<std::string, AttributeValue*>::iterator it = entity->getAttributeValues()->find('Entity.ArrivalTime');
-    if (it != entity->getAttributeValues()::end()) {
-	(*it)->second->setValue(this->_model->getSimulationTime());
-    }
-     */
+    } else
+	_parentModel->tracer()->trace(Util::TraceLevel::errors, "Attribute \"" + attributeName + "\" not found");
+
+}
+
+void Entity::setAttributeValue(Util::identification attributeID, double value) {
+    setAttributeValue("", attributeID, value);
+}
+
+void Entity::setAttributeValue(std::string index, Util::identification attributeID, double value) {
+    std::string attrname = _parentModel->elements()->element(Util::TypeOf<Attribute>(), attributeID)->name();
+    setAttributeValue(index, attrname, value);
 }
 
 Util::identification Entity::getEntityNumber() const {

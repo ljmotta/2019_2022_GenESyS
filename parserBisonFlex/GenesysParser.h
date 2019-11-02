@@ -50,6 +50,7 @@
 // include to Plugin header files should be specified by plugins themselves
 //
 #include "../Variable.h"
+#include "../Attribute.h"
 #include "../Queue.h"
 #include "../Formula.h"
 #include "../Resource.h"
@@ -57,7 +58,7 @@
 class genesyspp_driver;
 
 
-#line 61 "../GenesysParser.h" // lalr1.cc:377
+#line 62 "../GenesysParser.h" // lalr1.cc:377
 
 # include <cassert>
 # include <cstdlib> // std::abort
@@ -134,7 +135,7 @@ class genesyspp_driver;
 
 
 namespace yy {
-#line 138 "../GenesysParser.h" // lalr1.cc:377
+#line 139 "../GenesysParser.h" // lalr1.cc:377
 
 
 
@@ -374,8 +375,8 @@ namespace yy {
       // listaparm
       // illegal
       // atributo
-      // atribuicao
       // variavel
+      // atribuicao
       // formula
       // funcaoPlugin
       char dummy1[sizeof(obj_t)];
@@ -1062,7 +1063,7 @@ namespace yy {
     enum
     {
       yyeof_ = 0,
-      yylast_ = 1370,     ///< Last index in yytable_.
+      yylast_ = 1515,     ///< Last index in yytable_.
       yynnts_ = 23,  ///< Number of nonterminal symbols.
       yyfinal_ = 6, ///< Termination state number.
       yyterror_ = 1,
@@ -1224,8 +1225,8 @@ namespace yy {
       case 90: // listaparm
       case 91: // illegal
       case 92: // atributo
-      case 93: // atribuicao
-      case 94: // variavel
+      case 93: // variavel
+      case 94: // atribuicao
       case 95: // formula
       case 96: // funcaoPlugin
         value.copy< obj_t > (other.value);
@@ -1321,8 +1322,8 @@ namespace yy {
       case 90: // listaparm
       case 91: // illegal
       case 92: // atributo
-      case 93: // atribuicao
-      case 94: // variavel
+      case 93: // variavel
+      case 94: // atribuicao
       case 95: // formula
       case 96: // funcaoPlugin
         value.copy< obj_t > (v);
@@ -1449,8 +1450,8 @@ namespace yy {
       case 90: // listaparm
       case 91: // illegal
       case 92: // atributo
-      case 93: // atribuicao
-      case 94: // variavel
+      case 93: // variavel
+      case 94: // atribuicao
       case 95: // formula
       case 96: // funcaoPlugin
         value.template destroy< obj_t > ();
@@ -1552,8 +1553,8 @@ namespace yy {
       case 90: // listaparm
       case 91: // illegal
       case 92: // atributo
-      case 93: // atribuicao
-      case 94: // variavel
+      case 93: // variavel
+      case 94: // atribuicao
       case 95: // formula
       case 96: // funcaoPlugin
         value.move< obj_t > (s.value);
@@ -2049,7 +2050,7 @@ namespace yy {
 
 
 } // yy
-#line 2053 "../GenesysParser.h" // lalr1.cc:377
+#line 2054 "../GenesysParser.h" // lalr1.cc:377
 
 
 
