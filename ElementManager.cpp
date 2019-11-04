@@ -33,7 +33,7 @@ bool ElementManager::insert(std::string infraTypename, ModelElement* infra) {
     List<ModelElement*>* listElements = elementList(infraTypename);
     if (listElements->find(infra) == listElements->list()->end()) { //not found
 	listElements->insert(infra);
-	this->_parentModel->tracer()->trace(Util::TraceLevel::mostDetailed, "Element "+infra->name()+" successfully inserted.");
+	this->_parentModel->tracer()->trace(Util::TraceLevel::mostDetailed, "Element \""+infra->name()+"\" successfully inserted.");
 	return true;
     }
     return false;

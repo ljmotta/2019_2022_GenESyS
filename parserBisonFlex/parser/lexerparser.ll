@@ -123,6 +123,7 @@ L      [A-Za-z0-9_.]+
 [eE][xX][pP]          {return yy::genesyspp_parser::make_fEXP(obj_t(0, std::string(yytext)), loc);}
 
 %{// probability distributions %}
+[rR][nN][dD]	  {return yy::genesyspp_parser::make_fRND1(obj_t(0, std::string(yytext)), loc);}
 [eE][xX][pP][oO]  {return yy::genesyspp_parser::make_fEXPO(obj_t(0, std::string(yytext)), loc);}
 [nN][oO][rR][mM]  {return yy::genesyspp_parser::make_fNORM(obj_t(0, std::string(yytext)), loc);}
 [uU][nN][iI][fF]  {return yy::genesyspp_parser::make_fUNIF(obj_t(0, std::string(yytext)), loc);}
@@ -200,7 +201,7 @@ L      [A-Za-z0-9_.]+
         if (element != nullptr) { // it is a FORMULA
             Formula* form = static_cast<Formula*>(element);
             //double formulaValue = form->getValue(); // return only formula ID
-	    std::cout << "FOUND VARIABLE " << form->name() <<" ID " << form->id() << std::endl;
+	    //std::cout << "FOUND FORMULA " << form->name() <<" ID " << form->id() << std::endl;
             return yy::genesyspp_parser::make_FORM(obj_t(0, Util::TypeOf<Formula>(), form->id()),loc);
         }
 

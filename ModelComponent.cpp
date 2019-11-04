@@ -69,7 +69,7 @@ std::map<std::string, std::string>* ModelComponent::SaveInstance(ModelComponent*
 }
 
 bool ModelComponent::Check(ModelComponent* component) {
-    component->_parentModel->tracer()->trace(Util::TraceLevel::mostDetailed, "Checking " + component->_typename + ": " + component->_name); //std::to_string(component->_id));
+    component->_parentModel->tracer()->trace(Util::TraceLevel::mostDetailed, "Checking " + component->_typename + ": \"" + component->_name+"\""); //std::to_string(component->_id));
     bool res = false;
     std::string* errorMessage = new std::string();
     Util::IncIndent();

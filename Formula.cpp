@@ -62,7 +62,12 @@ std::string Formula::expression() {
 
 double Formula::value(std::string index) {
     std::string strexpression = this->expression(index);
-    double value = _parentModel->parseExpression(strexpression);
+    double value = 0.0;
+    try {
+	value = _parentModel->parseExpression(strexpression);
+    } catch (const std::exception& e) {
+	_parentModel->tracer()->traceError(e, "Error parsing formula \""+strexpression+"\"");
+    }
     return value;
 }
 

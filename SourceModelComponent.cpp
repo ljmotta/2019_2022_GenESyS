@@ -132,6 +132,7 @@ void SourceModelComponent::setEntitiesCreated(unsigned int _entitiesCreated) {
 
 void SourceModelComponent::setEntitiesPerCreation(unsigned int _entitiesPerCreation) {
     this->_entitiesPerCreation = _entitiesPerCreation;
+    //this->_entitiesCreatedSoFar = _entitiesPerCreation; // that's because "entitiesPerCreation" entities are included in the future events list BEFORE replication starts (to initialize events list)
 }
 
 unsigned int SourceModelComponent::getEntitiesPerCreation() const {

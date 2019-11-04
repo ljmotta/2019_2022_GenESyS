@@ -70,6 +70,7 @@ class genesyspp_driver;
 %token <obj_t> fEXP
 
 // probability distributionsformulaValue
+%token <obj_t> fRND1
 %token <obj_t> fEXPO
 %token <obj_t> fNORM
 %token <obj_t> fUNIF
@@ -180,7 +181,7 @@ class genesyspp_driver;
 
 %left oNOT;
 %left oAND oOR;
-%left oLE oGE oEQ oNE LESS GREATER LBRACKET;
+%left oLE oGE oEQ oNE LESS GREATER LBRACKET cELSE;
 %left MINUS PLUS;
 %left STAR SLASH;
 %precedence NEG;
@@ -239,12 +240,12 @@ relacional  : expressao oAND expressao         { $$.valor = (int) $1.valor && (i
             | expressao oNE  expressao         { $$.valor = $1.valor != $3.valor ? 1 : 0;}
             ;
 
-comando     : comandoIF
-            | comandoFOR
+comando     : comandoIF	    { $$.valor = $1.valor; }
+            | comandoFOR    { $$.valor = $1.valor; }
             ;
 
-comandoIF   : cIF "(" expressao ")" expressao cELSE expressao   {$$.valor = $3.valor != 0 ? $5.valor : $7.valor;}
-            | cIF "(" expressao ")" expressao                   {$$.valor = $3.valor != 0 ? $5.valor : 0;}
+comandoIF   : cIF "(" expressao ")" expressao cELSE expressao   { $$.valor = $3.valor != 0 ? $5.valor : $7.valor; }
+            | cIF "(" expressao ")" expressao                   { $$.valor = $3.valor != 0 ? $5.valor : 0;}
             ;
 //Check for function/need, for now will let cout (these should be commands for program, not expression
 comandoFOR  : cFOR variavel "=" expressao cTO expressao cDO atribuicao  {$$.valor = 0; }
@@ -267,15 +268,16 @@ funcaoTrig  : fSIN   "(" expressao ")"         { $$.valor = sin($3.valor); }
             | fCOS   "(" expressao ")"         { $$.valor = cos($3.valor); }
             ;
 
-funcaoArit  : fROUND  "(" expressao ")"			    { $$.valor = round($3.valor);}
+funcaoArit  : fROUND "(" expressao ")"			    { $$.valor = round($3.valor);}
             | fFRAC  "(" expressao ")"			    { $$.valor = $3.valor - (int) $3.valor;}
-            | fTRUNC   "(" expressao ")"		    { $$.valor = trunc($3.valor);}
+            | fTRUNC "(" expressao ")"			    { $$.valor = trunc($3.valor);}
             | fMOD   "(" expressao "," expressao ")"        { $$.valor = (int) $3.valor % (int) $5.valor; }
             ;
 
-funcaoProb  : fEXPO  "(" expressao ")"                      { $$.valor = driver.getProbs()->sampleExponential($3.valor); $$.tipo = "Exponencial";}
+funcaoProb  : fRND1					    { $$.valor = driver.getProbs()->sampleUniform(0.0,1.0); $$.tipo = "Uniforme"; }
+	    | fEXPO  "(" expressao ")"                      { $$.valor = driver.getProbs()->sampleExponential($3.valor); $$.tipo = "Exponencial";}
             | fNORM  "(" expressao "," expressao ")"        { $$.valor = driver.getProbs()->sampleNormal($3.valor,$5.valor); $$.tipo = "Normal"; }
-            | fUNIF  "(" expressao "," expressao ")"        { $$.valor = driver.getProbs()->sampleUniform($3.valor,$5.valor); $$.tipo = "Unificada"; }
+            | fUNIF  "(" expressao "," expressao ")"        { $$.valor = driver.getProbs()->sampleUniform($3.valor,$5.valor); $$.tipo = "Uniforme"; }
             | fWEIB  "(" expressao "," expressao ")"        { $$.valor = driver.getProbs()->sampleWeibull($3.valor,$5.valor); $$.tipo = "Weibull"; }
             | fLOGN  "(" expressao "," expressao ")"        { $$.valor = driver.getProbs()->sampleLogNormal($3.valor,$5.valor); $$.tipo = "LOGNormal"; }
             | fGAMM  "(" expressao "," expressao ")"        { $$.valor = driver.getProbs()->sampleGamma($3.valor,$5.valor); $$.tipo = "Gamma"; }
@@ -399,7 +401,8 @@ atribuicao  : ATRIB ASSIGN expressao    {
             ;
 
 // TODO: THERE IS A PROBLEM WITH FORMULA: TO EVALUATE THE FORMULA EXPRESSION, PARSER IS REINVOKED, AND THEN IT CRASHES (NO REENTRACE?)
-formula     : FORM	    { $$.valor = ((Formula*)(driver.getModel()->elements()->element(Util::TypeOf<Formula>(), $1.id)))->value();} 
+formula     : FORM	    { 
+		    $$.valor = ((Formula*)(driver.getModel()->elements()->element(Util::TypeOf<Formula>(), $1.id)))->value();} 
 	    | FORM LBRACKET expressao RBRACKET {
 		    std::string index = std::to_string(static_cast<unsigned int>($3.valor));
 		    $$.valor = ((Formula*)(driver.getModel()->elements()->element(Util::TypeOf<Formula>(), $1.id)))->value(index);}

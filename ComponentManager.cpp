@@ -27,7 +27,7 @@ ComponentManager::ComponentManager(Model* model) {
 bool ComponentManager::insert(ModelComponent* comp) {
     if (_components->find(comp) == _components->list()->end()) {
 	_components->insert(comp);
-	this->_parentModel->tracer()->trace(Util::TraceLevel::mostDetailed, "Component "+comp->name()+" successfully inserted.");
+	this->_parentModel->tracer()->trace(Util::TraceLevel::mostDetailed, "Component \""+comp->name()+"\" successfully inserted.");
 	return true;
     }
     return false;

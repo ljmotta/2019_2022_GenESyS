@@ -268,6 +268,7 @@ void ModelSimulation::_initReplication() {
 		newEvent = new Event(creationTime, newEntity, (*it));
 		_model->futureEvents()->insert(newEvent);
 	    }
+	    source->setEntitiesCreated(numToCreate);
 	}
     }
 
