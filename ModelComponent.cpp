@@ -14,8 +14,7 @@
 #include "ModelComponent.h"
 #include "Model.h"
 
-ModelComponent::ModelComponent(Model* model, std::string componentTypename) : ModelElement(model, componentTypename, false) {
-    //_parentModel = model;
+ModelComponent::ModelComponent(Model* model, std::string componentTypename, std::string name) : ModelElement(model, componentTypename, name, false) {
     model->components()->insert(this);
 }
 

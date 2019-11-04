@@ -16,7 +16,7 @@
 #include "Attribute.h"
 #include "Simulator.h"
 
-Route::Route(Model* model) : ModelComponent(model, Util::TypeOf<Route>()) {
+Route::Route(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Route>(),name) {
 }
 
 

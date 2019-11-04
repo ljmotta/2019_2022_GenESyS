@@ -13,15 +13,8 @@
 
 #include "Failure.h"
 
-Failure::Failure(Model* model) : ModelElement(model, Util::TypeOf<Failure>()) {
-    //_elems = elems;
+Failure::Failure(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Failure>(),name) {
 }
-
-Failure::Failure(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Failure>()) {
-    _name = name;
-    //_elems = elems;
-}
-
 
 std::string Failure::show() {
     return ModelElement::show() +

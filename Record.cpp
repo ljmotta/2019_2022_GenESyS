@@ -17,7 +17,7 @@
 #include <cstdio>
 #include <iostream>
 
-Record::Record(Model* model) : ModelComponent(model, Util::TypeOf<Record>()) {
+Record::Record(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Record>(),name) {
     _cstatExpression = new StatisticsCollector(_parentModel, _expressionName, this);
     _parentModel->elements()->insert(_cstatExpression);
 }

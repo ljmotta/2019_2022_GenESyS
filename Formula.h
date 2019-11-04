@@ -21,14 +21,19 @@
 
 class Formula : public ModelElement {
 public:
-    Formula(Model* model);
+    Formula(Model* model, std::string name="");
     virtual ~Formula() = default;
-public:
-    List<std::string>* getFormulaExpressions() const;
-    double getValue(unsigned int index = 0) const;
-public:
+public: // virtual
     virtual std::string show();
-public:
+public: 
+    unsigned int size();
+    void setExpression(std::string index, std::string formulaExpression);
+    void setExpression(std::string formulaExpression);
+    std::string expression(std::string index);
+    std::string expression();
+    double value();
+    double value(std::string index);
+public: // statics
     static PluginInformation* GetPluginInformation();
     static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 protected: // must be overriden by derived classes
@@ -36,11 +41,8 @@ protected: // must be overriden by derived classes
     virtual std::map<std::string, std::string>* _saveInstance();
     virtual bool _check(std::string* errorMessage);
 private:
-    //    ElementManager* _elements;
-    //Model* _model;
-    Parser_if* _myPrivateParser;
 private:
-    List<std::string>* _formulaExpressions = new List<std::string>();
+    std::map<std::string,std::string>* _formulaExpressions = new std::map<std::string,std::string>(); // map<index,formula>
 };
 
 #endif /* FORMULA_H */

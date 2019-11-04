@@ -21,7 +21,7 @@
 
 class Dispose : public SinkModelComponent {
 public:
-    Dispose(Model* model);
+    Dispose(Model* model, std::string name="");
     virtual ~Dispose() = default;
 public:
     virtual std::string show();

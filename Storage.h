@@ -22,8 +22,7 @@
 
 class Storage: public ModelElement {
 public:
-    Storage(Model* model);
-    Storage(Model* model, std::string name);
+    Storage(Model* model, std::string name="");
     virtual ~Storage() = default;
 public: // static
     static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields); 

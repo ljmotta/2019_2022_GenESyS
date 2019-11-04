@@ -14,7 +14,7 @@
 #include "Halt.h"
 #include "Model.h"
 
-Halt::Halt(Model* model) : ModelComponent(model, Util::TypeOf<Halt>()) {
+Halt::Halt(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Halt>(),name) {
 }
 
 

@@ -14,7 +14,7 @@
 #include "Decide.h"
 #include "Model.h"
 
-Decide::Decide(Model* model) : ModelComponent(model, Util::TypeOf<Decide>()) {
+Decide::Decide(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Decide>(),name) {
 }
 
 List<std::string>* Decide::getConditions() const {

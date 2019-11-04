@@ -69,7 +69,7 @@ class genesyspp_driver;
 %token <obj_t> fFRAC
 %token <obj_t> fEXP
 
-// probability distributions
+// probability distributionsformulaValue
 %token <obj_t> fEXPO
 %token <obj_t> fNORM
 %token <obj_t> fUNIF
@@ -352,16 +352,16 @@ atributo    : ATRIB      {
 		}
             ;
 
-variavel    : VARI  {$$.valor = ((Variable*)(driver.getModel()->elements()->element(Util::TypeOf<Variable>(), $1.id)))->getValue();} 
+variavel    : VARI  {$$.valor = ((Variable*)(driver.getModel()->elements()->element(Util::TypeOf<Variable>(), $1.id)))->value();} 
             | VARI LBRACKET expressao RBRACKET	    { 
 		    std::string index = std::to_string(static_cast<unsigned int>($3.valor));
-		    $$.valor = ((Variable*)(driver.getModel()->elements()->element(Util::TypeOf<Variable>(), $1.id)))->getValue(index); }
+		    $$.valor = ((Variable*)(driver.getModel()->elements()->element(Util::TypeOf<Variable>(), $1.id)))->value(index); }
             | VARI LBRACKET expressao "," expressao RBRACKET	    { 
 		    std::string index = std::to_string(static_cast<unsigned int>($3.valor))+","+std::to_string(static_cast<unsigned int>($5.valor)); 
-		    $$.valor = ((Variable*)(driver.getModel()->elements()->element(Util::TypeOf<Variable>(), $1.id)))->getValue(index);}
+		    $$.valor = ((Variable*)(driver.getModel()->elements()->element(Util::TypeOf<Variable>(), $1.id)))->value(index);}
             | VARI LBRACKET expressao "," expressao "," expressao RBRACKET    { 
 		    std::string index = std::to_string(static_cast<unsigned int>($3.valor))+","+std::to_string(static_cast<unsigned int>($5.valor))+","+std::to_string(static_cast<unsigned int>($7.valor));
-		    $$.valor = ((Variable*)(driver.getModel()->elements()->element(Util::TypeOf<Variable>(), $1.id)))->getValue(index);}
+		    $$.valor = ((Variable*)(driver.getModel()->elements()->element(Util::TypeOf<Variable>(), $1.id)))->value(index);}
             ;
 
 
@@ -399,7 +399,16 @@ atribuicao  : ATRIB ASSIGN expressao    {
             ;
 
 // TODO: THERE IS A PROBLEM WITH FORMULA: TO EVALUATE THE FORMULA EXPRESSION, PARSER IS REINVOKED, AND THEN IT CRASHES (NO REENTRACE?)
-formula     : FORM	    { $$.valor = ((Formula*)(driver.getModel()->elements()->element(Util::TypeOf<Formula>(), $1.id)))->getValue();} 
+formula     : FORM	    { $$.valor = ((Formula*)(driver.getModel()->elements()->element(Util::TypeOf<Formula>(), $1.id)))->value();} 
+	    | FORM LBRACKET expressao RBRACKET {
+		    std::string index = std::to_string(static_cast<unsigned int>($3.valor));
+		    $$.valor = ((Formula*)(driver.getModel()->elements()->element(Util::TypeOf<Formula>(), $1.id)))->value(index);}
+	    | FORM LBRACKET expressao "," expressao RBRACKET {
+		    std::string index = std::to_string(static_cast<unsigned int>($3.valor)) +","+std::to_string(static_cast<unsigned int>($5.valor));
+		    $$.valor = ((Formula*)(driver.getModel()->elements()->element(Util::TypeOf<Formula>(), $1.id)))->value(index);}
+	    | FORM LBRACKET expressao "," expressao "," expressao RBRACKET {
+		    std::string index = std::to_string(static_cast<unsigned int>($3.valor)) +","+std::to_string(static_cast<unsigned int>($5.valor))+","+std::to_string(static_cast<unsigned int>($7.valor));
+		    $$.valor = ((Formula*)(driver.getModel()->elements()->element(Util::TypeOf<Formula>(), $1.id)))->value(index);}
             ;
 
 

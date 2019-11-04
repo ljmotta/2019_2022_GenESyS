@@ -21,8 +21,7 @@
 
 class Station: public ModelElement {
 public:
-    Station(Model* model);
-    Station(Model* model, std::string name);
+    Station(Model* model, std::string name="");
     virtual ~Station();
 public:
     virtual std::string show();

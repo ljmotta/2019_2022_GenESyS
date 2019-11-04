@@ -15,17 +15,7 @@
 #include "SimulationResponse.h"
 #include "Model.h"
 
-Counter::Counter(Model* model) : ModelElement(model, Util::TypeOf<Counter>()) {
-    _addSimulationResponse();
-}
-
-Counter::Counter(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Counter>()) {
-    _name = name;
-    _addSimulationResponse();
-}
-
-Counter::Counter(Model* model, std::string name, ModelElement* parent) : ModelElement(model, Util::TypeOf<Counter>()) {
-    _name = name;
+Counter::Counter(Model* model, std::string name, ModelElement* parent) : ModelElement(model, Util::TypeOf<Counter>(),name) {
     _parent = parent;
     _addSimulationResponse();
 }

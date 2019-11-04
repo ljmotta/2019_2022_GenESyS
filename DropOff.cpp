@@ -14,7 +14,7 @@
 #include "DropOff.h"
 #include "Model.h"
 
-DropOff::DropOff(Model* model) : ModelComponent(model, Util::TypeOf<DropOff>()) {
+DropOff::DropOff(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<DropOff>(), name) {
 }
 
 

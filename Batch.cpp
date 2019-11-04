@@ -15,7 +15,7 @@
 
 #include "Model.h"
 
-Batch::Batch(Model* model) : ModelComponent(model, Util::TypeOf<Batch>()) {
+Batch::Batch(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Batch>(),name) {
 }
 
 

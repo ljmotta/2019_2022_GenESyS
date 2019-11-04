@@ -15,14 +15,7 @@
 #include "Attribute.h"
 #include "Model.h"
 
-
-Sequence::Sequence(Model* model) : ModelElement(model, Util::TypeOf<Sequence>()) {
-   // _elems = elems;
-}
-
-Sequence::Sequence(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Sequence>()) {
-    _name = name;
-    //_elems = elems;
+Sequence::Sequence(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Sequence>(),name) {
 }
 
 

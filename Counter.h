@@ -20,9 +20,7 @@
 
 class Counter : public ModelElement {
 public:
-    Counter(Model* model);
-    Counter(Model* model, std::string name);
-    Counter(Model* model, std::string name, ModelElement* parent);
+    Counter(Model* model, std::string name="", ModelElement* parent=nullptr);
     virtual ~Counter() = default;
 public:
     virtual std::string show();

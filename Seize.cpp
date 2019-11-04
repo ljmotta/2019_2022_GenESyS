@@ -15,7 +15,7 @@
 #include "Resource.h"
 #include "Attribute.h"
 
-Seize::Seize(Model* model) : ModelComponent(model, Util::TypeOf<Seize>()) {
+Seize::Seize(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Seize>(),name) {
 }
 std::string Seize::show() {
     return ModelComponent::show() +

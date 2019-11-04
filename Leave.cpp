@@ -14,7 +14,7 @@
 #include "Leave.h"
 #include "Model.h"
 
-Leave::Leave(Model* model) : ModelComponent(model, Util::TypeOf<Leave>()) {
+Leave::Leave(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Leave>(),name) {
 }
 
 

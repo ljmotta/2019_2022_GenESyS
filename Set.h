@@ -21,8 +21,7 @@
 
 class Set: public ModelElement {
 public:
-    Set(Model* model);
-    Set(Model* model, std::string name);
+    Set(Model* model, std::string name="");
     virtual ~Set() = default;
 public: // static
     static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields); 

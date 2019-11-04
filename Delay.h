@@ -21,7 +21,7 @@
 
 class Delay : public ModelComponent {
 public:
-    Delay(Model* model);
+    Delay(Model* model, std::string name="");
     virtual ~Delay() = default;
 public:
     void setDelayExpression(std::string _delayExpression);

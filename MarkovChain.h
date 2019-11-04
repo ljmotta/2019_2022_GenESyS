@@ -19,7 +19,7 @@
 
 class MarkovChain : public ModelComponent {
 public: // constructors
-    MarkovChain(Model* model);
+    MarkovChain(Model* model, std::string name="");
     virtual ~MarkovChain() = default;
 public: // virtual
     virtual std::string show();

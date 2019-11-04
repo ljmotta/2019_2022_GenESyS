@@ -13,14 +13,7 @@
 
 #include "Storage.h"
 
-
-Storage::Storage(Model* model) : ModelElement(model, Util::TypeOf<Storage>()) {
-    //_elems = elems;
-}
-
-Storage::Storage(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Storage>()) {
-    _name = name;
-    //_elems = elems;
+Storage::Storage(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Storage>(),name) {
 }
 
 

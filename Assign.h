@@ -53,7 +53,7 @@ public:
 
     };
 public:
-    Assign(Model* model);
+    Assign(Model* model, std::string name="");
     virtual ~Assign() = default;
 public:
     virtual std::string show();

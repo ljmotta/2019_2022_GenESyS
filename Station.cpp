@@ -16,14 +16,7 @@
 #include "Model.h"
 #include "Attribute.h"
 
-Station::Station(Model* model) : ModelElement(model, Util::TypeOf<Station>()) {
-   // _elems = elems;
-    _initCStats();
-}
-
-Station::Station(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Station>()) {
-    _name = name;
-    //_elems = elems;
+Station::Station(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Station>(),name) {
     _initCStats();
 }
 

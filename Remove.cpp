@@ -14,7 +14,7 @@
 #include "Remove.h"
 #include "Model.h"
 
-Remove::Remove(Model* model) : ModelComponent(model, Util::TypeOf<Remove>()) {
+Remove::Remove(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Remove>(),name) {
 }
 
 

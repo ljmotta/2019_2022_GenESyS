@@ -15,7 +15,7 @@
 
 #include "Model.h"
 
-Separate::Separate(Model* model) : ModelComponent(model, Util::TypeOf<Separate>()) {
+Separate::Separate(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Separate>(),name) {
 }
 
 

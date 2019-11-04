@@ -21,7 +21,7 @@
  */
 class Match : public ModelComponent {
 public: // constructors
-    Match(Model* model);
+    Match(Model* model, std::string name="");
     virtual ~Match() = default;
 public:  // virtual
     virtual std::string show();

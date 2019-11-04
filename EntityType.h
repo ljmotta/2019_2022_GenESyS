@@ -24,8 +24,8 @@
 
 class EntityType : public ModelElement {
 public:
-    EntityType(Model* model);
-    EntityType(Model* model, std::string name);
+    //EntityType(Model* model);
+    EntityType(Model* model, std::string name="");
     virtual ~EntityType();
 public:
     virtual std::string show();

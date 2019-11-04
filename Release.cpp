@@ -17,7 +17,7 @@
 #include "Attribute.h"
 #include <assert.h>
 
-Release::Release(Model* model) : ModelComponent(model, Util::TypeOf<Release>()) {
+Release::Release(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Release>(),name) {
 }
 
 

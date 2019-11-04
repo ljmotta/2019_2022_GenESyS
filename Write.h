@@ -42,7 +42,7 @@ public:
     
 
 public: // constructors
-    Write(Model* model);
+    Write(Model* model, std::string name="");
     virtual ~Write() = default;
 public: // virtual
     virtual std::string show();
@@ -50,11 +50,11 @@ public: // static
     static PluginInformation* GetPluginInformation();
     static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 public:
-    List<WriteElement*>* getWriteElements() const;
+    List<WriteElement*>* writeElements() const;
     void setFilename(std::string _filename);
-    std::string getFilename() const;
+    std::string filename() const;
     void setWriteToType(WriteToType _writeToType);
-    Write::WriteToType getWriteToType() const;
+    Write::WriteToType writeToType() const;
 
 protected: // virtual
     virtual void _execute(Entity* entity);

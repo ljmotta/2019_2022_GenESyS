@@ -22,7 +22,7 @@
  */
 class SinkModelComponent : public ModelComponent {
 public:
-    SinkModelComponent(Model* model, std::string componentTypename);
+    SinkModelComponent(Model* model, std::string componentTypename, std::string name="");
     virtual ~SinkModelComponent() = default;
 public:
     void setCollectStatistics(bool _collectStatistics);

@@ -22,8 +22,7 @@
 
 class Failure: public ModelElement {
 public:
-    Failure(Model* model);
-    Failure(Model* model, std::string name);
+    Failure(Model* model, std::string name="");
     virtual ~Failure() = default;
 public: // static
     static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields); 

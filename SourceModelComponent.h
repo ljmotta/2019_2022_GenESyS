@@ -26,7 +26,7 @@
  */
 class SourceModelComponent : public ModelComponent {
 public:
-    SourceModelComponent(Model* model, std::string componentTypename);
+    SourceModelComponent(Model* model, std::string componentTypename, std::string name="");
     virtual ~SourceModelComponent() = default;
 public: // get & set
     void setFirstCreation(double _firstCreation);

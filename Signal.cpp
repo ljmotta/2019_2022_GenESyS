@@ -15,7 +15,7 @@
 
 #include "Model.h"
 
-Signal::Signal(Model* model) : ModelComponent(model, Util::TypeOf<Signal>()) {
+Signal::Signal(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Signal>(),name) {
 }
 
 

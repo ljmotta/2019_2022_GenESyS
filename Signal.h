@@ -21,7 +21,7 @@
  */
 class Signal : public ModelComponent {
 public: // constructors
-    Signal(Model* model);
+    Signal(Model* model, std::string name="");
     virtual ~Signal() = default;
 public:  // virtual
     virtual std::string show();

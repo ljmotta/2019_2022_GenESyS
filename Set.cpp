@@ -13,13 +13,7 @@
 
 #include "Set.h"
 
-Set::Set(Model* model) : ModelElement(model, Util::TypeOf<Set>()) {
-    //_elems = elems;
-}
-
-Set::Set(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Set>()) {
-    _name = name;
-    //_elems = elems;
+Set::Set(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Set>(),name) {
 }
 
 

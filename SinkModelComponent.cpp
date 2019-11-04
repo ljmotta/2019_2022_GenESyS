@@ -13,7 +13,7 @@
 
 #include "SinkModelComponent.h"
 
-SinkModelComponent::SinkModelComponent(Model* model, std::string componentTypename) : ModelComponent(model, componentTypename) {
+SinkModelComponent::SinkModelComponent(Model* model, std::string componentTypename, std::string name) : ModelComponent(model, componentTypename,name) {
 }
 
 

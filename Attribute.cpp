@@ -13,11 +13,10 @@
 
 #include "Attribute.h"
 
-Attribute::Attribute(Model* model) : ModelElement(model, Util::TypeOf<Attribute>()) {
-}
+//Attribute::Attribute(Model* model) : ModelElement(model, Util::TypeOf<Attribute>()) {
+//}
 
-Attribute::Attribute(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Attribute>()) {
-    _name = name;
+Attribute::Attribute(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Attribute>(), name) {
 }
 
 

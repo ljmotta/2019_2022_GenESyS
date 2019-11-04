@@ -27,8 +27,7 @@ public:
 	std::list<std::string>* _assignments;
     };
 public:
-    Sequence(Model* model);
-    Sequence(Model* model, std::string name);
+    Sequence(Model* model, std::string name="");
     virtual ~Sequence() = default;
 public:
     virtual std::string show();

@@ -112,6 +112,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Release.o \
 	${OBJECTDIR}/Remove.o \
 	${OBJECTDIR}/Request.o \
+	${OBJECTDIR}/RequirementTester.o \
 	${OBJECTDIR}/Resource.o \
 	${OBJECTDIR}/Route.o \
 	${OBJECTDIR}/SamplerBoostImpl.o \
@@ -572,6 +573,11 @@ ${OBJECTDIR}/Request.o: Request.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Request.o Request.cpp
+
+${OBJECTDIR}/RequirementTester.o: RequirementTester.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/RequirementTester.o RequirementTester.cpp
 
 ${OBJECTDIR}/Resource.o: Resource.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

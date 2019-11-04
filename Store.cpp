@@ -14,7 +14,7 @@
 #include "Store.h"
 #include "Model.h"
 
-Store::Store(Model* model) : ModelComponent(model, Util::TypeOf<Store>()) {
+Store::Store(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Store>(),name) {
 }
 
 

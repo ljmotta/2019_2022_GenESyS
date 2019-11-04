@@ -38,7 +38,7 @@ int TestMarkovChain::main(int argc, char** argv) {
     varInitDist->setValue("1", 0.1);
     varInitDist->setValue("2", 0.1);
     varInitDist->setValue("3", 0.1);
-    varInitDist->getDimensionSizes()->insert(4);
+    varInitDist->dimensionSizes()->insert(4);
     Variable* varTransitProb = new Variable(model,"transitionProbMatrix'");
     varTransitProb->setValue("0,0", 0.1);
     varTransitProb->setValue("0,1", 0.7);
@@ -56,8 +56,8 @@ int TestMarkovChain::main(int argc, char** argv) {
     varTransitProb->setValue("3,1", 0.1);
     varTransitProb->setValue("3,2", 0.1);
     varTransitProb->setValue("3,3", 0.1);
-    varTransitProb->getDimensionSizes()->insert(4);
-    varTransitProb->getDimensionSizes()->insert(4);
+    varTransitProb->dimensionSizes()->insert(4);
+    varTransitProb->dimensionSizes()->insert(4);
     Variable* varCurrStat = new Variable(model, "currentState");
     EntityType* enttype1 = new EntityType(model);
     Create* create1 = new Create(model);
@@ -70,9 +70,9 @@ int TestMarkovChain::main(int argc, char** argv) {
     Write* write1 = new Write(model);
     write1->setWriteToType(Write::WriteToType::FILE);
     write1->setFilename("./temp/markov1_realizations.txt");
-    write1->getWriteElements()->insert(new WriteElement("tnow", true));
-    write1->getWriteElements()->insert(new WriteElement("\t"));
-    write1->getWriteElements()->insert(new WriteElement("currentState", true, true));
+    write1->writeElements()->insert(new WriteElement("tnow", true));
+    write1->writeElements()->insert(new WriteElement("\t"));
+    write1->writeElements()->insert(new WriteElement("currentState", true, true));
     Dispose* dispose1 = new Dispose(model);
     create1->nextComponents()->insert(markov1);
     markov1->nextComponents()->insert(write1);

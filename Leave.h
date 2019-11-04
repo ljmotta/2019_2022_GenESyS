@@ -19,7 +19,7 @@
 
 class Leave: public ModelComponent {
 public:
-    Leave(Model* model);
+    Leave(Model* model, std::string name="");
     virtual ~Leave() = default;
 public:
     virtual std::string show();

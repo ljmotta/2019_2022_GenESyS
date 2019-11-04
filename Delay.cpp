@@ -15,8 +15,7 @@
 #include "Model.h"
 #include "Attribute.h"
 
-Delay::Delay(Model* model) : ModelComponent(model, Util::TypeOf<Delay>()) {
-    //_name = "Delay " + std::to_string(Util::GenerateNewIdOfType<Delay>());
+Delay::Delay(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Delay>(), name) {
 }
 
 std::string Delay::show() {

@@ -31,7 +31,7 @@ class Model;
  */
 class ModelComponent : public ModelElement {
 public:
-    ModelComponent(Model* model, std::string componentTypename);
+    ModelComponent(Model* model, std::string componentTypename, std::string name="");
     virtual ~ModelComponent();
 public:
     virtual std::string show();

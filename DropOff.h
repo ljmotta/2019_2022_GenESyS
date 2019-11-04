@@ -21,7 +21,7 @@
  */
 class DropOff : public ModelComponent {
 public: // constructors
-    DropOff(Model* model);
+    DropOff(Model* model, std::string name="");
     virtual ~DropOff() = default;
 public:  // virtual
     virtual std::string show();

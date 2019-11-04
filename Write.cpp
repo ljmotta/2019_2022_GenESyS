@@ -16,7 +16,7 @@
 
 #include <fstream>
 
-Write::Write(Model* model) : ModelComponent(model, Util::TypeOf<Write>()) {
+Write::Write(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Write>(),name) {
 }
 
 std::string Write::show() {
@@ -33,7 +33,7 @@ ModelComponent* Write::LoadInstance(Model* model, std::map<std::string, std::str
     return newComponent;
 }
 
-List<WriteElement*>* Write::getWriteElements() const {
+List<WriteElement*>* Write::writeElements() const {
     return _writeElements;
 }
 
@@ -41,7 +41,7 @@ void Write::setFilename(std::string _filename) {
     this->_filename = _filename;
 }
 
-std::string Write::getFilename() const {
+std::string Write::filename() const {
     return _filename;
 }
 
@@ -49,7 +49,7 @@ void Write::setWriteToType(WriteToType _writeToType) {
     this->_writeToType = _writeToType;
 }
 
-Write::WriteToType Write::getWriteToType() const {
+Write::WriteToType Write::writeToType() const {
     return _writeToType;
 }
 

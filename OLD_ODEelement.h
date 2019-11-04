@@ -33,7 +33,7 @@ public:
 
 class OLD_ODEelement : public ModelElement {
 public:
-    OLD_ODEelement(Model* model);
+    OLD_ODEelement(Model* model, std::string name="");
     virtual ~OLD_ODEelement() = default;
 public:
     virtual std::string show();

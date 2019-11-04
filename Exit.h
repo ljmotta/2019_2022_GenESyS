@@ -21,7 +21,7 @@
  */
 class Exit : public ModelComponent {
 public: // constructors
-    Exit(Model* model);
+    Exit(Model* model, std::string name="");
     virtual ~Exit() = default;
 public:  // virtual
     virtual std::string show();

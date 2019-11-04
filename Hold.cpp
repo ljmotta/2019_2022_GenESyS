@@ -14,7 +14,7 @@
 #include "Hold.h"
 #include "Model.h"
 
-Hold::Hold(Model* model) : ModelComponent(model, Util::TypeOf<Hold>()) {
+Hold::Hold(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Hold>(),name) {
 }
 
 

@@ -14,10 +14,7 @@
 #include "Variable.h"
 #include "Plugin.h"
 
-Variable::Variable(Model* model) : ModelElement(model, Util::TypeOf<Variable>()) {
-}
-
-Variable::Variable(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Variable>()) {
+Variable::Variable(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Variable>(), name) {
     _name = name;
 }
 
@@ -30,11 +27,11 @@ PluginInformation* Variable::GetPluginInformation() {
     return info;
 }
 
-double Variable::getValue() {
-    return getValue("");
+double Variable::value() {
+    return value("");
 }
 
-double Variable::getValue(std::string index) {
+double Variable::value(std::string index) {
     std::map<std::string, double>::iterator it = _values->find(index);
     if (it == _values->end()) {
 	return 0.0; // index does not exist. Assuming sparse matrix, it's zero. 
@@ -51,21 +48,21 @@ void Variable::setValue(std::string index, double value) {
     std::map<std::string, double>::iterator it = _values->find(index);
     if (it == _values->end()) {
 	// index does not exist. Create it.
-	_values->insert(std::pair<std::string, double>(index, value));
+	_values->insert({index, value}); //(std::pair<std::string, double>(index, value));
     } else {
 	it->second = value;
     }
 }
 
-double Variable::getInitialValue() {
-    return getInitialValue("");
+double Variable::initialValue() {
+    return initialValue("");
 }
 
 void Variable::setInitialValue(double value) {
     setInitialValue("", value);
 }
 
-double Variable::getInitialValue(std::string index) {
+double Variable::initialValue(std::string index) {
     std::map<std::string, double>::iterator it = _initialValues->find(index);
     if (it == _initialValues->end()) {
 	return 0.0; // index does not exist. Assuming sparse matrix, it's zero. 
@@ -84,7 +81,7 @@ void Variable::setInitialValue(std::string index, double value) {
     }
 }
 
-List<unsigned int>* Variable::getDimensionSizes() const {
+List<unsigned int>* Variable::dimensionSizes() const {
     return _dimensionSizes;
 }
 

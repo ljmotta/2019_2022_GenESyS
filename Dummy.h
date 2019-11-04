@@ -21,7 +21,7 @@
  */
 class Dummy : public ModelComponent {
 public: // constructors
-    Dummy(Model* model);
+    Dummy(Model* model, std::string name="");
     virtual ~Dummy() = default;
 public:  // virtual
     virtual std::string show();

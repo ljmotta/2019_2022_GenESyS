@@ -15,7 +15,7 @@
 #include "Model.h"
 
 ElementManager::ElementManager(Model* model) {
-    _model = model;
+    _parentModel = model;
     /* TODO: -- Sort methods for elements should be a decorator */
     _elements = new std::map<std::string, List<ModelElement*>*>(); /// Elements are organized as a map from a string (key), the type of an element, and a list of elements of that type 
     //_elements->setSortFunc([](const ModelElement* a, const ModelElement * b) {
@@ -26,18 +26,14 @@ ElementManager::ElementManager(Model* model) {
 
 bool ElementManager::insert(ModelElement* infra) {
     std::string infraTypename = infra->classname();
-    List<ModelElement*>* listElements = elementList(infraTypename);
-    if (listElements->find(infra) == listElements->list()->end()) { //not found
-	listElements->insert(infra);
-	return true;
-    }
-    return false;
+    return insert(infraTypename, infra);
 }
 
 bool ElementManager::insert(std::string infraTypename, ModelElement* infra) {
     List<ModelElement*>* listElements = elementList(infraTypename);
     if (listElements->find(infra) == listElements->list()->end()) { //not found
 	listElements->insert(infra);
+	this->_parentModel->tracer()->trace(Util::TraceLevel::mostDetailed, "Element "+infra->name()+" successfully inserted.");
 	return true;
     }
     return false;
@@ -95,7 +91,7 @@ unsigned int ElementManager::numberOfElements() {
 }
 
 void ElementManager::show() {
-    _model->tracer()->trace(Util::TraceLevel::mostDetailed, "Model Elements:");
+    _parentModel->tracer()->trace(Util::TraceLevel::mostDetailed, "Model Elements:");
     //std::map<std::string, List<ModelElement*>*>* _elements;
     std::string key;
     List<ModelElement*>* list;
@@ -104,11 +100,11 @@ void ElementManager::show() {
 	for (std::map<std::string, List<ModelElement*>*>::iterator infraIt = _elements->begin(); infraIt != _elements->end(); infraIt++) {
 	    key = (*infraIt).first;
 	    list = (*infraIt).second;
-	    _model->tracer()->trace(Util::TraceLevel::mostDetailed, key + ": (" + std::to_string(list->size()) + ")");
+	    _parentModel->tracer()->trace(Util::TraceLevel::mostDetailed, key + ": (" + std::to_string(list->size()) + ")");
 	    Util::IncIndent();
 	    {
 		for (std::list<ModelElement*>::iterator it = list->list()->begin(); it != list->list()->end(); it++) {
-		    _model->tracer()->trace(Util::TraceLevel::mostDetailed, (*it)->show());
+		    _parentModel->tracer()->trace(Util::TraceLevel::mostDetailed, (*it)->show());
 		}
 	    }
 	    Util::DecIndent();
@@ -118,7 +114,7 @@ void ElementManager::show() {
 }
 
 Model* ElementManager::parentModel() const {
-    return _model;
+    return _parentModel;
 }
 
 List<ModelElement*>* ElementManager::elementList(std::string infraTypename) const {

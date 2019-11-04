@@ -21,7 +21,7 @@
  */
 class Hold : public ModelComponent {
 public: // constructors
-    Hold(Model* model);
+    Hold(Model* model, std::string name="");
     virtual ~Hold() = default;
 public:  // virtual
     virtual std::string show();

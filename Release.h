@@ -23,7 +23,7 @@
 
 class Release : public ModelComponent {
 public:
-    Release(Model* model);
+    Release(Model* model, std::string name="");
     virtual ~Release() = default;
 public:
     virtual std::string show();

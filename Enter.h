@@ -19,7 +19,7 @@
 
 class Enter: public ModelComponent {
 public:
-    Enter(Model* model);
+    Enter(Model* model, std::string name="");
     virtual ~Enter() = default;
 public:
     virtual std::string show();

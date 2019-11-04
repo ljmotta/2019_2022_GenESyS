@@ -18,7 +18,7 @@
 #include "Attribute.h"
 #include "Resource.h"
 
-Assign::Assign(Model* model) : ModelComponent(model, Util::TypeOf<Assign>()) {
+Assign::Assign(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Assign>(),name) {
 }
 
 std::string Assign::show() {

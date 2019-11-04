@@ -21,7 +21,7 @@
  */
 class Alocate : public ModelComponent {
 public: // constructors
-    Alocate(Model* model);
+    Alocate(Model* model, std::string name="");
     virtual ~Alocate() = default;
 public:  // virtual
     virtual std::string show();

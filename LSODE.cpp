@@ -14,7 +14,7 @@
 #include "LSODE.h"
 #include "Model.h"
 
-LSODE::LSODE(Model* model) : ModelComponent(model, Util::TypeOf<LSODE>()) {
+LSODE::LSODE(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<LSODE>(), name) {
 }
 
 std::string LSODE::show() {
@@ -65,57 +65,47 @@ Variable* LSODE::getVariables() const {
 
 bool LSODE::_doStep() {
     double initTime, time, tnow, eqResult, halfStep;
-    std::list<std::string>* eqs = _diffEquations->getFormulaExpressions()->list();
-    unsigned int i, numEqs = eqs->size();
+    //std::list<std::string>* eqs = _diffEquations->formulaExpressions()->list();
+    unsigned int i, numEqs = _diffEquations->size();
     double k1[numEqs], k2[numEqs], k3[numEqs], k4[numEqs], valVar[numEqs];
-    time = _timeVariable->getValue();
+    time = _timeVariable->value();
     initTime = time;
     tnow = _parentModel->simulation()->simulatedTime();
     bool res = time + _step <= tnow + 1e-15; // TODO: numerical error treatment by just adding 1e-15
     if (res) {
 	halfStep = _step * 0.5;
-	i = 0;
-	for (std::list<std::string>::iterator it = eqs->begin(); it != eqs->end(); it++) {
-	    valVar[i] = _variables->getValue(std::to_string(i));
-	    eqResult = _parentModel->parseExpression((*it));
+	for (i = 0; i < numEqs; i++) {//(std::list<std::string>::iterator it = eqs->begin(); it != eqs->end(); it++) {
+	    std::string expression = _diffEquations->expression(std::to_string(i));
+	    valVar[i] = _variables->value(std::to_string(i));
+	    eqResult = _parentModel->parseExpression(expression);
 	    k1[i++] = eqResult;
 	}
 	time += halfStep;
 	_timeVariable->setValue(time);
-	i = 0;
-	for (std::list<std::string>::iterator it = eqs->begin(); it != eqs->end(); it++) {
+	for (i = 0; i < numEqs; i++) {
 	    _variables->setValue(std::to_string(i), valVar[i] + k1[i] * halfStep);
-	    i++;
 	}
-	i = 0;
-	for (std::list<std::string>::iterator it = eqs->begin(); it != eqs->end(); it++) {
-	    eqResult = _parentModel->parseExpression((*it));
-	    k2[i++] = eqResult;
+	for (i = 0; i < numEqs; i++) {
+	    eqResult = _parentModel->parseExpression(_diffEquations->expression(std::to_string(i)));
+	    k2[i] = eqResult;
 	}
-	i = 0;
-	for (std::list<std::string>::iterator it = eqs->begin(); it != eqs->end(); it++) {
+	for (i = 0; i < numEqs; i++) {
 	    _variables->setValue(std::to_string(i), valVar[i] + k2[i] * halfStep);
-	    i++;
 	}
-	i = 0;
-	for (std::list<std::string>::iterator it = eqs->begin(); it != eqs->end(); it++) {
-	    eqResult = _parentModel->parseExpression((*it));
-	    k3[i++] = eqResult;
+	for (i = 0; i < numEqs; i++) {
+	    eqResult = _parentModel->parseExpression(_diffEquations->expression(std::to_string(i)));
+	    k3[i] = eqResult;
 	}
-	i = 0;
-	for (std::list<std::string>::iterator it = eqs->begin(); it != eqs->end(); it++) {
+	for (i = 0; i < numEqs; i++) {
 	    _variables->setValue(std::to_string(i), valVar[i] + k3[i] * halfStep);
-	    i++;
 	}
-	i = 0;
-	for (std::list<std::string>::iterator it = eqs->begin(); it != eqs->end(); it++) {
-	    eqResult = _parentModel->parseExpression((*it));
-	    k4[i++] = eqResult;
+	for (i = 0; i < numEqs; i++) {
+	    eqResult = _parentModel->parseExpression(_diffEquations->expression(std::to_string(i)));
+	    k4[i] = eqResult;
 	}
-	i = 0;
-	for (std::list<std::string>::iterator it = eqs->begin(); it != eqs->end(); it++) {
-	    eqResult = _variables->getValue(std::to_string(i)) +(_step / 6) * (k1[i] + 2 * (k2[i] + k3[i]) + k4[i]);
-	    _variables->setValue(std::to_string(i++), eqResult);
+	for (i = 0; i < numEqs; i++) {
+	    eqResult = _variables->value(std::to_string(i)) +(_step / 6) * (k1[i] + 2 * (k2[i] + k3[i]) + k4[i]);
+	    _variables->setValue(std::to_string(i), eqResult);
 	}
 	time = initTime + _step;
 	_timeVariable->setValue(time);
@@ -130,9 +120,9 @@ void LSODE::_execute(Entity* entity) {
     //_parentModel->tracer()->trace("Expression \"" + (*it) + "\" evaluates to " + std::to_string(value));
     //}
     while (_doStep()) {// execute solve ODE step by step until reach TNOW
-	std::string message = "time=" + std::to_string(_timeVariable->getValue());
-	for (unsigned int i = 0; i < _variables->getDimensionSizes()->front(); i++) {
-	    message += " ,y[" + std::to_string(i) + "]=" + std::to_string(_variables->getValue(std::to_string(i)));
+	std::string message = "time=" + std::to_string(_timeVariable->value());
+	for (unsigned int i = 0; i < _variables->dimensionSizes()->front(); i++) {
+	    message += " ,y[" + std::to_string(i) + "]=" + std::to_string(_variables->value(std::to_string(i)));
 	}
 	_parentModel->tracer()->trace(message);
     }

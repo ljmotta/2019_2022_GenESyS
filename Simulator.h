@@ -52,8 +52,8 @@ private: // attributes 1:1 objects
     TraceManager* _traceManager;
     ParserManager* _parserManager;
 private: // attributes 1:1 native
-    const std::string _name = "ReGenESyS - Reborn Generic and Expansible System Simulator";
-    const std::string _version = "19.1030";
+    const std::string _name = "ReGenESyS - REborn GENeric and Expansible SYstem Simulator";
+    const std::string _version = "19.10 (Halloween19)";
 };
 
 #endif /* GENESYS_H */

@@ -21,7 +21,7 @@
  */
 class Free : public ModelComponent {
 public: // constructors
-    Free(Model* model);
+    Free(Model* model, std::string name="");
     virtual ~Free() = default;
 public:  // virtual
     virtual std::string show();

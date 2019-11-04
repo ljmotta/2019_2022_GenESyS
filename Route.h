@@ -24,7 +24,7 @@ public:
 	Station = 0, BySequence = 1
     };
 public:
-    Route(Model* model);
+    Route(Model* model, std::string name="");
     virtual ~Route() = default;
 public:
     virtual std::string show();

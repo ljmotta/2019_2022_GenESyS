@@ -53,7 +53,7 @@ private:
  */
 class Seize : public ModelComponent {
 public:
-    Seize(Model* model);
+    Seize(Model* model, std::string name="");
     virtual ~Seize() = default;
 public:
     virtual std::string show();

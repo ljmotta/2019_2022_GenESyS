@@ -4759,8 +4759,9 @@ YY_RULE_SETUP
         element = driver.getModel()->elements()->element(Util::TypeOf<Formula>(), std::string(yytext));
         if (element != nullptr) { // it is a FORMULA
             Formula* form = static_cast<Formula*>(element);
-            double formulaValue = form->getValue();
-            return yy::genesyspp_parser::make_FORM(obj_t(formulaValue, Util::TypeOf<Formula>(), form->id()),loc);
+            //double formulaValue = form->getValue(); // return only formula ID
+	    std::cout << "FOUND VARIABLE " << form->name() <<" ID " << form->id() << std::endl;
+            return yy::genesyspp_parser::make_FORM(obj_t(0, Util::TypeOf<Formula>(), form->id()),loc);
         }
 
         // Should be definied by plugin QUEUE
@@ -4798,19 +4799,19 @@ YY_RULE_SETUP
 	YY_BREAK
 case 68:
 YY_RULE_SETUP
-#line 240 "lexerparser.ll"
+#line 241 "lexerparser.ll"
 {return yy::genesyspp_parser::make_ILLEGAL(obj_t(1, std::string("Illegal")), loc);}
 	YY_BREAK
 case YY_STATE_EOF(INITIAL):
-#line 242 "lexerparser.ll"
+#line 243 "lexerparser.ll"
 {return yy::genesyspp_parser::make_END(loc);}
 	YY_BREAK
 case 69:
 YY_RULE_SETUP
-#line 245 "lexerparser.ll"
+#line 246 "lexerparser.ll"
 ECHO;
 	YY_BREAK
-#line 4814 "../Genesys++-scanner.cpp"
+#line 4815 "../Genesys++-scanner.cpp"
 
 	case YY_END_OF_BUFFER:
 		{
@@ -5771,7 +5772,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 245 "lexerparser.ll"
+#line 246 "lexerparser.ll"
 
 
 void

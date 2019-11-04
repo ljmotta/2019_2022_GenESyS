@@ -21,7 +21,7 @@
  */
 class Store : public ModelComponent {
 public: // constructors
-    Store(Model* model);
+    Store(Model* model, std::string name="");
     virtual ~Store() = default;
 public:  // virtual
     virtual std::string show();

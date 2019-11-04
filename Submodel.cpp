@@ -15,7 +15,7 @@
 
 #include "Model.h"
 
-Submodel::Submodel(Model* model) : ModelComponent(model, Util::TypeOf<Submodel>()) {
+Submodel::Submodel(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Submodel>(),name) {
 }
 
 

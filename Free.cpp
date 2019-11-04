@@ -15,7 +15,7 @@
 
 #include "Model.h"
 
-Free::Free(Model* model) : ModelComponent(model, Util::TypeOf<Free>()) {
+Free::Free(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Free>(),name) {
 }
 
 

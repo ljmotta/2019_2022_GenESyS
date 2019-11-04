@@ -199,8 +199,9 @@ L      [A-Za-z0-9_.]+
         element = driver.getModel()->elements()->element(Util::TypeOf<Formula>(), std::string(yytext));
         if (element != nullptr) { // it is a FORMULA
             Formula* form = static_cast<Formula*>(element);
-            double formulaValue = form->getValue();
-            return yy::genesyspp_parser::make_FORM(obj_t(formulaValue, Util::TypeOf<Formula>(), form->id()),loc);
+            //double formulaValue = form->getValue(); // return only formula ID
+	    std::cout << "FOUND VARIABLE " << form->name() <<" ID " << form->id() << std::endl;
+            return yy::genesyspp_parser::make_FORM(obj_t(0, Util::TypeOf<Formula>(), form->id()),loc);
         }
 
         // Should be definied by plugin QUEUE

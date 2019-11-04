@@ -14,7 +14,7 @@
 #include "Dispose.h"
 #include "Model.h"
 
-Dispose::Dispose(Model* model) : SinkModelComponent(model, Util::TypeOf<Dispose>()) {
+Dispose::Dispose(Model* model, std::string name) : SinkModelComponent(model, Util::TypeOf<Dispose>(),name) {
     _numberOut = new Counter(_parentModel, _name + "." + "Count_number_out", this);
     _parentModel->elements()->insert(_numberOut);
 }

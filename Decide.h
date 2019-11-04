@@ -18,7 +18,7 @@
 
 class Decide : public ModelComponent {
 public:
-    Decide(Model* model);
+    Decide(Model* model, std::string name="");
     virtual ~Decide() = default;
 public:
     List<std::string>* getConditions() const;

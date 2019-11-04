@@ -16,20 +16,22 @@
 #include "ModelElement.h"
 #include "Model.h"
 
-ModelElement::ModelElement(Model* model, std::string thistypename, bool insertIntoModel) {
-    // ID is UNIQUE FOR EVERY ELEMENT AND COMPONENT in the entire simulator
+ModelElement::ModelElement(Model* model, std::string thistypename, std::string name, bool insertIntoModel) {
     _id = Util::GenerateNewId(); //GenerateNewIdOfType(thistypename);
-    _name = thistypename + "_" + std::to_string(Util::GenerateNewIdOfType(thistypename)); //std::to_string(_id);
     _typename = thistypename;
     _parentModel = model;
+    if (name == "")
+	_name = thistypename + "_" + std::to_string(Util::GenerateNewIdOfType(thistypename)); 
+    else
+	_name = name;
     if (insertIntoModel)
 	model->insert(this);
 }
 
 //ModelElement::ModelElement(const ModelElement &orig) {
-    //this->_parentModel = orig->_parentModel;
-    //this->_name = "copy_of_" + orig->_name;
-    //this->_typename = orig->_typename;
+//this->_parentModel = orig->_parentModel;
+//this->_name = "copy_of_" + orig->_name;
+//this->_typename = orig->_typename;
 //}
 
 ModelElement::~ModelElement() {
@@ -67,7 +69,7 @@ ParserChangesInformation* ModelElement::_getParserChangesInformation() {
 }
 
 void ModelElement::_initBetweenReplications() {
-    
+
 }
 
 /*
@@ -103,7 +105,6 @@ std::string ModelElement::classname() const {
 //	return fields;
 //}
 
-
 void ModelElement::InitBetweenReplications(ModelElement* element) {
     //component->_model->getTraceManager()->trace(Util::TraceLevel::blockArrival, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));
     try {
@@ -112,7 +113,6 @@ void ModelElement::InitBetweenReplications(ModelElement* element) {
 	element->_parentModel->tracer()->traceError(e, "Error initing component " + element->show());
     };
 }
-
 
 ModelElement* ModelElement::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
     ModelElement* newElement = new ModelElement(model, "ModelElement");

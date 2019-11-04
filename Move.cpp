@@ -15,7 +15,7 @@
 
 #include "Model.h"
 
-Move::Move(Model* model) : ModelComponent(model, Util::TypeOf<Move>()) {
+Move::Move(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Move>(),name) {
 }
 
 

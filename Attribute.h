@@ -23,8 +23,8 @@
 
 class Attribute : public ModelElement {
 public:
-    Attribute(Model* model);
-    Attribute(Model* model, std::string name);
+    //Attribute(Model* model);
+    Attribute(Model* model, std::string name="");
     virtual ~Attribute() = default;
 public:
     virtual std::string show();

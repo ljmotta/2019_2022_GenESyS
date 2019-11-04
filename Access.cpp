@@ -15,7 +15,7 @@
 
 #include "Model.h"
 
-Access::Access(Model* model) : ModelComponent(model, Util::TypeOf<Access>()) {
+Access::Access(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Access>(),name) {
 }
 
 

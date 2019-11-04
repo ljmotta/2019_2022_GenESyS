@@ -15,7 +15,7 @@
 
 #include "Model.h"
 
-PickStation::PickStation(Model* model) : ModelComponent(model, Util::TypeOf<PickStation>()) {
+PickStation::PickStation(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<PickStation>(),name) {
 }
 
 

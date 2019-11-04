@@ -14,15 +14,9 @@
 #include "File.h"
 
 
-File::File(Model* model) : ModelElement(model, Util::TypeOf<File>()) {
+File::File(Model* model, std::string name) : ModelElement(model, Util::TypeOf<File>(),name) {
     //_elems = elems;
 }
-
-File::File(Model* model, std::string name) : ModelElement(model, Util::TypeOf<File>()) {
-    _name = name;
-    //_elems = elems;
-}
-
 
 std::string File::show() {
     return ModelElement::show() +

@@ -14,7 +14,7 @@
 #include "Search.h"
 #include "Model.h"
 
-Search::Search(Model* model) : ModelComponent(model, Util::TypeOf<Search>()) {
+Search::Search(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Search>(),name) {
 }
 
 

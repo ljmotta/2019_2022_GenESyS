@@ -15,7 +15,7 @@
 #include "Model.h"
 #include "Attribute.h"
 
-SourceModelComponent::SourceModelComponent(Model* model, std::string componentTypename) : ModelComponent(model, componentTypename) {
+SourceModelComponent::SourceModelComponent(Model* model, std::string componentTypename, std::string name) : ModelComponent(model, componentTypename,name) {
 }
 
 

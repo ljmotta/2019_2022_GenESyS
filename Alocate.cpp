@@ -15,7 +15,7 @@
 
 #include "Model.h"
 
-Alocate::Alocate(Model* model) : ModelComponent(model, Util::TypeOf<Alocate>()) {
+Alocate::Alocate(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Alocate>(),name) {
 }
 
 

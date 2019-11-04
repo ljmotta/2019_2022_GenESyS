@@ -21,7 +21,7 @@
  */
 class Separate : public ModelComponent {
 public: // constructors
-    Separate(Model* model);
+    Separate(Model* model, std::string name="");
     virtual ~Separate() = default;
 public:  // virtual
     virtual std::string show();

@@ -14,7 +14,7 @@
 #include "OLD_ODEelement.h"
 #include "Model.h"
 
-OLD_ODEelement::OLD_ODEelement(Model* model) : ModelElement(model, Util::TypeOf<OLD_ODEelement>()) {
+OLD_ODEelement::OLD_ODEelement(Model* model, std::string name) : ModelElement(model, Util::TypeOf<OLD_ODEelement>(),name) {
     //_elems = elems;
 }
 

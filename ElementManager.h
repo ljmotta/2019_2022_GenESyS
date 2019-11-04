@@ -55,7 +55,7 @@ public:
     Model* parentModel() const;
 private:
     std::map<std::string, List<ModelElement*>*>* _elements;
-    Model* _model;
+    Model* _parentModel;
 };
 
 #endif /* ELEMENTMANAGER_H */

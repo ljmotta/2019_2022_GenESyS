@@ -21,8 +21,7 @@
 
 class EntityGroup : public ModelElement {
 public:
-    EntityGroup(Model* model);
-    EntityGroup(Model* model, std::string name);
+    EntityGroup(Model* model, std::string name="");
     virtual ~EntityGroup();
 public:
     virtual std::string show();

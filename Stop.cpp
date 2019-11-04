@@ -15,7 +15,7 @@
 
 #include "Model.h"
 
-Stop::Stop(Model* model) : ModelComponent(model, Util::TypeOf<Stop>()) {
+Stop::Stop(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Stop>(),name) {
 }
 
 

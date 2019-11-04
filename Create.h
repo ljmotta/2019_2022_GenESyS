@@ -27,7 +27,7 @@
  */
 class Create : public SourceModelComponent {
 public:
-    Create(Model* model);
+    Create(Model* model, std::string name="");
     virtual ~Create() = default;
 public:
     virtual std::string show();

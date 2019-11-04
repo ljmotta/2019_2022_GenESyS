@@ -15,14 +15,7 @@
 #include "Counter.h"
 #include "Model.h"
 
-Resource::Resource(Model* model) : ModelElement(model, Util::TypeOf<Resource>()) {
-    //_elems = elems;
-    _initCStats();
-}
-
-Resource::Resource(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Resource>()) {
-    _name = name;
-    //_elems = elems;
+Resource::Resource(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Resource>(),name) {
     _initCStats();
 }
 

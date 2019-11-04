@@ -15,7 +15,7 @@
 
 #include "Model.h"
 
-Match::Match(Model* model) : ModelComponent(model, Util::TypeOf<Match>()) {
+Match::Match(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Match>(),name) {
 }
 
 

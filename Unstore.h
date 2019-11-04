@@ -21,7 +21,7 @@
  */
 class Unstore : public ModelComponent {
 public: // constructors
-    Unstore(Model* model);
+    Unstore(Model* model, std::string name="");
     virtual ~Unstore() = default;
 public:  // virtual
     virtual std::string show();

@@ -21,8 +21,7 @@
 
 class Variable : public ModelElement {
 public:
-    Variable(Model* model);
-    Variable(Model* model, std::string name);
+    Variable(Model* model, std::string name="");
     virtual ~Variable() = default;
 public:
     virtual std::string show();
@@ -30,15 +29,15 @@ public: //static
     static PluginInformation* GetPluginInformation();
     static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 public:
-    double getValue();
+    double value();
     void setValue(double value);
-    double getValue(std::string index);
+    double value(std::string index);
     void setValue(std::string index, double value);
-    double getInitialValue();
+    double initialValue();
     void setInitialValue(double value);
-    double getInitialValue(std::string index);
+    double initialValue(std::string index);
     void setInitialValue(std::string index, double value);
-    List<unsigned int>* getDimensionSizes() const;
+    List<unsigned int>* dimensionSizes() const;
 
 protected:
     virtual bool _loadInstance(std::map<std::string, std::string>* fields);

@@ -15,14 +15,7 @@
 #include "Model.h"
 #include "Attribute.h"
 
-EntityGroup::EntityGroup(Model* model) : ModelElement(model, Util::TypeOf<EntityGroup>()) {
-    //_elements = elems;
-    _initCStats(); 
-}
-
-EntityGroup::EntityGroup(Model* model, std::string name) : ModelElement(model, Util::TypeOf<EntityGroup>()) {
-    _name = name;
-    //_elements = elems;
+EntityGroup::EntityGroup(Model* model, std::string name) : ModelElement(model, Util::TypeOf<EntityGroup>(),name) {
     _initCStats();
 }
 

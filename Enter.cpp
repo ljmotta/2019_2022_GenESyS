@@ -14,7 +14,7 @@
 #include "Enter.h"
 #include "Model.h"
 
-Enter::Enter(Model* model) : ModelComponent(model, Util::TypeOf<Enter>()) {
+Enter::Enter(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Enter>(),name) {
 }
 
 

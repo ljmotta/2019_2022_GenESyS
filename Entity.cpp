@@ -27,8 +27,8 @@ Entity::Entity(Model* model) : ModelElement(model, Util::TypeOf<Entity>()) {
 }
 
 //Entity::Entity(const Entity &orig): ModelElement(orig) {
-    //this->_attributeValues = new List<std::map<std::string,double>*>(orig._attributeValues);
-    //this->_entityType = orig._entityType;
+//this->_attributeValues = new List<std::map<std::string,double>*>(orig._attributeValues);
+//this->_entityType = orig._entityType;
 //}
 
 void Entity::setEntityTypeName(std::string entityTypeName) throw () {
@@ -57,11 +57,16 @@ std::string Entity::show() {
     if (this->_entityType != nullptr) {
 	message += ",entityType=\"" + this->_entityType->name() + "\"";
     }
-    message += ",attributeValues=[";
+    message += ",attributes=[";
     _attributeValues->front();
+    unsigned int i = 0;
     for (unsigned int i = 0; i < _attributeValues->size(); i++) {
 	std::map<std::string, double>* map = _attributeValues->current();
-	if (map->size() <= 1) { // scalar
+	std::string attributeName = _parentModel->elements()->elementList(Util::TypeOf<Attribute>())->getAtRank(i)->name();
+	message += attributeName + "=";
+	if (map->size() == 0) { // scalar
+	    message += "NaN;"; //std::to_string(map->begin()->second) + ";";
+	} else if (map->size() == 1) { // scalar
 	    message += std::to_string(map->begin()->second) + ";";
 	} else {
 	    // array or matrix
@@ -120,7 +125,7 @@ void Entity::setAttributeValue(std::string index, std::string attributeName, dou
 	if (mapIt != map->end()) {//found
 	    (*mapIt).second = value;
 	} else { // not found
-	    map->insert({index,value});// (map->end(), std::pair<std::string, double>(index, value));
+	    map->insert({index, value}); // (map->end(), std::pair<std::string, double>(index, value));
 	}
     } else
 	_parentModel->tracer()->trace(Util::TraceLevel::errors, "Attribute \"" + attributeName + "\" not found");

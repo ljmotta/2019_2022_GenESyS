@@ -15,14 +15,7 @@
 #include "Model.h"
 #include "Attribute.h"
 
-Queue::Queue(Model* model) : ModelElement(model, Util::TypeOf<Queue>()) {
-   // _elems = elems;
-    _initCStats();
-}
-
-Queue::Queue(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Queue>()) {
-    _name = name;
-    //_elems = elems;
+Queue::Queue(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Queue>(),name) {
     _initCStats();
 }
 

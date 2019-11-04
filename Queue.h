@@ -71,8 +71,7 @@ public:
     };
 
 public:
-    Queue(Model* model);
-    Queue(Model* model, std::string name);
+    Queue(Model* model, std::string name="");
     virtual ~Queue();
 public:
     virtual std::string show();

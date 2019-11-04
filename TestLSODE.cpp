@@ -49,12 +49,12 @@ int TestLSODE::main(int argc, char** argv) {
     Variable* varY = new Variable(model,"y");
     varY->setInitialValue("0",1.0);
     varY->setInitialValue("1",0.0);
-    varY->getDimensionSizes()->insert(2);
+    varY->dimensionSizes()->insert(2);
     Variable* varDy = new Variable(model, "dy");
-    varDy->getDimensionSizes()->insert(2);
+    varDy->dimensionSizes()->insert(2);
     Formula* diffeq1 = new Formula(model);
-    diffeq1->getFormulaExpressions()->insert("dy[0]=y[1]");
-    diffeq1->getFormulaExpressions()->insert("dy[1]=y[0]+exp(x)");    
+    diffeq1->setExpression("0", "dy[0]=y[1]");
+    diffeq1->setExpression("1", "dy[1]=y[0]+exp(x)");    
     LSODE* ode1 = new LSODE(model);
     ode1->setDiffEquations(diffeq1);
     ode1->setVariables(varY);

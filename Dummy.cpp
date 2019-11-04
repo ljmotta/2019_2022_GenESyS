@@ -14,7 +14,7 @@
 #include "Dummy.h"
 #include "Model.h"
 
-Dummy::Dummy(Model* model) : ModelComponent(model, Util::TypeOf<Dummy>()) {
+Dummy::Dummy(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Dummy>(),name) {
 }
 
 

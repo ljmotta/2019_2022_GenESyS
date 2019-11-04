@@ -29,7 +29,8 @@ class Model;
  */
 class ModelElement {
 public:
-    ModelElement(Model* model, std::string elementTypename, bool insertIntoModel = true);
+    ModelElement(Model* model, std::string elementTypename, std::string name = "", bool insertIntoModel = true);
+    //ModelElement(Model* model, std::string elementTypename, std::string name = "", bool insertIntoModel = true);
     //ModelElement(const ModelElement &orig);
     virtual ~ModelElement();
 
@@ -55,6 +56,8 @@ protected: // could be overriden by derived classes
     virtual ParserChangesInformation* _getParserChangesInformation();
     virtual void _initBetweenReplications();
     virtual void _createInternalElements(); ///< This method is necessary only for those components that instantiate internal elements that must exist before simulation starts and even before model checking. That's the case of components that have internal StatisticsCollectors, since others components may refer to them as expressions (as in "TVAG(ThisCSTAT)") and therefore the element must exist when checking such expression    
+private:
+    void _build(Model* model, std::string thistypename, bool insertIntoModel);
 protected:
     Util::identification _id;
     std::string _name;

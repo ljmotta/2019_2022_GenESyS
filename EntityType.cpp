@@ -15,14 +15,12 @@
 #include "Model.h"
 #include "SimulationResponse.h"
 
-EntityType::EntityType(Model* model) : ModelElement(model, Util::TypeOf<EntityType>()) {
-    //_elemManager = elemManager;
-    _initCostsAndStatistics();
-}
+//EntityType::EntityType(Model* model) : ModelElement(model, Util::TypeOf<EntityType>()) {
+//    //_elemManager = elemManager;
+//    _initCostsAndStatistics();
+//}
 
-EntityType::EntityType(Model* model, std::string name) : ModelElement(model, Util::TypeOf<EntityType>()) {
-    //_elemManager = elemManager;
-    _name = name;
+EntityType::EntityType(Model* model, std::string name) : ModelElement(model, Util::TypeOf<EntityType>(), name) {
     _initCostsAndStatistics();
 }
 

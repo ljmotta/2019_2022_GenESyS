@@ -14,7 +14,7 @@
 #include "Request.h"
 #include "Model.h"
 
-Request::Request(Model* model) : ModelComponent(model, Util::TypeOf<Request>()) {
+Request::Request(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Request>(),name) {
 }
 
 

@@ -18,7 +18,7 @@
 #include "Attribute.h"
 #include "Assign.h"
 
-Create::Create(Model* model) : SourceModelComponent(model, Util::TypeOf<Create>()) {
+Create::Create(Model* model, std::string name) : SourceModelComponent(model, Util::TypeOf<Create>(),name) {
     _numberOut = new Counter(_parentModel, "Count number in", this);
     _parentModel->elements()->insert(_numberOut);
     GetterMember getter = DefineGetterMember<SourceModelComponent>(this, &Create::getEntitiesPerCreation);

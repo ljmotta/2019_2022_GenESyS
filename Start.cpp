@@ -15,7 +15,7 @@
 
 #include "Model.h"
 
-Start::Start(Model* model) : ModelComponent(model, Util::TypeOf<Start>()) {
+Start::Start(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Start>(),name) {
 }
 
 

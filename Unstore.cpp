@@ -14,7 +14,7 @@
 #include "Unstore.h"
 #include "Model.h"
 
-Unstore::Unstore(Model* model) : ModelComponent(model, Util::TypeOf<Unstore>()) {
+Unstore::Unstore(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Unstore>(),name) {
 }
 
 

@@ -45,8 +45,8 @@ public:
     };
 
 public:
-    Resource(Model* model);
-    Resource(Model* model, std::string name);
+    //Resource(Model* model);
+    Resource(Model* model, std::string name="");
     virtual ~Resource();
 public:
     virtual std::string show();

@@ -19,7 +19,7 @@
 
 class Record : public ModelComponent {
 public:
-    Record(Model* model);
+    Record(Model* model, std::string name="");
     virtual ~Record();
 public:
     void setFilename(std::string filename);

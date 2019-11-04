@@ -15,7 +15,7 @@
 
 #include "Model.h"
 
-Exit::Exit(Model* model) : ModelComponent(model, Util::TypeOf<Exit>()) {
+Exit::Exit(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Exit>(),name) {
 }
 
 

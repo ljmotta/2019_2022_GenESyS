@@ -315,6 +315,8 @@
       </logicalFolder>
       <logicalFolder name="f5" displayName="System Optimization" projectFiles="true">
       </logicalFolder>
+      <itemPath>RequirementTester.cpp</itemPath>
+      <itemPath>RequirementTester.h</itemPath>
       <itemPath>ToolManager.cpp</itemPath>
       <itemPath>ToolManager.h</itemPath>
     </logicalFolder>
@@ -748,6 +750,10 @@
       <item path="Request.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Request.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="RequirementTester.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="RequirementTester.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Resource.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -1358,6 +1364,10 @@
       <item path="Request.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Request.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="RequirementTester.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="RequirementTester.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Resource.cpp" ex="false" tool="1" flavor2="0">
       </item>

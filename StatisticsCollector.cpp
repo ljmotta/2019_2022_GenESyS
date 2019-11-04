@@ -16,19 +16,7 @@
 
 typedef Traits<ModelComponent>::StatisticsCollector_StatisticsImplementation StatisticsClass;
 
-StatisticsCollector::StatisticsCollector(Model* model) : ModelElement(model, Util::TypeOf<StatisticsCollector>()) {
-    _initStaticsAndCollector();
-    _addSimulationResponse();
-}
-
-StatisticsCollector::StatisticsCollector(Model* model,std::string name) : ModelElement(model, Util::TypeOf<StatisticsCollector>()) {
-    _name = name;
-    _initStaticsAndCollector();
-    _addSimulationResponse();
-}
-
-StatisticsCollector::StatisticsCollector(Model* model,std::string name, ModelElement* parent, bool insertIntoModel) : ModelElement(model, Util::TypeOf<StatisticsCollector>(), insertIntoModel) {
-    _name = name;
+StatisticsCollector::StatisticsCollector(Model* model,std::string name, ModelElement* parent, bool insertIntoModel) : ModelElement(model, Util::TypeOf<StatisticsCollector>(), name, insertIntoModel) {
     _parent = parent;
     _initStaticsAndCollector();
     _addSimulationResponse();

@@ -20,6 +20,8 @@
 #include "Create.h"
 #include "Dispose.h"
 #include "Separate.h"
+#include "Formula.h"
+#include "Write.h"
 
 TestMatricesOfAttributesAndVariables::TestMatricesOfAttributesAndVariables() {
 }
@@ -37,6 +39,43 @@ int TestMatricesOfAttributesAndVariables::main(int argc, char** argv) {
     insertFakePluginsByHand(sim);
     Model* m = new Model(sim);
     sim->models()->insert(m);
+    m->infos()->setProjectTitle("Stochastic Simulation of Chemical Reactions");
+    Create* cr1 = new Create(m);
+    Write* w1 = new Write(m);
+    Assign* as1 = new Assign(m, "Define próxima reação a ocorrer");
+    Dispose* di1 = new Dispose(m);
+    cr1->nextComponents()->insert(w1);
+    w1->nextComponents()->insert(as1);
+    as1->nextComponents()->insert(di1);
+    cr1->setEntityType(new EntityType(m));
+    Variable* s = new Variable(m, "s");
+    Variable* k = new Variable(m, "k");
+    Variable* N = new Variable(m, "N");
+    new Variable(m, "temp");
+    Formula* prop = new Formula(m, "prop");
+    s->setInitialValue("1,1", -1);
+    s->setInitialValue("1,2", -1);
+    s->setInitialValue("1,3", 1);
+    s->setInitialValue("2,1", 0);
+    s->setInitialValue("2,2", 0);
+    s->setInitialValue("2,3", -1);
+    k->setInitialValue("1", 0.1);
+    k->setInitialValue("2", 0.01);
+    N->setInitialValue("1", 100);
+    N->setInitialValue("2", 100);
+    N->setInitialValue("3", 0);
+    prop->setExpression("1", "k[1]*N[1]*N[2]");
+    prop->setExpression("2", "k[2]*N[3]");
+    w1->writeElements()->insert(new WriteElement("N[1]",true, true));
+    w1->writeElements()->insert(new WriteElement("N[2]",true, true));
+    w1->writeElements()->insert(new WriteElement("N[3]",true, true));
+    as1->assignments()->insert(new Assign::Assignment("temp[1]", "k[1]*N[1]*N[2]")); //"prop[1]/(prop[1]+prop[2])"));
+    as1->assignments()->insert(new Assign::Assignment("temp[1]", "prop[1]/(prop[1]+prop[2])"));
+    //
+    m->simulation()->start();
+    return 0;
+
+    /*
     Create* create1 = new Create(m);
     Assign* assign1 = new Assign(m);
     //Separate* sep1 = new Separate(m);
@@ -61,4 +100,5 @@ int TestMatricesOfAttributesAndVariables::main(int argc, char** argv) {
     }
     m->simulation()->start();
     return 0;
+     */
 }

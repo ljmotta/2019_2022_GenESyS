@@ -23,7 +23,7 @@
  */
 class LSODE : public ModelComponent {
 public: // constructors
-    LSODE(Model* model);
+    LSODE(Model* model, std::string name="");
     virtual ~LSODE() = default;
 public: // virtual
     virtual std::string show();

@@ -22,8 +22,7 @@
 
 class File: public ModelElement {
 public:
-    File(Model* model);
-    File(Model* model, std::string name);
+    File(Model* model, std::string name="");
     virtual ~File() = default;
 public: // static
     static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields); 

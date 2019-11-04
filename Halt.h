@@ -21,7 +21,7 @@
  */
 class Halt : public ModelComponent {
 public: // constructors
-    Halt(Model* model);
+    Halt(Model* model, std::string name="");
     virtual ~Halt() = default;
 public:  // virtual
     virtual std::string show();
