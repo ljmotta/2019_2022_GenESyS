@@ -33,6 +33,10 @@ void ModelManager::remove(Model* model) {
     model->~Model();
 }
 
+unsigned int ModelManager::size(){
+    return _models->size();
+}
+
 bool ModelManager::saveModel(std::string filename) {
     if (_currentModel != nullptr)
 	return _currentModel->save(filename);

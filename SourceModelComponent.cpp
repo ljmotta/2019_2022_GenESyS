@@ -78,7 +78,7 @@ void SourceModelComponent::setFirstCreation(double _firstCreation) {
     this->_firstCreation = _firstCreation;
 }
 
-double SourceModelComponent::getFirstCreation() const {
+double SourceModelComponent::firstCreation() const {
     return _firstCreation;
 }
 
@@ -94,7 +94,7 @@ void SourceModelComponent::setEntityType(EntityType* entityType) {
     _entityType = entityType;
 }
 
-EntityType* SourceModelComponent::getEntityType() const {
+EntityType* SourceModelComponent::entityType() const {
     return _entityType;
 }
 
@@ -102,7 +102,7 @@ void SourceModelComponent::setTimeUnit(Util::TimeUnit _timeUnit) {
     this->_timeBetweenCreationsTimeUnit = _timeUnit;
 }
 
-Util::TimeUnit SourceModelComponent::getTimeUnit() const {
+Util::TimeUnit SourceModelComponent::timeUnit() const {
     return this->_timeBetweenCreationsTimeUnit;
 }
 
@@ -110,7 +110,7 @@ void SourceModelComponent::setTimeBetweenCreationsExpression(std::string _timeBe
     this->_timeBetweenCreationsExpression = _timeBetweenCreations;
 }
 
-std::string SourceModelComponent::getTimeBetweenCreationsExpression() const {
+std::string SourceModelComponent::timeBetweenCreationsExpression() const {
     return _timeBetweenCreationsExpression;
 }
 
@@ -118,11 +118,11 @@ void SourceModelComponent::setMaxCreations(std::string _maxCreationsExpression) 
     this->_maxCreationsExpression = _maxCreationsExpression;
 }
 
-std::string SourceModelComponent::getMaxCreations() const {
+std::string SourceModelComponent::maxCreations() const {
     return _maxCreationsExpression;
 }
 
-unsigned int SourceModelComponent::getEntitiesCreated() const {
+unsigned int SourceModelComponent::entitiesCreated() const {
     return _entitiesCreatedSoFar;
 }
 
@@ -135,7 +135,7 @@ void SourceModelComponent::setEntitiesPerCreation(unsigned int _entitiesPerCreat
     //this->_entitiesCreatedSoFar = _entitiesPerCreation; // that's because "entitiesPerCreation" entities are included in the future events list BEFORE replication starts (to initialize events list)
 }
 
-unsigned int SourceModelComponent::getEntitiesPerCreation() const {
+unsigned int SourceModelComponent::entitiesPerCreation() const {
     return _entitiesPerCreation;
 }
 

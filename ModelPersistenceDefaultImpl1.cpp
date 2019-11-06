@@ -155,7 +155,7 @@ bool ModelPersistenceDefaultImpl1::_loadFields(std::string line) {
 		    if (plugin != nullptr) {
 			res = plugin->loadAndInsertNew(_model, fields);
 			// save fields for components, in order to allow to connect components after all of them have been loaded
-			if (res && plugin->getPluginInfo()->isComponent()) {
+			if (res && plugin->pluginInfo()->isComponent()) {
 			    _componentFields->insert(_componentFields->end(), fields);
 			    //_model->getTraceManager()->trace(Util::TraceLevel::errors, "Inserindo fields do componente "+plugin->getPluginInfo()->getPluginTypename());
 			}

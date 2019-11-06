@@ -35,9 +35,9 @@ int TestSimulationControlAndSimulationResponse::main(int argc, char** argv){
     model->infos()->setNumberOfReplications(10);
     std::cout << "NumRepl depois: " << model->infos()->numberOfReplications() << std::endl;
     SimulationControl* control = model->controls()->front();
-    std::cout << control->getName() << " antes: " << control->getValue() << std::endl;
+    std::cout << control->name() << " antes: " << control->value() << std::endl;
     control->setValue(20);
-    std::cout << control->getName() << " depois: " << control->getValue() << std::endl;
+    std::cout << control->name() << " depois: " << control->value() << std::endl;
     std::cout << "NumRepl depois: " << model->infos()->numberOfReplications() << std::endl;
     return 0;
 }

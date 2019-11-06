@@ -21,7 +21,7 @@
 Create::Create(Model* model, std::string name) : SourceModelComponent(model, Util::TypeOf<Create>(),name) {
     _numberOut = new Counter(_parentModel, "Count number in", this);
     _parentModel->elements()->insert(_numberOut);
-    GetterMember getter = DefineGetterMember<SourceModelComponent>(this, &Create::getEntitiesPerCreation);
+    GetterMember getter = DefineGetterMember<SourceModelComponent>(this, &Create::entitiesPerCreation);
     SetterMember setter = DefineSetterMember<SourceModelComponent>(this, &Create::setEntitiesPerCreation);
     model->controls()->insert(new SimulationControl(Util::TypeOf<Create>(), "Entities Per Creation", getter,setter));
     /*
@@ -39,7 +39,7 @@ std::string Create::show() {
 
 void Create::_execute(Entity* entity) {
     double tnow = _parentModel->simulation()->simulatedTime();
-    entity->setAttributeValue("Entity.ArrivalTime", tnow); // ->find("Entity.ArrivalTime")->second->setValue(tnow);
+    entity->attributeValue("Entity.ArrivalTime", tnow); // ->find("Entity.ArrivalTime")->second->setValue(tnow);
     //entity->setAttributeValue("Entity.Picture", 1); // ->find("Entity.ArrivalTime")->second->setValue(tnow);
     double timeBetweenCreations, timeScale, newArrivalTime;
     unsigned int _maxCreations = _parentModel->parseExpression(this->_maxCreationsExpression);
@@ -47,14 +47,14 @@ void Create::_execute(Entity* entity) {
 	if (_entitiesCreatedSoFar < _maxCreations) {
 	    _entitiesCreatedSoFar++;
 	    Entity* newEntity = new Entity(_parentModel);
-	    newEntity->setEntityType(entity->getEntityType());
+	    newEntity->setEntityType(entity->entityType());
 	    _parentModel->elements()->insert(newEntity); // ->getEntities()->insert(newEntity);
 	    timeBetweenCreations = _parentModel->parseExpression(this->_timeBetweenCreationsExpression);
 	    timeScale = Util::TimeUnitConvert(this->_timeBetweenCreationsTimeUnit, _parentModel->infos()->replicationLengthTimeUnit());
 	    newArrivalTime = tnow + timeBetweenCreations*timeScale;
 	    Event* newEvent = new Event(newArrivalTime, newEntity, this);
 	    _parentModel->futureEvents()->insert(newEvent);
-	    _parentModel->tracer()->trace("Arrival of entity " + std::to_string(newEntity->getEntityNumber()) + " schedule for time " + std::to_string(newArrivalTime));
+	    _parentModel->tracer()->trace("Arrival of entity " + std::to_string(newEntity->entityNumber()) + " schedule for time " + std::to_string(newArrivalTime));
 	    //_model->getTrace()->trace("Arrival of entity "+std::to_string(entity->getId()) + " schedule for time " +std::to_string(newArrivalTime));
 	}
     }

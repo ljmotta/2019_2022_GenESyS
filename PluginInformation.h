@@ -35,23 +35,23 @@ public:
     PluginInformation(std::string pluginTypename, StaticLoaderElementInstance elementloader);
 public:
     // gets
-    StaticLoaderElementInstance getElementloader() const;
-    StaticLoaderComponentInstance getComponentLoader() const;
+    StaticLoaderElementInstance elementloader() const;
+    StaticLoaderComponentInstance componentLoader() const;
     bool isGenerateReport() const;
     bool isComponent() const;
     bool isSendTransfer() const;
     bool isReceiveTransfer() const;
     bool isSink() const;
     bool isSource() const;
-    std::string getObservation() const;
-    std::string getVersion() const;
-    std::string getDate() const;
-    std::string getAuthor() const;
-    std::string getPluginTypename() const;
+    std::string observation() const;
+    std::string version() const;
+    std::string date() const;
+    std::string author() const;
+    std::string pluginTypename() const;
     // sets
     void insertDynamicLibFileDependence(std::string filename);
     void setDynamicLibFilenameDependencies(std::list<std::string>* dynamicLibFilenameDependencies);
-    std::list<std::string>* getDynamicLibFilenameDependencies() const;
+    std::list<std::string>* dynamicLibFilenameDependencies() const;
     void setGenerateReport(bool generateReport);
     void setSendTransfer(bool sendTransfer);
     void setReceiveTransfer(bool receiveTransfer);

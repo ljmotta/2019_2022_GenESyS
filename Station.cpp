@@ -49,7 +49,7 @@ void Station::enter(Entity* entity) {
     std::string attributeName = "Entity.ArrivalAt" + this->name();
     trimwithin(attributeName);
     entity->setAttributeValue(attributeName, _parentModel->simulation()->simulatedTime());
-    entity->setAttributeValue("Entity.Station", _id);
+    entity->attributeValue("Entity.Station", _id);
     _numberInStation++;
     this->_cstatNumberInStation->getStatistics()->getCollector()->addValue(_numberInStation);
 }
@@ -57,11 +57,11 @@ void Station::enter(Entity* entity) {
 void Station::leave(Entity* entity) {
     std::string attributeName = "Entity.ArrivalAt" + this->name();
     trimwithin(attributeName);
-    double arrivalTime = entity->getAttributeValue(attributeName);
+    double arrivalTime = entity->attributeValue(attributeName);
     double timeInStation = _parentModel->simulation()->simulatedTime() - arrivalTime;
     _cstatTimeInStation->getStatistics()->getCollector()->addValue(timeInStation);
-    entity->getEntityType()->getStatisticsCollector("Time in Stations")->getStatistics()->getCollector()->addValue(timeInStation);
-    entity->setAttributeValue("Entity.Station", 0.0);
+    entity->entityType()->statisticsCollector("Time in Stations")->getStatistics()->getCollector()->addValue(timeInStation);
+    entity->attributeValue("Entity.Station", 0.0);
     _numberInStation--;
     _cstatNumberInStation->getStatistics()->getCollector()->addValue(_numberInStation);
 }
@@ -119,7 +119,7 @@ bool Station::_check(std::string* errorMessage) {
     // include StatisticsCollector needed in EntityType
     std::list<ModelElement*>* enttypes = _parentModel->elements()->elementList(Util::TypeOf<EntityType>())->list();
     for (std::list<ModelElement*>::iterator it = enttypes->begin(); it != enttypes->end(); it++) {
-	static_cast<EntityType*> ((*it))->getStatisticsCollector("Time in Stations"); // force create this CStat before simulation starts
+	static_cast<EntityType*> ((*it))->statisticsCollector("Time in Stations"); // force create this CStat before simulation starts
     }
     //
     return true;

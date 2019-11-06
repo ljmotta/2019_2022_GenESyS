@@ -32,7 +32,7 @@ public:
     virtual ~Plugin() = default;
 public:
     bool isIsValidPlugin() const;
-    PluginInformation* getPluginInfo() const;
+    PluginInformation* pluginInfo() const;
 public:
     ModelElement* loadNew(Model* model, std::map<std::string, std::string>* fields);
     bool loadAndInsertNew(Model* model, std::map<std::string, std::string>* fields);

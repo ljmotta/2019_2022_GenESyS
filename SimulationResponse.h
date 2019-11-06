@@ -27,9 +27,9 @@ public:
 public:
     std::string show();
 public:
-    double getValue();
-    std::string getName() const;
-    std::string getType() const;
+    double value();
+    std::string name() const;
+    std::string type() const;
 protected:
     std::string _type;
     std::string _name;

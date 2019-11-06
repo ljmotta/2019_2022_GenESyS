@@ -25,9 +25,9 @@ public:
     virtual ~Delay() = default;
 public:
     void setDelayExpression(std::string _delayExpression);
-    std::string getDelayExpression() const;
+    std::string delayExpression() const;
     void setDelayTimeUnit(Util::TimeUnit _delayTimeUnit);
-    Util::TimeUnit getDelayTimeUnit() const;
+    Util::TimeUnit delayTimeUnit() const;
 public:
     virtual std::string show();
 public:

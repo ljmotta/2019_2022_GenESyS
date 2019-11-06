@@ -23,7 +23,7 @@ ModelComponent::~ModelComponent(){
 }
 
 void ModelComponent::Execute(Entity* entity, ModelComponent* component, unsigned int inputNumber) {
-    std::string msg = "Entity " + std::to_string(entity->getEntityNumber()) + " has arrived at component \"" + component->_name + "\"";
+    std::string msg = "Entity " + std::to_string(entity->entityNumber()) + " has arrived at component \"" + component->_name + "\"";
     //TODO: How can I know the number of inputs?
     if (inputNumber > 0)
 	msg += " by input " + std::to_string(inputNumber);

@@ -34,15 +34,15 @@ public:
     static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 public: //get & set
     void setInitialWaitingCost(double _initialWaitingCost);
-    double getInitialWaitingCost() const;
+    double initialWaitingCost() const;
     void setInitialOtherCost(double _initialOtherCost);
-    double getInitialOtherCost() const;
+    double initialOtherCost() const;
     void setInitialNVACost(double _initialNVACost);
-    double getInitialNVACost() const;
+    double initialNVACost() const;
     void setInitialVACost(double _initialVACost);
-    double getInitialVACost() const;
+    double initialVACost() const;
     void setInitialPicture(std::string _initialPicture);
-    std::string getInitialPicture() const;
+    std::string initialPicture() const;
 public: //get
     //StatisticsCollector* getCstatTotalTime() const;
     //StatisticsCollector* getCstatNVATime() const;
@@ -50,7 +50,7 @@ public: //get
     //StatisticsCollector* getCstatOtherTime() const;
     //StatisticsCollector* getCstatTransferTime() const;
     //StatisticsCollector* getCstatWaitingTime() const;
-    StatisticsCollector* getStatisticsCollector(std::string name);
+    StatisticsCollector* statisticsCollector(std::string name);
 
 protected: // must be overriden by derived classes
     virtual bool _loadInstance(std::map<std::string, std::string>* fields);

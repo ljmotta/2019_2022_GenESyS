@@ -32,19 +32,19 @@ public:
 
 public: // g & s
     void setEntityTypeName(std::string entityTypeName) throw(); // indirect access to EntityType
-    std::string getEntityTypeName() const;
+    std::string entityTypeName() const;
     void setEntityType(EntityType* entityType); // direct access to EntityType
-    EntityType* getEntityType() const;
+    EntityType* entityType() const;
 public:
-    double getAttributeValue(std::string attributeName);
-    double getAttributeValue(std::string index, std::string attributeName);
-    double getAttributeValue(Util::identification attributeID);
-    double getAttributeValue(std::string index, Util::identification attributeID);
+    double attributeValue(std::string attributeName);
+    double attributeValue(std::string index, std::string attributeName);
+    double attributeValue(Util::identification attributeID);
+    double attributeValue(std::string index, Util::identification attributeID);
     void setAttributeValue(std::string attributeName, double value);
     void setAttributeValue(std::string index, std::string attributeName, double value);
     void setAttributeValue(Util::identification attributeID, double value);
     void setAttributeValue(std::string index, Util::identification attributeID, double value);
-    Util::identification getEntityNumber() const;
+    Util::identification entityNumber() const;
 protected:
     virtual bool _loadInstance(std::map<std::string, std::string>* fields);
     virtual std::map<std::string, std::string>* _saveInstance();

@@ -25,14 +25,14 @@ std::string SimulationResponse::show() {
     return "name="+this->_name+", type="+this->_type;
 }
 
-std::string SimulationResponse::getName() const {
+std::string SimulationResponse::name() const {
     return _name;
 }
 
-std::string SimulationResponse::getType() const {
+std::string SimulationResponse::type() const {
     return _type;
 }
 
-double SimulationResponse::getValue() {
+double SimulationResponse::value() {
     return this->_getterMemberFunction();
 }

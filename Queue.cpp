@@ -84,7 +84,7 @@ Queue::OrderRule Queue::getOrderRule() const {
 double Queue::sumAttributesFromWaiting(Util::identification attributeID) {
     double sum = 0.0;
     for (std::list<Waiting*>::iterator it = _list->list()->begin(); it != _list->list()->end(); it++) {
-	sum += (*it)->getEntity()->getAttributeValue(attributeID);
+	sum += (*it)->getEntity()->attributeValue(attributeID);
     }
     return sum;
 }
@@ -92,7 +92,7 @@ double Queue::sumAttributesFromWaiting(Util::identification attributeID) {
 double Queue::getAttributeFromWaitingRank(unsigned int rank, Util::identification attributeID) {
     Waiting* wait = _list->getAtRank(rank);
     if (wait != nullptr) {
-	return wait->getEntity()->getAttributeValue(attributeID);
+	return wait->getEntity()->attributeValue(attributeID);
     }
     return 0.0;
 }

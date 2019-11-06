@@ -32,7 +32,7 @@ void Release::setPriority(unsigned short _priority) {
     this->_priority = _priority;
 }
 
-unsigned short Release::getPriority() const {
+unsigned short Release::priority() const {
     return _priority;
 }
 
@@ -40,7 +40,7 @@ void Release::setResourceType(Resource::ResourceType _resourceType) {
     this->_resourceType = _resourceType;
 }
 
-Resource::ResourceType Release::getResourceType() const {
+Resource::ResourceType Release::resourceType() const {
     return _resourceType;
 }
 
@@ -48,7 +48,7 @@ void Release::setQuantity(std::string _quantity) {
     this->_quantity = _quantity;
 }
 
-std::string Release::getQuantity() const {
+std::string Release::quantity() const {
     return _quantity;
 }
 
@@ -56,7 +56,7 @@ void Release::setRule(Resource::ResourceRule _rule) {
     this->_rule = _rule;
 }
 
-Resource::ResourceRule Release::getRule() const {
+Resource::ResourceRule Release::rule() const {
     return _rule;
 }
 
@@ -64,7 +64,7 @@ void Release::setSaveAttribute(std::string _saveAttribute) {
     this->_saveAttribute = _saveAttribute;
 }
 
-std::string Release::getSaveAttribute() const {
+std::string Release::saveAttribute() const {
     return _saveAttribute;
 }
 
@@ -72,7 +72,7 @@ void Release::setResource(Resource* _resource) {
     this->_resource = _resource;
 }
 
-Resource* Release::getResource() const {
+Resource* Release::resource() const {
     return _resource;
 }
 
@@ -141,7 +141,7 @@ void Release::setResourceName(std::string resourceName) throw () {
     }
 }
 
-std::string Release::getResourceName() const {
+std::string Release::resourceName() const {
     return _resource->name();
 }
 

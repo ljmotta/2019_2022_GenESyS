@@ -29,10 +29,10 @@ public:
     Event(double time, Entity* entity, Connection* connection);
     virtual ~Event() = default;
 public:
-    double getTime() const;
-    ModelComponent* getComponent() const;
-    Entity* getEntity() const;
-    unsigned int getComponentInputNumber() const;
+    double time() const;
+    ModelComponent* component() const;
+    Entity* entity() const;
+    unsigned int componentInputNumber() const;
 public:
     std::string show();
 private:

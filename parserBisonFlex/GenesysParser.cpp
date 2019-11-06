@@ -573,7 +573,7 @@ namespace yy {
     #line 33 "bisonparser.yy" // lalr1.cc:741
 {
   // Initialize the initial location.
-  yyla.location.begin.filename = yyla.location.end.filename = &driver.getFile();
+  //@$.begin.filename = @$.end.filename = &driver.getFile();
 }
 
 #line 580 "../GenesysParser.cpp" // lalr1.cc:741
@@ -1163,7 +1163,7 @@ namespace yy {
 		    double attributeValue = 0.0;
 		    if (driver.getModel()->simulation()->currentEntity() != nullptr) {
 			// it could crach because there may be no current entity, if the parse is running before simulation and therefore there is no CurrentEntity
-			attributeValue = driver.getModel()->simulation()->currentEntity()->getAttributeValue(yystack_[0].value.as< obj_t > ().id);
+			attributeValue = driver.getModel()->simulation()->currentEntity()->attributeValue(yystack_[0].value.as< obj_t > ().id);
 		    }
 		    yylhs.value.as< obj_t > ().valor = attributeValue; 
 		}
@@ -1177,7 +1177,7 @@ namespace yy {
 		    std::string index = std::to_string(static_cast<unsigned int>(yystack_[1].value.as< obj_t > ().valor));
 		    if (driver.getModel()->simulation()->currentEntity() != nullptr) {
 			// it could crach because there may be no current entity, if the parse is running before simulation and therefore there is no CurrentEntity
-			attributeValue = driver.getModel()->simulation()->currentEntity()->getAttributeValue(index, yystack_[3].value.as< obj_t > ().id);
+			attributeValue = driver.getModel()->simulation()->currentEntity()->attributeValue(index, yystack_[3].value.as< obj_t > ().id);
 		    }
 		    yylhs.value.as< obj_t > ().valor = attributeValue; 
 		}
@@ -1191,7 +1191,7 @@ namespace yy {
 		    std::string index = std::to_string(static_cast<unsigned int>(yystack_[3].value.as< obj_t > ().valor))+","+std::to_string(static_cast<unsigned int>(yystack_[1].value.as< obj_t > ().valor));
 		    if (driver.getModel()->simulation()->currentEntity() != nullptr) {
 			// it could crach because there may be no current entity, if the parse is running before simulation and therefore there is no CurrentEntity
-			attributeValue = driver.getModel()->simulation()->currentEntity()->getAttributeValue(index, yystack_[5].value.as< obj_t > ().id);
+			attributeValue = driver.getModel()->simulation()->currentEntity()->attributeValue(index, yystack_[5].value.as< obj_t > ().id);
 		    }
 		    yylhs.value.as< obj_t > ().valor = attributeValue; 
 		}
@@ -1205,7 +1205,7 @@ namespace yy {
 		    std::string index = std::to_string(static_cast<unsigned int>(yystack_[5].value.as< obj_t > ().valor))+","+std::to_string(static_cast<unsigned int>(yystack_[3].value.as< obj_t > ().valor))+","+std::to_string(static_cast<unsigned int>(yystack_[1].value.as< obj_t > ().valor));
 		    if (driver.getModel()->simulation()->currentEntity() != nullptr) {
 			// it could crach because there may be no current entity, if the parse is running before simulation and therefore there is no CurrentEntity
-			attributeValue = driver.getModel()->simulation()->currentEntity()->getAttributeValue(index, yystack_[7].value.as< obj_t > ().id);
+			attributeValue = driver.getModel()->simulation()->currentEntity()->attributeValue(index, yystack_[7].value.as< obj_t > ().id);
 		    }
 		    yylhs.value.as< obj_t > ().valor = attributeValue; 
 		}

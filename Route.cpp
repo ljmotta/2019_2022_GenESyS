@@ -74,14 +74,14 @@ Route::DestinationType Route::getRouteDestinationType() const {
 void Route::_execute(Entity* entity) {
     // adds the route time to the TransferTime statistics / attribute related to the Entitys 
     double routeTime = _parentModel->parseExpression(_routeTimeExpression) * Util::TimeUnitConvert(_routeTimeTimeUnit, _parentModel->infos()->replicationLengthTimeUnit());
-    entity->getEntityType()->getStatisticsCollector("Transfer Time")->getStatistics()->getCollector()->addValue(routeTime);
-    entity->setAttributeValue("Entity.TransferTime", entity->getAttributeValue("Entity.TransferTime") + routeTime);
+    entity->entityType()->statisticsCollector("Transfer Time")->getStatistics()->getCollector()->addValue(routeTime);
+    entity->attributeValue("Entity.TransferTime", entity->attributeValue("Entity.TransferTime") + routeTime);
     if (routeTime > 0.0) {
 	// calculates when this Entity will reach the end of this route and schedule this Event
 	double routeEndTime = _parentModel->simulation()->simulatedTime() + routeTime;
 	Event* newEvent = new Event(routeEndTime, entity, _station->getEnterIntoStationComponent());
 	_parentModel->futureEvents()->insert(newEvent);
-	_parentModel->tracer()->trace("End of route of entity " + std::to_string(entity->getEntityNumber()) + " to the component \"" + _station->getEnterIntoStationComponent()->name() + "\" was scheduled to time " + std::to_string(routeEndTime));
+	_parentModel->tracer()->trace("End of route of entity " + std::to_string(entity->entityNumber()) + " to the component \"" + _station->getEnterIntoStationComponent()->name() + "\" was scheduled to time " + std::to_string(routeEndTime));
     } else {
 	// send without delay
 	_parentModel->sendEntityToComponent(entity, _station->getEnterIntoStationComponent(), 0.0);
@@ -129,7 +129,7 @@ bool Route::_check(std::string* errorMessage) {
     // include StatisticsCollector needed in EntityType
     std::list<ModelElement*>* enttypes = elements->elementList(Util::TypeOf<EntityType>())->list();
     for (std::list<ModelElement*>::iterator it= enttypes->begin(); it!= enttypes->end(); it++) {
-	static_cast<EntityType*>((*it))->getStatisticsCollector("Transfer Time"); // force create this CStat before simulation starts
+	static_cast<EntityType*>((*it))->statisticsCollector("Transfer Time"); // force create this CStat before simulation starts
     }
     bool resultAll = true;
     resultAll &= _parentModel->checkExpression(_routeTimeExpression, "Route time expression", errorMessage);

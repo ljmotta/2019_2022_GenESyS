@@ -36,16 +36,16 @@ TestMatricesOfAttributesAndVariables::~TestMatricesOfAttributesAndVariables() {
 int TestMatricesOfAttributesAndVariables::main(int argc, char** argv) {
     Simulator* sim = new Simulator();
     setDefaultTraceHandlers(sim->tracer());
-    sim->tracer()->setTraceLevel(Util::TraceLevel::mostDetailed);
+    sim->tracer()->setTraceLevel(Util::TraceLevel::transferOnly);
     insertFakePluginsByHand(sim);
     Model* m = new Model(sim);
     sim->models()->insert(m);
     m->infos()->setProjectTitle("Stochastic Simulation of Chemical Reactions");
-    m->infos()->setReplicationLength(205);
+    m->infos()->setReplicationLength(500);
     Create* cr1 = new Create(m);
     Write* w1 = new Write(m);
     Assign* as1 = new Assign(m, "Define próxima reação a ocorrer");
-    Delay* de1 = new Delay(m);
+    Delay* de1 = new Delay(m, "Aguarda tempo em que a reação ocorre");
     Dispose* di1 = new Dispose(m);
     cr1->nextComponents()->insert(w1);
     w1->nextComponents()->insert(as1);
@@ -62,18 +62,24 @@ int TestMatricesOfAttributesAndVariables::main(int argc, char** argv) {
     s->setInitialValue("1,1", -1);
     s->setInitialValue("1,2", -1);
     s->setInitialValue("1,3", 1);
-    s->setInitialValue("2,1", 0);
-    s->setInitialValue("2,2", 0);
+    s->setInitialValue("2,1", 1);
+    s->setInitialValue("2,2", 1);
     s->setInitialValue("2,3", -1);
     k->setInitialValue("1", 0.1);
-    k->setInitialValue("2", 0.1);
+    k->setInitialValue("2", 0.2);
     N->setInitialValue("1", 100);
     N->setInitialValue("2", 100);
     N->setInitialValue("3", 0);
     prop->setExpression("1", "k[1]*N[1]*N[2]");
     prop->setExpression("2", "k[2]*N[3]");
-    w1->writeElements()->insert(new WriteElement("N[1]",true, true));
-    w1->writeElements()->insert(new WriteElement("N[2]",true, true));
+    w1->setWriteToType(Write::WriteToType::FILE);
+    w1->setFilename("./temp/molecules.txt");
+    w1->writeElements()->insert(new WriteElement("tnow",true));
+    w1->writeElements()->insert(new WriteElement(" "));
+    w1->writeElements()->insert(new WriteElement("N[1]",true));
+    w1->writeElements()->insert(new WriteElement(" "));
+    w1->writeElements()->insert(new WriteElement("N[2]",true));
+    w1->writeElements()->insert(new WriteElement(" "));
     w1->writeElements()->insert(new WriteElement("N[3]",true, true));
     //w1->writeElements()->insert(new WriteElement("temp[6]",true, true));
     //w1->writeElements()->insert(new WriteElement("tnow",true, true));
@@ -88,6 +94,7 @@ int TestMatricesOfAttributesAndVariables::main(int argc, char** argv) {
     as1->assignments()->insert(new Assign::Assignment("temp[6]","1-exp(-temp[3])"));
     as1->assignments()->insert(new Assign::Assignment("temp[7]","expo(temp[6])"));
     de1->setDelayExpression("temp[7]");
+    m->infos()->setTerminatingCondition("(N[1]+N[2]+N[3])==0");
     m->simulation()->start();
     return 0;
 

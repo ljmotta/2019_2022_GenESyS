@@ -28,9 +28,9 @@ public:
 public:
     unsigned int size();
     ModelComponent* front(); /*!< DEPRECTED. Use  frontConnection instead */    
-    ModelComponent* getAtRank(unsigned int rank); /*!< DEPRECTED. Use  getConnectionAtRank instead */
+    ModelComponent* atRank(unsigned int rank); /*!< DEPRECTED. Use  getConnectionAtRank instead */
     Connection* frontConnection();
-    Connection* getConnectionAtRank(unsigned int rank);
+    Connection* connectionAtRank(unsigned int rank);
     void insert(ModelComponent* component, unsigned int inputNumber = 0);
     std::list<Connection*>* list() const;
 private:

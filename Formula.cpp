@@ -103,7 +103,7 @@ std::map<std::string, std::string>* Formula::_saveInstance() {
 bool Formula::_check(std::string* errorMessage) {
     std::string errorMsg = "";
     bool res, resAll = true;
-    unsigned int i = 0;
+    //unsigned int i = 0;
     for (std::map<std::string, std::string>::iterator it = _formulaExpressions->begin(); it != _formulaExpressions->end(); it++) {
 	res = _parentModel->checkExpression((*it).second, "formula expression[" + (*it).first + "]", &errorMsg);
 	if (!res) {

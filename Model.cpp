@@ -24,15 +24,7 @@
 #include "Access.h"
 
 bool EventCompare(const Event* a, const Event * b) {
-    return a->getTime() < b->getTime();
-}
-
-double getReplicationLengthNotMemberFunction() { // REMOVE IT. JUST AN EXAMPLE FOR PAN TEAM DS3 THEME (1)
-    return 10;
-}
-
-void setReplicationLengthNotMemberFunction(double value) { // REMOVE IT. JUST AN EXAMPLE FOR PAN TEAM DS3 THEME (1)
-
+    return a->time() < b->time();
 }
 
 Model::Model(Simulator* simulator) {
@@ -52,7 +44,7 @@ Model::Model(Simulator* simulator) {
     _events = new List<Event*>(); /// The future events list must be chronologicaly sorted
     //_events->setSortFunc(&EventCompare); // It works too
     _events->setSortFunc([](const Event* a, const Event * b) {
-	return a->getTime() < b->getTime(); /// Events are sorted chronologically
+	return a->time() < b->time(); /// Events are sorted chronologically
     });
     // for process analyser
     _responses = new List<SimulationResponse*>();
@@ -253,7 +245,7 @@ bool Model::check() {
 
 void Model::removeEntity(Entity* entity, bool collectStatistics) {
     /* TODO -: event onEntityRemove */
-    std::string entId = std::to_string(entity->getEntityNumber());
+    std::string entId = std::to_string(entity->entityNumber());
     this->elements()->remove(Util::TypeOf<Entity>(), entity);
     tracer()->trace("Entity " + entId + " was removed from the system");
 }

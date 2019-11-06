@@ -26,19 +26,19 @@ BaseConsoleGenesysApplication::BaseConsoleGenesysApplication() {
 // default Trace Handlers
 
 void BaseConsoleGenesysApplication::traceHandler(TraceEvent e) {
-    std::cout << e.getText() << std::endl;
+    std::cout << e.text() << std::endl;
 }
 
 void BaseConsoleGenesysApplication::traceErrorHandler(TraceErrorEvent e) {
-    std::cout << e.getText() << std::endl; 
+    std::cout << e.text() << std::endl; 
 }
 
 void BaseConsoleGenesysApplication::traceReportHandler(TraceEvent e) {
-    std::cout << "" << e.getText() << "" << std::endl;
+    std::cout << "" << e.text() << "" << std::endl;
 }
 
 void BaseConsoleGenesysApplication::traceSimulationHandler(TraceSimulationEvent e) {
-    std::cout << e.getText() << std::endl;
+    std::cout << e.text() << std::endl;
 }
 
 
@@ -65,7 +65,7 @@ void BaseConsoleGenesysApplication::onSimulationEndHandler(SimulationEvent* re) 
 }
 
 void BaseConsoleGenesysApplication::onEntityRemoveHandler(SimulationEvent* re) {
-    std::cout << "(Event Handler) " << "Entity " << re->getEventProcessed()->getEntity() << " was removed." << std::endl;
+    std::cout << "(Event Handler) " << "Entity " << re->getEventProcessed()->entity() << " was removed." << std::endl;
 }
 
 void BaseConsoleGenesysApplication::setDefaultEventHandlers(OnEventManager* oem) {

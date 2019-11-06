@@ -32,7 +32,7 @@ class genesyspp_driver;
 %initial-action
 {
   // Initialize the initial location.
-  @$.begin.filename = @$.end.filename = &driver.getFile();
+  //@$.begin.filename = @$.end.filename = &driver.getFile();
 };
 %define parse.trace //for debugging
 %define parse.error verbose //error level to show

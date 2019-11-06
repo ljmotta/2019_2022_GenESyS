@@ -29,11 +29,11 @@ public:
 	_text = text;
     }
 
-    Util::TraceLevel getTracelevel() const {
+    Util::TraceLevel tracelevel() const {
 	return _tracelevel;
     }
 
-    std::string getText() const {
+    std::string text() const {
 	return _text;
     }
 private:
@@ -64,15 +64,15 @@ public:
 	_component = component;
     }
 
-    ModelComponent* getComponent() const {
+    ModelComponent* component() const {
 	return _component;
     }
 
-    Entity* getEntity() const {
+    Entity* entity() const {
 	return _entity;
     }
 
-    double getTime() const {
+    double time() const {
 	return _time;
     }
 

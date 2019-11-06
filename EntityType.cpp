@@ -70,7 +70,7 @@ void EntityType::setInitialWaitingCost(double _initialWaitingCost) {
     this->_initialWaitingCost = _initialWaitingCost;
 }
 
-double EntityType::getInitialWaitingCost() const {
+double EntityType::initialWaitingCost() const {
     return _initialWaitingCost;
 }
 
@@ -78,7 +78,7 @@ void EntityType::setInitialOtherCost(double _initialOtherCost) {
     this->_initialOtherCost = _initialOtherCost;
 }
 
-double EntityType::getInitialOtherCost() const {
+double EntityType::initialOtherCost() const {
     return _initialOtherCost;
 }
 
@@ -86,7 +86,7 @@ void EntityType::setInitialNVACost(double _initialNVACost) {
     this->_initialNVACost = _initialNVACost;
 }
 
-double EntityType::getInitialNVACost() const {
+double EntityType::initialNVACost() const {
     return _initialNVACost;
 }
 
@@ -94,7 +94,7 @@ void EntityType::setInitialVACost(double _initialVACost) {
     this->_initialVACost = _initialVACost;
 }
 
-double EntityType::getInitialVACost() const {
+double EntityType::initialVACost() const {
     return _initialVACost;
 }
 
@@ -102,7 +102,7 @@ void EntityType::setInitialPicture(std::string _initialPicture) {
     this->_initialPicture = _initialPicture;
 }
 
-std::string EntityType::getInitialPicture() const {
+std::string EntityType::initialPicture() const {
     return _initialPicture;
 }
 
@@ -130,7 +130,7 @@ std::string EntityType::getInitialPicture() const {
 //    return _cstatWaitingTime;
 //}
 
-StatisticsCollector* EntityType::getStatisticsCollector(std::string name) {
+StatisticsCollector* EntityType::statisticsCollector(std::string name) {
     StatisticsCollector* cstat;
     for (std::list<StatisticsCollector*>::iterator it = _statisticsCollectors->list()->begin(); it!= _statisticsCollectors->list()->end(); it++) {
 	cstat = (*it);

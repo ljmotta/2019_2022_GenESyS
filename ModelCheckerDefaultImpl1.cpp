@@ -44,7 +44,7 @@ void ModelCheckerDefaultImpl1::_recursiveConnectedTo(PluginManager* pluginManage
     _model->tracer()->trace(Util::TraceLevel::mostDetailed, "Connected to component \"" + comp->name()+"\"");
     Plugin* plugin = pluginManager->find(comp->classname());
     assert(plugin!= nullptr);
-    if (plugin->getPluginInfo()->isSink() || (plugin->getPluginInfo()->isSendTransfer() && comp->nextComponents()->size()==0)) {//(dynamic_cast<SinkModelComponent*> (comp) != nullptr) { 
+    if (plugin->pluginInfo()->isSink() || (plugin->pluginInfo()->isSendTransfer() && comp->nextComponents()->size()==0)) {//(dynamic_cast<SinkModelComponent*> (comp) != nullptr) { 
 	// it is a sink OR it can send entities throught a transfer and has no nextConnections
 	*drenoFound = true;
     } else { // it is not a sink
@@ -159,7 +159,7 @@ bool ModelCheckerDefaultImpl1::checkConnected() {
 	    comp = (*it);
 	    plugin = pluginManager->find(comp->classname());
 	    assert(plugin != nullptr);
-	    if (plugin->getPluginInfo()->isSource() || plugin->getPluginInfo()->isReceiveTransfer()) { //(dynamic_cast<SourceModelComponent*> (comp) != nullptr) {
+	    if (plugin->pluginInfo()->isSource() || plugin->pluginInfo()->isReceiveTransfer()) { //(dynamic_cast<SourceModelComponent*> (comp) != nullptr) {
 		// it is a source component OR it can receive enetities from transfer
 		bool drenoFound = false;
 		_recursiveConnectedTo(pluginManager, comp, visited, unconnected, &drenoFound);
@@ -328,19 +328,19 @@ bool ModelCheckerDefaultImpl1::checkLimits() {
     Util::IncIndent();
     {
 	value = _model->components()->numberOfComponents();
-	limit=licence->getModelComponentsLimit();
+	limit=licence->modelComponentsLimit();
 	res &= value <= limit;
 	_model->tracer()->trace("Model has "+std::to_string(value)+"/"+std::to_string(limit)+" components");
 	if (!res) {
-	    text = "Model has " + std::to_string(_model->components()->numberOfComponents()) + " components, exceding the limit of " + std::to_string(licence->getModelComponentsLimit()) + " components imposed by the current activation code";
+	    text = "Model has " + std::to_string(_model->components()->numberOfComponents()) + " components, exceding the limit of " + std::to_string(licence->modelComponentsLimit()) + " components imposed by the current activation code";
 	    //_model->getTraceManager()->trace(Util::TraceLevel::errors, text);
 	} else {
 	    value = _model->elements()->numberOfElements();
-	    limit = licence->getModelElementsLimit();
+	    limit = licence->modelElementsLimit();
 	    res &= value <= limit;
 	    _model->tracer()->trace("Model has "+std::to_string(value)+"/"+std::to_string(limit)+" elements");
 	    if (!res) {
-		text = "Model has " + std::to_string(_model->elements()->numberOfElements()) + " elements, exceding the limit of " + std::to_string(licence->getModelElementsLimit()) + " elements imposed by the current activation code";
+		text = "Model has " + std::to_string(_model->elements()->numberOfElements()) + " elements, exceding the limit of " + std::to_string(licence->modelElementsLimit()) + " elements imposed by the current activation code";
 		//_model->getTraceManager()->trace(Util::TraceLevel::errors, text);
 	    }
 	}

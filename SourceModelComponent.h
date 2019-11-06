@@ -30,21 +30,21 @@ public:
     virtual ~SourceModelComponent() = default;
 public: // get & set
     void setFirstCreation(double _firstCreation);
-    double getFirstCreation() const;
+    double firstCreation() const;
     void setCollectStatistics(bool _collectStatistics);
     bool isCollectStatistics() const;
     void setEntityType(EntityType* _entityType);
-    EntityType* getEntityType() const;
+    EntityType* entityType() const;
     void setTimeUnit(Util::TimeUnit _timeUnit);
-    Util::TimeUnit getTimeUnit() const;
+    Util::TimeUnit timeUnit() const;
     void setTimeBetweenCreationsExpression(std::string _timeBetweenCreations);
-    std::string getTimeBetweenCreationsExpression() const;
+    std::string timeBetweenCreationsExpression() const;
     void setMaxCreations(std::string _maxCreationsExpression);
-    std::string getMaxCreations() const;
-    unsigned int getEntitiesCreated() const;
+    std::string maxCreations() const;
+    unsigned int entitiesCreated() const;
     void setEntitiesCreated(unsigned int _entitiesCreated);
     void setEntitiesPerCreation(unsigned int _entitiesPerCreation);
-    unsigned int getEntitiesPerCreation() const;
+    unsigned int entitiesPerCreation() const;
 public:
     virtual std::string show();
 protected:

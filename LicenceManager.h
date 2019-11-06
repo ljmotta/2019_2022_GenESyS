@@ -28,11 +28,11 @@ public:
     bool lookforActivationCode();
     bool insertActivationCode();
     void removeActivationCode();
-    unsigned int getModelComponentsLimit();
-    unsigned int getModelElementsLimit();
-    unsigned int getEntityLimit();
-    unsigned int getHostsLimit();
-    unsigned int getThreadsLimit();
+    unsigned int modelComponentsLimit();
+    unsigned int modelElementsLimit();
+    unsigned int entityLimit();
+    unsigned int hostsLimit();
+    unsigned int threadsLimit();
 private:
     void setDefaultLicenceAndLimits();
 private:

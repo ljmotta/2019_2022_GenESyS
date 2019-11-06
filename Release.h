@@ -32,20 +32,20 @@ public:
     static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 public: // get & set
     void setPriority(unsigned short _priority);
-    unsigned short getPriority() const;
+    unsigned short priority() const;
     void setResourceType(Resource::ResourceType _resourceType);
-    Resource::ResourceType getResourceType() const;
+    Resource::ResourceType resourceType() const;
     void setQuantity(std::string _quantity);
-    std::string getQuantity() const;
+    std::string quantity() const;
     void setRule(Resource::ResourceRule _rule);
-    Resource::ResourceRule getRule() const;
+    Resource::ResourceRule rule() const;
     void setSaveAttribute(std::string _saveAttribute);
-    std::string getSaveAttribute() const;
+    std::string saveAttribute() const;
     void setResource(Resource* _resource);
-    Resource* getResource() const;
+    Resource* resource() const;
     // indirect access to and Resource*
     void setResourceName(std::string resourceName) throw();
-    std::string getResourceName() const;
+    std::string resourceName() const;
 
 protected:
     virtual void _execute(Entity* entity);

@@ -25,7 +25,7 @@ ModelComponent* ConnectionManager::front() {
     return _nextConnections->front()->first;
 }
 
-ModelComponent* ConnectionManager::getAtRank(unsigned int rank) {
+ModelComponent* ConnectionManager::atRank(unsigned int rank) {
     return _nextConnections->getAtRank(rank)->first;
 }
 
@@ -33,7 +33,7 @@ Connection* ConnectionManager::frontConnection() {
     return _nextConnections->front();
 }
 
-Connection* ConnectionManager::getConnectionAtRank(unsigned int rank) {
+Connection* ConnectionManager::connectionAtRank(unsigned int rank) {
     return _nextConnections->getAtRank(rank);
 }
 

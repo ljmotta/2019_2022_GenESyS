@@ -40,7 +40,7 @@ void Entity::setEntityTypeName(std::string entityTypeName) throw () {
     }
 }
 
-std::string Entity::getEntityTypeName() const {
+std::string Entity::entityTypeName() const {
     return this->_entityType->name();
 }
 
@@ -48,7 +48,7 @@ void Entity::setEntityType(EntityType* entityType) {
     _entityType = entityType;
 }
 
-EntityType* Entity::getEntityType() const {
+EntityType* Entity::entityType() const {
     return _entityType;
 }
 
@@ -82,11 +82,11 @@ std::string Entity::show() {
     return message;
 }
 
-double Entity::getAttributeValue(std::string attributeName) {
-    return getAttributeValue("", attributeName);
+double Entity::attributeValue(std::string attributeName) {
+    return attributeValue("", attributeName);
 }
 
-double Entity::getAttributeValue(std::string index, std::string attributeName) {
+double Entity::attributeValue(std::string index, std::string attributeName) {
     int rank = _parentModel->elements()->rankOf(Util::TypeOf<Attribute>(), attributeName);
     if (rank >= 0) {
 	std::map<std::string, double>* map = this->_attributeValues->getAtRank(rank);
@@ -101,14 +101,14 @@ double Entity::getAttributeValue(std::string index, std::string attributeName) {
     return 0.0; /* TODO: !! Never should happen. check how to report */
 }
 
-double Entity::getAttributeValue(Util::identification attributeID) {
-    return getAttributeValue("", attributeID);
+double Entity::attributeValue(Util::identification attributeID) {
+    return attributeValue("", attributeID);
 }
 
-double Entity::getAttributeValue(std::string index, Util::identification attributeID) {
+double Entity::attributeValue(std::string index, Util::identification attributeID) {
     ModelElement* element = _parentModel->elements()->element(Util::TypeOf<Attribute>(), attributeID);
     if (element != nullptr) {
-	return getAttributeValue(index, element->name());
+	return attributeValue(index, element->name());
     }
     return 0.0; // attribute not found
 }
@@ -141,7 +141,7 @@ void Entity::setAttributeValue(std::string index, Util::identification attribute
     setAttributeValue(index, attrname, value);
 }
 
-Util::identification Entity::getEntityNumber() const {
+Util::identification Entity::entityNumber() const {
     return _entityNumber;
 }
 

@@ -27,6 +27,7 @@ public:
     void setCurrent(Model* model);
     bool saveModel(std::string filename);
     bool loadModel(std::string filename);
+    unsigned int size();
 public:
     Model* front();
     Model* current();

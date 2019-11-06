@@ -132,6 +132,7 @@ void ModelInfo::loadInstance(std::map<std::string, std::string>* fields) {
     this->_warmUpPeriodTimeUnit = static_cast<Util::TimeUnit>(std::stoi((*(fields->find("warmUpTimeTimeUnit"))).second));
 }
 
+//TODO!: implement check method (to check things like terminating condition)
 
 std::map<std::string, std::string>* ModelInfo::saveInstance() {
     std::map<std::string, std::string>* fields = new std::map<std::string, std::string>();

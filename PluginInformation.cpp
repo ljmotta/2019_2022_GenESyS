@@ -28,11 +28,11 @@
 	this->_pluginTypename = pluginTypename;
     }
 
-    StaticLoaderElementInstance PluginInformation::getElementloader() const {
+    StaticLoaderElementInstance PluginInformation::elementloader() const {
         return _elementloader;
     }
 
-    StaticLoaderComponentInstance PluginInformation::getComponentLoader() const {
+    StaticLoaderComponentInstance PluginInformation::componentLoader() const {
         return _componentloader;
     }
 
@@ -60,23 +60,23 @@
         return _isSource;
     }
 
-    std::string PluginInformation::getObservation() const {
+    std::string PluginInformation::observation() const {
         return _observation;
     }
 
-    std::string PluginInformation::getVersion() const {
+    std::string PluginInformation::version() const {
         return _version;
     }
 
-    std::string PluginInformation::getDate() const {
+    std::string PluginInformation::date() const {
         return _date;
     }
 
-    std::string PluginInformation::getAuthor() const {
+    std::string PluginInformation::author() const {
         return _author;
     }
 
-    std::string PluginInformation::getPluginTypename() const {
+    std::string PluginInformation::pluginTypename() const {
         return _pluginTypename;
     }
     
@@ -88,7 +88,7 @@
         this->_dynamicLibFilenameDependencies = dynamicLibFilenameDependencies;
     }
 
-    std::list<std::string>* PluginInformation::getDynamicLibFilenameDependencies() const {
+    std::list<std::string>* PluginInformation::dynamicLibFilenameDependencies() const {
         return _dynamicLibFilenameDependencies;
     }
 

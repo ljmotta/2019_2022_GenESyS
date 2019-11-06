@@ -36,7 +36,7 @@ bool ModelSimulation::_isReplicationEndCondition() {
     finish |= _model->parseExpression(_info->terminatingCondition()) != 0.0;
     if (_model->futureEvents()->size() > 0 && !finish) {
 	// replication length has not been achieve (sor far), but next event will happen after that, so it's just fine to set tnow as the replicationLength 
-	finish |= _model->futureEvents()->front()->getTime() > _info->replicationLength();
+	finish |= _model->futureEvents()->front()->time() > _info->replicationLength();
     }
     return finish;
 }
@@ -77,7 +77,7 @@ void ModelSimulation::start() {
 	    causeTerminated = "event queue is empty";
 	} else if (_stopRequested) {
 	    causeTerminated = "user requested to stop";
-	} else if (_model->futureEvents()->front()->getTime() > _info->replicationLength()) {
+	} else if (_model->futureEvents()->front()->time() > _info->replicationLength()) {
 	    causeTerminated = "replication length " + std::to_string(_info->replicationLength()) + " was achieved";
 	} else if (_model->parseExpression(_info->terminatingCondition())) {
 	    causeTerminated = "termination condition was achieved";
@@ -174,12 +174,12 @@ void ModelSimulation::_showSimulationHeader() {
     // model controls and responses
     std::string controls;
     for (std::list<SimulationControl*>::iterator it = _model->controls()->list()->begin(); it != _model->controls()->list()->end(); it++) {
-	controls += (*it)->getName() + "(" + (*it)->getType() + "), ";
+	controls += (*it)->name() + "(" + (*it)->type() + "), ";
     }
     tm->traceReport(Util::TraceLevel::simulation, "Simulation controls: " + controls);
     std::string responses;
     for (std::list<SimulationResponse*>::iterator it = _model->responses()->list()->begin(); it != _model->responses()->list()->end(); it++) {
-	responses += (*it)->getName() + "(" + (*it)->getType() + "), ";
+	responses += (*it)->name() + "(" + (*it)->type() + "), ";
     }
     tm->traceReport(Util::TraceLevel::simulation, "Simulation responses: " + responses);
 }
@@ -260,11 +260,11 @@ void ModelSimulation::_initReplication() {
     for (std::list<ModelComponent*>::iterator it = _model->components()->begin(); it != _model->components()->end(); it++) {
 	source = dynamic_cast<SourceModelComponent*> (*it);
 	if (source != nullptr) {
-	    creationTime = source->getFirstCreation();
-	    numToCreate = source->getEntitiesPerCreation();
+	    creationTime = source->firstCreation();
+	    numToCreate = source->entitiesPerCreation();
 	    for (unsigned int i = 1; i <= numToCreate; i++) {
 		newEntity = new Entity(_model);
-		newEntity->setEntityType(source->getEntityType());
+		newEntity->setEntityType(source->entityType());
 		newEvent = new Event(creationTime, newEntity, (*it));
 		_model->futureEvents()->insert(newEvent);
 	    }
@@ -296,7 +296,7 @@ void ModelSimulation::_initStatistics() {
 void ModelSimulation::_checkWarmUpTime(Event* nextEvent) {
     double warmupTime = Util::TimeUnitConvert(_model->infos()->warmUpPeriodTimeUnit(), _model->infos()->replicationLengthTimeUnit());
     warmupTime *= _model->infos()->warmUpPeriod();
-    if (warmupTime > 0.0 && _model->simulation()->simulatedTime() <= warmupTime && nextEvent->getTime() > warmupTime) {// warmuTime. Time to initStats
+    if (warmupTime > 0.0 && _model->simulation()->simulatedTime() <= warmupTime && nextEvent->time() > warmupTime) {// warmuTime. Time to initStats
 	_model->tracer()->trace(Util::TraceLevel::simulation, "Warmup time reached. Statistics are being reseted.");
 	_initStatistics();
     }
@@ -308,7 +308,7 @@ void ModelSimulation::_stepSimulation() {
     nextEvent = _model->futureEvents()->front();
     if (_model->infos()->warmUpPeriod() > 0.0)
 	_checkWarmUpTime(nextEvent);
-    if (nextEvent->getTime() <= _info->replicationLength()) {
+    if (nextEvent->time() <= _info->replicationLength()) {
 	_model->futureEvents()->pop_front();
 	_model->onEvents()->NotifyReplicationStepHandlers(new SimulationEvent(_currentReplicationNumber, nullptr));
 	_processEvent(nextEvent);
@@ -319,16 +319,16 @@ void ModelSimulation::_stepSimulation() {
 
 void ModelSimulation::_processEvent(Event* event) {
     _model->tracer()->trace(Util::TraceLevel::simulation, "Processing event=(" + event->show() + ")");
-    _model->tracer()->trace("Current Entity: " + event->getEntity()->show());
-    this->_currentEntity = event->getEntity();
-    this->_currentComponent = event->getComponent();
-    this->_currentInputNumber = event->getComponentInputNumber();
-    _simulatedTime = event->getTime();
+    _model->tracer()->trace("Current Entity: " + event->entity()->show());
+    this->_currentEntity = event->entity();
+    this->_currentComponent = event->component();
+    this->_currentInputNumber = event->componentInputNumber();
+    _simulatedTime = event->time();
     _model->onEvents()->NotifyProcessEventHandlers(new SimulationEvent(_currentReplicationNumber, event));
     Util::IncIndent();
     try {
 	//event->getComponent()->Execute(event->getEntity(), event->getComponent()); // Execute is static
-	ModelComponent::Execute(event->getEntity(), event->getComponent(), event->getComponentInputNumber());
+	ModelComponent::Execute(event->entity(), event->component(), event->componentInputNumber());
     } catch (std::exception *e) {
 	_model->tracer()->traceError(*e, "Error on processing event (" + event->show() + ")");
     }

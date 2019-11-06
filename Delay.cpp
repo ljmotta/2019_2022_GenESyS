@@ -38,7 +38,7 @@ void Delay::setDelayExpression(std::string _delayExpression) {
     this->_delayExpression = _delayExpression;
 }
 
-std::string Delay::getDelayExpression() const {
+std::string Delay::delayExpression() const {
     return _delayExpression;
 }
 
@@ -46,18 +46,18 @@ void Delay::setDelayTimeUnit(Util::TimeUnit _delayTimeUnit) {
     this->_delayTimeUnit = _delayTimeUnit;
 }
 
-Util::TimeUnit Delay::getDelayTimeUnit() const {
+Util::TimeUnit Delay::delayTimeUnit() const {
     return _delayTimeUnit;
 }
 
 void Delay::_execute(Entity* entity) {
     double waitTime = _parentModel->parseExpression(_delayExpression) * Util::TimeUnitConvert(_delayTimeUnit, _parentModel->infos()->replicationLengthTimeUnit());
-    entity->getEntityType()->getStatisticsCollector(_name + "." + "Waiting_Time")->getStatistics()->getCollector()->addValue(waitTime);
-    entity->setAttributeValue("Entity.WaitTime", entity->getAttributeValue("Entity.WaitTime") + waitTime);
+    entity->entityType()->statisticsCollector(_name + "." + "Waiting_Time")->getStatistics()->getCollector()->addValue(waitTime);
+    entity->attributeValue("Entity.WaitTime", entity->attributeValue("Entity.WaitTime") + waitTime);
     double delayEndTime = _parentModel->simulation()->simulatedTime() + waitTime;
     Event* newEvent = new Event(delayEndTime, entity, this->nextComponents()->frontConnection());
     _parentModel->futureEvents()->insert(newEvent);
-    _parentModel->tracer()->trace("End of delay of entity " + std::to_string(entity->getEntityNumber()) + " scheduled to time " + std::to_string(delayEndTime));
+    _parentModel->tracer()->trace("End of delay of entity " + std::to_string(entity->entityNumber()) + " scheduled to time " + std::to_string(delayEndTime));
 }
 
 bool Delay::_loadInstance(std::map<std::string, std::string>* fields) {
@@ -100,7 +100,7 @@ void Delay::_createInternalElements() {
     std::list<ModelElement*>* enttypes = elements->elementList(Util::TypeOf<EntityType>())->list();
     for (std::list<ModelElement*>::iterator it = enttypes->begin(); it != enttypes->end(); it++) {
 	EntityType* enttype = static_cast<EntityType*> ((*it));
-	enttype->getStatisticsCollector(_name + "." + "Waiting_Time"); // force create this CStat before simulation starts
+	enttype->statisticsCollector(_name + "." + "Waiting_Time"); // force create this CStat before simulation starts
     }
 }
 

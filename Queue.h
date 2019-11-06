@@ -31,11 +31,7 @@ public:
 	_timeStartedWaiting = timeStartedWaiting;
     }
 
-    Waiting(const Waiting& orig) {
-    }
-
-    virtual ~Waiting() {
-    }
+    virtual ~Waiting()=default;
 public:
 
     virtual std::string show() {
