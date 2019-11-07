@@ -41,7 +41,7 @@ bool ModelCheckerDefaultImpl1::checkAll() {
 
 void ModelCheckerDefaultImpl1::_recursiveConnectedTo(PluginManager* pluginManager, ModelComponent* comp, List<ModelComponent*>* visited, List<ModelComponent*>* unconnected, bool* drenoFound) {
     visited->insert(comp);
-    _model->tracer()->trace(Util::TraceLevel::componentDetailed, "Connected to component \"" + comp->name()+"\"");
+    _model->tracer()->trace(Util::TraceLevel::toolDetailed, "Connected to component \"" + comp->name()+"\"");
     Plugin* plugin = pluginManager->find(comp->classname());
     assert(plugin!= nullptr);
     if (plugin->pluginInfo()->isSink() || (plugin->pluginInfo()->isSendTransfer() && comp->nextComponents()->size()==0)) {//(dynamic_cast<SinkModelComponent*> (comp) != nullptr) { 
@@ -63,7 +63,7 @@ void ModelCheckerDefaultImpl1::_recursiveConnectedTo(PluginManager* pluginManage
 		    Util::DecIndent();
 		} else {
 		    Util::IncIndent();
-	            _model->tracer()->trace(Util::TraceLevel::componentDetailed, "Connected to " + nextComp->name());
+	            _model->tracer()->trace(Util::TraceLevel::toolDetailed, "Connected to " + nextComp->name());
 		    Util::DecIndent();
 		    *drenoFound = true;
 		}
@@ -146,7 +146,7 @@ end;
 
 bool ModelCheckerDefaultImpl1::checkConnected() {
     /* TODO +-: not implemented yet */
-    _model->tracer()->trace(Util::TraceLevel::componentArrival, "Checking connected");
+    _model->tracer()->trace(Util::TraceLevel::toolInternal, "Checking connected");
     bool resultAll = true;
     PluginManager* pluginManager = this->_model->parentSimulator()->plugins();
     Plugin* plugin;
@@ -246,11 +246,11 @@ end;
  */
 bool ModelCheckerDefaultImpl1::checkSymbols() {
     bool res = true;
-    _model->tracer()->trace(Util::TraceLevel::componentArrival, "Checking symbols");
+    _model->tracer()->trace(Util::TraceLevel::toolInternal, "Checking symbols");
     Util::IncIndent();
     {
 	// check components
-	_model->tracer()->trace("Components:");
+	_model->tracer()->trace(Util::TraceLevel::toolDetailed, "Components:");
 	Util::IncIndent();
 	{
 	    //List<ModelComponent*>* components = _model->getComponents();
@@ -261,7 +261,7 @@ bool ModelCheckerDefaultImpl1::checkSymbols() {
 	Util::DecIndent();
 
 	// check elements
-	_model->tracer()->trace("Elements:");
+	_model->tracer()->trace(Util::TraceLevel::toolDetailed, "Elements:");
 	Util::IncIndent();
 	{
 	    std::string elementType;
@@ -275,7 +275,7 @@ bool ModelCheckerDefaultImpl1::checkSymbols() {
 		for (std::list<ModelElement*>::iterator it = elements->list()->begin(); it != elements->list()->end(); it++) {
 		    element = (*it);
 		    // copyed from modelCOmponent. It is not inside the ModelElement::Check because ModelElement has no access to Model to call Tracer
-		    _model->tracer()->trace(Util::TraceLevel::componentDetailed, "Checking " + element->classname() + ": \"" + element->name()+ "\" (id "+std::to_string(element->id())+")"); //std::to_string(component->_id));
+		    _model->tracer()->trace(Util::TraceLevel::toolDetailed, "Checking " + element->classname() + ": \"" + element->name()+ "\" (id "+std::to_string(element->id())+")"); //std::to_string(component->_id));
 		    Util::IncIndent();
 		    {
 			try {
@@ -310,7 +310,7 @@ bool ModelCheckerDefaultImpl1::checkSymbols() {
 
 bool ModelCheckerDefaultImpl1::checkActivationCode() {
     /* TODO +-: not implemented yet */
-    _model->tracer()->trace(Util::TraceLevel::componentArrival, "Checking activation code");
+    _model->tracer()->trace(Util::TraceLevel::toolInternal, "Checking activation code");
     Util::IncIndent();
     {
 
@@ -324,7 +324,7 @@ bool ModelCheckerDefaultImpl1::checkLimits() {
     std::string text;
     unsigned int value, limit;
     LicenceManager *licence = _model->parentSimulator()->licenceManager();
-    _model->tracer()->trace(Util::TraceLevel::componentArrival, "Checking model limits");
+    _model->tracer()->trace(Util::TraceLevel::toolInternal, "Checking model limits");
     Util::IncIndent();
     {
 	value = _model->components()->numberOfComponents();

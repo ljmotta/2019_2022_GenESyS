@@ -97,7 +97,7 @@ double Entity::attributeValue(std::string index, std::string attributeName) {
 	    return 0.0;
 	}
     }
-    _parentModel->tracer()->trace(Util::TraceLevel::errorFatal, "Attribute \"" + attributeName + "\" not found");
+    _parentModel->tracer()->trace(Util::TraceLevel::errorRecover, "Attribute \"" + attributeName + "\" not found");
     return 0.0; /* TODO: !! Never should happen. check how to report */
 }
 
@@ -128,7 +128,7 @@ void Entity::setAttributeValue(std::string index, std::string attributeName, dou
 	    map->insert({index, value}); // (map->end(), std::pair<std::string, double>(index, value));
 	}
     } else
-	_parentModel->tracer()->trace(Util::TraceLevel::errorFatal, "Attribute \"" + attributeName + "\" not found");
+	_parentModel->tracer()->trace(Util::TraceLevel::errorRecover, "Attribute \"" + attributeName + "\" not found");
 
 }
 

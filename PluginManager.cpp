@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   PluginManager.cpp
  * Author: rafael.luiz.cancian
- * 
+ *
  * Created on 30 de Maio de 2019, 17:49
  */
 
@@ -34,13 +34,13 @@ bool PluginManager::_insert(Plugin* plugin) {
 	else
 	    msg += "element";
 	msg += " plugin \"" + plugin->pluginInfo()->pluginTypename() + "\"";
-	_simulator->tracer()->trace(msg);
+	_simulator->tracer()->trace(Util::TraceLevel::simulatorDetailed, msg);
 	// insert all dependencies before to insert this plugin
 	bool allDependenciesInserted = true;
 	if (plugInfo->dynamicLibFilenameDependencies()->size() > 0) {
 	    Util::IncIndent();
 	    {
-		_simulator->tracer()->trace("Inserting dependencies...");
+		_simulator->tracer()->trace(Util::TraceLevel::simulatorDetailed, "Inserting dependencies...");
 		for (std::list<std::string>::iterator it = plugInfo->dynamicLibFilenameDependencies()->begin(); it != plugInfo->dynamicLibFilenameDependencies()->end(); it++) {
 		    allDependenciesInserted &= (this->insert((*it)) != nullptr);
 		}
@@ -48,18 +48,18 @@ bool PluginManager::_insert(Plugin* plugin) {
 	    Util::DecIndent();
 	}
 	if (!allDependenciesInserted) {
-	    _simulator->tracer()->trace("Plugin dependencies could not be inserted; therefore, plugin will not be inserted");
+	    _simulator->tracer()->trace(Util::TraceLevel::errorRecover, "Plugin dependencies could not be inserted; therefore, plugin will not be inserted");
 	    return false;
 	}
 	if (this->find(plugInfo->pluginTypename()) != nullptr) { // plugin alread exists
-	    _simulator->tracer()->trace("Plugin alread exists and was not inserted again");
+	    _simulator->tracer()->trace(Util::TraceLevel::simulatorDetailed, "Plugin alread exists and was not inserted again");
 	    return false;
 	}
 	_plugins->insert(plugin);
-	this->_simulator->tracer()->trace(Util::TraceLevel::componentDetailed, "Plugin successfully inserted");
+	this->_simulator->tracer()->trace(Util::TraceLevel::simulatorDetailed, "Plugin successfully inserted");
 	return true;
     } else {
-	this->_simulator->tracer()->trace("Invalid plugin");
+	this->_simulator->tracer()->trace(Util::TraceLevel::errorRecover, "Invalid plugin");
 	plugin->~Plugin(); // destroy the invalid plugin
 	return false;
     }
@@ -83,7 +83,7 @@ Plugin* PluginManager::insert(std::string dynamicLibraryFilename) {
 	if (plugin != nullptr)
 	    _insert(plugin);
 	else {
-	    _simulator->tracer()->trace(Util::TraceLevel::errorFatal, "Plugin from file \""+dynamicLibraryFilename+"\" could not be loaded.");
+	    _simulator->tracer()->trace(Util::TraceLevel::errorRecover, "Plugin from file \"" + dynamicLibraryFilename + "\" could not be loaded.");
 	}
     } catch (...) {
 

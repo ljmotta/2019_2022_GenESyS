@@ -36,7 +36,7 @@ TestMatricesOfAttributesAndVariables::~TestMatricesOfAttributesAndVariables() {
 int TestMatricesOfAttributesAndVariables::main(int argc, char** argv) {
     Simulator* sim = new Simulator();
     setDefaultTraceHandlers(sim->tracer());
-    sim->tracer()->setTraceLevel(Util::TraceLevel::modelSimulationTransfer);
+    sim->tracer()->setTraceLevel(Util::TraceLevel::modelSimulationInternal);
     insertFakePluginsByHand(sim);
     Model* m = new Model(sim);
     sim->models()->insert(m);

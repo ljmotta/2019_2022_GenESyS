@@ -223,14 +223,14 @@ void Model::_createModelInternalElements() {
 }
 
 bool Model::check() {
-    tracer()->trace(Util::TraceLevel::modelSimulationEvent, "Checking model consistency");
+    tracer()->trace(Util::TraceLevel::modelInternal, "Checking model consistency");
     Util::IncIndent();
     // before checking the model, creates all necessary internal ModelElements
     _createModelInternalElements();
     bool res = this->_modelChecker->checkAll();
     Util::DecIndent();
     if (res) {
-	tracer()->trace(Util::TraceLevel::modelSimulationEvent, "End of Model checking: Success");
+	tracer()->trace(Util::TraceLevel::modelInternal, "End of Model checking: Success");
     } else {
 	//std::exception e = new std::exception();
 	//getTrace()->traceError() ;

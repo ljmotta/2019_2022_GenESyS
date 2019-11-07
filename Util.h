@@ -79,21 +79,25 @@ public:
 
     enum class TraceLevel : int {
 	noTraces = 0,
-	errorFatal = 10,
-	errorRecover = 15,
-	warning = 20,
-	report = 30,
-	simulatorInternal = 40,
-	simulatorDetailed = 45,
-	modelSimulationEvent = 50,
-	modelSimulationTransfer = 53,
-	modelSimulationDetailed = 56,
-	componentArrival = 60,
-	componentInternal = 63,
-	componentDetailed = 66,
-	elementInternal = 70,
-	elementDetailed = 75,
-	debugOnly = 80
+	errorFatal = 1,
+	errorRecover = 2,
+	warning = 3,
+	report = 4,
+	modelSimulationEvent = 5,
+	componentArrival = 6,
+	simulatorInternal = 7,
+	toolInternal = 8,
+	modelSimulationInternal = 9,
+	modelInternal = 10,
+	componentInternal = 11,
+	elementInternal = 12,
+	simulatorDetailed = 13,
+	toolDetailed = 14,
+	modelSimulationDetailed = 15,
+	modelDetailed = 16,
+	componentDetailed = 17,
+	elementDetailed = 18,
+	debugOnly = 20
     };
 private:
     static Util::identification _S_lastId;
