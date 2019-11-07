@@ -41,7 +41,7 @@ bool ModelCheckerDefaultImpl1::checkAll() {
 
 void ModelCheckerDefaultImpl1::_recursiveConnectedTo(PluginManager* pluginManager, ModelComponent* comp, List<ModelComponent*>* visited, List<ModelComponent*>* unconnected, bool* drenoFound) {
     visited->insert(comp);
-    _model->tracer()->trace(Util::TraceLevel::mostDetailed, "Connected to component \"" + comp->name()+"\"");
+    _model->tracer()->trace(Util::TraceLevel::componentDetailed, "Connected to component \"" + comp->name()+"\"");
     Plugin* plugin = pluginManager->find(comp->classname());
     assert(plugin!= nullptr);
     if (plugin->pluginInfo()->isSink() || (plugin->pluginInfo()->isSendTransfer() && comp->nextComponents()->size()==0)) {//(dynamic_cast<SinkModelComponent*> (comp) != nullptr) { 
@@ -50,7 +50,7 @@ void ModelCheckerDefaultImpl1::_recursiveConnectedTo(PluginManager* pluginManage
     } else { // it is not a sink
 	if (comp->nextComponents()->size() == 0) {
 	    unconnected->insert(comp);
-	    _model->tracer()->trace(Util::TraceLevel::errors, "Component \"" + comp->name() + "\" is unconnected (not a sink with no next componentes connected to)");
+	    _model->tracer()->trace(Util::TraceLevel::errorFatal, "Component \"" + comp->name() + "\" is unconnected (not a sink with no next componentes connected to)");
 	    *drenoFound = false;
 	} else {
 	    ModelComponent* nextComp;
@@ -63,7 +63,7 @@ void ModelCheckerDefaultImpl1::_recursiveConnectedTo(PluginManager* pluginManage
 		    Util::DecIndent();
 		} else {
 		    Util::IncIndent();
-	            _model->tracer()->trace(Util::TraceLevel::mostDetailed, "Connected to " + nextComp->name());
+	            _model->tracer()->trace(Util::TraceLevel::componentDetailed, "Connected to " + nextComp->name());
 		    Util::DecIndent();
 		    *drenoFound = true;
 		}
@@ -146,7 +146,7 @@ end;
 
 bool ModelCheckerDefaultImpl1::checkConnected() {
     /* TODO +-: not implemented yet */
-    _model->tracer()->trace(Util::TraceLevel::blockArrival, "Checking connected");
+    _model->tracer()->trace(Util::TraceLevel::componentArrival, "Checking connected");
     bool resultAll = true;
     PluginManager* pluginManager = this->_model->parentSimulator()->plugins();
     Plugin* plugin;
@@ -170,7 +170,7 @@ bool ModelCheckerDefaultImpl1::checkConnected() {
 	    comp = (*it);
 	    if (visited->find(comp) == visited->list()->end()) { //not found
 		resultAll = false;
-		_model->tracer()->trace(Util::TraceLevel::errors, "Component \"" + comp->name() + "\" is unconnected.");
+		_model->tracer()->trace(Util::TraceLevel::errorFatal, "Component \"" + comp->name() + "\" is unconnected.");
 	    }
 	}
 
@@ -246,7 +246,7 @@ end;
  */
 bool ModelCheckerDefaultImpl1::checkSymbols() {
     bool res = true;
-    _model->tracer()->trace(Util::TraceLevel::blockArrival, "Checking symbols");
+    _model->tracer()->trace(Util::TraceLevel::componentArrival, "Checking symbols");
     Util::IncIndent();
     {
 	// check components
@@ -275,14 +275,14 @@ bool ModelCheckerDefaultImpl1::checkSymbols() {
 		for (std::list<ModelElement*>::iterator it = elements->list()->begin(); it != elements->list()->end(); it++) {
 		    element = (*it);
 		    // copyed from modelCOmponent. It is not inside the ModelElement::Check because ModelElement has no access to Model to call Tracer
-		    _model->tracer()->trace(Util::TraceLevel::mostDetailed, "Checking " + element->classname() + ": \"" + element->name()+ "\" (id "+std::to_string(element->id())+")"); //std::to_string(component->_id));
+		    _model->tracer()->trace(Util::TraceLevel::componentDetailed, "Checking " + element->classname() + ": \"" + element->name()+ "\" (id "+std::to_string(element->id())+")"); //std::to_string(component->_id));
 		    Util::IncIndent();
 		    {
 			try {
 			    result = element->Check((*it), errorMessage);
 			    res &= result;
 			    if (!result) {
-				_model->tracer()->trace(Util::TraceLevel::errors, "Error: Checking has failed with message '" + *errorMessage + "'");
+				_model->tracer()->trace(Util::TraceLevel::errorFatal, "Error: Checking has failed with message '" + *errorMessage + "'");
 			    }
 			} catch (const std::exception& e) {
 			    _model->tracer()->traceError(e, "Error verifying component " + element->show());
@@ -310,7 +310,7 @@ bool ModelCheckerDefaultImpl1::checkSymbols() {
 
 bool ModelCheckerDefaultImpl1::checkActivationCode() {
     /* TODO +-: not implemented yet */
-    _model->tracer()->trace(Util::TraceLevel::blockArrival, "Checking activation code");
+    _model->tracer()->trace(Util::TraceLevel::componentArrival, "Checking activation code");
     Util::IncIndent();
     {
 
@@ -324,7 +324,7 @@ bool ModelCheckerDefaultImpl1::checkLimits() {
     std::string text;
     unsigned int value, limit;
     LicenceManager *licence = _model->parentSimulator()->licenceManager();
-    _model->tracer()->trace(Util::TraceLevel::blockArrival, "Checking model limits");
+    _model->tracer()->trace(Util::TraceLevel::componentArrival, "Checking model limits");
     Util::IncIndent();
     {
 	value = _model->components()->numberOfComponents();
@@ -345,7 +345,7 @@ bool ModelCheckerDefaultImpl1::checkLimits() {
 	    }
 	}
 	if (!res) {
-	    _model->tracer()->trace(Util::TraceLevel::errors, "Error: Checking has failed with message '" + text + "'");
+	    _model->tracer()->trace(Util::TraceLevel::errorFatal, "Error: Checking has failed with message '" + text + "'");
 	}
     }
     Util::DecIndent();

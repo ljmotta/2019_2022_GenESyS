@@ -33,7 +33,7 @@ bool ElementManager::insert(std::string infraTypename, ModelElement* infra) {
     List<ModelElement*>* listElements = elementList(infraTypename);
     if (listElements->find(infra) == listElements->list()->end()) { //not found
 	listElements->insert(infra);
-	this->_parentModel->tracer()->trace(Util::TraceLevel::mostDetailed, "Element \""+infra->name()+"\" successfully inserted.");
+	this->_parentModel->tracer()->trace(Util::TraceLevel::componentDetailed, "Element \""+infra->name()+"\" successfully inserted.");
 	return true;
     }
     return false;
@@ -91,7 +91,7 @@ unsigned int ElementManager::numberOfElements() {
 }
 
 void ElementManager::show() {
-    _parentModel->tracer()->trace(Util::TraceLevel::mostDetailed, "Model Elements:");
+    _parentModel->tracer()->trace(Util::TraceLevel::componentDetailed, "Model Elements:");
     //std::map<std::string, List<ModelElement*>*>* _elements;
     std::string key;
     List<ModelElement*>* list;
@@ -100,11 +100,11 @@ void ElementManager::show() {
 	for (std::map<std::string, List<ModelElement*>*>::iterator infraIt = _elements->begin(); infraIt != _elements->end(); infraIt++) {
 	    key = (*infraIt).first;
 	    list = (*infraIt).second;
-	    _parentModel->tracer()->trace(Util::TraceLevel::mostDetailed, key + ": (" + std::to_string(list->size()) + ")");
+	    _parentModel->tracer()->trace(Util::TraceLevel::componentDetailed, key + ": (" + std::to_string(list->size()) + ")");
 	    Util::IncIndent();
 	    {
 		for (std::list<ModelElement*>::iterator it = list->list()->begin(); it != list->list()->end(); it++) {
-		    _parentModel->tracer()->trace(Util::TraceLevel::mostDetailed, (*it)->show());
+		    _parentModel->tracer()->trace(Util::TraceLevel::componentDetailed, (*it)->show());
 		}
 	    }
 	    Util::DecIndent();

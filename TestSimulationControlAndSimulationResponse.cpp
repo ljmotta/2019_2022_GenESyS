@@ -26,7 +26,7 @@ int TestSimulationControlAndSimulationResponse::main(int argc, char** argv){
     Simulator* simulator = new Simulator();
     TraceManager* tm = simulator->tracer();
     this->setDefaultTraceHandlers(tm);
-    tm->setTraceLevel(Util::TraceLevel::mostDetailed);
+    tm->setTraceLevel(Util::TraceLevel::componentDetailed);
     
     Model* model = new Model(simulator);
     model->show();

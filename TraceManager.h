@@ -44,7 +44,7 @@ private:
 class TraceErrorEvent : public TraceEvent {
 public:
 
-    TraceErrorEvent(std::string text, std::exception e) : TraceEvent(Util::TraceLevel::errors, text) {
+    TraceErrorEvent(std::string text, std::exception e) : TraceEvent(Util::TraceLevel::errorFatal, text) {
 	_e = e;
     }
 
@@ -129,10 +129,10 @@ public: // traces (invoke trace handlers)
     void traceReport(Util::TraceLevel level, std::string text);
     void traceSimulation(Util::TraceLevel level, double time, Entity* entity, ModelComponent* component, std::string text);
 public: // traces (invoke trace handlers) SINCE 20191025 NEW TRACES JUST INVERTED THE PARAMETERS, MAKING TRACELEVEL OPTIONAL
-    void trace(std::string text, Util::TraceLevel level = Util::TraceLevel::blockInternal);
+    void trace(std::string text, Util::TraceLevel level = Util::TraceLevel::componentInternal);
     void traceError(std::string text, std::exception e);
     void traceReport(std::string text, Util::TraceLevel level = Util::TraceLevel::report);
-    void traceSimulation(double time, Entity* entity, ModelComponent* component, std::string text, Util::TraceLevel level = Util::TraceLevel::blockInternal);
+    void traceSimulation(double time, Entity* entity, ModelComponent* component, std::string text, Util::TraceLevel level = Util::TraceLevel::componentInternal);
 public:
     List<std::string>* errorMessages() const;
     void setTraceLevel(Util::TraceLevel _traceLevel);

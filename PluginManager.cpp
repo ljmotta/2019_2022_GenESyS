@@ -56,7 +56,7 @@ bool PluginManager::_insert(Plugin* plugin) {
 	    return false;
 	}
 	_plugins->insert(plugin);
-	this->_simulator->tracer()->trace(Util::TraceLevel::mostDetailed, "Plugin successfully inserted");
+	this->_simulator->tracer()->trace(Util::TraceLevel::componentDetailed, "Plugin successfully inserted");
 	return true;
     } else {
 	this->_simulator->tracer()->trace("Invalid plugin");
@@ -83,7 +83,7 @@ Plugin* PluginManager::insert(std::string dynamicLibraryFilename) {
 	if (plugin != nullptr)
 	    _insert(plugin);
 	else {
-	    _simulator->tracer()->trace(Util::TraceLevel::errors, "Plugin from file \""+dynamicLibraryFilename+"\" could not be loaded.");
+	    _simulator->tracer()->trace(Util::TraceLevel::errorFatal, "Plugin from file \""+dynamicLibraryFilename+"\" could not be loaded.");
 	}
     } catch (...) {
 

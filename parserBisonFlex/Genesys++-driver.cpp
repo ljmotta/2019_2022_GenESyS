@@ -88,12 +88,12 @@ genesyspp_driver::error(const yy::location& l, const std::string& m) {
     erro.append("\n");
     setErrorMessage(m);
     setResult(-1);
-    _model->tracer()->trace(Util::TraceLevel::errors, erro);
+    _model->tracer()->trace(Util::TraceLevel::errorFatal, erro);
 }
 
 void
 genesyspp_driver::error(const std::string& m) {
     setErrorMessage(m);
     setResult(-1);
-    _model->tracer()->trace(Util::TraceLevel::errors, m);
+    _model->tracer()->trace(Util::TraceLevel::errorFatal, m);
 }

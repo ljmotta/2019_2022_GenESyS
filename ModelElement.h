@@ -40,7 +40,7 @@ public: // get & set
     std::string name() const;
     std::string classname() const;
 public: // static
-    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields); // TODO: return ModelComponent* ?
+    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields, bool insertIntoModel); // TODO: return ModelComponent* ?
     static std::map<std::string, std::string>* SaveInstance(ModelElement* element);
     static bool Check(ModelElement* element, std::string* errorMessage);
     static void CreateInternalElements(ModelElement* element);

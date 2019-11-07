@@ -21,7 +21,7 @@ ModelElement::ModelElement(Model* model, std::string thistypename, std::string n
     _typename = thistypename;
     _parentModel = model;
     if (name == "")
-	_name = thistypename + "_" + std::to_string(Util::GenerateNewIdOfType(thistypename)); 
+	_name = thistypename + "_" + std::to_string(Util::GenerateNewIdOfType(thistypename));
     else
 	_name = name;
     if (insertIntoModel)
@@ -35,6 +35,7 @@ ModelElement::ModelElement(Model* model, std::string thistypename, std::string n
 //}
 
 ModelElement::~ModelElement() {
+    _parentModel->tracer()->trace(Util::TraceLevel::debugOnly, "Element \""+this->_name+"\" was removed from the model");
     _parentModel->elements()->remove(this);
 }
 
@@ -114,8 +115,15 @@ void ModelElement::InitBetweenReplications(ModelElement* element) {
     };
 }
 
-ModelElement* ModelElement::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
-    ModelElement* newElement = new ModelElement(model, "ModelElement");
+ModelElement* ModelElement::LoadInstance(Model* model, std::map<std::string, std::string>* fields, bool insertIntoModel) {
+    std::string name = "";
+    if (insertIntoModel) {
+	// extracts the name from the fields even before "_laodInstance" and even before construct a new ModelElement in such way when constructing the ModelElement, it's done with the correct name and that correct name is show in trace
+	std::map<std::string, std::string>::iterator it = fields->find("name");
+	if (it != fields->end())
+	    name = (*it).second;
+    }
+    ModelElement* newElement = new ModelElement(model, "ModelElement", name, insertIntoModel);
     try {
 	newElement->_loadInstance(fields);
     } catch (const std::exception& e) {

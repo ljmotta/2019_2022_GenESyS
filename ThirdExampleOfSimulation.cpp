@@ -40,7 +40,7 @@ int ThirdExampleOfSimulation::main(int argc, char** argv) {
     // Handle traces and simulation events to output them
     TraceManager* tm = simulator->tracer();
     this->setDefaultTraceHandlers(tm);
-    tm->setTraceLevel(Util::TraceLevel::mostDetailed);
+    tm->setTraceLevel(Util::TraceLevel::componentDetailed);
     this->insertFakePluginsByHand(simulator);
     bool wantToCreateNewModelAndSaveInsteadOfJustLoad = true;
     Model* model;

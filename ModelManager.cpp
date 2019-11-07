@@ -19,7 +19,6 @@ ModelManager::ModelManager(Simulator* simulator) {
     _currentModel = nullptr;
 }
 
-
 void ModelManager::insert(Model* model) {
     _models->insert(model);
     this->_currentModel = model;
@@ -33,7 +32,7 @@ void ModelManager::remove(Model* model) {
     model->~Model();
 }
 
-unsigned int ModelManager::size(){
+unsigned int ModelManager::size() {
     return _models->size();
 }
 
@@ -46,7 +45,7 @@ bool ModelManager::saveModel(std::string filename) {
 bool ModelManager::loadModel(std::string filename) {
     Model* model = new Model(_simulator);
     bool res = model->load(filename);
-    if (res) 
+    if (res)
 	this->insert(model);
     else
 	model->~Model();

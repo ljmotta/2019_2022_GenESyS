@@ -32,7 +32,7 @@ std::map<std::string, std::string>* ModelPersistenceDefaultImpl1::_getSimulatorI
 }
 
 bool ModelPersistenceDefaultImpl1::save(std::string filename) {
-    _model->tracer()->trace(Util::TraceLevel::blockArrival, "Saving file \"" + filename + "\"");
+    _model->tracer()->trace(Util::TraceLevel::componentArrival, "Saving file \"" + filename + "\"");
     Util::IncIndent();
     std::list<std::string> *simulInfosToSave, *modelInfosToSave, *modelElementsToSave, *modelComponentsToSave;
     {
@@ -49,11 +49,11 @@ bool ModelPersistenceDefaultImpl1::save(std::string filename) {
 	for (std::list<std::string>::iterator itTypenames = infraTypenames->begin(); itTypenames != infraTypenames->end(); itTypenames++) {
 	    if ((*itTypenames) != Util::TypeOf<StatisticsCollector>() && (*itTypenames) != Util::TypeOf<Counter>()) { // STATISTICSCOLLECTR and COUNTERs do NOT need to be saved
 		List<ModelElement*>* infras = _model->elements()->elementList((*itTypenames));
-		_model->tracer()->trace(Util::TraceLevel::mostDetailed, "Writing elements of type \"" + (*itTypenames) + "\":");
+		_model->tracer()->trace(Util::TraceLevel::componentDetailed, "Writing elements of type \"" + (*itTypenames) + "\":");
 		Util::IncIndent();
 		{
 		    for (std::list<ModelElement*>::iterator it = infras->list()->begin(); it != infras->list()->end(); it++) {
-			_model->tracer()->trace(Util::TraceLevel::mostDetailed, "Writing " + (*itTypenames) + " \"" + (*it)->name() + "\"");
+			_model->tracer()->trace(Util::TraceLevel::componentDetailed, "Writing " + (*itTypenames) + " \"" + (*it)->name() + "\"");
 			fields = (*it)->SaveInstance((*it));
 			Util::IncIndent();
 			modelElementsToSave->merge(*_adjustFieldsToSave(fields));
@@ -64,7 +64,7 @@ bool ModelPersistenceDefaultImpl1::save(std::string filename) {
 	    }
 	}
 	// save components
-	_model->tracer()->trace(Util::TraceLevel::mostDetailed, "Writing components\":");
+	_model->tracer()->trace(Util::TraceLevel::componentDetailed, "Writing components\":");
 	//List<ModelComponent*>* components = this->_model->getComponents();
 	modelComponentsToSave = new std::list<std::string>();
 	Util::IncIndent();
@@ -78,7 +78,7 @@ bool ModelPersistenceDefaultImpl1::save(std::string filename) {
 	}
 	Util::DecIndent();
 	// SAVE FILE
-	_model->tracer()->trace(Util::TraceLevel::mostDetailed, "Saving file");
+	_model->tracer()->trace(Util::TraceLevel::componentDetailed, "Saving file");
 	Util::IncIndent();
 	{
 	    // open file
@@ -148,7 +148,7 @@ bool ModelPersistenceDefaultImpl1::_loadFields(std::string line) {
 	    } else {
 		// this should be a ModelComponent or ModelElement. 
 		//std::string thistypename = (*fields->find("typename")).second;
-		ModelElement* newTemUselessElement = ModelElement::LoadInstance(_model, fields);
+		ModelElement* newTemUselessElement = ModelElement::LoadInstance(_model, fields, false);
 		if (newTemUselessElement != nullptr) {
 		    newTemUselessElement->~ModelElement();
 		    Plugin* plugin = this->_model->parentSimulator()->plugins()->find(thistypename);
@@ -160,11 +160,11 @@ bool ModelPersistenceDefaultImpl1::_loadFields(std::string line) {
 			    //_model->getTraceManager()->trace(Util::TraceLevel::errors, "Inserindo fields do componente "+plugin->getPluginInfo()->getPluginTypename());
 			}
 		    } else {
-			_model->tracer()->trace(Util::TraceLevel::errors, "Error loading file: Could not identity typename \"" + thistypename + "\"");
+			_model->tracer()->trace(Util::TraceLevel::errorFatal, "Error loading file: Could not identity typename \"" + thistypename + "\"");
 			res = false;
 		    }
 		} else {
-		    _model->tracer()->trace(Util::TraceLevel::errors, "Error loading file: Could not identity typename \"" + thistypename + "\"");
+		    _model->tracer()->trace(Util::TraceLevel::errorFatal, "Error loading file: Could not identity typename \"" + thistypename + "\"");
 		    res = false;
 		}
 
@@ -185,7 +185,7 @@ bool ModelPersistenceDefaultImpl1::load(std::string filename) {
     //plugins->front()->
     //return false;
     bool res = true;
-    _model->tracer()->trace(Util::TraceLevel::blockArrival, "Loading file \"" + filename + "\"");
+    _model->tracer()->trace(Util::TraceLevel::componentArrival, "Loading file \"" + filename + "\"");
     Util::IncIndent();
     _componentFields->clear();
     {
@@ -203,13 +203,15 @@ bool ModelPersistenceDefaultImpl1::load(std::string filename) {
 	    }
 	    modelFile.close();
 	} catch (...) {
-	    _model->tracer()->trace(Util::TraceLevel::errors, "Error loading file \"" + filename + "\"");
+	    _model->tracer()->trace(Util::TraceLevel::errorFatal, "Error loading file \"" + filename + "\"");
 	}
     }
+    // check if something was loaded
+    res &= _model->components()->numberOfComponents()>0 & _model->elements()->numberOfElements()>0;
     if (res) {
 	// connect loaded components
 	ComponentManager* cm = _model->components();
-	_model->tracer()->trace(Util::TraceLevel::blockArrival, "Connecting loaded components");
+	_model->tracer()->trace(Util::TraceLevel::simulatorDetailed, "Connecting loaded components");
 	Util::IncIndent();
 	{
 	    for (std::list<std::map<std::string, std::string>*>::iterator it = _componentFields->begin(); it != _componentFields->end(); it++) {
@@ -247,6 +249,7 @@ bool ModelPersistenceDefaultImpl1::load(std::string filename) {
 	    }
 	}
 	Util::DecIndent();
+	_model->tracer()->trace(Util::TraceLevel::simulatorInternal, "File successfully loaded with "+std::to_string(_model->components()->numberOfComponents())+" components and "+std::to_string(_model->elements()->numberOfElements())+" elements");
     }
     Util::DecIndent();
     return res;
@@ -258,7 +261,7 @@ std::list<std::string>* ModelPersistenceDefaultImpl1::_adjustFieldsToSave(std::m
     for (std::map<std::string, std::string>::iterator it = fields->begin(); it != fields->end(); it++) {
 	newStr += (*it).first + "=" + (*it).second + this->_linefieldseparator;
     }
-    _model->tracer()->trace(Util::TraceLevel::mostDetailed, newStr);
+    _model->tracer()->trace(Util::TraceLevel::componentDetailed, newStr);
     newList->push_back(newStr);
     return newList;
 }

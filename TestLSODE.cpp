@@ -29,7 +29,7 @@ TestLSODE::TestLSODE() {
 int TestLSODE::main(int argc, char** argv) {
     Simulator* simulator = new Simulator();
     TraceManager* tm = simulator->tracer();
-    tm->setTraceLevel(Util::TraceLevel::mostDetailed);
+    tm->setTraceLevel(Util::TraceLevel::componentDetailed);
     this->setDefaultTraceHandlers(tm);
     this->insertFakePluginsByHand(simulator);
     Model* model = new Model(simulator);

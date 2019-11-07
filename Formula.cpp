@@ -107,7 +107,7 @@ bool Formula::_check(std::string* errorMessage) {
     for (std::map<std::string, std::string>::iterator it = _formulaExpressions->begin(); it != _formulaExpressions->end(); it++) {
 	res = _parentModel->checkExpression((*it).second, "formula expression[" + (*it).first + "]", &errorMsg);
 	if (!res) {
-	    _parentModel->tracer()->trace(Util::TraceLevel::errors, "Error parsing expression \"" + (*it).second + "\"");
+	    _parentModel->tracer()->trace(Util::TraceLevel::errorFatal, "Error parsing expression \"" + (*it).second + "\"");
 	}
 	resAll &= res;
     }

@@ -79,13 +79,13 @@ template <> struct Traits<GenesysApplication_if> {
     //typedef GenesysGUI Application;
     //typedef GenesysConsole Application;
     //typedef FullSimulationOfComplexModel Application;
-    //typedef FirstExampleOfSimulation Application;
+    typedef FirstExampleOfSimulation Application;
     //typedef SecondExampleOfSimulation Application;
     //typedef FourthExampleOfSimulation Application;
     //typedef TestLSODE Application;
     //typedef TestMarkovChain Application;
     //typedef TestSimulationControlAndSimulationResponse Application;
-    typedef TestMatricesOfAttributesAndVariables Application;
+    //typedef TestMatricesOfAttributesAndVariables Application;
 };
 
 
@@ -110,7 +110,7 @@ template <> struct Traits<Parser_if> {
 
 template <> struct Traits<Model> {
     static const bool debugged = true;
-    static const Util::TraceLevel traceLevel = Util::TraceLevel::simulation;
+    static const Util::TraceLevel traceLevel = Util::TraceLevel::modelSimulationEvent;
 };
 
 template <> struct Traits<ModelPersistence_if> {

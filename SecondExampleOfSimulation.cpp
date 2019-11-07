@@ -37,7 +37,7 @@ SecondExampleOfSimulation::SecondExampleOfSimulation() {
 int SecondExampleOfSimulation::main(int argc, char** argv) {
     Simulator* simulator = new Simulator();
     // set the trace level of simulation to "blockArrival" level, which is an intermediate level of tracing
-    simulator->tracer()->setTraceLevel(Util::TraceLevel::blockArrival);
+    simulator->tracer()->setTraceLevel(Util::TraceLevel::componentArrival);
     // Handle traces and simulation events to output them
     this->setDefaultTraceHandlers(simulator->tracer());
     // insert "fake plugins" since plugins based on dynamic loaded library are not implemented yet

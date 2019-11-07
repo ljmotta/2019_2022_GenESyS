@@ -27,7 +27,7 @@ void ModelComponent::Execute(Entity* entity, ModelComponent* component, unsigned
     //TODO: How can I know the number of inputs?
     if (inputNumber > 0)
 	msg += " by input " + std::to_string(inputNumber);
-    component->_parentModel->tracer()->trace(Util::TraceLevel::blockArrival, msg);
+    component->_parentModel->tracer()->trace(Util::TraceLevel::componentArrival, msg);
     Util::IncIndent();
     try {
 	component->_execute(entity);
@@ -58,7 +58,7 @@ void ModelComponent::CreateInternalElements(ModelComponent* component) {
 }
 
 std::map<std::string, std::string>* ModelComponent::SaveInstance(ModelComponent* component) {
-    component->_parentModel->tracer()->trace(Util::TraceLevel::mostDetailed, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));
+    component->_parentModel->tracer()->trace(Util::TraceLevel::componentDetailed, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));
     std::map<std::string, std::string>* fields = new std::map<std::string, std::string>();
     try {
 	fields = component->_saveInstance();
@@ -69,7 +69,7 @@ std::map<std::string, std::string>* ModelComponent::SaveInstance(ModelComponent*
 }
 
 bool ModelComponent::Check(ModelComponent* component) {
-    component->_parentModel->tracer()->trace(Util::TraceLevel::mostDetailed, "Checking " + component->_typename + ": \"" + component->_name+"\""); //std::to_string(component->_id));
+    component->_parentModel->tracer()->trace(Util::TraceLevel::componentDetailed, "Checking " + component->_typename + ": \"" + component->_name+"\""); //std::to_string(component->_id));
     bool res = false;
     std::string* errorMessage = new std::string();
     Util::IncIndent();
@@ -77,7 +77,7 @@ bool ModelComponent::Check(ModelComponent* component) {
 	try {
 	    res = component->_check(errorMessage);
 	    if (!res) {
-		component->_parentModel->tracer()->trace(Util::TraceLevel::errors, "Error: Checking has failed with message '" + *errorMessage + "'");
+		component->_parentModel->tracer()->trace(Util::TraceLevel::errorFatal, "Error: Checking has failed with message '" + *errorMessage + "'");
 	    }
 	} catch (const std::exception& e) {
 	    component->_parentModel->tracer()->traceError(e, "Error verifying component " + component->show());
