@@ -35,7 +35,7 @@ ModelElement::ModelElement(Model* model, std::string thistypename, std::string n
 //}
 
 ModelElement::~ModelElement() {
-    _parentModel->tracer()->trace(Util::TraceLevel::debugOnly, "Element \""+this->_name+"\" was removed from the model");
+    _parentModel->tracer()->trace(Util::TraceLevel::everythingMostDetailed, "Element \""+this->_name+"\" was removed from the model");
     _parentModel->elements()->remove(this);
 }
 

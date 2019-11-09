@@ -13,6 +13,7 @@
 
 #include "ModelManager.h"
 #include "List.h"
+#include "Simulator.h"
 
 ModelManager::ModelManager(Simulator* simulator) {
     _simulator = simulator;
@@ -22,14 +23,16 @@ ModelManager::ModelManager(Simulator* simulator) {
 void ModelManager::insert(Model* model) {
     _models->insert(model);
     this->_currentModel = model;
+    _simulator->tracer()->trace(Util::TraceLevel::simulatorResult, "Model successfully inserted");
 }
 
 void ModelManager::remove(Model* model) {
     _models->remove(model);
     if (_currentModel == model) {
-	_currentModel = nullptr;
+	_currentModel = this->front();
     }
     model->~Model();
+    _simulator->tracer()->trace(Util::TraceLevel::simulatorResult, "Model successfully removed");
 }
 
 unsigned int ModelManager::size() {
@@ -45,10 +48,13 @@ bool ModelManager::saveModel(std::string filename) {
 bool ModelManager::loadModel(std::string filename) {
     Model* model = new Model(_simulator);
     bool res = model->load(filename);
-    if (res)
+    if (res) {
 	this->insert(model);
-    else
+	_simulator->tracer()->trace(Util::TraceLevel::simulatorResult, "Model successfully loaded");
+    } else {
 	model->~Model();
+	_simulator->tracer()->trace(Util::TraceLevel::simulatorResult, "Model coud not be loaded");
+    }
     return res;
 }
 
@@ -66,8 +72,4 @@ Model* ModelManager::front() {
 
 Model* ModelManager::next() {
     return _models->next();
-}
-
-Model* ModelManager::end() {
-    return _models->last();
 }

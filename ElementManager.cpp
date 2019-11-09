@@ -26,14 +26,19 @@ ElementManager::ElementManager(Model* model) {
 
 bool ElementManager::insert(ModelElement* infra) {
     std::string infraTypename = infra->classname();
-    return insert(infraTypename, infra);
+    bool res = insert(infraTypename, infra);
+    if (res)
+	_parentModel->tracer()->trace(Util::TraceLevel::elementResult, "Element successfully inserted");
+    else
+	_parentModel->tracer()->trace(Util::TraceLevel::elementResult, "Element could not be inserted");
+    return res;
 }
 
 bool ElementManager::insert(std::string infraTypename, ModelElement* infra) {
     List<ModelElement*>* listElements = elementList(infraTypename);
     if (listElements->find(infra) == listElements->list()->end()) { //not found
 	listElements->insert(infra);
-	this->_parentModel->tracer()->trace(Util::TraceLevel::toolDetailed, "Element \""+infra->name()+"\" successfully inserted.");
+	this->_parentModel->tracer()->trace(Util::TraceLevel::toolDetailed, "Element \"" + infra->name() + "\" successfully inserted.");
 	return true;
     }
     return false;
@@ -43,6 +48,8 @@ void ElementManager::remove(ModelElement* infra) {
     std::string infraTypename = infra->classname();
     List<ModelElement*>* listElements = elementList(infraTypename);
     listElements->remove(infra);
+    _parentModel->tracer()->trace(Util::TraceLevel::elementResult, "Element successfully removed");
+
 }
 
 void ElementManager::remove(std::string infraTypename, ModelElement* infra) {
@@ -115,6 +122,14 @@ void ElementManager::show() {
 
 Model* ElementManager::parentModel() const {
     return _parentModel;
+}
+
+bool ElementManager::hasChanged() const {
+    return _hasChanged;
+}
+
+void ElementManager::setHasChanged(bool _hasChanged) {
+    this->_hasChanged = _hasChanged;
 }
 
 List<ModelElement*>* ElementManager::elementList(std::string infraTypename) const {

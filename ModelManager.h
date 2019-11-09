@@ -32,7 +32,7 @@ public:
     Model* front();
     Model* current();
     Model* next();
-    Model* end();
+    //Model* end();
 private:
     List<Model*>* _models = new List<Model*>();
     Model* _currentModel;

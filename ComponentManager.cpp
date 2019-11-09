@@ -27,18 +27,23 @@ ComponentManager::ComponentManager(Model* model) {
 bool ComponentManager::insert(ModelComponent* comp) {
     if (_components->find(comp) == _components->list()->end()) {
 	_components->insert(comp);
-	this->_parentModel->tracer()->trace(Util::TraceLevel::toolDetailed, "Component \""+comp->name()+"\" successfully inserted.");
+	_parentModel->tracer()->trace(Util::TraceLevel::componentResult, "Component \""+comp->name()+"\" successfully inserted");
+	_hasChanged = true;
 	return true;
     }
+    _parentModel->tracer()->trace(Util::TraceLevel::componentResult, "Component \""+comp->name()+"\" could not be inserted");
     return false;
 }
 
 void ComponentManager::remove(ModelComponent* comp) {
     _components->remove(comp);
+    _parentModel->tracer()->trace(Util::TraceLevel::componentResult, "Component \""+comp->name()+"\" successfully removed");
+    _hasChanged = true;
 }
 
 void ComponentManager::clear() {
     this->_components->clear();
+    _hasChanged = true;
 }
 
 //ModelComponent* ComponentManager::getComponent(Util::identification id) {
@@ -57,4 +62,12 @@ std::list<ModelComponent*>::iterator ComponentManager::begin() {
 
 std::list<ModelComponent*>::iterator ComponentManager::end() {
     return _components->list()->end();
+}
+
+bool ComponentManager::hasChanged() const {
+    return _hasChanged;
+}
+
+void ComponentManager::setHasChanged(bool _hasChanged) {
+    this->_hasChanged = _hasChanged;
 }

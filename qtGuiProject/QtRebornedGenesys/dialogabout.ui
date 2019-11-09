@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>417</width>
-    <height>258</height>
+    <width>518</width>
+    <height>346</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,10 +22,10 @@
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>70</x>
-     <y>220</y>
-     <width>331</width>
-     <height>32</height>
+     <x>420</x>
+     <y>310</y>
+     <width>80</width>
+     <height>25</height>
     </rect>
    </property>
    <property name="orientation">
@@ -54,8 +54,8 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>10</y>
+     <x>190</x>
+     <y>20</y>
      <width>316</width>
      <height>19</height>
     </rect>
@@ -81,7 +81,7 @@
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>50</y>
+     <y>60</y>
      <width>273</width>
      <height>17</height>
     </rect>
@@ -107,7 +107,7 @@
    <property name="geometry">
     <rect>
      <x>90</x>
-     <y>70</y>
+     <y>80</y>
      <width>291</width>
      <height>17</height>
     </rect>
@@ -121,8 +121,8 @@
     <rect>
      <x>10</x>
      <y>120</y>
-     <width>391</width>
-     <height>91</height>
+     <width>491</width>
+     <height>171</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -142,7 +142,33 @@
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot; bgcolor=&quot;#eeeeee&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Tahoma,Arial,sans-serif'; color:#000000;&quot;&gt;Genesys is a result of teaching and researchactivities of Professor Dr. Ing Rafael Luiz Cancian. It began in early 2002 as a way to teach students the basics andsimulation techniques of systems implemented by other comercial simulation tools, such as Arena. In Genesysdevelopment he replicated all the SIMAN language, used by Arena software, and Genesys has become a clone of thattool, including its graphical interface. Genesys allowed the inclusion of new simulation components through dynamiclink libraries and also the parallel execution of simulation models in a distributed environment. The developmentof Genesys continued until 2007, when the professor stopped teaching systems simulation.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Tahoma,Arial,sans-serif'; color:#000000;&quot;&gt;Genesys is a result of teaching and research activities of Professor Dr. Ing Rafael Luiz Cancian. It began in early 2002 as a way to teach students the basics andsimulation techniques of systems implemented by other comercial simulation tools, such as Arena. In original Genesys development he had replicated all the SIMAN language, used by Arena software, and Genesys had became a clone of tha ttool, including its graphical interface. Genesys allowed the inclusion of new simulation components through dynamic link libraries and also the parallel execution of simulation models in a distributed environment. The developmentof Genesys continued until 2007, when the professor stopped teaching systems simulation.Genesys then hyberneted for eleven years.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>10</y>
+     <width>94</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <property name="text">
+    <string>Reborn</string>
+   </property>
+   <property name="textFormat">
+    <enum>Qt::RichText</enum>
    </property>
   </widget>
  </widget>

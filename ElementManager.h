@@ -53,9 +53,12 @@ public:
 public:
     void show();
     Model* parentModel() const;
+    bool hasChanged() const;
+    void setHasChanged(bool _hasChanged);
 private:
     std::map<std::string, List<ModelElement*>*>* _elements;
     Model* _parentModel;
+    bool _hasChanged = false;
 };
 
 #endif /* ELEMENTMANAGER_H */

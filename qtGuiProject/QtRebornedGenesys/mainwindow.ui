@@ -19,36 +19,114 @@
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
-     <widget class="QTabWidget" name="tabWidgetModels">
-      <property name="tabPosition">
-       <enum>QTabWidget::North</enum>
+     <widget class="QGroupBox" name="groupBoxModel">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
       </property>
-      <property name="currentIndex">
-       <number>0</number>
+      <property name="baseSize">
+       <size>
+        <width>800</width>
+        <height>600</height>
+       </size>
       </property>
-      <property name="tabsClosable">
-       <bool>true</bool>
+      <property name="title">
+       <string>--model name--</string>
       </property>
-      <widget class="QWidget" name="tabModel1">
-       <attribute name="title">
-        <string>Model 1</string>
-       </attribute>
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
-         <widget class="QGraphicsView" name="graphicsView">
-          <property name="frameShape">
-           <enum>QFrame::WinPanel</enum>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="tabModel2">
-       <attribute name="title">
-        <string>Model 2</string>
-       </attribute>
-       <layout class="QHBoxLayout" name="horizontalLayout_2"/>
-      </widget>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <item>
+        <widget class="QGraphicsView" name="graphicsViewModel">
+         <property name="frameShape">
+          <enum>QFrame::WinPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Zoom:</string>
+            </property>
+            <property name="buddy">
+             <cstring>horizontalSlider</cstring>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QSlider" name="horizontalSlider">
+            <property name="minimum">
+             <number>10</number>
+            </property>
+            <property name="maximum">
+             <number>400</number>
+            </property>
+            <property name="singleStep">
+             <number>10</number>
+            </property>
+            <property name="value">
+             <number>100</number>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="tickPosition">
+             <enum>QSlider::TicksAbove</enum>
+            </property>
+            <property name="tickInterval">
+             <number>20</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>100</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>%</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
      </widget>
     </item>
    </layout>
@@ -136,11 +214,10 @@
      <string>Window</string>
     </property>
     <addaction name="actionComponents"/>
-    <addaction name="actionElements"/>
-    <addaction name="actionModels"/>
     <addaction name="actionConsole"/>
     <addaction name="actionProperties"/>
-    <addaction name="actionEditor"/>
+    <addaction name="actionReports"/>
+    <addaction name="separator"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -247,7 +324,7 @@
    <addaction name="actionStop"/>
    <addaction name="actionRun_Control"/>
   </widget>
-  <widget class="QToolBar" name="toolBar_2">
+  <widget class="QToolBar" name="toolBarHelp">
    <property name="windowTitle">
     <string>toolBar_2</string>
    </property>
@@ -261,7 +338,13 @@
    <addaction name="actionSupport"/>
    <addaction name="actionAbout"/>
   </widget>
-  <widget class="QDockWidget" name="dockWidgetComponents">
+  <widget class="QDockWidget" name="dockWidgetComponentPlugins">
+   <property name="maximumSize">
+    <size>
+     <width>200</width>
+     <height>524287</height>
+    </size>
+   </property>
    <property name="features">
     <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
    </property>
@@ -271,15 +354,21 @@
    <attribute name="dockWidgetArea">
     <number>1</number>
    </attribute>
-   <widget class="QWidget" name="dockWidgetContents">
+   <widget class="QWidget" name="dockWidgetContentsComponentPlugins">
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QListWidget" name="listWidget_ComponentPlugins"/>
+      <widget class="QListWidget" name="listWidgetComponentPlugins"/>
      </item>
     </layout>
    </widget>
   </widget>
-  <widget class="QDockWidget" name="dockWidgetElements">
+  <widget class="QDockWidget" name="dockWidgetElementPlugins">
+   <property name="maximumSize">
+    <size>
+     <width>200</width>
+     <height>524287</height>
+    </size>
+   </property>
    <property name="features">
     <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
    </property>
@@ -289,10 +378,10 @@
    <attribute name="dockWidgetArea">
     <number>1</number>
    </attribute>
-   <widget class="QWidget" name="dockWidgetContents_2">
+   <widget class="QWidget" name="dockWidgetContentsElementPlugins">
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
-      <widget class="QListWidget" name="listWidget_ElementPlugins"/>
+      <widget class="QListWidget" name="listWidgetElementPlugins"/>
      </item>
     </layout>
    </widget>
@@ -307,17 +396,10 @@
    <attribute name="dockWidgetArea">
     <number>2</number>
    </attribute>
-   <widget class="QWidget" name="dockWidgetContents_3">
+   <widget class="QWidget" name="dockWidgetContentsProperties">
     <layout class="QVBoxLayout" name="verticalLayout_3">
      <item>
-      <widget class="QTableView" name="tableView_Properties">
-       <property name="verticalScrollBarPolicy">
-        <enum>Qt::ScrollBarAlwaysOn</enum>
-       </property>
-       <property name="horizontalScrollBarPolicy">
-        <enum>Qt::ScrollBarAsNeeded</enum>
-       </property>
-      </widget>
+      <widget class="QTableWidget" name="tableWidgetProperties"/>
      </item>
     </layout>
    </widget>
@@ -338,7 +420,7 @@
    <attribute name="dockWidgetArea">
     <number>8</number>
    </attribute>
-   <widget class="QWidget" name="dockWidgetContents_4">
+   <widget class="QWidget" name="dockWidgetContentsConsole">
     <layout class="QVBoxLayout" name="verticalLayout_4">
      <item>
       <widget class="QTextEdit" name="textEdit_Console">
@@ -359,34 +441,6 @@
        </property>
        <property name="textInteractionFlags">
         <set>Qt::NoTextInteraction</set>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-  </widget>
-  <widget class="QDockWidget" name="dockWidget">
-   <property name="features">
-    <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
-   </property>
-   <property name="windowTitle">
-    <string>Report</string>
-   </property>
-   <attribute name="dockWidgetArea">
-    <number>8</number>
-   </attribute>
-   <widget class="QWidget" name="dockWidgetContents_5">
-    <layout class="QVBoxLayout" name="verticalLayout_5">
-     <item>
-      <widget class="QTextEdit" name="textEdit_Report">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="verticalScrollBarPolicy">
-        <enum>Qt::ScrollBarAlwaysOn</enum>
        </property>
       </widget>
      </item>
@@ -690,7 +744,7 @@
   </action>
   <action name="actionComponents">
    <property name="text">
-    <string>Components</string>
+    <string>Plugins</string>
    </property>
   </action>
   <action name="actionElements">
@@ -806,10 +860,32 @@
     <string>Pause</string>
    </property>
   </action>
+  <action name="actionReports">
+   <property name="text">
+    <string>Reports</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
   <include location="resources.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>horizontalSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>label_2</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>377</x>
+     <y>324</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>431</x>
+     <y>312</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

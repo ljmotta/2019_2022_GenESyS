@@ -101,6 +101,7 @@ bool ModelPersistenceDefaultImpl1::save(std::string filename) {
 	Util::DecIndent();
     }
     Util::DecIndent();
+    this->_hasChanged = false;
     return true; // todo: check if save really saved successfully
 }
 
@@ -112,7 +113,7 @@ void ModelPersistenceDefaultImpl1::_saveContent(std::list<std::string>* content,
 
 bool ModelPersistenceDefaultImpl1::_loadFields(std::string line) {
     //std::regex regex{R"([=]+)"}; // split on space R"([\s]+)" TODO: HOW SEPARATOR WITH MORE THAN ONE CHAR
-    _model->tracer()->trace(Util::TraceLevel::debugOnly,line);
+    _model->tracer()->trace(Util::TraceLevel::everythingMostDetailed,line);
     bool res = true;
     std::regex regex{R"([;]+)"}; // split on "; ".TODO: How change it by the attribute _linefieldseparator ??
     std::sregex_token_iterator tit{line.begin(), line.end(), regex, -1};
@@ -252,6 +253,9 @@ bool ModelPersistenceDefaultImpl1::load(std::string filename) {
 	_model->tracer()->trace(Util::TraceLevel::simulatorInternal, "File successfully loaded with "+std::to_string(_model->components()->numberOfComponents())+" components and "+std::to_string(_model->elements()->numberOfElements())+" elements");
     }
     Util::DecIndent();
+    if (res) {
+	_hasChanged = false;
+    }
     return res;
 }
 
@@ -266,6 +270,6 @@ std::list<std::string>* ModelPersistenceDefaultImpl1::_adjustFieldsToSave(std::m
     return newList;
 }
 
-bool ModelPersistenceDefaultImpl1::isSaved() {
-    return _isSaved;
+bool ModelPersistenceDefaultImpl1::hasChanged() {
+    return _hasChanged;
 }

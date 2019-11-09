@@ -64,7 +64,6 @@ Model::Model(Simulator* simulator) {
 	    );
 }
 
-
 void Model::sendEntityToComponent(Entity* entity, Connection* connection, double timeDelay) {
     this->sendEntityToComponent(entity, connection->first, timeDelay, connection->second);
 }
@@ -85,12 +84,24 @@ void Model::sendEntityToComponent(Entity* entity, ModelComponent* component, dou
 }
 
 bool Model::save(std::string filename) {
-    return this->_modelPersistence->save(filename);
+    bool res = this->_modelPersistence->save(filename);
+    if (res) {
+	this->_traceManager->trace(Util::TraceLevel::modelResult, "Model successfully saved");
+    } else {
+	this->_traceManager->trace(Util::TraceLevel::modelResult, "Model could not be saved");
+
+    }
+    return res;
 }
 
 bool Model::load(std::string filename) {
     this->clear();
-    return this->_modelPersistence->load(filename);
+    bool res = this->_modelPersistence->load(filename);
+    if (res)
+	this->_traceManager->trace(Util::TraceLevel::modelResult, "Model successfully loaded");
+    else
+	this->_traceManager->trace(Util::TraceLevel::modelResult, "Model could not be loaded");
+    return res;
 }
 
 double Model::parseExpression(const std::string expression) {
@@ -134,21 +145,20 @@ void Model::show() {
 }
 
 bool Model::insert(ModelElement* elemOrComp) {
-    ModelComponent* comp = dynamic_cast<ModelComponent*>(elemOrComp);
-    if (comp==nullptr) // it's a ModelElement
+    ModelComponent* comp = dynamic_cast<ModelComponent*> (elemOrComp);
+    if (comp == nullptr) // it's a ModelElement
 	return this->elements()->insert(elemOrComp);
     else // it's a ModelComponent
 	return this->components()->insert(comp);
 }
 
-void Model::remove(ModelElement* elemOrComp){
-    ModelComponent* comp = dynamic_cast<ModelComponent*>(elemOrComp);
-    if (comp==nullptr) // it's a ModelElement
+void Model::remove(ModelElement* elemOrComp) {
+    ModelComponent* comp = dynamic_cast<ModelComponent*> (elemOrComp);
+    if (comp == nullptr) // it's a ModelElement
 	this->elements()->remove(elemOrComp);
     else // it's a ModelComponent
-	this->components()->remove(comp);    
+	this->components()->remove(comp);
 }
-
 
 void Model::_showElements() const {
     tracer()->trace(Util::TraceLevel::report, "Elements:");
@@ -230,11 +240,11 @@ bool Model::check() {
     bool res = this->_modelChecker->checkAll();
     Util::DecIndent();
     if (res) {
-	tracer()->trace(Util::TraceLevel::modelInternal, "End of Model checking: Success");
+	tracer()->trace(Util::TraceLevel::modelResult, "End of Model checking: Success");
     } else {
 	//std::exception e = new std::exception();
 	//getTrace()->traceError() ;
-	tracer()->trace(Util::TraceLevel::errorFatal, "End of Model checking: Failed");
+	tracer()->trace(Util::TraceLevel::modelResult, "End of Model checking: Failed");
     }
     return res;
 }
@@ -260,6 +270,15 @@ void Model::setTraceManager(TraceManager * _traceManager) {
 
 TraceManager * Model::tracer() const {
     return _traceManager;
+}
+
+bool Model::hasChanged() const {
+    bool changed = _hasChanged;
+    changed &= this->_componentManager->hasChanged();
+    changed &= this->_elementManager->hasChanged();
+    changed &= this->_modelInfo->hasChanged();
+    changed &= this->_modelPersistence->hasChanged();
+    return changed;
 }
 
 ComponentManager * Model::components() const {

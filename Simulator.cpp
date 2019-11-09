@@ -24,8 +24,8 @@ Simulator::Simulator() {
     _toolManager = new ToolManager(this);
     _traceManager = new TraceManager(this);
     std::cout << '|' << '\t' << _licenceManager->showLicence() << std::endl;
-    std::cout << '|' << '\t' << _licenceManager->showActivationCode() << std::endl;
-    std::cout << '|' << '\t' << _licenceManager->showLimits() << std::endl;
+    //std::cout << '|' << '\t' << _licenceManager->showActivationCode() << std::endl;
+    //std::cout << '|' << '\t' << _licenceManager->showLimits() << std::endl;
 }
 
 PluginManager* Simulator::plugins() const {

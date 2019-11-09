@@ -75,9 +75,8 @@ public: // only gets
     //List<ModelComponent*>* getComponents() const; ///< Returns the list of components (such as Create, Delay, Dispose, etc.) that make up the simulation model.
     List<Event*>* futureEvents() const;
     void setTraceManager(TraceManager* _traceManager);
-    TraceManager* tracer() const; ///< Provides access to the class that performs the trace of simulation and replications.
-    //List<Entity*>* getEntities() const;
-
+    TraceManager* tracer() const;///< Provides access to the class that performs the trace of simulation and replications.
+    bool hasChanged() const; 
     /*
      * PRIVATE
      */
@@ -87,6 +86,8 @@ private:
     void _showSimulationControls() const;
     void _showSimulationResponses() const;
     void _createModelInternalElements();
+private:
+    bool _hasChanged = false;
 private: // read only public access (gets)
     Util::identification _id;
     Simulator* _parentSimulator; /*! The parente of the model */

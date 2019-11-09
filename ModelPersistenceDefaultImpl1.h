@@ -24,7 +24,7 @@ public:
 public:
     virtual bool save(std::string filename);
     virtual bool load(std::string filename);
-    virtual bool isSaved();
+    virtual bool hasChanged();
 private:
     void _saveContent(std::list<std::string>* content, std::ofstream* file);
     bool _loadFields(std::string line);
@@ -35,7 +35,7 @@ private:
     std::list<std::map<std::string, std::string>*>* _componentFields = new std::list<std::map<std::string, std::string>*>();
 private:
     Model* _model = nullptr;
-    bool _isSaved = false;
+    bool _hasChanged = false;
     std::string _linefieldseparator = "; ";
 };
 

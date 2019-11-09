@@ -31,6 +31,7 @@ std::string ModelInfo::show(){
 
 void ModelInfo::setName(std::string _name) {
     this->_name = _name;
+    _hasChanged = true;
 }
 
 std::string ModelInfo::name() const {
@@ -39,6 +40,7 @@ std::string ModelInfo::name() const {
 
 void ModelInfo::setAnalystName(std::string _analystName) {
     this->_analystName = _analystName;
+    _hasChanged = true;
 }
 
 std::string ModelInfo::analystName() const {
@@ -47,6 +49,7 @@ std::string ModelInfo::analystName() const {
 
 void ModelInfo::setDescription(std::string _description) {
     this->_description = _description;
+    _hasChanged = true;
 }
 
 std::string ModelInfo::description() const {
@@ -55,6 +58,7 @@ std::string ModelInfo::description() const {
 
 void ModelInfo::setProjectTitle(std::string _projectTitle) {
     this->_projectTitle = _projectTitle;
+    _hasChanged = true;
 }
 
 std::string ModelInfo::projectTitle() const {
@@ -63,6 +67,7 @@ std::string ModelInfo::projectTitle() const {
 
 void ModelInfo::setVersion(std::string _version) {
     this->_version = _version;
+    _hasChanged = true;
 }
 
 std::string ModelInfo::version() const {
@@ -71,6 +76,7 @@ std::string ModelInfo::version() const {
 
 void ModelInfo::setNumberOfReplications(unsigned int _numberOfReplications) {
     this->_numberOfReplications = _numberOfReplications;
+    _hasChanged = true;
 }
 
 unsigned int ModelInfo::numberOfReplications() const {
@@ -79,6 +85,7 @@ unsigned int ModelInfo::numberOfReplications() const {
 
 void ModelInfo::setReplicationLength(double _replicationLength) {
     this->_replicationLength = _replicationLength;
+    _hasChanged = true;
 }
 
 double ModelInfo::replicationLength() const {
@@ -87,6 +94,7 @@ double ModelInfo::replicationLength() const {
 
 void ModelInfo::setReplicationLengthTimeUnit(Util::TimeUnit _replicationLengthTimeUnit) {
     this->_replicationLengthTimeUnit = _replicationLengthTimeUnit;
+    _hasChanged = true;
 }
 
 Util::TimeUnit ModelInfo::replicationLengthTimeUnit() const {
@@ -95,6 +103,7 @@ Util::TimeUnit ModelInfo::replicationLengthTimeUnit() const {
 
 void ModelInfo::setWarmUpPeriod(double _warmUpPeriod) {
     this->_warmUpPeriod = _warmUpPeriod;
+    _hasChanged = true;
 }
 
 double ModelInfo::warmUpPeriod() const {
@@ -103,6 +112,7 @@ double ModelInfo::warmUpPeriod() const {
 
 void ModelInfo::setWarmUpPeriodTimeUnit(Util::TimeUnit _warmUpPeriodTimeUnit) {
     this->_warmUpPeriodTimeUnit = _warmUpPeriodTimeUnit;
+    _hasChanged = true;
 }
 
 Util::TimeUnit ModelInfo::warmUpPeriodTimeUnit() const {
@@ -111,6 +121,7 @@ Util::TimeUnit ModelInfo::warmUpPeriodTimeUnit() const {
 
 void ModelInfo::setTerminatingCondition(std::string _terminatingCondition) {
     this->_terminatingCondition = _terminatingCondition;
+    _hasChanged = true;
 }
 
 std::string ModelInfo::terminatingCondition() const {
@@ -130,6 +141,7 @@ void ModelInfo::loadInstance(std::map<std::string, std::string>* fields) {
     this->_version = (*fields->find("version")).second;
     this->_warmUpPeriod = std::stod((*fields->find("warmUpTime")).second);
     this->_warmUpPeriodTimeUnit = static_cast<Util::TimeUnit>(std::stoi((*(fields->find("warmUpTimeTimeUnit"))).second));
+    _hasChanged = false;
 }
 
 //TODO!: implement check method (to check things like terminating condition)
@@ -148,5 +160,10 @@ std::map<std::string, std::string>* ModelInfo::saveInstance() {
     fields->emplace("version", version());
     fields->emplace("warmUpTime", std::to_string(warmUpPeriod()));
     fields->emplace("warmUpTimeTimeUnit", std::to_string(static_cast<int> (warmUpPeriodTimeUnit())));
+    _hasChanged = false;
     return fields;
+}
+
+bool ModelInfo::hasChanged() const {
+    return _hasChanged;
 }

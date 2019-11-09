@@ -160,28 +160,28 @@ void ModelSimulation::_actualizeSimulationStatistics() {
 
 void ModelSimulation::_showSimulationHeader() {
     TraceManager* tm = _model->tracer();
-    tm->traceReport(Util::TraceLevel::modelSimulationEvent, "\n-----------------------------------------------------");
+    tm->traceReport("\n-----------------------------------------------------");
     // simulator infos
-    tm->traceReport(Util::TraceLevel::modelSimulationEvent, _model->parentSimulator()->name());
-    tm->traceReport(Util::TraceLevel::modelSimulationEvent, _model->parentSimulator()->licenceManager()->showLicence());
-    tm->traceReport(Util::TraceLevel::modelSimulationEvent, _model->parentSimulator()->licenceManager()->showLimits());
+    tm->traceReport(_model->parentSimulator()->name());
+    tm->traceReport(_model->parentSimulator()->licenceManager()->showLicence());
+    tm->traceReport(_model->parentSimulator()->licenceManager()->showLimits());
     // model infos
-    tm->traceReport(Util::TraceLevel::modelSimulationEvent, "Analyst Name: " + _info->analystName());
-    tm->traceReport(Util::TraceLevel::modelSimulationEvent, "Project Title: " + _info->projectTitle());
-    tm->traceReport(Util::TraceLevel::modelSimulationEvent, "Number of Replications: " + std::to_string(_info->numberOfReplications()));
-    tm->traceReport(Util::TraceLevel::modelSimulationEvent, "Replication Length: " + std::to_string(_info->replicationLength()) + " " + Util::StrTimeUnit(_info->replicationLengthTimeUnit()));
+    tm->traceReport("Analyst Name: " + _info->analystName());
+    tm->traceReport("Project Title: " + _info->projectTitle());
+    tm->traceReport("Number of Replications: " + std::to_string(_info->numberOfReplications()));
+    tm->traceReport("Replication Length: " + std::to_string(_info->replicationLength()) + " " + Util::StrTimeUnit(_info->replicationLengthTimeUnit()));
     //tm->traceReport(Util::TraceLevel::simulation, "");
     // model controls and responses
     std::string controls;
     for (std::list<SimulationControl*>::iterator it = _model->controls()->list()->begin(); it != _model->controls()->list()->end(); it++) {
 	controls += (*it)->name() + "(" + (*it)->type() + "), ";
     }
-    tm->traceReport(Util::TraceLevel::modelSimulationEvent, "Simulation controls: " + controls);
+    tm->traceReport("Simulation controls: " + controls);
     std::string responses;
     for (std::list<SimulationResponse*>::iterator it = _model->responses()->list()->begin(); it != _model->responses()->list()->end(); it++) {
 	responses += (*it)->name() + "(" + (*it)->type() + "), ";
     }
-    tm->traceReport(Util::TraceLevel::modelSimulationEvent, "Simulation responses: " + responses);
+    tm->traceReport("Simulation responses: " + responses);
 }
 
 /*!
@@ -297,7 +297,7 @@ void ModelSimulation::_checkWarmUpTime(Event* nextEvent) {
     double warmupTime = Util::TimeUnitConvert(_model->infos()->warmUpPeriodTimeUnit(), _model->infos()->replicationLengthTimeUnit());
     warmupTime *= _model->infos()->warmUpPeriod();
     if (warmupTime > 0.0 && _model->simulation()->simulatedTime() <= warmupTime && nextEvent->time() > warmupTime) {// warmuTime. Time to initStats
-	_model->tracer()->trace(Util::TraceLevel::modelSimulationEvent, "Warmup time reached. Statistics are being reseted.");
+	_model->tracer()->trace(Util::TraceLevel::modelInternal, "Warmup time reached. Statistics are being reseted.");
 	_initStatistics();
     }
 }

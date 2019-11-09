@@ -56,10 +56,10 @@ bool PluginManager::_insert(Plugin* plugin) {
 	    return false;
 	}
 	_plugins->insert(plugin);
-	this->_simulator->tracer()->trace(Util::TraceLevel::simulatorDetailed, "Plugin successfully inserted");
+	this->_simulator->tracer()->trace(Util::TraceLevel::simulatorResult, "Plugin successfully inserted");
 	return true;
     } else {
-	this->_simulator->tracer()->trace(Util::TraceLevel::errorRecover, "Invalid plugin");
+	this->_simulator->tracer()->trace(Util::TraceLevel::simulatorResult, "Plugin could not be inserted");
 	plugin->~Plugin(); // destroy the invalid plugin
 	return false;
     }
@@ -70,7 +70,6 @@ bool PluginManager::check(std::string dynamicLibraryFilename) {
     try {
 	plugin = _pluginConnector->check(dynamicLibraryFilename);
     } catch (...) {
-
 	return false;
     }
     return (plugin != nullptr);
@@ -104,11 +103,12 @@ bool PluginManager::remove(Plugin* plugin) {
 	try {
 	    _pluginConnector->disconnect(plugin);
 	} catch (...) {
-
 	    return false;
 	}
+	_simulator->tracer()->trace(Util::TraceLevel::simulatorResult, "Plugin successfully removed");
 	return true;
     }
+    _simulator->tracer()->trace(Util::TraceLevel::simulatorResult, "Plugin could not be removed");
     return false;
 }
 

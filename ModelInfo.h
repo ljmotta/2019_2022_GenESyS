@@ -52,6 +52,7 @@ public: // gets and sets
 public:
     void loadInstance(std::map<std::string, std::string>* fields);
     std::map<std::string, std::string>* saveInstance();
+    bool hasChanged() const;
 private: // with public access (get & set)
     // model general information
     std::string _name;
@@ -67,6 +68,7 @@ private: // with public access (get & set)
     double _warmUpPeriod = 0.0;
     Util::TimeUnit _warmUpPeriodTimeUnit = Util::TimeUnit::second;
     std::string _terminatingCondition = "";
+    bool _hasChanged = false;
 };
 
 #endif /* MODELINFO_H */

@@ -7,6 +7,10 @@
 #include <QStandardItem>
 #include <QListWidget>
 #include <QListWidgetItem>
+#include <QGraphicsScene>
+#include <QGraphicsView>
+#include <QGraphicsItem>
+#include <QBrush>
 
 MainWindow::MainWindow(QWidget *parent) :
 	QMainWindow(parent),
@@ -22,7 +26,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	//*****************************************************************
 	this->simulator = new Simulator();
 	TraceManager* tm = simulator->tracer();
-	tm->setTraceLevel(Util::TraceLevel::debugOnly);
+	tm->setTraceLevel(Util::TraceLevel::everythingMostDetailed);
 	tm->addTraceHandler<MainWindow>(this, &MainWindow::_traceHandler);
 	tm->addTraceReportHandler<MainWindow>(this, &MainWindow::_traceReportHandler);
 	tm->addTraceSimulationHandler<MainWindow>(this, &MainWindow::_traceSimulationHandler);
@@ -30,7 +34,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	_simulationInsertPlugins();
 	// refresh UI
 	_refreshActions();
-	_refreshTabWidgetModel();
+	_refreshWidgets();
 
 }
 
@@ -60,9 +64,9 @@ void MainWindow::_insertPluginUI(Plugin* plugin) {
 				plugtext += " ["+plugtextAdds.erase(0,1)+"]";
 			}
 			if (plugin->pluginInfo()->isComponent()) {
-				new QListWidgetItem(QString::fromStdString(plugtext), ui->listWidget_ComponentPlugins);
+				new QListWidgetItem(QString::fromStdString(plugtext), ui->listWidgetComponentPlugins);
 			} else {
-				new QListWidgetItem(QString::fromStdString(plugtext), ui->listWidget_ElementPlugins);
+				new QListWidgetItem(QString::fromStdString(plugtext), ui->listWidgetElementPlugins);
 			}
 		}
 	}
@@ -205,17 +209,58 @@ void MainWindow::_refreshActions(){
 	ui->actionSave->setEnabled(thereIsAtLeastOneModelOpenned);
 	ui->actionSave_as->setEnabled(thereIsAtLeastOneModelOpenned);
 	//ui->actionModels->setEnabled(thereIsAtLeastOneModelOpenned);
-	ui->menuModel->setEnabled(thereIsAtLeastOneModelOpenned);
-	ui->tabWidgetModels->setEnabled(thereIsAtLeastOneModelOpenned);
 }
 
-void MainWindow::_refreshTabWidgetModel() {
+void MainWindow::_refreshPropertyWidget() {
+	ui->tableWidgetProperties->insertColumn(1);
+	ui->tableWidgetProperties->insertRow(1);
+}
+
+void MainWindow::_refreshWidgets() {
 	bool thereIsAtLeastOneModelOpenned = simulator->models()->size() > 0;
-	if (!thereIsAtLeastOneModelOpenned)
-		ui->tabWidgetModels->clear(); // no models openned
+	ui->menuModel->setEnabled(thereIsAtLeastOneModelOpenned);
+	ui->groupBoxModel->setEnabled(thereIsAtLeastOneModelOpenned);
+	if (thereIsAtLeastOneModelOpenned) {
+		_refreshWidgetCurrentModel();
+	} else { // no models openned
+		ui->groupBoxModel->setTitle(tr(""));
+	}
+	_refreshPropertyWidget();
 }
 
-//*******************************************************************
+void MainWindow::_createUiForNewModel(Model* newModel) {
+	_refreshWidgets();
+}
+
+void MainWindow::_refreshWidgetCurrentModel() {
+	Model* m = simulator->models()->current();
+	ui->groupBoxModel->setTitle(QString::fromStdString(m->infos()->name()));
+	//ui->
+
+	QGraphicsScene *scene;
+	QGraphicsEllipseItem *ellipse;
+	QGraphicsRectItem *rectangle;
+	QGraphicsTextItem *text;
+	scene = new QGraphicsScene(this);
+	ui->graphicsViewModel->setScene(scene);
+	QBrush backBrush(Qt::gray);
+	scene->setBackgroundBrush(backBrush);
+	QBrush greenBrush(Qt::green);
+	QBrush blueBrush(Qt::blue);
+	QPen outlinePen(Qt::black);
+	outlinePen.setWidth(2);
+
+	rectangle = scene->addRect(100, 0, 80, 100, outlinePen, blueBrush);
+	rectangle->setFlag(QGraphicsItem::ItemIsMovable);
+	// addEllipse(x,y,w,h,pen,brush)
+	ellipse = scene->addEllipse(0, -100, 300, 60, outlinePen, greenBrush);
+	ellipse->setFlag(QGraphicsItem::ItemIsMovable);
+	text = scene->addText("genesys model", QFont("Arial", 12) );
+	// movable text
+	text->setFlag(QGraphicsItem::ItemIsMovable);
+}
+
+//***********************************************************simulator->models()->current()********
 // MAINWINDOW START
 //*******************************************************************
 
@@ -233,21 +278,6 @@ void MainWindow::on_actionExit_triggered()
 	if (reply == QMessageBox::Yes) {
 		//qDebug() << "Yes was clicked";
 		QApplication::quit();
-	} else {
-		//qDebug() << "Yes was *not* clicked";
-	}
-}
-
-void MainWindow::_createNewTabForModel(Model* newModel) {
-	QMessageBox::StandardButton reply;
-	reply = QMessageBox::question(this, "New", "Create new model?", QMessageBox::Yes|QMessageBox::No);
-	if (reply == QMessageBox::Yes) {
-		QWidget* newTabForModel= new QWidget(this);
-		mapSimUI.map(newModel, newTabForModel);
-		ui->tabWidgetModels->addTab(newTabForModel, QString::fromStdString(newModel->infos()->name()));
-		ui->tabWidgetModels->setCurrentIndex(ui->tabWidgetModels->count()-1);
-		_refreshActions();
-		_refreshTabWidgetModel();
 	}
 }
 
@@ -255,7 +285,9 @@ void MainWindow::on_actionNew_triggered()
 {
 	Model* newModel = new Model(simulator);
 	simulator->models()->insert(newModel);
-	_createNewTabForModel(newModel);
+	_createUiForNewModel(newModel);
+	_refreshActions();
+	_refreshWidgets();
 }
 
 void MainWindow::on_actionOpen_triggered()
@@ -274,16 +306,25 @@ void MainWindow::on_actionOpen_triggered()
 		}
 		bool loaded = simulator->models()->loadModel(fileName.toStdString());
 		if (loaded) {
-			_createNewTabForModel(simulator->models()->current());
+			_createUiForNewModel(simulator->models()->current());
 			_refreshActions();
-			_refreshTabWidgetModel();
+			_refreshWidgets();
 		}
 	}
 }
 
 void MainWindow::on_actionClose_triggered()
 {
-
+	Model* m = simulator->models()->current();
+	if (m->hasChanged()) {
+		QMessageBox::StandardButton reply;
+		reply = QMessageBox::question(this, "Exit", "Exit ReGeneSyS?", QMessageBox::Yes|QMessageBox::No);
+		if (reply == QMessageBox::No) {
+			return;
+		}
+	}
+	simulator->models()->remove(m);
+	_refreshWidgets();
 }
 
 void MainWindow::on_actionSave_triggered()
@@ -353,22 +394,26 @@ void MainWindow::on_actionGroup_triggered()
 
 void MainWindow::on_actionCheck_Model_triggered()
 {
-
+	bool res = simulator->models()->current()->check();
+	if (res)
+		QMessageBox::information(this, "Check", "Model check passed", QMessageBox::Ok);
+	else
+		QMessageBox::warning(this, "Check", "Model check failed", QMessageBox::Ok);
 }
 
 void MainWindow::on_actionStart_triggered()
 {
-
+	simulator->models()->current()->simulation()->start();
 }
 
 void MainWindow::on_actionStep_triggered()
 {
-
+simulator->models()->current()->simulation()->step();
 }
 
 void MainWindow::on_actionStop_triggered()
 {
-
+	simulator->models()->current()->simulation()->stop();
 }
 
 void MainWindow::on_actionRun_Control_triggered()
@@ -395,5 +440,12 @@ void MainWindow::on_actionInformation_triggered()
 {
 	DialogModelInformation dmi;
 	dmi.setModal(true);
+	dmi.setModelMVC(simulator->models()->current()->infos());
 	dmi.exec();
+}
+
+//************************************************************************
+
+void MainWindow::on_DialogInformation_actionAccept() {
+
 }
