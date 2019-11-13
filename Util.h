@@ -76,6 +76,7 @@ public:
 	day = 8,
 	week = 9
     };
+    //static std::string ToStrTimeUnit(TimeUnit tu);
 
     enum class TraceLevel : int {
 	noTraces = 0,

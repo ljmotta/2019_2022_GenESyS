@@ -17,6 +17,8 @@ public:
 	explicit DialogModelInformation(QWidget *parent = 0);
 	~DialogModelInformation();
 	void setModelMVC(ModelInfo* info);
+	ModelInfo getModelMVC();
+
 private slots:
 	void on_buttonBox_accepted();
 
@@ -34,9 +36,18 @@ private slots:
 
 	void on_buttonBox_clicked(QAbstractButton *button);
 
+	void on_spinBoxNumberofReplications_valueChanged(const QString &arg1);
+
+	void on_doubleSpinBoxReplicationLength_valueChanged(double arg1);
+
+	void on_doubleSpinBoxWarmupTime_valueChanged(double arg1);
+
+	void on_comboBoxReplicationLengthTimeUnit_currentIndexChanged(int index);
+
+	void on_comboBoxWarmupTimeTimeUnit_currentIndexChanged(int index);
+
 private:
 	Ui::DialogModelInformation *ui;
-	ModelInfo* _modelMVC;
 	bool _hasChanged = false;
 };
 

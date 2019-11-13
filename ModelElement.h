@@ -47,6 +47,7 @@ public: // static
     static void InitBetweenReplications(ModelElement* element);
 public:
     virtual std::string show();
+    List<ModelElement*> childrenElements() const;
 
 protected: // must be overriden by derived classes
     virtual bool _loadInstance(std::map<std::string, std::string>* fields);
@@ -63,6 +64,8 @@ protected:
     std::string _name;
     std::string _typename;
     Model* _parentModel;
+protected:
+    List<ModelElement*> _childrenElements = new List<ModelElement*>(); 
 };
 
 #endif /* MODELELEMENT_H */

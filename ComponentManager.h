@@ -34,6 +34,8 @@ public:
     unsigned int numberOfComponents();
     std::list<ModelComponent*>::iterator begin();
     std::list<ModelComponent*>::iterator end();
+    ModelComponent* front();
+    ModelComponent* next();
     bool hasChanged() const;
     void setHasChanged(bool _hasChanged);
     //int getRankOf(std::string name);
@@ -42,6 +44,7 @@ private:
     List<ModelComponent*>* _components;
     Model* _parentModel;
     bool _hasChanged = false;
+    std::list<ModelComponent*>::iterator _componentIterator;
 };
 
 #endif /* COMPONENTMANAGER_H */

@@ -94,7 +94,9 @@ SOURCES += \
         mainwindow.cpp \
     dialogabout.cpp \
     mapkernelandui.cpp \
-    dialogmodelinformation.cpp
+    dialogmodelinformation.cpp \
+    graphicalmodel.cpp \
+    graphicalmodelcomponent.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -107,7 +109,9 @@ HEADERS += \
         ../../../RebornedGenESyS/parserBisonFlex/stack.hh \
     dialogabout.h \
     mapkernelandui.h \
-    dialogmodelinformation.h
+    dialogmodelinformation.h \
+    graphicalmodel.h \
+    graphicalmodelcomponent.h
 
 FORMS += \
         mainwindow.ui \

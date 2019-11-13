@@ -35,7 +35,16 @@ ModelElement::ModelElement(Model* model, std::string thistypename, std::string n
 //}
 
 ModelElement::~ModelElement() {
-    _parentModel->tracer()->trace(Util::TraceLevel::everythingMostDetailed, "Element \""+this->_name+"\" was removed from the model");
+    _parentModel->tracer()->trace(Util::TraceLevel::everythingMostDetailed, "Removing Element \"" + this->_name + "\" from the model");
+    Util::IncIndent();
+    {
+	ModelElement* child;
+	while ( (child = _childrenElements->front()) != nullptr) {
+	    _childrenElements->pop_front();
+	    child->~ModelElement();
+	}
+    }
+    Util::DecIndent();
     _parentModel->elements()->remove(this);
 }
 
@@ -83,6 +92,10 @@ std::list<std::map<std::string,std::string>*>* ModelElement::_saveInstance(std::
 
 std::string ModelElement::show() {
     return "id=" + std::to_string(_id) + ",name=\"" + _name + "\"";
+}
+
+List<ModelElement*> ModelElement::childrenElements() const {
+    return _childrenElements;
 }
 
 Util::identification ModelElement::id() const {

@@ -11,6 +11,7 @@
 #include <QGraphicsView>
 #include <QGraphicsItem>
 #include <QBrush>
+#include <QTreeWidgetItem>
 
 MainWindow::MainWindow(QWidget *parent) :
 	QMainWindow(parent),
@@ -20,8 +21,6 @@ MainWindow::MainWindow(QWidget *parent) :
 	connect(ui->actionAbout, SIGNAL(triggered(bool)), this, SLOT(on_actionAbout_triggered()));
 
 	//--------------------------
-	// models
-	//ui->tabWidgetModels->clear(); // no models openned
 
 	//*****************************************************************
 	this->simulator = new Simulator();
@@ -64,10 +63,12 @@ void MainWindow::_insertPluginUI(Plugin* plugin) {
 				plugtext += " ["+plugtextAdds.erase(0,1)+"]";
 			}
 			if (plugin->pluginInfo()->isComponent()) {
-				new QListWidgetItem(QString::fromStdString(plugtext), ui->listWidgetComponentPlugins);
+				QTreeWidgetItem *plugItem = new QTreeWidgetItem(ui->treeWidgetPlugins);
+				plugItem->setText(1,QString::fromStdString(plugtext));
+				plugItem->setIcon(0, QIcon(QPixmap("/home/rlcancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/qtGuiProject/QtRebornedGenesys/resources/plugins/default_component.bmp")));
 			} else {
-				new QListWidgetItem(QString::fromStdString(plugtext), ui->listWidgetElementPlugins);
 			}
+			//new QListWidgetItem(QString::fromStdString(plugtext), ui->listWidgetPlugins);
 		}
 	}
 }
@@ -238,26 +239,49 @@ void MainWindow::_refreshWidgetCurrentModel() {
 	//ui->
 
 	QGraphicsScene *scene;
-	QGraphicsEllipseItem *ellipse;
-	QGraphicsRectItem *rectangle;
-	QGraphicsTextItem *text;
+	QGraphicsPixmapItem *pix;
 	scene = new QGraphicsScene(this);
 	ui->graphicsViewModel->setScene(scene);
-	QBrush backBrush(Qt::gray);
-	scene->setBackgroundBrush(backBrush);
-	QBrush greenBrush(Qt::green);
-	QBrush blueBrush(Qt::blue);
-	QPen outlinePen(Qt::black);
-	outlinePen.setWidth(2);
+	//QBrush backBrush(Qt::gray);
+	//scene->setBackgroundBrush(backBrush);
+	//QGraphicsEllipseItem *ellipse;
+	//QGraphicsRectItem *rectangle;
+	//QPixmap *pix;
+	//QGraphicsTextItem *text;
+	//QBrush greenBrush(Qt::green);
+	//QBrush blueBrush(Qt::cyan);
+	//QPen outlinePen(Qt::black);
+	//outlinePen.setWidth(1);
 
-	rectangle = scene->addRect(100, 0, 80, 100, outlinePen, blueBrush);
-	rectangle->setFlag(QGraphicsItem::ItemIsMovable);
+	std::list<ModelComponent*>::iterator it = m->components()->begin();
+	unsigned int i=0;
+	while (it != m->components()->end()) {
+		//pix=new QGraphicsPixmapItem(QPixmap("./resources/plugins/default_component.bmp"));
+		//scene->addItem(pix);
+		pix = scene->addPixmap(QPixmap("/home/rlcancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/qtGuiProject/QtRebornedGenesys/resources/plugins/default_component.bmp"));
+		pix->setFlag(QGraphicsItem::ItemIsMovable);
+		pix->setToolTip(QString::fromStdString("("+(*it)->classname()+ ") " + (*it)->name()));
+		pix->setOpacity(0.8);
+		pix->setX(i*100);
+		pix->setVisible(true);
+		//pix->
+		//rectangle = scene->addRect(i*200, 0, 160, 80, outlinePen, blueBrush);
+		//rectangle->setAcceptTouchEvents(true);
+		//rectangle->setOpacity(0.7);
+		//rectangle->setToolTip(QString::fromStdString("("+(*it)->classname()+ ") " + (*it)->name()));
+		//rectangle->setFlag(QGraphicsItem::ItemIsMovable);
+		//
+		//scene->addPixmap()
+		it++;
+		i++;
+	}
+
 	// addEllipse(x,y,w,h,pen,brush)
-	ellipse = scene->addEllipse(0, -100, 300, 60, outlinePen, greenBrush);
-	ellipse->setFlag(QGraphicsItem::ItemIsMovable);
-	text = scene->addText("genesys model", QFont("Arial", 12) );
+	//ellipse = scene->addEllipse(0, -100, 300, 60, outlinePen, greenBrush);
+	//ellipse->setFlag(QGraphicsItem::ItemIsMovable);
+	//text = scene->addText("genesys model", QFont("Arial", 12) );
 	// movable text
-	text->setFlag(QGraphicsItem::ItemIsMovable);
+	//text->setFlag(QGraphicsItem::ItemIsMovable);
 }
 
 //***********************************************************simulator->models()->current()********
@@ -293,7 +317,7 @@ void MainWindow::on_actionNew_triggered()
 void MainWindow::on_actionOpen_triggered()
 {
 	QString fileName = QFileDialog::getOpenFileName(this,
-													tr("Open Simulation Model"), "",
+													tr("Open Simulation Model"), "../RebornedGenESyS/temp/",
 													tr("Genesys Simulation Model (*.gsm);;All Files (*)"));
 	if (fileName.isEmpty())
 			return;
@@ -440,8 +464,23 @@ void MainWindow::on_actionInformation_triggered()
 {
 	DialogModelInformation dmi;
 	dmi.setModal(true);
-	dmi.setModelMVC(simulator->models()->current()->infos());
-	dmi.exec();
+	ModelInfo* infos = simulator->models()->current()->infos();
+	dmi.setModelMVC(infos);
+	if (dmi.exec() ==dmi.Accepted) {
+		ModelInfo ret = dmi.getModelMVC();
+		//general
+		infos->setAnalystName(ret.analystName());
+		infos->setDescription(ret.description());
+		infos->setName(ret.name());
+		infos->setProjectTitle(ret.projectTitle());
+		infos->setVersion(ret.version());
+		//simulation
+		infos->setNumberOfReplications(ret.numberOfReplications());
+		infos->setReplicationLength(ret.replicationLength());
+		infos->setReplicationLengthTimeUnit(ret.replicationLengthTimeUnit());
+		infos->setWarmUpPeriod(ret.warmUpPeriod());
+		infos->setWarmUpPeriodTimeUnit(ret.warmUpPeriodTimeUnit());
+	}
 }
 
 //************************************************************************
