@@ -17,7 +17,24 @@
 #include "ModelComponent.h"
 
 /*!
- This component ...
+Halt module
+DESCRIPTION
+The Halt module changes the status of a transporter unit to inactive. If the transporter
+is busy at the time when an entity enters the Halt module, the status is considered
+busy and inactive until the entity that controls the transporter frees the unit. If the
+transporter is idle at the time when an entity halts the transporter, it is set to inactive
+immediately. Once a transporter unit has been halted, no entities will get control of
+the transporter until it is activated.
+TYPICAL USES
+ Stop a forklift for scheduled maintenance
+ Disable a broken gurney in an emergency room
+PROMPTS
+Prompt Description
+Name Unique name of the module that will be displayed in the
+flowchart.
+Transporter Name Name of the transporter to halt.
+Unit Number Determines which of the transporter units in the transporter set to
+halt.
  */
 class Halt : public ModelComponent {
 public: // constructors

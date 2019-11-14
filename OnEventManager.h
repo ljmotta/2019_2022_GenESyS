@@ -17,7 +17,7 @@
 #include "List.h"
 #include "Event.h"
 
-/* TODO: To implement as item (1) for DS3
+/* \todo: To implement as item (1) for DS3
  * used to get and set values no matter the class (for process analyser)
  * should be a wait to invoke a getter or setter no matter the class (a pointer to a member function without specifying the class 
  */
@@ -68,7 +68,7 @@ public: // event listeners (handlers)
     void addOnEntityRemoveHandler(simulationEventHandler EventHandler);
     // for handlers that are class members (methods)
     template<typename Class> void addOnProcessEventHandler(Class * object, void (Class::*function)(SimulationEvent*));
-    // TODO ...
+    //  \todo: ...
 public:
     void NotifyReplicationStartHandlers(SimulationEvent* se);
     void NotifyReplicationStepHandlers(SimulationEvent* se);
@@ -91,19 +91,19 @@ private: // events listener
     List<simulationEventHandler>* _onSimulationEndHandlers = new List<simulationEventHandler>();
     // for handlers that are class members (methods)
     List<simulationEventHandlerMethod>* _onProcessEventHandlerMethods = new List<simulationEventHandlerMethod>();
-    // TODO ...
+    //  \todo: ...
 };
 
 // implementation for template methods
 
 template<typename Class> void OnEventManager::addOnProcessEventHandler(Class * object, void (Class::*function)(SimulationEvent*)) {
     simulationEventHandlerMethod handlerMethod = std::bind(function, object, std::placeholders::_1);
-    // TODO: if handlerMethod already insert, should not insert it again. Problem to solve <...> for function
+    // \todo: if handlerMethod already insert, should not insert it again. Problem to solve <...> for function
     //if (_onProcessEventHandlerMethods->find(handlerMethod) == _onProcessEventHandlerMethods->list()->end())
     this->_onProcessEventHandlerMethods->insert(handlerMethod);
     // trying unique to solve the issue
     //this->_onProcessEventHandlerMethods->list()->unique(); // does not work
-    // TODO probabily to override == operator for type simulationEventHandlerMethod
+    //  \todo: probabily to override == operator for type simulationEventHandlerMethod
 }
 
 // ... 

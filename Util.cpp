@@ -50,7 +50,7 @@ void Util::DecIndent() {
 }
 
 void Util::SepKeyVal(std::string str, std::string *key, std::string *value) {
-	// TODO: Check pointers when spliting string. There is an error
+	// \todo: Check pointers when spliting string. There is an error
 	//char *c;
 	bool settingKey = true;
 	//key = new std::string();

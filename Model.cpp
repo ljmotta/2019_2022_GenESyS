@@ -69,14 +69,14 @@ void Model::sendEntityToComponent(Entity* entity, Connection* connection, double
 }
 
 void Model::sendEntityToComponent(Entity* entity, ModelComponent* component, double timeDelay, unsigned int componentInputNumber) {
-    this->onEvents()->NotifyEntityMoveHandlers(new SimulationEvent(_simulation->currentReplicationNumber(), new Event(_simulation->simulatedTime(), entity, component, componentInputNumber))); //@TODO: Event should include information about "from component" and timeDelay, but it doesn't 
+    this->onEvents()->NotifyEntityMoveHandlers(new SimulationEvent(_simulation->currentReplicationNumber(), new Event(_simulation->simulatedTime(), entity, component, componentInputNumber))); //\todo: Event should include information about "from component" and timeDelay, but it doesn't 
     if (timeDelay > 0) {
 	// schedule to send it
 	Event* newEvent = new Event(this->simulation()->simulatedTime() + timeDelay, entity, component, componentInputNumber);
 	this->futureEvents()->insert(newEvent);
     } else {
 	// send it now
-	/* TODO -: supposed not to be a queue associated to a component */
+	/*  \todo: -: supposed not to be a queue associated to a component */
 	Util::DecIndent();
 	ModelComponent::Execute(entity, component, componentInputNumber);
 	Util::IncIndent();
@@ -108,7 +108,7 @@ double Model::parseExpression(const std::string expression) {
     try {
 	return _parser->parse(expression);
     } catch (...) {
-	return 0.0; //TODO HOW SAY THERE WAS AN ERROR?
+	return 0.0; // \todo: HOW SAY THERE WAS AN ERROR?
     }
 }
 
@@ -214,7 +214,7 @@ void Model::_showSimulationResponses() const {
 void Model::clear() {
     this->_componentManager->clear();
     this->_elementManager->clear();
-    //Util::ResetAllIds(); // TODO: To implement
+    //Util::ResetAllIds(); // \todo: To implement
 }
 
 void Model::_createModelInternalElements() {
@@ -254,7 +254,7 @@ bool Model::check() {
 //}
 
 void Model::removeEntity(Entity* entity, bool collectStatistics) {
-    /* TODO -: event onEntityRemove */
+    /*  \todo: -: event onEntityRemove */
     std::string entId = std::to_string(entity->entityNumber());
     this->elements()->remove(Util::TypeOf<Entity>(), entity);
     tracer()->trace("Entity " + entId + " was removed from the system");

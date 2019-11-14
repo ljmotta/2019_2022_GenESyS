@@ -15,16 +15,17 @@
 #include "Model.h"
 #include "Attribute.h"
 
-EntityGroup::EntityGroup(Model* model, std::string name) : ModelElement(model, Util::TypeOf<EntityGroup>(),name) {
+EntityGroup::EntityGroup(Model* model, std::string name) : ModelElement(model, Util::TypeOf<EntityGroup>(), name) {
     _initCStats();
 }
 
 void EntityGroup::_initCStats() {
     _cstatNumberInGroup = new StatisticsCollector(_parentModel, "Number In Group", this);
-    //_parentModel->insert(_cstatNumberInGroup);
+    _childrenElements->insert({"NumberInGroup", _cstatNumberInGroup});
 }
+
 EntityGroup::~EntityGroup() {
-    _parentModel->elements()->remove(Util::TypeOf<StatisticsCollector>(), _cstatNumberInGroup);
+    //_parentModel->elements()->remove(Util::TypeOf<StatisticsCollector>(), _cstatNumberInGroup);
 }
 
 std::string EntityGroup::show() {
@@ -60,7 +61,7 @@ Entity* EntityGroup::first() {
 //}
 
 PluginInformation* EntityGroup::GetPluginInformation() {
-    PluginInformation* info = new PluginInformation(Util::TypeOf<EntityGroup>(), &EntityGroup::LoadInstance); 
+    PluginInformation* info = new PluginInformation(Util::TypeOf<EntityGroup>(), &EntityGroup::LoadInstance);
     return info;
 }
 
@@ -91,10 +92,10 @@ std::map<std::string, std::string>* EntityGroup::_saveInstance() {
 
 bool EntityGroup::_check(std::string* errorMessage) {
     std::string newNeededAttributeName = "Entity.Group";
-    if (_parentModel->elements()->element(Util::TypeOf<Attribute>(), newNeededAttributeName ) == nullptr) {
-	    Attribute* attr1 = new Attribute(_parentModel, newNeededAttributeName );
-	    //_parentModel->insert(attr1);
-	}
+    if (_parentModel->elements()->element(Util::TypeOf<Attribute>(), newNeededAttributeName) == nullptr) {
+	Attribute* attr1 = new Attribute(_parentModel, newNeededAttributeName);
+	//_parentModel->insert(attr1);
+    }
     return true;
 }
 

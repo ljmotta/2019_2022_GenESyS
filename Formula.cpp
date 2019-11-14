@@ -46,7 +46,7 @@ void Formula::setExpression(std::string index, std::string formulaExpression) {
 std::string Formula::expression(std::string index) {
     std::map<std::string, std::string>::iterator it = _formulaExpressions->find(index);
     if (it == _formulaExpressions->end()) {
-	return ""; // index does not exist. No formula expressions returned. TODO: Should it be traced?. 
+	return ""; // index does not exist. No formula expressions returned. \todo: Should it be traced?. 
     } else {
 	return it->second;
     }

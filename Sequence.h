@@ -19,6 +19,31 @@
 #include "PluginInformation.h"
 #include "Station.h"
 
+/*!
+ * Sequence module
+DESCRIPTION
+The Sequence module is used to define a sequence for entity flow through the model.
+A sequence consists of an ordered list of stations that an entity will visit. For each
+station in the visitation sequence, attributes and variables may be assigned values.
+Each station in the visitation sequence is referred to as a step (or jobstep) in the
+sequence.
+Three special-purpose attributes are provided for all entities. The Sequence attribute
+(Entity.Sequence) defines the sequence that an entity is to follow; a value of 0
+indicates that the entity is not following any sequence. In order for an entity to follow
+a sequence, its Sequence attribute must be assigned a value (for example, in the
+Assign module).
+The Jobstep attribute (Entity.Jobstep) stores the entity’s current step number in the
+sequence. This value is updated automatically each time an entity is transferred. You
+typically do not need to assign explicitly a value to Jobstep in the model.
+The PlannedStation attribute (Entity.PlannedStation) stores the number of the station
+associated with the next jobstep in the sequence. This attribute is not user-assignable. 
+It is automatically updated whenever Entity.Sequence or Entity.JobStep changes, or
+whenever the entity enters a station.
+Jobstep names must be globally unique.
+TYPICAL USES
+ Define a routing path for part processing
+ Define a sequence of steps patients must take upon arrival at an emergency room
+ */
 class Sequence : public ModelElement {
 public:
     class SequenceStep {
@@ -39,8 +64,6 @@ protected:
     virtual bool _loadInstance(std::map<std::string, std::string>* fields);
     virtual std::map<std::string, std::string>* _saveInstance();
     virtual bool _check(std::string* errorMessage);
-//private:
-//    ElementManager* _elems;
 private:
 
 };

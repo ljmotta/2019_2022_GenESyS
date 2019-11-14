@@ -400,7 +400,7 @@ atribuicao  : ATRIB ASSIGN expressao    {
 		    $$.valor = $10.valor; }
             ;
 
-// TODO: THERE IS A PROBLEM WITH FORMULA: TO EVALUATE THE FORMULA EXPRESSION, PARSER IS REINVOKED, AND THEN IT CRASHES (NO REENTRACE?)
+// \todo: THERE IS A PROBLEM WITH FORMULA: TO EVALUATE THE FORMULA EXPRESSION, PARSER IS REINVOKED, AND THEN IT CRASHES (NO REENTRACE?)
 formula     : FORM	    { 
 		    $$.valor = ((Formula*)(driver.getModel()->elements()->element(Util::TypeOf<Formula>(), $1.id)))->value();} 
 	    | FORM LBRACKET expressao RBRACKET {

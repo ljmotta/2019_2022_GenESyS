@@ -19,7 +19,7 @@ Variable::Variable(Model* model, std::string name) : ModelElement(model, Util::T
 }
 
 std::string Variable::show() {
-    return ModelElement::show(); // @TODO: include values
+    return ModelElement::show(); // \todo: include values
 }
 
 PluginInformation* Variable::GetPluginInformation() {

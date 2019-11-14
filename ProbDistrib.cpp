@@ -34,7 +34,7 @@ double ProbDistrib::exponential(double x, double mean) {
 }
 
 double ProbDistrib::erlang(double x, double shape, double scale) { //
-    return ProbDistrib::gamma(x, shape, scale); // TODO: NOT EXACTLLY THIS... REDO 
+    return ProbDistrib::gamma(x, shape, scale); // \todo: NOT EXACTLLY THIS... REDO 
 }
 
 double ProbDistrib::normal(double x, double mean, double stddev) {

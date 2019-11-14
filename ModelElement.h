@@ -17,6 +17,7 @@
 #include <string>
 #include <list>
 #include <vector>
+#include <map>
 #include "Util.h"
 
 #include "ParserChangesInformation.h"
@@ -40,14 +41,17 @@ public: // get & set
     std::string name() const;
     std::string classname() const;
 public: // static
-    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields, bool insertIntoModel); // TODO: return ModelComponent* ?
+    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields, bool insertIntoModel); // \todo: return ModelComponent* ?
     static std::map<std::string, std::string>* SaveInstance(ModelElement* element);
     static bool Check(ModelElement* element, std::string* errorMessage);
     static void CreateInternalElements(ModelElement* element);
     static void InitBetweenReplications(ModelElement* element);
 public:
     virtual std::string show();
-    List<ModelElement*> childrenElements() const;
+    std::list<std::string>* childrenElementKeys() const;
+    ModelElement* childElement(std::string key) const;
+protected:
+    void _setChildElement(std::string key, ModelElement* child);
 
 protected: // must be overriden by derived classes
     virtual bool _loadInstance(std::map<std::string, std::string>* fields);
@@ -65,7 +69,7 @@ protected:
     std::string _typename;
     Model* _parentModel;
 protected:
-    List<ModelElement*> _childrenElements = new List<ModelElement*>(); 
+    std::map<std::string, ModelElement*>* _childrenElements = new std::map<std::string,ModelElement*>(); 
 };
 
 #endif /* MODELELEMENT_H */

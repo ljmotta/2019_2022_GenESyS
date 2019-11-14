@@ -18,7 +18,23 @@
 #include "Counter.h"
 #include "Plugin.h"
 
-
+/*!
+Dispose module
+DESCRIPTION
+This module is intended as the ending point for entities in a simulation model. Entity
+statistics may be recorded before the entity is disposed of.
+TYPICAL USES
+ Parts leaving the modeled facility
+ The termination of a business process
+ Customers departing from the store
+Prompt Description
+Name Unique module identifier displayed on the module shape.
+Record Entity Statistics Determines whether or not the incoming entity’s statistics will be
+recorded. Statistics include value-added time, non-value-added
+time, wait time, transfer time, other time, total time, value-added
+cost, non-value-added cost, wait cost, transfer cost, other cost,
+and total cost. 
+ */
 class Dispose : public SinkModelComponent {
 public:
     Dispose(Model* model, std::string name="");

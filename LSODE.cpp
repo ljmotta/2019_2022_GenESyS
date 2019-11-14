@@ -71,7 +71,7 @@ bool LSODE::_doStep() {
     time = _timeVariable->value();
     initTime = time;
     tnow = _parentModel->simulation()->simulatedTime();
-    bool res = time + _step <= tnow + 1e-15; // TODO: numerical error treatment by just adding 1e-15
+    bool res = time + _step <= tnow + 1e-15; // \todo: numerical error treatment by just adding 1e-15
     if (res) {
 	halfStep = _step * 0.5;
 	for (i = 0; i < numEqs; i++) {//(std::list<std::string>::iterator it = eqs->begin(); it != eqs->end(); it++) {

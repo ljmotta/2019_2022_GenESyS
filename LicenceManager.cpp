@@ -49,12 +49,12 @@ const std::string LicenceManager::showActivationCode() const {
 }
 
 bool LicenceManager::lookforActivationCode() {
-    // @TODO: Not implemented yet
+    // \todo: Not implemented yet
     return false;
 }
 
 bool LicenceManager::insertActivationCode() {
-    // @TODO: Not implemented yet
+    // \todo: Not implemented yet
     return false;
 }
 

@@ -138,10 +138,10 @@ Queue* Seize::getQueue() const {
     return _queue;
 }
 void Seize::_execute(Entity* entity) {
-    /* TODO +: not implemented yet */
+    /*  \todo: +: not implemented yet */
     Resource* resource = nullptr;
     if (this->_resourceType == Resource::ResourceType::SET) {
-	/* TODO +: not implemented yet */
+	/*  \todo: +: not implemented yet */
     } else {
 	resource = this->_resource;
     }

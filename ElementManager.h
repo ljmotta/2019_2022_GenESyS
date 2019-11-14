@@ -48,7 +48,7 @@ public:
 
     //private:
 public:
-    // TODO: MUST BE PRIVATE
+    // \todo: MUST BE PRIVATE
     List<ModelElement*>* elementList(std::string infraTypename) const;
 public:
     void show();

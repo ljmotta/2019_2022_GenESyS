@@ -61,7 +61,7 @@ void ModelSimulation::start() {
 	{
 	    while (!_isReplicationEndCondition()) {
 		_stepSimulation();
-		// TODO: Find a better way to separate start, step, pause, stop. Should allow to step without start, start, pause and then just step, and in the last step invoke the final part of simulation (wich is actually inside start method
+		// \todo: Find a better way to separate start, step, pause, stop. Should allow to step without start, start, pause and then just step, and in the last step invoke the final part of simulation (wich is actually inside start method
 		//if (_pauseOnEvent) {
 		//    std::cout << "[paused] ...press any key to continue...";
 		//    std::cin.get();
@@ -96,7 +96,7 @@ void ModelSimulation::start() {
 }
 
 void ModelSimulation::_actualizeSimulationStatistics() {
-    //@todo: should not be only CSTAT and COUNTER, but any element that generateReportInformation
+    //\todo: should not be only CSTAT and COUNTER, but any element that generateReportInformation
     const std::string UtilTypeOfStatisticsCollector = Util::TypeOf<StatisticsCollector>();
     const std::string UtilTypeOfCounter = Util::TypeOf<Counter>();
 
@@ -191,7 +191,7 @@ void ModelSimulation::_initSimulation() {
     _showSimulationHeader();
     _model->tracer()->trace(Util::TraceLevel::modelSimulationEvent, "Simulation of model \"" + _info->name() + "\" is starting.");
     // copy all CStats and Counters (used in a replication) to CStats and counters for the whole simulation
-    // @TODO: Should not be CStats and Counters, but any element that generates report importation
+    // \todo: Should not be CStats and Counters, but any element that generates report importation
     this->_statsCountersSimulation->clear();
     StatisticsCollector* cstat;
     List<ModelElement*>* cstats = _model->elements()->elementList(Util::TypeOf<StatisticsCollector>());
@@ -203,7 +203,7 @@ void ModelSimulation::_initSimulation() {
 	this->_statsCountersSimulation->insert(newCStatSimul);
     }
     // copy all Counters (used in a replication) to Counters for the whole simulation
-    // @TODO: Counters in replication should be converted into CStats in simulation. Each value counted in a replication should be added in a CStat for Stats.
+    // \todo: Counters in replication should be converted into CStats in simulation. Each value counted in a replication should be added in a CStat for Stats.
     Counter* counter;
     List<ModelElement*>* counters = _model->elements()->elementList(Util::TypeOf<Counter>());
     for (std::list<ModelElement*>::iterator it = counters->list()->begin(); it != counters->list()->end(); it++) {

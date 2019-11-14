@@ -35,7 +35,7 @@ bool ModelCheckerDefaultImpl1::checkAll() {
 }
 
 //bool ModelCheckerDefaultImpl1::checkAndAddInternalLiterals() {
-//    /* TODO +-: not implemented yet */
+//    /*  \todo: +-: not implemented yet */
 //    return true;
 //}
 
@@ -145,7 +145,7 @@ end;
  */
 
 bool ModelCheckerDefaultImpl1::checkConnected() {
-    /* TODO +-: not implemented yet */
+    /*  \todo: +-: not implemented yet */
     _model->tracer()->trace(Util::TraceLevel::toolInternal, "Checking connected");
     bool resultAll = true;
     PluginManager* pluginManager = this->_model->parentSimulator()->plugins();
@@ -309,7 +309,7 @@ bool ModelCheckerDefaultImpl1::checkSymbols() {
 }
 
 bool ModelCheckerDefaultImpl1::checkActivationCode() {
-    /* TODO +-: not implemented yet */
+    /*  \todo: +-: not implemented yet */
     _model->tracer()->trace(Util::TraceLevel::toolInternal, "Checking activation code");
     Util::IncIndent();
     {
@@ -359,7 +359,7 @@ bool ModelCheckerDefaultImpl1::verifySymbol(std::string componentName, std::stri
 	_model->getTraceManager()->getErrorMessages()->insert("Error verifying symbol \"" + expressionName + "\" of component \"" + componentName + "\n: Mandatory symbol is empty");
 	res = false;
     }
-    // TODO: Not implemented yet 
+    // \todo: Not implemented yet 
     return res;
 }
  */

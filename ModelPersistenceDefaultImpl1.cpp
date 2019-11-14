@@ -102,7 +102,7 @@ bool ModelPersistenceDefaultImpl1::save(std::string filename) {
     }
     Util::DecIndent();
     this->_hasChanged = false;
-    return true; // todo: check if save really saved successfully
+    return true; // \todo: check if save really saved successfully
 }
 
 void ModelPersistenceDefaultImpl1::_saveContent(std::list<std::string>* content, std::ofstream* file) {
@@ -112,10 +112,10 @@ void ModelPersistenceDefaultImpl1::_saveContent(std::list<std::string>* content,
 }
 
 bool ModelPersistenceDefaultImpl1::_loadFields(std::string line) {
-    //std::regex regex{R"([=]+)"}; // split on space R"([\s]+)" TODO: HOW SEPARATOR WITH MORE THAN ONE CHAR
+    //std::regex regex{R"([=]+)"}; // split on space R"([\s]+)" \todo: HOW SEPARATOR WITH MORE THAN ONE CHAR
     _model->tracer()->trace(Util::TraceLevel::everythingMostDetailed,line);
     bool res = true;
-    std::regex regex{R"([;]+)"}; // split on "; ".TODO: How change it by the attribute _linefieldseparator ??
+    std::regex regex{R"([;]+)"}; // split on "; ". \todo:: How change it by the attribute _linefieldseparator ??
     std::sregex_token_iterator tit{line.begin(), line.end(), regex, -1};
     std::list<std::string> lstfields{tit,{}};
     // for each field, separate key and value and form a map

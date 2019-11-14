@@ -20,6 +20,20 @@
 #include "ParserChangesInformation.h"
 #include "PluginInformation.h"
 
+/*
+Storage module
+DESCRIPTION
+The Storage module defines the name of a storage. Storages are automatically created
+by any module that references the storage so that this module is seldom needed. The
+only time this module is needed is when a storage is defined as a member of a storage
+set or specified using an attribute or expression.
+TYPICAL USES
+ Defining an animate storage for a set of storages
+PROMPTS
+Prompt Description
+Name The name of the storage set being defined. This name must be
+unique.
+ */
 class Storage: public ModelElement {
 public:
     Storage(Model* model, std::string name="");
@@ -36,8 +50,6 @@ protected: // must be overriden by derived classes
 protected: // could be overriden by derived classes
     virtual bool _check(std::string* errorMessage);
     virtual ParserChangesInformation* _getParserChangesInformation();
-//private:
-//    ElementManager* _elems;
 };
 #endif /* STORAGE_H */
 

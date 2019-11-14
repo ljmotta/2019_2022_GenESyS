@@ -96,7 +96,7 @@ std::map<std::string, std::string>* Assign::_saveInstance() {
 bool Assign::_check(std::string* errorMessage) {
     Assignment* let;
     bool resultAll = true;
-    // TODO: Reimplement it. Since 201910, attributes may have index, just like "atrrib1[2]" or "att[10,1]". Because of that, the string may contain not only the name of the attribute, but also its index and therefore, fails on the test bellow.
+    // \todo: Reimplement it. Since 201910, attributes may have index, just like "atrrib1[2]" or "att[10,1]". Because of that, the string may contain not only the name of the attribute, but also its index and therefore, fails on the test bellow.
     for (std::list<Assignment*>::iterator it = _assignments->list()->begin(); it != _assignments->list()->end(); it++) {
 	let = (*it);
 	resultAll &= _parentModel->checkExpression(let->getExpression(), "assignment", errorMessage);

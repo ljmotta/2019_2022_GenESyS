@@ -111,7 +111,7 @@ private:
     static std::map<std::string, std::string> _S_TypeOf;
 
 public: // indentation and string
-    static unsigned int _S_indentation; // TODO: IS PRIVATE. ITS HERE JUST TO INCLUDE IT AS A WATCH
+    static unsigned int _S_indentation; // \todo: IS PRIVATE. ITS HERE JUST TO INCLUDE IT AS A WATCH
     static void SetIndent(const unsigned short indent);
     static void IncIndent();
     static void DecIndent();

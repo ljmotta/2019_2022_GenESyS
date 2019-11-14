@@ -65,7 +65,7 @@ void Write::_execute(Entity* entity) {
 	    message += msgElem->text;
 	}
 	if (msgElem->newline) {
-	    if (this->_writeToType == Write::WriteToType::SCREEN) { //@TODO: Write To FILE not implemented
+	    if (this->_writeToType == Write::WriteToType::SCREEN) { //\todo: Write To FILE not implemented
 		_parentModel->tracer()->trace(Util::TraceLevel::report, message);
 	    } else if (this->_writeToType == Write::WriteToType::FILE) {
 		// open file

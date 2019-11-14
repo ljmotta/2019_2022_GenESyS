@@ -19,7 +19,9 @@
 #include "ElementManager.h"
 #include "Plugin.h"
 
-
+/*!
+ The StatisticsCollector is the ModelElement responsible for collecting data from the model (using the Collector) and simultaneouly keeping statistics updated (using the Statistics)
+ */
 class StatisticsCollector : public ModelElement {//, public Statistics_if {
 public:
     StatisticsCollector(Model* model, std::string name="", ModelElement* parent=nullptr, bool insertIntoModel = true);

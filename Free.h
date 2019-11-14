@@ -17,7 +17,24 @@
 #include "ModelComponent.h"
 
 /*!
- This component ...
+Free module
+DESCRIPTION
+The Free module releases the entity’s most recently allocated transporter unit. If
+another entity is waiting in a queue to request or allocate the transporter, the
+transporter will be given to that entity. If there are no waiting entities at the time the
+transporter unit is freed, the transporter will wait idle at the freeing entity’s station
+location, unless otherwise specified in the Transporter module.
+TYPICAL USES
+ A part awaiting a shipping truck frees its forklift
+ An airport transfer cart completes its trip
+PROMPTS
+Prompt Description
+Name Unique name of the module that will be displayed in the
+flowchart.
+Transporter Name Name of the transporter to free. A blank value assumes the most
+recently allocated or requested transporter.
+Unit Number Determines which of the transporter units in the transporter set to
+free.
  */
 class Free : public ModelComponent {
 public: // constructors

@@ -21,7 +21,7 @@
  */
 class ModelPersistence_if {
 public:
-    // TODO: not a good interface for sure. The Bridge pattern should be a lot better
+    // \todo: not a good interface for sure. The Bridge pattern should be a lot better
     virtual bool save(std::string filename) = 0;
     virtual bool load(std::string filename) = 0;
     virtual bool hasChanged() = 0;

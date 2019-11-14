@@ -84,7 +84,7 @@ void OnEventManager::NotifyProcessEventHandlers(SimulationEvent* se) {
 }
 
 void OnEventManager::NotifySimulationStartHandlers(SimulationEvent* se) {
-    this->_NotifyHandlers(this->_onReplicationEndHandlers, se);
+    this->_NotifyHandlers(this->_onSimulationStartHandlers, se);
 }
 
 void OnEventManager::NotifySimulationEndHandlers(SimulationEvent* se) {

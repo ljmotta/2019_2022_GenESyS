@@ -79,7 +79,7 @@ Resource* Release::resource() const {
 void Release::_execute(Entity* entity) {
     Resource* resource = nullptr;
     if (this->_resourceType == Resource::ResourceType::SET) {
-	/* TODO +: not implemented yet */
+	/*  \todo: +: not implemented yet */
     } else {
 	resource = this->_resource;
     }

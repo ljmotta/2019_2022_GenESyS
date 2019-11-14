@@ -195,8 +195,8 @@
           <itemPath>Route.h</itemPath>
         </logicalFolder>
         <logicalFolder name="f5" displayName="Transports" projectFiles="true">
-          <itemPath>Alocate.cpp</itemPath>
-          <itemPath>Alocate.h</itemPath>
+          <itemPath>Allocate.cpp</itemPath>
+          <itemPath>Allocate.h</itemPath>
           <itemPath>Free.cpp</itemPath>
           <itemPath>Free.h</itemPath>
           <itemPath>Halt.cpp</itemPath>
@@ -414,9 +414,9 @@
       </item>
       <item path="Access.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Alocate.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Allocate.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Alocate.h" ex="false" tool="3" flavor2="0">
+      <item path="Allocate.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="AnalysisOfVariance_if.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -1028,9 +1028,9 @@
       </item>
       <item path="Access.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Alocate.cpp" ex="false" tool="1" flavor2="0">
+      <item path="Allocate.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="Alocate.h" ex="false" tool="3" flavor2="0">
+      <item path="Allocate.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="AnalysisOfVariance_if.h" ex="false" tool="3" flavor2="0">
       </item>

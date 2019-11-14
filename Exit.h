@@ -17,7 +17,22 @@
 #include "ModelComponent.h"
 
 /*!
- This component ...
+Exit module
+DESCRIPTION
+The Exit module releases the entity’s cells on the specified conveyor. If another entity
+is waiting in queue for the conveyor at the same station when the cells are released, it
+will then access the conveyor.
+TYPICAL USES
+ Cases exit a conveyor for packing
+ Bad parts are removed from the conveyor and disposed
+ Passengers remove luggage from the baggage claim conveyor
+PROMPTS
+Prompt Description
+Name Unique name of the module that will be displayed in the
+flowchart.
+Conveyor Name Name of the conveyor on which the entity will exit. If left blank,
+the previously accessed conveyor is assumed.
+# of Cells Number of contiguous conveyor cells the entity will relinquish.
  */
 class Exit : public ModelComponent {
 public: // constructors

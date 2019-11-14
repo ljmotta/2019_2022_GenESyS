@@ -21,16 +21,15 @@ Resource::Resource(Model* model, std::string name) : ModelElement(model, Util::T
 
 void Resource::_initCStats() {
     _cstatTimeSeized = new StatisticsCollector(_parentModel, _name+"."+"Time_Seized", this);
-    //_parentModel->insert(_cstatTimeSeized);
     _numSeizes = new Counter(_parentModel, _name+"."+"Seizes", this);
-    //_parentModel->insert(_numSeizes);
     _numReleases = new Counter(_parentModel, _name+"."+"Releases", this);
-    //_parentModel->insert(_numReleases);
-
+    _childrenElements->insert({"TimeSeized",_cstatTimeSeized});
+    _childrenElements->insert({"NumSeizes",_numSeizes});
+    _childrenElements->insert({"NumReleases",_numReleases}); 
 }
 Resource::~Resource() {
-    _parentModel->elements()->remove(Util::TypeOf<StatisticsCollector>(), _cstatTimeSeized);
-    _cstatTimeSeized->~StatisticsCollector();
+    //_parentModel->elements()->remove(Util::TypeOf<StatisticsCollector>(), _cstatTimeSeized);
+    //_cstatTimeSeized->~StatisticsCollector();
 }
 
 std::string Resource::show() {
@@ -119,7 +118,7 @@ unsigned int Resource::getNumberBusy() const {
 }
 
 void Resource::addResourceEventHandler(ResourceEventHandler eventHandler) {
-    this->_resourceEventHandlers->insert(eventHandler); // TODO: priority should be registered as well, so handlers are invoqued ordered by priority
+    this->_resourceEventHandlers->insert(eventHandler); // \todo: priority should be registered as well, so handlers are invoqued ordered by priority
 }
 
 double Resource::getLastTimeSeized() const {

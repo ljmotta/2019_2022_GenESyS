@@ -17,7 +17,21 @@
 #include "ModelComponent.h"
 
 /*!
- This component ...
+Stop module
+DESCRIPTION
+The Stop module sets the operational status of a conveyor to inactive. The conveyor
+may have been activated from either the Start module or by initially being set to
+active at the start of the simulation. When the entity enters the Stop module, the
+conveyor will stop immediately, regardless of the type of conveyor or the number of
+entities currently on the conveyor.
+TYPICAL USES
+ Stop a baggage conveyor after a pre-determined amount of time
+ Stop a conveyor for scheduled maintenance
+PROMPTS
+Prompt Description
+Name Unique name of the module that will be displayed in the
+flowchart.
+Conveyor Name Name of the conveyor to stop.
  */
 class Stop : public ModelComponent {
 public: // constructors

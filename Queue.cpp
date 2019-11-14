@@ -15,20 +15,20 @@
 #include "Model.h"
 #include "Attribute.h"
 
-Queue::Queue(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Queue>(),name) {
+Queue::Queue(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Queue>(), name) {
     _initCStats();
 }
 
 void Queue::_initCStats() {
-    _cstatNumberInQueue = new StatisticsCollector(_parentModel, _name+"."+"Number_In_Queue", this); /* TODO: ++ WHY THIS INSERT "DISPOSE" AND "10ENTITYTYPE" STATCOLL ?? */
-    _cstatTimeInQueue = new StatisticsCollector(_parentModel, _name+"."+"Time_In_Queue", this);
-    //_parentModel->insert(_cstatNumberInQueue);
-    //_parentModel->insert(_cstatTimeInQueue);
-
+    _cstatNumberInQueue = new StatisticsCollector(_parentModel, _name + "." + "Number_In_Queue", this); /* \todo: ++ WHY THIS INSERT "DISPOSE" AND "10ENTITYTYPE" STATCOLL ?? */
+    _cstatTimeInQueue = new StatisticsCollector(_parentModel, _name + "." + "Time_In_Queue", this);
+    _childrenElements->insert({"NumberInQueue", _cstatNumberInQueue});
+    _childrenElements->insert({"TimeInQueue", _cstatTimeInQueue});
 }
+
 Queue::~Queue() {
-    _parentModel->elements()->remove(Util::TypeOf<StatisticsCollector>(), _cstatNumberInQueue);
-    _parentModel->elements()->remove(Util::TypeOf<StatisticsCollector>(), _cstatTimeInQueue);
+    //_parentModel->elements()->remove(Util::TypeOf<StatisticsCollector>(), _cstatNumberInQueue);
+    //_parentModel->elements()->remove(Util::TypeOf<StatisticsCollector>(), _cstatTimeInQueue);
 }
 
 std::string Queue::show() {
@@ -97,10 +97,6 @@ double Queue::getAttributeFromWaitingRank(unsigned int rank, Util::identificatio
     return 0.0;
 }
 
-//List<Waiting*>* Queue::getList() const {
-//	return _list;
-//}
-
 PluginInformation* Queue::GetPluginInformation() {
     PluginInformation* info = new PluginInformation(Util::TypeOf<Queue>(), &Queue::LoadInstance);
     return info;
@@ -139,7 +135,7 @@ bool Queue::_check(std::string* errorMessage) {
     return _parentModel->elements()->check(Util::TypeOf<Attribute>(), _attributeName, "AttributeName", false, errorMessage);
 }
 
-void Queue::_createInternalElements(){
+void Queue::_createInternalElements() {
     //_initCStats();
 }
 

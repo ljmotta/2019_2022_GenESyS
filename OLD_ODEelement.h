@@ -57,7 +57,6 @@ private:
     List<ODEfunction*>* _ODEfunctions = new List<ODEfunction*>();
     double _stepH = 0.1;
     double _endTime;
-    //ElementManager* _elems;
 };
 
 #endif /* OLD_ODEELEMENT_H */

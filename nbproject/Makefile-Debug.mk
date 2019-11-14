@@ -36,7 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/Access.o \
-	${OBJECTDIR}/Alocate.o \
+	${OBJECTDIR}/Allocate.o \
 	${OBJECTDIR}/Assign.o \
 	${OBJECTDIR}/Attribute.o \
 	${OBJECTDIR}/BaseConsoleGenesysApplication.o \
@@ -194,10 +194,10 @@ ${OBJECTDIR}/Access.o: Access.cpp nbproject/Makefile-${CND_CONF}.mk
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Access.o Access.cpp
 
-${OBJECTDIR}/Alocate.o: Alocate.cpp nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/Allocate.o: Allocate.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Alocate.o Alocate.cpp
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Allocate.o Allocate.cpp
 
 ${OBJECTDIR}/Assign.o: Assign.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

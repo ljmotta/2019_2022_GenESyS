@@ -38,10 +38,8 @@ ModelElement::~ModelElement() {
     _parentModel->tracer()->trace(Util::TraceLevel::everythingMostDetailed, "Removing Element \"" + this->_name + "\" from the model");
     Util::IncIndent();
     {
-	ModelElement* child;
-	while ( (child = _childrenElements->front()) != nullptr) {
-	    _childrenElements->pop_front();
-	    child->~ModelElement();
+	for (std::map<std::string,ModelElement*>::iterator it = _childrenElements->begin(); it != _childrenElements->end(); it++) {
+	    (*it).second->~ModelElement();
 	}
     }
     Util::DecIndent();
@@ -94,8 +92,9 @@ std::string ModelElement::show() {
     return "id=" + std::to_string(_id) + ",name=\"" + _name + "\"";
 }
 
-List<ModelElement*> ModelElement::childrenElements() const {
-    return _childrenElements;
+std::list<std::string>* ModelElement::childrenElementKeys() const {
+    std::list<std::string>* result = new std::list<std::string>();
+    return result;
 }
 
 Util::identification ModelElement::id() const {
@@ -114,7 +113,7 @@ std::string ModelElement::classname() const {
     return _typename;
 }
 
-//std::list<std::map<std::string,std::string>*>* ModelElement::_saveInstance() { /* TODO: REMOVE - IS PURE VIRTUAL  TEMP */
+//std::list<std::map<std::string,std::string>*>* ModelElement::_saveInstance() { /* \todo: REMOVE - IS PURE VIRTUAL  TEMP */
 //	std::list<std::map<std::string,std::string>*>* fiels = new std::map<std::string,std::string>();
 //	return fields;
 //}

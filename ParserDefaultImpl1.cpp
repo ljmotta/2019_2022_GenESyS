@@ -25,13 +25,13 @@ double ParserDefaultImpl1::parse(const std::string expression) { // may throw ex
 
 std::string* ParserDefaultImpl1::getErrorMessage() {
     std::string* errorMsg = new std::string();
-    return errorMsg; /* @TODO */
+    return errorMsg; /* @ \todo: */
 }
 
 double ParserDefaultImpl1::parse(const std::string expression, bool* success, std::string* errorMessage) {
     try {
 	double result = this->parse(expression);
-	std::string temp(""); /* TODO: CHECK SCOPE OF VARIABLE */
+	std::string temp(""); /* \todo: CHECK SCOPE OF VARIABLE */
 	errorMessage = &temp;
 	*success = true;
 	return result;

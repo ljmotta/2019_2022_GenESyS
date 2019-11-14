@@ -28,7 +28,7 @@ public:
 	GREATER_THAN = 3
     };
 public:
-    /* TODO: all "test" methods should return double p-value, not bool */
+    /* \todo: all "test" methods should return double p-value, not bool */
     virtual double testAverage(double confidencelevel, double avg, H1Comparition comp) = 0;
     virtual double testProportion(double confidencelevel, double prop, H1Comparition comp) = 0;
     virtual double testVariance(double confidencelevel, double var, H1Comparition comp) = 0;

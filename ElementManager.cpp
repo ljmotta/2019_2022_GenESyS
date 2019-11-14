@@ -16,7 +16,7 @@
 
 ElementManager::ElementManager(Model* model) {
     _parentModel = model;
-    /* TODO: -- Sort methods for elements should be a decorator */
+    /* \todo: -- Sort methods for elements should be a decorator */
     _elements = new std::map<std::string, List<ModelElement*>*>(); /// Elements are organized as a map from a string (key), the type of an element, and a list of elements of that type 
     //_elements->setSortFunc([](const ModelElement* a, const ModelElement * b) {
     //	return a->getId() < b->getId();

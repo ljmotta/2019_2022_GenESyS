@@ -15,9 +15,9 @@
 
 
     PluginInformation::PluginInformation(std::string pluginTypename, StaticLoaderComponentInstance componentloader) {
-	this->_componentloader = componentloader; ////TODO
-	this->_elementloader = nullptr; ///TODO
-	this->_isComponent = true;  ////TODO
+	this->_componentloader = componentloader; //// \todo:
+	this->_elementloader = nullptr; /// \todo:
+	this->_isComponent = true;  //// \todo:
 	this->_pluginTypename = pluginTypename;
     }
 
@@ -126,6 +126,38 @@
 
     void PluginInformation::setAuthor(std::string author) {
         this->_author = author;
+    }
+
+    void PluginInformation::setMaximumOutputs(unsigned short _maximumOutputs) {
+        this->_maximumOutputs = _maximumOutputs;
+    }
+
+    unsigned short PluginInformation::maximumOutputs() const {
+        return _maximumOutputs;
+    }
+
+    void PluginInformation::setMinimumOutputs(unsigned short _minimumOutputs) {
+        this->_minimumOutputs = _minimumOutputs;
+    }
+
+    unsigned short PluginInformation::minimumOutputs() const {
+        return _minimumOutputs;
+    }
+
+    void PluginInformation::setMaximumInputs(unsigned short _maximumInputs) {
+        this->_maximumInputs = _maximumInputs;
+    }
+
+    unsigned short PluginInformation::maximumInputs() const {
+        return _maximumInputs;
+    }
+
+    void PluginInformation::setMinimumInputs(unsigned short _minimumInputs) {
+        this->_minimumInputs = _minimumInputs;
+    }
+
+    unsigned short PluginInformation::minimumInputs() const {
+        return _minimumInputs;
     }
 
 

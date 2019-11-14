@@ -17,6 +17,38 @@
 #include "ModelComponent.h"
 #include "Station.h"
 
+/*!
+Route module
+DESCRIPTION
+The Route module transfers an entity to a specified station or the next station in the
+station visitation sequence defined for the entity. A delay time to transfer to the next
+station may be defined. 
+When an entity enters the Route module, its Station attribute (Entity.Station) is set to
+the destination station. The entity is then sent to the destination station, using the
+route time specified.
+If the station destination is entered as By Sequence, the next station is determined by
+the entity’s sequence and step within the set (defined by special-purpose attributes
+Entity.Sequence and Entity.Jobstep, respectively).
+TYPICAL USES
+ Send a part to its next processing station based on its routing slip
+ Send an account balance call to an account agent
+ Send restaurant customers to a specific table
+PROMPTS
+Prompt Description
+Name Unique name of the module that will be displayed in the
+flowchart.
+Route Time Travel time from the entity’s current location to the destination
+station.
+Units Time units for route-time parameters.
+Destination Type Method for determining the entity destination location. Selection
+of By Sequence requires that the entity has been assigned a
+sequence name and that the sequence itself has been defined.
+Station Name Name of the individual destination station.
+Attribute Name Name of the attribute that stores the station name to which
+entities will route.
+Expression Expression that is evaluated to the station name where entities
+will route.
+ */
 class Route : public ModelComponent {
 public:
 
@@ -51,6 +83,7 @@ private:
     std::string _routeTimeExpression = "0.0";
     Util::TimeUnit _routeTimeTimeUnit = Util::TimeUnit::second;
     Route::DestinationType _routeDestinationType = DestinationType::Station;
+private: // association
     Station* _station;
 };
 
