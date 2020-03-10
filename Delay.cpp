@@ -74,7 +74,7 @@ void Delay::_initBetweenReplications() {
 
 std::map<std::string, std::string>* Delay::_saveInstance() {
     std::map<std::string, std::string>* fields = ModelComponent::_saveInstance(); //Util::TypeOf<Delay>());
-    fields->emplace("delayExpression", this->_delayExpression);
+    fields->emplace("delayExpression", "\""+this->_delayExpression+"\"");
     fields->emplace("delayExpressionTimeUnit", std::to_string(static_cast<int> (this->_delayTimeUnit)));
     return fields;
 }

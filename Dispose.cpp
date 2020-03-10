@@ -17,6 +17,8 @@
 Dispose::Dispose(Model* model, std::string name) : SinkModelComponent(model, Util::TypeOf<Dispose>(),name) {
     _numberOut = new Counter(_parentModel, _name + "." + "Count_number_out", this);
     _parentModel->elements()->insert(_numberOut);
+    _connections->setMinOutputConnections(0);
+    _connections->setMaxOutputConnections(0);
 }
 
 

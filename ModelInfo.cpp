@@ -149,15 +149,15 @@ void ModelInfo::loadInstance(std::map<std::string, std::string>* fields) {
 std::map<std::string, std::string>* ModelInfo::saveInstance() {
     std::map<std::string, std::string>* fields = new std::map<std::string, std::string>();
     fields->emplace("typename", "ModelInfo");
-    fields->emplace("analystName", analystName());
-    fields->emplace("description", description());
-    fields->emplace("name", name());
+    fields->emplace("analystName", "\""+analystName()+"\"");
+    fields->emplace("description", "\""+description()+"\"");
+    fields->emplace("name", "\""+name()+"\"");
     fields->emplace("numberOfReplications", std::to_string(numberOfReplications()));
-    fields->emplace("projectTitle", projectTitle());
+    fields->emplace("projectTitle", "\""+projectTitle()+"\"");
     fields->emplace("replicationLength", std::to_string(replicationLength()));
     fields->emplace("replicationLengthTimeUnit", std::to_string(static_cast<int> (replicationLengthTimeUnit())));
-    fields->emplace("terminatingCondition", terminatingCondition());
-    fields->emplace("version", version());
+    fields->emplace("terminatingCondition", "\""+terminatingCondition()+"\"");
+    fields->emplace("version", "\""+version()+"\"");
     fields->emplace("warmUpTime", std::to_string(warmUpPeriod()));
     fields->emplace("warmUpTimeTimeUnit", std::to_string(static_cast<int> (warmUpPeriodTimeUnit())));
     _hasChanged = false;

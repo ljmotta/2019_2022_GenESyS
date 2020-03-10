@@ -21,6 +21,8 @@
 Create::Create(Model* model, std::string name) : SourceModelComponent(model, Util::TypeOf<Create>(),name) {
     _numberOut = new Counter(_parentModel, "Count number in", this);
     _parentModel->elements()->insert(_numberOut);
+    _connections->setMinInputConnections(0);
+    _connections->setMaxInputConnections(0);
     GetterMember getter = DefineGetterMember<SourceModelComponent>(this, &Create::entitiesPerCreation);
     SetterMember setter = DefineSetterMember<SourceModelComponent>(this, &Create::setEntitiesPerCreation);
     model->controls()->insert(new SimulationControl(Util::TypeOf<Create>(), "Entities Per Creation", getter,setter));

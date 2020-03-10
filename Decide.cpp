@@ -61,7 +61,7 @@ std::map<std::string, std::string>* Decide::_saveInstance() {
     unsigned short i = 0;
     fields->emplace("conditions", std::to_string(_conditions->size()));
     for (std::list<std::string>::iterator it = _conditions->list()->begin(); it != _conditions->list()->end(); it++) {
-	fields->emplace("condition" + std::to_string(i++), (*it));
+	fields->emplace("condition" + std::to_string(i++), "\""+(*it)+"\"");
     }
     return fields;
 }

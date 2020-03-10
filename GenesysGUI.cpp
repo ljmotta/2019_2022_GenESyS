@@ -12,10 +12,16 @@
  */
 
 #include "GenesysGUI.h"
+//#include "./qtGuiProject/QtRebornedGenesys/mainwindow.h"
+//#include <QApplication>
 
 GenesysGUI::GenesysGUI() {
 }
 
 int GenesysGUI::main(int argc, char** argv) {
+//    QApplication a(argc, argv);
+//    MainWindow w;
+//    w.show();
+//    return a.exec();
     return 0;
 }

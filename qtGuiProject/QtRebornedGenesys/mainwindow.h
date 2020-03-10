@@ -67,8 +67,12 @@ private slots:
 
 	void on_actionInformation_triggered();
 
-private slots:
-	void on_DialogInformation_actionAccept();
+public slots:
+	void on_DialogInformation_actionAccept(); // \todo
+	void on_dialogmodel_destroyed(QObject* obj);
+
+protected:
+	virtual void closeEvent(QCloseEvent *e);
 
 private:
 	Ui::MainWindow *ui;
@@ -101,8 +105,8 @@ private:
 	void __simulationInsert_FAKE_Plugins();
 	void _insertPluginUI(Plugin* plugin);
 private:
-	Simulator* simulator;
-	MapKernelAndUI mapSimUI;
+	Simulator* _simulator;
+	MapKernelAndUI* _mapSimUI = new MapKernelAndUI();
 };
 
 #endif // MAINWINDOW_H

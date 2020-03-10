@@ -40,7 +40,7 @@ int FirstExampleOfSimulation::main(int argc, char** argv) {
     simulator->tracer()->setTraceLevel(Util::TraceLevel::componentDetailed);
     // insert "fake plugins" since plugins based on dynamic loaded library are not implemented yet
     this->insertFakePluginsByHand(simulator);
-    bool wantToCreateNewModelAndSaveInsteadOfJustLoad = false;//true;
+    bool wantToCreateNewModelAndSaveInsteadOfJustLoad = true;
     Model* model;
     if (wantToCreateNewModelAndSaveInsteadOfJustLoad) {
 	// creates an empty model

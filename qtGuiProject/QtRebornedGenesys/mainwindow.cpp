@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "dialogabout.h"
 #include "dialogmodelinformation.h"
+#include "dialogsimulationmodel.h"
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QStandardItem>
@@ -12,6 +13,7 @@
 #include <QGraphicsItem>
 #include <QBrush>
 #include <QTreeWidgetItem>
+#include <QCloseEvent>
 
 MainWindow::MainWindow(QWidget *parent) :
 	QMainWindow(parent),
@@ -23,8 +25,8 @@ MainWindow::MainWindow(QWidget *parent) :
 	//--------------------------
 
 	//*****************************************************************
-	this->simulator = new Simulator();
-	TraceManager* tm = simulator->tracer();
+	this->_simulator = new Simulator(); // \todo: in an advanced model, simulation could come from a socket or rest api
+	TraceManager* tm = _simulator->tracer();
 	tm->setTraceLevel(Util::TraceLevel::everythingMostDetailed);
 	tm->addTraceHandler<MainWindow>(this, &MainWindow::_traceHandler);
 	tm->addTraceReportHandler<MainWindow>(this, &MainWindow::_traceReportHandler);
@@ -34,7 +36,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	// refresh UI
 	_refreshActions();
 	_refreshWidgets();
-
+	this->showMaximized();
 }
 
 MainWindow::~MainWindow()
@@ -76,7 +78,7 @@ void MainWindow::_insertPluginUI(Plugin* plugin) {
 void MainWindow::__simulationInsert_FAKE_Plugins() {
 	//Util::TraceLevel tl = simulator->tracer()->traceLevel();
 	//simulator->tracer()->setTraceLevel(Util::TraceLevel::debugOnly);
-	PluginManager* plm = simulator->plugins();
+	PluginManager* plm = _simulator->plugins();
 	_insertPluginUI(plm->insert("create.so"));
 	_insertPluginUI(plm->insert("dispose.so"));
 	_insertPluginUI(plm->insert("decide.so"));
@@ -184,6 +186,28 @@ void MainWindow::_traceSimulationHandler(TraceSimulationEvent e){
 	}
 	ui->textEdit_Console->append(QString::fromStdString(e.text()));
 }
+
+//-----------------------------------------------------------------
+// PROTECTED
+
+void MainWindow::closeEvent(QCloseEvent *e) {
+	QMessageBox::StandardButton resBtn = QMessageBox::Yes;
+	if (true) {
+		resBtn = QMessageBox::question( this, "Exit Application",
+										tr("Really want to exit?\n"),
+										QMessageBox::No | QMessageBox::Yes,
+										QMessageBox::Yes);
+	}
+	if (resBtn == QMessageBox::No) {
+		e->ignore();
+	} else {
+		// application will close. Iterate open models to close them before
+	}
+}
+
+//-----------------------------------------------------------------
+// PRIVATE
+
 // default Event Handlers
 void MainWindow::_onSimulationStartHandler(SimulationEvent* re){
 
@@ -205,7 +229,7 @@ void MainWindow::_onEntityRemoveHandler(SimulationEvent* re){
 }
 
 void MainWindow::_refreshActions(){
-	bool thereIsAtLeastOneModelOpenned = simulator->models()->size() > 0;
+	bool thereIsAtLeastOneModelOpenned = _simulator->models()->size() > 0;
 	ui->actionClose->setEnabled(thereIsAtLeastOneModelOpenned);
 	ui->actionSave->setEnabled(thereIsAtLeastOneModelOpenned);
 	ui->actionSave_as->setEnabled(thereIsAtLeastOneModelOpenned);
@@ -218,22 +242,24 @@ void MainWindow::_refreshPropertyWidget() {
 }
 
 void MainWindow::_refreshWidgets() {
-	bool thereIsAtLeastOneModelOpenned = simulator->models()->size() > 0;
+	bool thereIsAtLeastOneModelOpenned = _simulator->models()->size() > 0;
 	ui->menuModel->setEnabled(thereIsAtLeastOneModelOpenned);
-	ui->groupBoxModel->setEnabled(thereIsAtLeastOneModelOpenned);
+	ui->menuView->setEnabled(thereIsAtLeastOneModelOpenned);
+	//ui->groupBoxModel->setEnabled(thereIsAtLeastOneModelOpenned);
 	if (thereIsAtLeastOneModelOpenned) {
 		_refreshWidgetCurrentModel();
 	} else { // no models openned
-		ui->groupBoxModel->setTitle(tr(""));
+		//ui->groupBoxModel->setTitle(tr(""));
 	}
 	_refreshPropertyWidget();
 }
 
-void MainWindow::_createUiForNewModel(Model* newModel) {
-	_refreshWidgets();
-}
 
 void MainWindow::_refreshWidgetCurrentModel() {
+	Model* m = _simulator->models()->current();
+	//ui->groupBoxModel->setTitle(QString::fromStdString(m->infos()->name()));
+
+	/*
 	Model* m = simulator->models()->current();
 	ui->groupBoxModel->setTitle(QString::fromStdString(m->infos()->name()));
 	//ui->
@@ -282,6 +308,8 @@ void MainWindow::_refreshWidgetCurrentModel() {
 	//text = scene->addText("genesys model", QFont("Arial", 12) );
 	// movable text
 	//text->setFlag(QGraphicsItem::ItemIsMovable);
+
+	*/
 }
 
 //***********************************************************simulator->models()->current()********
@@ -290,25 +318,29 @@ void MainWindow::_refreshWidgetCurrentModel() {
 
 void MainWindow::on_actionAbout_triggered()
 {
-	DialogAbout da;
-	da.setModal(true);
-	da.exec();
+	DialogAbout dialog;
+	dialog.setModal(true);
+	dialog.exec();
 }
 
 void MainWindow::on_actionExit_triggered()
 {
-	QMessageBox::StandardButton reply;
-	reply = QMessageBox::question(this, "Exit", "Exit ReGeneSyS?", QMessageBox::Yes|QMessageBox::No);
-	if (reply == QMessageBox::Yes) {
-		//qDebug() << "Yes was clicked";
-		QApplication::quit();
-	}
+	this->close();
+}
+
+void MainWindow::_createUiForNewModel(Model* newModel) {
+	DialogSimulationModel* dialog = new DialogSimulationModel(newModel);
+	_mapSimUI->map(newModel, dialog);
+	connect(dialog, &DialogSimulationModel::destroyed, this, &MainWindow::on_dialogmodel_destroyed);
+	ui->mdiArea->addSubWindow(dialog);
+	dialog->showMaximized();
+	dialog->setVisible(true);
 }
 
 void MainWindow::on_actionNew_triggered()
 {
-	Model* newModel = new Model(simulator);
-	simulator->models()->insert(newModel);
+	Model* newModel = new Model(_simulator);
+	_simulator->models()->insert(newModel);
 	_createUiForNewModel(newModel);
 	_refreshActions();
 	_refreshWidgets();
@@ -328,9 +360,9 @@ void MainWindow::on_actionOpen_triggered()
 									 file.errorString());
 			return;
 		}
-		bool loaded = simulator->models()->loadModel(fileName.toStdString());
+		bool loaded = _simulator->models()->loadModel(fileName.toStdString());
 		if (loaded) {
-			_createUiForNewModel(simulator->models()->current());
+			_createUiForNewModel(_simulator->models()->current());
 			_refreshActions();
 			_refreshWidgets();
 		}
@@ -339,15 +371,12 @@ void MainWindow::on_actionOpen_triggered()
 
 void MainWindow::on_actionClose_triggered()
 {
-	Model* m = simulator->models()->current();
-	if (m->hasChanged()) {
-		QMessageBox::StandardButton reply;
-		reply = QMessageBox::question(this, "Exit", "Exit ReGeneSyS?", QMessageBox::Yes|QMessageBox::No);
-		if (reply == QMessageBox::No) {
-			return;
-		}
-	}
-	simulator->models()->remove(m);
+	Model* m = _simulator->models()->current();
+	// find the ui of that model
+	DialogSimulationModel* dialog = dynamic_cast<DialogSimulationModel*>(_mapSimUI->getUI(m));
+	//_simulator->models()->remove(m);
+	dialog->close();
+	//
 	_refreshWidgets();
 }
 
@@ -418,7 +447,7 @@ void MainWindow::on_actionGroup_triggered()
 
 void MainWindow::on_actionCheck_Model_triggered()
 {
-	bool res = simulator->models()->current()->check();
+	bool res = _simulator->models()->current()->check();
 	if (res)
 		QMessageBox::information(this, "Check", "Model check passed", QMessageBox::Ok);
 	else
@@ -427,17 +456,17 @@ void MainWindow::on_actionCheck_Model_triggered()
 
 void MainWindow::on_actionStart_triggered()
 {
-	simulator->models()->current()->simulation()->start();
+	_simulator->models()->current()->simulation()->start();
 }
 
 void MainWindow::on_actionStep_triggered()
 {
-simulator->models()->current()->simulation()->step();
+_simulator->models()->current()->simulation()->step();
 }
 
 void MainWindow::on_actionStop_triggered()
 {
-	simulator->models()->current()->simulation()->stop();
+	_simulator->models()->current()->simulation()->stop();
 }
 
 void MainWindow::on_actionRun_Control_triggered()
@@ -462,12 +491,12 @@ void MainWindow::on_tabWidgetModels_currentChanged(int index)
 
 void MainWindow::on_actionInformation_triggered()
 {
-	DialogModelInformation dmi;
-	dmi.setModal(true);
-	ModelInfo* infos = simulator->models()->current()->infos();
-	dmi.setModelMVC(infos);
-	if (dmi.exec() ==dmi.Accepted) {
-		ModelInfo ret = dmi.getModelMVC();
+	DialogModelInformation dialog;
+	dialog.setModal(true);
+	ModelInfo* infos = _simulator->models()->current()->infos();
+	dialog.setModelMVC(infos);
+	if (dialog.exec() ==dialog.Accepted) {
+		ModelInfo ret = dialog.getModelMVC();
 		//general
 		infos->setAnalystName(ret.analystName());
 		infos->setDescription(ret.description());
@@ -487,4 +516,8 @@ void MainWindow::on_actionInformation_triggered()
 
 void MainWindow::on_DialogInformation_actionAccept() {
 
+}
+
+void MainWindow::on_dialogmodel_destroyed(QObject* obj) {
+	std::cout << "Executando close";
 }

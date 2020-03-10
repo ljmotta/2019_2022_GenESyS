@@ -95,8 +95,8 @@ SOURCES += \
     dialogabout.cpp \
     mapkernelandui.cpp \
     dialogmodelinformation.cpp \
-    graphicalmodel.cpp \
-    graphicalmodelcomponent.cpp
+    graphicalmodelcomponent.cpp \
+    dialogsimulationmodel.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -110,13 +110,14 @@ HEADERS += \
     dialogabout.h \
     mapkernelandui.h \
     dialogmodelinformation.h \
-    graphicalmodel.h \
-    graphicalmodelcomponent.h
+    graphicalmodelcomponent.h \
+    dialogsimulationmodel.h
 
 FORMS += \
         mainwindow.ui \
     dialogabout.ui \
-    dialogmodelinformation.ui
+    dialogmodelinformation.ui \
+    dialogsimulationmodel.ui
 
 RESOURCES += \
     resources.qrc

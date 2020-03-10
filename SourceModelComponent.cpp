@@ -48,9 +48,9 @@ std::map<std::string, std::string>* SourceModelComponent::_saveInstance() {
     std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
     fields->emplace("entitiesPerCreation", std::to_string(this->_entitiesPerCreation));
     fields->emplace("firstCreation", std::to_string(this->_firstCreation));
-    fields->emplace("timeBetweenCreations", this->_timeBetweenCreationsExpression);
+    fields->emplace("timeBetweenCreations", "\""+this->_timeBetweenCreationsExpression+"\"");
     fields->emplace("timeBetweenCreationsTimeUnit", std::to_string(static_cast<int> (this->_timeBetweenCreationsTimeUnit)));
-    fields->emplace("maxCreations", this->_maxCreationsExpression);
+    fields->emplace("maxCreations", "\""+this->_maxCreationsExpression+"\"");
     fields->emplace("entityTypename", (this->_entityType->name())); // save the name
     //fields->emplace("collectStatistics" , std::to_string(this->_collectStatistics));
     return fields;

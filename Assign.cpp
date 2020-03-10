@@ -88,7 +88,7 @@ std::map<std::string, std::string>* Assign::_saveInstance() {
 
 	//fields->emplace("destinationType" + std::to_string(i), std::to_string(static_cast<int> (let->getDestinationType())));
 	fields->emplace("destination" + std::to_string(i), let->getDestination());
-	fields->emplace("expression" + std::to_string(i), let->getExpression());
+	fields->emplace("expression" + std::to_string(i), "\""+let->getExpression()+"\"");
     }
     return fields;
 }

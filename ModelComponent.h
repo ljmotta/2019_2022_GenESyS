@@ -44,18 +44,15 @@ public:
     static bool Check(ModelComponent* component);
     static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
     static std::map<std::string, std::string>* SaveInstance(ModelComponent* component);
-private:
-    ConnectionManager* _nextComponents = new ConnectionManager();
-    //List<Util::identification>* _tempLoadNextComponentsIDs; // initialize only when loading 
 protected: // pure virtual methods
     virtual void _execute(Entity* entity) = 0;
-protected:
+protected: // virtual methods
     virtual std::map<std::string, std::string>* _saveInstance();
     virtual bool _loadInstance(std::map<std::string, std::string>* fields);
     virtual void _createInternalElements(); ///< This method is necessary only for those components that instantiate internal elements that must exist before simulation starts and even before model checking. That's the case of components that have internal StatisticsCollectors, since others components may refer to them as expressions (as in "TVAG(ThisCSTAT)") and therefore the element must exist when checking such expression 
-
 protected:
-    //Model* _parentModel;
+    ConnectionManager* _connections = new ConnectionManager();
+    //List<Util::identification>* _tempLoadNextComponentsIDs; // initialize only when loading 
 };
 
 #endif /* MODELCOMPONENT_H */

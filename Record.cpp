@@ -75,9 +75,9 @@ void Record::_execute(Entity* entity) {
 
 std::map<std::string, std::string>* Record::_saveInstance() {
     std::map<std::string, std::string>* fields = ModelComponent::_saveInstance(); //Util::TypeOf<Record>());
-    fields->emplace("expression0" , this->_expression);
+    fields->emplace("expression0" , "\""+this->_expression+"\"");
     fields->emplace("expressionName0" , this->_expressionName);
-    fields->emplace("fileName0" , this->_filename);
+    fields->emplace("fileName0" , "\""+this->_filename+"\"");
     return fields;
 }
 

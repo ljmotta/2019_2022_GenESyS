@@ -158,15 +158,15 @@ T List<T>::getAtRank(unsigned int rank) {
 
 template <typename T>
 void List<T>::setAtRank(unsigned int rank, T element) {
-	unsigned int thisRank = 0;
-	for (typename std::list<T>::iterator it = _list->begin(); it != _list->end(); it++) {
+    unsigned int thisRank = 0;
+    for (typename std::list<T>::iterator it = _list->begin(); it != _list->end(); it++) {
 	if (rank == thisRank) {
-		*it = element;
-		return;
+	    *it = element;
+	    return;
 	} else {
-		thisRank++;
+	    thisRank++;
 	}
-	}
+    }
 }
 
 template <typename T>

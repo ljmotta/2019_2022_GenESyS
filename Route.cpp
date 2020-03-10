@@ -108,7 +108,7 @@ std::map<std::string, std::string>* Route::_saveInstance() {
     std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
     fields->emplace("stationId", std::to_string(this->_station->id()));
     fields->emplace("stationName", (this->_station->name()));
-    fields->emplace("routeTimeExpression", this->_routeTimeExpression);
+    fields->emplace("routeTimeExpression", "\""+this->_routeTimeExpression+"\"");
     fields->emplace("routeTimeTimeUnit", std::to_string(static_cast<int> (this->_routeTimeTimeUnit)));
     fields->emplace("routeDestinationType", std::to_string(static_cast<int> (this->_routeDestinationType)));
     return fields;

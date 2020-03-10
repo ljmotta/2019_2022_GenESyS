@@ -1,22 +1,22 @@
 # Genesys simulation model 
-# Last saved on Thu Nov  7 17:52:00 2019
+# Last saved on Tue Mar 10 16:19:50 2020
 # simulator infos
-name=ReGenESyS - REborn GENeric and Expansible SYstem Simulator; typename=SimulatorInfo; version=19.10 (Halloween19); 
+0   SimulatorInfo        name="ReGenESyS - REborn GENeric and Expansible SYstem Simulator"  version="19.10 (Halloween19)"  
 
 # model infos
-analystName=; description=; name=Model 1; numberOfReplications=1; projectTitle=; replicationLength=60.000000; replicationLengthTimeUnit=5; terminatingCondition=; typename=ModelInfo; version=1.0; warmUpTime=0.000000; warmUpTimeTimeUnit=5; 
+0   ModelInfo            analystName=""  description=""  name="Model 1"  numberOfReplications=1  projectTitle=""  replicationLength=60.000000  replicationLengthTimeUnit=5  terminatingCondition=""  version="1.0"  warmUpTime=0.000000  warmUpTimeTimeUnit=5  
 
 # model elements
-id=10; name=Entity.WaitTime; typename=Attribute; 
+1   EntityType           initialNVACost=0.000000  initialOtherCost=0.000000  initialPicture=report  initialVACost=0.000000  initialWaitingCost=0.000000  name=Type_of_Representative_Entity  
 
-id=1; initialNVACost=0.000000; initialOtherCost=0.000000; initialPicture=report; initialVACost=0.000000; initialWaitingCost=0.000000; name=Type_of_Representative_Entity; typename=EntityType; 
+10  Attribute            name=Entity.WaitTime  
 
-id=9; name=Entity.ArrivalTime; typename=Attribute; 
+9   Attribute            name=Entity.ArrivalTime  
 
 # model components
-delayExpression=1.0; delayExpressionTimeUnit=5; id=4; name=Delay_1; nextId0=5; nextInputNumber0=0; nextSize=1; typename=Delay; 
+2   Create               entitiesPerCreation=1  entityTypename=Type_of_Representative_Entity  firstCreation=0.000000  maxCreations="4294967295"  name=Create_1  nextId0=4  nextInputNumber0=0  nextSize=1  timeBetweenCreations="1.5"  timeBetweenCreationsTimeUnit=5  
 
-entitiesPerCreation=1; entityTypename=Type_of_Representative_Entity; firstCreation=0.000000; id=2; maxCreations=4294967295; name=Create_1; nextId0=4; nextInputNumber0=0; nextSize=1; timeBetweenCreations=1.5; timeBetweenCreationsTimeUnit=5; typename=Create; 
+4   Delay                delayExpression="1.0"  delayExpressionTimeUnit=5  name=Delay_1  nextId0=5  nextInputNumber0=0  nextSize=1  
 
-id=5; name=Dispose_1; nextSize=0; typename=Dispose; 
+5   Dispose              name=Dispose_1  nextSize=0  
 

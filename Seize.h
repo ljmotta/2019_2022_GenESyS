@@ -167,7 +167,7 @@ private:
     unsigned int _allocationType = 0; // uint ? enum?
     unsigned short _priority = 0;
     Resource::ResourceType _resourceType = Resource::ResourceType::RESOURCE;
-    std::string _quantity = "1";
+    std::string _quantityExpression = "1";
     Resource::ResourceRule _rule = Resource::ResourceRule::SMALLESTBUSY;
     std::string _saveAttribute = "";
     //std::string _resourceName = "Resource 1";  // trying to access resource and queue indirectly
