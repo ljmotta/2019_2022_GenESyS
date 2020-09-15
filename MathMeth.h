@@ -18,9 +18,9 @@
 
 class MathMeth {
 public:
-    MathMeth();
+	MathMeth();
 public:
-    //void RK4step(int ndep, double dx, double &x, valarray<double> &Y, valarray<double> (*F)(double, valarray<double>));
+	//void RK4step(int ndep, double dx, double &x, valarray<double> &Y, valarray<double> (*F)(double, valarray<double>));
 private:
 
 };

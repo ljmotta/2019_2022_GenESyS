@@ -16,14 +16,12 @@
 
 #include "BaseConsoleGenesysApplication.h"
 
-
-class TestMatricesOfAttributesAndVariables : public BaseConsoleGenesysApplication
-{
+class TestMatricesOfAttributesAndVariables : public BaseConsoleGenesysApplication {
 public:
-    TestMatricesOfAttributesAndVariables();
-    TestMatricesOfAttributesAndVariables(const TestMatricesOfAttributesAndVariables& orig);
-    virtual ~TestMatricesOfAttributesAndVariables();
-    virtual int main(int argc, char** argv);
+	TestMatricesOfAttributesAndVariables();
+	TestMatricesOfAttributesAndVariables(const TestMatricesOfAttributesAndVariables& orig);
+	virtual ~TestMatricesOfAttributesAndVariables();
+	virtual int main(int argc, char** argv);
 private:
 
 };

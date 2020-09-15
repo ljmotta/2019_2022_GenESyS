@@ -72,24 +72,24 @@ evaluator (for example, Color<>Red).
  */
 class Decide : public ModelComponent {
 public:
-    Decide(Model* model, std::string name="");
-    virtual ~Decide() = default;
+	Decide(Model* model, std::string name = "");
+	virtual ~Decide() = default;
 public:
-    List<std::string>* getConditions() const;
+	List<std::string>* getConditions() const;
 
 public:
-    virtual std::string show();
+	virtual std::string show();
 public:
-    static PluginInformation* GetPluginInformation();
-    static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static PluginInformation* GetPluginInformation();
+	static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 protected:
-    virtual void _execute(Entity* entity);
-    virtual bool _loadInstance(std::map<std::string, std::string>* fields);
-    virtual void _initBetweenReplications();
-    virtual std::map<std::string, std::string>* _saveInstance();
-    virtual bool _check(std::string* errorMessage);
+	virtual void _execute(Entity* entity);
+	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
+	virtual void _initBetweenReplications();
+	virtual std::map<std::string, std::string>* _saveInstance();
+	virtual bool _check(std::string* errorMessage);
 private:
-    List<std::string>* _conditions = new List<std::string>();
+	List<std::string>* _conditions = new List<std::string>();
 private:
 
 };

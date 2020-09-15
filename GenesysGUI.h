@@ -18,10 +18,10 @@
 
 class GenesysGUI : public GenesysApplication_if {
 public:
-    GenesysGUI();
-    ~GenesysGUI() = default;
+	GenesysGUI();
+	~GenesysGUI() = default;
 public:
-    virtual int main(int argc, char** argv);
+	virtual int main(int argc, char** argv);
 };
 
 #endif /* GENESYSGUI_H */

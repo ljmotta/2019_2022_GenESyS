@@ -21,11 +21,11 @@
  */
 class CollectorDatafile_if : public Collector_if {
 public:
-    virtual double getValue(unsigned int rank) = 0; /** Get a value from a specific position */
-    virtual void seekFirstValue() = 0; /** Set the pointer to the first value in the file */
-    virtual double getNextValue() = 0; /** Get the next value in the file and advances the pointer */
-    virtual std::string getDataFilename() = 0;
-    virtual void setDataFilename(std::string filename) = 0;
+	virtual double getValue(unsigned int rank) = 0; /** Get a value from a specific position */
+	virtual void seekFirstValue() = 0; /** Set the pointer to the first value in the file */
+	virtual double getNextValue() = 0; /** Get the next value in the file and advances the pointer */
+	virtual std::string getDataFilename() = 0;
+	virtual void setDataFilename(std::string filename) = 0;
 };
 
 #endif /* COLLECTORDATAFILE_IF_H */

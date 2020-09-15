@@ -19,24 +19,24 @@
 
 class ModelPersistenceDefaultImpl1 : public ModelPersistence_if {
 public:
-    ModelPersistenceDefaultImpl1(Model* model);
-    virtual ~ModelPersistenceDefaultImpl1() = default;
+	ModelPersistenceDefaultImpl1(Model* model);
+	virtual ~ModelPersistenceDefaultImpl1() = default;
 public:
-    virtual bool save(std::string filename);
-    virtual bool load(std::string filename);
-    virtual bool hasChanged();
+	virtual bool save(std::string filename);
+	virtual bool load(std::string filename);
+	virtual bool hasChanged();
 private:
-    void _saveContent(std::list<std::string>* content, std::ofstream* file);
-    bool _loadFields(std::string line);
-    void _loadSimulatorInfoFields(std::map<std::string, std::string>* fields);
-    std::list<std::string>* _adjustFieldsToSave(std::map<std::string, std::string>* fields);
-    std::map<std::string, std::string>* _getSimulatorInfoFieldsToSave();
+	void _saveContent(std::list<std::string>* content, std::ofstream* file);
+	bool _loadFields(std::string line);
+	void _loadSimulatorInfoFields(std::map<std::string, std::string>* fields);
+	std::list<std::string>* _adjustFieldsToSave(std::map<std::string, std::string>* fields);
+	std::map<std::string, std::string>* _getSimulatorInfoFieldsToSave();
 private:
-    std::list<std::map<std::string, std::string>*>* _componentFields = new std::list<std::map<std::string, std::string>*>();
+	std::list<std::map<std::string, std::string>*>* _componentFields = new std::list<std::map<std::string, std::string>*>();
 private:
-    Model* _model = nullptr;
-    bool _hasChanged = false;
-    std::string _linefieldseparator = "; ";
+	Model* _model = nullptr;
+	bool _hasChanged = false;
+	std::string _linefieldseparator = "; ";
 };
 
 #endif /* MODELPERSISTENCEDEFAULTIMPL1_H */

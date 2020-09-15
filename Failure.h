@@ -63,23 +63,23 @@ on the total simulation time). For example, you might want to
 define a failure to be based only on the state Busy, and therefore,
 the time between downtimes would be based on the amount of
 time that a resource is busy, not simulated clock time.
-*/
-class Failure: public ModelElement {
+ */
+class Failure : public ModelElement {
 public:
-    Failure(Model* model, std::string name="");
-    virtual ~Failure() = default;
+	Failure(Model* model, std::string name = "");
+	virtual ~Failure() = default;
 public: // static
-    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields); 
-    static PluginInformation* GetPluginInformation();
+	static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static PluginInformation* GetPluginInformation();
 public:
-    virtual std::string show();
+	virtual std::string show();
 
 protected: // must be overriden by derived classes
-    virtual bool _loadInstance(std::map<std::string, std::string>* fields);
-    virtual std::map<std::string, std::string>* _saveInstance();
+	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
+	virtual std::map<std::string, std::string>* _saveInstance();
 protected: // could be overriden by derived classes
-    virtual bool _check(std::string* errorMessage);
-    virtual ParserChangesInformation* _getParserChangesInformation();
+	virtual bool _check(std::string* errorMessage);
+	virtual ParserChangesInformation* _getParserChangesInformation();
 
 };
 

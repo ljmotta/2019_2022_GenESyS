@@ -19,42 +19,42 @@
 
 class StatisticsDefaultImpl1 : public Statistics_if {
 public:
-    StatisticsDefaultImpl1(); ///< When constructor is invoked without a Collector, it is taken from Traits<Statistics_if>::CollectorImplementation configuration
-    StatisticsDefaultImpl1(Collector_if* collector);
-    virtual ~StatisticsDefaultImpl1() = default;
+	StatisticsDefaultImpl1(); ///< When constructor is invoked without a Collector, it is taken from Traits<Statistics_if>::CollectorImplementation configuration
+	StatisticsDefaultImpl1(Collector_if* collector);
+	virtual ~StatisticsDefaultImpl1() = default;
 public:
-    virtual Collector_if* getCollector();
-    virtual void setCollector(Collector_if* collector);
+	virtual Collector_if* getCollector();
+	virtual void setCollector(Collector_if* collector);
 public:
-    virtual unsigned int numElements();
-    virtual double min();
-    virtual double max();
-    virtual double average();
-    virtual double variance();
-    virtual double stddeviation();
-    virtual double variationCoef();
-    virtual double halfWidthConfidenceInterval();
-    virtual unsigned int newSampleSize(double halfWidth);
-    virtual double getConfidenceLevel();
-    virtual void setConfidenceLevel(double confidencelevel);
+	virtual unsigned int numElements();
+	virtual double min();
+	virtual double max();
+	virtual double average();
+	virtual double variance();
+	virtual double stddeviation();
+	virtual double variationCoef();
+	virtual double halfWidthConfidenceInterval();
+	virtual unsigned int newSampleSize(double halfWidth);
+	virtual double getConfidenceLevel();
+	virtual void setConfidenceLevel(double confidencelevel);
 private:
-    void collectorAddHandler(double newValue);
-    void collectorClearHandler();
-    void initStatistics();
+	void collectorAddHandler(double newValue);
+	void collectorClearHandler();
+	void initStatistics();
 private:
-    Collector_if* _collector;
-    unsigned long _elems;
-    double _sum;
-    double _sumSquare;
-    double _min;
-    double _max;
-    double _average;
-    double _variance;
-    double _stddeviation;
-    double _variationCoef;
-    double _confidenceLevel = 0.95;
-    double _criticalTn_1 = 1.96;
-    double _halfWidth;
+	Collector_if* _collector;
+	unsigned long _elems;
+	double _sum;
+	double _sumSquare;
+	double _min;
+	double _max;
+	double _average;
+	double _variance;
+	double _stddeviation;
+	double _variationCoef;
+	double _confidenceLevel = 0.95;
+	double _criticalTn_1 = 1.96;
+	double _halfWidth;
 };
 
 #endif /* STATISTICSDEFAULTIMPL1_H */

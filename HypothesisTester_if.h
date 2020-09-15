@@ -22,21 +22,21 @@
 class HypothesisTester_if {
 public:
 
-    enum H1Comparition {
-	DIFFERENT = 1,
-	LESS_THAN = 2,
-	GREATER_THAN = 3
-    };
+	enum H1Comparition {
+		DIFFERENT = 1,
+		LESS_THAN = 2,
+		GREATER_THAN = 3
+	};
 public:
-    /* \todo: all "test" methods should return double p-value, not bool */
-    virtual double testAverage(double confidencelevel, double avg, H1Comparition comp) = 0;
-    virtual double testProportion(double confidencelevel, double prop, H1Comparition comp) = 0;
-    virtual double testVariance(double confidencelevel, double var, H1Comparition comp) = 0;
-    virtual double testAverage(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) = 0;
-    virtual double testProportion(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) = 0;
-    virtual double testVariance(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) = 0;
-    virtual void setDataFilename(std::string dataFilename) = 0;
-    virtual std::string getDataFilename() = 0;
+	/* \todo: all "test" methods should return double p-value, not bool */
+	virtual double testAverage(double confidencelevel, double avg, H1Comparition comp) = 0;
+	virtual double testProportion(double confidencelevel, double prop, H1Comparition comp) = 0;
+	virtual double testVariance(double confidencelevel, double var, H1Comparition comp) = 0;
+	virtual double testAverage(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) = 0;
+	virtual double testProportion(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) = 0;
+	virtual double testVariance(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) = 0;
+	virtual void setDataFilename(std::string dataFilename) = 0;
+	virtual std::string getDataFilename() = 0;
 };
 
 #endif /* HYPOTHESISTESTER_IF_H */

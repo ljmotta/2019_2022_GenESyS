@@ -19,25 +19,25 @@
 
 class ModelManager {
 public:
-    ModelManager(Simulator* simulator);
-    virtual ~ModelManager() = default;
+	ModelManager(Simulator* simulator);
+	virtual ~ModelManager() = default;
 public:
-    void insert(Model* model);
-    void remove(Model* model);
-    void setCurrent(Model* model);
-    bool saveModel(std::string filename);
-    bool loadModel(std::string filename);
-    unsigned int size();
+	void insert(Model* model);
+	void remove(Model* model);
+	void setCurrent(Model* model);
+	bool saveModel(std::string filename);
+	bool loadModel(std::string filename);
+	unsigned int size();
 public:
-    Model* front();
-    Model* current();
-    Model* next();
-    //Model* end();
+	Model* front();
+	Model* current();
+	Model* next();
+	//Model* end();
 private:
-    List<Model*>* _models = new List<Model*>();
-    Model* _currentModel;
+	List<Model*>* _models = new List<Model*>();
+	Model* _currentModel;
 private:
-    Simulator* _simulator;
+	Simulator* _simulator;
 };
 
 #endif /* MODELMANAGER_H */

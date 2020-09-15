@@ -14,56 +14,55 @@
 #include "Search.h"
 #include "Model.h"
 
-Search::Search(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Search>(),name) {
+Search::Search(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Search>(), name) {
 }
 
-
 std::string Search::show() {
-    return ModelComponent::show() + "";
+	return ModelComponent::show() + "";
 }
 
 ModelComponent* Search::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
-    Search* newComponent = new Search(model);
-    try {
-	newComponent->_loadInstance(fields);
-    } catch (const std::exception& e) {
+	Search* newComponent = new Search(model);
+	try {
+		newComponent->_loadInstance(fields);
+	} catch (const std::exception& e) {
 
-    }
-    return newComponent;
+	}
+	return newComponent;
 }
 
 void Search::_execute(Entity* entity) {
-    _parentModel->tracer()->trace("I'm just a dummy model and I'll just send the entity forward");
-    this->_parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
+	_parentModel->tracer()->trace("I'm just a dummy model and I'll just send the entity forward");
+	this->_parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
 }
 
 bool Search::_loadInstance(std::map<std::string, std::string>* fields) {
-    bool res = ModelComponent::_loadInstance(fields);
-    if (res) {
-	//...
-    }
-    return res;
+	bool res = ModelComponent::_loadInstance(fields);
+	if (res) {
+		//...
+	}
+	return res;
 }
 
 void Search::_initBetweenReplications() {
 }
 
 std::map<std::string, std::string>* Search::_saveInstance() {
-    std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
-    //...
-    return fields;
+	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
+	//...
+	return fields;
 }
 
 bool Search::_check(std::string* errorMessage) {
-    bool resultAll = true;
-    //...
-    return resultAll;
+	bool resultAll = true;
+	//...
+	return resultAll;
 }
 
-PluginInformation* Search::GetPluginInformation(){
-    PluginInformation* info = new PluginInformation(Util::TypeOf<Search>(), &Search::LoadInstance);
-    // ...
-    return info;
+PluginInformation* Search::GetPluginInformation() {
+	PluginInformation* info = new PluginInformation(Util::TypeOf<Search>(), &Search::LoadInstance);
+	// ...
+	return info;
 }
 
 

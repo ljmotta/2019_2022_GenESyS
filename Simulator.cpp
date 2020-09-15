@@ -16,47 +16,47 @@
 #include "ToolManager.h"
 
 Simulator::Simulator() {
-    // This is the ONLY method in the entire software where std::cout is allowed.
-    std::cout << "STARTING " << _name << ", version " << _version << std::endl;
-    _licenceManager = new LicenceManager(this);
-    _pluginManager = new PluginManager(this);
-    _modelManager = new ModelManager(this);
-    _toolManager = new ToolManager(this);
-    _traceManager = new TraceManager(this);
-    std::cout << '|' << '\t' << _licenceManager->showLicence() << std::endl;
+	// This is the ONLY method in the entire software where std::cout is allowed.
+	std::cout << "STARTING " << _name << ", version " << _version << std::endl;
+	_licenceManager = new LicenceManager(this);
+	_pluginManager = new PluginManager(this);
+	_modelManager = new ModelManager(this);
+	_toolManager = new ToolManager(this);
+	_traceManager = new TraceManager(this);
+	std::cout << '|' << '\t' << _licenceManager->showLicence() << std::endl;
 	std::cout << '|' << '\t' << _licenceManager->showActivationCode() << std::endl;
 	std::cout << '|' << '\t' << _licenceManager->showLimits() << std::endl;
 }
 
 PluginManager* Simulator::plugins() const {
-    return _pluginManager;
+	return _pluginManager;
 }
 
 ModelManager* Simulator::models() const {
-    return _modelManager;
+	return _modelManager;
 }
 
 ToolManager* Simulator::tools() const {
-    return _toolManager;
+	return _toolManager;
 }
 
 TraceManager* Simulator::tracer() const {
-    return _traceManager;
+	return _traceManager;
 }
 
 ParserManager* Simulator::parser() const {
-    return _parserManager;
+	return _parserManager;
 }
 
 std::string Simulator::version() const {
-    return _version;
+	return _version;
 }
 
 std::string Simulator::name() const {
-    return _name;
+	return _name;
 }
 
 LicenceManager* Simulator::licenceManager() const {
-    return _licenceManager;
+	return _licenceManager;
 }
 

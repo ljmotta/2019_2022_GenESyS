@@ -23,27 +23,27 @@
  */
 class Counter : public ModelElement {
 public:
-    Counter(Model* model, std::string name="", ModelElement* parent=nullptr);
-    virtual ~Counter() = default;
+	Counter(Model* model, std::string name = "", ModelElement* parent = nullptr);
+	virtual ~Counter() = default;
 public:
-    virtual std::string show();
+	virtual std::string show();
 public:
-    static PluginInformation* GetPluginInformation();
-    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static PluginInformation* GetPluginInformation();
+	static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 public:
-    void clear();
-    void incCountValue(int value = 1);
-    unsigned long getCountValue() const;
-    ModelElement* getParent() const;
+	void clear();
+	void incCountValue(int value = 1);
+	unsigned long getCountValue() const;
+	ModelElement* getParent() const;
 protected: // from ModelElement
-    virtual bool _loadInstance(std::map<std::string, std::string>* fields);
-    virtual std::map<std::string, std::string>* _saveInstance();
-    virtual bool _check(std::string* errorMessage);
+	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
+	virtual std::map<std::string, std::string>* _saveInstance();
+	virtual bool _check(std::string* errorMessage);
 protected:
-    void _addSimulationResponse();
+	void _addSimulationResponse();
 private:
-    ModelElement* _parent;
-    unsigned long _count = 0;
+	ModelElement* _parent;
+	unsigned long _count = 0;
 };
 
 #endif /* COUNTERDEFAULTIMPL1_H */

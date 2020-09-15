@@ -18,7 +18,7 @@ ModelComponent::ModelComponent(Model* model, std::string componentTypename, std:
 	model->components()->insert(this);
 }
 
-ModelComponent::~ModelComponent(){
+ModelComponent::~ModelComponent() {
 	_parentModel->components()->remove(this);
 }
 
@@ -26,13 +26,13 @@ void ModelComponent::Execute(Entity* entity, ModelComponent* component, unsigned
 	std::string msg = "Entity " + std::to_string(entity->entityNumber()) + " has arrived at component \"" + component->_name + "\"";
 	// \todo: How can I know the number of inputs?
 	if (inputNumber > 0)
-	msg += " by input " + std::to_string(inputNumber);
+		msg += " by input " + std::to_string(inputNumber);
 	component->_parentModel->tracer()->trace(Util::TraceLevel::componentArrival, msg);
 	Util::IncIndent();
 	try {
-	component->_execute(entity);
+		component->_execute(entity);
 	} catch (const std::exception& e) {
-	component->_parentModel->tracer()->traceError(e, "Error executing component " + component->show());
+		component->_parentModel->tracer()->traceError(e, "Error executing component " + component->show());
 	}
 	Util::DecIndent();
 }
@@ -51,9 +51,9 @@ void ModelComponent::InitBetweenReplications(ModelComponent* component) {
 void ModelComponent::CreateInternalElements(ModelComponent* component) {
 	//component->_model->getTraceManager()->trace(Util::TraceLevel::blockArrival, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));
 	try {
-	component->_createInternalElements();
+		component->_createInternalElements();
 	} catch (const std::exception& e) {
-	component->_parentModel->tracer()->traceError(e, "Error creating elements of component " + component->show());
+		component->_parentModel->tracer()->traceError(e, "Error creating elements of component " + component->show());
 	};
 }
 
@@ -69,19 +69,19 @@ std::map<std::string, std::string>* ModelComponent::SaveInstance(ModelComponent*
 }
 
 bool ModelComponent::Check(ModelComponent* component) {
-	component->_parentModel->tracer()->trace(Util::TraceLevel::componentDetailed, "Checking " + component->_typename + ": \"" + component->_name+"\""); //std::to_string(component->_id));
+	component->_parentModel->tracer()->trace(Util::TraceLevel::componentDetailed, "Checking " + component->_typename + ": \"" + component->_name + "\""); //std::to_string(component->_id));
 	bool res = false;
 	std::string* errorMessage = new std::string();
 	Util::IncIndent();
 	{
-	try {
-		res = component->_check(errorMessage);
-		if (!res) {
-		component->_parentModel->tracer()->trace(Util::TraceLevel::errorFatal, "Error: Checking has failed with message '" + *errorMessage + "'");
+		try {
+			res = component->_check(errorMessage);
+			if (!res) {
+				component->_parentModel->tracer()->trace(Util::TraceLevel::errorFatal, "Error: Checking has failed with message '" + *errorMessage + "'");
+			}
+		} catch (const std::exception& e) {
+			component->_parentModel->tracer()->traceError(e, "Error verifying component " + component->show());
 		}
-	} catch (const std::exception& e) {
-		component->_parentModel->tracer()->traceError(e, "Error verifying component " + component->show());
-	}
 	}
 	Util::DecIndent();
 	return res;
@@ -98,14 +98,14 @@ std::string ModelComponent::show() {
 bool ModelComponent::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelElement::_loadInstance(fields);
 	if (res) {
-	// Now it should load nextComponents. The problem is that the nextCOmponent may not be loaded yet.
-	// So, what can be done is to temporarily load the ID of the nextComponents, and to wait until all the components have been loaded to update nextComponents based on the temporarilyIDs now being loaded
-	//unsigned short nextSize = std::stoi((*fields->find("nextSize")).second);
-	//this->_tempLoadNextComponentsIDs = new List<Util::identification>();
-	//for (unsigned short i = 0; i < nextSize; i++) {
-	//    Util::identification nextId = std::stoi((*fields->find("nextId" + std::to_string(i))).second);
-	//    this->_tempLoadNextComponentsIDs->insert(nextId);
-	//}
+		// Now it should load nextComponents. The problem is that the nextCOmponent may not be loaded yet.
+		// So, what can be done is to temporarily load the ID of the nextComponents, and to wait until all the components have been loaded to update nextComponents based on the temporarilyIDs now being loaded
+		//unsigned short nextSize = std::stoi((*fields->find("nextSize")).second);
+		//this->_tempLoadNextComponentsIDs = new List<Util::identification>();
+		//for (unsigned short i = 0; i < nextSize; i++) {
+		//    Util::identification nextId = std::stoi((*fields->find("nextId" + std::to_string(i))).second);
+		//    this->_tempLoadNextComponentsIDs->insert(nextId);
+		//}
 	}
 	return res;
 }
@@ -115,9 +115,9 @@ std::map<std::string, std::string>* ModelComponent::_saveInstance() {
 	fields->emplace("nextSize", std::to_string(this->_connections->size()));
 	unsigned short i = 0;
 	for (std::list<Connection*>::iterator it = _connections->list()->begin(); it != _connections->list()->end(); it++) {
-	fields->emplace("nextId" + std::to_string(i), std::to_string((*it)->first->_id));
-	fields->emplace("nextInputNumber" + std::to_string(i), std::to_string((*it)->second));
-	i++;
+		fields->emplace("nextId" + std::to_string(i), std::to_string((*it)->first->_id));
+		fields->emplace("nextInputNumber" + std::to_string(i), std::to_string((*it)->second));
+		i++;
 	}
 	return fields;
 }

@@ -95,26 +95,26 @@ resource to release.
 Expression Expression value that determines the instance number of the
 resource to release.  
  */
-class Enter: public ModelComponent {
+class Enter : public ModelComponent {
 public:
-    Enter(Model* model, std::string name="");
-    virtual ~Enter() = default;
+	Enter(Model* model, std::string name = "");
+	virtual ~Enter() = default;
 public:
-    virtual std::string show();
+	virtual std::string show();
 public:
-    static PluginInformation* GetPluginInformation();
-    static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static PluginInformation* GetPluginInformation();
+	static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 public:
-    void setStation(Station* _station);
-    Station* getStation() const;
+	void setStation(Station* _station);
+	Station* getStation() const;
 protected:
-    virtual void _execute(Entity* entity);
-    virtual void _initBetweenReplications();
-    virtual bool _loadInstance(std::map<std::string, std::string>* fields);
-    virtual std::map<std::string, std::string>* _saveInstance();
-    virtual bool _check(std::string* errorMessage);
+	virtual void _execute(Entity* entity);
+	virtual void _initBetweenReplications();
+	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
+	virtual std::map<std::string, std::string>* _saveInstance();
+	virtual bool _check(std::string* errorMessage);
 private: // association
-    Station* _station;
+	Station* _station;
 };
 
 #endif /* ENTER_H */

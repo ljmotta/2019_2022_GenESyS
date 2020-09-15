@@ -61,22 +61,22 @@ refers.
 Table Name The name of the table in the Access database to which the
 recordset refers.
  */
-class File: public ModelElement {
+class File : public ModelElement {
 public:
-    File(Model* model, std::string name="");
-    virtual ~File() = default;
+	File(Model* model, std::string name = "");
+	virtual ~File() = default;
 public: // static
-    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields); 
-    static PluginInformation* GetPluginInformation();
+	static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static PluginInformation* GetPluginInformation();
 public:
-    virtual std::string show();
+	virtual std::string show();
 
 protected: // must be overriden by derived classes
-    virtual bool _loadInstance(std::map<std::string, std::string>* fields);
-    virtual std::map<std::string, std::string>* _saveInstance();
+	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
+	virtual std::map<std::string, std::string>* _saveInstance();
 protected: // could be overriden by derived classes
-    virtual bool _check(std::string* errorMessage);
-    virtual ParserChangesInformation* _getParserChangesInformation();
+	virtual bool _check(std::string* errorMessage);
+	virtual ParserChangesInformation* _getParserChangesInformation();
 
 };
 

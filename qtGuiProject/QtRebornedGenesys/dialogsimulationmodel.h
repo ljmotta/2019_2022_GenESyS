@@ -9,8 +9,7 @@ namespace Ui {
 	class DialogSimulationModel;
 }
 
-class DialogSimulationModel : public QDialog
-{
+class DialogSimulationModel : public QDialog {
 	Q_OBJECT
 
 public:

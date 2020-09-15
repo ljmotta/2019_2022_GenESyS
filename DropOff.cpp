@@ -17,52 +17,51 @@
 DropOff::DropOff(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<DropOff>(), name) {
 }
 
-
 std::string DropOff::show() {
-    return ModelComponent::show() + "";
+	return ModelComponent::show() + "";
 }
 
 ModelComponent* DropOff::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
-    DropOff* newComponent = new DropOff(model);
-    try {
-	newComponent->_loadInstance(fields);
-    } catch (const std::exception& e) {
+	DropOff* newComponent = new DropOff(model);
+	try {
+		newComponent->_loadInstance(fields);
+	} catch (const std::exception& e) {
 
-    }
-    return newComponent;
+	}
+	return newComponent;
 }
 
 void DropOff::_execute(Entity* entity) {
-    _parentModel->tracer()->trace("I'm just a dummy model and I'll just send the entity forward");
-    this->_parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
+	_parentModel->tracer()->trace("I'm just a dummy model and I'll just send the entity forward");
+	this->_parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
 }
 
 bool DropOff::_loadInstance(std::map<std::string, std::string>* fields) {
-    bool res = ModelComponent::_loadInstance(fields);
-    if (res) {
-	//...
-    }
-    return res;
+	bool res = ModelComponent::_loadInstance(fields);
+	if (res) {
+		//...
+	}
+	return res;
 }
 
 void DropOff::_initBetweenReplications() {
 }
 
 std::map<std::string, std::string>* DropOff::_saveInstance() {
-    std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
-    //...
-    return fields;
+	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
+	//...
+	return fields;
 }
 
 bool DropOff::_check(std::string* errorMessage) {
-    bool resultAll = true;
-    //...
-    return resultAll;
+	bool resultAll = true;
+	//...
+	return resultAll;
 }
 
-PluginInformation* DropOff::GetPluginInformation(){
-    PluginInformation* info = new PluginInformation(Util::TypeOf<DropOff>(), &DropOff::LoadInstance);
-    // ...
-    return info;
+PluginInformation* DropOff::GetPluginInformation() {
+	PluginInformation* info = new PluginInformation(Util::TypeOf<DropOff>(), &DropOff::LoadInstance);
+	// ...
+	return info;
 }
 

@@ -7,8 +7,7 @@
 #include <QObject>
 #include <QGraphicsItem>
 
-class MapKernelAndUI
-{
+class MapKernelAndUI {
 public:
 	MapKernelAndUI();
 public:

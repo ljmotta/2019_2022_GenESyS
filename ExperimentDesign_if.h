@@ -22,10 +22,10 @@
  */
 class ExperimentDesign_if {
 public:
-    virtual ProcessAnalyser_if* getProcessAnalyser() const = 0;
-    virtual bool generate2krScenarioExperiments() = 0;
-    virtual bool calculateContributionAndCoefficients() = 0;
-    virtual std::list<FactorOrInteractionContribution*>* getContributions() const = 0;
+	virtual ProcessAnalyser_if* getProcessAnalyser() const = 0;
+	virtual bool generate2krScenarioExperiments() = 0;
+	virtual bool calculateContributionAndCoefficients() = 0;
+	virtual std::list<FactorOrInteractionContribution*>* getContributions() const = 0;
 };
 
 #endif /* EXPERIMENTDESIGN_IF_H */

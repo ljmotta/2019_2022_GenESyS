@@ -20,11 +20,11 @@
 
 class BuildSimulationModel03 : public BaseConsoleGenesysApplication {
 public:
-    BuildSimulationModel03();
+	BuildSimulationModel03();
 public:
-    virtual int main(int argc, char** argv);
+	virtual int main(int argc, char** argv);
 private:
-    void builAndRunSimulationdModel();
+	void builAndRunSimulationdModel();
 };
 
 #endif /* BUILDSIMULATIONMODEL03_H */

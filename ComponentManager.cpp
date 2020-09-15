@@ -16,33 +16,33 @@
 #include "Model.h"
 
 ComponentManager::ComponentManager(Model* model) {
-    _parentModel = model;
-    _components = new List<ModelComponent*>();
-    _components->setSortFunc([](const ModelComponent* a, const ModelComponent * b) {
-	return a->id() < b->id(); /// Components are sorted by ID
-    });
+	_parentModel = model;
+	_components = new List<ModelComponent*>();
+	_components->setSortFunc([](const ModelComponent* a, const ModelComponent * b) {
+		return a->id() < b->id(); /// Components are sorted by ID
+	});
 }
 
 bool ComponentManager::insert(ModelComponent* comp) {
-    if (_components->find(comp) == _components->list()->end()) {
-	_components->insert(comp);
-	_parentModel->tracer()->trace(Util::TraceLevel::componentResult, "Component \"" + comp->name() + "\" successfully inserted");
-	_hasChanged = true;
-	return true;
-    }
-    _parentModel->tracer()->trace(Util::TraceLevel::componentResult, "Component \"" + comp->name() + "\" could not be inserted");
-    return false;
+	if (_components->find(comp) == _components->list()->end()) {
+		_components->insert(comp);
+		_parentModel->tracer()->trace(Util::TraceLevel::componentResult, "Component \"" + comp->name() + "\" successfully inserted");
+		_hasChanged = true;
+		return true;
+	}
+	_parentModel->tracer()->trace(Util::TraceLevel::componentResult, "Component \"" + comp->name() + "\" could not be inserted");
+	return false;
 }
 
 void ComponentManager::remove(ModelComponent* comp) {
-    _components->remove(comp);
-    _parentModel->tracer()->trace(Util::TraceLevel::componentResult, "Component \"" + comp->name() + "\" successfully removed");
-    _hasChanged = true;
+	_components->remove(comp);
+	_parentModel->tracer()->trace(Util::TraceLevel::componentResult, "Component \"" + comp->name() + "\" successfully removed");
+	_hasChanged = true;
 }
 
 void ComponentManager::clear() {
-    this->_components->clear();
-    _hasChanged = true;
+	this->_components->clear();
+	_hasChanged = true;
 }
 
 //ModelComponent* ComponentManager::getComponent(Util::identification id) {
@@ -52,29 +52,29 @@ void ComponentManager::clear() {
 //}
 
 unsigned int ComponentManager::numberOfComponents() {
-    return _components->size();
+	return _components->size();
 }
 
 std::list<ModelComponent*>::iterator ComponentManager::begin() {
-    return _components->list()->begin();
+	return _components->list()->begin();
 }
 
 std::list<ModelComponent*>::iterator ComponentManager::end() {
-    return _components->list()->end();
+	return _components->list()->end();
 }
 
 ModelComponent* ComponentManager::front() {
-    return _components->front();
+	return _components->front();
 }
 
 ModelComponent* ComponentManager::next() {
-    return _components->next();
+	return _components->next();
 }
 
 bool ComponentManager::hasChanged() const {
-    return _hasChanged;
+	return _hasChanged;
 }
 
 void ComponentManager::setHasChanged(bool _hasChanged) {
-    this->_hasChanged = _hasChanged;
+	this->_hasChanged = _hasChanged;
 }

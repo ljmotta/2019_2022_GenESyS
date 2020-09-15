@@ -16,7 +16,7 @@
 
 class AnalysisOfVariance_if {
 public:
-    virtual void setCollector() = 0;
+	virtual void setCollector() = 0;
 };
 
 #endif /* ANALYSISOFVARIANCE_IF_H */

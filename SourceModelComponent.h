@@ -26,41 +26,41 @@
  */
 class SourceModelComponent : public ModelComponent {
 public:
-    SourceModelComponent(Model* model, std::string componentTypename, std::string name="");
-    virtual ~SourceModelComponent() = default;
+	SourceModelComponent(Model* model, std::string componentTypename, std::string name = "");
+	virtual ~SourceModelComponent() = default;
 public: // get & set
-    void setFirstCreation(double _firstCreation);
-    double firstCreation() const;
-    void setCollectStatistics(bool _collectStatistics);
-    bool isCollectStatistics() const;
-    void setEntityType(EntityType* _entityType);
-    EntityType* entityType() const;
-    void setTimeUnit(Util::TimeUnit _timeUnit);
-    Util::TimeUnit timeUnit() const;
-    void setTimeBetweenCreationsExpression(std::string _timeBetweenCreations);
-    std::string timeBetweenCreationsExpression() const;
-    void setMaxCreations(std::string _maxCreationsExpression);
-    std::string maxCreations() const;
-    unsigned int entitiesCreated() const;
-    void setEntitiesCreated(unsigned int _entitiesCreated);
-    void setEntitiesPerCreation(unsigned int _entitiesPerCreation);
-    unsigned int entitiesPerCreation() const;
+	void setFirstCreation(double _firstCreation);
+	double firstCreation() const;
+	void setCollectStatistics(bool _collectStatistics);
+	bool isCollectStatistics() const;
+	void setEntityType(EntityType* _entityType);
+	EntityType* entityType() const;
+	void setTimeUnit(Util::TimeUnit _timeUnit);
+	Util::TimeUnit timeUnit() const;
+	void setTimeBetweenCreationsExpression(std::string _timeBetweenCreations);
+	std::string timeBetweenCreationsExpression() const;
+	void setMaxCreations(std::string _maxCreationsExpression);
+	std::string maxCreations() const;
+	unsigned int entitiesCreated() const;
+	void setEntitiesCreated(unsigned int _entitiesCreated);
+	void setEntitiesPerCreation(unsigned int _entitiesPerCreation);
+	unsigned int entitiesPerCreation() const;
 public:
-    virtual std::string show();
+	virtual std::string show();
 protected:
-    virtual bool _loadInstance(std::map<std::string, std::string>* fields);
-    virtual void _initBetweenReplications();
-    virtual std::map<std::string, std::string>* _saveInstance();
-    virtual bool _check(std::string* errorMessage);
+	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
+	virtual void _initBetweenReplications();
+	virtual std::map<std::string, std::string>* _saveInstance();
+	virtual bool _check(std::string* errorMessage);
 protected: // get & set
-    EntityType* _entityType;
-    double _firstCreation = 0.0;
-    unsigned int _entitiesPerCreation = 1;
-    std::string _maxCreationsExpression = std::to_string(std::numeric_limits<unsigned int>::max()); // std::numeric_limits<unsigned int>::max();
-    std::string _timeBetweenCreationsExpression = "EXPO(1)"; ////
-    Util::TimeUnit _timeBetweenCreationsTimeUnit = Util::TimeUnit::second;
-    //bool _collectStatistics = true;
-    unsigned int _entitiesCreatedSoFar = 0;
+	EntityType* _entityType;
+	double _firstCreation = 0.0;
+	unsigned int _entitiesPerCreation = 1;
+	std::string _maxCreationsExpression = std::to_string(std::numeric_limits<unsigned int>::max()); // std::numeric_limits<unsigned int>::max();
+	std::string _timeBetweenCreationsExpression = "EXPO(1)"; ////
+	Util::TimeUnit _timeBetweenCreationsTimeUnit = Util::TimeUnit::second;
+	//bool _collectStatistics = true;
+	unsigned int _entitiesCreatedSoFar = 0;
 };
 
 #endif /* SOURCEMODELCOMPONENT_H */

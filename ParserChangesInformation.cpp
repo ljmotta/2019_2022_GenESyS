@@ -16,44 +16,43 @@
 ParserChangesInformation::ParserChangesInformation() {
 }
 
-
 std::list<ParserChangesInformation::ParserChangesInformation::lexicalelement*>* ParserChangesInformation::getLexicalElementToRemove() const {
-    return _lexicalElementToRemove;
+	return _lexicalElementToRemove;
 }
 
 std::list<ParserChangesInformation::lexicalelement*>* ParserChangesInformation::getLexicalElementToAdd() const {
-    return _lexicalElementToAdd;
+	return _lexicalElementToAdd;
 }
 
 std::list<ParserChangesInformation::lexinclude*>* ParserChangesInformation::getLexIncludeToRemove() const {
-    return _lexIncludeToRemove;
+	return _lexIncludeToRemove;
 }
 
 std::list<ParserChangesInformation::lexinclude*>* ParserChangesInformation::getLexIncludeToAdd() const {
-    return _lexIncludeToAdd;
+	return _lexIncludeToAdd;
 }
 
 std::list<ParserChangesInformation::production*>* ParserChangesInformation::getProductionToRemove() const {
-    return _productionToRemove;
+	return _productionToRemove;
 }
 
 std::list<ParserChangesInformation::production*>* ParserChangesInformation::getProductionToAdd() const {
-    return _productionToAdd;
+	return _productionToAdd;
 }
 
 std::list<ParserChangesInformation::typeobj*>* ParserChangesInformation::getTypeobjToRemove() const {
-    return _typeobjToRemove;
+	return _typeobjToRemove;
 }
 
 std::list<ParserChangesInformation::typeobj*>* ParserChangesInformation::getTypeobjToAdd() const {
-    return _typeobjToAdd;
+	return _typeobjToAdd;
 }
 
 std::list<ParserChangesInformation::token*>* ParserChangesInformation::getTokensToRemove() const {
-    return _tokensToRemove;
+	return _tokensToRemove;
 }
 
 std::list<ParserChangesInformation::token*>* ParserChangesInformation::getTokensToAdd() const {
-    return _tokensToAdd;
+	return _tokensToAdd;
 }
 

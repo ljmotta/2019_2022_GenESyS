@@ -16,7 +16,6 @@
 CollectorDatafileDefaultImpl1::CollectorDatafileDefaultImpl1() {
 }
 
-
 void CollectorDatafileDefaultImpl1::clear() {
 }
 
@@ -24,30 +23,30 @@ void CollectorDatafileDefaultImpl1::addValue(double value) {
 }
 
 double CollectorDatafileDefaultImpl1::getLastValue() {
-    return 0.0; // \todo:
+	return 0.0; // \todo:
 }
 
 unsigned long CollectorDatafileDefaultImpl1::numElements() {
-    return 0.0; // \todo:
+	return 0.0; // \todo:
 }
 
 double CollectorDatafileDefaultImpl1::getValue(unsigned int num) {
-    return 0.0; // \todo:
+	return 0.0; // \todo:
 }
 
 double CollectorDatafileDefaultImpl1::getNextValue() {
-    return 0.0; // \todo:
+	return 0.0; // \todo:
 }
 
 void CollectorDatafileDefaultImpl1::seekFirstValue() {
 }
 
 std::string CollectorDatafileDefaultImpl1::getDataFilename() {
-    return _filename;
+	return _filename;
 }
 
 void CollectorDatafileDefaultImpl1::setDataFilename(std::string filename) {
-    _filename = filename;
+	_filename = filename;
 }
 
 void CollectorDatafileDefaultImpl1::setAddValueHandler(CollectorAddValueHandler addValueHandler) {

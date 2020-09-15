@@ -52,30 +52,30 @@ when Type is Entity.
 Picture Name Name of the picture within the picture set. Applies only when
 Type is Entity Picture.
  */
-class Set: public ModelElement {
+class Set : public ModelElement {
 public:
-    Set(Model* model, std::string name="");
-    virtual ~Set() = default;
+	Set(Model* model, std::string name = "");
+	virtual ~Set() = default;
 public: // static
-    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields); 
-    static PluginInformation* GetPluginInformation();
+	static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static PluginInformation* GetPluginInformation();
 public:
-    virtual std::string show();
+	virtual std::string show();
 public:
-    void setSetOfType(std::string _setOfType);
-    std::string getSetOfType() const;
-    List<ModelElement*>* getElementSet() const;
+	void setSetOfType(std::string _setOfType);
+	std::string getSetOfType() const;
+	List<ModelElement*>* getElementSet() const;
 
 protected: // must be overriden by derived classes
-    virtual bool _loadInstance(std::map<std::string, std::string>* fields);
-    virtual std::map<std::string, std::string>* _saveInstance();
+	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
+	virtual std::map<std::string, std::string>* _saveInstance();
 protected: // could be overriden by derived classes
-    virtual bool _check(std::string* errorMessage);
-    virtual ParserChangesInformation* _getParserChangesInformation();
+	virtual bool _check(std::string* errorMessage);
+	virtual ParserChangesInformation* _getParserChangesInformation();
 private:
-    //ElementManager* _elems;
-    List<ModelElement*>* _elementSet = new List<ModelElement*>();
-    std::string _setOfType;
+	//ElementManager* _elems;
+	List<ModelElement*>* _elementSet = new List<ModelElement*>();
+	std::string _setOfType;
 };
 
 #endif /* SET_H */

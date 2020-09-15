@@ -34,22 +34,22 @@ Prompt Description
 Name The name of the storage set being defined. This name must be
 unique.
  */
-class Storage: public ModelElement {
+class Storage : public ModelElement {
 public:
-    Storage(Model* model, std::string name="");
-    virtual ~Storage() = default;
+	Storage(Model* model, std::string name = "");
+	virtual ~Storage() = default;
 public: // static
-    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields); 
-    static PluginInformation* GetPluginInformation();
+	static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static PluginInformation* GetPluginInformation();
 public:
-    virtual std::string show();
+	virtual std::string show();
 
 protected: // must be overriden by derived classes
-    virtual bool _loadInstance(std::map<std::string, std::string>* fields);
-    virtual std::map<std::string, std::string>* _saveInstance();
+	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
+	virtual std::map<std::string, std::string>* _saveInstance();
 protected: // could be overriden by derived classes
-    virtual bool _check(std::string* errorMessage);
-    virtual ParserChangesInformation* _getParserChangesInformation();
+	virtual bool _check(std::string* errorMessage);
+	virtual ParserChangesInformation* _getParserChangesInformation();
 };
 #endif /* STORAGE_H */
 

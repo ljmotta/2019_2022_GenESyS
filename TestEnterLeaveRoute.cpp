@@ -36,112 +36,112 @@ TestEnterLeaveRoute::TestEnterLeaveRoute() {
 }
 
 int TestEnterLeaveRoute::main(int argc, char** argv) {
-    Simulator* simulator = new Simulator();
-    // creates an empty model
-    Model* model = new Model(simulator);
-    // Handle traces and simulation events to output them
-    TraceManager* tm = model->tracer();
-    this->setDefaultTraceHandlers(tm);
-    // set the trace level of simulation to "blockArrival" level, which is an intermediate level of tracing
-    tm->setTraceLevel(Util::TraceLevel::componentArrival);
-    // insert "fake plugins" since plugins based on dynamic loaded library are not implemented yet
-    this->insertFakePluginsByHand(simulator);
-    // get easy access to classes used to insert components and elements into a model
-    ComponentManager* components = model->components();
-    ElementManager* elements = model->elements();
-    //
-    // build the simulation model
-    //
-    // set general info about the model
-    ModelInfo* infos = model->infos();
-    infos->setReplicationLength(30);
-    infos->setNumberOfReplications(3);
-    // create a (Source)ModelElement of type EntityType, used by a ModelComponent that follows
-    EntityType* entityType1 = new EntityType(model, "AnyEntityType");
-    elements->insert(entityType1);
-    // create a ModelComponent of type Create, used to insert entities into the model
-    Create* create1 = new Create(model);
-    create1->setEntityType(entityType1);
-    create1->setTimeBetweenCreationsExpression("5.0");
-    create1->setEntitiesPerCreation(1);
-    components->insert(create1);
-    // create stations to enter and route to
-    Station* station1 = new Station(model, "Station 1");
-    Station* station2 = new Station(model, "Station 2");
-    Station* station3 = new Station(model, "Station 3");
-    elements->insert(station1);
-    elements->insert(station2);
-    elements->insert(station3);
-    // create components to Enter into Stations
-    Enter* enter1 = new Enter(model);
-    enter1->setStation(station1);
-    components->insert(enter1);
-    Enter* enter2 = new Enter(model);
-    enter2->setStation(station2);
-    components->insert(enter2);
-    Enter* enter3 = new Enter(model);
-    enter3->setStation(station3);
-    components->insert(enter3);
-    // create components to Leave stations
-    Leave* leave1 = new Leave(model);
-    leave1->setStation(station1);
-    components->insert(leave1);
-    Leave* leave2 = new Leave(model);
-    leave2->setStation(station2);
-    components->insert(leave2);
-    Leave* leave3 = new Leave(model);
-    leave3->setStation(station3);
-    components->insert(leave3);
-    // crete route components
-    Route* route0 = new Route(model);
-    route0->setStation(station1);
-    route0->setRouteTimeExpression("0.5");
-    components->insert(route0);
-    Route* route1 = new Route(model);
-    route1->setStation(station2);
-    route1->setRouteTimeExpression("0.5");
-    components->insert(route1);
-    Route* route2 = new Route(model);
-    route2->setStation(station3);
-    route2->setRouteTimeExpression("0.5");
-    components->insert(route2);
-    // create delay components
-    Delay* delay1 = new Delay(model);
-    delay1->setDelayExpression("1.0");
-    components->insert(delay1);
-    Delay* delay2 = new Delay(model);
-    delay2->setDelayExpression("1.0");
-    components->insert(delay2);
-    Delay* delay3 = new Delay(model);
-    delay3->setDelayExpression("1.0");
-    components->insert(delay3);
-    // create a (Sink)ModelComponent of type Dispose, used to remove entities from the model
-    Dispose* dispose1 = new Dispose(model);
-    components->insert(dispose1);
-    // connect model components to create a "workflow" 
-    create1->nextComponents()->insert(route0);
-    //
-    enter1->nextComponents()->insert(delay1);
-    delay1->nextComponents()->insert(leave1);
-    leave1->nextComponents()->insert(route1);
-    //
-    enter2->nextComponents()->insert(delay2);
-    delay2->nextComponents()->insert(leave2);
-    leave2->nextComponents()->insert(route2);
-    //
-    enter3->nextComponents()->insert(delay3);
-    delay3->nextComponents()->insert(leave3);
-    leave3->nextComponents()->insert(dispose1);
-    // insert the model into the simulator 
-    simulator->models()->insert(model);
-    // check the model
-    model->check();
-    // save the model into a text file 
-    model->save("./temp/testEnterLeaveRoute.txt");
-    // show the model
-    model->show();
-    // execute the simulation
-    model->simulation()->start();
-    return 0;
+	Simulator* simulator = new Simulator();
+	// creates an empty model
+	Model* model = new Model(simulator);
+	// Handle traces and simulation events to output them
+	TraceManager* tm = model->tracer();
+	this->setDefaultTraceHandlers(tm);
+	// set the trace level of simulation to "blockArrival" level, which is an intermediate level of tracing
+	tm->setTraceLevel(Util::TraceLevel::componentArrival);
+	// insert "fake plugins" since plugins based on dynamic loaded library are not implemented yet
+	this->insertFakePluginsByHand(simulator);
+	// get easy access to classes used to insert components and elements into a model
+	ComponentManager* components = model->components();
+	ElementManager* elements = model->elements();
+	//
+	// build the simulation model
+	//
+	// set general info about the model
+	ModelInfo* infos = model->infos();
+	infos->setReplicationLength(30);
+	infos->setNumberOfReplications(3);
+	// create a (Source)ModelElement of type EntityType, used by a ModelComponent that follows
+	EntityType* entityType1 = new EntityType(model, "AnyEntityType");
+	elements->insert(entityType1);
+	// create a ModelComponent of type Create, used to insert entities into the model
+	Create* create1 = new Create(model);
+	create1->setEntityType(entityType1);
+	create1->setTimeBetweenCreationsExpression("5.0");
+	create1->setEntitiesPerCreation(1);
+	components->insert(create1);
+	// create stations to enter and route to
+	Station* station1 = new Station(model, "Station 1");
+	Station* station2 = new Station(model, "Station 2");
+	Station* station3 = new Station(model, "Station 3");
+	elements->insert(station1);
+	elements->insert(station2);
+	elements->insert(station3);
+	// create components to Enter into Stations
+	Enter* enter1 = new Enter(model);
+	enter1->setStation(station1);
+	components->insert(enter1);
+	Enter* enter2 = new Enter(model);
+	enter2->setStation(station2);
+	components->insert(enter2);
+	Enter* enter3 = new Enter(model);
+	enter3->setStation(station3);
+	components->insert(enter3);
+	// create components to Leave stations
+	Leave* leave1 = new Leave(model);
+	leave1->setStation(station1);
+	components->insert(leave1);
+	Leave* leave2 = new Leave(model);
+	leave2->setStation(station2);
+	components->insert(leave2);
+	Leave* leave3 = new Leave(model);
+	leave3->setStation(station3);
+	components->insert(leave3);
+	// crete route components
+	Route* route0 = new Route(model);
+	route0->setStation(station1);
+	route0->setRouteTimeExpression("0.5");
+	components->insert(route0);
+	Route* route1 = new Route(model);
+	route1->setStation(station2);
+	route1->setRouteTimeExpression("0.5");
+	components->insert(route1);
+	Route* route2 = new Route(model);
+	route2->setStation(station3);
+	route2->setRouteTimeExpression("0.5");
+	components->insert(route2);
+	// create delay components
+	Delay* delay1 = new Delay(model);
+	delay1->setDelayExpression("1.0");
+	components->insert(delay1);
+	Delay* delay2 = new Delay(model);
+	delay2->setDelayExpression("1.0");
+	components->insert(delay2);
+	Delay* delay3 = new Delay(model);
+	delay3->setDelayExpression("1.0");
+	components->insert(delay3);
+	// create a (Sink)ModelComponent of type Dispose, used to remove entities from the model
+	Dispose* dispose1 = new Dispose(model);
+	components->insert(dispose1);
+	// connect model components to create a "workflow"
+	create1->nextComponents()->insert(route0);
+	//
+	enter1->nextComponents()->insert(delay1);
+	delay1->nextComponents()->insert(leave1);
+	leave1->nextComponents()->insert(route1);
+	//
+	enter2->nextComponents()->insert(delay2);
+	delay2->nextComponents()->insert(leave2);
+	leave2->nextComponents()->insert(route2);
+	//
+	enter3->nextComponents()->insert(delay3);
+	delay3->nextComponents()->insert(leave3);
+	leave3->nextComponents()->insert(dispose1);
+	// insert the model into the simulator
+	simulator->models()->insert(model);
+	// check the model
+	model->check();
+	// save the model into a text file
+	model->save("./temp/testEnterLeaveRoute.txt");
+	// show the model
+	model->show();
+	// execute the simulation
+	model->simulation()->start();
+	return 0;
 }
 

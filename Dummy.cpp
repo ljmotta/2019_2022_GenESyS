@@ -14,54 +14,53 @@
 #include "Dummy.h"
 #include "Model.h"
 
-Dummy::Dummy(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Dummy>(),name) {
+Dummy::Dummy(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Dummy>(), name) {
 }
 
-
 std::string Dummy::show() {
-    return ModelComponent::show() + "";
+	return ModelComponent::show() + "";
 }
 
 ModelComponent* Dummy::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
-    Dummy* newComponent = new Dummy(model);
-    try {
-	newComponent->_loadInstance(fields);
-    } catch (const std::exception& e) {
+	Dummy* newComponent = new Dummy(model);
+	try {
+		newComponent->_loadInstance(fields);
+	} catch (const std::exception& e) {
 
-    }
-    return newComponent;
+	}
+	return newComponent;
 }
 
 void Dummy::_execute(Entity* entity) {
-    _parentModel->tracer()->trace("I'm just a dummy model and I'll just send the entity forward");
-    this->_parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
+	_parentModel->tracer()->trace("I'm just a dummy model and I'll just send the entity forward");
+	this->_parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
 }
 
 bool Dummy::_loadInstance(std::map<std::string, std::string>* fields) {
-    bool res = ModelComponent::_loadInstance(fields);
-    if (res) {
-	//...
-    }
-    return res;
+	bool res = ModelComponent::_loadInstance(fields);
+	if (res) {
+		//...
+	}
+	return res;
 }
 
 void Dummy::_initBetweenReplications() {
 }
 
 std::map<std::string, std::string>* Dummy::_saveInstance() {
-    std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
-    //...
-    return fields;
+	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
+	//...
+	return fields;
 }
 
 bool Dummy::_check(std::string* errorMessage) {
-    bool resultAll = true;
-    //...
-    return resultAll;
+	bool resultAll = true;
+	//...
+	return resultAll;
 }
 
-PluginInformation* Dummy::GetPluginInformation(){
-    PluginInformation* info = new PluginInformation(Util::TypeOf<Dummy>(), &Dummy::LoadInstance);
-    // ...
-    return info;
+PluginInformation* Dummy::GetPluginInformation() {
+	PluginInformation* info = new PluginInformation(Util::TypeOf<Dummy>(), &Dummy::LoadInstance);
+	// ...
+	return info;
 }

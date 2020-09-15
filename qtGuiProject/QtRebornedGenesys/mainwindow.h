@@ -7,11 +7,10 @@
 #include "../../../RebornedGenESyS/Plugin.h"
 
 namespace Ui {
-class MainWindow;
+	class MainWindow;
 }
 
-class MainWindow : public QMainWindow
-{
+class MainWindow : public QMainWindow {
 	Q_OBJECT
 
 public:
@@ -79,9 +78,9 @@ private:
 	// dialogs
 
 
-//*******************************************
-// SIMULATOR
-//*******************************************
+	//*******************************************
+	// SIMULATOR
+	//*******************************************
 private:
 	void _refreshActions();
 	void _refreshPropertyWidget();

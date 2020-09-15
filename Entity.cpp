@@ -17,13 +17,13 @@
 #include "Model.h"
 
 Entity::Entity(Model* model) : ModelElement(model, Util::TypeOf<Entity>()) {
-    //_elements = elements;
-    _entityNumber = Util::GetLastIdOfType(Util::TypeOf<Entity>());
-    unsigned int numAttributes = _parentModel->elements()->numberOfElements(Util::TypeOf<Attribute>());
-    for (unsigned i = 0; i < numAttributes; i++) {
-	std::map<std::string, double>* map = new std::map<std::string, double>();
-	_attributeValues->insert(map);
-    }
+	//_elements = elements;
+	_entityNumber = Util::GetLastIdOfType(Util::TypeOf<Entity>());
+	unsigned int numAttributes = _parentModel->elements()->numberOfElements(Util::TypeOf<Attribute>());
+	for (unsigned i = 0; i < numAttributes; i++) {
+		std::map<std::string, double>* map = new std::map<std::string, double>();
+		_attributeValues->insert(map);
+	}
 }
 
 //Entity::Entity(const Entity &orig): ModelElement(orig) {
@@ -32,128 +32,128 @@ Entity::Entity(Model* model) : ModelElement(model, Util::TypeOf<Entity>()) {
 //}
 
 void Entity::setEntityTypeName(std::string entityTypeName) throw () {
-    EntityType* entitytype = dynamic_cast<EntityType*> (_parentModel->elements()->element(Util::TypeOf<EntityType>(), entityTypeName));
-    if (entitytype != nullptr) {
-	this->_entityType = entitytype;
-    } else {
-	throw std::invalid_argument("EntityType does not exist");
-    }
+	EntityType* entitytype = dynamic_cast<EntityType*> (_parentModel->elements()->element(Util::TypeOf<EntityType>(), entityTypeName));
+	if (entitytype != nullptr) {
+		this->_entityType = entitytype;
+	} else {
+		throw std::invalid_argument("EntityType does not exist");
+	}
 }
 
 std::string Entity::entityTypeName() const {
-    return this->_entityType->name();
+	return this->_entityType->name();
 }
 
 void Entity::setEntityType(EntityType* entityType) {
-    _entityType = entityType;
+	_entityType = entityType;
 }
 
 EntityType* Entity::entityType() const {
-    return _entityType;
+	return _entityType;
 }
 
 std::string Entity::show() {
-    std::string message = ModelElement::show();
-    if (this->_entityType != nullptr) {
-	message += ",entityType=\"" + this->_entityType->name() + "\"";
-    }
-    message += ",attributes=[";
-    _attributeValues->front();
-    unsigned int i = 0;
-    for (unsigned int i = 0; i < _attributeValues->size(); i++) {
-	std::map<std::string, double>* map = _attributeValues->current();
-	std::string attributeName = _parentModel->elements()->elementList(Util::TypeOf<Attribute>())->getAtRank(i)->name();
-	message += attributeName + "=";
-	if (map->size() == 0) { // scalar
-	    message += "NaN;"; //std::to_string(map->begin()->second) + ";";
-	} else if (map->size() == 1) { // scalar
-	    message += std::to_string(map->begin()->second) + ";";
-	} else {
-	    // array or matrix
-	    message += "[";
-	    for (std::map<std::string, double>::iterator valIt = map->begin(); valIt != map->end(); valIt++) {
-		message += (*valIt).first + "=>" + std::to_string((*valIt).second) + ",";
-	    }
-	    message += "];";
+	std::string message = ModelElement::show();
+	if (this->_entityType != nullptr) {
+		message += ",entityType=\"" + this->_entityType->name() + "\"";
 	}
-	_attributeValues->next();
-    }
-    message += "]";
-    return message;
+	message += ",attributes=[";
+	_attributeValues->front();
+	unsigned int i = 0;
+	for (unsigned int i = 0; i < _attributeValues->size(); i++) {
+		std::map<std::string, double>* map = _attributeValues->current();
+		std::string attributeName = _parentModel->elements()->elementList(Util::TypeOf<Attribute>())->getAtRank(i)->name();
+		message += attributeName + "=";
+		if (map->size() == 0) { // scalar
+			message += "NaN;"; //std::to_string(map->begin()->second) + ";";
+		} else if (map->size() == 1) { // scalar
+			message += std::to_string(map->begin()->second) + ";";
+		} else {
+			// array or matrix
+			message += "[";
+			for (std::map<std::string, double>::iterator valIt = map->begin(); valIt != map->end(); valIt++) {
+				message += (*valIt).first + "=>" + std::to_string((*valIt).second) + ",";
+			}
+			message += "];";
+		}
+		_attributeValues->next();
+	}
+	message += "]";
+	return message;
 }
 
 double Entity::attributeValue(std::string attributeName) {
-    return attributeValue("", attributeName);
+	return attributeValue("", attributeName);
 }
 
 double Entity::attributeValue(std::string index, std::string attributeName) {
-    int rank = _parentModel->elements()->rankOf(Util::TypeOf<Attribute>(), attributeName);
-    if (rank >= 0) {
-	std::map<std::string, double>* map = this->_attributeValues->getAtRank(rank);
-	std::map<std::string, double>::iterator mapIt = map->find(index);
-	if (mapIt != map->end()) {//found
-	    return (*mapIt).second;
-	} else { // not found
-	    return 0.0;
+	int rank = _parentModel->elements()->rankOf(Util::TypeOf<Attribute>(), attributeName);
+	if (rank >= 0) {
+		std::map<std::string, double>* map = this->_attributeValues->getAtRank(rank);
+		std::map<std::string, double>::iterator mapIt = map->find(index);
+		if (mapIt != map->end()) {//found
+			return (*mapIt).second;
+		} else { // not found
+			return 0.0;
+		}
 	}
-    }
-    _parentModel->tracer()->trace(Util::TraceLevel::errorRecover, "Attribute \"" + attributeName + "\" not found");
-    return 0.0; /* \todo: !! Never should happen. check how to report */
+	_parentModel->tracer()->trace(Util::TraceLevel::errorRecover, "Attribute \"" + attributeName + "\" not found");
+	return 0.0; /* \todo: !! Never should happen. check how to report */
 }
 
 double Entity::attributeValue(Util::identification attributeID) {
-    return attributeValue("", attributeID);
+	return attributeValue("", attributeID);
 }
 
 double Entity::attributeValue(std::string index, Util::identification attributeID) {
-    ModelElement* element = _parentModel->elements()->element(Util::TypeOf<Attribute>(), attributeID);
-    if (element != nullptr) {
-	return attributeValue(index, element->name());
-    }
-    return 0.0; // attribute not found
+	ModelElement* element = _parentModel->elements()->element(Util::TypeOf<Attribute>(), attributeID);
+	if (element != nullptr) {
+		return attributeValue(index, element->name());
+	}
+	return 0.0; // attribute not found
 }
 
 void Entity::setAttributeValue(std::string attributeName, double value) {
-    setAttributeValue("", attributeName, value);
+	setAttributeValue("", attributeName, value);
 }
 
 void Entity::setAttributeValue(std::string index, std::string attributeName, double value) {
-    int rank = _parentModel->elements()->rankOf(Util::TypeOf<Attribute>(), attributeName);
-    if (rank >= 0) {
-	std::map<std::string, double>* map = _attributeValues->getAtRank(rank);
-	std::map<std::string, double>::iterator mapIt = map->find(index);
-	if (mapIt != map->end()) {//found
-	    (*mapIt).second = value;
-	} else { // not found
-	    map->insert({index, value}); // (map->end(), std::pair<std::string, double>(index, value));
-	}
-    } else
-	_parentModel->tracer()->trace(Util::TraceLevel::errorRecover, "Attribute \"" + attributeName + "\" not found");
+	int rank = _parentModel->elements()->rankOf(Util::TypeOf<Attribute>(), attributeName);
+	if (rank >= 0) {
+		std::map<std::string, double>* map = _attributeValues->getAtRank(rank);
+		std::map<std::string, double>::iterator mapIt = map->find(index);
+		if (mapIt != map->end()) {//found
+			(*mapIt).second = value;
+		} else { // not found
+			map->insert({index, value}); // (map->end(), std::pair<std::string, double>(index, value));
+		}
+	} else
+		_parentModel->tracer()->trace(Util::TraceLevel::errorRecover, "Attribute \"" + attributeName + "\" not found");
 
 }
 
 void Entity::setAttributeValue(Util::identification attributeID, double value) {
-    setAttributeValue("", attributeID, value);
+	setAttributeValue("", attributeID, value);
 }
 
 void Entity::setAttributeValue(std::string index, Util::identification attributeID, double value) {
-    std::string attrname = _parentModel->elements()->element(Util::TypeOf<Attribute>(), attributeID)->name();
-    setAttributeValue(index, attrname, value);
+	std::string attrname = _parentModel->elements()->element(Util::TypeOf<Attribute>(), attributeID)->name();
+	setAttributeValue(index, attrname, value);
 }
 
 Util::identification Entity::entityNumber() const {
-    return _entityNumber;
+	return _entityNumber;
 }
 
 bool Entity::_loadInstance(std::map<std::string, std::string>* fields) {
-    // never lods an entity
-    return true;
+	// never lods an entity
+	return true;
 }
 
 std::map<std::string, std::string>* Entity::_saveInstance() {
-    return new std::map<std::string, std::string>();
+	return new std::map<std::string, std::string>();
 }
 
 bool Entity::_check(std::string* errorMessage) {
-    return true;
+	return true;
 }

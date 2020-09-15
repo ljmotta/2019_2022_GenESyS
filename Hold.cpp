@@ -14,55 +14,54 @@
 #include "Hold.h"
 #include "Model.h"
 
-Hold::Hold(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Hold>(),name) {
+Hold::Hold(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Hold>(), name) {
 }
 
-
 std::string Hold::show() {
-    return ModelComponent::show() + "";
+	return ModelComponent::show() + "";
 }
 
 ModelComponent* Hold::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
-    Hold* newComponent = new Hold(model);
-    try {
-	newComponent->_loadInstance(fields);
-    } catch (const std::exception& e) {
+	Hold* newComponent = new Hold(model);
+	try {
+		newComponent->_loadInstance(fields);
+	} catch (const std::exception& e) {
 
-    }
-    return newComponent;
+	}
+	return newComponent;
 }
 
 void Hold::_execute(Entity* entity) {
-    _parentModel->tracer()->trace("I'm just a dummy model and I'll just send the entity forward");
-    this->_parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
+	_parentModel->tracer()->trace("I'm just a dummy model and I'll just send the entity forward");
+	this->_parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
 }
 
 bool Hold::_loadInstance(std::map<std::string, std::string>* fields) {
-    bool res = ModelComponent::_loadInstance(fields);
-    if (res) {
-	//...
-    }
-    return res;
+	bool res = ModelComponent::_loadInstance(fields);
+	if (res) {
+		//...
+	}
+	return res;
 }
 
 void Hold::_initBetweenReplications() {
 }
 
 std::map<std::string, std::string>* Hold::_saveInstance() {
-    std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
-    //...
-    return fields;
+	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
+	//...
+	return fields;
 }
 
 bool Hold::_check(std::string* errorMessage) {
-    bool resultAll = true;
-    //...
-    return resultAll;
+	bool resultAll = true;
+	//...
+	return resultAll;
 }
 
-PluginInformation* Hold::GetPluginInformation(){
-    PluginInformation* info = new PluginInformation(Util::TypeOf<Hold>(), &Hold::LoadInstance);
-    // ...
-    return info;
+PluginInformation* Hold::GetPluginInformation() {
+	PluginInformation* info = new PluginInformation(Util::TypeOf<Hold>(), &Hold::LoadInstance);
+	// ...
+	return info;
 }
 

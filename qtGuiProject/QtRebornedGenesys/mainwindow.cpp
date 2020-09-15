@@ -16,9 +16,8 @@
 #include <QCloseEvent>
 
 MainWindow::MainWindow(QWidget *parent) :
-	QMainWindow(parent),
-	ui(new Ui::MainWindow)
-{
+QMainWindow(parent),
+ui(new Ui::MainWindow) {
 	ui->setupUi(this);
 	connect(ui->actionAbout, SIGNAL(triggered(bool)), this, SLOT(on_actionAbout_triggered()));
 
@@ -39,8 +38,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	this->showMaximized();
 }
 
-MainWindow::~MainWindow()
-{
+MainWindow::~MainWindow() {
 	delete ui;
 }
 
@@ -49,7 +47,7 @@ MainWindow::~MainWindow()
 //*******************************************************************
 
 void MainWindow::_insertPluginUI(Plugin* plugin) {
-	if (plugin!=nullptr) {
+	if (plugin != nullptr) {
 		if (plugin->isIsValidPlugin()) {
 			std::string plugtext = plugin->pluginInfo()->pluginTypename();
 			std::string plugtextAdds = "";
@@ -62,11 +60,11 @@ void MainWindow::_insertPluginUI(Plugin* plugin) {
 			if (plugin->pluginInfo()->isSendTransfer())
 				plugtextAdds += ",SendTransfer";
 			if (plugtextAdds != "") {
-				plugtext += " ["+plugtextAdds.erase(0,1)+"]";
+				plugtext += " [" + plugtextAdds.erase(0, 1) + "]";
 			}
 			if (plugin->pluginInfo()->isComponent()) {
 				QTreeWidgetItem *plugItem = new QTreeWidgetItem(ui->treeWidgetPlugins);
-				plugItem->setText(1,QString::fromStdString(plugtext));
+				plugItem->setText(1, QString::fromStdString(plugtext));
 				plugItem->setIcon(0, QIcon(QPixmap("/home/rlcancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/RebornedGenESyS/qtGuiProject/QtRebornedGenesys/resources/plugins/default_component.bmp")));
 			} else {
 			}
@@ -150,39 +148,43 @@ void MainWindow::__simulationInsert_FAKE_Plugins() {
 	_insertPluginUI(plm->insert("cppforgenesys.so"));
 	//simulator->tracer()->setTraceLevel(tl);
 }
+
 void MainWindow::_simulationInsertPlugins() {
 	// TODO: Not implemented yet
 	__simulationInsert_FAKE_Plugins();
 }
 
-void MainWindow::_traceHandler(TraceEvent e){
+void MainWindow::_traceHandler(TraceEvent e) {
 	// TODO: -- use e.getTracelevel() to set text style (color, bold, etc)
-	if (e.tracelevel()==Util::TraceLevel::errorFatal)
-		ui->textEdit_Console->setTextColor(QColor::fromRgb(255,0,0));
-	else if (e.tracelevel()==Util::TraceLevel::errorRecover)
-		ui->textEdit_Console->setTextColor(QColor::fromRgb(128,0,0));
+	if (e.tracelevel() == Util::TraceLevel::errorFatal)
+		ui->textEdit_Console->setTextColor(QColor::fromRgb(255, 0, 0));
+	else if (e.tracelevel() == Util::TraceLevel::errorRecover)
+		ui->textEdit_Console->setTextColor(QColor::fromRgb(128, 0, 0));
 	else {
-		unsigned short grayVal = 5*(static_cast<unsigned int>(e.tracelevel()));
-		ui->textEdit_Console->setTextColor(QColor::fromRgb(grayVal,grayVal,grayVal));
+		unsigned short grayVal = 5 * (static_cast<unsigned int> (e.tracelevel()));
+		ui->textEdit_Console->setTextColor(QColor::fromRgb(grayVal, grayVal, grayVal));
 	}
 	ui->textEdit_Console->append(QString::fromStdString(e.text()));
 }
-void MainWindow::_traceErrorHandler(TraceErrorEvent e){
-	ui->textEdit_Console->setTextColor(QColor::fromRgb(255,0,0));
+
+void MainWindow::_traceErrorHandler(TraceErrorEvent e) {
+	ui->textEdit_Console->setTextColor(QColor::fromRgb(255, 0, 0));
 	ui->textEdit_Console->append(QString::fromStdString(e.text()));
 }
-void MainWindow::_traceReportHandler(TraceEvent e){
-	ui->textEdit_Console->setTextColor(QColor::fromRgb(0,0,128));
+
+void MainWindow::_traceReportHandler(TraceEvent e) {
+	ui->textEdit_Console->setTextColor(QColor::fromRgb(0, 0, 128));
 	ui->textEdit_Console->append(QString::fromStdString(e.text()));
 }
-void MainWindow::_traceSimulationHandler(TraceSimulationEvent e){
-	if (e.tracelevel()==Util::TraceLevel::errorFatal)
-		ui->textEdit_Console->setTextColor(QColor::fromRgb(255,64,0));
-	else if (e.tracelevel()==Util::TraceLevel::errorRecover)
-		ui->textEdit_Console->setTextColor(QColor::fromRgb(128,64,0));
+
+void MainWindow::_traceSimulationHandler(TraceSimulationEvent e) {
+	if (e.tracelevel() == Util::TraceLevel::errorFatal)
+		ui->textEdit_Console->setTextColor(QColor::fromRgb(255, 64, 0));
+	else if (e.tracelevel() == Util::TraceLevel::errorRecover)
+		ui->textEdit_Console->setTextColor(QColor::fromRgb(128, 64, 0));
 	else {
-		unsigned short grayVal = 5*(static_cast<unsigned int>(e.tracelevel()));
-		ui->textEdit_Console->setTextColor(QColor::fromRgb(grayVal,128,grayVal));
+		unsigned short grayVal = 5 * (static_cast<unsigned int> (e.tracelevel()));
+		ui->textEdit_Console->setTextColor(QColor::fromRgb(grayVal, 128, grayVal));
 	}
 	ui->textEdit_Console->append(QString::fromStdString(e.text()));
 }
@@ -193,10 +195,10 @@ void MainWindow::_traceSimulationHandler(TraceSimulationEvent e){
 void MainWindow::closeEvent(QCloseEvent *e) {
 	QMessageBox::StandardButton resBtn = QMessageBox::Yes;
 	if (true) {
-		resBtn = QMessageBox::question( this, "Exit Application",
-										tr("Really want to exit?\n"),
-										QMessageBox::No | QMessageBox::Yes,
-										QMessageBox::Yes);
+		resBtn = QMessageBox::question(this, "Exit Application",
+				tr("Really want to exit?\n"),
+				QMessageBox::No | QMessageBox::Yes,
+				QMessageBox::Yes);
 	}
 	if (resBtn == QMessageBox::No) {
 		e->ignore();
@@ -209,26 +211,32 @@ void MainWindow::closeEvent(QCloseEvent *e) {
 // PRIVATE
 
 // default Event Handlers
-void MainWindow::_onSimulationStartHandler(SimulationEvent* re){
 
-}
-void MainWindow::_onReplicationStartHandler(SimulationEvent* re){
-
-}
-void MainWindow::_onProcessEventHandler(SimulationEvent* re){
-
-}
-void MainWindow::_onReplicationEndHandler(SimulationEvent* re){
-
-}
-void MainWindow::_onSimulationEndHandler(SimulationEvent* re){
-
-}
-void MainWindow::_onEntityRemoveHandler(SimulationEvent* re){
+void MainWindow::_onSimulationStartHandler(SimulationEvent* re) {
 
 }
 
-void MainWindow::_refreshActions(){
+void MainWindow::_onReplicationStartHandler(SimulationEvent* re) {
+
+}
+
+void MainWindow::_onProcessEventHandler(SimulationEvent* re) {
+
+}
+
+void MainWindow::_onReplicationEndHandler(SimulationEvent* re) {
+
+}
+
+void MainWindow::_onSimulationEndHandler(SimulationEvent* re) {
+
+}
+
+void MainWindow::_onEntityRemoveHandler(SimulationEvent* re) {
+
+}
+
+void MainWindow::_refreshActions() {
 	bool thereIsAtLeastOneModelOpenned = _simulator->models()->size() > 0;
 	ui->actionClose->setEnabled(thereIsAtLeastOneModelOpenned);
 	ui->actionSave->setEnabled(thereIsAtLeastOneModelOpenned);
@@ -253,7 +261,6 @@ void MainWindow::_refreshWidgets() {
 	}
 	_refreshPropertyWidget();
 }
-
 
 void MainWindow::_refreshWidgetCurrentModel() {
 	Model* m = _simulator->models()->current();
@@ -309,22 +316,20 @@ void MainWindow::_refreshWidgetCurrentModel() {
 	// movable text
 	//text->setFlag(QGraphicsItem::ItemIsMovable);
 
-	*/
+	 */
 }
 
 //***********************************************************simulator->models()->current()********
 // MAINWINDOW START
 //*******************************************************************
 
-void MainWindow::on_actionAbout_triggered()
-{
+void MainWindow::on_actionAbout_triggered() {
 	DialogAbout dialog;
 	dialog.setModal(true);
 	dialog.exec();
 }
 
-void MainWindow::on_actionExit_triggered()
-{
+void MainWindow::on_actionExit_triggered() {
 	this->close();
 }
 
@@ -337,8 +342,7 @@ void MainWindow::_createUiForNewModel(Model* newModel) {
 	dialog->setVisible(true);
 }
 
-void MainWindow::on_actionNew_triggered()
-{
+void MainWindow::on_actionNew_triggered() {
 	Model* newModel = new Model(_simulator);
 	_simulator->models()->insert(newModel);
 	_createUiForNewModel(newModel);
@@ -346,18 +350,17 @@ void MainWindow::on_actionNew_triggered()
 	_refreshWidgets();
 }
 
-void MainWindow::on_actionOpen_triggered()
-{
+void MainWindow::on_actionOpen_triggered() {
 	QString fileName = QFileDialog::getOpenFileName(this,
-													tr("Open Simulation Model"), "../RebornedGenESyS/temp/",
-													tr("Genesys Simulation Model (*.gsm);;All Files (*)"));
+			tr("Open Simulation Model"), "../RebornedGenESyS/temp/",
+			tr("Genesys Simulation Model (*.gsm);;All Files (*)"));
 	if (fileName.isEmpty())
-			return;
+		return;
 	else {
 		QFile file(fileName);
 		if (!file.open(QIODevice::ReadOnly)) {
 			QMessageBox::information(this, tr("Unable to open file"),
-									 file.errorString());
+					file.errorString());
 			return;
 		}
 		bool loaded = _simulator->models()->loadModel(fileName.toStdString());
@@ -369,84 +372,72 @@ void MainWindow::on_actionOpen_triggered()
 	}
 }
 
-void MainWindow::on_actionClose_triggered()
-{
+void MainWindow::on_actionClose_triggered() {
 	Model* m = _simulator->models()->current();
 	// find the ui of that model
-	DialogSimulationModel* dialog = dynamic_cast<DialogSimulationModel*>(_mapSimUI->getUI(m));
+	DialogSimulationModel* dialog = dynamic_cast<DialogSimulationModel*> (_mapSimUI->getUI(m));
 	//_simulator->models()->remove(m);
 	dialog->close();
 	//
 	_refreshWidgets();
 }
 
-void MainWindow::on_actionSave_triggered()
-{
+void MainWindow::on_actionSave_triggered() {
 	QString fileName = QFileDialog::getSaveFileName(this,
-		   tr("Save Simulation Model"), "",
-		   tr("Genesys Simulation Model (*.gsm);;All Files (*)"));
+			tr("Save Simulation Model"), "",
+			tr("Genesys Simulation Model (*.gsm);;All Files (*)"));
 	if (fileName.isEmpty())
-		   return;
+		return;
 	else {
 		QFile file(fileName);
 		if (!file.open(QIODevice::WriteOnly)) {
 			QMessageBox::information(this, tr("Unable to open file"),
-				   file.errorString());
+					file.errorString());
 			return;
-		 }
+		}
 		//QDataStream out(&file);
 		//out.setVersion(QDataStream::Qt_4_5);
 		//out << contacts;
 	}
 }
 
-void MainWindow::on_actionSave_as_triggered()
-{
+void MainWindow::on_actionSave_as_triggered() {
 
 }
 
-void MainWindow::on_actionUndo_triggered()
-{
+void MainWindow::on_actionUndo_triggered() {
 
 }
 
-void MainWindow::on_actionRedo_triggered()
-{
+void MainWindow::on_actionRedo_triggered() {
 
 }
 
-void MainWindow::on_actionCut_triggered()
-{
+void MainWindow::on_actionCut_triggered() {
 
 }
 
-void MainWindow::on_actionCopy_triggered()
-{
+void MainWindow::on_actionCopy_triggered() {
 
 }
 
-void MainWindow::on_actionPaste_triggered()
-{
+void MainWindow::on_actionPaste_triggered() {
 
 }
 
-void MainWindow::on_actionFind_triggered()
-{
+void MainWindow::on_actionFind_triggered() {
 
 }
 
-void MainWindow::on_actionReplace_triggered()
-{
+void MainWindow::on_actionReplace_triggered() {
 
 }
 
-void MainWindow::on_actionGroup_triggered()
-{
+void MainWindow::on_actionGroup_triggered() {
 
 }
 
-void MainWindow::on_actionCheck_Model_triggered()
-{
+void MainWindow::on_actionCheck_Model_triggered() {
 	bool res = _simulator->models()->current()->check();
 	if (res)
 		QMessageBox::information(this, "Check", "Model check passed", QMessageBox::Ok);
@@ -454,48 +445,40 @@ void MainWindow::on_actionCheck_Model_triggered()
 		QMessageBox::warning(this, "Check", "Model check failed", QMessageBox::Ok);
 }
 
-void MainWindow::on_actionStart_triggered()
-{
+void MainWindow::on_actionStart_triggered() {
 	_simulator->models()->current()->simulation()->start();
 }
 
-void MainWindow::on_actionStep_triggered()
-{
-_simulator->models()->current()->simulation()->step();
+void MainWindow::on_actionStep_triggered() {
+	_simulator->models()->current()->simulation()->step();
 }
 
-void MainWindow::on_actionStop_triggered()
-{
+void MainWindow::on_actionStop_triggered() {
 	_simulator->models()->current()->simulation()->stop();
 }
 
-void MainWindow::on_actionRun_Control_triggered()
-{
+void MainWindow::on_actionRun_Control_triggered() {
 
 }
 
-void MainWindow::on_tabWidgetModels_tabBarDoubleClicked(int index)
-{
+void MainWindow::on_tabWidgetModels_tabBarDoubleClicked(int index) {
 
 }
 
-void MainWindow::on_tabWidgetModels_tabCloseRequested(int index)
-{
+void MainWindow::on_tabWidgetModels_tabCloseRequested(int index) {
 
 }
 
-void MainWindow::on_tabWidgetModels_currentChanged(int index)
-{
+void MainWindow::on_tabWidgetModels_currentChanged(int index) {
 
 }
 
-void MainWindow::on_actionInformation_triggered()
-{
+void MainWindow::on_actionInformation_triggered() {
 	DialogModelInformation dialog;
 	dialog.setModal(true);
 	ModelInfo* infos = _simulator->models()->current()->infos();
 	dialog.setModelMVC(infos);
-	if (dialog.exec() ==dialog.Accepted) {
+	if (dialog.exec() == dialog.Accepted) {
 		ModelInfo ret = dialog.getModelMVC();
 		//general
 		infos->setAnalystName(ret.analystName());

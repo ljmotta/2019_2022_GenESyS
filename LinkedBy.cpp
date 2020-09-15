@@ -23,13 +23,13 @@ LinkedBy::~LinkedBy() {
 }
 
 void LinkedBy::addLink() {
-    this->_linkedBy++;
+	this->_linkedBy++;
 }
 
 void LinkedBy::removeLink() {
-    this->_linkedBy--;
+	this->_linkedBy--;
 }
 
 bool LinkedBy::isLinked() {
-    return this->_linkedBy > 0;
+	return this->_linkedBy > 0;
 }

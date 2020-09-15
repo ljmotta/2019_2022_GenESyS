@@ -25,38 +25,38 @@
 class Waiting {
 public:
 
-    Waiting(Entity* entity, ModelComponent* component, double timeStartedWaiting) {
-	_entity = entity;
-	_component = component;
-	_timeStartedWaiting = timeStartedWaiting;
-    }
+	Waiting(Entity* entity, ModelComponent* component, double timeStartedWaiting) {
+		_entity = entity;
+		_component = component;
+		_timeStartedWaiting = timeStartedWaiting;
+	}
 
-    virtual ~Waiting()=default;
+	virtual ~Waiting() = default;
 public:
 
-    virtual std::string show() {
-	return //ModelElement::show()+
-	",entity=" + std::to_string(_entity->id()) +
-		",component=\"" + _component->name() + "\"" +
-		",timeStatedWaiting=" + std::to_string(_timeStartedWaiting);
-    }
+	virtual std::string show() {
+		return //ModelElement::show()+
+		",entity=" + std::to_string(_entity->id()) +
+				",component=\"" + _component->name() + "\"" +
+				",timeStatedWaiting=" + std::to_string(_timeStartedWaiting);
+	}
 public:
 
-    double getTimeStartedWaiting() const {
-	return _timeStartedWaiting;
-    }
+	double getTimeStartedWaiting() const {
+		return _timeStartedWaiting;
+	}
 
-    ModelComponent* getComponent() const {
-	return _component;
-    }
+	ModelComponent* getComponent() const {
+		return _component;
+	}
 
-    Entity* getEntity() const {
-	return _entity;
-    }
+	Entity* getEntity() const {
+		return _entity;
+	}
 private:
-    Entity* _entity;
-    ModelComponent* _component;
-    double _timeStartedWaiting;
+	Entity* _entity;
+	ModelComponent* _component;
+	double _timeStartedWaiting;
 };
 
 /*!
@@ -91,50 +91,50 @@ and stored in the report database for this queue.
 class Queue : public ModelElement {
 public:
 
-    enum class OrderRule : int {
-	FIFO = 1, LIFO = 2, HIGHESTVALUE = 3, SMALLESTVALUE = 4
-    };
+	enum class OrderRule : int {
+		FIFO = 1, LIFO = 2, HIGHESTVALUE = 3, SMALLESTVALUE = 4
+	};
 
 public:
-    Queue(Model* model, std::string name="");
-    virtual ~Queue();
+	Queue(Model* model, std::string name = "");
+	virtual ~Queue();
 public:
-    virtual std::string show();
+	virtual std::string show();
 public:
-    static PluginInformation* GetPluginInformation();
-    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static PluginInformation* GetPluginInformation();
+	static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 public:
-    void insertElement(Waiting* element);
-    void removeElement(Waiting* element);
-    unsigned int size();
-    Waiting* first();
-    Waiting* getAtRank(unsigned int rank);
-    void setAttributeName(std::string _attributeName);
-    std::string getAttributeName() const;
-    void setOrderRule(OrderRule _orderRule);
-    Queue::OrderRule getOrderRule() const;
+	void insertElement(Waiting* element);
+	void removeElement(Waiting* element);
+	unsigned int size();
+	Waiting* first();
+	Waiting* getAtRank(unsigned int rank);
+	void setAttributeName(std::string _attributeName);
+	std::string getAttributeName() const;
+	void setOrderRule(OrderRule _orderRule);
+	Queue::OrderRule getOrderRule() const;
 public: // to implement SIMAN functions
-    double sumAttributesFromWaiting(Util::identification attributeID); // use to implement SIMAN SAQUE function
-    double getAttributeFromWaitingRank(unsigned int rank, Util::identification attributeID);
+	double sumAttributesFromWaiting(Util::identification attributeID); // use to implement SIMAN SAQUE function
+	double getAttributeFromWaitingRank(unsigned int rank, Util::identification attributeID);
 public:
-    void initBetweenReplications();
+	void initBetweenReplications();
 protected:
-    virtual bool _loadInstance(std::map<std::string, std::string>* fields);
-    virtual std::map<std::string, std::string>* _saveInstance();
-    virtual bool _check(std::string* errorMessage);
-    virtual void _createInternalElements();
-    virtual ParserChangesInformation* _getParserChangesInformation();
+	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
+	virtual std::map<std::string, std::string>* _saveInstance();
+	virtual bool _check(std::string* errorMessage);
+	virtual void _createInternalElements();
+	virtual ParserChangesInformation* _getParserChangesInformation();
 
 private:
-    void _initCStats();
+	void _initCStats();
 private: //1::n
-    List<Waiting*>* _list = new List<Waiting*>();
+	List<Waiting*>* _list = new List<Waiting*>();
 private: //1::1
-    OrderRule _orderRule = OrderRule::FIFO;
-    std::string _attributeName = "";
+	OrderRule _orderRule = OrderRule::FIFO;
+	std::string _attributeName = "";
 private: // inner children elements
-    StatisticsCollector* _cstatNumberInQueue;
-    StatisticsCollector* _cstatTimeInQueue;
+	StatisticsCollector* _cstatNumberInQueue;
+	StatisticsCollector* _cstatTimeInQueue;
 };
 
 #endif /* QUEUE_H */

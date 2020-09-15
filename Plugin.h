@@ -27,23 +27,23 @@ PlugIns are NOT implemented yet
  */
 class Plugin {
 public:
-    Plugin(std::string filename_so_dll);
-    Plugin(StaticGetPluginInformation getInformation); // temporary. Just while compiled together
-    virtual ~Plugin() = default;
+	Plugin(std::string filename_so_dll);
+	Plugin(StaticGetPluginInformation getInformation); // temporary. Just while compiled together
+	virtual ~Plugin() = default;
 public:
-    bool isIsValidPlugin() const;
-    PluginInformation* pluginInfo() const;
+	bool isIsValidPlugin() const;
+	PluginInformation* pluginInfo() const;
 public:
-    ModelElement* loadNew(Model* model, std::map<std::string, std::string>* fields);
-    bool loadAndInsertNew(Model* model, std::map<std::string, std::string>* fields);
+	ModelElement* loadNew(Model* model, std::map<std::string, std::string>* fields);
+	bool loadAndInsertNew(Model* model, std::map<std::string, std::string>* fields);
 private:
-    ModelComponent* _loadNewComponent(Model* model, std::map<std::string, std::string>* fields);
-    ModelElement* _loadNewElement(Model* model, std::map<std::string, std::string>* fields);
+	ModelComponent* _loadNewComponent(Model* model, std::map<std::string, std::string>* fields);
+	ModelElement* _loadNewElement(Model* model, std::map<std::string, std::string>* fields);
 private: // read only
-    bool _isValidPlugin;
-    PluginInformation* _pluginInfo;
+	bool _isValidPlugin;
+	PluginInformation* _pluginInfo;
 private:
-    StaticGetPluginInformation _StatMethodGetInformation;
+	StaticGetPluginInformation _StatMethodGetInformation;
 };
 
 #endif /* PLUGIN_H */

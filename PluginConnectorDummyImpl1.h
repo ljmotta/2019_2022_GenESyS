@@ -18,13 +18,13 @@
 
 class PluginConnectorDummyImpl1 : public PluginConnector_if {
 public:
-    PluginConnectorDummyImpl1();
-    virtual ~PluginConnectorDummyImpl1() = default;
+	PluginConnectorDummyImpl1();
+	virtual ~PluginConnectorDummyImpl1() = default;
 public:
-    virtual Plugin* check(const std::string dynamicLibraryFilename);
-    virtual Plugin* connect(const std::string dynamicLibraryFilename);
-    virtual bool disconnect(const std::string dynamicLibraryFilename);
-    virtual bool disconnect(Plugin* plugin);
+	virtual Plugin* check(const std::string dynamicLibraryFilename);
+	virtual Plugin* connect(const std::string dynamicLibraryFilename);
+	virtual bool disconnect(const std::string dynamicLibraryFilename);
+	virtual bool disconnect(Plugin* plugin);
 private:
 
 };

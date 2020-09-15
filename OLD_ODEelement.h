@@ -21,42 +21,42 @@
 class ODEfunction {
 public:
 
-    ODEfunction(std::string expression, double initialPoint, double initialValue) {
-	this->expression = expression;
-	this->initialPoint =initialPoint;
-	this->initialValue = initialValue;
-    }
-    std::string expression;
-    double initialPoint;
-    double initialValue;
+	ODEfunction(std::string expression, double initialPoint, double initialValue) {
+		this->expression = expression;
+		this->initialPoint = initialPoint;
+		this->initialValue = initialValue;
+	}
+	std::string expression;
+	double initialPoint;
+	double initialValue;
 };
 
 class OLD_ODEelement : public ModelElement {
 public:
-    OLD_ODEelement(Model* model, std::string name="");
-    virtual ~OLD_ODEelement() = default;
+	OLD_ODEelement(Model* model, std::string name = "");
+	virtual ~OLD_ODEelement() = default;
 public:
-    virtual std::string show();
+	virtual std::string show();
 public:
-    static PluginInformation* GetPluginInformation();
-    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static PluginInformation* GetPluginInformation();
+	static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 public:
-    double solve();
-    void setStepH(double _h);
-    double getStepH() const;
-    void setEndTime(double _endTime);
-    double getEndTime() const;
-    List<ODEfunction*>* getODEfunctions() const;
+	double solve();
+	void setStepH(double _h);
+	double getStepH() const;
+	void setEndTime(double _endTime);
+	double getEndTime() const;
+	List<ODEfunction*>* getODEfunctions() const;
 protected: // must be overriden by derived classes
-    virtual bool _loadInstance(std::map<std::string, std::string>* fields);
-    virtual std::map<std::string, std::string>* _saveInstance();
-    virtual bool _check(std::string* errorMessage);
+	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
+	virtual std::map<std::string, std::string>* _saveInstance();
+	virtual bool _check(std::string* errorMessage);
 private:
 
 private:
-    List<ODEfunction*>* _ODEfunctions = new List<ODEfunction*>();
-    double _stepH = 0.1;
-    double _endTime;
+	List<ODEfunction*>* _ODEfunctions = new List<ODEfunction*>();
+	double _stepH = 0.1;
+	double _endTime;
 };
 
 #endif /* OLD_ODEELEMENT_H */

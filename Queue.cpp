@@ -16,132 +16,132 @@
 #include "Attribute.h"
 
 Queue::Queue(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Queue>(), name) {
-    _initCStats();
+	_initCStats();
 }
 
 void Queue::_initCStats() {
-    _cstatNumberInQueue = new StatisticsCollector(_parentModel, _name + "." + "Number_In_Queue", this); /* \todo: ++ WHY THIS INSERT "DISPOSE" AND "10ENTITYTYPE" STATCOLL ?? */
-    _cstatTimeInQueue = new StatisticsCollector(_parentModel, _name + "." + "Time_In_Queue", this);
-    _childrenElements->insert({"NumberInQueue", _cstatNumberInQueue});
-    _childrenElements->insert({"TimeInQueue", _cstatTimeInQueue});
+	_cstatNumberInQueue = new StatisticsCollector(_parentModel, _name + "." + "Number_In_Queue", this); /* \todo: ++ WHY THIS INSERT "DISPOSE" AND "10ENTITYTYPE" STATCOLL ?? */
+	_cstatTimeInQueue = new StatisticsCollector(_parentModel, _name + "." + "Time_In_Queue", this);
+	_childrenElements->insert({"NumberInQueue", _cstatNumberInQueue});
+	_childrenElements->insert({"TimeInQueue", _cstatTimeInQueue});
 }
 
 Queue::~Queue() {
-    //_parentModel->elements()->remove(Util::TypeOf<StatisticsCollector>(), _cstatNumberInQueue);
-    //_parentModel->elements()->remove(Util::TypeOf<StatisticsCollector>(), _cstatTimeInQueue);
+	//_parentModel->elements()->remove(Util::TypeOf<StatisticsCollector>(), _cstatNumberInQueue);
+	//_parentModel->elements()->remove(Util::TypeOf<StatisticsCollector>(), _cstatTimeInQueue);
 }
 
 std::string Queue::show() {
-    return ModelElement::show() +
-	    ",waiting=" + this->_list->show();
+	return ModelElement::show() +
+			",waiting=" + this->_list->show();
 }
 
 void Queue::insertElement(Waiting* element) {
-    _list->insert(element);
-    this->_cstatNumberInQueue->getStatistics()->getCollector()->addValue(_list->size());
+	_list->insert(element);
+	this->_cstatNumberInQueue->getStatistics()->getCollector()->addValue(_list->size());
 }
 
 void Queue::removeElement(Waiting* element) {
-    double tnow = _parentModel->simulation()->simulatedTime();
-    _list->remove(element);
-    this->_cstatNumberInQueue->getStatistics()->getCollector()->addValue(_list->size());
-    double timeInQueue = tnow - element->getTimeStartedWaiting();
-    this->_cstatTimeInQueue->getStatistics()->getCollector()->addValue(timeInQueue);
+	double tnow = _parentModel->simulation()->simulatedTime();
+	_list->remove(element);
+	this->_cstatNumberInQueue->getStatistics()->getCollector()->addValue(_list->size());
+	double timeInQueue = tnow - element->getTimeStartedWaiting();
+	this->_cstatTimeInQueue->getStatistics()->getCollector()->addValue(timeInQueue);
 }
 
 void Queue::initBetweenReplications() {
-    this->_list->clear();
+	this->_list->clear();
 }
 
 unsigned int Queue::size() {
-    return _list->size();
+	return _list->size();
 }
 
 Waiting* Queue::first() {
-    return _list->front();
+	return _list->front();
 }
 
 Waiting* Queue::getAtRank(unsigned int rank) {
-    return _list->getAtRank(rank);
+	return _list->getAtRank(rank);
 }
 
 void Queue::setAttributeName(std::string _attributeName) {
-    this->_attributeName = _attributeName;
+	this->_attributeName = _attributeName;
 }
 
 std::string Queue::getAttributeName() const {
-    return _attributeName;
+	return _attributeName;
 }
 
 void Queue::setOrderRule(OrderRule _orderRule) {
-    this->_orderRule = _orderRule;
+	this->_orderRule = _orderRule;
 }
 
 Queue::OrderRule Queue::getOrderRule() const {
-    return _orderRule;
+	return _orderRule;
 }
 
 double Queue::sumAttributesFromWaiting(Util::identification attributeID) {
-    double sum = 0.0;
-    for (std::list<Waiting*>::iterator it = _list->list()->begin(); it != _list->list()->end(); it++) {
-	sum += (*it)->getEntity()->attributeValue(attributeID);
-    }
-    return sum;
+	double sum = 0.0;
+	for (std::list<Waiting*>::iterator it = _list->list()->begin(); it != _list->list()->end(); it++) {
+		sum += (*it)->getEntity()->attributeValue(attributeID);
+	}
+	return sum;
 }
 
 double Queue::getAttributeFromWaitingRank(unsigned int rank, Util::identification attributeID) {
-    Waiting* wait = _list->getAtRank(rank);
-    if (wait != nullptr) {
-	return wait->getEntity()->attributeValue(attributeID);
-    }
-    return 0.0;
+	Waiting* wait = _list->getAtRank(rank);
+	if (wait != nullptr) {
+		return wait->getEntity()->attributeValue(attributeID);
+	}
+	return 0.0;
 }
 
 PluginInformation* Queue::GetPluginInformation() {
-    PluginInformation* info = new PluginInformation(Util::TypeOf<Queue>(), &Queue::LoadInstance);
-    return info;
+	PluginInformation* info = new PluginInformation(Util::TypeOf<Queue>(), &Queue::LoadInstance);
+	return info;
 }
 
 ModelElement* Queue::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
-    Queue* newElement = new Queue(model);
-    try {
-	newElement->_loadInstance(fields);
-    } catch (const std::exception& e) {
+	Queue* newElement = new Queue(model);
+	try {
+		newElement->_loadInstance(fields);
+	} catch (const std::exception& e) {
 
-    }
-    return newElement;
+	}
+	return newElement;
 }
 
 bool Queue::_loadInstance(std::map<std::string, std::string>* fields) {
-    bool res = ModelElement::_loadInstance(fields);
-    if (res) {
-	try {
-	    this->_attributeName = (*fields->find("attributeName")).second;
-	    this->_orderRule = static_cast<OrderRule> (std::stoi((*fields->find("orderRule")).second));
-	} catch (...) {
+	bool res = ModelElement::_loadInstance(fields);
+	if (res) {
+		try {
+			this->_attributeName = (*fields->find("attributeName")).second;
+			this->_orderRule = static_cast<OrderRule> (std::stoi((*fields->find("orderRule")).second));
+		} catch (...) {
+		}
 	}
-    }
-    return res;
+	return res;
 }
 
 std::map<std::string, std::string>* Queue::_saveInstance() {
-    std::map<std::string, std::string>* fields = ModelElement::_saveInstance(); //Util::TypeOf<Queue>());
-    fields->emplace("orderRule", std::to_string(static_cast<int> (this->_orderRule)));
-    fields->emplace("attributeName", this->_attributeName);
-    return fields;
+	std::map<std::string, std::string>* fields = ModelElement::_saveInstance(); //Util::TypeOf<Queue>());
+	fields->emplace("orderRule", std::to_string(static_cast<int> (this->_orderRule)));
+	fields->emplace("attributeName", this->_attributeName);
+	return fields;
 }
 
 bool Queue::_check(std::string* errorMessage) {
-    return _parentModel->elements()->check(Util::TypeOf<Attribute>(), _attributeName, "AttributeName", false, errorMessage);
+	return _parentModel->elements()->check(Util::TypeOf<Attribute>(), _attributeName, "AttributeName", false, errorMessage);
 }
 
 void Queue::_createInternalElements() {
-    //_initCStats();
+	//_initCStats();
 }
 
 ParserChangesInformation* Queue::_getParserChangesInformation() {
-    ParserChangesInformation* changes = new ParserChangesInformation();
-    //changes->getProductionToAdd()->insert(...);
-    //changes->getTokensToAdd()->insert(...);
-    return changes;
+	ParserChangesInformation* changes = new ParserChangesInformation();
+	//changes->getProductionToAdd()->insert(...);
+	//changes->getTokensToAdd()->insert(...);
+	return changes;
 }

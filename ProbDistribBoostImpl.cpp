@@ -22,14 +22,14 @@
 //using namespace boost::math;
 
 double ProbDistribBoostImpl::uniform(double x, double min, double max) {
-    if (x >= min && x <= max)
-	return 1.0 / (max - min);
-    else
-	return 0.0;
+	if (x >= min && x <= max)
+		return 1.0 / (max - min);
+	else
+		return 0.0;
 }
 
 double ProbDistribBoostImpl::exponential(double x, double mean) {
-    assert(x >= 0);
+	assert(x >= 0);
 	return 0.0; //mean * exp(-mean * x);
 }
 
@@ -38,10 +38,10 @@ double ProbDistribBoostImpl::erlang(double x, double shape, double scale) { //
 }
 
 double ProbDistribBoostImpl::normal(double x, double mean, double stddev) {
-    double p1 = 1 / (stddev * std::sqrt(2 * M_PI));
-    double rdf = (x - mean) / stddev;
-    double p2 = std::exp(-0.5 * rdf * rdf);
-    return p1*p2;
+	double p1 = 1 / (stddev * std::sqrt(2 * M_PI));
+	double rdf = (x - mean) / stddev;
+	double p2 = std::exp(-0.5 * rdf * rdf);
+	return p1*p2;
 }
 
 double ProbDistribBoostImpl::gamma(double x, double shape, double scale) {

@@ -23,21 +23,21 @@
  */
 class SimulationReporterDefaultImpl1 : public SimulationReporter_if {
 public:
-    SimulationReporterDefaultImpl1(ModelSimulation* simulation, Model* model, List<ModelElement*>* statsCountersSimulation);
-    virtual ~SimulationReporterDefaultImpl1() = default;
+	SimulationReporterDefaultImpl1(ModelSimulation* simulation, Model* model, List<ModelElement*>* statsCountersSimulation);
+	virtual ~SimulationReporterDefaultImpl1() = default;
 public:
-    virtual void showReplicationStatistics();
-    virtual void showSimulationStatistics(); //List<StatisticsCollector*>* cstatsSimulation);
+	virtual void showReplicationStatistics();
+	virtual void showSimulationStatistics(); //List<StatisticsCollector*>* cstatsSimulation);
 private:
-    //List<StatisticsCollector*>* getStatisticsFromParent( std::string parent );
+	//List<StatisticsCollector*>* getStatisticsFromParent( std::string parent );
 private:
-    ModelSimulation* _simulation;
-    Model* _model;
+	ModelSimulation* _simulation;
+	Model* _model;
 private:
-    List<ModelElement*>* _statsCountersSimulation;
+	List<ModelElement*>* _statsCountersSimulation;
 private:
-    const unsigned short _w = 12;
-    const unsigned short _nameW = 40;
+	const unsigned short _w = 12;
+	const unsigned short _nameW = 40;
 };
 
 #endif /* SIMULATIONREPORTERDEFAULTIMPL1_H */

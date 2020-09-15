@@ -15,56 +15,55 @@
 
 #include "Model.h"
 
-Separate::Separate(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Separate>(),name) {
+Separate::Separate(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Separate>(), name) {
 }
 
-
 std::string Separate::show() {
-    return ModelComponent::show() + "";
+	return ModelComponent::show() + "";
 }
 
 ModelComponent* Separate::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
-    Separate* newComponent = new Separate(model);
-    try {
-	newComponent->_loadInstance(fields);
-    } catch (const std::exception& e) {
+	Separate* newComponent = new Separate(model);
+	try {
+		newComponent->_loadInstance(fields);
+	} catch (const std::exception& e) {
 
-    }
-    return newComponent;
+	}
+	return newComponent;
 }
 
 void Separate::_execute(Entity* entity) {
-    //Entity* cloned = new Entity(entity);
-    this->_parentModel->sendEntityToComponent(entity, nextComponents()->frontConnection(), 0.0);
-    //this->_parentModel->sendEntityToComponent(cloned, nextComponents()->getConnectionAtRank(1), 0.0);
+	//Entity* cloned = new Entity(entity);
+	this->_parentModel->sendEntityToComponent(entity, nextComponents()->frontConnection(), 0.0);
+	//this->_parentModel->sendEntityToComponent(cloned, nextComponents()->getConnectionAtRank(1), 0.0);
 }
 
 bool Separate::_loadInstance(std::map<std::string, std::string>* fields) {
-    bool res = ModelComponent::_loadInstance(fields);
-    if (res) {
-	//...
-    }
-    return res;
+	bool res = ModelComponent::_loadInstance(fields);
+	if (res) {
+		//...
+	}
+	return res;
 }
 
 void Separate::_initBetweenReplications() {
 }
 
 std::map<std::string, std::string>* Separate::_saveInstance() {
-    std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
-    //...
-    return fields;
+	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
+	//...
+	return fields;
 }
 
 bool Separate::_check(std::string* errorMessage) {
-    bool resultAll = true;
-    //...
-    return resultAll;
+	bool resultAll = true;
+	//...
+	return resultAll;
 }
 
-PluginInformation* Separate::GetPluginInformation(){
-    PluginInformation* info = new PluginInformation(Util::TypeOf<Separate>(), &Separate::LoadInstance);
-    // ...
-    return info;
+PluginInformation* Separate::GetPluginInformation() {
+	PluginInformation* info = new PluginInformation(Util::TypeOf<Separate>(), &Separate::LoadInstance);
+	// ...
+	return info;
 }
 

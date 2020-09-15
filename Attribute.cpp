@@ -19,36 +19,35 @@
 Attribute::Attribute(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Attribute>(), name) {
 }
 
-
 std::string Attribute::show() {
-    return ModelElement::show();
+	return ModelElement::show();
 }
 
 bool Attribute::_loadInstance(std::map<std::string, std::string>* fields) {
-    return ModelElement::_loadInstance(fields);
+	return ModelElement::_loadInstance(fields);
 }
 
 PluginInformation* Attribute::GetPluginInformation() {
-    PluginInformation* info = new PluginInformation(Util::TypeOf<Attribute>(), &Attribute::LoadInstance);
-    return info;
+	PluginInformation* info = new PluginInformation(Util::TypeOf<Attribute>(), &Attribute::LoadInstance);
+	return info;
 
 }
 
 ModelElement* Attribute::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
-    Attribute* newElement = new Attribute(model);
-    try {
-	newElement->_loadInstance(fields);
-    } catch (const std::exception& e) {
+	Attribute* newElement = new Attribute(model);
+	try {
+		newElement->_loadInstance(fields);
+	} catch (const std::exception& e) {
 
-    }
-    return newElement;
+	}
+	return newElement;
 }
 
 std::map<std::string, std::string>* Attribute::_saveInstance() {
-    std::map<std::string, std::string>* fields = ModelElement::_saveInstance(); //Util::TypeOf<Attribute>());
-    return fields;
+	std::map<std::string, std::string>* fields = ModelElement::_saveInstance(); //Util::TypeOf<Attribute>());
+	return fields;
 }
 
 bool Attribute::_check(std::string* errorMessage) {
-    return true;
+	return true;
 }

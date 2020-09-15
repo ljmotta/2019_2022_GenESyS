@@ -21,23 +21,22 @@
 TestSimulationControlAndSimulationResponse::TestSimulationControlAndSimulationResponse() {
 }
 
+int TestSimulationControlAndSimulationResponse::main(int argc, char** argv) {
+	Simulator* simulator = new Simulator();
+	TraceManager* tm = simulator->tracer();
+	this->setDefaultTraceHandlers(tm);
+	tm->setTraceLevel(Util::TraceLevel::componentDetailed);
 
-int TestSimulationControlAndSimulationResponse::main(int argc, char** argv){
-    Simulator* simulator = new Simulator();
-    TraceManager* tm = simulator->tracer();
-    this->setDefaultTraceHandlers(tm);
-    tm->setTraceLevel(Util::TraceLevel::componentDetailed);
-    
-    Model* model = new Model(simulator);
-    model->show();
-    
-    std::cout << "NumRepl antes: " << model->infos()->numberOfReplications() << std::endl;
-    model->infos()->setNumberOfReplications(10);
-    std::cout << "NumRepl depois: " << model->infos()->numberOfReplications() << std::endl;
-    SimulationControl* control = model->controls()->front();
-    std::cout << control->name() << " antes: " << control->value() << std::endl;
-    control->setValue(20);
-    std::cout << control->name() << " depois: " << control->value() << std::endl;
-    std::cout << "NumRepl depois: " << model->infos()->numberOfReplications() << std::endl;
-    return 0;
+	Model* model = new Model(simulator);
+	model->show();
+
+	std::cout << "NumRepl antes: " << model->infos()->numberOfReplications() << std::endl;
+	model->infos()->setNumberOfReplications(10);
+	std::cout << "NumRepl depois: " << model->infos()->numberOfReplications() << std::endl;
+	SimulationControl* control = model->controls()->front();
+	std::cout << control->name() << " antes: " << control->value() << std::endl;
+	control->setValue(20);
+	std::cout << control->name() << " depois: " << control->value() << std::endl;
+	std::cout << "NumRepl depois: " << model->infos()->numberOfReplications() << std::endl;
+	return 0;
 }

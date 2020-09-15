@@ -16,17 +16,18 @@
 #include "Model.h"
 #include "Attribute.h"
 
-Station::Station(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Station>(),name) {
+Station::Station(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Station>(), name) {
 	_initCStats();
 }
 
 void Station::_initCStats() {
-	_cstatNumberInStation = new StatisticsCollector(_parentModel, _name+"."+"Number_In_Station", this);
-	_cstatTimeInStation = new StatisticsCollector(_parentModel, _name+"."+"Time_In_Station", this);
+	_cstatNumberInStation = new StatisticsCollector(_parentModel, _name + "." + "Number_In_Station", this);
+	_cstatTimeInStation = new StatisticsCollector(_parentModel, _name + "." + "Time_In_Station", this);
 	_childrenElements->insert({"NumberInStation", _cstatNumberInStation});
 	_childrenElements->insert({"TimeInStation", _cstatTimeInStation});
 
 }
+
 Station::~Station() {
 	//_parentModel->elements()->remove(Util::TypeOf<StatisticsCollector>(), _cstatNumberInStation);
 	//_parentModel->elements()->remove(Util::TypeOf<StatisticsCollector>(), _cstatTimeInStation);

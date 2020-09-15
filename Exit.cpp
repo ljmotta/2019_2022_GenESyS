@@ -15,56 +15,55 @@
 
 #include "Model.h"
 
-Exit::Exit(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Exit>(),name) {
+Exit::Exit(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Exit>(), name) {
 }
 
-
 std::string Exit::show() {
-    return ModelComponent::show() + "";
+	return ModelComponent::show() + "";
 }
 
 ModelComponent* Exit::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
-    Exit* newComponent = new Exit(model);
-    try {
-	newComponent->_loadInstance(fields);
-    } catch (const std::exception& e) {
+	Exit* newComponent = new Exit(model);
+	try {
+		newComponent->_loadInstance(fields);
+	} catch (const std::exception& e) {
 
-    }
-    return newComponent;
+	}
+	return newComponent;
 }
 
 void Exit::_execute(Entity* entity) {
-    _parentModel->tracer()->trace("I'm just a dummy model and I'll just send the entity forward");
-    this->_parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
+	_parentModel->tracer()->trace("I'm just a dummy model and I'll just send the entity forward");
+	this->_parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
 }
 
 bool Exit::_loadInstance(std::map<std::string, std::string>* fields) {
-    bool res = ModelComponent::_loadInstance(fields);
-    if (res) {
-	//...
-    }
-    return res;
+	bool res = ModelComponent::_loadInstance(fields);
+	if (res) {
+		//...
+	}
+	return res;
 }
 
 void Exit::_initBetweenReplications() {
 }
 
 std::map<std::string, std::string>* Exit::_saveInstance() {
-    std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
-    //...
-    return fields;
+	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
+	//...
+	return fields;
 }
 
 bool Exit::_check(std::string* errorMessage) {
-    bool resultAll = true;
-    //...
-    return resultAll;
+	bool resultAll = true;
+	//...
+	return resultAll;
 }
 
-PluginInformation* Exit::GetPluginInformation(){
-    PluginInformation* info = new PluginInformation(Util::TypeOf<Exit>(), &Exit::LoadInstance);
-    // ...
-    return info;
+PluginInformation* Exit::GetPluginInformation() {
+	PluginInformation* info = new PluginInformation(Util::TypeOf<Exit>(), &Exit::LoadInstance);
+	// ...
+	return info;
 }
 
 

@@ -46,24 +46,25 @@ TYPICAL USES
  */
 class Sequence : public ModelElement {
 public:
-    class SequenceStep {
-    public:
-	Station* _station;
-	std::list<std::string>* _assignments;
-    };
+
+	class SequenceStep {
+	public:
+		Station* _station;
+		std::list<std::string>* _assignments;
+	};
 public:
-    Sequence(Model* model, std::string name="");
-    virtual ~Sequence() = default;
+	Sequence(Model* model, std::string name = "");
+	virtual ~Sequence() = default;
 public:
-    virtual std::string show();
+	virtual std::string show();
 public: // static 
-    static PluginInformation* GetPluginInformation();
-    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static PluginInformation* GetPluginInformation();
+	static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 public:
 protected:
-    virtual bool _loadInstance(std::map<std::string, std::string>* fields);
-    virtual std::map<std::string, std::string>* _saveInstance();
-    virtual bool _check(std::string* errorMessage);
+	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
+	virtual std::map<std::string, std::string>* _saveInstance();
+	virtual bool _check(std::string* errorMessage);
 private:
 
 };

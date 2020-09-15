@@ -22,50 +22,50 @@ YY_DECL;
 
 class genesyspp_driver {
 public:
-    genesyspp_driver();
-    genesyspp_driver(Model* model, bool throws);
-    virtual ~genesyspp_driver() = default;
+	genesyspp_driver();
+	genesyspp_driver(Model* model, bool throws);
+	virtual ~genesyspp_driver() = default;
 
-    // Handling the scanner.
-    void scan_begin_file();
-    void scan_end_file();
-    void scan_begin_str();
-    void scan_end_str();
+	// Handling the scanner.
+	void scan_begin_file();
+	void scan_end_file();
+	void scan_begin_str();
+	void scan_end_str();
 
-    // Run the parser on file F.
-    // Return 0 on success.
-    int parse_file(const std::string& f);
-    int parse_str(const std::string& str);
+	// Run the parser on file F.
+	// Return 0 on success.
+	int parse_file(const std::string& f);
+	int parse_str(const std::string& str);
 
-    // Error handling.
-    void error(const yy::location& l, const std::string& m);
-    void error(const std::string& m);
+	// Error handling.
+	void error(const yy::location& l, const std::string& m);
+	void error(const std::string& m);
 
-    double getResult();
-    void setResult(double value);
+	double getResult();
+	void setResult(double value);
 
-    bool getThrowsException();
-    void setThrowsException(bool throws);
+	bool getThrowsException();
+	void setThrowsException(bool throws);
 
-    void setErrorMessage(std::string message);
-    std::string getErrorMessage();
+	void setErrorMessage(std::string message);
+	std::string getErrorMessage();
 
-    Model* getModel();
-    Sampler_if* getProbs();
+	Model* getModel();
+	Sampler_if* getProbs();
 
-    std::string getFile();
-    void setFile(std::string f);
+	std::string getFile();
+	void setFile(std::string f);
 
-    std::string getStrToParse();
-    void setStrToParse(std::string str);
+	std::string getStrToParse();
+	void setStrToParse(std::string str);
 
 private:
-    Model* _model;
-    Sampler_if* probs;
-    double result = 0;
-    std::string file;
-    std::string str_to_parse;
-    bool throwsException = true;
-    std::string errorMessage;
+	Model* _model;
+	Sampler_if* probs;
+	double result = 0;
+	std::string file;
+	std::string str_to_parse;
+	bool throwsException = true;
+	std::string errorMessage;
 };
 #endif // ! GENESYSPP_DRIVER_H

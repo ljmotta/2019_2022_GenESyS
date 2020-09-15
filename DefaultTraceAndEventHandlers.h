@@ -21,15 +21,15 @@
 
 // default Trace Handlers
 void traceHandlerFunction(TraceEvent e) {
-    std::cout << e.getText() << std::endl;
+	std::cout << e.getText() << std::endl;
 }
 
 void traceSimulationHandlerFunction(TraceSimulationEvent e) {
-    std::cout << e.getText() << std::endl;
+	std::cout << e.getText() << std::endl;
 }
 
 void onSimulationStartHandlerFunction(SimulationEvent* re) {
-    //std::cout << "(Handler) Simulation is starting" << std::endl;
+	//std::cout << "(Handler) Simulation is starting" << std::endl;
 }
 
 
@@ -39,16 +39,16 @@ void onReplicationStartHandlerFunction(SimulationEvent* re) {
 }
 
 void onProcessEventHandlerFunction(SimulationEvent* re) {
-    //std::cout << "(Handler) Processing event " << re->getEventProcessed()->show() << std::endl;
+	//std::cout << "(Handler) Processing event " << re->getEventProcessed()->show() << std::endl;
 }
 
 void onReplicationEndHandlerFunction(SimulationEvent* re) {
-    //std::cout << "(Handler) Replication " << re->getReplicationNumber() << " ending." << std::endl;
+	//std::cout << "(Handler) Replication " << re->getReplicationNumber() << " ending." << std::endl;
 }
 
 void onEntityRemoveHandlerFunction(SimulationEvent* re) {
-    //std::cout << "(Handler) Entity " << re->getEventProcessed()->getEntity() << " was removed." << std::endl;
+	//std::cout << "(Handler) Entity " << re->getEventProcessed()->getEntity() << " was removed." << std::endl;
 }
-*/
+ */
 #endif /* DEFAULTTRACEANDEVENTHANDLERS_H */
 

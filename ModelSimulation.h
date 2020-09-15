@@ -28,74 +28,74 @@ class Model;
  */
 class ModelSimulation {
 public:
-    ModelSimulation(Model* model);
-    virtual ~ModelSimulation() = default;
+	ModelSimulation(Model* model);
+	virtual ~ModelSimulation() = default;
 public: // simulation control
-    void start(); ///< Starts a sequential execution of a simulation, ie, a set of replications of this model.
-    void pause();
-    void step(); ///< Executes the processing of a single event, the next one in the future events list.
-    void stop();
-    void restart();
+	void start(); ///< Starts a sequential execution of a simulation, ie, a set of replications of this model.
+	void pause();
+	void step(); ///< Executes the processing of a single event, the next one in the future events list.
+	void stop();
+	void restart();
 public:
-    void setPauseOnEvent(bool _pauseOnEvent);
-    bool isPauseOnEvent() const;
-    void setStepByStep(bool _stepByStep);
-    bool isStepByStep() const;
-    void setInitializeStatistics(bool _initializeStatistics);
-    bool isInitializeStatistics() const;
-    void setInitializeSystem(bool _initializeSystem);
-    bool isInitializeSystem() const;
-    void setPauseOnReplication(bool _pauseBetweenReplications);
-    bool isPauseOnReplication() const;
+	void setPauseOnEvent(bool _pauseOnEvent);
+	bool isPauseOnEvent() const;
+	void setStepByStep(bool _stepByStep);
+	bool isStepByStep() const;
+	void setInitializeStatistics(bool _initializeStatistics);
+	bool isInitializeStatistics() const;
+	void setInitializeSystem(bool _initializeSystem);
+	bool isInitializeSystem() const;
+	void setPauseOnReplication(bool _pauseBetweenReplications);
+	bool isPauseOnReplication() const;
 public: // only gets
-    double simulatedTime() const; /*! The current time in the model being simulated, i.e., the instant when the current event was triggered */
-    bool isRunning() const;
-    unsigned int currentReplicationNumber() const;
-    ModelComponent* currentComponent() const;
-    Entity* currentEntity() const;
-    unsigned int currentInputNumber() const;
-    SimulationReporter_if* reporter() const;
-    /*
-     * PRIVATE
-     */
+	double simulatedTime() const; /*! The current time in the model being simulated, i.e., the instant when the current event was triggered */
+	bool isRunning() const;
+	unsigned int currentReplicationNumber() const;
+	ModelComponent* currentComponent() const;
+	Entity* currentEntity() const;
+	unsigned int currentInputNumber() const;
+	SimulationReporter_if* reporter() const;
+	/*
+	 * PRIVATE
+	 */
 private: // simulation control
-    void _initSimulation();
-    void _initReplication(); ///< Clear the event list, restarts simulated time, initialize event list and statistics, request components to reinitialize
-    void _initStatistics();
-    void _checkWarmUpTime(Event* nextEvent);
-    void _stepSimulation();
-    void _processEvent(Event* event);
+	void _initSimulation();
+	void _initReplication(); ///< Clear the event list, restarts simulated time, initialize event list and statistics, request components to reinitialize
+	void _initStatistics();
+	void _checkWarmUpTime(Event* nextEvent);
+	void _stepSimulation();
+	void _processEvent(Event* event);
 private:
-    bool _isReplicationEndCondition();
-    void _actualizeSimulationStatistics();
-    void _showSimulationHeader();
+	bool _isReplicationEndCondition();
+	void _actualizeSimulationStatistics();
+	void _showSimulationHeader();
 private:
-    double _simulatedTime = 0.0;
-    // list of double double _breakOnTimes;
-    // list of modules _breakOnModules;
-    bool _stepByStep = false;
-    bool _pauseOnReplication = false;
-    bool _pauseOnEvent = false;
-    bool _initializeStatisticsBetweenReplications = true;
-    bool _initializeSystem = true;
-    bool _running = false;
-    bool _pauseRequested = false;
-    bool _stopRequested = false;
-    bool _simulationIsInitiated = false;
-    bool _replicationIsInitiaded = false;
+	double _simulatedTime = 0.0;
+	// list of double double _breakOnTimes;
+	// list of modules _breakOnModules;
+	bool _stepByStep = false;
+	bool _pauseOnReplication = false;
+	bool _pauseOnEvent = false;
+	bool _initializeStatisticsBetweenReplications = true;
+	bool _initializeSystem = true;
+	bool _running = false;
+	bool _pauseRequested = false;
+	bool _stopRequested = false;
+	bool _simulationIsInitiated = false;
+	bool _replicationIsInitiaded = false;
 private:
-    Entity* _currentEntity;
-    ModelComponent* _currentComponent;
-    unsigned int _currentInputNumber;
-    SimulationReporter_if* _simulationReporter;
-    unsigned int _currentReplicationNumber;
-    List<ModelElement*>* _statsCountersSimulation = new List<ModelElement*>();
-    //std::list<ModelElement*>* _countersSimulation = new std::list<ModelElement*>();
+	Entity* _currentEntity;
+	ModelComponent* _currentComponent;
+	unsigned int _currentInputNumber;
+	SimulationReporter_if* _simulationReporter;
+	unsigned int _currentReplicationNumber;
+	List<ModelElement*>* _statsCountersSimulation = new List<ModelElement*>();
+	//std::list<ModelElement*>* _countersSimulation = new std::list<ModelElement*>();
 private:
-    Model* _model;
-    ModelInfo* _info;
+	Model* _model;
+	ModelInfo* _info;
 private:
-    const std::string _cte_stCountSimulNamePrefix = ""; //Simul.";
+	const std::string _cte_stCountSimulNamePrefix = ""; //Simul.";
 };
 
 #endif /* MODELSIMULATION_H */

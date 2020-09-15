@@ -14,56 +14,55 @@
 #include "Store.h"
 #include "Model.h"
 
-Store::Store(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Store>(),name) {
+Store::Store(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Store>(), name) {
 }
 
-
 std::string Store::show() {
-    return ModelComponent::show() + "";
+	return ModelComponent::show() + "";
 }
 
 ModelComponent* Store::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
-    Store* newComponent = new Store(model);
-    try {
-	newComponent->_loadInstance(fields);
-    } catch (const std::exception& e) {
+	Store* newComponent = new Store(model);
+	try {
+		newComponent->_loadInstance(fields);
+	} catch (const std::exception& e) {
 
-    }
-    return newComponent;
+	}
+	return newComponent;
 }
 
 void Store::_execute(Entity* entity) {
-    _parentModel->tracer()->trace("I'm just a dummy model and I'll just send the entity forward");
-    this->_parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
+	_parentModel->tracer()->trace("I'm just a dummy model and I'll just send the entity forward");
+	this->_parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
 }
 
 bool Store::_loadInstance(std::map<std::string, std::string>* fields) {
-    bool res = ModelComponent::_loadInstance(fields);
-    if (res) {
-	//...
-    }
-    return res;
+	bool res = ModelComponent::_loadInstance(fields);
+	if (res) {
+		//...
+	}
+	return res;
 }
 
 void Store::_initBetweenReplications() {
 }
 
 std::map<std::string, std::string>* Store::_saveInstance() {
-    std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
-    //...
-    return fields;
+	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
+	//...
+	return fields;
 }
 
 bool Store::_check(std::string* errorMessage) {
-    bool resultAll = true;
-    //...
-    return resultAll;
+	bool resultAll = true;
+	//...
+	return resultAll;
 }
 
-PluginInformation* Store::GetPluginInformation(){
-    PluginInformation* info = new PluginInformation(Util::TypeOf<Store>(), &Store::LoadInstance);
-    // ...
-    return info;
+PluginInformation* Store::GetPluginInformation() {
+	PluginInformation* info = new PluginInformation(Util::TypeOf<Store>(), &Store::LoadInstance);
+	// ...
+	return info;
 }
 
 

@@ -24,35 +24,35 @@ double SamplerBoostImpl::random() {
 }
 
 double SamplerBoostImpl::sampleBeta(double alpha, double beta, double infLimit, double supLimit) {
-    return 0.0; //dummy
+	return 0.0; //dummy
 }
 
 double SamplerBoostImpl::sampleDiscrete(double acumProb, double value, ...) {
-    return 0.0; //dummy
+	return 0.0; //dummy
 }
 
 double SamplerBoostImpl::sampleErlang(double mean, int M) {
-    return 0.0; //dummy
+	return 0.0; //dummy
 }
 
 double SamplerBoostImpl::sampleExponential(double mean) {
-    return 0.0; //dummy
+	return 0.0; //dummy
 }
 
 double SamplerBoostImpl::sampleGamma(double mean, double alpha) {
-    return 0.0; //dummy
+	return 0.0; //dummy
 }
 
 double SamplerBoostImpl::sampleLogNormal(double mean, double stddev) {
-    return 0.0; //dummy
+	return 0.0; //dummy
 }
 
 double SamplerBoostImpl::sampleNormal(double mean, double stddev) {
-    return 0.0; //dummy
+	return 0.0; //dummy
 }
 
 double SamplerBoostImpl::sampleTriangular(double min, double mode, double max) {
-    return 0.0; //dummy
+	return 0.0; //dummy
 }
 
 double SamplerBoostImpl::sampleUniform(double min, double max) {
@@ -61,7 +61,7 @@ double SamplerBoostImpl::sampleUniform(double min, double max) {
 }
 
 double SamplerBoostImpl::sampleWeibull(double alpha, double scale) {
-    return 0.0; //dummy
+	return 0.0; //dummy
 }
 
 void SamplerBoostImpl::setRNGparameters(Sampler_if::RNG_Parameters* param) {

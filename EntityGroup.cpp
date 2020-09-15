@@ -30,7 +30,7 @@ EntityGroup::~EntityGroup() {
 
 std::string EntityGroup::show() {
 	return ModelElement::show() +
-		",entities=" + this->_list->show();
+			",entities=" + this->_list->show();
 }
 
 void EntityGroup::insertElement(Entity* element) {
@@ -68,7 +68,7 @@ PluginInformation* EntityGroup::GetPluginInformation() {
 ModelElement* EntityGroup::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
 	EntityGroup* newElement = new EntityGroup(model);
 	try {
-	newElement->_loadInstance(fields);
+		newElement->_loadInstance(fields);
 	} catch (const std::exception& e) {
 
 	}
@@ -78,9 +78,9 @@ ModelElement* EntityGroup::LoadInstance(Model* model, std::map<std::string, std:
 bool EntityGroup::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelElement::_loadInstance(fields);
 	if (res) {
-	try {
-	} catch (...) {
-	}
+		try {
+		} catch (...) {
+		}
 	}
 	return res;
 }

@@ -22,18 +22,18 @@
  */
 class SimulationResponse {
 public:
-    SimulationResponse(std::string type, std::string name, GetterMember getterMember);
-    virtual ~SimulationResponse() = default;
+	SimulationResponse(std::string type, std::string name, GetterMember getterMember);
+	virtual ~SimulationResponse() = default;
 public:
-    std::string show();
+	std::string show();
 public:
-    double value();
-    std::string name() const;
-    std::string type() const;
+	double value();
+	std::string name() const;
+	std::string type() const;
 protected:
-    std::string _type;
-    std::string _name;
-    GetterMember _getterMemberFunction;
+	std::string _type;
+	std::string _name;
+	GetterMember _getterMemberFunction;
 };
 
 #endif /* SIMULATIONRESPONSE_H */

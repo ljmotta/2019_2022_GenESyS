@@ -14,66 +14,65 @@
 #include "Leave.h"
 #include "Model.h"
 
-Leave::Leave(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Leave>(),name) {
+Leave::Leave(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Leave>(), name) {
 }
 
-
 std::string Leave::show() {
-    return ModelComponent::show() + ",station="+this->_station->name();
+	return ModelComponent::show() + ",station=" + this->_station->name();
 }
 
 ModelComponent* Leave::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
-    Leave* newComponent = new Leave(model);
-    try {
-	newComponent->_loadInstance(fields);
-    } catch (const std::exception& e) {
+	Leave* newComponent = new Leave(model);
+	try {
+		newComponent->_loadInstance(fields);
+	} catch (const std::exception& e) {
 
-    }
-    return newComponent;
+	}
+	return newComponent;
 }
 
 void Leave::setStation(Station* _station) {
-    this->_station = _station;
+	this->_station = _station;
 }
 
 Station* Leave::getStation() const {
-    return _station;
+	return _station;
 }
 
 void Leave::_execute(Entity* entity) {
-    _station->leave(entity);
-    _parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
+	_station->leave(entity);
+	_parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
 }
 
 bool Leave::_loadInstance(std::map<std::string, std::string>* fields) {
-    bool res = ModelComponent::_loadInstance(fields);
-    if (res) {
-	std::string stationName = ((*(fields->find("stationName"))).second);
-	Station* station = dynamic_cast<Station*> (_parentModel->elements()->element(Util::TypeOf<Station>(), stationName));
-	this->_station = station;
-    }
-    return res;
+	bool res = ModelComponent::_loadInstance(fields);
+	if (res) {
+		std::string stationName = ((*(fields->find("stationName"))).second);
+		Station* station = dynamic_cast<Station*> (_parentModel->elements()->element(Util::TypeOf<Station>(), stationName));
+		this->_station = station;
+	}
+	return res;
 }
 
 void Leave::_initBetweenReplications() {
 }
 
 std::map<std::string, std::string>* Leave::_saveInstance() {
-    std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
-    fields->emplace("stationName", (this->_station->name()));
-    return fields;
+	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
+	fields->emplace("stationName", (this->_station->name()));
+	return fields;
 }
 
 bool Leave::_check(std::string* errorMessage) {
-    bool resultAll = true;
-    resultAll &= _parentModel->elements()->check(Util::TypeOf<Station>(), _station, "Station", errorMessage);
-    return resultAll;
+	bool resultAll = true;
+	resultAll &= _parentModel->elements()->check(Util::TypeOf<Station>(), _station, "Station", errorMessage);
+	return resultAll;
 }
 
 PluginInformation* Leave::GetPluginInformation() {
-    PluginInformation* info = new PluginInformation(Util::TypeOf<Leave>(), &Leave::LoadInstance);
-    info->insertDynamicLibFileDependence("station.so");
-    return info;
+	PluginInformation* info = new PluginInformation(Util::TypeOf<Leave>(), &Leave::LoadInstance);
+	info->insertDynamicLibFileDependence("station.so");
+	return info;
 }
 
 

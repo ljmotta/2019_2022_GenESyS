@@ -25,21 +25,21 @@
  */
 class Event {//: public ModelElement {
 public:
-    Event(double time, Entity* entity, ModelComponent* component, unsigned int componentInputNumber = 0);
-    Event(double time, Entity* entity, Connection* connection);
-    virtual ~Event() = default;
+	Event(double time, Entity* entity, ModelComponent* component, unsigned int componentInputNumber = 0);
+	Event(double time, Entity* entity, Connection* connection);
+	virtual ~Event() = default;
 public:
-    double time() const;
-    ModelComponent* component() const;
-    Entity* entity() const;
-    unsigned int componentInputNumber() const;
+	double time() const;
+	ModelComponent* component() const;
+	Entity* entity() const;
+	unsigned int componentInputNumber() const;
 public:
-    std::string show();
+	std::string show();
 private:
-    double _time;
-    Entity* _entity;
-    ModelComponent* _component;
-    unsigned int _componentInputNumber;
+	double _time;
+	Entity* _entity;
+	ModelComponent* _component;
+	unsigned int _componentInputNumber;
 };
 
 #endif /* EVENT_H */

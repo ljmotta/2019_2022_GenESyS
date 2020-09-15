@@ -17,11 +17,11 @@
 #include "BaseConsoleGenesysApplication.h"
 #include "Model.h"
 
-class FullSimulationOfComplexModel: public BaseConsoleGenesysApplication {
+class FullSimulationOfComplexModel : public BaseConsoleGenesysApplication {
 public:
-    FullSimulationOfComplexModel();
+	FullSimulationOfComplexModel();
 public:
-    virtual int main(int argc, char** argv);
+	virtual int main(int argc, char** argv);
 };
 
 #endif /* BUILDSIMULATIONMODEL02_H */

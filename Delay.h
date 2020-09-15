@@ -40,28 +40,28 @@ Units Time units used for the delay time.
  */
 class Delay : public ModelComponent {
 public:
-    Delay(Model* model, std::string name="");
-    virtual ~Delay() = default;
+	Delay(Model* model, std::string name = "");
+	virtual ~Delay() = default;
 public:
-    void setDelayExpression(std::string _delayExpression);
-    std::string delayExpression() const;
-    void setDelayTimeUnit(Util::TimeUnit _delayTimeUnit);
-    Util::TimeUnit delayTimeUnit() const;
+	void setDelayExpression(std::string _delayExpression);
+	std::string delayExpression() const;
+	void setDelayTimeUnit(Util::TimeUnit _delayTimeUnit);
+	Util::TimeUnit delayTimeUnit() const;
 public:
-    virtual std::string show();
+	virtual std::string show();
 public:
-    static PluginInformation* GetPluginInformation();
-    static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static PluginInformation* GetPluginInformation();
+	static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 protected:
-    virtual void _execute(Entity* entity);
-    virtual void _initBetweenReplications();
-    virtual bool _loadInstance(std::map<std::string, std::string>* fields);
-    virtual std::map<std::string, std::string>* _saveInstance();
-    virtual bool _check(std::string* errorMessage);
-    virtual void _createInternalElements();
+	virtual void _execute(Entity* entity);
+	virtual void _initBetweenReplications();
+	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
+	virtual std::map<std::string, std::string>* _saveInstance();
+	virtual bool _check(std::string* errorMessage);
+	virtual void _createInternalElements();
 private:
-    std::string _delayExpression = "1.0";
-    Util::TimeUnit _delayTimeUnit = Util::TimeUnit::second;
+	std::string _delayExpression = "1.0";
+	Util::TimeUnit _delayTimeUnit = Util::TimeUnit::second;
 };
 
 #endif /* DELAY_H */

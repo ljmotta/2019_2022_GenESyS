@@ -60,20 +60,20 @@ system.
  */
 class Attribute : public ModelElement {
 public:
-    //Attribute(Model* model);
-    Attribute(Model* model, std::string name="");
-    virtual ~Attribute() = default;
+	//Attribute(Model* model);
+	Attribute(Model* model, std::string name = "");
+	virtual ~Attribute() = default;
 public:
-    virtual std::string show();
+	virtual std::string show();
 public:
-    static PluginInformation* GetPluginInformation();
-    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static PluginInformation* GetPluginInformation();
+	static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 protected:
-    virtual bool _loadInstance(std::map<std::string, std::string>* fields);
-    virtual std::map<std::string, std::string>* _saveInstance();
-    virtual bool _check(std::string* errorMessage);
+	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
+	virtual std::map<std::string, std::string>* _saveInstance();
+	virtual bool _check(std::string* errorMessage);
 private:
-    //List<unsigned int>* _dimensionSizes = new List<unsigned int>();
+	//List<unsigned int>* _dimensionSizes = new List<unsigned int>();
 };
 
 #endif /* ATTRIBUTE_H */

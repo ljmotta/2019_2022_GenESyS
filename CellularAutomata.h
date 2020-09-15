@@ -16,8 +16,8 @@
 
 class CelularAutomata {
 public:
-    CelularAutomata();
-    virtual ~CelularAutomata() = default;
+	CelularAutomata();
+	virtual ~CelularAutomata() = default;
 private:
 
 };

@@ -20,31 +20,31 @@
 
 class ComponentManager {
 public:
-    ComponentManager(Model* model);
-    virtual ~ComponentManager() = default;
+	ComponentManager(Model* model);
+	virtual ~ComponentManager() = default;
 public:
-    bool insert(ModelComponent* comp);
-    void remove(ModelComponent* comp);
-    void clear();
-    //bool check(ModelComponent* comp, std::string expressionName, std::string* errorMessage);
-    //bool check(std::string compName, std::string expressionName, bool mandatory, std::string* errorMessage);    
+	bool insert(ModelComponent* comp);
+	void remove(ModelComponent* comp);
+	void clear();
+	//bool check(ModelComponent* comp, std::string expressionName, std::string* errorMessage);
+	//bool check(std::string compName, std::string expressionName, bool mandatory, std::string* errorMessage);    
 public:
-    //ModelComponent* getComponent(Util::identification id);
-    //ModelComponent* getComponent(std::string name);
-    unsigned int numberOfComponents();
-    std::list<ModelComponent*>::iterator begin();
-    std::list<ModelComponent*>::iterator end();
-    ModelComponent* front();
-    ModelComponent* next();
-    bool hasChanged() const;
-    void setHasChanged(bool _hasChanged);
-    //int getRankOf(std::string name);
+	//ModelComponent* getComponent(Util::identification id);
+	//ModelComponent* getComponent(std::string name);
+	unsigned int numberOfComponents();
+	std::list<ModelComponent*>::iterator begin();
+	std::list<ModelComponent*>::iterator end();
+	ModelComponent* front();
+	ModelComponent* next();
+	bool hasChanged() const;
+	void setHasChanged(bool _hasChanged);
+	//int getRankOf(std::string name);
 public:
 private:
-    List<ModelComponent*>* _components;
-    Model* _parentModel;
-    bool _hasChanged = false;
-    std::list<ModelComponent*>::iterator _componentIterator;
+	List<ModelComponent*>* _components;
+	Model* _parentModel;
+	bool _hasChanged = false;
+	std::list<ModelComponent*>::iterator _componentIterator;
 };
 
 #endif /* COMPONENTMANAGER_H */

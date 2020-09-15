@@ -14,20 +14,19 @@
 #include "FactorOrInteractionContribution.h"
 
 FactorOrInteractionContribution::FactorOrInteractionContribution(double contribution, double modelCoefficient, std::list<SimulationControl*>* controls) {
-    _contribution = contribution;
-    _modelCoefficient = modelCoefficient;
-    _controls = controls;
+	_contribution = contribution;
+	_modelCoefficient = modelCoefficient;
+	_controls = controls;
 }
 
-
 double FactorOrInteractionContribution::getModelCoefficient() const {
-    return _modelCoefficient;
+	return _modelCoefficient;
 }
 
 std::list<SimulationControl*>* FactorOrInteractionContribution::getControls() const {
-    return _controls;
+	return _controls;
 }
 
 double FactorOrInteractionContribution::getContribution() const {
-    return _contribution;
+	return _contribution;
 }

@@ -19,19 +19,18 @@
 TestParser::TestParser() {
 }
 
-
 int TestParser::main(int argc, char** argv) {
-    Simulator* simulator = new Simulator();
-    Model* model = new Model(simulator);
-    simulator->models()->insert(model);
-    double value;
-    bool success;
-    std::string errorMsg = "";
-    value = model->parseExpression("NORM(20,10)", &success, &errorMsg);
-    std::cout << value << std::endl;
-    value = model->parseExpression("-10+1+2+3", &success, &errorMsg);
-    std::cout << value << std::endl;
-    value = model->parseExpression("1+2+3-10", &success, &errorMsg);
-    std::cout << value << std::endl;
-    return 0;
+	Simulator* simulator = new Simulator();
+	Model* model = new Model(simulator);
+	simulator->models()->insert(model);
+	double value;
+	bool success;
+	std::string errorMsg = "";
+	value = model->parseExpression("NORM(20,10)", &success, &errorMsg);
+	std::cout << value << std::endl;
+	value = model->parseExpression("-10+1+2+3", &success, &errorMsg);
+	std::cout << value << std::endl;
+	value = model->parseExpression("1+2+3-10", &success, &errorMsg);
+	std::cout << value << std::endl;
+	return 0;
 }

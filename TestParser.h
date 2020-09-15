@@ -18,10 +18,10 @@
 
 class TestParser : public GenesysApplication_if {
 public:
-    TestParser();
-    virtual ~TestParser() = default;
+	TestParser();
+	virtual ~TestParser() = default;
 public:
-    virtual int main(int argc, char** argv);
+	virtual int main(int argc, char** argv);
 private:
 
 };

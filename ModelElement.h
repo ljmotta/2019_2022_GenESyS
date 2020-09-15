@@ -30,46 +30,46 @@ class Model;
  */
 class ModelElement {
 public:
-    ModelElement(Model* model, std::string elementTypename, std::string name = "", bool insertIntoModel = true);
-    //ModelElement(Model* model, std::string elementTypename, std::string name = "", bool insertIntoModel = true);
-    //ModelElement(const ModelElement &orig);
-    virtual ~ModelElement();
+	ModelElement(Model* model, std::string elementTypename, std::string name = "", bool insertIntoModel = true);
+	//ModelElement(Model* model, std::string elementTypename, std::string name = "", bool insertIntoModel = true);
+	//ModelElement(const ModelElement &orig);
+	virtual ~ModelElement();
 
 public: // get & set
-    Util::identification id() const;
-    void setName(std::string _name);
-    std::string name() const;
-    std::string classname() const;
+	Util::identification id() const;
+	void setName(std::string _name);
+	std::string name() const;
+	std::string classname() const;
 public: // static
-    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields, bool insertIntoModel); // \todo: return ModelComponent* ?
-    static std::map<std::string, std::string>* SaveInstance(ModelElement* element);
-    static bool Check(ModelElement* element, std::string* errorMessage);
-    static void CreateInternalElements(ModelElement* element);
-    static void InitBetweenReplications(ModelElement* element);
+	static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields, bool insertIntoModel); // \todo: return ModelComponent* ?
+	static std::map<std::string, std::string>* SaveInstance(ModelElement* element);
+	static bool Check(ModelElement* element, std::string* errorMessage);
+	static void CreateInternalElements(ModelElement* element);
+	static void InitBetweenReplications(ModelElement* element);
 public:
-    virtual std::string show();
-    std::list<std::string>* childrenElementKeys() const;
-    ModelElement* childElement(std::string key) const;
+	virtual std::string show();
+	std::list<std::string>* childrenElementKeys() const;
+	ModelElement* childElement(std::string key) const;
 protected:
-    void _setChildElement(std::string key, ModelElement* child);
+	void _setChildElement(std::string key, ModelElement* child);
 
 protected: // must be overriden by derived classes
-    virtual bool _loadInstance(std::map<std::string, std::string>* fields);
-    virtual std::map<std::string, std::string>* _saveInstance();
+	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
+	virtual std::map<std::string, std::string>* _saveInstance();
 protected: // could be overriden by derived classes
-    virtual bool _check(std::string* errorMessage);
-    virtual ParserChangesInformation* _getParserChangesInformation();
-    virtual void _initBetweenReplications();
-    virtual void _createInternalElements(); ///< This method is necessary only for those components that instantiate internal elements that must exist before simulation starts and even before model checking. That's the case of components that have internal StatisticsCollectors, since others components may refer to them as expressions (as in "TVAG(ThisCSTAT)") and therefore the element must exist when checking such expression    
+	virtual bool _check(std::string* errorMessage);
+	virtual ParserChangesInformation* _getParserChangesInformation();
+	virtual void _initBetweenReplications();
+	virtual void _createInternalElements(); ///< This method is necessary only for those components that instantiate internal elements that must exist before simulation starts and even before model checking. That's the case of components that have internal StatisticsCollectors, since others components may refer to them as expressions (as in "TVAG(ThisCSTAT)") and therefore the element must exist when checking such expression    
 private:
-    void _build(Model* model, std::string thistypename, bool insertIntoModel);
+	void _build(Model* model, std::string thistypename, bool insertIntoModel);
 protected:
-    Util::identification _id;
-    std::string _name;
-    std::string _typename;
-    Model* _parentModel;
+	Util::identification _id;
+	std::string _name;
+	std::string _typename;
+	Model* _parentModel;
 protected:
-    std::map<std::string, ModelElement*>* _childrenElements = new std::map<std::string,ModelElement*>(); 
+	std::map<std::string, ModelElement*>* _childrenElements = new std::map<std::string, ModelElement*>();
 };
 
 #endif /* MODELELEMENT_H */

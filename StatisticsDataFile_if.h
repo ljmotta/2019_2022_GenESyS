@@ -19,15 +19,15 @@
 
 class StatisticsDatafile_if : public Statistics_if {
 public:
-    virtual double mode() = 0;
-    virtual double mediane() = 0;
-    virtual double quartil(unsigned short num) = 0;
-    virtual double decil(unsigned short num) = 0;
-    virtual double centil(unsigned short num) = 0;
-    virtual void setHistogramNumClasses(unsigned short num) = 0;
-    virtual unsigned short histogramNumClasses() = 0;
-    virtual double histogramClassLowerLimit(unsigned short classNum) = 0;
-    virtual unsigned int histogramClassFrequency(unsigned short classNum) = 0;
+	virtual double mode() = 0;
+	virtual double mediane() = 0;
+	virtual double quartil(unsigned short num) = 0;
+	virtual double decil(unsigned short num) = 0;
+	virtual double centil(unsigned short num) = 0;
+	virtual void setHistogramNumClasses(unsigned short num) = 0;
+	virtual unsigned short histogramNumClasses() = 0;
+	virtual double histogramClassLowerLimit(unsigned short classNum) = 0;
+	virtual unsigned int histogramClassFrequency(unsigned short classNum) = 0;
 
 };
 

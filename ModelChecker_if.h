@@ -25,13 +25,13 @@
  */
 class ModelChecker_if {
 public:
-    virtual bool checkAll() = 0; /*! Invoques all other checks and returns true only if all of them returned true */
-    virtual bool checkConnected() = 0; /*! Checks if components are consistently connected to other to form a valid process-oriented model, describing how entities proceed to the flow*/
-    virtual bool checkSymbols() = 0; /*! Checks if user-defined strings for symbols required by components, usually expressions or functions, are valid or references existing and valid elements. */
-    virtual bool checkActivationCode() = 0; /*! Checks if the installed version has acquired a valid activation code for commercial use */
-    virtual bool checkLimits() = 0; /*! Checks if the model (its components and elements) fits the limits based on the activation code */
+	virtual bool checkAll() = 0; /*! Invoques all other checks and returns true only if all of them returned true */
+	virtual bool checkConnected() = 0; /*! Checks if components are consistently connected to other to form a valid process-oriented model, describing how entities proceed to the flow*/
+	virtual bool checkSymbols() = 0; /*! Checks if user-defined strings for symbols required by components, usually expressions or functions, are valid or references existing and valid elements. */
+	virtual bool checkActivationCode() = 0; /*! Checks if the installed version has acquired a valid activation code for commercial use */
+	virtual bool checkLimits() = 0; /*! Checks if the model (its components and elements) fits the limits based on the activation code */
 
-    //virtual bool verifySymbol(std::string componentName, std::string expressionName, std::string expression, std::string expressionResult, bool mandatory) = 0;
+	//virtual bool verifySymbol(std::string componentName, std::string expressionName, std::string expression, std::string expressionResult, bool mandatory) = 0;
 };
 
 #endif /* MODELCHECKER_IF_H */

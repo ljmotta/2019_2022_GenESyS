@@ -16,12 +16,12 @@
 
 #include "BaseConsoleGenesysApplication.h"
 
-class TestSimulationControlAndSimulationResponse: public BaseConsoleGenesysApplication {
+class TestSimulationControlAndSimulationResponse : public BaseConsoleGenesysApplication {
 public:
-    TestSimulationControlAndSimulationResponse();
-    virtual ~TestSimulationControlAndSimulationResponse() = default;
+	TestSimulationControlAndSimulationResponse();
+	virtual ~TestSimulationControlAndSimulationResponse() = default;
 public:
-    virtual int main(int argc, char** argv);
+	virtual int main(int argc, char** argv);
 private:
 
 };

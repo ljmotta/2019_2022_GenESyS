@@ -19,9 +19,9 @@ GenesysGUI::GenesysGUI() {
 }
 
 int GenesysGUI::main(int argc, char** argv) {
-//    QApplication a(argc, argv);
-//    MainWindow w;
-//    w.show();
-//    return a.exec();
-    return 0;
+	//    QApplication a(argc, argv);
+	//    MainWindow w;
+	//    w.show();
+	//    return a.exec();
+	return 0;
 }

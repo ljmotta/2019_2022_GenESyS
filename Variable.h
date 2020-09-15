@@ -89,34 +89,34 @@ Initial Value Variable value at the start of the simulation.
  */
 class Variable : public ModelElement {
 public:
-    Variable(Model* model, std::string name="");
-    virtual ~Variable() = default;
+	Variable(Model* model, std::string name = "");
+	virtual ~Variable() = default;
 public:
-    virtual std::string show();
+	virtual std::string show();
 public: //static
-    static PluginInformation* GetPluginInformation();
-    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static PluginInformation* GetPluginInformation();
+	static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 public:
-    double value();
-    void setValue(double value);
-    double value(std::string index);
-    void setValue(std::string index, double value);
-    double initialValue();
-    void setInitialValue(double value);
-    double initialValue(std::string index);
-    void setInitialValue(std::string index, double value);
-    List<unsigned int>* dimensionSizes() const;
+	double value();
+	void setValue(double value);
+	double value(std::string index);
+	void setValue(std::string index, double value);
+	double initialValue();
+	void setInitialValue(double value);
+	double initialValue(std::string index);
+	void setInitialValue(std::string index, double value);
+	List<unsigned int>* dimensionSizes() const;
 
 protected:
-    virtual bool _loadInstance(std::map<std::string, std::string>* fields);
-    virtual std::map<std::string, std::string>* _saveInstance();
-    virtual bool _check(std::string* errorMessage);
-    virtual void _initBetweenReplications();
+	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
+	virtual std::map<std::string, std::string>* _saveInstance();
+	virtual bool _check(std::string* errorMessage);
+	virtual void _initBetweenReplications();
 
 private:
-    List<unsigned int>* _dimensionSizes = new List<unsigned int>();
-    std::map<std::string, double>* _values = new std::map<std::string, double>();
-    std::map<std::string, double>* _initialValues = new std::map<std::string, double>();
+	List<unsigned int>* _dimensionSizes = new List<unsigned int>();
+	std::map<std::string, double>* _values = new std::map<std::string, double>();
+	std::map<std::string, double>* _initialValues = new std::map<std::string, double>();
 };
 
 #endif /* VARIABLE_H */

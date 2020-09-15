@@ -18,10 +18,10 @@
 
 class TestMarkovChain : public BaseConsoleGenesysApplication {
 public:
-    TestMarkovChain();
-    virtual ~TestMarkovChain() = default;
+	TestMarkovChain();
+	virtual ~TestMarkovChain() = default;
 public:
-    virtual int main(int argc, char** argv);
+	virtual int main(int argc, char** argv);
 private:
 
 };

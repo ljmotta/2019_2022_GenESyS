@@ -21,20 +21,20 @@
 
 class ProcessAnalyserDefaultImpl1 : public ProcessAnalyser_if {
 public:
-    ProcessAnalyserDefaultImpl1();
-    virtual ~ProcessAnalyserDefaultImpl1() = default;
+	ProcessAnalyserDefaultImpl1();
+	virtual ~ProcessAnalyserDefaultImpl1() = default;
 public:
-    virtual List<SimulationScenario*>* getScenarios() const;
-    virtual List<SimulationControl*>* getControls() const;
-    virtual List<SimulationResponse*>* getResponses() const;
-    virtual List<SimulationControl*>* extractControlsFromModel(std::string modelFilename) const;
-    virtual List<SimulationResponse*>* extractResponsesFromModel(std::string modelFilename) const;
-    virtual void startSimulationOfScenario(SimulationScenario* scenario);
-    virtual void startSimulation();
-    virtual void stopSimulation();
-    virtual void addTraceSimulationHandler(traceSimulationProcessListener traceSimulationProcessListener);
+	virtual List<SimulationScenario*>* getScenarios() const;
+	virtual List<SimulationControl*>* getControls() const;
+	virtual List<SimulationResponse*>* getResponses() const;
+	virtual List<SimulationControl*>* extractControlsFromModel(std::string modelFilename) const;
+	virtual List<SimulationResponse*>* extractResponsesFromModel(std::string modelFilename) const;
+	virtual void startSimulationOfScenario(SimulationScenario* scenario);
+	virtual void startSimulation();
+	virtual void stopSimulation();
+	virtual void addTraceSimulationHandler(traceSimulationProcessListener traceSimulationProcessListener);
 private:
-    List<SimulationControl*>* _controls = new List<SimulationControl*>();
+	List<SimulationControl*>* _controls = new List<SimulationControl*>();
 };
 
 #endif /* PROCESSANALYSERDEFAULTIMPL1_H */

@@ -23,7 +23,6 @@ ModelCheckerDefaultImpl1::ModelCheckerDefaultImpl1(Model* model) {
 	_model = model;
 }
 
-
 bool ModelCheckerDefaultImpl1::checkAll() {
 	bool res = true;
 	res &= checkSymbols();
@@ -41,10 +40,10 @@ bool ModelCheckerDefaultImpl1::checkAll() {
 
 void ModelCheckerDefaultImpl1::_recursiveConnectedTo(PluginManager* pluginManager, ModelComponent* comp, List<ModelComponent*>* visited, List<ModelComponent*>* unconnected, bool* drenoFound) {
 	visited->insert(comp);
-	_model->tracer()->trace(Util::TraceLevel::toolDetailed, "Connected to component \"" + comp->name()+"\"");
+	_model->tracer()->trace(Util::TraceLevel::toolDetailed, "Connected to component \"" + comp->name() + "\"");
 	Plugin* plugin = pluginManager->find(comp->classname());
-	assert(plugin!= nullptr);
-	if (plugin->pluginInfo()->isSink() || (plugin->pluginInfo()->isSendTransfer() && comp->nextComponents()->size()==0)) {//(dynamic_cast<SinkModelComponent*> (comp) != nullptr) {
+	assert(plugin != nullptr);
+	if (plugin->pluginInfo()->isSink() || (plugin->pluginInfo()->isSendTransfer() && comp->nextComponents()->size() == 0)) {//(dynamic_cast<SinkModelComponent*> (comp) != nullptr) {
 		// it is a sink OR it can send entities throught a transfer and has no nextConnections
 		*drenoFound = true;
 	} else { // it is not a sink
@@ -275,7 +274,7 @@ bool ModelCheckerDefaultImpl1::checkSymbols() {
 				for (std::list<ModelElement*>::iterator it = elements->list()->begin(); it != elements->list()->end(); it++) {
 					element = (*it);
 					// copyed from modelCOmponent. It is not inside the ModelElement::Check because ModelElement has no access to Model to call Tracer
-					_model->tracer()->trace(Util::TraceLevel::toolDetailed, "Checking " + element->classname() + ": \"" + element->name()+ "\" (id "+std::to_string(element->id())+")"); //std::to_string(component->_id));
+					_model->tracer()->trace(Util::TraceLevel::toolDetailed, "Checking " + element->classname() + ": \"" + element->name() + "\" (id " + std::to_string(element->id()) + ")"); //std::to_string(component->_id));
 					Util::IncIndent();
 					{
 						try {
@@ -297,7 +296,7 @@ bool ModelCheckerDefaultImpl1::checkSymbols() {
 			if (!result) {
 			_model->getTraceManager()->trace(Util::TraceLevel::mostDetailed, "Verification of symbols of component \"" + element->getName() + "\" has failed with message " + *errorMessage);
 			}
-			 */
+					 */
 				}
 			}
 		}
@@ -328,9 +327,9 @@ bool ModelCheckerDefaultImpl1::checkLimits() {
 	Util::IncIndent();
 	{
 		value = _model->components()->numberOfComponents();
-		limit=licence->modelComponentsLimit();
+		limit = licence->modelComponentsLimit();
 		res &= value <= limit;
-		_model->tracer()->trace("Model has "+std::to_string(value)+"/"+std::to_string(limit)+" components");
+		_model->tracer()->trace("Model has " + std::to_string(value) + "/" + std::to_string(limit) + " components");
 		if (!res) {
 			text = "Model has " + std::to_string(_model->components()->numberOfComponents()) + " components, exceding the limit of " + std::to_string(licence->modelComponentsLimit()) + " components imposed by the current activation code";
 			//_model->getTraceManager()->trace(Util::TraceLevel::errors, text);
@@ -338,7 +337,7 @@ bool ModelCheckerDefaultImpl1::checkLimits() {
 			value = _model->elements()->numberOfElements();
 			limit = licence->modelElementsLimit();
 			res &= value <= limit;
-			_model->tracer()->trace("Model has "+std::to_string(value)+"/"+std::to_string(limit)+" elements");
+			_model->tracer()->trace("Model has " + std::to_string(value) + "/" + std::to_string(limit) + " elements");
 			if (!res) {
 				text = "Model has " + std::to_string(_model->elements()->numberOfElements()) + " elements, exceding the limit of " + std::to_string(licence->modelElementsLimit()) + " elements imposed by the current activation code";
 				//_model->getTraceManager()->trace(Util::TraceLevel::errors, text);

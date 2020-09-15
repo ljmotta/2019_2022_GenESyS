@@ -16,9 +16,9 @@
 
 class ElementManager_if {
 public:
-    ElementManager_if();
-    ElementManager_if(const ElementManager_if& orig);
-    virtual ~ElementManager_if();
+	ElementManager_if();
+	ElementManager_if(const ElementManager_if& orig);
+	virtual ~ElementManager_if();
 private:
 
 };

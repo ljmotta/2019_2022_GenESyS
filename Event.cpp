@@ -14,39 +14,38 @@
 #include "Event.h"
 
 Event::Event(double time, Entity* entity, ModelComponent* component, unsigned int componentInputNumber) {
-    _time = time;
-    _entity = entity;
-    _component = component;
-    _componentInputNumber = componentInputNumber;
+	_time = time;
+	_entity = entity;
+	_component = component;
+	_componentInputNumber = componentInputNumber;
 }
 
 Event::Event(double time, Entity* entity, Connection* connection) {
-    _time = time;
-    _entity = entity;
-    _component = connection->first;
-    _componentInputNumber = connection->second;
+	_time = time;
+	_entity = entity;
+	_component = connection->first;
+	_componentInputNumber = connection->second;
 }
 
-
 std::string Event::show() {
-    return "time=" + std::to_string(_time) +
-	    ",entity=" + std::to_string(_entity->entityNumber()) +
-	    ",comp=\"" + _component->name() + "\""; //+std::to_string(_component->getId())+"}";
+	return "time=" + std::to_string(_time) +
+			",entity=" + std::to_string(_entity->entityNumber()) +
+			",comp=\"" + _component->name() + "\""; //+std::to_string(_component->getId())+"}";
 }
 
 unsigned int Event::componentInputNumber() const {
-    return _componentInputNumber;
+	return _componentInputNumber;
 }
 
 double Event::time() const {
-    return _time;
+	return _time;
 }
 
 ModelComponent* Event::component() const {
-    return _component;
+	return _component;
 }
 
 Entity* Event::entity() const {
-    return _entity;
+	return _entity;
 }
 

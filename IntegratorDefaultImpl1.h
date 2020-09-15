@@ -18,17 +18,17 @@
 
 class IntegratorDefaultImpl1 : public Integrator_if {
 public:
-    IntegratorDefaultImpl1();
-    virtual ~IntegratorDefaultImpl1() = default;
+	IntegratorDefaultImpl1();
+	virtual ~IntegratorDefaultImpl1() = default;
 public:
-    virtual void setPrecision(double e);
-    virtual double getPrecision();
-    virtual double integrate(double min, double max, double (*f)(double, double), double p2);
-    virtual double integrate(double min, double max, double (*f)(double, double, double), double p2, double p3);
-    virtual double integrate(double min, double max, double (*f)(double, double, double, double), double p2, double p3, double p4);
-    virtual double integrate(double min, double max, double (*f)(double, double, double, double, double), double p2, double p3, double p4, double p5);
+	virtual void setPrecision(double e);
+	virtual double getPrecision();
+	virtual double integrate(double min, double max, double (*f)(double, double), double p2);
+	virtual double integrate(double min, double max, double (*f)(double, double, double), double p2, double p3);
+	virtual double integrate(double min, double max, double (*f)(double, double, double, double), double p2, double p3, double p4);
+	virtual double integrate(double min, double max, double (*f)(double, double, double, double, double), double p2, double p3, double p4, double p5);
 private:
-    double _precision;
+	double _precision;
 };
 
 #endif /* INTEGRATORDEFAULTIMPL1_H */

@@ -19,12 +19,12 @@
 
 class TestLSODE : public BaseConsoleGenesysApplication {
 public:
-    TestLSODE();
-    virtual ~TestLSODE()=default;
+	TestLSODE();
+	virtual ~TestLSODE() = default;
 public:
-    virtual int main(int argc, char** argv) ;
+	virtual int main(int argc, char** argv);
 private:
-    List<std::string>* _differentialequation = new List<std::string>();
+	List<std::string>* _differentialequation = new List<std::string>();
 };
 
 #endif /* TESTLSODE_H */

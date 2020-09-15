@@ -9,8 +9,7 @@
 #include "../../ModelComponent.h"
 //"../../RebornedGenESyS/ModelComponent.h"
 
-class GraphicalModelComponent: public QGraphicsItem
-{
+class GraphicalModelComponent : public QGraphicsItem {
 public:
 	GraphicalModelComponent(ModelComponent* modelComponent);
 	ModelComponent* modelComponent() const;
@@ -25,7 +24,7 @@ private:
 
 private:
 	ModelComponent* _modelComponent;
-	int recW=400, recH=200, connW=5, connH=5, penW=2, margin=5;
+	int recW = 400, recH = 200, connW = 5, connH = 5, penW = 2, margin = 5;
 };
 
 #endif // GRAPHICALMODELCOMPONENT_H

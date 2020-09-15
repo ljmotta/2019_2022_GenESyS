@@ -16,47 +16,44 @@
 SimulationScenario::SimulationScenario() {
 }
 
-
 bool SimulationScenario::startSimulation(std::string* errorMessage) {
-    // model->loadmodel _modelFilename
-    // set values for the _selectedControls
-    // model->startSimulation
-    // get the value of the _selectedResponses from the model and store results on _responseValues
-    // clear selected controls and responses
-    // close the model
-    return false;
+	// model->loadmodel _modelFilename
+	// set values for the _selectedControls
+	// model->startSimulation
+	// get the value of the _selectedResponses from the model and store results on _responseValues
+	// clear selected controls and responses
+	// close the model
+	return false;
 }
 
 void SimulationScenario::setScenarioName(std::string _name) {
-    this->_scenarioName = _name;
+	this->_scenarioName = _name;
 }
 
 std::string SimulationScenario::getScenarioName() const {
-    return _scenarioName;
+	return _scenarioName;
 }
 
-
 void SimulationScenario::setModelFilename(std::string _modelFilename) {
-    this->_modelFilename = _modelFilename;
+	this->_modelFilename = _modelFilename;
 }
 
 std::string SimulationScenario::getModelFilename() const {
-    return _modelFilename;
+	return _modelFilename;
 }
 
-
 std::list<SimulationResponse*>* SimulationScenario::getSelectedResponses() const {
-    return _selectedResponses;
+	return _selectedResponses;
 }
 
 std::list<SimulationControl*>* SimulationScenario::getSelectedControls() const {
-    return _selectedControls;
+	return _selectedControls;
 }
 
 void SimulationScenario::setScenarioDescription(std::string _scenarioDescription) {
-    this->_scenarioDescription = _scenarioDescription;
+	this->_scenarioDescription = _scenarioDescription;
 }
 
 std::string SimulationScenario::getScenarioDescription() const {
-    return _scenarioDescription;
+	return _scenarioDescription;
 }

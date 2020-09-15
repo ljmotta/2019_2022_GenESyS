@@ -28,37 +28,37 @@ class Model;
  */
 class ElementManager {
 public:
-    ElementManager(Model* model);
-    virtual ~ElementManager() = default;
+	ElementManager(Model* model);
+	virtual ~ElementManager() = default;
 public:
-    bool insert(ModelElement* anElement);
-    void remove(ModelElement* anElement); ///< Deprected
-    bool insert(std::string elementTypename, ModelElement* anElement); ///< Deprected
-    void remove(std::string elementTypename, ModelElement* anElement);
-    bool check(std::string elementTypename, ModelElement* anElement, std::string expressionName, std::string* errorMessage);
-    bool check(std::string elementTypename, std::string elementName, std::string expressionName, bool mandatory, std::string* errorMessage);
-    void clear();
+	bool insert(ModelElement* anElement);
+	void remove(ModelElement* anElement); ///< Deprected
+	bool insert(std::string elementTypename, ModelElement* anElement); ///< Deprected
+	void remove(std::string elementTypename, ModelElement* anElement);
+	bool check(std::string elementTypename, ModelElement* anElement, std::string expressionName, std::string* errorMessage);
+	bool check(std::string elementTypename, std::string elementName, std::string expressionName, bool mandatory, std::string* errorMessage);
+	void clear();
 public:
-    ModelElement* element(std::string elementTypename, Util::identification id);
-    ModelElement* element(std::string elementTypename, std::string name);
-    unsigned int numberOfElements(std::string elementTypename);
-    unsigned int numberOfElements();
-    int rankOf(std::string elementTypename, std::string name); ///< returns the position (1st position=0) of the element if found, or negative value if not found
-    std::list<std::string>* elementClassnames() const;
+	ModelElement* element(std::string elementTypename, Util::identification id);
+	ModelElement* element(std::string elementTypename, std::string name);
+	unsigned int numberOfElements(std::string elementTypename);
+	unsigned int numberOfElements();
+	int rankOf(std::string elementTypename, std::string name); ///< returns the position (1st position=0) of the element if found, or negative value if not found
+	std::list<std::string>* elementClassnames() const;
 
-    //private:
+	//private:
 public:
-    // \todo: MUST BE PRIVATE
-    List<ModelElement*>* elementList(std::string elementTypename) const;
+	// \todo: MUST BE PRIVATE
+	List<ModelElement*>* elementList(std::string elementTypename) const;
 public:
-    void show();
-    Model* parentModel() const;
-    bool hasChanged() const;
-    void setHasChanged(bool _hasChanged);
+	void show();
+	Model* parentModel() const;
+	bool hasChanged() const;
+	void setHasChanged(bool _hasChanged);
 private:
-    std::map<std::string, List<ModelElement*>*>* _elements;
-    Model* _parentModel;
-    bool _hasChanged = false;
+	std::map<std::string, List<ModelElement*>*>* _elements;
+	Model* _parentModel;
+	bool _hasChanged = false;
 };
 
 #endif /* ELEMENTMANAGER_H */

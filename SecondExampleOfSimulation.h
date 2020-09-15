@@ -16,11 +16,11 @@
 
 #include "BaseConsoleGenesysApplication.h"
 
-class SecondExampleOfSimulation: public BaseConsoleGenesysApplication {
+class SecondExampleOfSimulation : public BaseConsoleGenesysApplication {
 public:
-    SecondExampleOfSimulation();
+	SecondExampleOfSimulation();
 public:
-    virtual int main(int argc, char** argv);
+	virtual int main(int argc, char** argv);
 };
 
 #endif /* SECONDEXAMPLEOFSIMULATION_H */

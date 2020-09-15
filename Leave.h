@@ -90,27 +90,27 @@ Station Name Name of the individual destination station.
 Attribute Name The attribute name that will be evaluated to indicate the station.
 Expression The expression that will be evaluated to indicate the station.
  */
-class Leave: public ModelComponent {
+class Leave : public ModelComponent {
 public:
-    Leave(Model* model, std::string name="");
-    virtual ~Leave() = default;
+	Leave(Model* model, std::string name = "");
+	virtual ~Leave() = default;
 public:
-    virtual std::string show();
+	virtual std::string show();
 public:
-    static PluginInformation* GetPluginInformation();
-    static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static PluginInformation* GetPluginInformation();
+	static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 public:
-    void setStation(Station* _station);
-    Station* getStation() const;
+	void setStation(Station* _station);
+	Station* getStation() const;
 public:
 protected:
-    virtual void _execute(Entity* entity);
-    virtual void _initBetweenReplications();
-    virtual bool _loadInstance(std::map<std::string, std::string>* fields);
-    virtual std::map<std::string, std::string>* _saveInstance();
-    virtual bool _check(std::string* errorMessage);
+	virtual void _execute(Entity* entity);
+	virtual void _initBetweenReplications();
+	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
+	virtual std::map<std::string, std::string>* _saveInstance();
+	virtual bool _check(std::string* errorMessage);
 private: // association
-    Station* _station;
+	Station* _station;
 };
 
 #endif /* LEAVE_H */

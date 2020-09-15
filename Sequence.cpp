@@ -15,58 +15,56 @@
 #include "Attribute.h"
 #include "Model.h"
 
-Sequence::Sequence(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Sequence>(),name) {
+Sequence::Sequence(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Sequence>(), name) {
 }
-
 
 std::string Sequence::show() {
-    std::string msg = ModelElement::show();
-    return msg;
+	std::string msg = ModelElement::show();
+	return msg;
 }
 
-
 PluginInformation* Sequence::GetPluginInformation() {
-    PluginInformation* info = new PluginInformation(Util::TypeOf<Sequence>(), &Sequence::LoadInstance);
-    return info;
+	PluginInformation* info = new PluginInformation(Util::TypeOf<Sequence>(), &Sequence::LoadInstance);
+	return info;
 }
 
 ModelElement* Sequence::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
-    Sequence* newElement = new Sequence(model);
-    try {
-	newElement->_loadInstance(fields);
-    } catch (const std::exception& e) {
+	Sequence* newElement = new Sequence(model);
+	try {
+		newElement->_loadInstance(fields);
+	} catch (const std::exception& e) {
 
-    }
-    return newElement;
+	}
+	return newElement;
 }
 
 bool Sequence::_loadInstance(std::map<std::string, std::string>* fields) {
-    bool res = ModelElement::_loadInstance(fields);
-    if (res) {
-	try {
-	} catch (...) {
+	bool res = ModelElement::_loadInstance(fields);
+	if (res) {
+		try {
+		} catch (...) {
+		}
 	}
-    }
-    return res;
+	return res;
 }
 
 std::map<std::string, std::string>* Sequence::_saveInstance() {
-    std::map<std::string, std::string>* fields = ModelElement::_saveInstance(); //Util::TypeOf<Sequence>());
-    return fields;
+	std::map<std::string, std::string>* fields = ModelElement::_saveInstance(); //Util::TypeOf<Sequence>());
+	return fields;
 }
 
 bool Sequence::_check(std::string* errorMessage) {
-    /* include attributes needed */
-    std::vector<std::string> neededNames = {"Entity.Sequence"};
-    std::string neededName;
-    for (unsigned int i = 0; i < neededNames.size(); i++) {
-	neededName = neededNames[i];
-	if (_parentModel->elements()->element(Util::TypeOf<Attribute>(), neededName) == nullptr) {
-	    Attribute* attr1 = new Attribute(_parentModel, neededName);
-	    //_parentModel->insert(attr1);
+	/* include attributes needed */
+	std::vector<std::string> neededNames = {"Entity.Sequence"};
+	std::string neededName;
+	for (unsigned int i = 0; i < neededNames.size(); i++) {
+		neededName = neededNames[i];
+		if (_parentModel->elements()->element(Util::TypeOf<Attribute>(), neededName) == nullptr) {
+			Attribute* attr1 = new Attribute(_parentModel, neededName);
+			//_parentModel->insert(attr1);
+		}
 	}
-    }
-    //
-    return true;
+	//
+	return true;
 }
 

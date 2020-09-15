@@ -25,15 +25,15 @@
  */
 class ProcessAnalyser_if {
 public:
-    virtual List<SimulationScenario*>* getScenarios() const = 0;
-    virtual List<SimulationControl*>* getControls() const = 0;
-    virtual List<SimulationResponse*>* getResponses() const = 0;
-    virtual List<SimulationControl*>* extractControlsFromModel(std::string modelFilename) const = 0;
-    virtual List<SimulationResponse*>* extractResponsesFromModel(std::string modelFilename) const = 0;
-    virtual void startSimulationOfScenario(SimulationScenario* scenario) = 0;
-    virtual void startSimulation() = 0;
-    virtual void stopSimulation() = 0;
-    virtual void addTraceSimulationHandler(traceSimulationProcessListener traceSimulationProcessListener) = 0;
+	virtual List<SimulationScenario*>* getScenarios() const = 0;
+	virtual List<SimulationControl*>* getControls() const = 0;
+	virtual List<SimulationResponse*>* getResponses() const = 0;
+	virtual List<SimulationControl*>* extractControlsFromModel(std::string modelFilename) const = 0;
+	virtual List<SimulationResponse*>* extractResponsesFromModel(std::string modelFilename) const = 0;
+	virtual void startSimulationOfScenario(SimulationScenario* scenario) = 0;
+	virtual void startSimulation() = 0;
+	virtual void stopSimulation() = 0;
+	virtual void addTraceSimulationHandler(traceSimulationProcessListener traceSimulationProcessListener) = 0;
 };
 
 #endif /* PROCESSANALYSER_IF_H */

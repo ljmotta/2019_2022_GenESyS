@@ -10,13 +10,13 @@ obj_t::~obj_t() {
 }
 
 obj_t::obj_t(double v, std::string t) {
-    valor = v;
-    tipo = t;
-    id = 0;
+	valor = v;
+	tipo = t;
+	id = 0;
 }
 
 obj_t::obj_t(double v, std::string t, unsigned long uid) {
-    valor = v;
-    tipo = t;
-    id = uid;
+	valor = v;
+	tipo = t;
+	id = uid;
 }

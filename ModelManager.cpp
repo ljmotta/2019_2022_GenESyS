@@ -16,60 +16,60 @@
 #include "Simulator.h"
 
 ModelManager::ModelManager(Simulator* simulator) {
-    _simulator = simulator;
-    _currentModel = nullptr;
+	_simulator = simulator;
+	_currentModel = nullptr;
 }
 
 void ModelManager::insert(Model* model) {
-    _models->insert(model);
-    this->_currentModel = model;
-    _simulator->tracer()->trace(Util::TraceLevel::simulatorResult, "Model successfully inserted");
+	_models->insert(model);
+	this->_currentModel = model;
+	_simulator->tracer()->trace(Util::TraceLevel::simulatorResult, "Model successfully inserted");
 }
 
 void ModelManager::remove(Model* model) {
-    _models->remove(model);
-    if (_currentModel == model) {
-	_currentModel = this->front();
-    }
-    model->~Model();
-    _simulator->tracer()->trace(Util::TraceLevel::simulatorResult, "Model successfully removed");
+	_models->remove(model);
+	if (_currentModel == model) {
+		_currentModel = this->front();
+	}
+	model->~Model();
+	_simulator->tracer()->trace(Util::TraceLevel::simulatorResult, "Model successfully removed");
 }
 
 unsigned int ModelManager::size() {
-    return _models->size();
+	return _models->size();
 }
 
 bool ModelManager::saveModel(std::string filename) {
-    if (_currentModel != nullptr)
-	return _currentModel->save(filename);
-    return false;
+	if (_currentModel != nullptr)
+		return _currentModel->save(filename);
+	return false;
 }
 
 bool ModelManager::loadModel(std::string filename) {
-    Model* model = new Model(_simulator);
-    bool res = model->load(filename);
-    if (res) {
-	this->insert(model);
-	_simulator->tracer()->trace(Util::TraceLevel::simulatorResult, "Model successfully loaded");
-    } else {
-	model->~Model();
-	_simulator->tracer()->trace(Util::TraceLevel::simulatorResult, "Model coud not be loaded");
-    }
-    return res;
+	Model* model = new Model(_simulator);
+	bool res = model->load(filename);
+	if (res) {
+		this->insert(model);
+		_simulator->tracer()->trace(Util::TraceLevel::simulatorResult, "Model successfully loaded");
+	} else {
+		model->~Model();
+		_simulator->tracer()->trace(Util::TraceLevel::simulatorResult, "Model coud not be loaded");
+	}
+	return res;
 }
 
 void ModelManager::setCurrent(Model* model) {
-    this->_currentModel = model;
+	this->_currentModel = model;
 }
 
 Model* ModelManager::current() {
-    return _currentModel;
+	return _currentModel;
 }
 
 Model* ModelManager::front() {
-    return _models->front();
+	return _models->front();
 }
 
 Model* ModelManager::next() {
-    return _models->next();
+	return _models->next();
 }

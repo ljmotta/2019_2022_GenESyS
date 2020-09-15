@@ -17,17 +17,17 @@
 #include "ModelComponent.h"
 
 class WriteElement {
-    public:
+public:
 
-	WriteElement(std::string text, bool isExpression=false, bool newline=false) {
-	    this->text = text;
-	    this->isExpression = isExpression;
-	    this->newline = newline;
+	WriteElement(std::string text, bool isExpression = false, bool newline = false) {
+		this->text = text;
+		this->isExpression = isExpression;
+		this->newline = newline;
 	}
 	std::string text;
 	bool isExpression;
 	bool newline;
-    };
+};
 
 /*!
  This component ...
@@ -35,40 +35,40 @@ class WriteElement {
 class Write : public ModelComponent {
 public:
 
-    enum class WriteToType : int {
-	SCREEN = 1, FILE = 2
-    };
+	enum class WriteToType : int {
+		SCREEN = 1, FILE = 2
+	};
 
-    
+
 
 public: // constructors
-    Write(Model* model, std::string name="");
-    virtual ~Write() = default;
+	Write(Model* model, std::string name = "");
+	virtual ~Write() = default;
 public: // virtual
-    virtual std::string show();
+	virtual std::string show();
 public: // static
-    static PluginInformation* GetPluginInformation();
-    static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static PluginInformation* GetPluginInformation();
+	static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 public:
-    List<WriteElement*>* writeElements() const;
-    void setFilename(std::string _filename);
-    std::string filename() const;
-    void setWriteToType(WriteToType _writeToType);
-    Write::WriteToType writeToType() const;
+	List<WriteElement*>* writeElements() const;
+	void setFilename(std::string _filename);
+	std::string filename() const;
+	void setWriteToType(WriteToType _writeToType);
+	Write::WriteToType writeToType() const;
 
 protected: // virtual
-    virtual void _execute(Entity* entity);
-    virtual void _initBetweenReplications();
-    virtual bool _loadInstance(std::map<std::string, std::string>* fields);
-    virtual std::map<std::string, std::string>* _saveInstance();
-    virtual bool _check(std::string* errorMessage);
+	virtual void _execute(Entity* entity);
+	virtual void _initBetweenReplications();
+	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
+	virtual std::map<std::string, std::string>* _saveInstance();
+	virtual bool _check(std::string* errorMessage);
 private: // methods
-    //std::string _buildText();
+	//std::string _buildText();
 private: // attributes 1:1
-    WriteToType _writeToType = Write::WriteToType::SCREEN;
-    std::string _filename = "";
+	WriteToType _writeToType = Write::WriteToType::SCREEN;
+	std::string _filename = "";
 private: // attributes 1:n
-    List<WriteElement*>* _writeElements = new List<WriteElement*>();
+	List<WriteElement*>* _writeElements = new List<WriteElement*>();
 };
 
 

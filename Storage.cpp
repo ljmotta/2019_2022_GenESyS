@@ -13,59 +13,58 @@
 
 #include "Storage.h"
 
-Storage::Storage(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Storage>(),name) {
+Storage::Storage(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Storage>(), name) {
 }
 
-
 std::string Storage::show() {
-    return ModelElement::show() +
-	    "";
+	return ModelElement::show() +
+			"";
 }
 
 PluginInformation* Storage::GetPluginInformation() {
-    PluginInformation* info = new PluginInformation(Util::TypeOf<Storage>(), &Storage::LoadInstance); 
-    return info;
+	PluginInformation* info = new PluginInformation(Util::TypeOf<Storage>(), &Storage::LoadInstance);
+	return info;
 }
 
 ModelElement* Storage::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
-    Storage* newElement = new Storage(model);
-    try {
-	newElement->_loadInstance(fields);
-    } catch (const std::exception& e) {
+	Storage* newElement = new Storage(model);
+	try {
+		newElement->_loadInstance(fields);
+	} catch (const std::exception& e) {
 
-    }
-    return newElement;
+	}
+	return newElement;
 }
 
 bool Storage::_loadInstance(std::map<std::string, std::string>* fields) {
-    bool res = ModelElement::_loadInstance(fields);
-    if (res) {
-	try {
-	    //this->_attributeName = (*fields->find("attributeName")).second;
-	    //this->_orderRule = static_cast<OrderRule> (std::stoi((*fields->find("orderRule")).second));
-	} catch (...) {
+	bool res = ModelElement::_loadInstance(fields);
+	if (res) {
+		try {
+			//this->_attributeName = (*fields->find("attributeName")).second;
+			//this->_orderRule = static_cast<OrderRule> (std::stoi((*fields->find("orderRule")).second));
+		} catch (...) {
+		}
 	}
-    }
-    return res;
+	return res;
 }
 
 std::map<std::string, std::string>* Storage::_saveInstance() {
-    std::map<std::string, std::string>* fields = ModelElement::_saveInstance(); //Util::TypeOf<Storage>());
-    //fields->emplace("orderRule", std::to_string(static_cast<int> (this->_orderRule)));
-    //fields->emplace("attributeName", this->_attributeName);
-    return fields;
+	std::map<std::string, std::string>* fields = ModelElement::_saveInstance(); //Util::TypeOf<Storage>());
+	//fields->emplace("orderRule", std::to_string(static_cast<int> (this->_orderRule)));
+	//fields->emplace("attributeName", this->_attributeName);
+	return fields;
 }
 
 bool Storage::_check(std::string* errorMessage) {
-    bool resultAll = true;
-    // resultAll |= ...
-    return resultAll;
+	bool resultAll = true;
+	// resultAll |= ...
+	return resultAll;
 }
 
 ParserChangesInformation* Storage::_getParserChangesInformation() {
-    ParserChangesInformation* changes = new ParserChangesInformation();
-    //changes->getProductionToAdd()->insert(...);
-    //changes->getTokensToAdd()->insert(...);
-    return changes;
+	ParserChangesInformation* changes = new ParserChangesInformation();
+	//changes->getProductionToAdd()->insert(...);
+	//changes->getTokensToAdd()->insert(...);
+	return changes;
 }
 

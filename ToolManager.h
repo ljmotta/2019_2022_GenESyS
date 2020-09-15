@@ -22,19 +22,19 @@ class Simulator;
 
 class ToolManager {
 public:
-    ToolManager(Simulator* _simulator);
-    virtual ~ToolManager() = default;
+	ToolManager(Simulator* _simulator);
+	virtual ~ToolManager() = default;
 public:
-    Sampler_if* sampler() const; ///< Returns the Sampler, used to generate samples accordingly to a probability distribution
-    Fitter_if* fitter() const;
-    ProcessAnalyser_if* experimentDesigner() const; ///< Returns the fitter, responsible for carrying out tests of adherence of theoretical distributions of probability with sampled data.
+	Sampler_if* sampler() const; ///< Returns the Sampler, used to generate samples accordingly to a probability distribution
+	Fitter_if* fitter() const;
+	ProcessAnalyser_if* experimentDesigner() const; ///< Returns the fitter, responsible for carrying out tests of adherence of theoretical distributions of probability with sampled data.
 public: // event handlers
 private:
-    Fitter_if* _fitter; // = new Traits<Fitter_if>::Implementation();
-    Sampler_if* _sampler; // = new Traits<Sampler_if>::Implementation();
-    ProcessAnalyser_if* _processAnalyser;
+	Fitter_if* _fitter; // = new Traits<Fitter_if>::Implementation();
+	Sampler_if* _sampler; // = new Traits<Sampler_if>::Implementation();
+	ProcessAnalyser_if* _processAnalyser;
 private:
-    Simulator* _simulator;
+	Simulator* _simulator;
 };
 
 #endif /* TOOLMANAGER_H */

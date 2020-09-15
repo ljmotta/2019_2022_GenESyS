@@ -61,33 +61,33 @@ Set Index Index into the tally or counter set.
  */
 class Record : public ModelComponent {
 public:
-    Record(Model* model, std::string name="");
-    virtual ~Record();
+	Record(Model* model, std::string name = "");
+	virtual ~Record();
 public:
-    void setFilename(std::string filename);
-    std::string getFilename() const;
-    void setExpression(std::string expression);
-    std::string getExpression() const;
-    void setExpressionName(std::string expressionName);
-    std::string getExpressionName() const;
-    StatisticsCollector* getCstatExpression() const;
+	void setFilename(std::string filename);
+	std::string getFilename() const;
+	void setExpression(std::string expression);
+	std::string getExpression() const;
+	void setExpressionName(std::string expressionName);
+	std::string getExpressionName() const;
+	StatisticsCollector* getCstatExpression() const;
 public:
-    virtual std::string show();
+	virtual std::string show();
 public:
-    static PluginInformation* GetPluginInformation();
-    static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static PluginInformation* GetPluginInformation();
+	static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 protected:
-    virtual void _execute(Entity* entity);
-    virtual bool _loadInstance(std::map<std::string, std::string>* fields);
-    virtual void _initBetweenReplications();
-    virtual std::map<std::string, std::string>* _saveInstance();
-    virtual bool _check(std::string* errorMessage);
+	virtual void _execute(Entity* entity);
+	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
+	virtual void _initBetweenReplications();
+	virtual std::map<std::string, std::string>* _saveInstance();
+	virtual bool _check(std::string* errorMessage);
 private:
-    std::string _expression = "";
-    std::string _expressionName = "";
-    std::string _filename = "";
+	std::string _expression = "";
+	std::string _expressionName = "";
+	std::string _filename = "";
 private:
-    StatisticsCollector* _cstatExpression; /* \todo: Cretae an internal class to agregate ExpressionStatisticsColelctor, and change Record to got a list of it, so Record cn record a set of expressions into a set of files */
+	StatisticsCollector* _cstatExpression; /* \todo: Cretae an internal class to agregate ExpressionStatisticsColelctor, and change Record to got a list of it, so Record cn record a set of expressions into a set of files */
 };
 
 #endif /* RECORD_H */

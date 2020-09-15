@@ -16,15 +16,15 @@
 
 class LinkedBy {
 public:
-    LinkedBy();
-    LinkedBy(const LinkedBy& orig);
-    virtual ~LinkedBy();
+	LinkedBy();
+	LinkedBy(const LinkedBy& orig);
+	virtual ~LinkedBy();
 public:
-    void addLink();
-    void removeLink();
-    bool isLinked();
+	void addLink();
+	void removeLink();
+	bool isLinked();
 private:
-    unsigned int _linkedBy = 0;
+	unsigned int _linkedBy = 0;
 };
 
 #endif /* LINKEDBYCOMPONENT_H */

@@ -18,33 +18,33 @@
 
 class StatisticsDataFileDummyImpl : public StatisticsDatafile_if {
 public:
-    StatisticsDataFileDummyImpl();
-    virtual ~StatisticsDataFileDummyImpl() = default;
+	StatisticsDataFileDummyImpl();
+	virtual ~StatisticsDataFileDummyImpl() = default;
 public:
-    virtual Collector_if* getCollector();
-    void setCollector(Collector_if* collector);
+	virtual Collector_if* getCollector();
+	void setCollector(Collector_if* collector);
 public:
-    virtual unsigned int numElements();
-    virtual double min();
-    virtual double max();
-    virtual double average();
-    virtual double variance();
-    virtual double stddeviation();
-    virtual double variationCoef();
-    virtual double halfWidthConfidenceInterval(double confidencelevel);
-    virtual unsigned int newSampleSize(double confidencelevel, double halfWidth);
+	virtual unsigned int numElements();
+	virtual double min();
+	virtual double max();
+	virtual double average();
+	virtual double variance();
+	virtual double stddeviation();
+	virtual double variationCoef();
+	virtual double halfWidthConfidenceInterval(double confidencelevel);
+	virtual unsigned int newSampleSize(double confidencelevel, double halfWidth);
 
-    virtual double mode();
-    virtual double mediane();
-    virtual double quartil(unsigned short num);
-    virtual double decil(unsigned short num);
-    virtual double centil(unsigned short num);
-    virtual void setHistogramNumClasses(unsigned short num);
-    virtual unsigned short histogramNumClasses();
-    virtual double histogramClassLowerLimit(unsigned short classNum);
-    virtual unsigned int histogramClassFrequency(unsigned short classNum);
+	virtual double mode();
+	virtual double mediane();
+	virtual double quartil(unsigned short num);
+	virtual double decil(unsigned short num);
+	virtual double centil(unsigned short num);
+	virtual void setHistogramNumClasses(unsigned short num);
+	virtual unsigned short histogramNumClasses();
+	virtual double histogramClassLowerLimit(unsigned short classNum);
+	virtual unsigned int histogramClassFrequency(unsigned short classNum);
 private:
-    Collector_if* _collector;
+	Collector_if* _collector;
 };
 
 #endif /* STATISTICSDATAFILEDEFAULTIMPL_H */

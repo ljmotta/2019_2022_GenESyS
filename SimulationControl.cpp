@@ -14,16 +14,15 @@
 #include "SimulationControl.h"
 
 SimulationControl::SimulationControl(std::string type, std::string name, GetterMember getterMember, SetterMember setterMember) : SimulationResponse(type, name, getterMember) {
-    this->_type = type;
-    this->_setMemberFunction = setterMember;
+	this->_type = type;
+	this->_setMemberFunction = setterMember;
 }
 
-
 std::string SimulationControl::show() {
-    return "name="+this->_name+", type="+this->_type;
+	return "name=" + this->_name + ", type=" + this->_type;
 }
 
 void SimulationControl::setValue(double value) {
-    this->_setMemberFunction(value);
+	this->_setMemberFunction(value);
 }
 

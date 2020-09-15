@@ -22,16 +22,16 @@
  */
 class FactorOrInteractionContribution {
 public:
-    FactorOrInteractionContribution(double contribution, double modelCoefficient, std::list<SimulationControl*>* controls);
-    ~FactorOrInteractionContribution();
+	FactorOrInteractionContribution(double contribution, double modelCoefficient, std::list<SimulationControl*>* controls);
+	~FactorOrInteractionContribution();
 public:
-    double getModelCoefficient() const;
-    std::list<SimulationControl*>* getControls() const;
-    double getContribution() const;
+	double getModelCoefficient() const;
+	std::list<SimulationControl*>* getControls() const;
+	double getContribution() const;
 private:
-    double _contribution;
-    double _modelCoefficient;
-    std::list<SimulationControl*>* _controls;
+	double _contribution;
+	double _modelCoefficient;
+	std::list<SimulationControl*>* _controls;
 };
 
 #endif /* FACTORORINTERACTIONCONTRIBUTION_H */

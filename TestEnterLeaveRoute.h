@@ -16,11 +16,11 @@
 
 #include "BaseConsoleGenesysApplication.h" 
 
-class TestEnterLeaveRoute: public BaseConsoleGenesysApplication {
+class TestEnterLeaveRoute : public BaseConsoleGenesysApplication {
 public:
-    TestEnterLeaveRoute();
+	TestEnterLeaveRoute();
 public:
-    int main(int argc, char** argv);
+	int main(int argc, char** argv);
 
 };
 

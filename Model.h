@@ -42,74 +42,74 @@ class Simulator;
  */
 class Model {
 public:
-    Model(Simulator* simulator);
-    virtual ~Model() = default;
+	Model(Simulator* simulator);
+	virtual ~Model() = default;
 public: // model control
-    //void showReports();
-    bool save(std::string filename);
-    bool load(std::string filename);
-    bool check(); ///< Checks the integrity and consistency of the model, possibly corrects some inconsistencies, and returns if the model is in position to the simulated.
-    void clear();
-    void show();
-    bool insert(ModelElement* elemOrComp); ///< Insert a new ModelElement or ModelComponent into the model (since 20191015). It's a generic access to ComponentManager->insert() or ModelElemento->insert()
-    void remove(ModelElement* elemOrComp); ///< Remove a new ModelElement or ModelComponent into the model (since 20191015). It's a generic access to ComponentManager->remove() or ModelElemento->remove()
-    //bool verifySymbol(std::string componentName, std::string expressionName, std::string expression, std::string expressionResult, bool mandatory); ///< Verifies if a symbol defined in a component (ModelComponent) or element is syntactically valid and addresses existing components or elements. It's used only by and directed by the component that defines the symbol.
-    void removeEntity(Entity* entity, bool collectStatistics);
-    void sendEntityToComponent(Entity* entity, Connection* connection, double timeDelay); ///< Used by components (ModelComponent) to send entities to another specific component, usually the next one connected to it, or used by the model itself, when processing an event (Event). 
-    void sendEntityToComponent(Entity* entity, ModelComponent* component, double timeDelay, unsigned int componentInputNumber = 0); ///< Used by components (ModelComponent) to send entities to another specific component, usually the next one connected to it, or used by the model itself, when processing an event (Event). 
-    double parseExpression(const std::string expression);
-    double parseExpression(const std::string expression, bool* success, std::string* errorMessage);
-    bool checkExpression(const std::string expression, const std::string expressionName, std::string* errorMessage);
+	//void showReports();
+	bool save(std::string filename);
+	bool load(std::string filename);
+	bool check(); ///< Checks the integrity and consistency of the model, possibly corrects some inconsistencies, and returns if the model is in position to the simulated.
+	void clear();
+	void show();
+	bool insert(ModelElement* elemOrComp); ///< Insert a new ModelElement or ModelComponent into the model (since 20191015). It's a generic access to ComponentManager->insert() or ModelElemento->insert()
+	void remove(ModelElement* elemOrComp); ///< Remove a new ModelElement or ModelComponent into the model (since 20191015). It's a generic access to ComponentManager->remove() or ModelElemento->remove()
+	//bool verifySymbol(std::string componentName, std::string expressionName, std::string expression, std::string expressionResult, bool mandatory); ///< Verifies if a symbol defined in a component (ModelComponent) or element is syntactically valid and addresses existing components or elements. It's used only by and directed by the component that defines the symbol.
+	void removeEntity(Entity* entity, bool collectStatistics);
+	void sendEntityToComponent(Entity* entity, Connection* connection, double timeDelay); ///< Used by components (ModelComponent) to send entities to another specific component, usually the next one connected to it, or used by the model itself, when processing an event (Event). 
+	void sendEntityToComponent(Entity* entity, ModelComponent* component, double timeDelay, unsigned int componentInputNumber = 0); ///< Used by components (ModelComponent) to send entities to another specific component, usually the next one connected to it, or used by the model itself, when processing an event (Event). 
+	double parseExpression(const std::string expression);
+	double parseExpression(const std::string expression, bool* success, std::string* errorMessage);
+	bool checkExpression(const std::string expression, const std::string expressionName, std::string* errorMessage);
 public: // only gets	
-    Util::identification id() const;
-    bool hasChanged() const; 
-    // 1:1
-    OnEventManager* onEvents() const;
-    ElementManager* elements() const; ///< Provides access to the class that manages the most basic elements of the simulation model (such as queues, resources, variables, etc.).
-    ComponentManager* components() const; ///< The future events list chronologically sorted; Events are scheduled by components when processing other events, and a replication evolves over time by sequentially processing the very first event in this list. It's initialized with events first described by source components (SourceComponentModel).
-    ModelInfo* infos() const;
-    Simulator* parentSimulator() const;
-    ModelSimulation* simulation() const; ///< Provides access to the class that manages the model simulation.
-    // 1:n
-    //List<ModelComponent*>* getComponents() const; ///< Returns the list of components (such as Create, Delay, Dispose, etc.) that make up the simulation model.
-    List<Event*>* futureEvents() const;
-    List<SimulationControl*>* controls() const; ///< Returns a list of values that can be externally controlled (changed). They usually correspond to input parameters in the simulation model that must be changed for an experimental design.
-    List<SimulationResponse*>* responses() const; ///< Returns a list of exits or simulation results that can be read externally. They usually correspond to statistics resulting from the simulation that must be read for an experiment design.
+	Util::identification id() const;
+	bool hasChanged() const;
+	// 1:1
+	OnEventManager* onEvents() const;
+	ElementManager* elements() const; ///< Provides access to the class that manages the most basic elements of the simulation model (such as queues, resources, variables, etc.).
+	ComponentManager* components() const; ///< The future events list chronologically sorted; Events are scheduled by components when processing other events, and a replication evolves over time by sequentially processing the very first event in this list. It's initialized with events first described by source components (SourceComponentModel).
+	ModelInfo* infos() const;
+	Simulator* parentSimulator() const;
+	ModelSimulation* simulation() const; ///< Provides access to the class that manages the model simulation.
+	// 1:n
+	//List<ModelComponent*>* getComponents() const; ///< Returns the list of components (such as Create, Delay, Dispose, etc.) that make up the simulation model.
+	List<Event*>* futureEvents() const;
+	List<SimulationControl*>* controls() const; ///< Returns a list of values that can be externally controlled (changed). They usually correspond to input parameters in the simulation model that must be changed for an experimental design.
+	List<SimulationResponse*>* responses() const; ///< Returns a list of exits or simulation results that can be read externally. They usually correspond to statistics resulting from the simulation that must be read for an experiment design.
 public: // gets and sets	
-    void setTracer(TraceManager* _traceManager);
-    TraceManager* tracer() const;///< Provides access to the class that performs the trace of simulation and replications.
-    /*
-     * PRIVATE
-     */
+	void setTracer(TraceManager* _traceManager);
+	TraceManager* tracer() const; ///< Provides access to the class that performs the trace of simulation and replications.
+	/*
+	 * PRIVATE
+	 */
 private:
-    void _showComponents() const;
-    void _showElements() const;
-    void _showSimulationControls() const;
-    void _showSimulationResponses() const;
-    void _createModelInternalElements();
+	void _showComponents() const;
+	void _showElements() const;
+	void _showSimulationControls() const;
+	void _showSimulationResponses() const;
+	void _createModelInternalElements();
 private:
-    bool _hasChanged = false;
+	bool _hasChanged = false;
 private: // read only public access (gets)
-    Util::identification _id;
-    Simulator* _parentSimulator; /*! The parente of the model */
-    // 1:1 (associted classes)
-    TraceManager* _traceManager;
-    OnEventManager* _eventManager;
-    ElementManager* _elementManager;
-    ComponentManager* _componentManager;
-    ModelInfo* _modelInfo;
-    ModelSimulation* _simulation;
-    // 1:n
-    //List<ModelComponent*>* _components;
-    List<Event*>* _events;
-    // for process analyser
-    List<SimulationResponse*>* _responses;
-    List<SimulationControl*>* _controls;
+	Util::identification _id;
+	Simulator* _parentSimulator; /*! The parente of the model */
+	// 1:1 (associted classes)
+	TraceManager* _traceManager;
+	OnEventManager* _eventManager;
+	ElementManager* _elementManager;
+	ComponentManager* _componentManager;
+	ModelInfo* _modelInfo;
+	ModelSimulation* _simulation;
+	// 1:n
+	//List<ModelComponent*>* _components;
+	List<Event*>* _events;
+	// for process analyser
+	List<SimulationResponse*>* _responses;
+	List<SimulationControl*>* _controls;
 
 private: // no public access (no gets / sets)	
-    ModelChecker_if* _modelChecker;
-    ModelPersistence_if* _modelPersistence;
-    Parser_if* _parser;
+	ModelChecker_if* _modelChecker;
+	ModelPersistence_if* _modelPersistence;
+	Parser_if* _parser;
 };
 
 #endif /* SIMULATIONMODEL_H */

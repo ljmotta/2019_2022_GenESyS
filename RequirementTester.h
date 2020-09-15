@@ -16,9 +16,9 @@
 
 class RequirementTester {
 public:
-    RequirementTester();
-    RequirementTester(const RequirementTester& orig);
-    virtual ~RequirementTester();
+	RequirementTester();
+	RequirementTester(const RequirementTester& orig);
+	virtual ~RequirementTester();
 private:
 
 };

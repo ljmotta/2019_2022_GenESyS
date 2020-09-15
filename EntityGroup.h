@@ -24,30 +24,30 @@
  */
 class EntityGroup : public ModelElement {
 public:
-    EntityGroup(Model* model, std::string name="");
-    virtual ~EntityGroup();
+	EntityGroup(Model* model, std::string name = "");
+	virtual ~EntityGroup();
 public:
-    virtual std::string show();
+	virtual std::string show();
 public:
-    static PluginInformation* GetPluginInformation();
-    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static PluginInformation* GetPluginInformation();
+	static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 public:
-    void insertElement(Entity* element);
-    void removeElement(Entity* element);
-    unsigned int size();
-    Entity* first();
+	void insertElement(Entity* element);
+	void removeElement(Entity* element);
+	unsigned int size();
+	Entity* first();
 public:
-    void initBetweenReplications();
+	void initBetweenReplications();
 protected:
-    virtual bool _loadInstance(std::map<std::string, std::string>* fields);
-    virtual std::map<std::string, std::string>* _saveInstance();
-    virtual bool _check(std::string* errorMessage);
+	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
+	virtual std::map<std::string, std::string>* _saveInstance();
+	virtual bool _check(std::string* errorMessage);
 private:
-    void _initCStats();
+	void _initCStats();
 private: //1::n
-    List<Entity*>* _list = new List<Entity*>();
+	List<Entity*>* _list = new List<Entity*>();
 private: // child inner element
-    StatisticsCollector* _cstatNumberInGroup;
+	StatisticsCollector* _cstatNumberInGroup;
 };
 
 #endif /* ENTITYGROUP_H */

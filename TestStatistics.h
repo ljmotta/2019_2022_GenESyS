@@ -18,9 +18,9 @@
 
 class TestStatistics : public GenesysApplication_if {
 public:
-    TestStatistics();
+	TestStatistics();
 public:
-    int main(int argc, char** argv);
+	int main(int argc, char** argv);
 };
 
 

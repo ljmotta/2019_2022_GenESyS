@@ -18,9 +18,9 @@
 
 class TestODE : public BaseConsoleGenesysApplication {
 public:
-    TestODE();
+	TestODE();
 public:
-    virtual int main(int argc, char** argv) ;
+	virtual int main(int argc, char** argv);
 };
 
 #endif /* TESTFUNCTIONS_H */

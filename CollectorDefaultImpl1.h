@@ -18,21 +18,21 @@
 
 class CollectorDefaultImpl1 : public Collector_if {
 public:
-    CollectorDefaultImpl1();
-    virtual ~CollectorDefaultImpl1() = default;
+	CollectorDefaultImpl1();
+	virtual ~CollectorDefaultImpl1() = default;
 public:
-    void clear();
-    void addValue(double value);
-    double getLastValue();
-    unsigned long numElements();
+	void clear();
+	void addValue(double value);
+	double getLastValue();
+	unsigned long numElements();
 public:
-    void setAddValueHandler(CollectorAddValueHandler addValueHandler);
-    void setClearHandler(CollectorClearHandler clearHandler);
+	void setAddValueHandler(CollectorAddValueHandler addValueHandler);
+	void setClearHandler(CollectorClearHandler clearHandler);
 private:
-    double _lastValue;
-    unsigned long _numElements = 0;
-    CollectorAddValueHandler _addValueHandler = nullptr;
-    CollectorClearHandler _clearHandler = nullptr;
+	double _lastValue;
+	unsigned long _numElements = 0;
+	CollectorAddValueHandler _addValueHandler = nullptr;
+	CollectorClearHandler _clearHandler = nullptr;
 };
 
 #endif /* COLLECTORDEFAULTIMPL1_H */

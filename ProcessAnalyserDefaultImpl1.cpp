@@ -21,7 +21,7 @@ List<SimulationScenario*>* ProcessAnalyserDefaultImpl1::getScenarios() const {
 }
 
 List<SimulationControl*>* ProcessAnalyserDefaultImpl1::getControls() const {
-    return _controls;
+	return _controls;
 }
 
 List<SimulationResponse*>* ProcessAnalyserDefaultImpl1::getResponses() const {

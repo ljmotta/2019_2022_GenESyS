@@ -21,7 +21,6 @@
 #include "Counter.h"
 #include "Plugin.h"
 
-
 /*!
  * Create is the most basic component to include the first entities into the model, and therefore is a source component (derived from SourceModelComponent)
 Create module
@@ -67,21 +66,21 @@ not apply when Type is Schedule.
  */
 class Create : public SourceModelComponent {
 public:
-    Create(Model* model, std::string name="");
-    virtual ~Create() = default;
+	Create(Model* model, std::string name = "");
+	virtual ~Create() = default;
 public:
-    virtual std::string show();
+	virtual std::string show();
 public:
-    static PluginInformation* GetPluginInformation();
-    static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static PluginInformation* GetPluginInformation();
+	static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 protected:
-    virtual void _execute(Entity* entity);
-    virtual bool _loadInstance(std::map<std::string, std::string>* fields);
-    virtual void _initBetweenReplications();
-    virtual std::map<std::string, std::string>* _saveInstance();
-    virtual bool _check(std::string* errorMessage);
+	virtual void _execute(Entity* entity);
+	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
+	virtual void _initBetweenReplications();
+	virtual std::map<std::string, std::string>* _saveInstance();
+	virtual bool _check(std::string* errorMessage);
 private:
-    Counter* _numberOut;
+	Counter* _numberOut;
 };
 
 #endif /* CREATE_H */

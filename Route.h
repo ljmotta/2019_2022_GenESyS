@@ -52,39 +52,39 @@ will route.
 class Route : public ModelComponent {
 public:
 
-    enum class DestinationType : int {
-	Station = 0, BySequence = 1
-    };
+	enum class DestinationType : int {
+		Station = 0, BySequence = 1
+	};
 public:
-    Route(Model* model, std::string name="");
-    virtual ~Route() = default;
+	Route(Model* model, std::string name = "");
+	virtual ~Route() = default;
 public:
-    virtual std::string show();
+	virtual std::string show();
 public:
-    static PluginInformation* GetPluginInformation();
-    static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static PluginInformation* GetPluginInformation();
+	static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 public:
-    void setStation(Station* _station);
-    Station* getStation() const;
-    void setRouteTimeExpression(std::string _routeTimeExpression);
-    std::string getRouteTimeExpression() const;
-    void setRouteTimeTimeUnit(Util::TimeUnit _routeTimeTimeUnit);
-    Util::TimeUnit getRouteTimeTimeUnit() const;
-    void setRouteDestinationType(DestinationType _routeDestinationType);
-    Route::DestinationType getRouteDestinationType() const;
+	void setStation(Station* _station);
+	Station* getStation() const;
+	void setRouteTimeExpression(std::string _routeTimeExpression);
+	std::string getRouteTimeExpression() const;
+	void setRouteTimeTimeUnit(Util::TimeUnit _routeTimeTimeUnit);
+	Util::TimeUnit getRouteTimeTimeUnit() const;
+	void setRouteDestinationType(DestinationType _routeDestinationType);
+	Route::DestinationType getRouteDestinationType() const;
 public:
 protected:
-    virtual void _execute(Entity* entity);
-    virtual void _initBetweenReplications();
-    virtual bool _loadInstance(std::map<std::string, std::string>* fields);
-    virtual std::map<std::string, std::string>* _saveInstance();
-    virtual bool _check(std::string* errorMessage);
+	virtual void _execute(Entity* entity);
+	virtual void _initBetweenReplications();
+	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
+	virtual std::map<std::string, std::string>* _saveInstance();
+	virtual bool _check(std::string* errorMessage);
 private:
-    std::string _routeTimeExpression = "0.0";
-    Util::TimeUnit _routeTimeTimeUnit = Util::TimeUnit::second;
-    Route::DestinationType _routeDestinationType = DestinationType::Station;
+	std::string _routeTimeExpression = "0.0";
+	Util::TimeUnit _routeTimeTimeUnit = Util::TimeUnit::second;
+	Route::DestinationType _routeDestinationType = DestinationType::Station;
 private: // association
-    Station* _station;
+	Station* _station;
 };
 
 #endif /* ROUTE_H */

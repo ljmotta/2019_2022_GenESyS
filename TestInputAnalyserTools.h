@@ -20,9 +20,9 @@ using namespace std;
 
 class TestInputAnalyserTools : public GenesysApplication_if {
 public:
-    TestInputAnalyserTools();
+	TestInputAnalyserTools();
 public:
-    int main(int argc, char** argv);
+	int main(int argc, char** argv);
 };
 
 #endif /* TESTINPUTANALYSERTOOLS_H */

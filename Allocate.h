@@ -65,19 +65,19 @@ Expression The expression that will be evaluated to the queue name
  */
 class Allocate : public ModelComponent {
 public: // constructors
-    Allocate(Model* model, std::string name="");
-    virtual ~Allocate() = default;
-public:  // virtual
-    virtual std::string show();
-public:  // static
-    static PluginInformation* GetPluginInformation();
-    static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
-protected:  // virtual
-    virtual void _execute(Entity* entity);
-    virtual void _initBetweenReplications();
-    virtual bool _loadInstance(std::map<std::string, std::string>* fields);
-    virtual std::map<std::string, std::string>* _saveInstance();
-    virtual bool _check(std::string* errorMessage);
+	Allocate(Model* model, std::string name = "");
+	virtual ~Allocate() = default;
+public: // virtual
+	virtual std::string show();
+public: // static
+	static PluginInformation* GetPluginInformation();
+	static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+protected: // virtual
+	virtual void _execute(Entity* entity);
+	virtual void _initBetweenReplications();
+	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
+	virtual std::map<std::string, std::string>* _saveInstance();
+	virtual bool _check(std::string* errorMessage);
 private: // methods
 private: // attributes 1:1
 private: // attributes 1:n

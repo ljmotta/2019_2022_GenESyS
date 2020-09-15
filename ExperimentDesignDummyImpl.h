@@ -21,16 +21,16 @@
  */
 class ExperimentDesignDummyImpl : public ExperimentDesign_if {
 public:
-    ExperimentDesignDummyImpl();
-    virtual ~ExperimentDesignDummyImpl() = default;
+	ExperimentDesignDummyImpl();
+	virtual ~ExperimentDesignDummyImpl() = default;
 public:
-    virtual ProcessAnalyser_if* getProcessAnalyser() const;
+	virtual ProcessAnalyser_if* getProcessAnalyser() const;
 public:
-    virtual bool generate2krScenarioExperiments();
-    virtual bool calculateContributionAndCoefficients();
-    virtual std::list<FactorOrInteractionContribution*>* getContributions() const;
+	virtual bool generate2krScenarioExperiments();
+	virtual bool calculateContributionAndCoefficients();
+	virtual std::list<FactorOrInteractionContribution*>* getContributions() const;
 private:
-    ProcessAnalyser_if* _processAnalyser; //= new Traits<ExperimentDesign_if>::ProcessAnalyserImplementation();
-    std::list<FactorOrInteractionContribution*>* _contributions = new std::list<FactorOrInteractionContribution*>();
+	ProcessAnalyser_if* _processAnalyser; //= new Traits<ExperimentDesign_if>::ProcessAnalyserImplementation();
+	std::list<FactorOrInteractionContribution*>* _contributions = new std::list<FactorOrInteractionContribution*>();
 };
 #endif /* EXPERIMENTDESIGNDUMMYIMPL_H */

@@ -37,24 +37,24 @@ and total cost.
  */
 class Dispose : public SinkModelComponent {
 public:
-    Dispose(Model* model, std::string name="");
-    virtual ~Dispose() = default;
+	Dispose(Model* model, std::string name = "");
+	virtual ~Dispose() = default;
 public:
-    virtual std::string show();
+	virtual std::string show();
 public:
-    static PluginInformation* GetPluginInformation();
-    static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static PluginInformation* GetPluginInformation();
+	static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 protected:
-    virtual void _execute(Entity* entity);
-    virtual bool _loadInstance(std::map<std::string, std::string>* fields);
-    virtual void _initBetweenReplications();
-    virtual std::map<std::string, std::string>* _saveInstance();
-    virtual bool _check(std::string* errorMessage);
-    virtual void _createInternalElements();
+	virtual void _execute(Entity* entity);
+	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
+	virtual void _initBetweenReplications();
+	virtual std::map<std::string, std::string>* _saveInstance();
+	virtual bool _check(std::string* errorMessage);
+	virtual void _createInternalElements();
 private:
-    bool _collectStatistics = true;
+	bool _collectStatistics = true;
 private:
-    Counter* _numberOut;
+	Counter* _numberOut;
 };
 
 #endif /* DISPOSE_H */

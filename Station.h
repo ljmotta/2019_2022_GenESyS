@@ -63,32 +63,32 @@ its corresponding activity area.
  */
 class Station : public ModelElement {
 public:
-    Station(Model* model, std::string name = "");
-    virtual ~Station();
+	Station(Model* model, std::string name = "");
+	virtual ~Station();
 public:
-    virtual std::string show();
+	virtual std::string show();
 public: // static 
-    static PluginInformation* GetPluginInformation();
-    static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static PluginInformation* GetPluginInformation();
+	static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 public:
-    void initBetweenReplications();
-    void enter(Entity* entity);
-    void leave(Entity* entity);
-    void setEnterIntoStationComponent(ModelComponent* _enterIntoStationComponent);
-    ModelComponent* getEnterIntoStationComponent() const;
+	void initBetweenReplications();
+	void enter(Entity* entity);
+	void leave(Entity* entity);
+	void setEnterIntoStationComponent(ModelComponent* _enterIntoStationComponent);
+	ModelComponent* getEnterIntoStationComponent() const;
 protected:
-    virtual bool _loadInstance(std::map<std::string, std::string>* fields);
-    virtual std::map<std::string, std::string>* _saveInstance();
-    virtual bool _check(std::string* errorMessage);
-    virtual void _createInternalElements();
+	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
+	virtual std::map<std::string, std::string>* _saveInstance();
+	virtual bool _check(std::string* errorMessage);
+	virtual void _createInternalElements();
 private:
-    void _initCStats();
+	void _initCStats();
 private:
-    unsigned int _numberInStation = 0;
-    ModelComponent* _enterIntoStationComponent;
+	unsigned int _numberInStation = 0;
+	ModelComponent* _enterIntoStationComponent;
 private: // inner elements
-    StatisticsCollector* _cstatNumberInStation;
-    StatisticsCollector* _cstatTimeInStation;
+	StatisticsCollector* _cstatNumberInStation;
+	StatisticsCollector* _cstatTimeInStation;
 
 };
 

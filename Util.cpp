@@ -20,6 +20,7 @@ Util::identification Util::_S_lastId = 0;
 unsigned int Util::_S_indentation;
 std::map<std::string, Util::identification> Util::_S_lastIdOfType = std::map<std::string, Util::identification>();
 std::map<std::string, std::string> Util::_S_TypeOf = std::map<std::string, std::string>();
+
 /*
 std::string Util::ToStrTimeUnit(TimeUnit tu) {
 	switch (tu) {
@@ -35,7 +36,7 @@ std::string Util::ToStrTimeUnit(TimeUnit tu) {
 	default: return "";
 	}
 }
-*/
+ */
 
 void Util::IncIndent() {
 	Util::_S_indentation++;
@@ -58,22 +59,22 @@ void Util::SepKeyVal(std::string str, std::string *key, std::string *value) {
 	key->clear();
 	value->clear();
 	for (std::string::iterator it = str.begin(); it != str.end(); it++) {
-	if (settingKey) {
-		if ((*it) != '=') {
-		key->append(new char((*it)));
+		if (settingKey) {
+			if ((*it) != '=') {
+				key->append(new char((*it)));
+			} else {
+				settingKey = false;
+			}
 		} else {
-		settingKey = false;
+			value->append(new char((*it)));
 		}
-	} else {
-		value->append(new char((*it)));
-	}
 	}
 }
 
 std::string Util::Indent() {
 	std::string spaces = "";
 	for (unsigned int i = 0; i < Util::_S_indentation; i++) {
-	spaces += "|  ";
+		spaces += "|  ";
 	}
 	return spaces;
 }
@@ -86,15 +87,15 @@ std::string Util::SetW(std::string text, unsigned short width) {
 
 std::string Util::StrTimeUnit(Util::TimeUnit timeUnit) {
 	switch (static_cast<int> (timeUnit)) {
-	case 1: return "picosecond";
-	case 2: return "nanosecond";
-	case 3: return "microsecond";
-	case 4: return "milisecond";
-	case 5: return "second";
-	case 6: return "minute";
-	case 7: return "hour";
-	case 8: return "day";
-	case 9: return "week";
+		case 1: return "picosecond";
+		case 2: return "nanosecond";
+		case 3: return "microsecond";
+		case 4: return "milisecond";
+		case 5: return "second";
+		case 6: return "minute";
+		case 7: return "hour";
+		case 8: return "day";
+		case 9: return "week";
 	}
 	return "";
 }
@@ -107,9 +108,9 @@ Util::identification Util::GenerateNewId() {
 Util::identification Util::GenerateNewIdOfType(std::string objtype) {
 	std::map<std::string, Util::identification>::iterator it = Util::_S_lastIdOfType.find(objtype);
 	if (it == Util::_S_lastIdOfType.end()) {
-	// a new one. create the pair
-	Util::_S_lastIdOfType.insert(std::pair<std::string, Util::identification>(objtype, 0));
-	it = Util::_S_lastIdOfType.find(objtype);
+		// a new one. create the pair
+		Util::_S_lastIdOfType.insert(std::pair<std::string, Util::identification>(objtype, 0));
+		it = Util::_S_lastIdOfType.find(objtype);
 	}
 	Util::identification next = (*it).second;
 	next++;
@@ -120,9 +121,9 @@ Util::identification Util::GenerateNewIdOfType(std::string objtype) {
 Util::identification Util::GetLastIdOfType(std::string objtype) {
 	std::map<std::string, Util::identification>::iterator it = Util::_S_lastIdOfType.find(objtype);
 	if (it == Util::_S_lastIdOfType.end()) {
-	// a new one. create the pair
-	Util::_S_lastIdOfType.insert(std::pair<std::string, Util::identification>(objtype, 0));
-	it = Util::_S_lastIdOfType.find(objtype);
+		// a new one. create the pair
+		Util::_S_lastIdOfType.insert(std::pair<std::string, Util::identification>(objtype, 0));
+		it = Util::_S_lastIdOfType.find(objtype);
 	}
 	//Util::identification next = (*it).second;
 	//next++;
@@ -134,9 +135,9 @@ Util::identification Util::GetLastIdOfType(std::string objtype) {
 void Util::ResetIdOfType(std::string objtype) {
 	std::map<std::string, Util::identification>::iterator it = Util::_S_lastIdOfType.find(objtype);
 	if (it == Util::_S_lastIdOfType.end()) {
-	// a new one. create the pair
-	Util::_S_lastIdOfType.insert(std::pair<std::string, Util::identification>(objtype, 0));
-	it = Util::_S_lastIdOfType.find(objtype);
+		// a new one. create the pair
+		Util::_S_lastIdOfType.insert(std::pair<std::string, Util::identification>(objtype, 0));
+		it = Util::_S_lastIdOfType.find(objtype);
 	}
 	(*it).second = 0;
 }
@@ -149,13 +150,13 @@ double Util::TimeUnitConvert(Util::TimeUnit timeUnit1, Util::TimeUnit timeUnit2)
 	intTimeUnit1 = static_cast<int> (timeUnit1);
 	intTimeUnit2 = static_cast<int> (timeUnit2);
 	if (intTimeUnit1 <= intTimeUnit2) {
-	for (int i = intTimeUnit1 + 1; i <= intTimeUnit2; i++) {
-		res /= scaleValues[i];
-	}
+		for (int i = intTimeUnit1 + 1; i <= intTimeUnit2; i++) {
+			res /= scaleValues[i];
+		}
 	} else {
-	for (int i = intTimeUnit2 + 1; i <= intTimeUnit1; i++) {
-		res *= scaleValues[i];
-	}
+		for (int i = intTimeUnit2 + 1; i <= intTimeUnit1; i++) {
+			res *= scaleValues[i];
+		}
 	}
 	return res;
 }

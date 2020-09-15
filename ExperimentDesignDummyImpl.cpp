@@ -18,19 +18,18 @@ ExperimentDesignDummyImpl::ExperimentDesignDummyImpl() {
 }
 
 std::list<FactorOrInteractionContribution*>* ExperimentDesignDummyImpl::getContributions() const {
-    return _contributions;
+	return _contributions;
 }
 
-
 bool ExperimentDesignDummyImpl::generate2krScenarioExperiments() {
-    return true;
+	return true;
 }
 
 bool ExperimentDesignDummyImpl::calculateContributionAndCoefficients() {
-    return true;
+	return true;
 }
 
 ProcessAnalyser_if* ExperimentDesignDummyImpl::getProcessAnalyser() const {
-    return _processAnalyser;
+	return _processAnalyser;
 }
 

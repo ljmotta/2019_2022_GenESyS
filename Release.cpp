@@ -17,9 +17,8 @@
 #include "Attribute.h"
 #include <assert.h>
 
-Release::Release(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Release>(),name) {
+Release::Release(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Release>(), name) {
 }
-
 
 std::string Release::show() {
 	return ModelComponent::show() +
@@ -114,7 +113,7 @@ bool Release::_loadInstance(std::map<std::string, std::string>* fields) {
 std::map<std::string, std::string>* Release::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance(); //Util::TypeOf<Release>());
 	fields->emplace("priority", std::to_string(this->_priority));
-	fields->emplace("quantity", "\""+this->_quantityExpression+"\"");
+	fields->emplace("quantity", "\"" + this->_quantityExpression + "\"");
 	fields->emplace("resourceType", std::to_string(static_cast<int> (this->_resourceType)));
 	fields->emplace("resourceId", std::to_string(this->_resource->id()));
 	fields->emplace("resourceName", (this->_resource->name()));

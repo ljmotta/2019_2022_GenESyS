@@ -1,325 +1,325 @@
 <RCC>
-    <qresource prefix="/rec">
-        <file>resources/software_genesys.gif</file>
-        <file>resources/icons/pack3/png/24x24/3d bar chart.png</file>
-        <file>resources/icons/pack3/png/24x24/Abort.png</file>
-        <file>resources/icons/pack3/png/24x24/About.png</file>
-        <file>resources/icons/pack3/png/24x24/Accounting.png</file>
-        <file>resources/icons/pack3/png/24x24/Add.png</file>
-        <file>resources/icons/pack3/png/24x24/Address book.png</file>
-        <file>resources/icons/pack3/png/24x24/Alarm.png</file>
-        <file>resources/icons/pack3/png/24x24/Alarm clock.png</file>
-        <file>resources/icons/pack3/png/24x24/Alert.png</file>
-        <file>resources/icons/pack3/png/24x24/Alien.png</file>
-        <file>resources/icons/pack3/png/24x24/Anchor.png</file>
-        <file>resources/icons/pack3/png/24x24/Application.png</file>
-        <file>resources/icons/pack3/png/24x24/Apply.png</file>
-        <file>resources/icons/pack3/png/24x24/Back.png</file>
-        <file>resources/icons/pack3/png/24x24/Bad mark.png</file>
-        <file>resources/icons/pack3/png/24x24/Bee.png</file>
-        <file>resources/icons/pack3/png/24x24/Black bookmark.png</file>
-        <file>resources/icons/pack3/png/24x24/Black pin.png</file>
-        <file>resources/icons/pack3/png/24x24/Black tag.png</file>
-        <file>resources/icons/pack3/png/24x24/Blog.png</file>
-        <file>resources/icons/pack3/png/24x24/Blue bookmark.png</file>
-        <file>resources/icons/pack3/png/24x24/Blue key.png</file>
-        <file>resources/icons/pack3/png/24x24/Blue pin.png</file>
-        <file>resources/icons/pack3/png/24x24/Blue tag.png</file>
-        <file>resources/icons/pack3/png/24x24/Bomb.png</file>
-        <file>resources/icons/pack3/png/24x24/Bookmark.png</file>
-        <file>resources/icons/pack3/png/24x24/Boss.png</file>
-        <file>resources/icons/pack3/png/24x24/Bottom.png</file>
-        <file>resources/icons/pack3/png/24x24/Briefcase.png</file>
-        <file>resources/icons/pack3/png/24x24/Brush.png</file>
-        <file>resources/icons/pack3/png/24x24/Bubble.png</file>
-        <file>resources/icons/pack3/png/24x24/Buy.png</file>
-        <file>resources/icons/pack3/png/24x24/Calculator.png</file>
-        <file>resources/icons/pack3/png/24x24/Calendar.png</file>
-        <file>resources/icons/pack3/png/24x24/Car key.png</file>
-        <file>resources/icons/pack3/png/24x24/CD.png</file>
-        <file>resources/icons/pack3/png/24x24/Clipboard.png</file>
-        <file>resources/icons/pack3/png/24x24/Clock.png</file>
-        <file>resources/icons/pack3/png/24x24/Close.png</file>
-        <file>resources/icons/pack3/png/24x24/Coin.png</file>
-        <file>resources/icons/pack3/png/24x24/Comment.png</file>
-        <file>resources/icons/pack3/png/24x24/Company.png</file>
-        <file>resources/icons/pack3/png/24x24/Compass.png</file>
-        <file>resources/icons/pack3/png/24x24/Component.png</file>
-        <file>resources/icons/pack3/png/24x24/Computer.png</file>
-        <file>resources/icons/pack3/png/24x24/Copy.png</file>
-        <file>resources/icons/pack3/png/24x24/Create.png</file>
-        <file>resources/icons/pack3/png/24x24/Cut.png</file>
-        <file>resources/icons/pack3/png/24x24/Danger.png</file>
-        <file>resources/icons/pack3/png/24x24/Database.png</file>
-        <file>resources/icons/pack3/png/24x24/Delete.png</file>
-        <file>resources/icons/pack3/png/24x24/Delivery.png</file>
-        <file>resources/icons/pack3/png/24x24/Diagram.png</file>
-        <file>resources/icons/pack3/png/24x24/Dial.png</file>
-        <file>resources/icons/pack3/png/24x24/Disaster.png</file>
-        <file>resources/icons/pack3/png/24x24/Display.png</file>
-        <file>resources/icons/pack3/png/24x24/Dollar.png</file>
-        <file>resources/icons/pack3/png/24x24/Door.png</file>
-        <file>resources/icons/pack3/png/24x24/Down.png</file>
-        <file>resources/icons/pack3/png/24x24/Download.png</file>
-        <file>resources/icons/pack3/png/24x24/Downloads folder.png</file>
-        <file>resources/icons/pack3/png/24x24/Earth.png</file>
-        <file>resources/icons/pack3/png/24x24/Eject.png</file>
-        <file>resources/icons/pack3/png/24x24/E-mail.png</file>
-        <file>resources/icons/pack3/png/24x24/Equipment.png</file>
-        <file>resources/icons/pack3/png/24x24/Erase.png</file>
-        <file>resources/icons/pack3/png/24x24/Error.png</file>
-        <file>resources/icons/pack3/png/24x24/Euro.png</file>
-        <file>resources/icons/pack3/png/24x24/Exit.png</file>
-        <file>resources/icons/pack3/png/24x24/Expand.png</file>
-        <file>resources/icons/pack3/png/24x24/Eye.png</file>
-        <file>resources/icons/pack3/png/24x24/Fall.png</file>
-        <file>resources/icons/pack3/png/24x24/Fast-forward.png</file>
-        <file>resources/icons/pack3/png/24x24/Favourites.png</file>
-        <file>resources/icons/pack3/png/24x24/Female.png</file>
-        <file>resources/icons/pack3/png/24x24/Female symbol.png</file>
-        <file>resources/icons/pack3/png/24x24/Film.png</file>
-        <file>resources/icons/pack3/png/24x24/Filter.png</file>
-        <file>resources/icons/pack3/png/24x24/Find.png</file>
-        <file>resources/icons/pack3/png/24x24/First.png</file>
-        <file>resources/icons/pack3/png/24x24/First record.png</file>
-        <file>resources/icons/pack3/png/24x24/Flag.png</file>
-        <file>resources/icons/pack3/png/24x24/Flash drive.png</file>
-        <file>resources/icons/pack3/png/24x24/Folder.png</file>
-        <file>resources/icons/pack3/png/24x24/Forbidden.png</file>
-        <file>resources/icons/pack3/png/24x24/Forward.png</file>
-        <file>resources/icons/pack3/png/24x24/Free bsd.png</file>
-        <file>resources/icons/pack3/png/24x24/Gift.png</file>
-        <file>resources/icons/pack3/png/24x24/Globe.png</file>
-        <file>resources/icons/pack3/png/24x24/Go.png</file>
-        <file>resources/icons/pack3/png/24x24/Go back.png</file>
-        <file>resources/icons/pack3/png/24x24/Go forward.png</file>
-        <file>resources/icons/pack3/png/24x24/Good mark.png</file>
-        <file>resources/icons/pack3/png/24x24/Green bookmark.png</file>
-        <file>resources/icons/pack3/png/24x24/Green pin.png</file>
-        <file>resources/icons/pack3/png/24x24/Green tag.png</file>
-        <file>resources/icons/pack3/png/24x24/Hard disk.png</file>
-        <file>resources/icons/pack3/png/24x24/Heart.png</file>
-        <file>resources/icons/pack3/png/24x24/Help.png</file>
-        <file>resources/icons/pack3/png/24x24/Help book.png</file>
-        <file>resources/icons/pack3/png/24x24/Help book 3d.png</file>
-        <file>resources/icons/pack3/png/24x24/Hint.png</file>
-        <file>resources/icons/pack3/png/24x24/History.png</file>
-        <file>resources/icons/pack3/png/24x24/Home.png</file>
-        <file>resources/icons/pack3/png/24x24/Hourglass.png</file>
-        <file>resources/icons/pack3/png/24x24/How-to.png</file>
-        <file>resources/icons/pack3/png/24x24/Hungup.png</file>
-        <file>resources/icons/pack3/png/24x24/Info.png</file>
-        <file>resources/icons/pack3/png/24x24/In-yang.png</file>
-        <file>resources/icons/pack3/png/24x24/Iphone.png</file>
-        <file>resources/icons/pack3/png/24x24/Key.png</file>
-        <file>resources/icons/pack3/png/24x24/Last.png</file>
-        <file>resources/icons/pack3/png/24x24/Last recor.png</file>
-        <file>resources/icons/pack3/png/24x24/Left-right.png</file>
-        <file>resources/icons/pack3/png/24x24/Letter.png</file>
-        <file>resources/icons/pack3/png/24x24/Lightning.png</file>
-        <file>resources/icons/pack3/png/24x24/Liner.png</file>
-        <file>resources/icons/pack3/png/24x24/Linux.png</file>
-        <file>resources/icons/pack3/png/24x24/List.png</file>
-        <file>resources/icons/pack3/png/24x24/Load.png</file>
-        <file>resources/icons/pack3/png/24x24/Lock.png</file>
-        <file>resources/icons/pack3/png/24x24/Low rating.png</file>
-        <file>resources/icons/pack3/png/24x24/Magic wand.png</file>
-        <file>resources/icons/pack3/png/24x24/Mail.png</file>
-        <file>resources/icons/pack3/png/24x24/Male.png</file>
-        <file>resources/icons/pack3/png/24x24/Male symbol.png</file>
-        <file>resources/icons/pack3/png/24x24/Medium rating.png</file>
-        <file>resources/icons/pack3/png/24x24/Message.png</file>
-        <file>resources/icons/pack3/png/24x24/Mobile-phone.png</file>
-        <file>resources/icons/pack3/png/24x24/Modify.png</file>
-        <file>resources/icons/pack3/png/24x24/Move.png</file>
-        <file>resources/icons/pack3/png/24x24/Movie.png</file>
-        <file>resources/icons/pack3/png/24x24/Music.png</file>
-        <file>resources/icons/pack3/png/24x24/Mute.png</file>
-        <file>resources/icons/pack3/png/24x24/Network connection.png</file>
-        <file>resources/icons/pack3/png/24x24/New.png</file>
-        <file>resources/icons/pack3/png/24x24/New document.png</file>
-        <file>resources/icons/pack3/png/24x24/Next.png</file>
-        <file>resources/icons/pack3/png/24x24/Next track.png</file>
-        <file>resources/icons/pack3/png/24x24/No.png</file>
-        <file>resources/icons/pack3/png/24x24/No-entry.png</file>
-        <file>resources/icons/pack3/png/24x24/Notes.png</file>
-        <file>resources/icons/pack3/png/24x24/OK.png</file>
-        <file>resources/icons/pack3/png/24x24/Paste.png</file>
-        <file>resources/icons/pack3/png/24x24/Pause.png</file>
-        <file>resources/icons/pack3/png/24x24/People.png</file>
-        <file>resources/icons/pack3/png/24x24/Percent.png</file>
-        <file>resources/icons/pack3/png/24x24/Person.png</file>
-        <file>resources/icons/pack3/png/24x24/Phone.png</file>
-        <file>resources/icons/pack3/png/24x24/Phone number.png</file>
-        <file>resources/icons/pack3/png/24x24/Picture.png</file>
-        <file>resources/icons/pack3/png/24x24/Pie chart.png</file>
-        <file>resources/icons/pack3/png/24x24/Pinion.png</file>
-        <file>resources/icons/pack3/png/24x24/Play.png</file>
-        <file>resources/icons/pack3/png/24x24/Playback.png</file>
-        <file>resources/icons/pack3/png/24x24/Play-music.png</file>
-        <file>resources/icons/pack3/png/24x24/Previous.png</file>
-        <file>resources/icons/pack3/png/24x24/Previous record.png</file>
-        <file>resources/icons/pack3/png/24x24/Print.png</file>
-        <file>resources/icons/pack3/png/24x24/Problem.png</file>
-        <file>resources/icons/pack3/png/24x24/Question.png</file>
-        <file>resources/icons/pack3/png/24x24/Radiation.png</file>
-        <file>resources/icons/pack3/png/24x24/Raise.png</file>
-        <file>resources/icons/pack3/png/24x24/Record.png</file>
-        <file>resources/icons/pack3/png/24x24/Red bookmark.png</file>
-        <file>resources/icons/pack3/png/24x24/Red mark.png</file>
-        <file>resources/icons/pack3/png/24x24/Redo.png</file>
-        <file>resources/icons/pack3/png/24x24/Red pin.png</file>
-        <file>resources/icons/pack3/png/24x24/Red star.png</file>
-        <file>resources/icons/pack3/png/24x24/Red tag.png</file>
-        <file>resources/icons/pack3/png/24x24/Refresh.png</file>
-        <file>resources/icons/pack3/png/24x24/Remove.png</file>
-        <file>resources/icons/pack3/png/24x24/Repair.png</file>
-        <file>resources/icons/pack3/png/24x24/Report.png</file>
-        <file>resources/icons/pack3/png/24x24/Retort.png</file>
-        <file>resources/icons/pack3/png/24x24/Rewind.png</file>
-        <file>resources/icons/pack3/png/24x24/Sad.png</file>
-        <file>resources/icons/pack3/png/24x24/Save.png</file>
-        <file>resources/icons/pack3/png/24x24/Schedule.png</file>
-        <file>resources/icons/pack3/png/24x24/Script.png</file>
-        <file>resources/icons/pack3/png/24x24/Search.png</file>
-        <file>resources/icons/pack3/png/24x24/Shield.png</file>
-        <file>resources/icons/pack3/png/24x24/Shopping cart.png</file>
-        <file>resources/icons/pack3/png/24x24/Silence.png</file>
-        <file>resources/icons/pack3/png/24x24/Smile.png</file>
-        <file>resources/icons/pack3/png/24x24/Sound.png</file>
-        <file>resources/icons/pack3/png/24x24/Stock graph.png</file>
-        <file>resources/icons/pack3/png/24x24/Stop.png</file>
-        <file>resources/icons/pack3/png/24x24/Stop sign.png</file>
-        <file>resources/icons/pack3/png/24x24/Stopwatch.png</file>
-        <file>resources/icons/pack3/png/24x24/Sum.png</file>
-        <file>resources/icons/pack3/png/24x24/Sync.png</file>
-        <file>resources/icons/pack3/png/24x24/Table.png</file>
-        <file>resources/icons/pack3/png/24x24/Target.png</file>
-        <file>resources/icons/pack3/png/24x24/Taxi.png</file>
-        <file>resources/icons/pack3/png/24x24/Terminate.png</file>
-        <file>resources/icons/pack3/png/24x24/Text.png</file>
-        <file>resources/icons/pack3/png/24x24/Text preview.png</file>
-        <file>resources/icons/pack3/png/24x24/Thumbs down.png</file>
-        <file>resources/icons/pack3/png/24x24/Thumbs up.png</file>
-        <file>resources/icons/pack3/png/24x24/Toolbox.png</file>
-        <file>resources/icons/pack3/png/24x24/Top.png</file>
-        <file>resources/icons/pack3/png/24x24/Trackback.png</file>
-        <file>resources/icons/pack3/png/24x24/Trash.png</file>
-        <file>resources/icons/pack3/png/24x24/Tune.png</file>
-        <file>resources/icons/pack3/png/24x24/Turn off.png</file>
-        <file>resources/icons/pack3/png/24x24/Twitter.png</file>
-        <file>resources/icons/pack3/png/24x24/Undo.png</file>
-        <file>resources/icons/pack3/png/24x24/Unlock.png</file>
-        <file>resources/icons/pack3/png/24x24/Up.png</file>
-        <file>resources/icons/pack3/png/24x24/Update.png</file>
-        <file>resources/icons/pack3/png/24x24/Up-down.png</file>
-        <file>resources/icons/pack3/png/24x24/Upload.png</file>
-        <file>resources/icons/pack3/png/24x24/User group.png</file>
-        <file>resources/icons/pack3/png/24x24/View.png</file>
-        <file>resources/icons/pack3/png/24x24/Volume.png</file>
-        <file>resources/icons/pack3/png/24x24/Wallet.png</file>
-        <file>resources/icons/pack3/png/24x24/Warning.png</file>
-        <file>resources/icons/pack3/png/24x24/Wrench.png</file>
-        <file>resources/icons/pack3/png/24x24/Yellow bookmark.png</file>
-        <file>resources/icons/pack3/png/24x24/Yellow pin.png</file>
-        <file>resources/icons/pack3/png/24x24/Yellow tag.png</file>
-        <file>resources/icons/pack3/png/24x24/Yes.png</file>
-        <file>resources/icons/pack3/png/24x24/Zoom.png</file>
-        <file>resources/icons/pack2/png/24x24/1.png</file>
-        <file>resources/icons/pack2/png/24x24/2.png</file>
-        <file>resources/icons/pack2/png/24x24/3.png</file>
-        <file>resources/icons/pack2/png/24x24/4.png</file>
-        <file>resources/icons/pack2/png/24x24/5.png</file>
-        <file>resources/icons/pack2/png/24x24/6.png</file>
-        <file>resources/icons/pack2/png/24x24/7.png</file>
-        <file>resources/icons/pack2/png/24x24/8.png</file>
-        <file>resources/icons/pack2/png/24x24/9.png</file>
-        <file>resources/icons/pack2/png/24x24/10.png</file>
-        <file>resources/icons/pack2/png/24x24/11.png</file>
-        <file>resources/icons/pack2/png/24x24/12.png</file>
-        <file>resources/icons/pack2/png/24x24/13.png</file>
-        <file>resources/icons/pack2/png/24x24/14.png</file>
-        <file>resources/icons/pack2/png/24x24/15.png</file>
-        <file>resources/icons/pack2/png/24x24/16.png</file>
-        <file>resources/icons/pack2/png/24x24/17.png</file>
-        <file>resources/icons/pack2/png/24x24/18.png</file>
-        <file>resources/icons/pack2/png/24x24/19.png</file>
-        <file>resources/icons/pack2/png/24x24/20.png</file>
-        <file>resources/icons/pack2/png/24x24/21.png</file>
-        <file>resources/icons/pack2/png/24x24/22.png</file>
-        <file>resources/icons/pack2/png/24x24/23.png</file>
-        <file>resources/icons/pack2/png/24x24/25.png</file>
-        <file>resources/icons/pack2/png/24x24/26.png</file>
-        <file>resources/icons/pack2/png/24x24/27.png</file>
-        <file>resources/icons/pack2/png/24x24/28.png</file>
-        <file>resources/icons/pack2/png/24x24/29.png</file>
-        <file>resources/icons/pack2/png/24x24/30.png</file>
-        <file>resources/icons/pack2/png/24x24/31.png</file>
-        <file>resources/icons/pack2/png/24x24/32.png</file>
-        <file>resources/icons/pack2/png/24x24/33.png</file>
-        <file>resources/icons/pack2/png/24x24/34.png</file>
-        <file>resources/icons/pack2/png/24x24/35.png</file>
-        <file>resources/icons/pack2/png/24x24/36.png</file>
-        <file>resources/icons/pack2/png/24x24/37.png</file>
-        <file>resources/icons/pack2/png/24x24/38.png</file>
-        <file>resources/icons/pack2/png/24x24/39.png</file>
-        <file>resources/icons/pack2/png/24x24/40.png</file>
-        <file>resources/icons/pack2/png/24x24/41.png</file>
-        <file>resources/icons/pack2/png/24x24/42.png</file>
-        <file>resources/icons/pack2/png/24x24/42a.png</file>
-        <file>resources/icons/pack2/png/24x24/43.png</file>
-        <file>resources/icons/pack2/png/24x24/44.png</file>
-        <file>resources/icons/pack2/png/24x24/45.png</file>
-        <file>resources/icons/pack2/png/24x24/46.png</file>
-        <file>resources/icons/pack2/png/24x24/47.png</file>
-        <file>resources/icons/pack2/png/24x24/48.png</file>
-        <file>resources/icons/pack2/png/24x24/49.png</file>
-        <file>resources/icons/pack2/png/24x24/50.png</file>
-        <file>resources/icons/pack2/png/24x24/51.png</file>
-        <file>resources/icons/pack2/png/24x24/52.png</file>
-        <file>resources/icons/pack2/png/24x24/53.png</file>
-        <file>resources/icons/pack2/png/24x24/54.png</file>
-        <file>resources/icons/pack2/png/24x24/55.png</file>
-        <file>resources/icons/pack2/png/24x24/56.png</file>
-        <file>resources/icons/pack2/png/24x24/57.png</file>
-        <file>resources/icons/pack2/png/24x24/58.png</file>
-        <file>resources/icons/pack2/png/24x24/59.png</file>
-        <file>resources/icons/pack2/png/24x24/60.png</file>
-        <file>resources/icons/pack2/png/24x24/61.png</file>
-        <file>resources/icons/pack2/png/24x24/62.png</file>
-        <file>resources/icons/pack2/png/24x24/63.png</file>
-        <file>resources/icons/pack2/png/24x24/64.png</file>
-        <file>resources/icons/pack2/png/24x24/65.png</file>
-        <file>resources/icons/pack2/png/24x24/66.png</file>
-        <file>resources/icons/pack2/png/24x24/67.png</file>
-        <file>resources/icons/pack2/png/24x24/68.png</file>
-        <file>resources/icons/pack2/png/24x24/69.png</file>
-        <file>resources/icons/pack2/png/24x24/70.png</file>
-        <file>resources/icons/pack2/png/24x24/71.png</file>
-        <file>resources/icons/pack2/png/24x24/72.png</file>
-        <file>resources/icons/pack2/png/24x24/73.png</file>
-        <file>resources/icons/pack2/png/24x24/74.png</file>
-        <file>resources/icons/pack2/png/24x24/75.png</file>
-        <file>resources/icons/pack2/png/24x24/76.png</file>
-        <file>resources/icons/pack2/png/24x24/77.png</file>
-        <file>resources/icons/pack2/png/24x24/78.png</file>
-        <file>resources/icons/pack2/png/24x24/79.png</file>
-        <file>resources/icons/pack2/png/24x24/80.png</file>
-        <file>resources/icons/pack2/png/24x24/81.png</file>
-        <file>resources/icons/pack2/png/24x24/82.png</file>
-        <file>resources/icons/pack2/png/24x24/83.png</file>
-        <file>resources/icons/pack2/png/24x24/84.png</file>
-        <file>resources/icons/pack2/png/24x24/85.png</file>
-        <file>resources/icons/pack2/png/24x24/86.png</file>
-        <file>resources/icons/pack2/png/24x24/87.png</file>
-        <file>resources/icons/pack2/png/24x24/88.png</file>
-        <file>resources/icons/pack2/png/24x24/89.png</file>
-        <file>resources/icons/pack2/png/24x24/90.png</file>
-        <file>resources/icons/pack2/png/24x24/91.png</file>
-        <file>resources/icons/pack2/png/24x24/92.png</file>
-        <file>resources/icons/pack2/png/24x24/93.png</file>
-        <file>resources/icons/pack2/png/24x24/94.png</file>
-        <file>resources/icons/pack2/png/24x24/95.png</file>
-        <file>resources/icons/pack2/png/24x24/96.png</file>
-    </qresource>
+	<qresource prefix="/rec">
+		<file>resources/software_genesys.gif</file>
+		<file>resources/icons/pack3/png/24x24/3d bar chart.png</file>
+		<file>resources/icons/pack3/png/24x24/Abort.png</file>
+		<file>resources/icons/pack3/png/24x24/About.png</file>
+		<file>resources/icons/pack3/png/24x24/Accounting.png</file>
+		<file>resources/icons/pack3/png/24x24/Add.png</file>
+		<file>resources/icons/pack3/png/24x24/Address book.png</file>
+		<file>resources/icons/pack3/png/24x24/Alarm.png</file>
+		<file>resources/icons/pack3/png/24x24/Alarm clock.png</file>
+		<file>resources/icons/pack3/png/24x24/Alert.png</file>
+		<file>resources/icons/pack3/png/24x24/Alien.png</file>
+		<file>resources/icons/pack3/png/24x24/Anchor.png</file>
+		<file>resources/icons/pack3/png/24x24/Application.png</file>
+		<file>resources/icons/pack3/png/24x24/Apply.png</file>
+		<file>resources/icons/pack3/png/24x24/Back.png</file>
+		<file>resources/icons/pack3/png/24x24/Bad mark.png</file>
+		<file>resources/icons/pack3/png/24x24/Bee.png</file>
+		<file>resources/icons/pack3/png/24x24/Black bookmark.png</file>
+		<file>resources/icons/pack3/png/24x24/Black pin.png</file>
+		<file>resources/icons/pack3/png/24x24/Black tag.png</file>
+		<file>resources/icons/pack3/png/24x24/Blog.png</file>
+		<file>resources/icons/pack3/png/24x24/Blue bookmark.png</file>
+		<file>resources/icons/pack3/png/24x24/Blue key.png</file>
+		<file>resources/icons/pack3/png/24x24/Blue pin.png</file>
+		<file>resources/icons/pack3/png/24x24/Blue tag.png</file>
+		<file>resources/icons/pack3/png/24x24/Bomb.png</file>
+		<file>resources/icons/pack3/png/24x24/Bookmark.png</file>
+		<file>resources/icons/pack3/png/24x24/Boss.png</file>
+		<file>resources/icons/pack3/png/24x24/Bottom.png</file>
+		<file>resources/icons/pack3/png/24x24/Briefcase.png</file>
+		<file>resources/icons/pack3/png/24x24/Brush.png</file>
+		<file>resources/icons/pack3/png/24x24/Bubble.png</file>
+		<file>resources/icons/pack3/png/24x24/Buy.png</file>
+		<file>resources/icons/pack3/png/24x24/Calculator.png</file>
+		<file>resources/icons/pack3/png/24x24/Calendar.png</file>
+		<file>resources/icons/pack3/png/24x24/Car key.png</file>
+		<file>resources/icons/pack3/png/24x24/CD.png</file>
+		<file>resources/icons/pack3/png/24x24/Clipboard.png</file>
+		<file>resources/icons/pack3/png/24x24/Clock.png</file>
+		<file>resources/icons/pack3/png/24x24/Close.png</file>
+		<file>resources/icons/pack3/png/24x24/Coin.png</file>
+		<file>resources/icons/pack3/png/24x24/Comment.png</file>
+		<file>resources/icons/pack3/png/24x24/Company.png</file>
+		<file>resources/icons/pack3/png/24x24/Compass.png</file>
+		<file>resources/icons/pack3/png/24x24/Component.png</file>
+		<file>resources/icons/pack3/png/24x24/Computer.png</file>
+		<file>resources/icons/pack3/png/24x24/Copy.png</file>
+		<file>resources/icons/pack3/png/24x24/Create.png</file>
+		<file>resources/icons/pack3/png/24x24/Cut.png</file>
+		<file>resources/icons/pack3/png/24x24/Danger.png</file>
+		<file>resources/icons/pack3/png/24x24/Database.png</file>
+		<file>resources/icons/pack3/png/24x24/Delete.png</file>
+		<file>resources/icons/pack3/png/24x24/Delivery.png</file>
+		<file>resources/icons/pack3/png/24x24/Diagram.png</file>
+		<file>resources/icons/pack3/png/24x24/Dial.png</file>
+		<file>resources/icons/pack3/png/24x24/Disaster.png</file>
+		<file>resources/icons/pack3/png/24x24/Display.png</file>
+		<file>resources/icons/pack3/png/24x24/Dollar.png</file>
+		<file>resources/icons/pack3/png/24x24/Door.png</file>
+		<file>resources/icons/pack3/png/24x24/Down.png</file>
+		<file>resources/icons/pack3/png/24x24/Download.png</file>
+		<file>resources/icons/pack3/png/24x24/Downloads folder.png</file>
+		<file>resources/icons/pack3/png/24x24/Earth.png</file>
+		<file>resources/icons/pack3/png/24x24/Eject.png</file>
+		<file>resources/icons/pack3/png/24x24/E-mail.png</file>
+		<file>resources/icons/pack3/png/24x24/Equipment.png</file>
+		<file>resources/icons/pack3/png/24x24/Erase.png</file>
+		<file>resources/icons/pack3/png/24x24/Error.png</file>
+		<file>resources/icons/pack3/png/24x24/Euro.png</file>
+		<file>resources/icons/pack3/png/24x24/Exit.png</file>
+		<file>resources/icons/pack3/png/24x24/Expand.png</file>
+		<file>resources/icons/pack3/png/24x24/Eye.png</file>
+		<file>resources/icons/pack3/png/24x24/Fall.png</file>
+		<file>resources/icons/pack3/png/24x24/Fast-forward.png</file>
+		<file>resources/icons/pack3/png/24x24/Favourites.png</file>
+		<file>resources/icons/pack3/png/24x24/Female.png</file>
+		<file>resources/icons/pack3/png/24x24/Female symbol.png</file>
+		<file>resources/icons/pack3/png/24x24/Film.png</file>
+		<file>resources/icons/pack3/png/24x24/Filter.png</file>
+		<file>resources/icons/pack3/png/24x24/Find.png</file>
+		<file>resources/icons/pack3/png/24x24/First.png</file>
+		<file>resources/icons/pack3/png/24x24/First record.png</file>
+		<file>resources/icons/pack3/png/24x24/Flag.png</file>
+		<file>resources/icons/pack3/png/24x24/Flash drive.png</file>
+		<file>resources/icons/pack3/png/24x24/Folder.png</file>
+		<file>resources/icons/pack3/png/24x24/Forbidden.png</file>
+		<file>resources/icons/pack3/png/24x24/Forward.png</file>
+		<file>resources/icons/pack3/png/24x24/Free bsd.png</file>
+		<file>resources/icons/pack3/png/24x24/Gift.png</file>
+		<file>resources/icons/pack3/png/24x24/Globe.png</file>
+		<file>resources/icons/pack3/png/24x24/Go.png</file>
+		<file>resources/icons/pack3/png/24x24/Go back.png</file>
+		<file>resources/icons/pack3/png/24x24/Go forward.png</file>
+		<file>resources/icons/pack3/png/24x24/Good mark.png</file>
+		<file>resources/icons/pack3/png/24x24/Green bookmark.png</file>
+		<file>resources/icons/pack3/png/24x24/Green pin.png</file>
+		<file>resources/icons/pack3/png/24x24/Green tag.png</file>
+		<file>resources/icons/pack3/png/24x24/Hard disk.png</file>
+		<file>resources/icons/pack3/png/24x24/Heart.png</file>
+		<file>resources/icons/pack3/png/24x24/Help.png</file>
+		<file>resources/icons/pack3/png/24x24/Help book.png</file>
+		<file>resources/icons/pack3/png/24x24/Help book 3d.png</file>
+		<file>resources/icons/pack3/png/24x24/Hint.png</file>
+		<file>resources/icons/pack3/png/24x24/History.png</file>
+		<file>resources/icons/pack3/png/24x24/Home.png</file>
+		<file>resources/icons/pack3/png/24x24/Hourglass.png</file>
+		<file>resources/icons/pack3/png/24x24/How-to.png</file>
+		<file>resources/icons/pack3/png/24x24/Hungup.png</file>
+		<file>resources/icons/pack3/png/24x24/Info.png</file>
+		<file>resources/icons/pack3/png/24x24/In-yang.png</file>
+		<file>resources/icons/pack3/png/24x24/Iphone.png</file>
+		<file>resources/icons/pack3/png/24x24/Key.png</file>
+		<file>resources/icons/pack3/png/24x24/Last.png</file>
+		<file>resources/icons/pack3/png/24x24/Last recor.png</file>
+		<file>resources/icons/pack3/png/24x24/Left-right.png</file>
+		<file>resources/icons/pack3/png/24x24/Letter.png</file>
+		<file>resources/icons/pack3/png/24x24/Lightning.png</file>
+		<file>resources/icons/pack3/png/24x24/Liner.png</file>
+		<file>resources/icons/pack3/png/24x24/Linux.png</file>
+		<file>resources/icons/pack3/png/24x24/List.png</file>
+		<file>resources/icons/pack3/png/24x24/Load.png</file>
+		<file>resources/icons/pack3/png/24x24/Lock.png</file>
+		<file>resources/icons/pack3/png/24x24/Low rating.png</file>
+		<file>resources/icons/pack3/png/24x24/Magic wand.png</file>
+		<file>resources/icons/pack3/png/24x24/Mail.png</file>
+		<file>resources/icons/pack3/png/24x24/Male.png</file>
+		<file>resources/icons/pack3/png/24x24/Male symbol.png</file>
+		<file>resources/icons/pack3/png/24x24/Medium rating.png</file>
+		<file>resources/icons/pack3/png/24x24/Message.png</file>
+		<file>resources/icons/pack3/png/24x24/Mobile-phone.png</file>
+		<file>resources/icons/pack3/png/24x24/Modify.png</file>
+		<file>resources/icons/pack3/png/24x24/Move.png</file>
+		<file>resources/icons/pack3/png/24x24/Movie.png</file>
+		<file>resources/icons/pack3/png/24x24/Music.png</file>
+		<file>resources/icons/pack3/png/24x24/Mute.png</file>
+		<file>resources/icons/pack3/png/24x24/Network connection.png</file>
+		<file>resources/icons/pack3/png/24x24/New.png</file>
+		<file>resources/icons/pack3/png/24x24/New document.png</file>
+		<file>resources/icons/pack3/png/24x24/Next.png</file>
+		<file>resources/icons/pack3/png/24x24/Next track.png</file>
+		<file>resources/icons/pack3/png/24x24/No.png</file>
+		<file>resources/icons/pack3/png/24x24/No-entry.png</file>
+		<file>resources/icons/pack3/png/24x24/Notes.png</file>
+		<file>resources/icons/pack3/png/24x24/OK.png</file>
+		<file>resources/icons/pack3/png/24x24/Paste.png</file>
+		<file>resources/icons/pack3/png/24x24/Pause.png</file>
+		<file>resources/icons/pack3/png/24x24/People.png</file>
+		<file>resources/icons/pack3/png/24x24/Percent.png</file>
+		<file>resources/icons/pack3/png/24x24/Person.png</file>
+		<file>resources/icons/pack3/png/24x24/Phone.png</file>
+		<file>resources/icons/pack3/png/24x24/Phone number.png</file>
+		<file>resources/icons/pack3/png/24x24/Picture.png</file>
+		<file>resources/icons/pack3/png/24x24/Pie chart.png</file>
+		<file>resources/icons/pack3/png/24x24/Pinion.png</file>
+		<file>resources/icons/pack3/png/24x24/Play.png</file>
+		<file>resources/icons/pack3/png/24x24/Playback.png</file>
+		<file>resources/icons/pack3/png/24x24/Play-music.png</file>
+		<file>resources/icons/pack3/png/24x24/Previous.png</file>
+		<file>resources/icons/pack3/png/24x24/Previous record.png</file>
+		<file>resources/icons/pack3/png/24x24/Print.png</file>
+		<file>resources/icons/pack3/png/24x24/Problem.png</file>
+		<file>resources/icons/pack3/png/24x24/Question.png</file>
+		<file>resources/icons/pack3/png/24x24/Radiation.png</file>
+		<file>resources/icons/pack3/png/24x24/Raise.png</file>
+		<file>resources/icons/pack3/png/24x24/Record.png</file>
+		<file>resources/icons/pack3/png/24x24/Red bookmark.png</file>
+		<file>resources/icons/pack3/png/24x24/Red mark.png</file>
+		<file>resources/icons/pack3/png/24x24/Redo.png</file>
+		<file>resources/icons/pack3/png/24x24/Red pin.png</file>
+		<file>resources/icons/pack3/png/24x24/Red star.png</file>
+		<file>resources/icons/pack3/png/24x24/Red tag.png</file>
+		<file>resources/icons/pack3/png/24x24/Refresh.png</file>
+		<file>resources/icons/pack3/png/24x24/Remove.png</file>
+		<file>resources/icons/pack3/png/24x24/Repair.png</file>
+		<file>resources/icons/pack3/png/24x24/Report.png</file>
+		<file>resources/icons/pack3/png/24x24/Retort.png</file>
+		<file>resources/icons/pack3/png/24x24/Rewind.png</file>
+		<file>resources/icons/pack3/png/24x24/Sad.png</file>
+		<file>resources/icons/pack3/png/24x24/Save.png</file>
+		<file>resources/icons/pack3/png/24x24/Schedule.png</file>
+		<file>resources/icons/pack3/png/24x24/Script.png</file>
+		<file>resources/icons/pack3/png/24x24/Search.png</file>
+		<file>resources/icons/pack3/png/24x24/Shield.png</file>
+		<file>resources/icons/pack3/png/24x24/Shopping cart.png</file>
+		<file>resources/icons/pack3/png/24x24/Silence.png</file>
+		<file>resources/icons/pack3/png/24x24/Smile.png</file>
+		<file>resources/icons/pack3/png/24x24/Sound.png</file>
+		<file>resources/icons/pack3/png/24x24/Stock graph.png</file>
+		<file>resources/icons/pack3/png/24x24/Stop.png</file>
+		<file>resources/icons/pack3/png/24x24/Stop sign.png</file>
+		<file>resources/icons/pack3/png/24x24/Stopwatch.png</file>
+		<file>resources/icons/pack3/png/24x24/Sum.png</file>
+		<file>resources/icons/pack3/png/24x24/Sync.png</file>
+		<file>resources/icons/pack3/png/24x24/Table.png</file>
+		<file>resources/icons/pack3/png/24x24/Target.png</file>
+		<file>resources/icons/pack3/png/24x24/Taxi.png</file>
+		<file>resources/icons/pack3/png/24x24/Terminate.png</file>
+		<file>resources/icons/pack3/png/24x24/Text.png</file>
+		<file>resources/icons/pack3/png/24x24/Text preview.png</file>
+		<file>resources/icons/pack3/png/24x24/Thumbs down.png</file>
+		<file>resources/icons/pack3/png/24x24/Thumbs up.png</file>
+		<file>resources/icons/pack3/png/24x24/Toolbox.png</file>
+		<file>resources/icons/pack3/png/24x24/Top.png</file>
+		<file>resources/icons/pack3/png/24x24/Trackback.png</file>
+		<file>resources/icons/pack3/png/24x24/Trash.png</file>
+		<file>resources/icons/pack3/png/24x24/Tune.png</file>
+		<file>resources/icons/pack3/png/24x24/Turn off.png</file>
+		<file>resources/icons/pack3/png/24x24/Twitter.png</file>
+		<file>resources/icons/pack3/png/24x24/Undo.png</file>
+		<file>resources/icons/pack3/png/24x24/Unlock.png</file>
+		<file>resources/icons/pack3/png/24x24/Up.png</file>
+		<file>resources/icons/pack3/png/24x24/Update.png</file>
+		<file>resources/icons/pack3/png/24x24/Up-down.png</file>
+		<file>resources/icons/pack3/png/24x24/Upload.png</file>
+		<file>resources/icons/pack3/png/24x24/User group.png</file>
+		<file>resources/icons/pack3/png/24x24/View.png</file>
+		<file>resources/icons/pack3/png/24x24/Volume.png</file>
+		<file>resources/icons/pack3/png/24x24/Wallet.png</file>
+		<file>resources/icons/pack3/png/24x24/Warning.png</file>
+		<file>resources/icons/pack3/png/24x24/Wrench.png</file>
+		<file>resources/icons/pack3/png/24x24/Yellow bookmark.png</file>
+		<file>resources/icons/pack3/png/24x24/Yellow pin.png</file>
+		<file>resources/icons/pack3/png/24x24/Yellow tag.png</file>
+		<file>resources/icons/pack3/png/24x24/Yes.png</file>
+		<file>resources/icons/pack3/png/24x24/Zoom.png</file>
+		<file>resources/icons/pack2/png/24x24/1.png</file>
+		<file>resources/icons/pack2/png/24x24/2.png</file>
+		<file>resources/icons/pack2/png/24x24/3.png</file>
+		<file>resources/icons/pack2/png/24x24/4.png</file>
+		<file>resources/icons/pack2/png/24x24/5.png</file>
+		<file>resources/icons/pack2/png/24x24/6.png</file>
+		<file>resources/icons/pack2/png/24x24/7.png</file>
+		<file>resources/icons/pack2/png/24x24/8.png</file>
+		<file>resources/icons/pack2/png/24x24/9.png</file>
+		<file>resources/icons/pack2/png/24x24/10.png</file>
+		<file>resources/icons/pack2/png/24x24/11.png</file>
+		<file>resources/icons/pack2/png/24x24/12.png</file>
+		<file>resources/icons/pack2/png/24x24/13.png</file>
+		<file>resources/icons/pack2/png/24x24/14.png</file>
+		<file>resources/icons/pack2/png/24x24/15.png</file>
+		<file>resources/icons/pack2/png/24x24/16.png</file>
+		<file>resources/icons/pack2/png/24x24/17.png</file>
+		<file>resources/icons/pack2/png/24x24/18.png</file>
+		<file>resources/icons/pack2/png/24x24/19.png</file>
+		<file>resources/icons/pack2/png/24x24/20.png</file>
+		<file>resources/icons/pack2/png/24x24/21.png</file>
+		<file>resources/icons/pack2/png/24x24/22.png</file>
+		<file>resources/icons/pack2/png/24x24/23.png</file>
+		<file>resources/icons/pack2/png/24x24/25.png</file>
+		<file>resources/icons/pack2/png/24x24/26.png</file>
+		<file>resources/icons/pack2/png/24x24/27.png</file>
+		<file>resources/icons/pack2/png/24x24/28.png</file>
+		<file>resources/icons/pack2/png/24x24/29.png</file>
+		<file>resources/icons/pack2/png/24x24/30.png</file>
+		<file>resources/icons/pack2/png/24x24/31.png</file>
+		<file>resources/icons/pack2/png/24x24/32.png</file>
+		<file>resources/icons/pack2/png/24x24/33.png</file>
+		<file>resources/icons/pack2/png/24x24/34.png</file>
+		<file>resources/icons/pack2/png/24x24/35.png</file>
+		<file>resources/icons/pack2/png/24x24/36.png</file>
+		<file>resources/icons/pack2/png/24x24/37.png</file>
+		<file>resources/icons/pack2/png/24x24/38.png</file>
+		<file>resources/icons/pack2/png/24x24/39.png</file>
+		<file>resources/icons/pack2/png/24x24/40.png</file>
+		<file>resources/icons/pack2/png/24x24/41.png</file>
+		<file>resources/icons/pack2/png/24x24/42.png</file>
+		<file>resources/icons/pack2/png/24x24/42a.png</file>
+		<file>resources/icons/pack2/png/24x24/43.png</file>
+		<file>resources/icons/pack2/png/24x24/44.png</file>
+		<file>resources/icons/pack2/png/24x24/45.png</file>
+		<file>resources/icons/pack2/png/24x24/46.png</file>
+		<file>resources/icons/pack2/png/24x24/47.png</file>
+		<file>resources/icons/pack2/png/24x24/48.png</file>
+		<file>resources/icons/pack2/png/24x24/49.png</file>
+		<file>resources/icons/pack2/png/24x24/50.png</file>
+		<file>resources/icons/pack2/png/24x24/51.png</file>
+		<file>resources/icons/pack2/png/24x24/52.png</file>
+		<file>resources/icons/pack2/png/24x24/53.png</file>
+		<file>resources/icons/pack2/png/24x24/54.png</file>
+		<file>resources/icons/pack2/png/24x24/55.png</file>
+		<file>resources/icons/pack2/png/24x24/56.png</file>
+		<file>resources/icons/pack2/png/24x24/57.png</file>
+		<file>resources/icons/pack2/png/24x24/58.png</file>
+		<file>resources/icons/pack2/png/24x24/59.png</file>
+		<file>resources/icons/pack2/png/24x24/60.png</file>
+		<file>resources/icons/pack2/png/24x24/61.png</file>
+		<file>resources/icons/pack2/png/24x24/62.png</file>
+		<file>resources/icons/pack2/png/24x24/63.png</file>
+		<file>resources/icons/pack2/png/24x24/64.png</file>
+		<file>resources/icons/pack2/png/24x24/65.png</file>
+		<file>resources/icons/pack2/png/24x24/66.png</file>
+		<file>resources/icons/pack2/png/24x24/67.png</file>
+		<file>resources/icons/pack2/png/24x24/68.png</file>
+		<file>resources/icons/pack2/png/24x24/69.png</file>
+		<file>resources/icons/pack2/png/24x24/70.png</file>
+		<file>resources/icons/pack2/png/24x24/71.png</file>
+		<file>resources/icons/pack2/png/24x24/72.png</file>
+		<file>resources/icons/pack2/png/24x24/73.png</file>
+		<file>resources/icons/pack2/png/24x24/74.png</file>
+		<file>resources/icons/pack2/png/24x24/75.png</file>
+		<file>resources/icons/pack2/png/24x24/76.png</file>
+		<file>resources/icons/pack2/png/24x24/77.png</file>
+		<file>resources/icons/pack2/png/24x24/78.png</file>
+		<file>resources/icons/pack2/png/24x24/79.png</file>
+		<file>resources/icons/pack2/png/24x24/80.png</file>
+		<file>resources/icons/pack2/png/24x24/81.png</file>
+		<file>resources/icons/pack2/png/24x24/82.png</file>
+		<file>resources/icons/pack2/png/24x24/83.png</file>
+		<file>resources/icons/pack2/png/24x24/84.png</file>
+		<file>resources/icons/pack2/png/24x24/85.png</file>
+		<file>resources/icons/pack2/png/24x24/86.png</file>
+		<file>resources/icons/pack2/png/24x24/87.png</file>
+		<file>resources/icons/pack2/png/24x24/88.png</file>
+		<file>resources/icons/pack2/png/24x24/89.png</file>
+		<file>resources/icons/pack2/png/24x24/90.png</file>
+		<file>resources/icons/pack2/png/24x24/91.png</file>
+		<file>resources/icons/pack2/png/24x24/92.png</file>
+		<file>resources/icons/pack2/png/24x24/93.png</file>
+		<file>resources/icons/pack2/png/24x24/94.png</file>
+		<file>resources/icons/pack2/png/24x24/95.png</file>
+		<file>resources/icons/pack2/png/24x24/96.png</file>
+	</qresource>
 </RCC>

@@ -16,34 +16,33 @@
 CollectorDefaultImpl1::CollectorDefaultImpl1() {
 }
 
-
 void CollectorDefaultImpl1::clear() {
-    _numElements = 0;
-    if (_clearHandler != nullptr) {
-	_clearHandler();
-    }
+	_numElements = 0;
+	if (_clearHandler != nullptr) {
+		_clearHandler();
+	}
 }
 
 void CollectorDefaultImpl1::addValue(double value) {
-    _lastValue = value;
-    _numElements++;
-    if (_addValueHandler != nullptr) {
-	_addValueHandler(value);
-    }
+	_lastValue = value;
+	_numElements++;
+	if (_addValueHandler != nullptr) {
+		_addValueHandler(value);
+	}
 }
 
 double CollectorDefaultImpl1::getLastValue() {
-    return this->_lastValue;
+	return this->_lastValue;
 }
 
 unsigned long CollectorDefaultImpl1::numElements() {
-    return this->_numElements;
+	return this->_numElements;
 }
 
 void CollectorDefaultImpl1::setAddValueHandler(CollectorAddValueHandler addValueHandler) {
-    _addValueHandler = addValueHandler;
+	_addValueHandler = addValueHandler;
 }
 
 void CollectorDefaultImpl1::setClearHandler(CollectorClearHandler clearHandler) {
-    _clearHandler = clearHandler;
+	_clearHandler = clearHandler;
 }

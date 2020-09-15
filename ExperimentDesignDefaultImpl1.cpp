@@ -16,19 +16,18 @@
 ExperimentDesignDefaultImpl1::ExperimentDesignDefaultImpl1() {
 }
 
-
 std::list<FactorOrInteractionContribution*>* ExperimentDesignDefaultImpl1::getContributions() const {
-    return _contributions;
+	return _contributions;
 }
 
 bool ExperimentDesignDefaultImpl1::generate2krScenarioExperiments() {
-    return true;
+	return true;
 }
 
 bool ExperimentDesignDefaultImpl1::calculateContributionAndCoefficients() {
-    return true;
+	return true;
 }
 
 ProcessAnalyser_if* ExperimentDesignDefaultImpl1::getProcessAnalyser() const {
-    return _processAnalyser;
+	return _processAnalyser;
 }

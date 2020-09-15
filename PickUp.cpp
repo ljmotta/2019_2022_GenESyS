@@ -15,56 +15,55 @@
 
 #include "Model.h"
 
-PickUp::PickUp(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<PickUp>(),name) {
+PickUp::PickUp(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<PickUp>(), name) {
 }
 
-
 std::string PickUp::show() {
-    return ModelComponent::show() + "";
+	return ModelComponent::show() + "";
 }
 
 ModelComponent* PickUp::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
-    PickUp* newComponent = new PickUp(model);
-    try {
-	newComponent->_loadInstance(fields);
-    } catch (const std::exception& e) {
+	PickUp* newComponent = new PickUp(model);
+	try {
+		newComponent->_loadInstance(fields);
+	} catch (const std::exception& e) {
 
-    }
-    return newComponent;
+	}
+	return newComponent;
 }
 
 void PickUp::_execute(Entity* entity) {
-    _parentModel->tracer()->trace("I'm just a dummy model and I'll just send the entity forward");
-    this->_parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
+	_parentModel->tracer()->trace("I'm just a dummy model and I'll just send the entity forward");
+	this->_parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
 }
 
 bool PickUp::_loadInstance(std::map<std::string, std::string>* fields) {
-    bool res = ModelComponent::_loadInstance(fields);
-    if (res) {
-	//...
-    }
-    return res;
+	bool res = ModelComponent::_loadInstance(fields);
+	if (res) {
+		//...
+	}
+	return res;
 }
 
 void PickUp::_initBetweenReplications() {
 }
 
 std::map<std::string, std::string>* PickUp::_saveInstance() {
-    std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
-    //...
-    return fields;
+	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
+	//...
+	return fields;
 }
 
 bool PickUp::_check(std::string* errorMessage) {
-    bool resultAll = true;
-    //...
-    return resultAll;
+	bool resultAll = true;
+	//...
+	return resultAll;
 }
 
-PluginInformation* PickUp::GetPluginInformation(){
-    PluginInformation* info = new PluginInformation(Util::TypeOf<PickUp>(), &PickUp::LoadInstance);
-    // ...
-    return info;
+PluginInformation* PickUp::GetPluginInformation() {
+	PluginInformation* info = new PluginInformation(Util::TypeOf<PickUp>(), &PickUp::LoadInstance);
+	// ...
+	return info;
 }
 
 

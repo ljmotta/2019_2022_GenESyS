@@ -15,24 +15,23 @@
 #include "AnalysisOfVariance_if.h"
 
 SimulationResponse::SimulationResponse(std::string type, std::string name, GetterMember getterMember) {
-    _type = type;
-    _name = name;
-    _getterMemberFunction = getterMember;
+	_type = type;
+	_name = name;
+	_getterMemberFunction = getterMember;
 }
 
-
 std::string SimulationResponse::show() {
-    return "name="+this->_name+", type="+this->_type;
+	return "name=" + this->_name + ", type=" + this->_type;
 }
 
 std::string SimulationResponse::name() const {
-    return _name;
+	return _name;
 }
 
 std::string SimulationResponse::type() const {
-    return _type;
+	return _type;
 }
 
 double SimulationResponse::value() {
-    return this->_getterMemberFunction();
+	return this->_getterMemberFunction();
 }
