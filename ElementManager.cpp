@@ -24,9 +24,9 @@ ElementManager::ElementManager(Model* model) {
 
 }
 
-bool ElementManager::insert(ModelElement* infra) {
-    std::string infraTypename = infra->classname();
-    bool res = insert(infraTypename, infra);
+bool ElementManager::insert(ModelElement* anElement) {
+    std::string elementTypename = anElement->classname();
+    bool res = insert(elementTypename, anElement);
     if (res)
 	_parentModel->tracer()->trace(Util::TraceLevel::elementResult, "Element successfully inserted");
     else
@@ -34,48 +34,48 @@ bool ElementManager::insert(ModelElement* infra) {
     return res;
 }
 
-bool ElementManager::insert(std::string infraTypename, ModelElement* infra) {
-    List<ModelElement*>* listElements = elementList(infraTypename);
-    if (listElements->find(infra) == listElements->list()->end()) { //not found
-	listElements->insert(infra);
-	this->_parentModel->tracer()->trace(Util::TraceLevel::toolDetailed, "Element \"" + infra->name() + "\" successfully inserted.");
+bool ElementManager::insert(std::string elementTypename, ModelElement* anElement) {
+    List<ModelElement*>* listElements = elementList(elementTypename);
+    if (listElements->find(anElement) == listElements->list()->end()) { //not found
+	listElements->insert(anElement);
+	this->_parentModel->tracer()->trace(Util::TraceLevel::toolDetailed, "Element \"" + anElement->name() + "\" successfully inserted.");
 	return true;
     }
     return false;
 }
 
-void ElementManager::remove(ModelElement* infra) {
-    std::string infraTypename = infra->classname();
-    List<ModelElement*>* listElements = elementList(infraTypename);
-    listElements->remove(infra);
+void ElementManager::remove(ModelElement* anElement) {
+    std::string elementTypename = anElement->classname();
+    List<ModelElement*>* listElements = elementList(elementTypename);
+    listElements->remove(anElement);
     _parentModel->tracer()->trace(Util::TraceLevel::elementResult, "Element successfully removed");
 
 }
 
-void ElementManager::remove(std::string infraTypename, ModelElement* infra) {
-    List<ModelElement*>* listElements = elementList(infraTypename);
-    listElements->remove(infra);
+void ElementManager::remove(std::string elementTypename, ModelElement* anElement) {
+    List<ModelElement*>* listElements = elementList(elementTypename);
+    listElements->remove(anElement);
 }
 
-bool ElementManager::check(std::string infraTypename, std::string infraName, std::string expressionName, bool mandatory, std::string* errorMessage) {
-    if (infraName == "" && !mandatory) {
+bool ElementManager::check(std::string elementTypename, std::string elementName, std::string expressionName, bool mandatory, std::string* errorMessage) {
+    if (elementName == "" && !mandatory) {
 	return true;
     }
-    bool result = element(infraTypename, infraName) != nullptr;
+    bool result = element(elementTypename, elementName) != nullptr;
     if (!result) {
-	std::string msg = infraTypename + " \"" + infraName + "\" for '" + expressionName + "' is not in the model.";
+	std::string msg = elementTypename + " \"" + elementName + "\" for '" + expressionName + "' is not in the model.";
 	errorMessage->append(msg);
     }
     return result;
 }
 
-bool ElementManager::check(std::string infraTypename, ModelElement* infra, std::string expressionName, std::string* errorMessage) {
-    bool result = infra != nullptr;
+bool ElementManager::check(std::string elementTypename, ModelElement* anElement, std::string expressionName, std::string* errorMessage) {
+    bool result = anElement != nullptr;
     if (!result) {
-	std::string msg = infraTypename + " for '" + expressionName + "' is null.";
+	std::string msg = elementTypename + " for '" + expressionName + "' is null.";
 	errorMessage->append(msg);
     } else {
-	result = check(infraTypename, infra->name(), expressionName, true, errorMessage);
+	result = check(elementTypename, anElement->name(), expressionName, true, errorMessage);
     }
     return result;
 }
@@ -84,8 +84,8 @@ void ElementManager::clear() {
     this->_elements->clear();
 }
 
-unsigned int ElementManager::numberOfElements(std::string infraTypename) {
-    List<ModelElement*>* listElements = elementList(infraTypename);
+unsigned int ElementManager::numberOfElements(std::string elementTypename) {
+    List<ModelElement*>* listElements = elementList(elementTypename);
     return listElements->size();
 }
 
@@ -132,23 +132,23 @@ void ElementManager::setHasChanged(bool _hasChanged) {
     this->_hasChanged = _hasChanged;
 }
 
-List<ModelElement*>* ElementManager::elementList(std::string infraTypename) const {
-    std::map<std::string, List<ModelElement*>*>::iterator it = this->_elements->find(infraTypename);
+List<ModelElement*>* ElementManager::elementList(std::string elementTypename) const {
+    std::map<std::string, List<ModelElement*>*>::iterator it = this->_elements->find(elementTypename);
     if (it == this->_elements->end()) {
 	// list does not exists yet. Create it and set a valid iterator
 	List<ModelElement*>* newList = new List<ModelElement*>();
 	newList->setSortFunc([](const ModelElement* a, const ModelElement * b) {
 	    return a->id() < b->id();
 	});
-	_elements->insert(std::pair<std::string, List<ModelElement*>*>(infraTypename, newList));
-	it = this->_elements->find(infraTypename);
+	_elements->insert(std::pair<std::string, List<ModelElement*>*>(elementTypename, newList));
+	it = this->_elements->find(elementTypename);
     }
     List<ModelElement*>* infras = it->second;
     return infras;
 }
 
-ModelElement* ElementManager::element(std::string infraTypename, Util::identification id) {
-    List<ModelElement*>* list = elementList(infraTypename);
+ModelElement* ElementManager::element(std::string elementTypename, Util::identification id) {
+    List<ModelElement*>* list = elementList(elementTypename);
     for (std::list<ModelElement*>::iterator it = list->list()->begin(); it != list->list()->end(); it++) {
 	if ((*it)->id() == id) { // found
 	    return (*it);
@@ -157,9 +157,9 @@ ModelElement* ElementManager::element(std::string infraTypename, Util::identific
     return nullptr;
 }
 
-int ElementManager::rankOf(std::string infraTypename, std::string name) {
+int ElementManager::rankOf(std::string elementTypename, std::string name) {
     int rank = 0;
-    List<ModelElement*>* list = elementList(infraTypename);
+    List<ModelElement*>* list = elementList(elementTypename);
     for (std::list<ModelElement*>::iterator it = list->list()->begin(); it != list->list()->end(); it++) {
 	if ((*it)->name() == name) { // found
 	    return rank;
@@ -178,8 +178,8 @@ std::list<std::string>* ElementManager::elementClassnames() const {
     return keys;
 }
 
-ModelElement* ElementManager::element(std::string infraTypename, std::string name) {
-    List<ModelElement*>* list = elementList(infraTypename);
+ModelElement* ElementManager::element(std::string elementTypename, std::string name) {
+    List<ModelElement*>* list = elementList(elementTypename);
     for (std::list<ModelElement*>::iterator it = list->list()->begin(); it != list->list()->end(); it++) {
 	if ((*it)->name() == name) { // found
 	    return (*it);

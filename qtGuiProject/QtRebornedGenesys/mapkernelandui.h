@@ -2,8 +2,8 @@
 #define MAPKERNELANDUI_H
 
 #include <map>
-#include "../RebornedGenESyS/Model.h"
-#include "../RebornedGenESyS/ModelElement.h"
+#include "../../../RebornedGenESyS/Model.h"
+#include "../../../RebornedGenESyS/ModelElement.h"
 #include <QObject>
 #include <QGraphicsItem>
 

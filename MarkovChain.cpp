@@ -15,7 +15,7 @@
 
 #include "Model.h"
 #include "Variable.h"
-#include "ProbDistrib.h"
+#include "ProbDistribDefaultImpl1.h"
 #include "Simulator.h"
 
 MarkovChain::MarkovChain(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<MarkovChain>(),name) {

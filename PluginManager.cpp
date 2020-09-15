@@ -94,7 +94,7 @@ Plugin* PluginManager::insert(std::string dynamicLibraryFilename) {
 bool PluginManager::remove(std::string dynamicLibraryFilename) {
 
     Plugin* pi = this->find(dynamicLibraryFilename);
-    remove(pi);
+    return remove(pi);
 }
 
 bool PluginManager::remove(Plugin* plugin) {

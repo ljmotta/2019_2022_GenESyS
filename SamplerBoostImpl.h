@@ -15,7 +15,7 @@
 #define SAMPLERBOOSTIMPL_H
 
 #include "Sampler_if.h"
-#include <boost/random.hpp>
+//#include <boost/random.hpp>
 
 class SamplerBoostImpl : public Sampler_if {
 public:
@@ -45,7 +45,7 @@ public:
     virtual void setRNGparameters(Sampler_if::RNG_Parameters* param);
     virtual RNG_Parameters* getRNGparameters() const;
 private:
-    boost::random::mt19937 _gen;
+    //boost::random::mt19937 _gen;
 };
 
 #endif /* SAMPLERBOOSTIMPL_H */

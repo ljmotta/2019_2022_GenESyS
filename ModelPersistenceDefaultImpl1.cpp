@@ -18,6 +18,7 @@
 #include <cassert>
 #include "ModelComponent.h"
 #include "Simulator.h"
+#include "Counter.h"
 
 ModelPersistenceDefaultImpl1::ModelPersistenceDefaultImpl1(Model* model) {
     _model = model;
@@ -45,8 +46,8 @@ bool ModelPersistenceDefaultImpl1::save(std::string filename) {
         modelInfosToSave = _adjustFieldsToSave(fields);
         // save infras
         modelElementsToSave = new std::list<std::string>();
-        std::list<std::string>* infraTypenames = _model->elements()->elementClassnames();
-        for (std::list<std::string>::iterator itTypenames = infraTypenames->begin(); itTypenames != infraTypenames->end(); itTypenames++) {
+        std::list<std::string>* elementTypenames = _model->elements()->elementClassnames();
+        for (std::list<std::string>::iterator itTypenames = elementTypenames->begin(); itTypenames != elementTypenames->end(); itTypenames++) {
             if ((*itTypenames) != Util::TypeOf<StatisticsCollector>() && (*itTypenames) != Util::TypeOf<Counter>()) { // STATISTICSCOLLECTR and COUNTERs do NOT need to be saved
                 List<ModelElement*>* infras = _model->elements()->elementList((*itTypenames));
                 _model->tracer()->trace(Util::TraceLevel::toolDetailed, "Writing elements of type \"" + (*itTypenames) + "\":");

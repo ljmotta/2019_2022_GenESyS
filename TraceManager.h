@@ -29,6 +29,11 @@ public:
 	_text = text;
     }
 
+    TraceEvent(std::string text, Util::TraceLevel level = Util::TraceLevel::componentInternal) {
+	_tracelevel = level;
+	_text = text;
+    }
+
     Util::TraceLevel tracelevel() const {
 	return _tracelevel;
     }

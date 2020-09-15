@@ -13,14 +13,14 @@
 
 #include "SamplerBoostImpl.h"
 
-using namespace boost::random;
+//using namespace boost::random;
 
 SamplerBoostImpl::SamplerBoostImpl() {
 }
 
 double SamplerBoostImpl::random() {
-    uniform_int_distribution<> dist(0.0, 1.0);
-    return dist(_gen);
+	//uniform_int_distribution<> dist(0.0, 1.0);
+	return 0.0; // dist(_gen);
 }
 
 double SamplerBoostImpl::sampleBeta(double alpha, double beta, double infLimit, double supLimit) {
@@ -56,8 +56,8 @@ double SamplerBoostImpl::sampleTriangular(double min, double mode, double max) {
 }
 
 double SamplerBoostImpl::sampleUniform(double min, double max) {
-    uniform_int_distribution<> dist(min, max);
-    return dist(_gen);
+	//uniform_int_distribution<> dist(min, max);
+	return 0.0; //dist(_gen);
 }
 
 double SamplerBoostImpl::sampleWeibull(double alpha, double scale) {
@@ -69,5 +69,5 @@ void SamplerBoostImpl::setRNGparameters(Sampler_if::RNG_Parameters* param) {
 }
 
 Sampler_if::RNG_Parameters* SamplerBoostImpl::getRNGparameters() const {
-
+	// TODO: toimplement
 }

@@ -31,25 +31,25 @@ public:
     ElementManager(Model* model);
     virtual ~ElementManager() = default;
 public:
-    bool insert(ModelElement* infra);
-    void remove(ModelElement* infra); ///< Deprected
-    bool insert(std::string infraTypename, ModelElement* infra); ///< Deprected
-    void remove(std::string infraTypename, ModelElement* infra);
-    bool check(std::string infraTypename, ModelElement* infra, std::string expressionName, std::string* errorMessage);
-    bool check(std::string infraTypename, std::string infraName, std::string expressionName, bool mandatory, std::string* errorMessage);
+    bool insert(ModelElement* anElement);
+    void remove(ModelElement* anElement); ///< Deprected
+    bool insert(std::string elementTypename, ModelElement* anElement); ///< Deprected
+    void remove(std::string elementTypename, ModelElement* anElement);
+    bool check(std::string elementTypename, ModelElement* anElement, std::string expressionName, std::string* errorMessage);
+    bool check(std::string elementTypename, std::string elementName, std::string expressionName, bool mandatory, std::string* errorMessage);
     void clear();
 public:
-    ModelElement* element(std::string infraTypename, Util::identification id);
-    ModelElement* element(std::string infraTypename, std::string name);
-    unsigned int numberOfElements(std::string infraTypename);
+    ModelElement* element(std::string elementTypename, Util::identification id);
+    ModelElement* element(std::string elementTypename, std::string name);
+    unsigned int numberOfElements(std::string elementTypename);
     unsigned int numberOfElements();
-    int rankOf(std::string infraTypename, std::string name); ///< returns the position (1st position=0) of the element if found, or negative value if not found
+    int rankOf(std::string elementTypename, std::string name); ///< returns the position (1st position=0) of the element if found, or negative value if not found
     std::list<std::string>* elementClassnames() const;
 
     //private:
 public:
     // \todo: MUST BE PRIVATE
-    List<ModelElement*>* elementList(std::string infraTypename) const;
+    List<ModelElement*>* elementList(std::string elementTypename) const;
 public:
     void show();
     Model* parentModel() const;

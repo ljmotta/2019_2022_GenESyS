@@ -16,7 +16,7 @@
 #include "StatisticsDefaultImpl1.h"
 #include "Traits.h"
 #include "Integrator_if.h"
-#include "ProbDistrib.h"
+#include "ProbDistribDefaultImpl1.h"
 
 StatisticsDefaultImpl1::StatisticsDefaultImpl1() {
     _collector = new Traits<Statistics_if>::CollectorImplementation();

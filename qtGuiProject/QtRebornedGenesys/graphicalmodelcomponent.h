@@ -6,7 +6,8 @@
 #include <QRectF>
 #include <QPainter>
 #include <QWidget>
-#include "../RebornedGenESyS/ModelComponent.h"
+#include "../../ModelComponent.h"
+//"../../RebornedGenESyS/ModelComponent.h"
 
 class GraphicalModelComponent: public QGraphicsItem
 {

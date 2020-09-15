@@ -7,7 +7,7 @@
 #include "TestInputAnalyserTools.h"
 #include "Simulator.h"
 #include "Sampler_if.h"
-#include "ProbDistrib.h"
+#include "ProbDistribDefaultImpl1.h"
 #include "Traits.h"
 
 void testStudentSoftwareDevelopments() {
@@ -64,17 +64,17 @@ void testStudentSoftwareDevelopments() {
     fitter->fitAll(&sqrerror, &distribName);
 
     // get some values from the PDF (Probability Density Functions)
-    value = ProbDistrib::uniform(0.25, 0.0, 1.0);
-    value = ProbDistrib::uniform(0.5, 0.0, 1.0); // should return the same value than above
-    value = ProbDistrib::uniform(0.75, 0.0, 1.0); // should return the same value than above
-    value = ProbDistrib::normal(10.0, 50.0, 20.0);
-    value = ProbDistrib::normal(30.0, 50.0, 20.0); // should return a greater value than above
-    value = ProbDistrib::normal(50.0, 50.0, 20.0); // should return a greater value than above
+	//value = ProbDistribDefaultImpl1::uniform(0.25, 0.0, 1.0);
+	//value = ProbDistribDefaultImpl1::uniform(0.5, 0.0, 1.0); // should return the same value than above
+	//value = ProbDistribDefaultImpl1::uniform(0.75, 0.0, 1.0); // should return the same value than above
+	//value = ProbDistribDefaultImpl1::normal(10.0, 50.0, 20.0);
+	//value = ProbDistribDefaultImpl1::normal(30.0, 50.0, 20.0); // should return a greater value than above
+	//value = ProbDistribDefaultImpl1::normal(50.0, 50.0, 20.0); // should return a greater value than above
 
     // calculate some integrals just for fun
     Integrator_if* integrator = new Traits<Integrator_if>::Implementation();
-    value = integrator->integrate(0.0, 0.4, &ProbDistrib::uniform, 0.0, 0.1); // should return 0.4
-    value = integrator->integrate(0.0, 100, &ProbDistrib::normal, 100, 10); // should return 0.5
+	//value = integrator->integrate(0.0, 0.4, &ProbDistribDefaultImpl1::uniform, 0.0, 0.1); // should return 0.4
+	//value = integrator->integrate(0.0, 100, &ProbDistribDefaultImpl1::normal, 100, 10); // should return 0.5
 
     // Test some hypothesis about the datafile
     HypothesisTester_if* tester = new Traits<HypothesisTester_if>::Implementation();

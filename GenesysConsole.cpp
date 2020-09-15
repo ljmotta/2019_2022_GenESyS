@@ -18,7 +18,7 @@
 #include <fstream>
 #include <assert.h>
 
-#include "ProbDistrib.h"
+#include "ProbDistribDefaultImpl1.h"
 
 GenesysConsole::GenesysConsole() {
     _commands->setSortFunc([](const ShellCommand* a, const ShellCommand * b) {

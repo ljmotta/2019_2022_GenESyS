@@ -264,7 +264,7 @@ List<Event*>* Model::futureEvents() const {
     return _events;
 }
 
-void Model::setTraceManager(TraceManager * _traceManager) {
+void Model::setTracer(TraceManager * _traceManager) {
     this->_traceManager = _traceManager;
 }
 

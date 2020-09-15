@@ -149,7 +149,7 @@ std::map<std::string, std::string>* ModelElement::SaveInstance(ModelElement* ele
     try {
 	fields = element->_saveInstance();
     } catch (const std::exception& e) {
-	//element->_model->getTrace()->traceError(e, "Error saving infra " + element->show());
+	//element->_model->getTrace()->traceError(e, "Error saving anElement " + element->show());
     }
     return fields;
 }

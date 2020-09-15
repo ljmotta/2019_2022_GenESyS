@@ -13,7 +13,24 @@
 
 #include "Schedule.h"
 
-Schedule::Schedule(Model* model) {
+Schedule::Schedule(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Schedule>(), name) {
 }
 
+std::string Schedule::show() {
+}
+
+PluginInformation* Schedule::GetPluginInformation() {
+}
+
+ModelElement* Schedule::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+}
+
+bool Schedule::_loadInstance(std::map<std::string, std::string>* fields) {
+}
+
+std::map<std::string, std::string>* Schedule::_saveInstance() {
+}
+
+bool Schedule::_check(std::string* errorMessage) {
+}
 

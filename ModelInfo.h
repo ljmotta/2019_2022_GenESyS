@@ -63,7 +63,7 @@ private: // with public access (get & set)
 
     // replication and warmup duration
     unsigned int _numberOfReplications = 1;
-    double _replicationLength = 60.0; // by default, 60 s
+    double _replicationLength = 3600.0; // by default, 3600 s = 1.0 h
     Util::TimeUnit _replicationLengthTimeUnit = Util::TimeUnit::second;
     double _warmUpPeriod = 0.0;
     Util::TimeUnit _warmUpPeriodTimeUnit = Util::TimeUnit::second;

@@ -63,13 +63,27 @@ arrival rate (if Type is Arrival), or some other value (if Type is
 Other). Examples of Other may be a factor that is used in a delay
 expression to scale a delay time during various parts of the day.
 Duration Time duration for which a specified Value will be valid.
-*/
-class Schedule {
-public:
-    Schedule(Model* model);
-    virtual ~Schedule() = default;
-private:
+ */
 
+#include "ModelElement.h"
+#include "ElementManager.h"
+#include "PluginInformation.h"
+
+class Schedule : public ModelElement {
+public: // constructors
+	Schedule(Model* model, std::string name = "");
+	virtual ~Schedule() = default;
+public: // virtual
+	virtual std::string show();
+public: // static 
+	static PluginInformation* GetPluginInformation();
+	static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+public:
+protected:
+	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
+	virtual std::map<std::string, std::string>* _saveInstance();
+	virtual bool _check(std::string* errorMessage);
+private:
 };
 
 #endif /* SCHEDULE_H */

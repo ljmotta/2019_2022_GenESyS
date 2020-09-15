@@ -105,7 +105,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/PluginConnectorDummyImpl1.o \
 	${OBJECTDIR}/PluginInformation.o \
 	${OBJECTDIR}/PluginManager.o \
-	${OBJECTDIR}/ProbDistrib.o \
+	${OBJECTDIR}/ProbDistribBoostImpl.o \
+	${OBJECTDIR}/ProbDistribDefaultImpl1.o \
 	${OBJECTDIR}/ProcessAnalyserDefaultImpl1.o \
 	${OBJECTDIR}/Queue.o \
 	${OBJECTDIR}/Record.o \
@@ -539,10 +540,15 @@ ${OBJECTDIR}/PluginManager.o: PluginManager.cpp nbproject/Makefile-${CND_CONF}.m
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PluginManager.o PluginManager.cpp
 
-${OBJECTDIR}/ProbDistrib.o: ProbDistrib.cpp nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/ProbDistribBoostImpl.o: ProbDistribBoostImpl.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ProbDistrib.o ProbDistrib.cpp
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ProbDistribBoostImpl.o ProbDistribBoostImpl.cpp
+
+${OBJECTDIR}/ProbDistribDefaultImpl1.o: ProbDistribDefaultImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ProbDistribDefaultImpl1.o ProbDistribDefaultImpl1.cpp
 
 ${OBJECTDIR}/ProcessAnalyserDefaultImpl1.o: ProcessAnalyserDefaultImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

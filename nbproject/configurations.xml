@@ -17,104 +17,119 @@
       <itemPath>Traits.h</itemPath>
     </logicalFolder>
     <logicalFolder name="f1" displayName="Kernel" projectFiles="true">
-      <logicalFolder name="f1" displayName="Impl" projectFiles="true">
-        <logicalFolder name="f2" displayName="Parser" projectFiles="true">
-          <itemPath>parserBisonFlex/Genesys++-driver.cpp</itemPath>
-          <itemPath>parserBisonFlex/Genesys++-driver.h</itemPath>
-          <itemPath>parserBisonFlex/Genesys++-scanner.cpp</itemPath>
-          <itemPath>parserBisonFlex/GenesysParser.cpp</itemPath>
-          <itemPath>parserBisonFlex/GenesysParser.h</itemPath>
-          <itemPath>parserBisonFlex/ParserDefaultImpl2.cpp</itemPath>
-          <itemPath>parserBisonFlex/ParserDefaultImpl2.h</itemPath>
-          <itemPath>parserBisonFlex/parser/bisonparser.yy</itemPath>
-          <itemPath>parserBisonFlex/parser/lexerparser.ll</itemPath>
-          <itemPath>parserBisonFlex/location.hh</itemPath>
-          <itemPath>parserBisonFlex/obj_t.cpp</itemPath>
-          <itemPath>parserBisonFlex/obj_t.h</itemPath>
-          <itemPath>parserBisonFlex/position.hh</itemPath>
-          <itemPath>parserBisonFlex/stack.hh</itemPath>
-        </logicalFolder>
-        <itemPath>ParserDefaultImpl1.cpp</itemPath>
-        <itemPath>ParserDefaultImpl1.h</itemPath>
-        <itemPath>PluginConnectorDummyImpl1.cpp</itemPath>
-        <itemPath>PluginConnectorDummyImpl1.h</itemPath>
-      </logicalFolder>
-      <logicalFolder name="f3" displayName="ModelParts" projectFiles="true">
-        <logicalFolder name="f4" displayName="Elements" projectFiles="true">
-          <itemPath>Attribute.cpp</itemPath>
-          <itemPath>Attribute.h</itemPath>
-          <itemPath>Entity.cpp</itemPath>
-          <itemPath>Entity.h</itemPath>
-          <itemPath>EntityType.cpp</itemPath>
-          <itemPath>EntityType.h</itemPath>
-        </logicalFolder>
+      <logicalFolder name="f4" displayName="Simulator" projectFiles="true">
         <logicalFolder name="f1" displayName="Impl" projectFiles="true">
-          <itemPath>ModelCheckerDefaultImpl1.cpp</itemPath>
-          <itemPath>ModelCheckerDefaultImpl1.h</itemPath>
-          <itemPath>ModelPersistenceDefaultImpl1.cpp</itemPath>
-          <itemPath>ModelPersistenceDefaultImpl1.h</itemPath>
-          <itemPath>SimulationReporterDefaultImpl1.cpp</itemPath>
-          <itemPath>SimulationReporterDefaultImpl1.h</itemPath>
+          <logicalFolder name="f2" displayName="Parser" projectFiles="true">
+            <itemPath>parserBisonFlex/Genesys++-driver.cpp</itemPath>
+            <itemPath>parserBisonFlex/Genesys++-driver.h</itemPath>
+            <itemPath>parserBisonFlex/Genesys++-scanner.cpp</itemPath>
+            <itemPath>parserBisonFlex/GenesysParser.cpp</itemPath>
+            <itemPath>parserBisonFlex/GenesysParser.h</itemPath>
+            <itemPath>parserBisonFlex/ParserDefaultImpl2.cpp</itemPath>
+            <itemPath>parserBisonFlex/ParserDefaultImpl2.h</itemPath>
+            <itemPath>parserBisonFlex/parser/bisonparser.yy</itemPath>
+            <itemPath>parserBisonFlex/parser/lexerparser.ll</itemPath>
+            <itemPath>parserBisonFlex/location.hh</itemPath>
+            <itemPath>parserBisonFlex/obj_t.cpp</itemPath>
+            <itemPath>parserBisonFlex/obj_t.h</itemPath>
+            <itemPath>parserBisonFlex/position.hh</itemPath>
+            <itemPath>parserBisonFlex/stack.hh</itemPath>
+          </logicalFolder>
+          <itemPath>ParserDefaultImpl1.cpp</itemPath>
+          <itemPath>ParserDefaultImpl1.h</itemPath>
+          <itemPath>PluginConnectorDummyImpl1.cpp</itemPath>
+          <itemPath>PluginConnectorDummyImpl1.h</itemPath>
         </logicalFolder>
-        <logicalFolder name="f2" displayName="ModelSubParts" projectFiles="true">
-          <itemPath>ConnectionManager.cpp</itemPath>
-          <itemPath>ConnectionManager.h</itemPath>
-          <itemPath>ModelChecker_if.h</itemPath>
-          <itemPath>ModelComponent.cpp</itemPath>
-          <itemPath>ModelComponent.h</itemPath>
-          <itemPath>ModelElement.cpp</itemPath>
-          <itemPath>ModelElement.h</itemPath>
-          <itemPath>ModelPersistence_if.h</itemPath>
-          <itemPath>SimulationReporter_if.h</itemPath>
-          <itemPath>SinkModelComponent.cpp</itemPath>
-          <itemPath>SinkModelComponent.h</itemPath>
-          <itemPath>SourceModelComponent.cpp</itemPath>
-          <itemPath>SourceModelComponent.h</itemPath>
+        <logicalFolder name="f3" displayName="ModelParts" projectFiles="true">
+          <logicalFolder name="f4" displayName="Elements" projectFiles="true">
+            <itemPath>Attribute.cpp</itemPath>
+            <itemPath>Attribute.h</itemPath>
+            <itemPath>Entity.cpp</itemPath>
+            <itemPath>Entity.h</itemPath>
+            <itemPath>EntityType.cpp</itemPath>
+            <itemPath>EntityType.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f1" displayName="Impl" projectFiles="true">
+            <itemPath>ModelCheckerDefaultImpl1.cpp</itemPath>
+            <itemPath>ModelCheckerDefaultImpl1.h</itemPath>
+            <itemPath>ModelPersistenceDefaultImpl1.cpp</itemPath>
+            <itemPath>ModelPersistenceDefaultImpl1.h</itemPath>
+            <itemPath>SimulationReporterDefaultImpl1.cpp</itemPath>
+            <itemPath>SimulationReporterDefaultImpl1.h</itemPath>
+          </logicalFolder>
+          <logicalFolder name="f2" displayName="ModelSubParts" projectFiles="true">
+            <itemPath>ConnectionManager.cpp</itemPath>
+            <itemPath>ConnectionManager.h</itemPath>
+            <itemPath>ModelChecker_if.h</itemPath>
+            <itemPath>ModelComponent.cpp</itemPath>
+            <itemPath>ModelComponent.h</itemPath>
+            <itemPath>ModelElement.cpp</itemPath>
+            <itemPath>ModelElement.h</itemPath>
+            <itemPath>ModelPersistence_if.h</itemPath>
+            <itemPath>SimulationReporter_if.h</itemPath>
+            <itemPath>SinkModelComponent.cpp</itemPath>
+            <itemPath>SinkModelComponent.h</itemPath>
+            <itemPath>SourceModelComponent.cpp</itemPath>
+            <itemPath>SourceModelComponent.h</itemPath>
+          </logicalFolder>
+          <itemPath>ComponentManager.cpp</itemPath>
+          <itemPath>ComponentManager.h</itemPath>
+          <itemPath>ElementManager.cpp</itemPath>
+          <itemPath>ElementManager.h</itemPath>
+          <itemPath>ModelInfo.cpp</itemPath>
+          <itemPath>ModelInfo.h</itemPath>
+          <itemPath>ModelSimulation.cpp</itemPath>
+          <itemPath>ModelSimulation.h</itemPath>
+          <itemPath>OnEventManager.cpp</itemPath>
+          <itemPath>OnEventManager.h</itemPath>
+          <itemPath>SimulationControl.cpp</itemPath>
+          <itemPath>SimulationControl.h</itemPath>
+          <itemPath>SimulationResponse.cpp</itemPath>
+          <itemPath>SimulationResponse.h</itemPath>
         </logicalFolder>
-        <itemPath>ComponentManager.cpp</itemPath>
-        <itemPath>ComponentManager.h</itemPath>
-        <itemPath>ElementManager.cpp</itemPath>
-        <itemPath>ElementManager.h</itemPath>
-        <itemPath>ModelInfo.cpp</itemPath>
-        <itemPath>ModelInfo.h</itemPath>
-        <itemPath>ModelSimulation.cpp</itemPath>
-        <itemPath>ModelSimulation.h</itemPath>
-        <itemPath>OnEventManager.cpp</itemPath>
-        <itemPath>OnEventManager.h</itemPath>
-        <itemPath>SimulationControl.cpp</itemPath>
-        <itemPath>SimulationControl.h</itemPath>
-        <itemPath>SimulationResponse.cpp</itemPath>
-        <itemPath>SimulationResponse.h</itemPath>
-        <itemPath>TraceManager.cpp</itemPath>
-        <itemPath>TraceManager.h</itemPath>
+        <logicalFolder name="f2" displayName="SimulatorParts" projectFiles="true">
+          <logicalFolder name="f1" displayName="SimulationSubParts" projectFiles="true">
+            <itemPath>DefineGetterSetter.h</itemPath>
+            <itemPath>Event.cpp</itemPath>
+            <itemPath>Event.h</itemPath>
+            <itemPath>Model.cpp</itemPath>
+            <itemPath>Model.h</itemPath>
+            <itemPath>ParserChangesInformation.cpp</itemPath>
+            <itemPath>ParserChangesInformation.h</itemPath>
+            <itemPath>Parser_if.h</itemPath>
+            <itemPath>Plugin.cpp</itemPath>
+            <itemPath>Plugin.h</itemPath>
+            <itemPath>PluginConnector_if.h</itemPath>
+            <itemPath>PluginInformation.cpp</itemPath>
+            <itemPath>PluginInformation.h</itemPath>
+          </logicalFolder>
+          <itemPath>LicenceManager.cpp</itemPath>
+          <itemPath>LicenceManager.h</itemPath>
+          <itemPath>ModelManager.cpp</itemPath>
+          <itemPath>ModelManager.h</itemPath>
+          <itemPath>ParserManager.cpp</itemPath>
+          <itemPath>ParserManager.h</itemPath>
+          <itemPath>PluginManager.cpp</itemPath>
+          <itemPath>PluginManager.h</itemPath>
+          <itemPath>ToolManager.cpp</itemPath>
+          <itemPath>ToolManager.h</itemPath>
+          <itemPath>TraceManager.cpp</itemPath>
+          <itemPath>TraceManager.h</itemPath>
+        </logicalFolder>
+        <itemPath>Simulator.cpp</itemPath>
+        <itemPath>Simulator.h</itemPath>
       </logicalFolder>
-      <logicalFolder name="f2" displayName="SimulatorParts" projectFiles="true">
-        <logicalFolder name="f1" displayName="SimulationSubParts" projectFiles="true">
-          <itemPath>DefineGetterSetter.h</itemPath>
-          <itemPath>Event.cpp</itemPath>
-          <itemPath>Event.h</itemPath>
-          <itemPath>Model.cpp</itemPath>
-          <itemPath>Model.h</itemPath>
-          <itemPath>ParserChangesInformation.cpp</itemPath>
-          <itemPath>ParserChangesInformation.h</itemPath>
-          <itemPath>Parser_if.h</itemPath>
-          <itemPath>Plugin.cpp</itemPath>
-          <itemPath>Plugin.h</itemPath>
-          <itemPath>PluginConnector_if.h</itemPath>
-          <itemPath>PluginInformation.cpp</itemPath>
-          <itemPath>PluginInformation.h</itemPath>
+      <logicalFolder name="f2" displayName="Statistics" projectFiles="true">
+        <logicalFolder name="f1" displayName="Interfaces" projectFiles="true">
+          <itemPath>Collector_if.h</itemPath>
+          <itemPath>Statistics_if.h</itemPath>
         </logicalFolder>
-        <itemPath>LicenceManager.cpp</itemPath>
-        <itemPath>LicenceManager.h</itemPath>
-        <itemPath>ModelManager.cpp</itemPath>
-        <itemPath>ModelManager.h</itemPath>
-        <itemPath>ParserManager.cpp</itemPath>
-        <itemPath>ParserManager.h</itemPath>
-        <itemPath>PluginManager.cpp</itemPath>
-        <itemPath>PluginManager.h</itemPath>
       </logicalFolder>
-      <itemPath>Simulator.cpp</itemPath>
-      <itemPath>Simulator.h</itemPath>
+      <logicalFolder name="f1" displayName="Util" projectFiles="true">
+        <itemPath>List.h</itemPath>
+        <itemPath>Util.cpp</itemPath>
+        <itemPath>Util.h</itemPath>
+      </logicalFolder>
     </logicalFolder>
     <logicalFolder name="f3" displayName="Plugins" projectFiles="true">
       <logicalFolder name="f2" displayName="Components" projectFiles="true">
@@ -266,6 +281,10 @@
         <itemPath>HypothesisTesterDefaultImpl1.h</itemPath>
         <itemPath>IntegratorDefaultImpl1.cpp</itemPath>
         <itemPath>IntegratorDefaultImpl1.h</itemPath>
+        <itemPath>ProbDistribBoostImpl.cpp</itemPath>
+        <itemPath>ProbDistribBoostImpl.h</itemPath>
+        <itemPath>ProbDistribDefaultImpl1.cpp</itemPath>
+        <itemPath>ProbDistribDefaultImpl1.h</itemPath>
         <itemPath>SamplerBoostImpl.cpp</itemPath>
         <itemPath>SamplerBoostImpl.h</itemPath>
         <itemPath>SamplerDefaultImpl1.cpp</itemPath>
@@ -278,16 +297,13 @@
       <logicalFolder name="f2" displayName="Interfaces" projectFiles="true">
         <itemPath>AnalysisOfVariance_if.h</itemPath>
         <itemPath>CollectorDatafile_if.h</itemPath>
-        <itemPath>Collector_if.h</itemPath>
         <itemPath>Fitter_if.h</itemPath>
         <itemPath>HypothesisTester_if.h</itemPath>
         <itemPath>Integrator_if.h</itemPath>
+        <itemPath>Prob_Distrib_if.h</itemPath>
         <itemPath>Sampler_if.h</itemPath>
         <itemPath>StatisticsDataFile_if.h</itemPath>
-        <itemPath>Statistics_if.h</itemPath>
       </logicalFolder>
-      <itemPath>ProbDistrib.cpp</itemPath>
-      <itemPath>ProbDistrib.h</itemPath>
     </logicalFolder>
     <logicalFolder name="f8" displayName="Tools" projectFiles="true">
       <logicalFolder name="f1"
@@ -317,8 +333,6 @@
       </logicalFolder>
       <itemPath>RequirementTester.cpp</itemPath>
       <itemPath>RequirementTester.h</itemPath>
-      <itemPath>ToolManager.cpp</itemPath>
-      <itemPath>ToolManager.h</itemPath>
     </logicalFolder>
     <logicalFolder name="f10"
                    displayName="User Program Interfaces"
@@ -375,11 +389,8 @@
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="f6" displayName="Util" projectFiles="true">
-      <itemPath>List.h</itemPath>
       <itemPath>MathMeth.cpp</itemPath>
       <itemPath>MathMeth.h</itemPath>
-      <itemPath>Util.cpp</itemPath>
-      <itemPath>Util.h</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Arquivos de Teste"
@@ -721,9 +732,15 @@
       </item>
       <item path="PluginManager.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="ProbDistrib.cpp" ex="false" tool="1" flavor2="0">
+      <item path="ProbDistribBoostImpl.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="ProbDistrib.h" ex="false" tool="3" flavor2="0">
+      <item path="ProbDistribBoostImpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ProbDistribDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ProbDistribDefaultImpl1.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Prob_Distrib_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ProcessAnalyserDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -1335,9 +1352,15 @@
       </item>
       <item path="PluginManager.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="ProbDistrib.cpp" ex="false" tool="1" flavor2="0">
+      <item path="ProbDistribBoostImpl.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="ProbDistrib.h" ex="false" tool="3" flavor2="0">
+      <item path="ProbDistribBoostImpl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ProbDistribDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ProbDistribDefaultImpl1.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Prob_Distrib_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ProcessAnalyserDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>

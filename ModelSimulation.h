@@ -18,7 +18,7 @@
 #include "Entity.h"
 #include "ModelInfo.h"
 #include "SimulationReporter_if.h"
-#include "Counter.h"
+//#include "Counter.h"
 
 class Model;
 

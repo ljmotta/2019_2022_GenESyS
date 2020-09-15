@@ -14,32 +14,61 @@
 #ifndef TRAITS_H
 #define TRAITS_H
 
+// TODO: Separate into Traits.h and KernelTraits.h
+
 // interfaces
-#include "Model.h"
 #include "Collector_if.h"
-#include "Sampler_if.h"
-#include "Fitter_if.h"
-#include "ModelChecker_if.h"
-#include "Parser_if.h"
-#include "Statistics_if.h"
-#include "Integrator_if.h"
-#include "HypothesisTester_if.h"
-#include "ModelPersistence_if.h"
-#include "GenesysApplication_if.h"
-#include "ProcessAnalyser_if.h"
 #include "ExperimentDesign_if.h"
-#include "SimulationReporter_if.h"
+#include "Fitter_if.h"
+#include "GenesysApplication_if.h"
+#include "HypothesisTester_if.h"
+#include "Integrator_if.h"
+#include "Model.h"
+#include "ModelChecker_if.h"
+#include "ModelPersistence_if.h"
+#include "Parser_if.h"
 #include "PluginConnector_if.h"
+#include "Prob_Distrib_if.h"
+#include "ProcessAnalyser_if.h"
+#include "Sampler_if.h"
+#include "Statistics_if.h"
+#include "SimulationReporter_if.h"
+
+//  Default implementations
+//statistics
+#include "CollectorDefaultImpl1.h"
+#include "CollectorDatafileDefaultImpl1.h"
+#include "HypothesisTesterDefaultImpl1.h"
+#include "IntegratorDefaultImpl1.h"
+#include "ProbDistribDefaultImpl1.h"
+#include "ProbDistribBoostImpl.h"
+#include "SamplerDefaultImpl1.h"
+#include "StatisticsDefaultImpl1.h"
+//simulator and parts
+#include "parserBisonFlex/ParserDefaultImpl2.h"
+#include "PluginConnectorDummyImpl1.h"
+//model and parts
+#include "ModelCheckerDefaultImpl1.h"
+#include "ModelPersistenceDefaultImpl1.h"
+#include "SimulationReporterDefaultImpl1.h"
+//tools
+#include "ExperimentDesignDefaultImpl1.h"
+#include "FitterDefaultImpl1.h"
+#include "ProcessAnalyserDefaultImpl1.h"
+
+
+// simulationReporter issues
+#include "Counter.h"
 
 // genesys applications
 #include "FullSimulationOfComplexModel.h"
 #include "BuildSimulationModel03.h"
 #include "FirstExampleOfSimulation.h"
 #include "SecondExampleOfSimulation.h"
-#include "ThirdExampleOfSimultion.h"
 #include "FourthExampleOfSimulation.h"
 #include "GenesysGUI.h"
 #include "GenesysConsole.h"
+#include "ThirdExampleOfSimultion.h"
 #include "TestEnterLeaveRoute.h"
 #include "TestFunctions.h"
 #include "TestSimulationControlAndSimulationResponse.h"
@@ -47,29 +76,15 @@
 #include "TestMarkovChain.h"
 #include "TestMatricesOfAttributesAndVariables.h"
 
-//  Default implementations
-//statistics
-#include "CollectorDefaultImpl1.h"
-#include "CollectorDatafileDefaultImpl1.h"
-#include "StatisticsDefaultImpl1.h"
-#include "IntegratorDefaultImpl1.h"
-#include "HypothesisTesterDefaultImpl1.h"
-#include "SamplerDefaultImpl1.h"
-//simulator and parts
-#include "parserBisonFlex/ParserDefaultImpl2.h"
-#include "PluginConnectorDummyImpl1.h"
-//model and parts
-#include "SimulationReporterDefaultImpl1.h"
-#include "ModelCheckerDefaultImpl1.h"
-#include "ModelPersistenceDefaultImpl1.h"
-//tools
-#include "ExperimentDesignDefaultImpl1.h"
-#include "ProcessAnalyserDefaultImpl1.h"
-#include "FitterDefaultImpl1.h"
-
 template <typename T>
 struct Traits {
 };
+
+/*
+ *  KERNEL STUFF
+ */
+
+
 
 /*
  *  Genesys Application
@@ -122,6 +137,7 @@ template <> struct Traits<ModelPersistence_if> {
 
 template <> struct Traits<SimulationReporter_if> {
     typedef SimulationReporterDefaultImpl1 Implementation;
+    typedef Counter CounterImplementation;
 };
 
 template <> struct Traits<ModelChecker_if> {
@@ -156,6 +172,10 @@ template <> struct Traits<Integrator_if> {
 template <> struct Traits<Sampler_if> {
     typedef SamplerDefaultImpl1 Implementation;
     typedef SamplerDefaultImpl1::DefaultImpl1RNG_Parameters Parameters;
+};
+
+template <> struct Traits<ProbDistrib_if> {
+    typedef ProbDistribDefaultImpl1 Implementation;
 };
 
 template <> struct Traits<Fitter_if> {

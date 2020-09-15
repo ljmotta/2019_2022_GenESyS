@@ -147,6 +147,7 @@ double SamplerDefaultImpl1::sampleTriangular(double min, double mode, double max
 }
 
 double SamplerDefaultImpl1::sampleDiscrete(double acumProb, double value, ...) {
+	// TODO: to implement
 }
 
 void SamplerDefaultImpl1::setRNGparameters(Sampler_if::RNG_Parameters * param) {

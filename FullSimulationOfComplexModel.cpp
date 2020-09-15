@@ -24,7 +24,7 @@
 #include "EntityType.h"
 #include "Attribute.h"
 #include "Variable.h"
-#include "ProbDistrib.h"
+#include "ProbDistribDefaultImpl1.h"
 #include "EntityGroup.h"
 #include "Formula.h"
 #include "OLD_ODEelement.h"

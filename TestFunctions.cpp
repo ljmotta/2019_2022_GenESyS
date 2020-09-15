@@ -12,20 +12,20 @@
  */
 
 #include "TestFunctions.h"
-#include "ProbDistrib.h"
+#include "ProbDistribDefaultImpl1.h"
 
 #include <iostream>
 #include <vector>
 
-#include <boost/numeric/odeint.hpp>
-#include <boost/math/distributions.hpp>
+//#include <boost/numeric/odeint.hpp>
+//#include <boost/math/distributions.hpp>
 
 typedef std::vector< double > state_type;
 const double gam = 0.15;
 
 void harmonic_oscillator(const state_type &x, state_type &dxdt, const double t) {
     dxdt[0] = x[1];
-    dxdt[1] = x[0] + exp(t);
+	dxdt[1] = 0.0; //x[0] + exp(t);
 }
 
 TestODE::TestODE() {
@@ -33,13 +33,14 @@ TestODE::TestODE() {
 
 int TestODE::main(int argc, char** argv) {
     using namespace std;
-    using namespace boost::numeric::odeint;
-    using namespace boost::math;
+	//using namespace boost::numeric::odeint;
+	//using namespace boost::math;
 
     //beta_distribution<>* betadist = new beta_distribution<>(2.0, 2.0);
-    //betadist->alpha();
+	//betadist->alpha();
+	ProbDistribDefaultImpl1 pd;
     for (double x = -2.0; x <= 2.0; x += 0.1) {
-	std::cout << x << ": " << ProbDistrib::gamma(x, 2.0, 2.0) << std::endl;
+		std::cout << x << ": " << pd.gamma(x, 2.0, 2.0) << std::endl;
     }
     //normdist->mean();
     //beta<double,double>* b = new beta<double,double>(2.0, 2.0);

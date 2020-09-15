@@ -16,8 +16,8 @@
 ProcessAnalyserDefaultImpl1::ProcessAnalyserDefaultImpl1() {
 }
 
-
 List<SimulationScenario*>* ProcessAnalyserDefaultImpl1::getScenarios() const {
+	// TODO: implement
 }
 
 List<SimulationControl*>* ProcessAnalyserDefaultImpl1::getControls() const {
@@ -25,21 +25,27 @@ List<SimulationControl*>* ProcessAnalyserDefaultImpl1::getControls() const {
 }
 
 List<SimulationResponse*>* ProcessAnalyserDefaultImpl1::getResponses() const {
+	// TODO: implement
 }
 
 List<SimulationControl*>* ProcessAnalyserDefaultImpl1::extractControlsFromModel(std::string modelFilename) const {
+	// TODO: implement
 }
 
 List<SimulationResponse*>* ProcessAnalyserDefaultImpl1::extractResponsesFromModel(std::string modelFilename) const {
+	// TODO: implement
 }
 
 void ProcessAnalyserDefaultImpl1::startSimulationOfScenario(SimulationScenario* scenario) {
+	// TODO: implement
 }
 
 void ProcessAnalyserDefaultImpl1::startSimulation() {
+	// TODO: implement
 }
 
 void ProcessAnalyserDefaultImpl1::stopSimulation() {
+	// TODO: implement
 }
 
 void ProcessAnalyserDefaultImpl1::addTraceSimulationHandler(traceSimulationProcessListener traceSimulationProcessListener) {
