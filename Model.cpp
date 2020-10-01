@@ -39,6 +39,7 @@ Model::Model(Simulator* simulator) {
 	_parser = new Traits<Parser_if>::Implementation(this);
 	_modelChecker = new Traits<ModelChecker_if>::Implementation(this);
 	_modelPersistence = new Traits<ModelPersistence_if>::Implementation(this);
+	_sampler = new Traits<Sampler_if>::Implementation();
 	_simulation = new ModelSimulation(this);
 	// 1:n associations
 	_events = new List<Event*>(); /// The future events list must be chronologicaly sorted
@@ -120,6 +121,10 @@ bool Model::checkExpression(const std::string expression, const std::string expr
 		errorMessage->append(msg);
 	}
 	return result;
+}
+
+Sampler_if* Model::sampler() const {
+	return _sampler;
 }
 
 double Model::parseExpression(const std::string expression, bool* success, std::string* errorMessage) {

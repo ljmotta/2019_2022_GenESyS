@@ -21,7 +21,7 @@ Simulator::Simulator() {
 	_licenceManager = new LicenceManager(this);
 	_pluginManager = new PluginManager(this);
 	_modelManager = new ModelManager(this);
-	_toolManager = new ToolManager(this);
+	//_toolManager = new ToolManager(this);
 	_traceManager = new TraceManager(this);
 	std::cout << '|' << '\t' << _licenceManager->showLicence() << std::endl;
 	std::cout << '|' << '\t' << _licenceManager->showActivationCode() << std::endl;
@@ -36,9 +36,9 @@ ModelManager* Simulator::models() const {
 	return _modelManager;
 }
 
-ToolManager* Simulator::tools() const {
-	return _toolManager;
-}
+//ToolManager* Simulator::tools() const {
+//	return _toolManager;
+//}
 
 TraceManager* Simulator::tracer() const {
 	return _traceManager;

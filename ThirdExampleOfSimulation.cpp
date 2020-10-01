@@ -40,7 +40,7 @@ int ThirdExampleOfSimulation::main(int argc, char** argv) {
 	// Handle traces and simulation events to output them
 	TraceManager* tm = simulator->tracer();
 	this->setDefaultTraceHandlers(tm);
-	tm->setTraceLevel(Util::TraceLevel::componentDetailed);
+	tm->setTraceLevel(Util::TraceLevel::modelResult);
 	this->insertFakePluginsByHand(simulator);
 	bool wantToCreateNewModelAndSaveInsteadOfJustLoad = true;
 	Model* model;
@@ -49,16 +49,17 @@ int ThirdExampleOfSimulation::main(int argc, char** argv) {
 		// build the simulation model
 		// set model infos
 		ModelInfo* infos = model->infos();
-		infos->setReplicationLength(60);
+		infos->setReplicationLength(3600);
 		infos->setReplicationLengthTimeUnit(Util::TimeUnit::second);
-		infos->setNumberOfReplications(3);
+		infos->setNumberOfReplications(30);
+
 		//
 		EntityType* customer = new EntityType(model, "Customer");
 		// model->insert(customer);
 		//
 		Create* create1 = new Create(model);
 		create1->setEntityType(customer);
-		create1->setTimeBetweenCreationsExpression("norm(3,1)");
+		create1->setTimeBetweenCreationsExpression("expo(20)");
 		create1->setTimeUnit(Util::TimeUnit::second);
 		create1->setEntitiesPerCreation(1);
 		// model->insert(create1);
@@ -77,7 +78,7 @@ int ThirdExampleOfSimulation::main(int argc, char** argv) {
 		// model->insert(seize1);
 		//
 		Delay* delay1 = new Delay(model);
-		delay1->setDelayExpression("norm(3,1)");
+		delay1->setDelayExpression("unif(1,2)");
 		delay1->setDelayTimeUnit(Util::TimeUnit::second);
 		// model->insert(delay1);
 		//

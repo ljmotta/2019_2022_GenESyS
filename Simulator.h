@@ -22,7 +22,7 @@
 #include "LicenceManager.h"
 #include "PluginManager.h"
 #include "ModelManager.h"
-#include "ToolManager.h"
+//#include "ToolManager.h"
 #include "ParserManager.h"
 
 /*!
@@ -40,7 +40,7 @@ public: // only get
 	LicenceManager* licenceManager() const;
 	PluginManager* plugins() const;
 	ModelManager* models() const;
-	ToolManager* tools() const;
+	//ToolManager* tools() const;
 	TraceManager* tracer() const;
 	ParserManager* parser() const;
 private:
@@ -48,12 +48,12 @@ private: // attributes 1:1 objects
 	LicenceManager* _licenceManager;
 	PluginManager* _pluginManager;
 	ModelManager* _modelManager;
-	ToolManager* _toolManager;
+	//ToolManager* _toolManager;
 	TraceManager* _traceManager;
 	ParserManager* _parserManager;
 private: // attributes 1:1 native
 	const std::string _name = "GenESyS - GENeric and Expansible SYstem Simulator";
-	const std::string _version = "20.03 (coronavirus)";
+	const std::string _version = "20.09 (Govslavery)";
 };
 
 #endif /* GENESYS_H */

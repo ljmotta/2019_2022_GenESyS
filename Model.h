@@ -28,6 +28,7 @@
 #include "OnEventManager.h"
 #include "ModelInfo.h"
 #include "ModelSimulation.h"
+#include "Sampler_if.h" // d20.09
 //for PAN
 #include "SimulationResponse.h"
 #include "SimulationControl.h"
@@ -71,6 +72,7 @@ public: // only gets
 	Simulator* parentSimulator() const;
 	ModelSimulation* simulation() const; ///< Provides access to the class that manages the model simulation.
 	// 1:n
+	Sampler_if* sampler() const; 
 	//List<ModelComponent*>* getComponents() const; ///< Returns the list of components (such as Create, Delay, Dispose, etc.) that make up the simulation model.
 	List<Event*>* futureEvents() const;
 	List<SimulationControl*>* controls() const; ///< Returns a list of values that can be externally controlled (changed). They usually correspond to input parameters in the simulation model that must be changed for an experimental design.
@@ -99,6 +101,7 @@ private: // read only public access (gets)
 	ComponentManager* _componentManager;
 	ModelInfo* _modelInfo;
 	ModelSimulation* _simulation;
+	Sampler_if* _sampler;
 	// 1:n
 	//List<ModelComponent*>* _components;
 	List<Event*>* _events;

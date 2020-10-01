@@ -74,8 +74,8 @@ void MarkovChain::_execute(Entity* entity) {
 	if (!_initilized) {
 		// define the initial state based on initial probabilities
 		size = _initialDistribution->dimensionSizes()->front();
-		rnd = _parentModel->parentSimulator()->tools()->sampler()->random();
-		sum = 0.0;
+		rnd = _parentModel->sampler()->random(); //parentSimulator()->tools()->sampler()->random();
+		double sum = 0.0;
 		for (unsigned int i = 0; i < size; i++) {
 			value = _initialDistribution->value(std::to_string(i));
 			sum += value;
@@ -88,7 +88,7 @@ void MarkovChain::_execute(Entity* entity) {
 		_initilized = true;
 	} else {
 		size = _transitionProbMatrix->dimensionSizes()->front();
-		rnd = _parentModel->parentSimulator()->tools()->sampler()->random();
+		rnd = _parentModel->sampler()->random(); //parentSimulator()->tools()->sampler()->random();
 		sum = 0.0;
 		for (unsigned int i = 0; i < size; i++) {
 			std::string index = std::to_string(static_cast<unsigned int> (_currentState->value())) + "," + std::to_string(i);

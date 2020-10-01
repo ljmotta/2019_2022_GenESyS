@@ -111,8 +111,6 @@
           <itemPath>ParserManager.h</itemPath>
           <itemPath>PluginManager.cpp</itemPath>
           <itemPath>PluginManager.h</itemPath>
-          <itemPath>ToolManager.cpp</itemPath>
-          <itemPath>ToolManager.h</itemPath>
           <itemPath>TraceManager.cpp</itemPath>
           <itemPath>TraceManager.h</itemPath>
         </logicalFolder>
@@ -120,8 +118,15 @@
         <itemPath>Simulator.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f2" displayName="Statistics" projectFiles="true">
+        <logicalFolder name="f2" displayName="Impl" projectFiles="true">
+          <itemPath>SamplerBoostImpl.cpp</itemPath>
+          <itemPath>SamplerBoostImpl.h</itemPath>
+          <itemPath>SamplerDefaultImpl1.cpp</itemPath>
+          <itemPath>SamplerDefaultImpl1.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="f1" displayName="Interfaces" projectFiles="true">
           <itemPath>Collector_if.h</itemPath>
+          <itemPath>Sampler_if.h</itemPath>
           <itemPath>Statistics_if.h</itemPath>
         </logicalFolder>
       </logicalFolder>
@@ -285,10 +290,6 @@
         <itemPath>ProbDistribBoostImpl.h</itemPath>
         <itemPath>ProbDistribDefaultImpl1.cpp</itemPath>
         <itemPath>ProbDistribDefaultImpl1.h</itemPath>
-        <itemPath>SamplerBoostImpl.cpp</itemPath>
-        <itemPath>SamplerBoostImpl.h</itemPath>
-        <itemPath>SamplerDefaultImpl1.cpp</itemPath>
-        <itemPath>SamplerDefaultImpl1.h</itemPath>
         <itemPath>StatisticsDataFileDefaultImpl.cpp</itemPath>
         <itemPath>StatisticsDataFileDefaultImpl.h</itemPath>
         <itemPath>StatisticsDefaultImpl1.cpp</itemPath>
@@ -301,7 +302,6 @@
         <itemPath>HypothesisTester_if.h</itemPath>
         <itemPath>Integrator_if.h</itemPath>
         <itemPath>Prob_Distrib_if.h</itemPath>
-        <itemPath>Sampler_if.h</itemPath>
         <itemPath>StatisticsDataFile_if.h</itemPath>
       </logicalFolder>
     </logicalFolder>
@@ -333,6 +333,8 @@
       </logicalFolder>
       <itemPath>RequirementTester.cpp</itemPath>
       <itemPath>RequirementTester.h</itemPath>
+      <itemPath>ToolManager.cpp</itemPath>
+      <itemPath>ToolManager.h</itemPath>
     </logicalFolder>
     <logicalFolder name="f10"
                    displayName="User Program Interfaces"
