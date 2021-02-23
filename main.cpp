@@ -24,7 +24,7 @@ int main(int argc, char** argv) {
 	int res = app->main(argc, argv);
 	// that's all folks!!
 	std::cout << "Quiting application." << std::endl;
-	for (unsigned int i = 0; i < 1e6; i++)
+	for (unsigned int i = 0; i < 1e2; i++)
 		std::this_thread::yield(); // Give the IDE a try to output previous traces
 	return res;
 }

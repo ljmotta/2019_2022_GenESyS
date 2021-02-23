@@ -53,7 +53,7 @@ private: // attributes 1:1 objects
 	ParserManager* _parserManager;
 private: // attributes 1:1 native
 	const std::string _name = "GenESyS - GENeric and Expansible SYstem Simulator";
-	const std::string _version = "20.09 (Govslavery)";
+	const std::string _version = "21.02 (winer)";
 };
 
 #endif /* GENESYS_H */

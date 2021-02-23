@@ -1,7 +1,7 @@
 # Genesys simulation model 
-# Last saved on Tue Sep 15 20:07:38 2020
+# Last saved on Tue Feb 23 12:43:29 2021
 # simulator infos
-0   SimulatorInfo   name="GenESyS - GENeric and Expansible SYstem Simulator"  version="20.03 (coronavirus)"  
+0   SimulatorInfo   name="GenESyS - GENeric and Expansible SYstem Simulator"  version="20.09 (Govslavery)"  
 
 # model infos
 0   ModelInfo       analystName=""  description=""  name="Model 1"  numberOfReplications=1  projectTitle=""  replicationLength=3600.000000  replicationLengthTimeUnit=5  terminatingCondition=""  version="1.0"  warmUpTime=0.000000  warmUpTimeTimeUnit=5  
