@@ -16,6 +16,8 @@
 
 #include "GenesysApplication_if.h"
 
+//  GUI PROJECT HAS BEEN MOVED TO A QT PROJECT ELSEWHERE
+
 class GenesysGUI : public GenesysApplication_if {
 public:
 	GenesysGUI();
