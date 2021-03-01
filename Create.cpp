@@ -20,13 +20,13 @@
 
 Create::Create(Model* model, std::string name) : SourceModelComponent(model, Util::TypeOf<Create>(), name) {
 	_numberOut = new Counter(_parentModel, "Count number in", this);
-	// TODO Check if element has already been inserted and this is not needed: _parentModel->elements()->insert(_numberOut);
+	// \todo Check if element has already been inserted and this is not needed: _parentModel->elements()->insert(_numberOut);
 	_connections->setMinInputConnections(0);
 	_connections->setMaxInputConnections(0);
 	GetterMember getter = DefineGetterMember<SourceModelComponent>(this, &Create::entitiesPerCreation);
 	SetterMember setter = DefineSetterMember<SourceModelComponent>(this, &Create::setEntitiesPerCreation);
 	model->controls()->insert(new SimulationControl(Util::TypeOf<Create>(), "Entities Per Creation", getter, setter));
-	/* TODO:
+	/* \todo:
 	model->getControls()->insert(new SimulationControl(Util::TypeOf<Create>(), "Time Between Creations",
 		DefineGetterMember<SourceModelComponent>(this, &Create::getTimeBetweenCreationsExpression),
 		DefineSetterMember<SourceModelComponent>(this, &Create::setTimeBetweenCreationsExpression))

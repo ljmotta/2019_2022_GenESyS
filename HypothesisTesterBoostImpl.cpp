@@ -17,32 +17,32 @@ HypothesisTesterBoostImpl::HypothesisTesterBoostImpl() {
 }
 
 double HypothesisTesterBoostImpl::testAverage(double confidencelevel, double avg, H1Comparition comp) {
-	return 0.0; //todo
+	return 0.0; // \todo
 }
 
 double HypothesisTesterBoostImpl::testProportion(double confidencelevel, double prop, H1Comparition comp) {
-	return 0.0; //todo
+	return 0.0; // \todo
 }
 
 double HypothesisTesterBoostImpl::testVariance(double confidencelevel, double var, H1Comparition comp) {
-	return 0.0; //todo
+	return 0.0; // \todo
 }
 
 double HypothesisTesterBoostImpl::testAverage(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) {
-	return 0.0; //todo
+	return 0.0; // \todo
 }
 
 double HypothesisTesterBoostImpl::testProportion(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) {
-	return 0.0; //todo
+	return 0.0; // \todo
 }
 
 double HypothesisTesterBoostImpl::testVariance(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) {
-	return 0.0; //todo
+	return 0.0; // \todo
 }
 
 void HypothesisTesterBoostImpl::setDataFilename(std::string dataFilename) {
 }
 
 std::string HypothesisTesterBoostImpl::getDataFilename() {
-	return ""; //todo
+	return ""; // \todo
 }

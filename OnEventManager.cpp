@@ -47,6 +47,9 @@ void OnEventManager::addOnSimulationStartHandler(simulationEventHandler EventHan
 	_addOnHandler(_onSimulationStartHandlers, EventHandler);
 }
 
+void OnEventManager::addOnSimulationPausedStartHandler(simulationEventHandler EventHandler) {
+	_addOnHandler(_onSimulationPausedStartHandlers, EventHandler);
+}
 void OnEventManager::addOnSimulationEndHandler(simulationEventHandler EventHandler) {
 	_addOnHandler(_onSimulationEndHandlers, EventHandler);
 }
@@ -87,6 +90,10 @@ void OnEventManager::NotifyProcessEventHandlers(SimulationEvent* se) {
 
 void OnEventManager::NotifySimulationStartHandlers(SimulationEvent* se) {
 	this->_NotifyHandlers(this->_onSimulationStartHandlers, se);
+}
+
+void OnEventManager::NotifySimulationPausedStartHandlers(SimulationEvent* se) {
+	this->_NotifyHandlers(this->_onSimulationPausedStartHandlers, se);
 }
 
 void OnEventManager::NotifySimulationEndHandlers(SimulationEvent* se) {

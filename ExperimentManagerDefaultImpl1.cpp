@@ -17,7 +17,7 @@ ExperimentManagerDefaultImpl1::ExperimentManagerDefaultImpl1() {
 }
 
 List<SimulationScenario*>* ExperimentManagerDefaultImpl1::getScenarios() const {
-	// TODO: implement
+	// \todo: implement
 }
 
 List<SimulationControl*>* ExperimentManagerDefaultImpl1::getControls() const {
@@ -25,27 +25,27 @@ List<SimulationControl*>* ExperimentManagerDefaultImpl1::getControls() const {
 }
 
 List<SimulationResponse*>* ExperimentManagerDefaultImpl1::getResponses() const {
-	// TODO: implement
+	// \todo: implement
 }
 
 List<SimulationControl*>* ExperimentManagerDefaultImpl1::extractControlsFromModel(std::string modelFilename) const {
-	// TODO: implement
+	// \todo: implement
 }
 
 List<SimulationResponse*>* ExperimentManagerDefaultImpl1::extractResponsesFromModel(std::string modelFilename) const {
-	// TODO: implement
+	// \todo: implement
 }
 
 void ExperimentManagerDefaultImpl1::startSimulationOfScenario(SimulationScenario* scenario) {
-	// TODO: implement
+	// \todo: implement
 }
 
 void ExperimentManagerDefaultImpl1::startSimulation() {
-	// TODO: implement
+	// \todo: implement
 }
 
 void ExperimentManagerDefaultImpl1::stopSimulation() {
-	// TODO: implement
+	// \todo: implement
 }
 
 void ExperimentManagerDefaultImpl1::addTraceSimulationHandler(traceSimulationProcessListener traceSimulationProcessListener) {

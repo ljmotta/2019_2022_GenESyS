@@ -69,5 +69,5 @@ void SamplerBoostImpl::setRNGparameters(Sampler_if::RNG_Parameters* param) {
 }
 
 Sampler_if::RNG_Parameters* SamplerBoostImpl::getRNGparameters() const {
-	// TODO: toimplement
+	// \todo: toimplement
 }

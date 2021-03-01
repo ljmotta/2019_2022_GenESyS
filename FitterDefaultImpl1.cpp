@@ -56,5 +56,5 @@ void FitterDefaultImpl1::setDataFilename(std::string dataFilename) {
 }
 
 std::string FitterDefaultImpl1::getDataFilename() {
-	return ""; //todo
+	return ""; // \todo
 }

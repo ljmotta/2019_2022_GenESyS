@@ -14,7 +14,7 @@
 #ifndef TRAITS_H
 #define TRAITS_H
 
-// TODO: Separate into Traits.h and KernelTraits.h
+// \todo: Separate into Traits.h and KernelTraits.h
 
 // interfaces
 #include "Collector_if.h"
@@ -62,7 +62,7 @@
 
 // genesys applications
 #include "FullSimulationOfComplexModel.h"
-#include "BuildSimulationModel03.h"
+//#include "BuildSimulationModel03.h"
 #include "FirstExampleOfSimulation.h"
 #include "SecondExampleOfSimulation.h"
 #include "FourthExampleOfSimulation.h"
@@ -72,8 +72,8 @@
 #include "TestEnterLeaveRoute.h"
 #include "TestFunctions.h"
 #include "TestSimulationControlAndSimulationResponse.h"
-#include "TestLSODE.h"
-#include "TestMarkovChain.h"
+//#include "TestLSODE.h"
+//#include "TestMarkovChain.h"
 #include "TestMatricesOfAttributesAndVariables.h"
 
 template <typename T>

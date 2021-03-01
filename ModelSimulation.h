@@ -53,6 +53,7 @@
 	public: // only gets
 		double simulatedTime() const; /*! The current time in the model being simulated, i.e., the instant when the current event was triggered */
 		bool isRunning() const;
+        bool isPaused() const;
 		unsigned int currentReplicationNumber() const;
 		ModelComponent* currentComponent() const;
 		Entity* currentEntity() const;
@@ -66,21 +67,24 @@
 		void _initStatistics();
 		void _checkWarmUpTime(Event* nextEvent);
 		void _stepSimulation();
+		void _replicationEnded();
 		void _processEvent(Event* event);
 	private:
 		bool _isReplicationEndCondition();
 		void _actualizeSimulationStatistics();
 		void _showSimulationHeader();
+		void _traceReplicationEnded();
 	private:
 		double _simulatedTime = 0.0;
-		// TODO: list of double double _breakOnTimes;
-		// TODO: list of modules _breakOnModules;
+		// \todo: list of double double _breakOnTimes;
+		// \todo: list of modules _breakOnModules;
 		bool _stepByStep = false;
 		bool _pauseOnReplication = false;
 		bool _pauseOnEvent = false;
 		bool _initializeStatisticsBetweenReplications = true;
 		bool _initializeSystem = true;
 		bool _running = false;
+		bool _isPaused = false;
 		bool _pauseRequested = false;
 		bool _stopRequested = false;
 		bool _simulationIsInitiated = false;

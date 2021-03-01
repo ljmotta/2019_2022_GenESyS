@@ -65,6 +65,7 @@
 		void addOnProcessEventHandler(simulationEventHandler EventHandler);
 		void addOnEntityMoveHandler(simulationEventHandler EventHandler);
 		void addOnSimulationStartHandler(simulationEventHandler EventHandler);
+		void addOnSimulationPausedStartHandler(simulationEventHandler EventHandler);
 		void addOnSimulationEndHandler(simulationEventHandler EventHandler);
 		void addOnEntityRemoveHandler(simulationEventHandler EventHandler);
 		// for handlers that are class members (methods)
@@ -77,6 +78,7 @@
 		void NotifyProcessEventHandlers(SimulationEvent* se);
 		void NotifyEntityMoveHandlers(SimulationEvent* se);
 		void NotifySimulationStartHandlers(SimulationEvent* se);
+		void NotifySimulationPausedStartHandlers(SimulationEvent* se);
 		void NotifySimulationEndHandlers(SimulationEvent* se);
 	private:
 		void _NotifyHandlers(List<simulationEventHandler>* list, SimulationEvent* se);
@@ -89,6 +91,7 @@
 		List<simulationEventHandler>* _onProcessEventHandlers = new List<simulationEventHandler>();
 		List<simulationEventHandler>* _onEntityMoveHandlers = new List<simulationEventHandler>();
 		List<simulationEventHandler>* _onSimulationStartHandlers = new List<simulationEventHandler>();
+		List<simulationEventHandler>* _onSimulationPausedStartHandlers = new List<simulationEventHandler>();
 		List<simulationEventHandler>* _onSimulationEndHandlers = new List<simulationEventHandler>();
 		// for handlers that are class members (methods)
 		List<simulationEventHandlerMethod>* _onProcessEventHandlerMethods = new List<simulationEventHandlerMethod>();

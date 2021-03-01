@@ -43,6 +43,21 @@ bool ModelSimulation::_isReplicationEndCondition() {
 	return finish;
 }
 
+void ModelSimulation::_traceReplicationEnded() {
+	std::string causeTerminated = "";
+	if (_model->futureEvents()->empty()) {
+		causeTerminated = "event queue is empty";
+	} else if (_stopRequested) {
+		causeTerminated = "user requested to stop";
+	} else if (_model->futureEvents()->front()->time() > _info->replicationLength()) {
+		causeTerminated = "replication length " + std::to_string(_info->replicationLength()) + " was achieved";
+	} else if (_model->parseExpression(_info->terminatingCondition())) {
+		causeTerminated = "termination condition was achieved";
+	} else causeTerminated = "unknown";
+	std::string message = "Replication " + std::to_string(_currentReplicationNumber) + " of " + std::to_string(_info->numberOfReplications()) + " has finished with last event at time " + std::to_string(_simulatedTime) + " because " + causeTerminated;
+	_model->tracer()->trace(Util::TraceLevel::modelSimulationEvent, message);
+}
+
 /*!
  * Checks the model and if ok then initialize the simulation, execute repeatedly each replication and then show simulation statistics
  */
@@ -52,49 +67,51 @@ void ModelSimulation::start() {
 		return;
 	}
 	Util::SetIndent(0); //force indentation
-	_initSimulation();
-	_model->onEvents()->NotifySimulationStartHandlers(new SimulationEvent(0, nullptr));
-	for (_currentReplicationNumber = 1; _currentReplicationNumber <= _info->numberOfReplications(); _currentReplicationNumber++) {
-		Util::SetIndent(1);
+	if (!_isPaused) {
+		_initSimulation();
+		_model->onEvents()->NotifySimulationStartHandlers(new SimulationEvent(0, nullptr));
+		_currentReplicationNumber = 1;
 		_initReplication();
+	} else {
+		_model->onEvents()->NotifySimulationPausedStartHandlers(new SimulationEvent(0, nullptr));
+	}
+	_running = true;
+	_isPaused = false;
+	do {
+		Util::SetIndent(1);
 		_model->onEvents()->NotifyReplicationStartHandlers(new SimulationEvent(_currentReplicationNumber, nullptr));
-
+		// main simulation loop
 		Util::IncIndent();
-		{
-			while (!_isReplicationEndCondition()) {
-				_stepSimulation();
-				// \todo: Find a better way to separate start, step, pause, stop. Should allow to step without start, start, pause and then just step, and in the last step invoke the final part of simulation (wich is actually inside start method
-				//if (_pauseOnEvent) {
-				//    std::cout << "[paused] ...press any key to continue...";
-				//    std::cin.get();
-				//    std::cout << std::endl;
-				//}
-			}
+		while (!_isReplicationEndCondition() && !_pauseRequested) {
+			_stepSimulation();
 		}
 		Util::SetIndent(1); // force
+		if (!_pauseRequested) {
+			_replicationEnded();
+			_currentReplicationNumber++;
+			if (_currentReplicationNumber <= _info->numberOfReplications()) {
+				_initReplication();
+			}
+		}
+	} while (_currentReplicationNumber <= _info->numberOfReplications() && !_pauseRequested);
+	if (!_pauseRequested) {
+		_simulationReporter->showSimulationStatistics(); //_cStatsSimulation);
+		Util::DecIndent();
 
-		_model->onEvents()->NotifyReplicationEndHandlers(new SimulationEvent(_currentReplicationNumber, nullptr));
-		std::string causeTerminated = "";
-		if (_model->futureEvents()->empty()) {
-			causeTerminated = "event queue is empty";
-		} else if (_stopRequested) {
-			causeTerminated = "user requested to stop";
-		} else if (_model->futureEvents()->front()->time() > _info->replicationLength()) {
-			causeTerminated = "replication length " + std::to_string(_info->replicationLength()) + " was achieved";
-		} else if (_model->parseExpression(_info->terminatingCondition())) {
-			causeTerminated = "termination condition was achieved";
-		} else causeTerminated = "unknown";
-		std::string message = "Replication " + std::to_string(_currentReplicationNumber) + " of " + std::to_string(_info->numberOfReplications()) + " has finished with last event at time " + std::to_string(_simulatedTime) + " because " + causeTerminated;
-		_model->tracer()->trace(Util::TraceLevel::modelSimulationEvent, message);
-		_simulationReporter->showReplicationStatistics();
-		_actualizeSimulationStatistics();
+		_model->tracer()->trace(Util::TraceLevel::modelSimulationEvent, "Simulation of model \"" + _info->name() + "\" has finished.\n");
+		_model->onEvents()->NotifySimulationEndHandlers(new SimulationEvent(0, nullptr));
+	} else {
+		_pauseRequested = false;
+		_isPaused = true;
 	}
-	_simulationReporter->showSimulationStatistics(); //_cStatsSimulation);
-	Util::DecIndent();
+	_running = false;
+}
 
-	_model->tracer()->trace(Util::TraceLevel::modelSimulationEvent, "Simulation of model \"" + _info->name() + "\" has finished.\n");
-	_model->onEvents()->NotifySimulationEndHandlers(new SimulationEvent(0, nullptr));
-
+void ModelSimulation::_replicationEnded() {
+	_traceReplicationEnded();
+	_model->onEvents()->NotifyReplicationEndHandlers(new SimulationEvent(_currentReplicationNumber, nullptr));
+	_simulationReporter->showReplicationStatistics();
+	_actualizeSimulationStatistics();
 }
 
 void ModelSimulation::_actualizeSimulationStatistics() {
@@ -430,4 +447,8 @@ SimulationReporter_if* ModelSimulation::reporter() const {
 
 unsigned int ModelSimulation::currentInputNumber() const {
 	return _currentInputNumber;
+}
+
+bool ModelSimulation::isPaused() const {
+	return _isPaused;
 }
