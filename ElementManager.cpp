@@ -29,10 +29,12 @@ ElementManager::ElementManager(Model* model) {
 bool ElementManager::insert(ModelElement* anElement) {
 	std::string elementTypename = anElement->classname();
 	bool res = insert(elementTypename, anElement);
+	/*
 	if (res)
-		_parentModel->tracer()->trace(Util::TraceLevel::elementResult, "Element successfully inserted");
+		_parentModel->tracer()->trace(Util::TraceLevel::elementResult, "Element " + anElement->name() + " successfully inserted");
 	else
-		_parentModel->tracer()->trace(Util::TraceLevel::elementResult, "Element could not be inserted");
+		_parentModel->tracer()->trace(Util::TraceLevel::elementResult, "Element " + anElement->name() + " could not be inserted");
+	 */
 	return res;
 }
 
@@ -43,6 +45,7 @@ bool ElementManager::insert(std::string elementTypename, ModelElement* anElement
 		this->_parentModel->tracer()->trace(Util::TraceLevel::toolDetailed, "Element \"" + anElement->name() + "\" successfully inserted.");
 		return true;
 	}
+	this->_parentModel->tracer()->trace(Util::TraceLevel::toolDetailed, "Element \"" + anElement->name() + "\" could not be inserted.");
 	return false;
 }
 

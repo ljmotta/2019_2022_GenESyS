@@ -40,7 +40,7 @@ std::string Create::show() {
 
 void Create::_execute(Entity* entity) {
 	double tnow = _parentModel->simulation()->simulatedTime();
-	entity->attributeValue("Entity.ArrivalTime", tnow); // ->find("Entity.ArrivalTime")->second->setValue(tnow);
+	entity->setAttributeValue("Entity.ArrivalTime", tnow); // ->find("Entity.ArrivalTime")->second->setValue(tnow);
 	//entity->setAttributeValue("Entity.Picture", 1); // ->find("Entity.ArrivalTime")->second->setValue(tnow);
 	double timeBetweenCreations, timeScale, newArrivalTime;
 	unsigned int _maxCreations = _parentModel->parseExpression(this->_maxCreationsExpression);
@@ -49,7 +49,7 @@ void Create::_execute(Entity* entity) {
 			_entitiesCreatedSoFar++;
 			Entity* newEntity = new Entity(_parentModel);
 			newEntity->setEntityType(entity->entityType());
-			_parentModel->elements()->insert(newEntity); // ->getEntities()->insert(newEntity);
+			//_parentModel->elements()->insert(newEntity); // ->getEntities()->insert(newEntity);
 			timeBetweenCreations = _parentModel->parseExpression(this->_timeBetweenCreationsExpression);
 			timeScale = Util::TimeUnitConvert(this->_timeBetweenCreationsTimeUnit, _parentModel->infos()->replicationLengthTimeUnit());
 			newArrivalTime = tnow + timeBetweenCreations*timeScale;

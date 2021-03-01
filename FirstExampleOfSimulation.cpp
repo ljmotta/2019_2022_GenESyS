@@ -47,7 +47,8 @@ int FirstExampleOfSimulation::main(int argc, char** argv) {
 		model = new Model(simulator);
 		//
 		// build the simulation model
-		// if no ModelInfo is provided, then the model will be simulated once (one replication) and the replication length will be 60 seconds (simulated time)
+		// if no ModelInfo is provided, then the model will be simulated once (one replication) and the replication length will be 3600 seconds (simulated time)
+		model->infos()->setReplicationLength(60);
 		// create a (Source)ModelElement of type EntityType, used by a ModelComponent that follows
 		EntityType* entityType1 = new EntityType(model, "Type_of_Representative_Entity");
 		// create a ModelComponent of type Create, used to insert entities into the model

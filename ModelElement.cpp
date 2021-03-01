@@ -26,8 +26,9 @@ ModelElement::ModelElement(Model* model, std::string thistypename, std::string n
 		_name = thistypename + "_" + std::to_string(Util::GenerateNewIdOfType(thistypename));
 	else
 		_name = name;
-	if (insertIntoModel)
+	if (insertIntoModel) {
 		model->insert(this);
+	}
 }
 
 //ModelElement::ModelElement(const ModelElement &orig) {

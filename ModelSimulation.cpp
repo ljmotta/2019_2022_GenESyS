@@ -320,6 +320,7 @@ void ModelSimulation::_stepSimulation() {
 }
 
 void ModelSimulation::_processEvent(Event* event) {
+	//	_model->tracer()->traceSimulation(Util::TraceLevel::modelSimulationEvent, event->time(), event->entity(), event->component(), "");
 	_model->tracer()->trace(Util::TraceLevel::modelSimulationEvent, "Processing event=(" + event->show() + ")");
 	_model->tracer()->trace(Util::TraceLevel::modelSimulationInternal, "Current Entity: " + event->entity()->show());
 	this->_currentEntity = event->entity();
