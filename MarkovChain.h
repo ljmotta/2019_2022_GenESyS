@@ -16,6 +16,7 @@
 
 #include "ModelComponent.h"
 #include "Variable.h"
+#include "Sampler_if.h"
 
 class MarkovChain : public ModelComponent {
 public: // constructors
@@ -48,6 +49,7 @@ private: // attributes 1:1
 	Variable* _currentState;
 	bool _initilized = false;
 private: // attributes 1:n
+	Sampler_if* _sampler;
 };
 
 #endif /* MARKOVCHAIN_H */

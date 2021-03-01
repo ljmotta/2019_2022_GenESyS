@@ -14,6 +14,8 @@
 #include "TraceManager.h"
 #include "Traits.h"
 
+//using namespace GenesysKernel;
+
 TraceManager::TraceManager(Simulator* simulator) {//(Model* model) {
 	_simulator = simulator;
 	_debugged = Traits<Model>::debugged;

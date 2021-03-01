@@ -18,7 +18,10 @@
 #include <cassert>
 #include "ModelComponent.h"
 #include "Simulator.h"
+#include "Traits.h"
 #include "Counter.h"
+
+//using namespace GenesysKernel;
 
 ModelPersistenceDefaultImpl1::ModelPersistenceDefaultImpl1(Model* model) {
 	_model = model;
@@ -47,8 +50,9 @@ bool ModelPersistenceDefaultImpl1::save(std::string filename) {
 		// save infras
 		modelElementsToSave = new std::list<std::string>();
 		std::list<std::string>* elementTypenames = _model->elements()->elementClassnames();
+		const std::string UtilTypeOfCounter = Util::TypeOf<Counter>();
 		for (std::list<std::string>::iterator itTypenames = elementTypenames->begin(); itTypenames != elementTypenames->end(); itTypenames++) {
-			if ((*itTypenames) != Util::TypeOf<StatisticsCollector>() && (*itTypenames) != Util::TypeOf<Counter>()) { // STATISTICSCOLLECTR and COUNTERs do NOT need to be saved
+			if ((*itTypenames) != Util::TypeOf<StatisticsCollector>() && (*itTypenames) != UtilTypeOfCounter) { // STATISTICSCOLLECTR and COUNTERs do NOT need to be saved
 				List<ModelElement*>* infras = _model->elements()->elementList((*itTypenames));
 				_model->tracer()->trace(Util::TraceLevel::toolDetailed, "Writing elements of type \"" + (*itTypenames) + "\":");
 				Util::IncIndent();
@@ -209,7 +213,7 @@ bool ModelPersistenceDefaultImpl1::load(std::string filename) {
 		}
 	}
 	// check if something was loaded
-	res &= _model->components()->numberOfComponents() > 0 & _model->elements()->numberOfElements() > 0;
+	res &= (_model->components()->numberOfComponents() > 0) & (_model->elements()->numberOfElements() > 0);
 	if (res) {
 		// connect loaded components
 		ComponentManager* cm = _model->components();

@@ -21,7 +21,9 @@
 #include "Simulator.h"
 #include "StatisticsCollector.h"
 #include "Traits.h"
-#include "Access.h"
+//#include "Access.h"
+
+//using namespace GenesysKernel;
 
 bool EventCompare(const Event* a, const Event * b) {
 	return a->time() < b->time();
@@ -36,10 +38,10 @@ Model::Model(Simulator* simulator) {
 	_componentManager = new ComponentManager(this);
 	_traceManager = simulator->tracer(); // every model starts with the same tracer, unless a specific one is set
 	// 1:1 associations (Traits)
-	_parser = new Traits<Parser_if>::Implementation(this);
+	//Sampler_if* sampler = new Traits<Sampler_if>::Implementation();
+	_parser = new Traits<Parser_if>::Implementation(this, new Traits<Sampler_if>::Implementation());
 	_modelChecker = new Traits<ModelChecker_if>::Implementation(this);
 	_modelPersistence = new Traits<ModelPersistence_if>::Implementation(this);
-	_sampler = new Traits<Sampler_if>::Implementation();
 	_simulation = new ModelSimulation(this);
 	// 1:n associations
 	_events = new List<Event*>(); /// The future events list must be chronologicaly sorted
@@ -121,10 +123,6 @@ bool Model::checkExpression(const std::string expression, const std::string expr
 		errorMessage->append(msg);
 	}
 	return result;
-}
-
-Sampler_if* Model::sampler() const {
-	return _sampler;
 }
 
 double Model::parseExpression(const std::string expression, bool* success, std::string* errorMessage) {

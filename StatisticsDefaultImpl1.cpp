@@ -15,11 +15,14 @@
 
 #include "StatisticsDefaultImpl1.h"
 #include "Traits.h"
-#include "Integrator_if.h"
-#include "ProbDistribDefaultImpl1.h"
+//#include "Integrator_if.h"
+//#include "ProbDistribDefaultImpl1.h"
+
+//using namespace GenesysKernel;
 
 StatisticsDefaultImpl1::StatisticsDefaultImpl1() {
-	_collector = new Traits<Statistics_if>::CollectorImplementation();
+	//_collector = new Traits<Statistics_if>::CollectorImplementation();
+	_collector = new Traits<ModelComponent>::StatisticsCollector_CollectorImplementation();
 	_collector->setAddValueHandler(SetCollectorAddValueHandler(&StatisticsDefaultImpl1::collectorAddHandler, this));
 	_collector->setClearHandler(SetCollectorClearHandler(&StatisticsDefaultImpl1::collectorClearHandler, this));
 	//_collector->setAddValueHandler(std::bind(&StatisticsDefaultImpl1::collectorAddHandler, this, std::placeholders::_1));
@@ -59,7 +62,7 @@ void StatisticsDefaultImpl1::collectorClearHandler() {
 
 void StatisticsDefaultImpl1::initStatistics() {
 	_elems = 0;
-	_min = 1e+99;
+	_min = +1e+99;
 	_max = -1e+99;
 	_sum = 0.0;
 	_sumSquare = 0.0;

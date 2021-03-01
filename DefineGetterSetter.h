@@ -89,12 +89,12 @@ SetterMember DefineSetterMember(Class * object, void (Class::*function)(std::str
 // Util::TimeUnit
 
 template<typename Class>
-GetterMember DefineGetterMember(Class * object, Util::TimeUnit(Class::*function)() const) {
+GetterMember DefineGetterMember(Class * object, /*GenesysKernel::*/Util::TimeUnit(Class::*function)() const) {
 	return std::bind(function, object);
 }
 
 template<typename Class>
-SetterMember DefineSetterMember(Class * object, void (Class::*function)(Util::TimeUnit)) {
+SetterMember DefineSetterMember(Class * object, void (Class::*function)(/*GenesysKernel::*/Util::TimeUnit)) {
 	return std::bind(function, object, std::placeholders::_1);
 }
 

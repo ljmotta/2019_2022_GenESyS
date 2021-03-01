@@ -29,7 +29,7 @@ bool ExperimentDesignDummyImpl::calculateContributionAndCoefficients() {
 	return true;
 }
 
-ProcessAnalyser_if* ExperimentDesignDummyImpl::getProcessAnalyser() const {
+ExperimentManager_if* ExperimentDesignDummyImpl::getProcessAnalyser() const {
 	return _processAnalyser;
 }
 

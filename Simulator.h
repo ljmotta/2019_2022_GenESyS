@@ -25,36 +25,38 @@
 //#include "ToolManager.h"
 #include "ParserManager.h"
 
-/*!
- * The main class of the ReGenesys KERNEL simulation. It gives access to simulation models and tools.
- * Simulation is the top level class and is supossed to be available to application as a dynamic linked library.
- */
-class Simulator {
-	typedef void (*eventHandler)();
-public:
-	Simulator();
-	virtual ~Simulator() = default;
-public: // only get
-	std::string version() const;
-	std::string name() const;
-	LicenceManager* licenceManager() const;
-	PluginManager* plugins() const;
-	ModelManager* models() const;
-	//ToolManager* tools() const;
-	TraceManager* tracer() const;
-	ParserManager* parser() const;
-private:
-private: // attributes 1:1 objects
-	LicenceManager* _licenceManager;
-	PluginManager* _pluginManager;
-	ModelManager* _modelManager;
-	//ToolManager* _toolManager;
-	TraceManager* _traceManager;
-	ParserManager* _parserManager;
-private: // attributes 1:1 native
-	const std::string _name = "GenESyS - GENeric and Expansible SYstem Simulator";
-	const std::string _version = "21.02 (winer)";
-};
+//namespace GenesysKernel {
+	/*!
+	 * The main class of the ReGenesys KERNEL simulation. It gives access to simulation models and tools.
+	 * Simulation is the top level class and is supossed to be available to application as a dynamic linked library.
+	 */
+	class Simulator {
+		typedef void (*eventHandler)();
+	public:
+		Simulator();
+		virtual ~Simulator() = default;
+	public: // only get
+		std::string version() const;
+		std::string name() const;
+		LicenceManager* licenceManager() const;
+		PluginManager* plugins() const;
+		ModelManager* models() const;
+		TraceManager* tracer() const;
+		ParserManager* parser() const;
+	private:
+	private: // attributes 1:1 objects
+		LicenceManager* _licenceManager;
+		PluginManager* _pluginManager;
+		ModelManager* _modelManager;
+		TraceManager* _traceManager;
+		ParserManager* _parserManager;
+	private: // attributes 1:1 native
+		const std::string _name = "GenESyS - GENeric and Expansible SYstem Simulator";
+		const std::string _version = "21.02 (winer)";
+	};
+//namespace\\}
 
+// passing a "C" class factory function which instantiates the class. 
+typedef /*GenesysKernel::*/Simulator* GenesysSimulator;
 #endif /* GENESYS_H */
 

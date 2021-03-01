@@ -29,7 +29,7 @@
 #include "Parser_if.h"
 #include "PluginConnector_if.h"
 #include "Prob_Distrib_if.h"
-#include "ProcessAnalyser_if.h"
+#include "ExperimetManager_if.h"
 #include "Sampler_if.h"
 #include "Statistics_if.h"
 #include "SimulationReporter_if.h"
@@ -54,7 +54,7 @@
 //tools
 #include "ExperimentDesignDefaultImpl1.h"
 #include "FitterDefaultImpl1.h"
-#include "ProcessAnalyserDefaultImpl1.h"
+#include "ExperimentManagerDefaultImpl1.h"
 
 
 // simulationReporter issues
@@ -190,8 +190,8 @@ template <> struct Traits<ExperimentDesign_if> {
 	typedef ExperimentDesignDefaultImpl1 Implementation;
 };
 
-template <> struct Traits<ProcessAnalyser_if> {
-	typedef ProcessAnalyserDefaultImpl1 Implementation;
+template <> struct Traits<ExperimentManager_if> {
+	typedef ExperimentManagerDefaultImpl1 Implementation;
 };
 
 #endif /* TRAITS_H */

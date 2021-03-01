@@ -13,7 +13,7 @@
 void testStudentSoftwareDevelopments() {
 	Simulator* simulator = new Simulator();
 	Model* model = new Model(simulator);
-	Sampler_if* mmc = model->sampler(); //simulator->tools()->sampler(); // Sampler is the new MMC
+	Sampler_if* mmc = new Traits<Sampler_if>::Implementation; //model->sampler(); //simulator->tools()->sampler(); // Sampler is the new MMC
 	CollectorDatafile_if* collector = (new Traits<Collector_if>::Implementation());
 	collector->setDataFilename("./datafile.txt");
 	// just to show how to change MMC parameters

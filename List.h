@@ -23,7 +23,7 @@
 #include "Util.h"
 #include "ModelElement.h"
 
-class Simulator;
+//class Simulator;
 
 /*!
  * List corresponds to an extended version of the list that must guarantee the consistency of the elements that make up the simulation model.

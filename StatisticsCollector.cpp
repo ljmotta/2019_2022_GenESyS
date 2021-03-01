@@ -14,6 +14,9 @@
 #include "StatisticsCollector.h"
 #include "Traits.h"
 
+//using namespace GenesysKernel;
+
+
 typedef Traits<ModelComponent>::StatisticsCollector_StatisticsImplementation StatisticsClass;
 
 StatisticsCollector::StatisticsCollector(Model* model, std::string name, ModelElement* parent, bool insertIntoModel) : ModelElement(model, Util::TypeOf<StatisticsCollector>(), name, insertIntoModel) {

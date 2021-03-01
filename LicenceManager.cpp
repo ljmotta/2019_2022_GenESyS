@@ -13,13 +13,15 @@
 
 #include "LicenceManager.h"
 
+//using namespace GenesysKernel;
+
 LicenceManager::LicenceManager(Simulator* simulator) {
 	_simulator = simulator;
 	this->setDefaultLicenceAndLimits();
 }
 
 void LicenceManager::setDefaultLicenceAndLimits() {
-	_licence = "LICENCE: Academic Mode. In academic mode this software has full functionality and executing training-size simulation models. This software may be duplicated and used for educational purposes only; any commercial application is a violation of the license agreement. Designed and developed by prof. Dr. Ing Rafael Luiz Cancian, 2019-2021";
+	_licence = "LICENCE: Academic Mode. In academic mode this software has full functionality and executing training-size simulation models. This software may be duplicated and used for educational purposes only; any commercial application is a violation of the license agreement. Designed and developed by prof. Dr. Ing Rafael Luiz Cancian, 2018-2021";
 	_activationCode = "";
 	_components = 50;
 	_elements = 100;

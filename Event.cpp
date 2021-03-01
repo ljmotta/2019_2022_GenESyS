@@ -13,6 +13,8 @@
 
 #include "Event.h"
 
+//using namespace GenesysKernel;
+
 Event::Event(double time, Entity* entity, ModelComponent* component, unsigned int componentInputNumber) {
 	_time = time;
 	_entity = entity;

@@ -13,6 +13,8 @@
 
 #include "SinkModelComponent.h"
 
+//using namespace GenesysKernel;
+
 SinkModelComponent::SinkModelComponent(Model* model, std::string componentTypename, std::string name) : ModelComponent(model, componentTypename, name) {
 }
 

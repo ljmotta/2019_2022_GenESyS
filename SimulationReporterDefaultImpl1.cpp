@@ -15,8 +15,9 @@
 #include <assert.h>
 #include <iomanip>
 #include <iostream>
-//#include "Counter.h"
-#include "Traits.h"
+#include "Counter.h"
+
+//using namespace GenesysKernel;
 
 SimulationReporterDefaultImpl1::SimulationReporterDefaultImpl1(ModelSimulation* simulation, Model* model, List<ModelElement*>* statsCountersSimulation) {
 	_simulation = simulation;
@@ -32,7 +33,7 @@ void SimulationReporterDefaultImpl1::showReplicationStatistics() {
 	 look for _generateReportInformation = true;  using bool generateReportInformation() const;
 	 */
 	const std::string UtilTypeOfStatisticsCollector = Util::TypeOf<StatisticsCollector>();
-	const std::string UtilTypeOfCounter = Util::TypeOf< Traits<SimulationReporter_if>::CounterImplementation >(); // = Util::TypeOf<Counter>();
+	const std::string UtilTypeOfCounter = Util::TypeOf<Counter>();
 	// runs over all elements and list the statistics for each one, and then the statistics with no parent
 	Util::IncIndent();
 	// copy the ist of statistics and counters into a single new list

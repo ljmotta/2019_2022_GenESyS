@@ -1,7 +1,7 @@
 %skeleton "lalr1.cc" /* -*- C++ -*- */
 %require "3.0.4"
 %defines
-%define parser_class_name {genesyspp_parser} //Name of the parses class
+%define api.parser.class {genesyspp_parser} //Name of the parses class
 %define api.token.constructor //let that way or change YY_DECL prototype
 %define api.value.type variant
 %define parse.assert //Checks for constructor and destructor(?)
@@ -274,16 +274,16 @@ funcaoArit  : fROUND "(" expressao ")"			    { $$.valor = round($3.valor);}
             | fMOD   "(" expressao "," expressao ")"        { $$.valor = (int) $3.valor % (int) $5.valor; }
             ;
 
-funcaoProb  : fRND1					    { $$.valor = driver.getProbs()->sampleUniform(0.0,1.0); $$.tipo = "Uniforme"; }
-	    | fEXPO  "(" expressao ")"                      { $$.valor = driver.getProbs()->sampleExponential($3.valor); $$.tipo = "Exponencial";}
-            | fNORM  "(" expressao "," expressao ")"        { $$.valor = driver.getProbs()->sampleNormal($3.valor,$5.valor); $$.tipo = "Normal"; }
-            | fUNIF  "(" expressao "," expressao ")"        { $$.valor = driver.getProbs()->sampleUniform($3.valor,$5.valor); $$.tipo = "Uniforme"; }
-            | fWEIB  "(" expressao "," expressao ")"        { $$.valor = driver.getProbs()->sampleWeibull($3.valor,$5.valor); $$.tipo = "Weibull"; }
-            | fLOGN  "(" expressao "," expressao ")"        { $$.valor = driver.getProbs()->sampleLogNormal($3.valor,$5.valor); $$.tipo = "LOGNormal"; }
-            | fGAMM  "(" expressao "," expressao ")"        { $$.valor = driver.getProbs()->sampleGamma($3.valor,$5.valor); $$.tipo = "Gamma"; }
-            | fERLA  "(" expressao "," expressao ")"        { $$.valor = driver.getProbs()->sampleErlang($3.valor,$5.valor); $$.tipo = "Erlang"; }
-            | fTRIA  "(" expressao "," expressao "," expressao ")"  { $$.valor = driver.getProbs()->sampleTriangular($3.valor,$5.valor,$7.valor); $$.tipo = "Triangular"; }
-            | fBETA  "(" expressao "," expressao "," expressao "," expressao ")"  { $$.valor = driver.getProbs()->sampleBeta($3.valor,$5.valor,$7.valor,$9.valor); $$.tipo = "Beta"; }
+funcaoProb  : fRND1					    { $$.valor = driver.sampler()->sampleUniform(0.0,1.0); $$.tipo = "Uniforme"; }
+	    | fEXPO  "(" expressao ")"                      { $$.valor = driver.sampler()->sampleExponential($3.valor); $$.tipo = "Exponencial";}
+            | fNORM  "(" expressao "," expressao ")"        { $$.valor = driver.sampler()->sampleNormal($3.valor,$5.valor); $$.tipo = "Normal"; }
+            | fUNIF  "(" expressao "," expressao ")"        { $$.valor = driver.sampler()->sampleUniform($3.valor,$5.valor); $$.tipo = "Uniforme"; }
+            | fWEIB  "(" expressao "," expressao ")"        { $$.valor = driver.sampler()->sampleWeibull($3.valor,$5.valor); $$.tipo = "Weibull"; }
+            | fLOGN  "(" expressao "," expressao ")"        { $$.valor = driver.sampler()->sampleLogNormal($3.valor,$5.valor); $$.tipo = "LOGNormal"; }
+            | fGAMM  "(" expressao "," expressao ")"        { $$.valor = driver.sampler()->sampleGamma($3.valor,$5.valor); $$.tipo = "Gamma"; }
+            | fERLA  "(" expressao "," expressao ")"        { $$.valor = driver.sampler()->sampleErlang($3.valor,$5.valor); $$.tipo = "Erlang"; }
+            | fTRIA  "(" expressao "," expressao "," expressao ")"  { $$.valor = driver.sampler()->sampleTriangular($3.valor,$5.valor,$7.valor); $$.tipo = "Triangular"; }
+            | fBETA  "(" expressao "," expressao "," expressao "," expressao ")"  { $$.valor = driver.sampler()->sampleBeta($3.valor,$5.valor,$7.valor,$9.valor); $$.tipo = "Beta"; }
             | fDISC  "(" listaparm ")"
             ;
 
@@ -321,7 +321,7 @@ atributo    : ATRIB      {
 		    double attributeValue = 0.0;
 		    if (driver.getModel()->simulation()->currentEntity() != nullptr) {
 			// it could crach because there may be no current entity, if the parse is running before simulation and therefore there is no CurrentEntity
-			attributeValue = driver.getModel()->simulation()->currentEntity()->getAttributeValue($1.id);
+			attributeValue = driver.getModel()->simulation()->currentEntity()->attributeValue($1.id);
 		    }
 		    $$.valor = attributeValue; 
 		}
@@ -330,7 +330,7 @@ atributo    : ATRIB      {
 		    std::string index = std::to_string(static_cast<unsigned int>($3.valor));
 		    if (driver.getModel()->simulation()->currentEntity() != nullptr) {
 			// it could crach because there may be no current entity, if the parse is running before simulation and therefore there is no CurrentEntity
-			attributeValue = driver.getModel()->simulation()->currentEntity()->getAttributeValue(index, $1.id);
+			attributeValue = driver.getModel()->simulation()->currentEntity()->attributeValue(index, $1.id);
 		    }
 		    $$.valor = attributeValue; 
 		}
@@ -339,7 +339,7 @@ atributo    : ATRIB      {
 		    std::string index = std::to_string(static_cast<unsigned int>($3.valor))+","+std::to_string(static_cast<unsigned int>($5.valor));
 		    if (driver.getModel()->simulation()->currentEntity() != nullptr) {
 			// it could crach because there may be no current entity, if the parse is running before simulation and therefore there is no CurrentEntity
-			attributeValue = driver.getModel()->simulation()->currentEntity()->getAttributeValue(index, $1.id);
+			attributeValue = driver.getModel()->simulation()->currentEntity()->attributeValue(index, $1.id);
 		    }
 		    $$.valor = attributeValue; 
 		}
@@ -348,7 +348,7 @@ atributo    : ATRIB      {
 		    std::string index = std::to_string(static_cast<unsigned int>($3.valor))+","+std::to_string(static_cast<unsigned int>($5.valor))+","+std::to_string(static_cast<unsigned int>($7.valor));
 		    if (driver.getModel()->simulation()->currentEntity() != nullptr) {
 			// it could crach because there may be no current entity, if the parse is running before simulation and therefore there is no CurrentEntity
-			attributeValue = driver.getModel()->simulation()->currentEntity()->getAttributeValue(index, $1.id);
+			attributeValue = driver.getModel()->simulation()->currentEntity()->attributeValue(index, $1.id);
 		    }
 		    $$.valor = attributeValue; 
 		}

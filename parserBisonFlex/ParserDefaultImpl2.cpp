@@ -13,14 +13,11 @@
 
 #include "ParserDefaultImpl2.h"
 
-ParserDefaultImpl2::ParserDefaultImpl2(Model* model) {
-	_model = model;
-	_wrapper = genesyspp_driver(_model, false);
-}
+//using namespace GenesysKernel;
 
-ParserDefaultImpl2::ParserDefaultImpl2(Model* model, bool throws) {
+ParserDefaultImpl2::ParserDefaultImpl2(Model* model, Sampler_if* sampler, bool throws) {
 	_model = model;
-	_wrapper = genesyspp_driver(_model, throws);
+	_wrapper = genesyspp_driver(_model, sampler, throws);
 }
 
 double ParserDefaultImpl2::parse(const std::string expression) { // may throw exception
@@ -54,4 +51,12 @@ double ParserDefaultImpl2::parse(const std::string expression, bool* success, st
 		*errorMessage = _wrapper.getErrorMessage();
 		return _wrapper.getResult();
 	}
+}
+
+void ParserDefaultImpl2::setSampler(Sampler_if* _sampler) {
+	_wrapper.setSampler(_sampler);
+}
+
+Sampler_if* ParserDefaultImpl2::sampler() const {
+	return _wrapper.sampler();
 }

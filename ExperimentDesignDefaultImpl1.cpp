@@ -28,6 +28,6 @@ bool ExperimentDesignDefaultImpl1::calculateContributionAndCoefficients() {
 	return true;
 }
 
-ProcessAnalyser_if* ExperimentDesignDefaultImpl1::getProcessAnalyser() const {
+ExperimentManager_if* ExperimentDesignDefaultImpl1::getProcessAnalyser() const {
 	return _processAnalyser;
 }

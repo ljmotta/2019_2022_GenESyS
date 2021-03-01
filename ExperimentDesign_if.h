@@ -15,14 +15,14 @@
 #define EXPERIMENTDESIGN_IF_H
 
 #include "FactorOrInteractionContribution.h"
-#include "ProcessAnalyser_if.h"
+#include "ExperimetManager_if.h"
 
 /*!
  * It designs a set of experiments (SimulationScenario) where que level of factors (SimulationControl) are set automatically to create a 2^k.r experiment design, and where the contributions of the factors and their interactions (just a set of SimulationControl) can be obtained.
  */
 class ExperimentDesign_if {
 public:
-	virtual ProcessAnalyser_if* getProcessAnalyser() const = 0;
+	virtual ExperimentManager_if* getProcessAnalyser() const = 0;
 	virtual bool generate2krScenarioExperiments() = 0;
 	virtual bool calculateContributionAndCoefficients() = 0;
 	virtual std::list<FactorOrInteractionContribution*>* getContributions() const = 0;

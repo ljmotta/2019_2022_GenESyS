@@ -17,28 +17,30 @@
 #include "Model.h"
 #include "TraceManager.h"
 
-class ModelManager {
-public:
-	ModelManager(Simulator* simulator);
-	virtual ~ModelManager() = default;
-public:
-	void insert(Model* model);
-	void remove(Model* model);
-	void setCurrent(Model* model);
-	bool saveModel(std::string filename);
-	bool loadModel(std::string filename);
-	unsigned int size();
-public:
-	Model* front();
-	Model* current();
-	Model* next();
-	//Model* end();
-private:
-	List<Model*>* _models = new List<Model*>();
-	Model* _currentModel;
-private:
-	Simulator* _simulator;
-};
+//namespace GenesysKernel {
 
+	class ModelManager {
+	public:
+		ModelManager(Simulator* simulator);
+		virtual ~ModelManager() = default;
+	public:
+		void insert(Model* model);
+		void remove(Model* model);
+		void setCurrent(Model* model);
+		bool saveModel(std::string filename);
+		bool loadModel(std::string filename);
+		unsigned int size();
+	public:
+		Model* front();
+		Model* current();
+		Model* next();
+		//Model* end();
+	private:
+		List<Model*>* _models = new List<Model*>();
+		Model* _currentModel;
+	private:
+		Simulator* _simulator;
+	};
+//namespace\\}
 #endif /* MODELMANAGER_H */
 

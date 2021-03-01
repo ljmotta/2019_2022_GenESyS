@@ -14,6 +14,8 @@
 #include "ElementManager.h"
 #include "Model.h"
 
+//using namespace GenesysKernel;
+
 ElementManager::ElementManager(Model* model) {
 	_parentModel = model;
 	/* \todo: -- Sort methods for elements should be a decorator */
@@ -28,9 +30,9 @@ bool ElementManager::insert(ModelElement* anElement) {
 	std::string elementTypename = anElement->classname();
 	bool res = insert(elementTypename, anElement);
 	if (res)
-		_parentModel->tracer()->trace(Util::TraceLevel::elementResult, "Element \"" + anElement->name() + "\" successfully inserted");
+		_parentModel->tracer()->trace(Util::TraceLevel::elementResult, "Element successfully inserted");
 	else
-		_parentModel->tracer()->trace(Util::TraceLevel::elementResult, "Element  \"" + anElement->name() + "\" could not be inserted");
+		_parentModel->tracer()->trace(Util::TraceLevel::elementResult, "Element could not be inserted");
 	return res;
 }
 
@@ -38,7 +40,7 @@ bool ElementManager::insert(std::string elementTypename, ModelElement* anElement
 	List<ModelElement*>* listElements = elementList(elementTypename);
 	if (listElements->find(anElement) == listElements->list()->end()) { //not found
 		listElements->insert(anElement);
-		//this->_parentModel->tracer()->trace(Util::TraceLevel::toolDetailed, "Element \"" + anElement->name() + "\" successfully inserted.");
+		this->_parentModel->tracer()->trace(Util::TraceLevel::toolDetailed, "Element \"" + anElement->name() + "\" successfully inserted.");
 		return true;
 	}
 	return false;

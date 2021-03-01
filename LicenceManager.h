@@ -16,31 +16,32 @@
 
 #include <string>
 
-class Simulator;
+//namespace GenesysKernel {
+	class Simulator;
 
-class LicenceManager {
-public:
-	LicenceManager(Simulator* simulator);
-	virtual ~LicenceManager() = default;
-	const std::string showLicence() const;
-	const std::string showLimits() const;
-	const std::string showActivationCode() const;
-	bool lookforActivationCode();
-	bool insertActivationCode();
-	void removeActivationCode();
-	unsigned int modelComponentsLimit();
-	unsigned int modelElementsLimit();
-	unsigned int entityLimit();
-	unsigned int hostsLimit();
-	unsigned int threadsLimit();
-private:
-	void setDefaultLicenceAndLimits();
-private:
-	Simulator* _simulator;
-	std::string _licence;
-	std::string _activationCode;
-	unsigned int _components, _elements, _entities, _hosts, _threads;
-};
-
+	class LicenceManager {
+	public:
+		LicenceManager(Simulator* simulator);
+		virtual ~LicenceManager() = default;
+		const std::string showLicence() const;
+		const std::string showLimits() const;
+		const std::string showActivationCode() const;
+		bool lookforActivationCode();
+		bool insertActivationCode();
+		void removeActivationCode();
+		unsigned int modelComponentsLimit();
+		unsigned int modelElementsLimit();
+		unsigned int entityLimit();
+		unsigned int hostsLimit();
+		unsigned int threadsLimit();
+	private:
+		void setDefaultLicenceAndLimits();
+	private:
+		Simulator* _simulator;
+		std::string _licence;
+		std::string _activationCode;
+		unsigned int _components, _elements, _entities, _hosts, _threads;
+	};
+//namespace\\}
 #endif /* LICENCEMANAGER_H */
 

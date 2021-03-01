@@ -13,6 +13,8 @@
 
 #include "SimulationControl.h"
 
+//using namespace GenesysKernel;
+
 SimulationControl::SimulationControl(std::string type, std::string name, GetterMember getterMember, SetterMember setterMember) : SimulationResponse(type, name, getterMember) {
 	this->_type = type;
 	this->_setMemberFunction = setterMember;

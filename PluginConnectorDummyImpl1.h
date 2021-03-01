@@ -15,19 +15,20 @@
 #define PLUGINCONNECTORDUMMYIMPL1_H
 
 #include "PluginConnector_if.h"
+//namespace GenesysKernel {
 
-class PluginConnectorDummyImpl1 : public PluginConnector_if {
-public:
-	PluginConnectorDummyImpl1();
-	virtual ~PluginConnectorDummyImpl1() = default;
-public:
-	virtual Plugin* check(const std::string dynamicLibraryFilename);
-	virtual Plugin* connect(const std::string dynamicLibraryFilename);
-	virtual bool disconnect(const std::string dynamicLibraryFilename);
-	virtual bool disconnect(Plugin* plugin);
-private:
+	class PluginConnectorDummyImpl1 : public PluginConnector_if {
+	public:
+		PluginConnectorDummyImpl1();
+		virtual ~PluginConnectorDummyImpl1() = default;
+	public:
+		virtual Plugin* check(const std::string dynamicLibraryFilename);
+		virtual Plugin* connect(const std::string dynamicLibraryFilename);
+		virtual bool disconnect(const std::string dynamicLibraryFilename);
+		virtual bool disconnect(Plugin* plugin);
+	private:
 
-};
-
+	};
+//namespace\\}
 #endif /* PLUGINCONNECTORDUMMYIMPL1_H */
 

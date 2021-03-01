@@ -16,30 +16,32 @@
 
 #include "ParserChangesInformation.h"
 
-class ParserManager {
-public:
+//namespace GenesysKernel {
 
-	struct NewParser {
-		std::string bisonFilename;
-		std::string flexFilename;
-		std::string compiledParserFilename;
+	class ParserManager {
+	public:
+
+		struct NewParser {
+			std::string bisonFilename;
+			std::string flexFilename;
+			std::string compiledParserFilename;
+		};
+
+		struct GenerateNewParserResult {
+			bool result;
+			std::string bisonMessages;
+			std::string lexMessages;
+			std::string compilationMessages;
+			NewParser newParser;
+		};
+	public:
+		ParserManager();
+		virtual ~ParserManager() = default;
+	public:
+		ParserManager::GenerateNewParserResult generateNewParser(ParserChangesInformation* changes);
+		bool connectNewParser(ParserManager::NewParser newParser);
+	private:
 	};
-
-	struct GenerateNewParserResult {
-		bool result;
-		std::string bisonMessages;
-		std::string lexMessages;
-		std::string compilationMessages;
-		NewParser newParser;
-	};
-public:
-	ParserManager();
-	virtual ~ParserManager() = default;
-public:
-	ParserManager::GenerateNewParserResult generateNewParser(ParserChangesInformation* changes);
-	bool connectNewParser(ParserManager::NewParser newParser);
-private:
-};
-
+//namespace\\}
 #endif /* PARSERMANAGER_H */
 

@@ -13,6 +13,8 @@
 
 #include "ConnectionManager.h"
 
+//using namespace GenesysKernel;
+
 ConnectionManager::ConnectionManager() {
 }
 

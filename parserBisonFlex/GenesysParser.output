@@ -1,6 +1,6 @@
 Terminais sem uso na gramática
 
-   oNOT
+    oNOT
 
 
 Estado 54 conflitos: 1 de deslocamento/redução
@@ -162,137 +162,152 @@ Gramática
 
 Terminais, com as regras onde eles aparecem
 
-"end of file" (0) 0
-'\n' (10) 2 5
-error (256) 5
-NUMD (258) 17 94
-NUMH (259) 18
-CTEZERO (260) 89
-oLE (261) 29
-oGE (262) 31
-oEQ (263) 32
-oNE (264) 33
-oAND (265) 26
-oOR (266) 27
-oNOT (267)
-fSIN (268) 48
-fCOS (269) 49
-fROUND (270) 50
-fMOD (271) 53
-fTRUNC (272) 52
-fFRAC (273) 51
-fEXP (274) 24
-fRND1 (275) 54
-fEXPO (276) 55
-fNORM (277) 56
-fUNIF (278) 57
-fWEIB (279) 58
-fLOGN (280) 59
-fGAMM (281) 60
-fERLA (282) 61
-fTRIA (283) 62
-fBETA (284) 63
-fDISC (285) 64
-fTNOW (286) 46
-fTFIN (287) 47
-cIF (288) 36 37
-cELSE (289) 36
-cFOR (290) 38 39
-cTO (291) 38 39
-cDO (292) 38 39
-ATRIB (293) 69 70 71 72 77 78 79 80 93 94
-ILLEGAL (294) 68
-RESOURCE (295) 95 96 97 98 99
-fNR (296) 96
-fMR (297) 95
-fIRF (298) 99
-fRESSEIZES (299) 97
-fSTATE (300) 98
-fSETSUM (301) 100
-QUEUE (302) 90 91 92 93 94
-fNQ (303) 90
-fFIRSTINQ (304) 92
-fLASTINQ (305) 91
-fSAQUE (306) 93
-fAQUE (307) 94
-SET (308) 100 101
-fNUMSET (309) 101
-CSTAT (310) 102 103
-fTAVG (311) 103
-VARI (312) 73 74 75 76 81 82 83 84
-FORM (313) 85 86 87 88
-"(" (314) 13 24 36 37 48 49 50 51 52 53 55 56 57 58 59 60 61 62 63
-    64 65 90 91 92 93 94 95 96 97 98 99 100 101 103
-")" (315) 13 24 36 37 48 49 50 51 52 53 55 56 57 58 59 60 61 62 63
-    64 65 90 91 92 93 94 95 96 97 98 99 100 101 103
-"[" (316) 70 71 72 74 75 76 78 79 80 82 83 84 86 87 88
-"]" (317) 70 71 72 74 75 76 78 79 80 82 83 84 86 87 88
-"+" (318) 19
-"-" (319) 20 25
-"*" (320) 22
-"^" (321) 23
-"/" (322) 21
-"<" (323) 28
-">" (324) 30
-"=" (325) 38 39 77 78 79 80 81 82 83 84
-"," (326) 53 56 57 58 59 60 61 62 63 66 67 71 72 75 76 79 80 83 84
-    87 88 93 94
-NEG (327)
-"USER" (328) 65
+    "end of file" (0) 0
+    '\n' (10) 2 5
+    error (256) 5
+    NUMD <obj_t> (258) 17 94
+    NUMH <obj_t> (259) 18
+    CTEZERO <obj_t> (260) 89
+    oLE <obj_t> (261) 29
+    oGE <obj_t> (262) 31
+    oEQ <obj_t> (263) 32
+    oNE <obj_t> (264) 33
+    oAND <obj_t> (265) 26
+    oOR <obj_t> (266) 27
+    oNOT <obj_t> (267)
+    fSIN <obj_t> (268) 48
+    fCOS <obj_t> (269) 49
+    fROUND <obj_t> (270) 50
+    fMOD <obj_t> (271) 53
+    fTRUNC <obj_t> (272) 52
+    fFRAC <obj_t> (273) 51
+    fEXP <obj_t> (274) 24
+    fRND1 <obj_t> (275) 54
+    fEXPO <obj_t> (276) 55
+    fNORM <obj_t> (277) 56
+    fUNIF <obj_t> (278) 57
+    fWEIB <obj_t> (279) 58
+    fLOGN <obj_t> (280) 59
+    fGAMM <obj_t> (281) 60
+    fERLA <obj_t> (282) 61
+    fTRIA <obj_t> (283) 62
+    fBETA <obj_t> (284) 63
+    fDISC <obj_t> (285) 64
+    fTNOW <obj_t> (286) 46
+    fTFIN <obj_t> (287) 47
+    cIF <obj_t> (288) 36 37
+    cELSE <obj_t> (289) 36
+    cFOR <obj_t> (290) 38 39
+    cTO <obj_t> (291) 38 39
+    cDO <obj_t> (292) 38 39
+    ATRIB <obj_t> (293) 69 70 71 72 77 78 79 80 93 94
+    ILLEGAL <obj_t> (294) 68
+    RESOURCE <obj_t> (295) 95 96 97 98 99
+    fNR <obj_t> (296) 96
+    fMR <obj_t> (297) 95
+    fIRF <obj_t> (298) 99
+    fRESSEIZES <obj_t> (299) 97
+    fSTATE <obj_t> (300) 98
+    fSETSUM <obj_t> (301) 100
+    QUEUE <obj_t> (302) 90 91 92 93 94
+    fNQ <obj_t> (303) 90
+    fFIRSTINQ <obj_t> (304) 92
+    fLASTINQ <obj_t> (305) 91
+    fSAQUE <obj_t> (306) 93
+    fAQUE <obj_t> (307) 94
+    SET <obj_t> (308) 100 101
+    fNUMSET <obj_t> (309) 101
+    CSTAT <obj_t> (310) 102 103
+    fTAVG <obj_t> (311) 103
+    VARI <obj_t> (312) 73 74 75 76 81 82 83 84
+    FORM <obj_t> (313) 85 86 87 88
+    "(" (314) 13 24 36 37 48 49 50 51 52 53 55 56 57 58 59 60 61 62 63 64 65 90 91 92 93 94 95 96 97 98 99 100 101 103
+    ")" (315) 13 24 36 37 48 49 50 51 52 53 55 56 57 58 59 60 61 62 63 64 65 90 91 92 93 94 95 96 97 98 99 100 101 103
+    "[" (316) 70 71 72 74 75 76 78 79 80 82 83 84 86 87 88
+    "]" (317) 70 71 72 74 75 76 78 79 80 82 83 84 86 87 88
+    "+" (318) 19
+    "-" (319) 20 25
+    "*" (320) 22
+    "^" (321) 23
+    "/" (322) 21
+    "<" (323) 28
+    ">" (324) 30
+    "=" (325) 38 39 77 78 79 80 81 82 83 84
+    "," (326) 53 56 57 58 59 60 61 62 63 66 67 71 72 75 76 79 80 83 84 87 88 93 94
+    NEG (327)
+    "USER" (328) 65
 
 
 Não terminais com as regras onde eles aparecem
 
-$accept (75)
-    à esquerda: 0
-input (76)
-    à esquerda: 1 2 3 4 5, à direita: 0 2 3
-programa (77)
-    à esquerda: 6, à direita: 3
-expressao (78)
-    à esquerda: 7 8 9 10 11 12 13 14 15 16, à direita: 6 13 19 20
-    21 22 23 24 25 26 27 28 29 30 31 32 33 36 37 38 39 48 49 50 51
-    52 53 55 56 57 58 59 60 61 62 63 65 66 67 70 71 72 74 75 76 77
-    78 79 80 81 82 83 84 86 87 88
-numero (79)
-    à esquerda: 17 18, à direita: 7
-aritmetica (80)
-    à esquerda: 19 20 21 22 23 24 25, à direita: 11
-relacional (81)
-    à esquerda: 26 27 28 29 30 31 32 33, à direita: 12
-comando (82)
-    à esquerda: 34 35, à direita: 9
-comandoIF (83)
-    à esquerda: 36 37, à direita: 34
-comandoFOR (84)
-    à esquerda: 38 39, à direita: 35
-funcao (85)
-    à esquerda: 40 41 42 43 44 45, à direita: 8
-funcaoKernel (86)
-    à esquerda: 46 47, à direita: 43
-funcaoTrig (87)
-    à esquerda: 48 49, à direita: 41
-funcaoArit (88)
-    à esquerda: 50 51 52 53, à direita: 40
-funcaoProb (89)
-    à esquerda: 54 55 56 57 58 59 60 61 62 63 64, à direita: 42
-funcaoUser (90)
-    à esquerda: 65, à direita: 45
-listaparm (91)
-    à esquerda: 66 67, à direita: 64 66
-illegal (92)
-    à esquerda: 68, à direita: 4
-atributo (93)
-    à esquerda: 69 70 71 72, à direita: 14 39
-variavel (94)
-    à esquerda: 73 74 75 76, à direita: 15 38
-atribuicao (95)
-    à esquerda: 77 78 79 80 81 82 83 84, à direita: 10 38 39
-formula (96)
-    à esquerda: 85 86 87 88, à direita: 16
-funcaoPlugin (97)
-    à esquerda: 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103,
-    à direita: 44
+    $accept (75)
+        à esquerda: 0
+    input <obj_t> (76)
+        à esquerda: 1 2 3 4 5
+        à direita: 0 2 3
+    programa <obj_t> (77)
+        à esquerda: 6
+        à direita: 3
+    expressao <obj_t> (78)
+        à esquerda: 7 8 9 10 11 12 13 14 15 16
+        à direita: 6 13 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 36 37 38 39 48 49 50 51 52 53 55 56 57 58 59 60 61 62 63 65 66 67 70 71 72 74 75 76 77 78 79 80 81 82 83 84 86 87 88
+    numero <obj_t> (79)
+        à esquerda: 17 18
+        à direita: 7
+    aritmetica <obj_t> (80)
+        à esquerda: 19 20 21 22 23 24 25
+        à direita: 11
+    relacional <obj_t> (81)
+        à esquerda: 26 27 28 29 30 31 32 33
+        à direita: 12
+    comando <obj_t> (82)
+        à esquerda: 34 35
+        à direita: 9
+    comandoIF <obj_t> (83)
+        à esquerda: 36 37
+        à direita: 34
+    comandoFOR <obj_t> (84)
+        à esquerda: 38 39
+        à direita: 35
+    funcao <obj_t> (85)
+        à esquerda: 40 41 42 43 44 45
+        à direita: 8
+    funcaoKernel <obj_t> (86)
+        à esquerda: 46 47
+        à direita: 43
+    funcaoTrig <obj_t> (87)
+        à esquerda: 48 49
+        à direita: 41
+    funcaoArit <obj_t> (88)
+        à esquerda: 50 51 52 53
+        à direita: 40
+    funcaoProb <obj_t> (89)
+        à esquerda: 54 55 56 57 58 59 60 61 62 63 64
+        à direita: 42
+    funcaoUser <obj_t> (90)
+        à esquerda: 65
+        à direita: 45
+    listaparm <obj_t> (91)
+        à esquerda: 66 67
+        à direita: 64 66
+    illegal <obj_t> (92)
+        à esquerda: 68
+        à direita: 4
+    atributo <obj_t> (93)
+        à esquerda: 69 70 71 72
+        à direita: 14 39
+    variavel <obj_t> (94)
+        à esquerda: 73 74 75 76
+        à direita: 15 38
+    atribuicao <obj_t> (95)
+        à esquerda: 77 78 79 80 81 82 83 84
+        à direita: 10 38 39
+    formula <obj_t> (96)
+        à esquerda: 85 86 87 88
+        à direita: 16
+    funcaoPlugin <obj_t> (97)
+        à esquerda: 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103
+        à direita: 44
 
 
 Estado 0

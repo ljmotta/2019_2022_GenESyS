@@ -20,27 +20,29 @@
 #include "Entity.h"
 #include "ModelComponent.h"
 
-/*!
- * An an instantaneaous event, triggered at a certain moment by an entity upon reaching a component. The simulated time advances in discrete points in time and that are the instants that an event is triggered. 
- */
-class Event {//: public ModelElement {
-public:
-	Event(double time, Entity* entity, ModelComponent* component, unsigned int componentInputNumber = 0);
-	Event(double time, Entity* entity, Connection* connection);
-	virtual ~Event() = default;
-public:
-	double time() const;
-	ModelComponent* component() const;
-	Entity* entity() const;
-	unsigned int componentInputNumber() const;
-public:
-	std::string show();
-private:
-	double _time;
-	Entity* _entity;
-	ModelComponent* _component;
-	unsigned int _componentInputNumber;
-};
+//namespace GenesysKernel {
 
+	/*!
+	 * An an instantaneaous event, triggered at a certain moment by an entity upon reaching a component. The simulated time advances in discrete points in time and that are the instants that an event is triggered. 
+	 */
+	class Event {//: public ModelElement {
+	public:
+		Event(double time, Entity* entity, ModelComponent* component, unsigned int componentInputNumber = 0);
+		Event(double time, Entity* entity, Connection* connection);
+		virtual ~Event() = default;
+	public:
+		double time() const;
+		ModelComponent* component() const;
+		Entity* entity() const;
+		unsigned int componentInputNumber() const;
+	public:
+		std::string show();
+	private:
+		double _time;
+		Entity* _entity;
+		ModelComponent* _component;
+		unsigned int _componentInputNumber;
+	};
+//namespace\\}
 #endif /* EVENT_H */
 

@@ -19,19 +19,22 @@
 #include "Genesys++-driver.h"
 #include "../Model.h"
 
-class ParserDefaultImpl2 : public Parser_if {
-public:
-	ParserDefaultImpl2(Model* model);
-	ParserDefaultImpl2(Model* model, bool throws);
-	virtual ~ParserDefaultImpl2() = default;
-public:
-	virtual double parse(const std::string expression); // may throw exception
-	virtual double parse(const std::string expression, bool* success, std::string* errorMessage);
-	virtual std::string* getErrorMessage();
-private:
-	Model* _model;
-	genesyspp_driver _wrapper;
-};
+//namespace GenesysKernel {
 
+	class ParserDefaultImpl2 : public Parser_if {
+	public:
+		ParserDefaultImpl2(Model* model, Sampler_if* sampler, bool throws = false);
+		virtual ~ParserDefaultImpl2() = default;
+	public:
+		virtual double parse(const std::string expression); // may throw exception
+		virtual double parse(const std::string expression, bool* success, std::string* errorMessage);
+		virtual std::string* getErrorMessage();
+		virtual void setSampler(Sampler_if* _sampler);
+		virtual Sampler_if* sampler() const;
+	private:
+		Model* _model;
+		genesyspp_driver _wrapper;
+	};
+//namespace\\}
 #endif /* PARSERDEFAULTIMPL2_H */
 

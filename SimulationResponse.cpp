@@ -12,7 +12,9 @@
  */
 
 #include "SimulationResponse.h"
-#include "AnalysisOfVariance_if.h"
+//#include "AnalysisOfVariance_if.h"
+
+//using namespace GenesysKernel;
 
 SimulationResponse::SimulationResponse(std::string type, std::string name, GetterMember getterMember) {
 	_type = type;

@@ -15,6 +15,8 @@
 #include "Simulator.h"
 #include "Traits.h"
 
+//using namespace GenesysKernel;
+
 PluginManager::PluginManager(Simulator* simulator) {
 	_simulator = simulator;
 	this->_pluginConnector = new Traits<PluginConnector_if>::Implementation();

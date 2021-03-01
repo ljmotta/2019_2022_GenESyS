@@ -14,15 +14,15 @@
 #ifndef PROCESSANALYSERDEFAULTIMPL1_H
 #define PROCESSANALYSERDEFAULTIMPL1_H
 
-#include "ProcessAnalyser_if.h"
+#include "ExperimetManager_if.h"
 #include "SimulationScenario.h"
 #include "SimulationResponse.h"
 #include "SimulationControl.h"
 
-class ProcessAnalyserDefaultImpl1 : public ProcessAnalyser_if {
+class ExperimentManagerDefaultImpl1 : public ExperimentManager_if {
 public:
-	ProcessAnalyserDefaultImpl1();
-	virtual ~ProcessAnalyserDefaultImpl1() = default;
+	ExperimentManagerDefaultImpl1();
+	virtual ~ExperimentManagerDefaultImpl1() = default;
 public:
 	virtual List<SimulationScenario*>* getScenarios() const;
 	virtual List<SimulationControl*>* getControls() const;

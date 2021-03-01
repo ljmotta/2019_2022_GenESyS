@@ -17,13 +17,15 @@
 #include<string>
 #include "Plugin.h"
 
-class PluginConnector_if {
-public:
-	virtual Plugin* check(const std::string dynamicLibraryFilename) = 0;
-	virtual Plugin* connect(const std::string dynamicLibraryFilename) = 0;
-	virtual bool disconnect(const std::string dynamicLibraryFilename) = 0;
-	virtual bool disconnect(Plugin* plugin) = 0;
-};
+//namespace GenesysKernel {
 
+	class PluginConnector_if {
+	public:
+		virtual Plugin* check(const std::string dynamicLibraryFilename) = 0;
+		virtual Plugin* connect(const std::string dynamicLibraryFilename) = 0;
+		virtual bool disconnect(const std::string dynamicLibraryFilename) = 0;
+		virtual bool disconnect(Plugin* plugin) = 0;
+	};
+//namespace\\}
 #endif /* PLUGINCONNECTOR_IF_H */
 

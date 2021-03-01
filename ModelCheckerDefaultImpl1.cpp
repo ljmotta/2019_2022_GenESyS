@@ -19,6 +19,8 @@
 
 #include <assert.h>
 
+//using namespace GenesysKernel;
+
 ModelCheckerDefaultImpl1::ModelCheckerDefaultImpl1(Model* model) {
 	_model = model;
 }

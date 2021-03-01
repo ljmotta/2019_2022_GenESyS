@@ -16,6 +16,8 @@
 #include "ModelElement.h"
 #include "Model.h"
 
+//using namespace GenesysKernel;
+
 ModelElement::ModelElement(Model* model, std::string thistypename, std::string name, bool insertIntoModel) {
 	_id = Util::GenerateNewId(); //GenerateNewIdOfType(thistypename);
 	_typename = thistypename;

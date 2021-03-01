@@ -15,6 +15,8 @@
 #include "List.h"
 #include "Model.h"
 
+//using namespace GenesysKernel;
+
 ComponentManager::ComponentManager(Model* model) {
 	_parentModel = model;
 	_components = new List<ModelComponent*>();

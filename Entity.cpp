@@ -16,6 +16,8 @@
 #include "Attribute.h"
 #include "Model.h"
 
+//using namespace GenesysKernel;
+
 Entity::Entity(Model* model) : ModelElement(model, Util::TypeOf<Entity>()) {
 	//_elements = elements;
 	_entityNumber = Util::GetLastIdOfType(Util::TypeOf<Entity>());
@@ -59,7 +61,7 @@ std::string Entity::show() {
 	}
 	message += ",attributes=[";
 	_attributeValues->front();
-	unsigned int i = 0;
+	//unsigned int i = 0;
 	for (unsigned int i = 0; i < _attributeValues->size(); i++) {
 		std::map<std::string, double>* map = _attributeValues->current();
 		std::string attributeName = _parentModel->elements()->elementList(Util::TypeOf<Attribute>())->getAtRank(i)->name();

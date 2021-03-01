@@ -14,6 +14,8 @@
 #include "ModelComponent.h"
 #include "Model.h"
 
+//using namespace GenesysKernel;
+
 ModelComponent::ModelComponent(Model* model, std::string componentTypename, std::string name) : ModelElement(model, componentTypename, name, false) {
 	model->components()->insert(this);
 }

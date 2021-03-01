@@ -13,7 +13,26 @@
 
 #include "Simulator.h"
 #include "LicenceManager.h"
-#include "ToolManager.h"
+//#include "ToolManager.h"
+
+extern "C" GenesysSimulator CreateSimulator2() {
+	return new /*GenesysKernel::*/Simulator();
+}
+
+extern "C" /*GenesysKernel::*/Simulator* CreateSimulator() {
+	return new /*GenesysKernel::*/Simulator();
+}
+
+extern "C" void DestroySimulator2(GenesysSimulator p) {
+	delete p; // Can use a base class or derived class pointer here
+}
+
+extern "C" void DestroySimulator(/*GenesysKernel::*/Simulator* p) {
+	delete p; // Can use a base class or derived class pointer here
+}
+
+
+//using namespace GenesysKernel;
 
 Simulator::Simulator() {
 	// This is the ONLY method in the entire software where std::cout is allowed.
@@ -24,8 +43,8 @@ Simulator::Simulator() {
 	//_toolManager = new ToolManager(this);
 	_traceManager = new TraceManager(this);
 	std::cout << '|' << '\t' << _licenceManager->showLicence() << std::endl;
-	std::cout << '|' << '\t' << _licenceManager->showActivationCode() << std::endl;
-	std::cout << '|' << '\t' << _licenceManager->showLimits() << std::endl;
+	//std::cout << '|' << '\t' << _licenceManager->showActivationCode() << std::endl;
+	//std::cout << '|' << '\t' << _licenceManager->showLimits() << std::endl;
 }
 
 PluginManager* Simulator::plugins() const {
@@ -35,10 +54,6 @@ PluginManager* Simulator::plugins() const {
 ModelManager* Simulator::models() const {
 	return _modelManager;
 }
-
-//ToolManager* Simulator::tools() const {
-//	return _toolManager;
-//}
 
 TraceManager* Simulator::tracer() const {
 	return _traceManager;

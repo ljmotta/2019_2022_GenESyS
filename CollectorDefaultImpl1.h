@@ -15,25 +15,26 @@
 #define COLLECTORDEFAULTIMPL1_H
 
 #include "Collector_if.h"
+//namespace GenesysKernel {
 
-class CollectorDefaultImpl1 : public Collector_if {
-public:
-	CollectorDefaultImpl1();
-	virtual ~CollectorDefaultImpl1() = default;
-public:
-	void clear();
-	void addValue(double value);
-	double getLastValue();
-	unsigned long numElements();
-public:
-	void setAddValueHandler(CollectorAddValueHandler addValueHandler);
-	void setClearHandler(CollectorClearHandler clearHandler);
-private:
-	double _lastValue;
-	unsigned long _numElements = 0;
-	CollectorAddValueHandler _addValueHandler = nullptr;
-	CollectorClearHandler _clearHandler = nullptr;
-};
-
+	class CollectorDefaultImpl1 : public Collector_if {
+	public:
+		CollectorDefaultImpl1();
+		virtual ~CollectorDefaultImpl1() = default;
+	public:
+		void clear();
+		void addValue(double value);
+		double getLastValue();
+		unsigned long numElements();
+	public:
+		void setAddValueHandler(CollectorAddValueHandler addValueHandler);
+		void setClearHandler(CollectorClearHandler clearHandler);
+	private:
+		double _lastValue;
+		unsigned long _numElements = 0;
+		CollectorAddValueHandler _addValueHandler = nullptr;
+		CollectorClearHandler _clearHandler = nullptr;
+	};
+//namespace\\}
 #endif /* COLLECTORDEFAULTIMPL1_H */
 

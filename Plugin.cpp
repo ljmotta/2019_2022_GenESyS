@@ -15,8 +15,10 @@
 #include "Model.h"
 #include "SourceModelComponent.h"
 #include "SinkModelComponent.h"
-#include "Assign.h"
+//#include "Assign.h"
 #include <assert.h>
+
+//using namespace GenesysKernel;
 
 Plugin::Plugin(StaticGetPluginInformation getInformation) {
 	this->_StatMethodGetInformation = getInformation;

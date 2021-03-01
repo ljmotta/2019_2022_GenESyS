@@ -67,17 +67,19 @@
 
 #include "Util.h"
 
-PluginConnectorDummyImpl1::PluginConnectorDummyImpl1() {
-}
+//namespace GenesysKernel {
 
-Plugin* PluginConnectorDummyImpl1::check(const std::string dynamicLibraryFilename) {
-	return nullptr; /**@ \todo:To implement */
-}
+	PluginConnectorDummyImpl1::PluginConnectorDummyImpl1() {
+	}
 
-Plugin* PluginConnectorDummyImpl1::connect(const std::string dynamicLibraryFilename) {
-	std::string fn = getFileName(dynamicLibraryFilename);
-	StaticGetPluginInformation GetInfo = nullptr;
-	Plugin* pluginResult = nullptr;
+	Plugin* PluginConnectorDummyImpl1::check(const std::string dynamicLibraryFilename) {
+		return nullptr; /**@ \todo:To implement */
+	}
+
+	Plugin* PluginConnectorDummyImpl1::connect(const std::string dynamicLibraryFilename) {
+		std::string fn = getFileName(dynamicLibraryFilename);
+		StaticGetPluginInformation GetInfo = nullptr;
+		Plugin* pluginResult = nullptr;
 	// model elements
 	if (fn == "attribute.so")
 		GetInfo = &Attribute::GetPluginInformation;
@@ -189,16 +191,18 @@ Plugin* PluginConnectorDummyImpl1::connect(const std::string dynamicLibraryFilen
 
 	//else if (fn=="")
 
-	if (GetInfo != nullptr) {
-		pluginResult = new Plugin(GetInfo);
+		if (GetInfo != nullptr) {
+			pluginResult = new Plugin(GetInfo);
+		}
+		return pluginResult;
 	}
-	return pluginResult;
+
+	bool PluginConnectorDummyImpl1::disconnect(const std::string dynamicLibraryFilename) {
+		return true;
+	}
+
+	bool PluginConnectorDummyImpl1::disconnect(Plugin* plugin) {
+		return true;
 }
 
-bool PluginConnectorDummyImpl1::disconnect(const std::string dynamicLibraryFilename) {
-	return true;
-}
-
-bool PluginConnectorDummyImpl1::disconnect(Plugin* plugin) {
-	return true;
-}
+//namespace\\}

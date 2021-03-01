@@ -15,6 +15,8 @@
 #include "SimulationResponse.h"
 #include "Model.h"
 
+//using namespace GenesysKernel;
+
 Counter::Counter(Model* model, std::string name, ModelElement* parent) : ModelElement(model, Util::TypeOf<Counter>(), name) {
 	_parent = parent;
 	_addSimulationResponse();
@@ -79,3 +81,4 @@ std::map<std::string, std::string>* Counter::_saveInstance() {
 bool Counter::_check(std::string* errorMessage) {
 	return true;
 }
+

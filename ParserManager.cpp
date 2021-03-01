@@ -13,6 +13,8 @@
 
 #include "ParserManager.h"
 
+//using namespace GenesysKernel;
+
 ParserManager::ParserManager() {
 }
 

@@ -15,6 +15,8 @@
 #include "Model.h"
 #include "Attribute.h"
 
+//using namespace GenesysKernel;
+
 SourceModelComponent::SourceModelComponent(Model* model, std::string componentTypename, std::string name) : ModelComponent(model, componentTypename, name) {
 }
 

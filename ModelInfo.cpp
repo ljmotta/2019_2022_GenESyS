@@ -13,7 +13,8 @@
 
 #include "ModelInfo.h"
 #include "Model.h"
-#include "Assign.h"
+
+//using namespace GenesysKernel;
 
 ModelInfo::ModelInfo() {
 	_name = "Model " + std::to_string(Util::GenerateNewIdOfType<Model>());

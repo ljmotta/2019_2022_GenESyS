@@ -18,29 +18,30 @@
 #include "Plugin.h"
 #include "PluginConnector_if.h"
 
-class Simulator;
+//namespace GenesysKernel {
+	class Simulator;
 
-class PluginManager {
-public:
-	PluginManager(Simulator* simulator);
-	virtual ~PluginManager() = default;
-public:
-	bool check(const std::string dynamicLibraryFilename);
-	Plugin* insert(const std::string dynamicLibraryFilename);
-	bool remove(const std::string dynamicLibraryFilename);
-	bool remove(Plugin* plugin);
-	Plugin* find(std::string pluginTypeName);
-public:
-	Plugin* front();
-	Plugin* next();
-	Plugin* last();
-private:
-	bool _insert(Plugin* plugin);
-private:
-	List<Plugin*>* _plugins = new List<Plugin*>();
-	Simulator* _simulator;
-	PluginConnector_if* _pluginConnector;
-};
-
+	class PluginManager {
+	public:
+		PluginManager(Simulator* simulator);
+		virtual ~PluginManager() = default;
+	public:
+		bool check(const std::string dynamicLibraryFilename);
+		Plugin* insert(const std::string dynamicLibraryFilename);
+		bool remove(const std::string dynamicLibraryFilename);
+		bool remove(Plugin* plugin);
+		Plugin* find(std::string pluginTypeName);
+	public:
+		Plugin* front();
+		Plugin* next();
+		Plugin* last();
+	private:
+		bool _insert(Plugin* plugin);
+	private:
+		List<Plugin*>* _plugins = new List<Plugin*>();
+		Simulator* _simulator;
+		PluginConnector_if* _pluginConnector;
+	};
+//namespace\\}
 #endif /* PLUGINMANAGER_H */
 

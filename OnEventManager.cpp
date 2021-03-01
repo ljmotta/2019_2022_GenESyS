@@ -13,6 +13,8 @@
 
 #include "OnEventManager.h"
 
+//using namespace GenesysKernel;
+
 OnEventManager::OnEventManager() {
 }
 

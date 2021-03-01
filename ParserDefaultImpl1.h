@@ -15,20 +15,20 @@
 #define PARSERDEFAULTIMPL1_H
 
 #include "Parser_if.h"
+//namespace GenesysKernel {
+	class Model;
 
-class Model;
-
-class ParserDefaultImpl1 : public Parser_if {
-public:
-	ParserDefaultImpl1(Model* model);
-	virtual ~ParserDefaultImpl1() = default;
-public:
-	double parse(const std::string expression); // may throw exception
-	double parse(const std::string expression, bool* success, std::string* errorMessage);
-	std::string* getErrorMessage();
-private:
-	Model* _model;
-};
-
+	class ParserDefaultImpl1 : public Parser_if {
+	public:
+		ParserDefaultImpl1(Model* model);
+		virtual ~ParserDefaultImpl1() = default;
+	public:
+		double parse(const std::string expression); // may throw exception
+		double parse(const std::string expression, bool* success, std::string* errorMessage);
+		std::string* getErrorMessage();
+	private:
+		Model* _model;
+	};
+//namespace\\}
 #endif /* PARSERDEFAULTIMPL1_H */
 

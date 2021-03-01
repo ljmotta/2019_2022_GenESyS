@@ -18,6 +18,8 @@
 
 #include "SamplerDefaultImpl1.h"
 
+//using namespace GenesysKernel;
+
 SamplerDefaultImpl1::SamplerDefaultImpl1() {
 	reset();
 }
@@ -43,7 +45,7 @@ double SamplerDefaultImpl1::sampleExponential(double mean) {
 }
 
 double SamplerDefaultImpl1::sampleErlang(double mean, int M) {
-	unsigned int i;
+	int i;
 	double P;
 	assert((mean >= 0.0) && (M > 0));
 	P = 1;
@@ -147,6 +149,7 @@ double SamplerDefaultImpl1::sampleTriangular(double min, double mode, double max
 
 double SamplerDefaultImpl1::sampleDiscrete(double acumProb, double value, ...) {
 	// TODO: to implement
+	return 0.0;
 }
 
 void SamplerDefaultImpl1::setRNGparameters(Sampler_if::RNG_Parameters * param) {

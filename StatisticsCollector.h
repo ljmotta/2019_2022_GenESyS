@@ -19,34 +19,36 @@
 #include "ElementManager.h"
 #include "Plugin.h"
 
-/*!
- The StatisticsCollector is the ModelElement responsible for collecting data from the model (using the Collector) and simultaneouly keeping statistics updated (using the Statistics)
- */
-class StatisticsCollector : public ModelElement {//, public Statistics_if {
-public:
-	StatisticsCollector(Model* model, std::string name = "", ModelElement* parent = nullptr, bool insertIntoModel = true);
-	virtual ~StatisticsCollector() = default;
-public:
-	virtual std::string show();
-public:
-	static PluginInformation* GetPluginInformation();
-	static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
-public:
-	ModelElement* getParent() const;
-	Statistics_if* getStatistics() const;
+//namespace GenesysKernel {
 
-protected:
-	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
-	virtual std::map<std::string, std::string>* _saveInstance();
-	virtual bool _check(std::string* errorMessage);
-protected:
-	void _addSimulationResponse();
-private:
-	void _initStaticsAndCollector();
-private:
-	ModelElement* _parent;
-	Statistics_if* _statistics; //= new Traits<ModelComponent>::StatisticsCollector_StatisticsImplementation();
-};
+	/*!
+	 The StatisticsCollector is the ModelElement responsible for collecting data from the model (using the Collector) and simultaneouly keeping statistics updated (using the Statistics)
+	 */
+	class StatisticsCollector : public ModelElement {//, public Statistics_if {
+	public:
+		StatisticsCollector(Model* model, std::string name = "", ModelElement* parent = nullptr, bool insertIntoModel = true);
+		virtual ~StatisticsCollector() = default;
+	public:
+		virtual std::string show();
+	public:
+		static PluginInformation* GetPluginInformation();
+		static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	public:
+		ModelElement* getParent() const;
+		Statistics_if* getStatistics() const;
 
+	protected:
+		virtual bool _loadInstance(std::map<std::string, std::string>* fields);
+		virtual std::map<std::string, std::string>* _saveInstance();
+		virtual bool _check(std::string* errorMessage);
+	protected:
+		void _addSimulationResponse();
+	private:
+		void _initStaticsAndCollector();
+	private:
+		ModelElement* _parent;
+		Statistics_if* _statistics; //= new Traits<ModelComponent>::StatisticsCollector_StatisticsImplementation();
+	};
+//namespace\\}
 #endif /* STATISTICSCOLLECTOR_H */
 

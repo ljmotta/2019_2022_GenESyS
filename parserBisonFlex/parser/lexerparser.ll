@@ -11,17 +11,13 @@
 # include "../Util.h"
 # include "../List.h"
 # include "../Variable.h"
-# include "../StatisticsCollector.h"
-# include "../ModelElement.h"
-# include "../Attribute.h"
-//
-// include to Plugin header files should be specified by plugins themselves
-//
 # include "../Queue.h"
 # include "../Formula.h"
 # include "../Resource.h"
+# include "../StatisticsCollector.h"
 # include "../Set.h"
-
+# include "../ModelElement.h"
+# include "../Attribute.h"
 
 
 // Work around an incompatibility in flex (at least versions

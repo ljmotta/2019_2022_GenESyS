@@ -15,6 +15,8 @@
 #include "Model.h"
 #include "SimulationResponse.h"
 
+//using namespace GenesysKernel;
+
 //EntityType::EntityType(Model* model) : ModelElement(model, Util::TypeOf<EntityType>()) {
 //    //_elemManager = elemManager;
 //    _initCostsAndStatistics();

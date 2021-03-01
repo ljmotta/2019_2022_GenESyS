@@ -21,61 +21,62 @@
 #include "Plugin.h"
 
 //#include "Model.h"
+//namespace GenesysKernel {
 
-class EntityType : public ModelElement {
-public:
-	//EntityType(Model* model);
-	EntityType(Model* model, std::string name = "");
-	virtual ~EntityType();
-public:
-	virtual std::string show();
-public:
-	static PluginInformation* GetPluginInformation();
-	static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
-public: //get & set
-	void setInitialWaitingCost(double _initialWaitingCost);
-	double initialWaitingCost() const;
-	void setInitialOtherCost(double _initialOtherCost);
-	double initialOtherCost() const;
-	void setInitialNVACost(double _initialNVACost);
-	double initialNVACost() const;
-	void setInitialVACost(double _initialVACost);
-	double initialVACost() const;
-	void setInitialPicture(std::string _initialPicture);
-	std::string initialPicture() const;
-public: //get
-	//StatisticsCollector* getCstatTotalTime() const;
-	//StatisticsCollector* getCstatNVATime() const;
-	//StatisticsCollector* getCstatVATime() const;
-	//StatisticsCollector* getCstatOtherTime() const;
-	//StatisticsCollector* getCstatTransferTime() const;
-	//StatisticsCollector* getCstatWaitingTime() const;
-	StatisticsCollector* statisticsCollector(std::string name);
+	class EntityType : public ModelElement {
+	public:
+		//EntityType(Model* model);
+		EntityType(Model* model, std::string name = "");
+		virtual ~EntityType();
+	public:
+		virtual std::string show();
+	public:
+		static PluginInformation* GetPluginInformation();
+		static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	public: //get & set
+		void setInitialWaitingCost(double _initialWaitingCost);
+		double initialWaitingCost() const;
+		void setInitialOtherCost(double _initialOtherCost);
+		double initialOtherCost() const;
+		void setInitialNVACost(double _initialNVACost);
+		double initialNVACost() const;
+		void setInitialVACost(double _initialVACost);
+		double initialVACost() const;
+		void setInitialPicture(std::string _initialPicture);
+		std::string initialPicture() const;
+	public: //get
+		//StatisticsCollector* getCstatTotalTime() const;
+		//StatisticsCollector* getCstatNVATime() const;
+		//StatisticsCollector* getCstatVATime() const;
+		//StatisticsCollector* getCstatOtherTime() const;
+		//StatisticsCollector* getCstatTransferTime() const;
+		//StatisticsCollector* getCstatWaitingTime() const;
+		StatisticsCollector* statisticsCollector(std::string name);
 
-protected: // must be overriden by derived classes
-	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
-	virtual std::map<std::string, std::string>* _saveInstance();
-	virtual bool _check(std::string* errorMessage);
+	protected: // must be overriden by derived classes
+		virtual bool _loadInstance(std::map<std::string, std::string>* fields);
+		virtual std::map<std::string, std::string>* _saveInstance();
+		virtual bool _check(std::string* errorMessage);
 
-private:
-	void _initCostsAndStatistics();
-private:
-	std::string _initialPicture = "report";
-	double _initialVACost = 0.0;
-	double _initialNVACost = 0.0;
-	double _initialOtherCost = 0.0;
-	double _initialWaitingCost = 0.0;
-	//private:
-	//ElementManager* _elemManager;
-private: //1:n
-	List<StatisticsCollector*>* _statisticsCollectors = new List<StatisticsCollector*>();
-	//StatisticsCollector* _cstatWaitingTime; //  = new StatisticsCollector("Waiting Time");
-	//StatisticsCollector* _cstatTransferTime; //  = new StatisticsCollector("Transfer Time");
-	//StatisticsCollector* _cstatOtherTime; //  = new StatisticsCollector("Other Time");
-	//StatisticsCollector* _cstatVATime; //  = new StatisticsCollector("Value Added Time");
-	//StatisticsCollector* _cstatNVATime; //  = new StatisticsCollector("Non Value Added Time");
-	//StatisticsCollector* _cstatTotalTime; //  = new StatisticsCollector("Time In System");
-};
-
+	private:
+		void _initCostsAndStatistics();
+	private:
+		std::string _initialPicture = "report";
+		double _initialVACost = 0.0;
+		double _initialNVACost = 0.0;
+		double _initialOtherCost = 0.0;
+		double _initialWaitingCost = 0.0;
+		//private:
+		//ElementManager* _elemManager;
+	private: //1:n
+		List<StatisticsCollector*>* _statisticsCollectors = new List<StatisticsCollector*>();
+		//StatisticsCollector* _cstatWaitingTime; //  = new StatisticsCollector("Waiting Time");
+		//StatisticsCollector* _cstatTransferTime; //  = new StatisticsCollector("Transfer Time");
+		//StatisticsCollector* _cstatOtherTime; //  = new StatisticsCollector("Other Time");
+		//StatisticsCollector* _cstatVATime; //  = new StatisticsCollector("Value Added Time");
+		//StatisticsCollector* _cstatNVATime; //  = new StatisticsCollector("Non Value Added Time");
+		//StatisticsCollector* _cstatTotalTime; //  = new StatisticsCollector("Time In System");
+	};
+//namespace\\}
 #endif /* ENTITYTYPE_H */
 

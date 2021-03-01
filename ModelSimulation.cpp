@@ -22,6 +22,8 @@
 #include "SimulationControl.h"
 #include "ComponentManager.h"
 
+//using namespace GenesysKernel;
+
 ModelSimulation::ModelSimulation(Model* model) {
 	_model = model;
 	_info = model->infos(); // why??
@@ -236,7 +238,7 @@ void ModelSimulation::_initReplication() {
 	// init all elements between replications
 	ModelElement* element;
 	std::string elementType;
-	std::string* errorMessage = new std::string();
+	//std::string* errorMessage = new std::string();
 	std::list<std::string>* elementTypes = _model->elements()->elementClassnames();
 	for (std::list<std::string>::iterator typeIt = elementTypes->begin(); typeIt != elementTypes->end(); typeIt++) {
 		elementType = (*typeIt);
@@ -415,6 +417,10 @@ ModelComponent* ModelSimulation::currentComponent() const {
 
 Entity* ModelSimulation::currentEntity() const {
 	return _currentEntity;
+}
+
+void ModelSimulation::setReporter(SimulationReporter_if* _simulationReporter) {
+	this->_simulationReporter = _simulationReporter;
 }
 
 SimulationReporter_if* ModelSimulation::reporter() const {

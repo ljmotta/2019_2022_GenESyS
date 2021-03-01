@@ -15,6 +15,7 @@
 #include <typeinfo>
 #include <map>
 
+//using namespace GenesysKernel;
 
 Util::identification Util::_S_lastId = 0;
 unsigned int Util::_S_indentation;

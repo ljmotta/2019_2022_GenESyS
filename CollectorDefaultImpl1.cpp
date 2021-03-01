@@ -13,6 +13,8 @@
 
 #include "CollectorDefaultImpl1.h"
 
+//using namespace GenesysKernel;
+
 CollectorDefaultImpl1::CollectorDefaultImpl1() {
 }
 

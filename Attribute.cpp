@@ -13,6 +13,8 @@
 
 #include "Attribute.h"
 
+//using namespace GenesysKernel;
+
 //Attribute::Attribute(Model* model) : ModelElement(model, Util::TypeOf<Attribute>()) {
 //}
 

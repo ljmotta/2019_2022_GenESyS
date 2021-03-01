@@ -15,6 +15,8 @@
 #include "List.h"
 #include "Simulator.h"
 
+//using namespace GenesysKernel;
+
 ModelManager::ModelManager(Simulator* simulator) {
 	_simulator = simulator;
 	_currentModel = nullptr;

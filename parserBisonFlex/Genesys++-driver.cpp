@@ -2,17 +2,36 @@
 #include "Genesys++-driver.h"
 #include "../Traits.h"
 
+//using namespace GenesysKernel;
+
 genesyspp_driver::genesyspp_driver() {
 }
 
-genesyspp_driver::genesyspp_driver(Model* model, bool throws) {
+genesyspp_driver::genesyspp_driver(/*GenesysKernel::*/Model* model, Sampler_if* sampler, bool throws) {
 	_model = model;
-	probs = new Traits<Sampler_if>::Implementation();
+	_sampler = sampler;
 	throwsException = throws;
 }
 
-int
-genesyspp_driver::parse_file(const std::string &f) {
+/*
+void genesyspp_driver::scan_begin_file() {
+	// IMPLEMENTED IN LEXPARSER.LL
+}
+
+void genesyspp_driver::scan_end_file() {
+	// IMPLEMENTED IN LEXPARSER.LL
+}
+ 
+
+void genesyspp_driver::scan_begin_str() {
+	// // IMPLEMENTED IN LEXPARSER.LL
+}
+
+void genesyspp_driver::scan_end_str() {
+	// IMPLEMENTED IN LEXPARSER.LL
+}
+ */
+int genesyspp_driver::parse_file(const std::string &f) {
 	result = 0;
 	file = f;
 	setErrorMessage("");
@@ -23,8 +42,7 @@ genesyspp_driver::parse_file(const std::string &f) {
 	return res;
 }
 
-int
-genesyspp_driver::parse_str(const std::string &str) {
+int genesyspp_driver::parse_str(const std::string &str) {
 	result = 0;
 	str_to_parse = str;
 	setErrorMessage("");
@@ -59,12 +77,8 @@ std::string genesyspp_driver::getErrorMessage() {
 	return errorMessage;
 }
 
-Model* genesyspp_driver::getModel() {
+/*GenesysKernel::*/Model* genesyspp_driver::getModel() {
 	return _model;
-}
-
-Sampler_if* genesyspp_driver::getProbs() {
-	return probs;
 }
 
 std::string genesyspp_driver::getFile() {
@@ -83,18 +97,26 @@ void genesyspp_driver::setStrToParse(std::string str) {
 	str_to_parse = str;
 }
 
+void genesyspp_driver::setSampler(Sampler_if* _sampler) {
+	this->_sampler = _sampler;
+}
+
+Sampler_if* genesyspp_driver::sampler() const {
+	return _sampler;
+}
+
 void
 genesyspp_driver::error(const yy::location& l, const std::string& m) {
 	std::string erro(m);
 	erro.append("\n");
 	setErrorMessage(m);
 	setResult(-1);
-	_model->tracer()->trace(Util::TraceLevel::errorFatal, erro);
+	_model->tracer()->trace(/*GenesysKernel::*/Util::TraceLevel::errorFatal, erro);
 }
 
 void
 genesyspp_driver::error(const std::string& m) {
 	setErrorMessage(m);
 	setResult(-1);
-	_model->tracer()->trace(Util::TraceLevel::errorFatal, m);
+	_model->tracer()->trace(/*GenesysKernel::*/Util::TraceLevel::errorFatal, m);
 }
