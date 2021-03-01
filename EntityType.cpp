@@ -17,11 +17,6 @@
 
 //using namespace GenesysKernel;
 
-//EntityType::EntityType(Model* model) : ModelElement(model, Util::TypeOf<EntityType>()) {
-//    //_elemManager = elemManager;
-//    _initCostsAndStatistics();
-//}
-
 EntityType::EntityType(Model* model, std::string name) : ModelElement(model, Util::TypeOf<EntityType>(), name) {
 	_initCostsAndStatistics();
 }
@@ -31,33 +26,9 @@ void EntityType::_initCostsAndStatistics() {
 	_initialVACost = 0.0;
 	_initialNVACost = 0.0;
 	_initialOtherCost = 0.0;
-	// add cstats as elements
-	//_cstatWaitingTime = new StatisticsCollector("Waiting Time", this);
-	//_cstatTransferTime = new StatisticsCollector("Transfer Time", this);
-	//_cstatOtherTime = new StatisticsCollector("Other Time", this);
-	//_cstatVATime = new StatisticsCollector("Value Added Time", this);
-	//_cstatNVATime = new StatisticsCollector("Non Value Added Time", this);
-	//_cstatTotalTime = new StatisticsCollector("Time In System", this);
-	//_elemManager->insert(_cstatNVATime);
-	//_elemManager->insert(_cstatOtherTime);
-	//_elemManager->insert(_cstatTotalTime);
-	//_elemManager->insert(_cstatTransferTime);
-	//_elemManager->insert(_cstatVATime);
-	//_elemManager->insert(_cstatWaitingTime);
-	// insert cstats as simulation responses
-
-	//    List<::SimulationResponse*>* responses = this->_elemManager->getParentModel()->getResponses();
-	//    responses->insert(new SimulationResponse(Util::TypeOf<EntityType>(), "Waiting time",
-	//            DefineGetterMember<StatisticsDefaultImpl1>(this->_cstatWaitingTime, &StatisticsDefaultImpl1::average)));
 }
 
 EntityType::~EntityType() {
-	//_elemManager->remove(Util::TypeOf<StatisticsCollector>(), _cstatNVATime);
-	//_elemManager->remove(Util::TypeOf<StatisticsCollector>(), _cstatOtherTime);
-	//_elemManager->remove(Util::TypeOf<StatisticsCollector>(), _cstatTotalTime);
-	//_elemManager->remove(Util::TypeOf<StatisticsCollector>(), _cstatTransferTime);
-	//_elemManager->remove(Util::TypeOf<StatisticsCollector>(), _cstatVATime);
-	//_elemManager->remove(Util::TypeOf<StatisticsCollector>(), _cstatWaitingTime);
 	// remove all CStats
 	for (std::list<StatisticsCollector*>::iterator it = this->_statisticsCollectors->list()->begin(); it != this->_statisticsCollectors->list()->end(); it++) {
 		_parentModel->elements()->remove(Util::TypeOf<StatisticsCollector>(), (*it));
@@ -108,30 +79,6 @@ void EntityType::setInitialPicture(std::string _initialPicture) {
 std::string EntityType::initialPicture() const {
 	return _initialPicture;
 }
-
-//StatisticsCollector* EntityType::getCstatTotalTime() const {
-//    return _cstatTotalTime;
-//}
-
-//StatisticsCollector* EntityType::getCstatNVATime() const {
-//    return _cstatNVATime;
-//}
-
-//StatisticsCollector* EntityType::getCstatVATime() const {
-//    return _cstatVATime;
-//}
-
-//StatisticsCollector* EntityType::getCstatOtherTime() const {
-//    return _cstatOtherTime;
-//}
-
-//StatisticsCollector* EntityType::getCstatTransferTime() const {
-//    return _cstatTransferTime;
-//}
-
-//StatisticsCollector* EntityType::getCstatWaitingTime() const {
-//    return _cstatWaitingTime;
-//}
 
 StatisticsCollector* EntityType::statisticsCollector(std::string name) {
 	StatisticsCollector* cstat;

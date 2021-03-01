@@ -39,17 +39,6 @@ void ModelComponent::Execute(Entity* entity, ModelComponent* component, unsigned
 	Util::DecIndent();
 }
 
-/*
-void ModelComponent::InitBetweenReplications(ModelComponent* component) {
-	//component->_model->getTraceManager()->trace(Util::TraceLevel::blockArrival, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));
-	try {
-	component->_initBetweenReplications();
-	} catch (const std::exception& e) {
-	component->_parentModel->tracer()->traceError(e, "Error initing component " + component->show());
-	};
-}
- */
-
 void ModelComponent::CreateInternalElements(ModelComponent* component) {
 	//component->_model->getTraceManager()->trace(Util::TraceLevel::blockArrival, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));
 	try {
@@ -127,14 +116,3 @@ std::map<std::string, std::string>* ModelComponent::_saveInstance() {
 void ModelComponent::_createInternalElements() {
 
 }
-
-/*
-std::list<std::map<std::string,std::string>*>* ModelComponent::_saveInstance(std::string type) {
-	std::list<std::map<std::string,std::string>*>* fields = ModelComponent::_saveInstance();
-	fields->push_back(std::to_string(this->_nextComponents->size()));
-	for (std::list<ModelComponent*>::iterator it=_nextgetComponentManager()->begin(); it!=_nextgetComponentManager()->end(); it++){
-	fields->push_back((*it)->_name);
-	}
-	return fields;
-}
- */

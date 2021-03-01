@@ -43,9 +43,13 @@ bool PluginManager::_insert(Plugin* plugin) {
 			Util::IncIndent();
 			{
 				_simulator->tracer()->trace(Util::TraceLevel::simulatorDetailed, "Inserting dependencies...");
-				for (std::list<std::string>::iterator it = plugInfo->dynamicLibFilenameDependencies()->begin(); it != plugInfo->dynamicLibFilenameDependencies()->end(); it++) {
-					allDependenciesInserted &= (this->insert((*it)) != nullptr);
+				Util::IncIndent();
+				{
+					for (std::list<std::string>::iterator it = plugInfo->dynamicLibFilenameDependencies()->begin(); it != plugInfo->dynamicLibFilenameDependencies()->end(); it++) {
+						allDependenciesInserted &= (this->insert((*it)) != nullptr);
+					}
 				}
+				Util::DecIndent();
 			}
 			Util::DecIndent();
 		}
@@ -54,15 +58,21 @@ bool PluginManager::_insert(Plugin* plugin) {
 			return false;
 		}
 		if (this->find(plugInfo->pluginTypename()) != nullptr) { // plugin alread exists
+			Util::IncIndent();
 			_simulator->tracer()->trace(Util::TraceLevel::simulatorDetailed, "Plugin alread exists and was not inserted again");
+			Util::DecIndent();
 			return false;
 		}
 		_plugins->insert(plugin);
+		Util::IncIndent();
 		this->_simulator->tracer()->trace(Util::TraceLevel::simulatorResult, "Plugin successfully inserted");
+		Util::DecIndent();
 		return true;
 	} else {
+		Util::IncIndent();
 		this->_simulator->tracer()->trace(Util::TraceLevel::simulatorResult, "Plugin could not be inserted");
 		plugin->~Plugin(); // destroy the invalid plugin
+		Util::DecIndent();
 		return false;
 	}
 }

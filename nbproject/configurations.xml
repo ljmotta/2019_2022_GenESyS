@@ -362,7 +362,6 @@
       </toolsSet>
       <compileType>
         <ccTool>
-          <developmentMode>0</developmentMode>
           <standard>8</standard>
           <commandLine>-fpermissive</commandLine>
         </ccTool>

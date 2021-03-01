@@ -53,7 +53,6 @@
 		virtual void _createInternalElements(); ///< This method is necessary only for those components that instantiate internal elements that must exist before simulation starts and even before model checking. That's the case of components that have internal StatisticsCollectors, since others components may refer to them as expressions (as in "TVAG(ThisCSTAT)") and therefore the element must exist when checking such expression 
 	protected:
 		ConnectionManager* _connections = new ConnectionManager();
-		//List<Util::identification>* _tempLoadNextComponentsIDs; // initialize only when loading 
 	};
 //namespace\\}
 #endif /* MODELCOMPONENT_H */

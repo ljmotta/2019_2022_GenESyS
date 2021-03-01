@@ -116,10 +116,6 @@ std::string ModelElement::classname() const {
 	return _typename;
 }
 
-//std::list<std::map<std::string,std::string>*>* ModelElement::_saveInstance() { /* \todo: REMOVE - IS PURE VIRTUAL  TEMP */
-//	std::list<std::map<std::string,std::string>*>* fiels = new std::map<std::string,std::string>();
-//	return fields;
-//}
 
 void ModelElement::InitBetweenReplications(ModelElement* element) {
 	//component->_model->getTraceManager()->trace(Util::TraceLevel::blockArrival, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));

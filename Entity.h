@@ -76,7 +76,6 @@
 	class Entity : public ModelElement {
 	public:
 		Entity(Model* model);
-		//Entity(const Entity &orig);
 		virtual ~Entity() = default;
 	public:
 		virtual std::string show();

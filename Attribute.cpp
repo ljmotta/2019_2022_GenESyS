@@ -15,9 +15,6 @@
 
 //using namespace GenesysKernel;
 
-//Attribute::Attribute(Model* model) : ModelElement(model, Util::TypeOf<Attribute>()) {
-//}
-
 Attribute::Attribute(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Attribute>(), name) {
 }
 

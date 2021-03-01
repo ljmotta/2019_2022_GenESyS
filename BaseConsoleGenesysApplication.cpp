@@ -14,8 +14,6 @@
 #include "BaseConsoleGenesysApplication.h"
 #include <iostream>
 
-
-// GEnSyS Simulator
 #include "Simulator.h"
 
 BaseConsoleGenesysApplication::BaseConsoleGenesysApplication() {

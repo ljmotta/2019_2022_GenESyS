@@ -208,6 +208,8 @@ void ModelSimulation::_showSimulationHeader() {
  */
 void ModelSimulation::_initSimulation() {
 	_showSimulationHeader();
+	//model->tracer()->trace(Util::TraceLevel::modelSimulationEvent, "------------------------------");
+	_model->tracer()->trace(Util::TraceLevel::modelSimulationEvent, "");
 	_model->tracer()->trace(Util::TraceLevel::modelSimulationEvent, "Simulation of model \"" + _info->name() + "\" is starting.");
 	// copy all CStats and Counters (used in a replication) to CStats and counters for the whole simulation
 	// \todo: Should not be CStats and Counters, but any element that generates report importation

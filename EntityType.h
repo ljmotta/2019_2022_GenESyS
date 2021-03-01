@@ -45,12 +45,6 @@
 		void setInitialPicture(std::string _initialPicture);
 		std::string initialPicture() const;
 	public: //get
-		//StatisticsCollector* getCstatTotalTime() const;
-		//StatisticsCollector* getCstatNVATime() const;
-		//StatisticsCollector* getCstatVATime() const;
-		//StatisticsCollector* getCstatOtherTime() const;
-		//StatisticsCollector* getCstatTransferTime() const;
-		//StatisticsCollector* getCstatWaitingTime() const;
 		StatisticsCollector* statisticsCollector(std::string name);
 
 	protected: // must be overriden by derived classes
@@ -66,16 +60,8 @@
 		double _initialNVACost = 0.0;
 		double _initialOtherCost = 0.0;
 		double _initialWaitingCost = 0.0;
-		//private:
-		//ElementManager* _elemManager;
 	private: //1:n
 		List<StatisticsCollector*>* _statisticsCollectors = new List<StatisticsCollector*>();
-		//StatisticsCollector* _cstatWaitingTime; //  = new StatisticsCollector("Waiting Time");
-		//StatisticsCollector* _cstatTransferTime; //  = new StatisticsCollector("Transfer Time");
-		//StatisticsCollector* _cstatOtherTime; //  = new StatisticsCollector("Other Time");
-		//StatisticsCollector* _cstatVATime; //  = new StatisticsCollector("Value Added Time");
-		//StatisticsCollector* _cstatNVATime; //  = new StatisticsCollector("Non Value Added Time");
-		//StatisticsCollector* _cstatTotalTime; //  = new StatisticsCollector("Time In System");
 	};
 //namespace\\}
 #endif /* ENTITYTYPE_H */
