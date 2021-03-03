@@ -34,26 +34,9 @@ Simulator* TraceManager::parentSimulator() const {
 	return _simulator;
 }
 
-/*
- void TraceManager::traceSimulation(Util::TraceLevel level, std::string text) {
-	if (_traceConditionPassed(tracelevel)) {
-		TraceSimulationEvent e = TraceEvent(tracelevel, text);
-		for (std::list<traceSimulationListener>::iterator it = this->_traceSimulationHandlers->list()->begin(); it != _traceSimulationHandlers->list()->end(); it++) {
-			(*it)(e);
-		}
-	}
-}
- */
-
-
-
 void TraceManager::addTraceHandler(traceListener traceListener) {
 	this->_traceHandlers->insert(traceListener);
 }
-
-//void TraceManager::addTraceSimulationHandler(traceListener traceListener) {
-//	this->_traceSimulationHandlers->insert(_traceSimulationHandlers->list()->end(), traceListener);
-//}
 
 void TraceManager::addTraceSimulationHandler(traceSimulationListener traceSimulationListener) {
 	this->_traceSimulationHandlers->insert(traceSimulationListener);

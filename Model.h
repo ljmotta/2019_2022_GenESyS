@@ -102,7 +102,7 @@
 		ModelSimulation* _simulation;
 		// 1:n
 		//List<ModelComponent*>* _components;
-		List<Event*>* _events;
+		List<Event*>* _futureEvents;
 		// for process analyser
 		List<SimulationResponse*>* _responses;
 		List<SimulationControl*>* _controls;

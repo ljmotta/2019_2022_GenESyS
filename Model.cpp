@@ -32,21 +32,21 @@ bool EventCompare(const Event* a, const Event * b) {
 Model::Model(Simulator* simulator) {
 	_parentSimulator = simulator; // a simulator is the "parent" of a model
 	// 1:1 associations (no Traits)
+	_traceManager = simulator->tracer(); // every model starts with the same tracer, unless a specific one is set
 	_modelInfo = new ModelInfo();
 	_eventManager = new OnEventManager(); // should be on .h (all that does not depends on THIS)
 	_elementManager = new ElementManager(this);
 	_componentManager = new ComponentManager(this);
-	_traceManager = simulator->tracer(); // every model starts with the same tracer, unless a specific one is set
+	_simulation = new ModelSimulation(this);
 	// 1:1 associations (Traits)
 	//Sampler_if* sampler = new Traits<Sampler_if>::Implementation();
 	_parser = new Traits<Parser_if>::Implementation(this, new Traits<Sampler_if>::Implementation());
 	_modelChecker = new Traits<ModelChecker_if>::Implementation(this);
 	_modelPersistence = new Traits<ModelPersistence_if>::Implementation(this);
-	_simulation = new ModelSimulation(this);
 	// 1:n associations
-	_events = new List<Event*>(); /// The future events list must be chronologicaly sorted
+	_futureEvents = new List<Event*>(); /// The future events list must be chronologicaly sorted
 	//_events->setSortFunc(&EventCompare); // It works too
-	_events->setSortFunc([](const Event* a, const Event * b) {
+	_futureEvents->setSortFunc([](const Event* a, const Event * b) {
 		return a->time() < b->time(); /// Events are sorted chronologically
 	});
 	// for process analyser
@@ -264,7 +264,7 @@ void Model::removeEntity(Entity* entity, bool collectStatistics) {
 }
 
 List<Event*>* Model::futureEvents() const {
-	return _events;
+	return _futureEvents;
 }
 
 void Model::setTracer(TraceManager * _traceManager) {

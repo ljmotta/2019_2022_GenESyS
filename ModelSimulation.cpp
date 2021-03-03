@@ -71,6 +71,7 @@ void ModelSimulation::start() {
 		_initSimulation();
 		_model->onEvents()->NotifySimulationStartHandlers(new SimulationEvent(0, nullptr));
 		_currentReplicationNumber = 1;
+		Util::IncIndent();
 		_initReplication();
 	} else {
 		_model->onEvents()->NotifySimulationPausedStartHandlers(new SimulationEvent(0, nullptr));
