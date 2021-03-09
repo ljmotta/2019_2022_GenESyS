@@ -16,6 +16,7 @@
 
 #include <map>
 #include <list>
+#include <string>
 
 //namespace GenesysKernel {
 	class ModelElement;

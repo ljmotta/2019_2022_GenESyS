@@ -29,13 +29,9 @@ public:
 	};
 public:
 	/* \todo: all "test" methods should return double p-value!! */
-	/* \todo: parameter "secondPopulationDataFilename" should be last and "" default value */
-	virtual double testAverage(double confidencelevel, double avg, H1Comparition comp) = 0;
-	virtual double testProportion(double confidencelevel, double prop, H1Comparition comp) = 0;
-	virtual double testVariance(double confidencelevel, double var, H1Comparition comp) = 0;
-	virtual double testAverage(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) = 0;
-	virtual double testProportion(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) = 0;
-	virtual double testVariance(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) = 0;
+	virtual double testAverage(double confidencelevel, H1Comparition comp, std::string secondPopulationDataFilename = "") = 0;
+	virtual double testProportion(double confidencelevel, H1Comparition comp, std::string secondPopulationDataFilename = "") = 0;
+	virtual double testVariance(double confidencelevel, H1Comparition comp, std::string secondPopulationDataFilename = "") = 0;
 	virtual void setDataFilename(std::string dataFilename) = 0;
 	virtual std::string getDataFilename() = 0;
 };

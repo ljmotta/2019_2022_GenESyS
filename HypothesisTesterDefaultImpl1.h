@@ -22,12 +22,9 @@ public:
 	HypothesisTesterDefaultImpl1();
 	virtual ~HypothesisTesterDefaultImpl1() = default;
 public:
-	virtual double testAverage(double confidencelevel, double avg, H1Comparition comp);
-	virtual double testProportion(double confidencelevel, double prop, H1Comparition comp);
-	virtual double testVariance(double confidencelevel, double var, H1Comparition comp);
-	virtual double testAverage(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp);
-	virtual double testProportion(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp);
-	virtual double testVariance(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp);
+	virtual double testAverage(double confidencelevel, H1Comparition comp, std::string secondPopulationDataFilename = "");
+	virtual double testProportion(double confidencelevel, H1Comparition comp, std::string secondPopulationDataFilename = "");
+	virtual double testVariance(double confidencelevel, H1Comparition comp, std::string secondPopulationDataFilename = "");
 	virtual void setDataFilename(std::string dataFilename);
 	virtual std::string getDataFilename();
 private:

@@ -16,33 +16,23 @@
 HypothesisTesterBoostImpl::HypothesisTesterBoostImpl() {
 }
 
-double HypothesisTesterBoostImpl::testAverage(double confidencelevel, double avg, H1Comparition comp) {
-	return 0.0; // \todo
+double HypothesisTesterBoostImpl::testAverage(double confidencelevel, H1Comparition comp, std::string secondPopulationDataFilename = "") {
+	// \todo not implemented yet
 }
 
-double HypothesisTesterBoostImpl::testProportion(double confidencelevel, double prop, H1Comparition comp) {
-	return 0.0; // \todo
+double HypothesisTesterBoostImpl::testProportion(double confidencelevel, H1Comparition comp, std::string secondPopulationDataFilename = "") {
+	// \todo not implemented yet
 }
 
-double HypothesisTesterBoostImpl::testVariance(double confidencelevel, double var, H1Comparition comp) {
-	return 0.0; // \todo
+double HypothesisTesterBoostImpl::testVariance(double confidencelevel, H1Comparition comp, std::string secondPopulationDataFilename = "") {
+	// \todo not implemented yet
 }
-
-double HypothesisTesterBoostImpl::testAverage(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) {
-	return 0.0; // \todo
-}
-
-double HypothesisTesterBoostImpl::testProportion(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) {
-	return 0.0; // \todo
-}
-
-double HypothesisTesterBoostImpl::testVariance(double confidencelevel, std::string secondPopulationDataFilename, H1Comparition comp) {
-	return 0.0; // \todo
-}
+;
 
 void HypothesisTesterBoostImpl::setDataFilename(std::string dataFilename) {
+	// \todo not implemented yet
 }
 
 std::string HypothesisTesterBoostImpl::getDataFilename() {
-	return ""; // \todo
+	return ""; // \todo not implemented yet
 }
