@@ -20,7 +20,7 @@
 //namespace GenesysKernel {
 
 	/*!
-	 * Represents any possible response of a simulation. Any element or event the model can declare one of its own attribute as a simulation response. It just have to create a SimulationResponse object, passing the access to the method that gets the response value and including this SimulationResponse in the corresponding list of the model
+	 * Represents any possible response of a simulation. Any element or event the model can declare one of its own attribute as a simulation response. It just has to create a SimulationResponse object, passing the access to the method that gets the response value and including this SimulationResponse in the corresponding list of the model
 	 */
 	class SimulationResponse {
 	public:

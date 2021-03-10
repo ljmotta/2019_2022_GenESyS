@@ -19,7 +19,7 @@
 #include "Assign.h"
 
 Create::Create(Model* model, std::string name) : SourceModelComponent(model, Util::TypeOf<Create>(), name) {
-	_numberOut = new Counter(_parentModel, "Count number in", this);
+	_numberOut = new Counter(_parentModel, _name + "." + "Count_number_in", this);
 	// \todo Check if element has already been inserted and this is not needed: _parentModel->elements()->insert(_numberOut);
 	_connections->setMinInputConnections(0);
 	_connections->setMaxInputConnections(0);

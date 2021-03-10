@@ -50,29 +50,35 @@
               <logicalFolder name="f4" displayName="Elements" projectFiles="true">
                 <itemPath>Attribute.cpp</itemPath>
                 <itemPath>Attribute.h</itemPath>
+                <itemPath>Counter.cpp</itemPath>
+                <itemPath>Counter.h</itemPath>
                 <itemPath>Entity.cpp</itemPath>
                 <itemPath>Entity.h</itemPath>
                 <itemPath>EntityType.cpp</itemPath>
                 <itemPath>EntityType.h</itemPath>
-              </logicalFolder>
-              <logicalFolder name="f1" displayName="Impl" projectFiles="true">
-                <itemPath>ModelCheckerDefaultImpl1.cpp</itemPath>
-                <itemPath>ModelCheckerDefaultImpl1.h</itemPath>
-                <itemPath>ModelPersistenceDefaultImpl1.cpp</itemPath>
-                <itemPath>ModelPersistenceDefaultImpl1.h</itemPath>
-                <itemPath>SimulationReporterDefaultImpl1.cpp</itemPath>
-                <itemPath>SimulationReporterDefaultImpl1.h</itemPath>
+                <itemPath>StatisticsCollector.cpp</itemPath>
+                <itemPath>StatisticsCollector.h</itemPath>
               </logicalFolder>
               <logicalFolder name="f2" displayName="ModelSubParts" projectFiles="true">
+                <logicalFolder name="f2" displayName="Impl" projectFiles="true">
+                  <itemPath>ModelCheckerDefaultImpl1.cpp</itemPath>
+                  <itemPath>ModelCheckerDefaultImpl1.h</itemPath>
+                  <itemPath>ModelPersistenceDefaultImpl1.cpp</itemPath>
+                  <itemPath>ModelPersistenceDefaultImpl1.h</itemPath>
+                  <itemPath>SimulationReporterDefaultImpl1.cpp</itemPath>
+                  <itemPath>SimulationReporterDefaultImpl1.h</itemPath>
+                </logicalFolder>
+                <logicalFolder name="f1" displayName="Interfaces" projectFiles="true">
+                  <itemPath>ModelChecker_if.h</itemPath>
+                  <itemPath>ModelPersistence_if.h</itemPath>
+                  <itemPath>SimulationReporter_if.h</itemPath>
+                </logicalFolder>
                 <itemPath>ConnectionManager.cpp</itemPath>
                 <itemPath>ConnectionManager.h</itemPath>
-                <itemPath>ModelChecker_if.h</itemPath>
                 <itemPath>ModelComponent.cpp</itemPath>
                 <itemPath>ModelComponent.h</itemPath>
                 <itemPath>ModelElement.cpp</itemPath>
                 <itemPath>ModelElement.h</itemPath>
-                <itemPath>ModelPersistence_if.h</itemPath>
-                <itemPath>SimulationReporter_if.h</itemPath>
                 <itemPath>SinkModelComponent.cpp</itemPath>
                 <itemPath>SinkModelComponent.h</itemPath>
                 <itemPath>SourceModelComponent.cpp</itemPath>
@@ -193,8 +199,6 @@
           <itemPath>Storage.h</itemPath>
         </logicalFolder>
         <logicalFolder name="f2" displayName="Basic Process" projectFiles="true">
-          <itemPath>Counter.cpp</itemPath>
-          <itemPath>Counter.h</itemPath>
           <itemPath>EntityGroup.cpp</itemPath>
           <itemPath>EntityGroup.h</itemPath>
           <itemPath>Formula.cpp</itemPath>
@@ -205,8 +209,6 @@
           <itemPath>Schedule.h</itemPath>
           <itemPath>Set.cpp</itemPath>
           <itemPath>Set.h</itemPath>
-          <itemPath>StatisticsCollector.cpp</itemPath>
-          <itemPath>StatisticsCollector.h</itemPath>
           <itemPath>Variable.cpp</itemPath>
           <itemPath>Variable.h</itemPath>
         </logicalFolder>

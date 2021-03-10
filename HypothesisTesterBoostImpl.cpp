@@ -16,15 +16,15 @@
 HypothesisTesterBoostImpl::HypothesisTesterBoostImpl() {
 }
 
-double HypothesisTesterBoostImpl::testAverage(double confidencelevel, H1Comparition comp, std::string secondPopulationDataFilename = "") {
+double HypothesisTesterBoostImpl::testAverage(double confidencelevel, H1Comparition comp, std::string secondPopulationDataFilename) {
 	// \todo not implemented yet
 }
 
-double HypothesisTesterBoostImpl::testProportion(double confidencelevel, H1Comparition comp, std::string secondPopulationDataFilename = "") {
+double HypothesisTesterBoostImpl::testProportion(double confidencelevel, H1Comparition comp, std::string secondPopulationDataFilename) {
 	// \todo not implemented yet
 }
 
-double HypothesisTesterBoostImpl::testVariance(double confidencelevel, H1Comparition comp, std::string secondPopulationDataFilename = "") {
+double HypothesisTesterBoostImpl::testVariance(double confidencelevel, H1Comparition comp, std::string secondPopulationDataFilename) {
 	// \todo not implemented yet
 }
 ;

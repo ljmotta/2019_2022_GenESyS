@@ -22,16 +22,21 @@ typedef Traits<ModelComponent>::StatisticsCollector_StatisticsImplementation Sta
 StatisticsCollector::StatisticsCollector(Model* model, std::string name, ModelElement* parent, bool insertIntoModel) : ModelElement(model, Util::TypeOf<StatisticsCollector>(), name, insertIntoModel) {
 	_parent = parent;
 	_initStaticsAndCollector();
-	_addSimulationResponse();
+	_addSimulationResponses();
 }
 
-void StatisticsCollector::_addSimulationResponse() {
+void StatisticsCollector::_addSimulationResponses() {
 
-	GetterMember getterMember = DefineGetterMember<StatisticsClass>(static_cast<StatisticsClass*> (this->_statistics), &StatisticsClass::average);
 	std::string parentName = "";
 	if (_parent != nullptr)
 		parentName = _parent->name();
-	SimulationResponse* resp = new SimulationResponse(Util::TypeOf<StatisticsClass>(), parentName + ":" + _name + ".average", getterMember);
+	// add the average as response
+	GetterMember getterMemberAverage = DefineGetterMember<StatisticsClass>(static_cast<StatisticsClass*> (this->_statistics), &StatisticsClass::average);
+	SimulationResponse* resp = new SimulationResponse(Util::TypeOf<StatisticsClass>(), parentName + ":" + _name + ".average", getterMemberAverage);
+	_parentModel->responses()->insert(resp);
+	// add the variance as response
+	GetterMember getterMemberVariance = DefineGetterMember<StatisticsClass>(static_cast<StatisticsClass*> (this->_statistics), &StatisticsClass::variance);
+	resp = new SimulationResponse(Util::TypeOf<StatisticsClass>(), parentName + ":" + _name + ".variance", getterMemberVariance);
 	_parentModel->responses()->insert(resp);
 }
 

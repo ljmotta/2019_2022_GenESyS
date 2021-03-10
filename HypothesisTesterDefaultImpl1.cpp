@@ -18,15 +18,15 @@ HypothesisTesterDefaultImpl1::HypothesisTesterDefaultImpl1() {
 	_integrator = new Traits<HypothesisTester_if>::IntegratorImplementation();
 }
 
-double HypothesisTesterDefaultImpl1::testAverage(double confidencelevel, H1Comparition comp, std::string secondPopulationDataFilename = "") {
+double HypothesisTesterDefaultImpl1::testAverage(double confidencelevel, H1Comparition comp, std::string secondPopulationDataFilename) {
 	// \todo not implemented yet
 }
 
-double HypothesisTesterDefaultImpl1::testProportion(double confidencelevel, H1Comparition comp, std::string secondPopulationDataFilename = "") {
+double HypothesisTesterDefaultImpl1::testProportion(double confidencelevel, H1Comparition comp, std::string secondPopulationDataFilename) {
 	// \todo not implemented yet
 }
 
-double HypothesisTesterDefaultImpl1::testVariance(double confidencelevel, H1Comparition comp, std::string secondPopulationDataFilename = "") {
+double HypothesisTesterDefaultImpl1::testVariance(double confidencelevel, H1Comparition comp, std::string secondPopulationDataFilename) {
 	// \todo not implemented yet
 }
 ;

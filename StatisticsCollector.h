@@ -42,7 +42,7 @@
 		virtual std::map<std::string, std::string>* _saveInstance();
 		virtual bool _check(std::string* errorMessage);
 	protected:
-		void _addSimulationResponse();
+		void _addSimulationResponses();
 	private:
 		void _initStaticsAndCollector();
 	private:
