@@ -16,21 +16,12 @@
 #include "Model.h"
 
 Resource::Resource(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Resource>(), name) {
-	_initCStats();
-}
-
-void Resource::_initCStats() {
-	_cstatTimeSeized = new StatisticsCollector(_parentModel, _name + "." + "Time_Seized", this);
-	_numSeizes = new Counter(_parentModel, _name + "." + "Seizes", this);
-	_numReleases = new Counter(_parentModel, _name + "." + "Releases", this);
-	_childrenElements->insert({"TimeSeized", _cstatTimeSeized});
-	_childrenElements->insert({"NumSeizes", _numSeizes});
-	_childrenElements->insert({"NumReleases", _numReleases});
+	GetterMember getter = DefineGetterMember<Resource>(this, &Resource::getCapacity);
+	SetterMember setter = DefineSetterMember<Resource>(this, &Resource::setCapacity);
+	model->controls()->insert(new SimulationControl(Util::TypeOf<Resource>(), "Capacity", getter, setter));
 }
 
 Resource::~Resource() {
-	//_parentModel->elements()->remove(Util::TypeOf<StatisticsCollector>(), _cstatTimeSeized);
-	//_cstatTimeSeized->~StatisticsCollector();
 }
 
 std::string Resource::show() {
@@ -44,7 +35,8 @@ std::string Resource::show() {
 
 void Resource::seize(unsigned int quantity, double tnow) {
 	_numberBusy += quantity;
-	_numSeizes->incCountValue(quantity);
+	if (_reportStatistics)
+		_numSeizes->incCountValue(quantity);
 	_lastTimeSeized = tnow;
 	_resourceState = Resource::ResourceState::BUSY;
 }
@@ -58,10 +50,11 @@ void Resource::release(unsigned int quantity, double tnow) {
 	if (_numberBusy == 0) {
 		_resourceState = Resource::ResourceState::IDLE;
 	}
-	_numReleases->incCountValue(quantity);
 	double timeSeized = tnow - _lastTimeSeized;
-	// Collect statistics about time seized
-	this->_cstatTimeSeized->getStatistics()->getCollector()->addValue(timeSeized);
+	if (_reportStatistics) {
+		_numReleases->incCountValue(quantity);
+		_cstatTimeSeized->getStatistics()->getCollector()->addValue(timeSeized);
+	}
 	//
 	_lastTimeSeized = timeSeized;
 	_notifyEventHandlers();
@@ -70,8 +63,10 @@ void Resource::release(unsigned int quantity, double tnow) {
 void Resource::initBetweenReplications() {
 	this->_lastTimeSeized = 0.0;
 	this->_numberBusy = 0;
-	this->_numSeizes->clear();
-	this->_numReleases->clear();
+	if (_reportStatistics) {
+		this->_numSeizes->clear();
+		this->_numReleases->clear();
+	}
 }
 
 void Resource::setResourceState(ResourceState _resourceState) {
@@ -172,5 +167,14 @@ bool Resource::_check(std::string* errorMessage) {
 }
 
 void Resource::_createInternalElements() {
-	//_initCStats();
+	if (_reportStatistics && _cstatTimeSeized == nullptr) {
+		_cstatTimeSeized = new StatisticsCollector(_parentModel, _name + "." + "TimeSeized", this);
+		_numSeizes = new Counter(_parentModel, _name + "." + "Seizes", this);
+		_numReleases = new Counter(_parentModel, _name + "." + "Releases", this);
+		_childrenElements->insert({"TimeSeized", _cstatTimeSeized});
+		_childrenElements->insert({"NumSeizes", _numSeizes});
+		_childrenElements->insert({"NumReleases", _numReleases});
+	} else if (!_reportStatistics && _cstatTimeSeized != nullptr) {
+		_removeChildrenElements();
+	}
 }

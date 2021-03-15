@@ -47,19 +47,19 @@
               <itemPath>PluginConnector_if.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f3" displayName="ModelParts" projectFiles="true">
-              <logicalFolder name="f4" displayName="Elements" projectFiles="true">
-                <itemPath>Attribute.cpp</itemPath>
-                <itemPath>Attribute.h</itemPath>
-                <itemPath>Counter.cpp</itemPath>
-                <itemPath>Counter.h</itemPath>
-                <itemPath>Entity.cpp</itemPath>
-                <itemPath>Entity.h</itemPath>
-                <itemPath>EntityType.cpp</itemPath>
-                <itemPath>EntityType.h</itemPath>
-                <itemPath>StatisticsCollector.cpp</itemPath>
-                <itemPath>StatisticsCollector.h</itemPath>
-              </logicalFolder>
               <logicalFolder name="f2" displayName="ModelSubParts" projectFiles="true">
+                <logicalFolder name="f4" displayName="Elements" projectFiles="true">
+                  <itemPath>Attribute.cpp</itemPath>
+                  <itemPath>Attribute.h</itemPath>
+                  <itemPath>Counter.cpp</itemPath>
+                  <itemPath>Counter.h</itemPath>
+                  <itemPath>Entity.cpp</itemPath>
+                  <itemPath>Entity.h</itemPath>
+                  <itemPath>EntityType.cpp</itemPath>
+                  <itemPath>EntityType.h</itemPath>
+                  <itemPath>StatisticsCollector.cpp</itemPath>
+                  <itemPath>StatisticsCollector.h</itemPath>
+                </logicalFolder>
                 <logicalFolder name="f2" displayName="Impl" projectFiles="true">
                   <itemPath>ModelCheckerDefaultImpl1.cpp</itemPath>
                   <itemPath>ModelCheckerDefaultImpl1.h</itemPath>
@@ -296,6 +296,8 @@
                    displayName="User Program Interfaces"
                    projectFiles="true">
       <logicalFolder name="f3" displayName="ModelExamples" projectFiles="true">
+        <itemPath>FifthExampleOfSimulation.cpp</itemPath>
+        <itemPath>FifthExampleOfSimulation.h</itemPath>
         <itemPath>FirstExampleOfSimulation.cpp</itemPath>
         <itemPath>FirstExampleOfSimulation.h</itemPath>
         <itemPath>FourthExampleOfSimulation.cpp</itemPath>
@@ -481,6 +483,10 @@
       <item path="Failure.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Failure.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="FifthExampleOfSimulation.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="FifthExampleOfSimulation.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="File.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -985,6 +991,10 @@
       <item path="Failure.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Failure.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="FifthExampleOfSimulation.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="FifthExampleOfSimulation.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="File.cpp" ex="false" tool="1" flavor2="0">
       </item>

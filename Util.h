@@ -88,26 +88,31 @@
 			errorRecover = 2,
 			warning = 3,
 			report = 4,
-			simulatorResult = 5,
-			toolResult = 6,
-			modelResult = 7,
-			componentResult = 8,
-			elementResult = 9,
-			modelSimulationEvent = 10,
-			componentArrival = 11,
-			simulatorInternal = 12,
-			toolInternal = 13,
-			modelSimulationInternal = 14,
-			modelInternal = 14,
-			componentInternal = 15,
-			elementInternal = 16,
-			simulatorDetailed = 17,
-			toolDetailed = 17,
-			modelSimulationDetailed = 18,
-			modelDetailed = 19,
-			componentDetailed = 20,
-			elementDetailed = 21,
-			everythingMostDetailed = 30
+			
+			simulatorResult = 10,
+			toolResult = 11,
+			modelResult = 12,
+			componentResult = 13,
+			elementResult = 14,
+			
+			modelSimulationEvent = 15,
+			
+			componentArrival = 20,
+			simulatorInternal = 21,
+			toolInternal = 22,
+			modelSimulationInternal = 23,
+			modelInternal = 24,
+			componentInternal = 25,
+			elementInternal = 26,
+			
+			simulatorDetailed = 30,
+			toolDetailed = 31,
+			modelSimulationDetailed = 32,
+			modelDetailed = 33,
+			componentDetailed = 34,
+			elementDetailed = 35,
+			
+			everythingMostDetailed = 40
 		};
 	private:
 		static Util::identification _S_lastId;

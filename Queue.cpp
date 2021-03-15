@@ -16,14 +16,6 @@
 #include "Attribute.h"
 
 Queue::Queue(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Queue>(), name) {
-	_initCStats();
-}
-
-void Queue::_initCStats() {
-	_cstatNumberInQueue = new StatisticsCollector(_parentModel, _name + "." + "Number_In_Queue", this); /* \todo: ++ WHY THIS INSERT "DISPOSE" AND "10ENTITYTYPE" STATCOLL ?? */
-	_cstatTimeInQueue = new StatisticsCollector(_parentModel, _name + "." + "Time_In_Queue", this);
-	_childrenElements->insert({"NumberInQueue", _cstatNumberInQueue});
-	_childrenElements->insert({"TimeInQueue", _cstatTimeInQueue});
 }
 
 Queue::~Queue() {
@@ -38,15 +30,18 @@ std::string Queue::show() {
 
 void Queue::insertElement(Waiting* element) {
 	_list->insert(element);
-	this->_cstatNumberInQueue->getStatistics()->getCollector()->addValue(_list->size());
+	if (_reportStatistics)
+		this->_cstatNumberInQueue->getStatistics()->getCollector()->addValue(_list->size());
 }
 
 void Queue::removeElement(Waiting* element) {
 	double tnow = _parentModel->simulation()->simulatedTime();
 	_list->remove(element);
-	this->_cstatNumberInQueue->getStatistics()->getCollector()->addValue(_list->size());
-	double timeInQueue = tnow - element->getTimeStartedWaiting();
-	this->_cstatTimeInQueue->getStatistics()->getCollector()->addValue(timeInQueue);
+	if (_reportStatistics) {
+		this->_cstatNumberInQueue->getStatistics()->getCollector()->addValue(_list->size());
+		double timeInQueue = tnow - element->getTimeStartedWaiting();
+		this->_cstatTimeInQueue->getStatistics()->getCollector()->addValue(timeInQueue);
+	}
 }
 
 void Queue::initBetweenReplications() {
@@ -136,10 +131,24 @@ bool Queue::_check(std::string* errorMessage) {
 }
 
 void Queue::_createInternalElements() {
-	//_initCStats();
+	if (_reportStatistics) {
+		if (_cstatNumberInQueue == nullptr) {
+			_cstatNumberInQueue = new StatisticsCollector(_parentModel, _name + "." + "NumberInQueue", this); /* \todo: ++ WHY THIS INSERT "DISPOSE" AND "10ENTITYTYPE" STATCOLL ?? */
+			_cstatTimeInQueue = new StatisticsCollector(_parentModel, _name + "." + "TimeInQueue", this);
+			_childrenElements->insert({"NumberInQueue", _cstatNumberInQueue});
+			_childrenElements->insert({"TimeInQueue", _cstatTimeInQueue});
+		}
+	} else if (_cstatNumberInQueue != nullptr) {
+		// \todo: remove
+		_removeChildrenElements();
+		//_childrenElements->remove(_cstatNumberInQueue);
+		//_childrenElements->remove(_cstatTimeInQueue);
+		//_cstatNumberInQueue->~StatisticsCollector();
+		//_cstatTimeInQueue->~StatisticsCollector();
+	}
 }
 
-ParserChangesInformation* Queue::_getParserChangesInformation() {
+ParserChangesInformation * Queue::_getParserChangesInformation() {
 	ParserChangesInformation* changes = new ParserChangesInformation();
 	//changes->getProductionToAdd()->insert(...);
 	//changes->getTokensToAdd()->insert(...);

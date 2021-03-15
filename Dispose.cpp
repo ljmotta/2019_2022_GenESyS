@@ -15,25 +15,22 @@
 #include "Model.h"
 
 Dispose::Dispose(Model* model, std::string name) : SinkModelComponent(model, Util::TypeOf<Dispose>(), name) {
-	_numberOut = new Counter(_parentModel, _name + "." + "Count_number_out", this);
-	//_parentModel->elements()->insert(_numberOut);
+	//_numberOut = new Counter(_parentModel, _name + "." + "Count_number_out", this);
 	_connections->setMinOutputConnections(0);
 	_connections->setMaxOutputConnections(0);
 }
 
 std::string Dispose::show() {
-	return SinkModelComponent::show() +
-			",collectStatistics=" + std::to_string(this->_collectStatistics);
+	return SinkModelComponent::show();
 }
 
 void Dispose::_execute(Entity* entity) {
-	_numberOut->incCountValue();
-	if (_collectStatistics) {
+	if (_reportStatistics) {
+		_numberOut->incCountValue();
 		double timeInSystem = _parentModel->simulation()->simulatedTime() - entity->attributeValue("Entity.ArrivalTime");
-		entity->entityType()->statisticsCollector(entity->entityType()->name() + "." + "Total_Time")->getStatistics()->getCollector()->addValue(timeInSystem);
+		entity->entityType()->addGetStatisticsCollector(entity->entityType()->name() + "." + "Total_Time")->getStatistics()->getCollector()->addValue(timeInSystem);
 	}
-
-	_parentModel->removeEntity(entity, this->isCollectStatistics());
+	_parentModel->removeEntity(entity, _reportStatistics);
 }
 
 bool Dispose::_loadInstance(std::map<std::string, std::string>* fields) {
@@ -56,10 +53,20 @@ bool Dispose::_check(std::string* errorMessage) {
 }
 
 void Dispose::_createInternalElements() {
-	// include StatisticsCollector needed for each EntityType
-	std::list<ModelElement*>* enttypes = _parentModel->elements()->elementList(Util::TypeOf<EntityType>())->list();
-	for (std::list<ModelElement*>::iterator it = enttypes->begin(); it != enttypes->end(); it++) {
-		static_cast<EntityType*> ((*it))->statisticsCollector((*it)->name() + "." + "Total_Time"); // force create this CStat before model checking
+	if (_reportStatistics && _numberOut == nullptr) {
+		// creates the counter (and then the CStats)
+		_numberOut = new Counter(_parentModel, _name + "." + "CountNumberIn", this);
+		_childrenElements->insert({"CountNumberIn", _numberOut});
+		// include StatisticsCollector needed for each EntityType
+		std::list<ModelElement*>* enttypes = _parentModel->elements()->elementList(Util::TypeOf<EntityType>())->list();
+		for (std::list<ModelElement*>::iterator it = enttypes->begin(); it != enttypes->end(); it++) {
+			static_cast<EntityType*> ((*it))->addGetStatisticsCollector((*it)->name() + "." + "Total_Time"); // force create this CStat before model checking
+		}
+	} else if (!_reportStatistics && _numberOut != nullptr) {
+		//_numberOut->~Counter();
+		//_numberOut = nullptr;
+		// \todo: delete the CSTATS?
+		_removeChildrenElements();
 	}
 }
 
@@ -77,5 +84,4 @@ ModelComponent* Dispose::LoadInstance(Model* model, std::map<std::string, std::s
 
 	}
 	return newComponent;
-
 }

@@ -59,6 +59,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/ExperimentManagerDefaultImpl1.o \
 	${OBJECTDIR}/FactorOrInteractionContribution.o \
 	${OBJECTDIR}/Failure.o \
+	${OBJECTDIR}/FifthExampleOfSimulation.o \
 	${OBJECTDIR}/File.o \
 	${OBJECTDIR}/FirstExampleOfSimulation.o \
 	${OBJECTDIR}/FitterDefaultImpl1.o \
@@ -280,6 +281,11 @@ ${OBJECTDIR}/Failure.o: Failure.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Failure.o Failure.cpp
+
+${OBJECTDIR}/FifthExampleOfSimulation.o: FifthExampleOfSimulation.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FifthExampleOfSimulation.o FifthExampleOfSimulation.cpp
 
 ${OBJECTDIR}/File.o: File.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

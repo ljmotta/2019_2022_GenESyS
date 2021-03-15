@@ -42,7 +42,7 @@ bool ElementManager::insert(std::string elementTypename, ModelElement* anElement
 	List<ModelElement*>* listElements = elementList(elementTypename);
 	if (listElements->find(anElement) == listElements->list()->end()) { //not found
 		listElements->insert(anElement);
-		this->_parentModel->tracer()->trace(Util::TraceLevel::toolDetailed, "Element \"" + anElement->name() + "\" successfully inserted.");
+		this->_parentModel->tracer()->trace(Util::TraceLevel::toolDetailed, "Element " + anElement->classname() + " \"" + anElement->name() + "\" successfully inserted.");
 		return true;
 	}
 	this->_parentModel->tracer()->trace(Util::TraceLevel::toolDetailed, "Element \"" + anElement->name() + "\" could not be inserted.");

@@ -41,6 +41,8 @@
 		void setName(std::string _name);
 		std::string name() const;
 		std::string classname() const;
+        bool isReportStatistics() const;
+        void setReportStatistics(bool reportStatistics);
 	public: // static
 		static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields, bool insertIntoModel); // \todo: return ModelComponent* ?
 		static std::map<std::string, std::string>* SaveInstance(ModelElement* element);
@@ -53,7 +55,8 @@
 		ModelElement* childElement(std::string key) const;
 	protected:
 		void _setChildElement(std::string key, ModelElement* child);
-
+		void _removeChildrenElements();
+		void _removeChildElement(std::string key);
 	protected: // must be overriden by derived classes
 		virtual bool _loadInstance(std::map<std::string, std::string>* fields);
 		virtual std::map<std::string, std::string>* _saveInstance();
@@ -68,6 +71,7 @@
 		Util::identification _id;
 		std::string _name;
 		std::string _typename;
+		bool _reportStatistics;
 		Model* _parentModel;
 	protected:
 		std::map<std::string, ModelElement*>* _childrenElements = new std::map<std::string, ModelElement*>();

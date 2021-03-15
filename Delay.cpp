@@ -52,7 +52,8 @@ Util::TimeUnit Delay::delayTimeUnit() const {
 
 void Delay::_execute(Entity* entity) {
 	double waitTime = _parentModel->parseExpression(_delayExpression) * Util::TimeUnitConvert(_delayTimeUnit, _parentModel->infos()->replicationLengthTimeUnit());
-	entity->entityType()->statisticsCollector(_name + "." + "Waiting_Time")->getStatistics()->getCollector()->addValue(waitTime);
+	if (_reportStatistics)
+		entity->entityType()->addGetStatisticsCollector(_name + "." + "Waiting_Time")->getStatistics()->getCollector()->addValue(waitTime);
 	entity->setAttributeValue("Entity.WaitTime", entity->attributeValue("Entity.WaitTime") + waitTime);
 	double delayEndTime = _parentModel->simulation()->simulatedTime() + waitTime;
 	Event* newEvent = new Event(delayEndTime, entity, this->nextComponents()->frontConnection());
@@ -95,12 +96,16 @@ bool Delay::_check(std::string* errorMessage) {
 }
 
 void Delay::_createInternalElements() {
-	// include StatisticsCollector needed in EntityType
-	ElementManager* elements = _parentModel->elements();
-	std::list<ModelElement*>* enttypes = elements->elementList(Util::TypeOf<EntityType>())->list();
-	for (std::list<ModelElement*>::iterator it = enttypes->begin(); it != enttypes->end(); it++) {
-		EntityType* enttype = static_cast<EntityType*> ((*it));
-		enttype->statisticsCollector(_name + "." + "Waiting_Time"); // force create this CStat before simulation starts
+	if (_reportStatistics) {
+		// include StatisticsCollector needed in EntityType
+		ElementManager* elements = _parentModel->elements();
+		std::list<ModelElement*>* enttypes = elements->elementList(Util::TypeOf<EntityType>())->list();
+		for (std::list<ModelElement*>::iterator it = enttypes->begin(); it != enttypes->end(); it++) {
+			EntityType* enttype = static_cast<EntityType*> ((*it));
+			enttype->addGetStatisticsCollector(_name + "." + "Waiting_Time"); // force create this CStat before simulation starts
+		}
+	} else {
+		// \todo remove StatisticsCollector needed in EntityType
 	}
 }
 

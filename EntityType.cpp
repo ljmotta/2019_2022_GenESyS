@@ -80,7 +80,7 @@ std::string EntityType::initialPicture() const {
 	return _initialPicture;
 }
 
-StatisticsCollector* EntityType::statisticsCollector(std::string name) {
+StatisticsCollector* EntityType::addGetStatisticsCollector(std::string name) {
 	StatisticsCollector* cstat;
 	for (std::list<StatisticsCollector*>::iterator it = _statisticsCollectors->list()->begin(); it != _statisticsCollectors->list()->end(); it++) {
 		cstat = (*it);
@@ -90,7 +90,8 @@ StatisticsCollector* EntityType::statisticsCollector(std::string name) {
 	}
 	// not found. Create it, insert it into the list of cstats, into the model element manager, and then return it
 	cstat = new StatisticsCollector(_parentModel, name, this);
-	_statisticsCollectors->insert(cstat);
+	_statisticsCollectors->insert(cstat); // \todo _statisticsCollectors list is probabily redundant to _childrenElements and unnecessary
+	_childrenElements->insert({name, cstat});
 	//_parentModel->insert(cstat); // unnecessary
 	return cstat;
 }

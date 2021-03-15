@@ -45,7 +45,7 @@
 		void setInitialPicture(std::string _initialPicture);
 		std::string initialPicture() const;
 	public: //get
-		StatisticsCollector* statisticsCollector(std::string name);
+		StatisticsCollector* addGetStatisticsCollector(std::string name);
 
 	protected: // must be overriden by derived classes
 		virtual bool _loadInstance(std::map<std::string, std::string>* fields);

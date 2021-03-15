@@ -221,18 +221,43 @@ void Model::clear() {
 }
 
 void Model::_createModelInternalElements() {
+	tracer()->trace(Util::TraceLevel::modelInternal, "Creating internal elements");
+	Util::IncIndent();
+
 	for (std::list<ModelComponent*>::iterator it = _componentManager->begin(); it != _componentManager->end(); it++) {
+		tracer()->trace(Util::TraceLevel::modelInternal, "Internals for " + (*it)->classname() + " \"" + (*it)->name() + "\"");
 		ModelComponent::CreateInternalElements((*it));
 	}
-	/*
+
 	std::list<ModelElement*>* modelElements;
-	for (std::list<std::string>::iterator itty = elements()->getElementTypenames()->begin(); itty != elements()->getElementTypenames()->end(); itty++) {
-	modelElements = elements()->getElements((*itty))->list();
-	for (std::list<ModelElement*>::iterator itel = modelElements->begin(); itel != modelElements->end(); itel++) {
-		ModelElement::CreateInternalElements((*itel));
+	unsigned int originalSize = elements()->elementClassnames()->size(), pos = 1;
+	//for (std::list<std::string>::iterator itty = elements()->elementClassnames()->begin(); itty != elements()->elementClassnames()->end(); itty++) {
+	std::list<std::string>::iterator itty = elements()->elementClassnames()->begin();
+	while (itty != elements()->elementClassnames()->end() && pos <= originalSize) {
+		//try {
+		modelElements = elements()->elementList((*itty))->list();
+		//} catch (const std::exception& e) {
+		// \todo Is there a better solution to iterate over a changing sorted list??
+		// ops. Sorted list has changed and iteration fails. Starts iterating again
+		//	itty = elements()->elementClassnames()->begin();
+		//	modelElements = elements()->elementList((*itty))->list();
+		//	tracer()->trace(Util::TraceLevel::modelInternal, "Creating internal elements");
+		//}
+		for (std::list<ModelElement*>::iterator itel = modelElements->begin(); itel != modelElements->end(); itel++) {
+			tracer()->trace(Util::TraceLevel::modelInternal, "Internals for " + (*itel)->classname() + " \"" + (*itel)->name() + "\""); // (" + std::to_string(pos) + "/" + std::to_string(originalSize) + ")");
+			ModelElement::CreateInternalElements((*itel));
+		}
+		if (originalSize == elements()->elementClassnames()->size()) {
+			itty++;
+			pos++;
+		} else {
+			originalSize = elements()->elementClassnames()->size();
+			itty = elements()->elementClassnames()->begin();
+			pos = 1;
+			tracer()->trace(Util::TraceLevel::modelInternal, "Restarting to create internal elements (due to previous creations)");
+		}
 	}
-	}
-	 */
+	Util::DecIndent();
 }
 
 bool Model::check() {
@@ -258,6 +283,7 @@ bool Model::check() {
 
 void Model::removeEntity(Entity* entity, bool collectStatistics) {
 	/*  \todo: -: event onEntityRemove */
+	/*  \todo: -: collectStatistics */
 	std::string entId = std::to_string(entity->entityNumber());
 	this->elements()->remove(Util::TypeOf<Entity>(), entity);
 	tracer()->trace("Entity " + entId + " was removed from the system");

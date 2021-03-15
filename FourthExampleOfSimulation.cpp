@@ -41,7 +41,7 @@ FourthExampleOfSimulation::FourthExampleOfSimulation() {
 
 int FourthExampleOfSimulation::main(int argc, char** argv) {
 	Simulator* simulator = new Simulator();
-	//    simulator->tracer()->setTraceLevel(Util::TraceLevel::blockArrival);
+	simulator->tracer()->setTraceLevel(Util::TraceLevel::componentArrival);
 	this->setDefaultTraceHandlers(simulator->tracer());
 	this->insertFakePluginsByHand(simulator);
 	bool wantToCreateNewModelAndSaveInsteadOfJustLoad = true;

@@ -32,8 +32,6 @@
 	public: // get & set
 		void setFirstCreation(double _firstCreation);
 		double firstCreation() const;
-		void setCollectStatistics(bool _collectStatistics);
-		bool isCollectStatistics() const;
 		void setEntityType(EntityType* _entityType);
 		EntityType* entityType() const;
 		void setTimeUnit(Util::TimeUnit _timeUnit);
@@ -60,7 +58,6 @@
 		std::string _maxCreationsExpression = std::to_string(std::numeric_limits<unsigned int>::max()); // std::numeric_limits<unsigned int>::max();
 		std::string _timeBetweenCreationsExpression = "EXPO(1)"; ////
 		Util::TimeUnit _timeBetweenCreationsTimeUnit = Util::TimeUnit::second;
-		//bool _collectStatistics = true;
 		unsigned int _entitiesCreatedSoFar = 0;
 	};
 //namespace\\}

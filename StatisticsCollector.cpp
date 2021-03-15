@@ -27,17 +27,17 @@ StatisticsCollector::StatisticsCollector(Model* model, std::string name, ModelEl
 
 void StatisticsCollector::_addSimulationResponses() {
 
-	std::string parentName = "";
-	if (_parent != nullptr)
-		parentName = _parent->name();
+	//std::string parentName = "";
+	//if (_parent != nullptr)
+		//parentName = _parent->name();
 	// add the average as response
 	GetterMember getterMemberAverage = DefineGetterMember<StatisticsClass>(static_cast<StatisticsClass*> (this->_statistics), &StatisticsClass::average);
-	SimulationResponse* resp = new SimulationResponse(Util::TypeOf<StatisticsClass>(), parentName + ":" + _name + ".average", getterMemberAverage);
+	SimulationResponse* resp = new SimulationResponse(Util::TypeOf<StatisticsClass>(), /*parentName + ":" + */_name + ".average", getterMemberAverage);
 	_parentModel->responses()->insert(resp);
 	// add the variance as response
-	GetterMember getterMemberVariance = DefineGetterMember<StatisticsClass>(static_cast<StatisticsClass*> (this->_statistics), &StatisticsClass::variance);
-	resp = new SimulationResponse(Util::TypeOf<StatisticsClass>(), parentName + ":" + _name + ".variance", getterMemberVariance);
-	_parentModel->responses()->insert(resp);
+	//GetterMember getterMemberVariance = DefineGetterMember<StatisticsClass>(static_cast<StatisticsClass*> (this->_statistics), &StatisticsClass::variance);
+	//resp = new SimulationResponse(Util::TypeOf<StatisticsClass>(), parentName + ":" + _name + ".variance", getterMemberVariance);
+	//_parentModel->responses()->insert(resp);
 }
 
 void StatisticsCollector::_initStaticsAndCollector() {

@@ -50,7 +50,7 @@
 	class TraceErrorEvent : public TraceEvent {
 	public:
 
-		TraceErrorEvent(std::string text, std::exception e) : TraceEvent(Util::TraceLevel::errorFatal, text) {
+		TraceErrorEvent(std::string text, std::exception e) : TraceEvent(text, Util::TraceLevel::errorFatal) {
 			_e = e;
 		}
 
@@ -64,7 +64,7 @@
 	class TraceSimulationEvent : public TraceEvent {
 	public:
 
-		TraceSimulationEvent(Util::TraceLevel level, double time, Entity* entity, ModelComponent* component, std::string text) : TraceEvent(level, text) {
+		TraceSimulationEvent(Util::TraceLevel level, double time, Entity* entity, ModelComponent* component, std::string text) : TraceEvent(text, level) {
 			_time = time;
 			_entity = entity;
 			_component = component;
@@ -95,7 +95,7 @@
 	class TraceSimulationProcess : public TraceEvent {
 	public:
 
-		TraceSimulationProcess(Util::TraceLevel level, std::string text) : TraceEvent(level, text) {
+		TraceSimulationProcess(std::string text, Util::TraceLevel level=Util::TraceLevel::modelSimulationEvent) : TraceEvent(text, level) {
 		}
 	};
 

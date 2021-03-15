@@ -18,18 +18,10 @@
 SinkModelComponent::SinkModelComponent(Model* model, std::string componentTypename, std::string name) : ModelComponent(model, componentTypename, name) {
 }
 
-void SinkModelComponent::setCollectStatistics(bool _collectStatistics) {
-	this->_collectStatistics = _collectStatistics;
-}
-
-bool SinkModelComponent::isCollectStatistics() const {
-	return _collectStatistics;
-}
-
 bool SinkModelComponent::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelComponent::_loadInstance(fields);
 	if (res) {
-		this->_collectStatistics = std::stoi((*fields->find("collectStatistics")).second) != 0;
+		//this->_reportStatistics = std::stoi((*fields->find("collectStatistics")).second) != 0;
 	}
 	return res;
 }
@@ -39,7 +31,7 @@ void SinkModelComponent::_initBetweenReplications() {
 
 std::map<std::string, std::string>* SinkModelComponent::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
-	fields->emplace("collectStatistics", std::to_string(this->_collectStatistics));
+	//fields->emplace("collectStatistics", std::to_string(this->_reportStatistics));
 	return fields;
 }
 

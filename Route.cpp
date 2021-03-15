@@ -73,7 +73,7 @@ Route::DestinationType Route::getRouteDestinationType() const {
 void Route::_execute(Entity* entity) {
 	// adds the route time to the TransferTime statistics / attribute related to the Entitys
 	double routeTime = _parentModel->parseExpression(_routeTimeExpression) * Util::TimeUnitConvert(_routeTimeTimeUnit, _parentModel->infos()->replicationLengthTimeUnit());
-	entity->entityType()->statisticsCollector("Transfer Time")->getStatistics()->getCollector()->addValue(routeTime);
+	entity->entityType()->addGetStatisticsCollector("Transfer Time")->getStatistics()->getCollector()->addValue(routeTime);
 	entity->setAttributeValue("Entity.TransferTime", entity->attributeValue("Entity.TransferTime") + routeTime);
 	if (routeTime > 0.0) {
 		// calculates when this Entity will reach the end of this route and schedule this Event
@@ -128,7 +128,7 @@ bool Route::_check(std::string* errorMessage) {
 	// include StatisticsCollector needed in EntityType
 	std::list<ModelElement*>* enttypes = elements->elementList(Util::TypeOf<EntityType>())->list();
 	for (std::list<ModelElement*>::iterator it = enttypes->begin(); it != enttypes->end(); it++) {
-		static_cast<EntityType*> ((*it))->statisticsCollector("Transfer Time"); // force create this CStat before simulation starts
+		static_cast<EntityType*> ((*it))->addGetStatisticsCollector("Transfer Time"); // force create this CStat before simulation starts
 	}
 	bool resultAll = true;
 	resultAll &= _parentModel->checkExpression(_routeTimeExpression, "Route time expression", errorMessage);

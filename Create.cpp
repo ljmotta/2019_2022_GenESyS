@@ -19,7 +19,7 @@
 #include "Assign.h"
 
 Create::Create(Model* model, std::string name) : SourceModelComponent(model, Util::TypeOf<Create>(), name) {
-	_numberOut = new Counter(_parentModel, _name + "." + "Count_number_in", this);
+	//_numberOut = new Counter(_parentModel, _name + "." + "Count_number_in", this);
 	// \todo Check if element has already been inserted and this is not needed: _parentModel->elements()->insert(_numberOut);
 	_connections->setMinInputConnections(0);
 	_connections->setMaxInputConnections(0);
@@ -59,7 +59,8 @@ void Create::_execute(Entity* entity) {
 			//_model->getTrace()->trace("Arrival of entity "+std::to_string(entity->getId()) + " schedule for time " +std::to_string(newArrivalTime));
 		}
 	}
-	_numberOut->incCountValue();
+	if (_reportStatistics)
+		_numberOut->incCountValue();
 	_parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
 }
 
@@ -98,4 +99,17 @@ std::map<std::string, std::string>* Create::_saveInstance() {
 bool Create::_check(std::string* errorMessage) {
 	bool resultAll = SourceModelComponent::_check(errorMessage);
 	return resultAll;
+}
+
+void Create::_createInternalElements() {
+	if (_reportStatistics && _numberOut == nullptr) {
+		_numberOut = new Counter(_parentModel, _name + "." + "CountNumberIn", this);
+		_childrenElements->insert({"CountNumberIn", _numberOut});
+		// \todo _childrenElements->insert("Count_number_in", _numberOut);
+	} else if (!_reportStatistics && _numberOut != nullptr) {
+		this->_removeChildrenElements();
+		// \todo _childrenElements->remove("Count_number_in");
+		//_numberOut->~Counter();
+		_numberOut = nullptr;
+	}
 }

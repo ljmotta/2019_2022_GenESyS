@@ -52,8 +52,6 @@ protected:
 	virtual bool _check(std::string* errorMessage);
 	virtual void _createInternalElements();
 private:
-	bool _collectStatistics = true;
-private:
 	Counter* _numberOut;
 };
 

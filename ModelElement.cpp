@@ -15,6 +15,7 @@
 #include <iostream>   
 #include "ModelElement.h"
 #include "Model.h"
+#include "Traits.h"
 
 //using namespace GenesysKernel;
 
@@ -22,6 +23,7 @@ ModelElement::ModelElement(Model* model, std::string thistypename, std::string n
 	_id = Util::GenerateNewId(); //GenerateNewIdOfType(thistypename);
 	_typename = thistypename;
 	_parentModel = model;
+	_reportStatistics = Traits<ModelElement>::reportStatistics; // \todo: shoould be a parameter before insertIntoModel
 	if (name == "")
 		_name = thistypename + "_" + std::to_string(Util::GenerateNewIdOfType(thistypename));
 	else
@@ -39,14 +41,38 @@ ModelElement::ModelElement(Model* model, std::string thistypename, std::string n
 
 ModelElement::~ModelElement() {
 	_parentModel->tracer()->trace(Util::TraceLevel::everythingMostDetailed, "Removing Element \"" + this->_name + "\" from the model");
+	_removeChildrenElements();
+	_parentModel->elements()->remove(this);
+}
+
+void ModelElement::_removeChildrenElements() {
 	Util::IncIndent();
 	{
 		for (std::map<std::string, ModelElement*>::iterator it = _childrenElements->begin(); it != _childrenElements->end(); it++) {
+			this->_parentModel->elements()->remove((*it).second);
 			(*it).second->~ModelElement();
+		}
+		_childrenElements->clear();
+	}
+	Util::DecIndent();
+
+}
+
+void ModelElement::_removeChildElement(std::string key) {
+	Util::IncIndent();
+	{
+		//for (std::map<std::string, ModelElement*>::iterator it = _childrenElements->begin(); it != _childrenElements->end(); it++) {
+		std::map<std::string, ModelElement*>::iterator it = _childrenElements->begin();
+		while (it != _childrenElements->end()) {
+			if ((*it).first == key) {
+				this->_parentModel->elements()->remove((*it).second);
+				(*it).second->~ModelElement();
+				_childrenElements->erase(it);
+				it = _childrenElements->begin();
+			}
 		}
 	}
 	Util::DecIndent();
-	_parentModel->elements()->remove(this);
 }
 
 bool ModelElement::_loadInstance(std::map<std::string, std::string>* fields) {
@@ -60,6 +86,8 @@ bool ModelElement::_loadInstance(std::map<std::string, std::string>* fields) {
 	} else
 		res = false;
 	//it != fields->end() ? this->_name = (*it).second : res = false;
+	it = fields->find("reportStatistics");
+	it != fields->end() ? this->_reportStatistics = std::stoi((*it).second) : res = false;
 	return res;
 }
 
@@ -68,6 +96,7 @@ std::map<std::string, std::string>* ModelElement::_saveInstance() {
 	fields->emplace("typename", this->_typename);
 	fields->emplace("id", std::to_string(this->_id));
 	fields->emplace("name", this->_name);
+	fields->emplace("reportStatistics", std::to_string(this->_reportStatistics));
 	return fields;
 }
 
@@ -115,7 +144,6 @@ std::string ModelElement::name() const {
 std::string ModelElement::classname() const {
 	return _typename;
 }
-
 
 void ModelElement::InitBetweenReplications(ModelElement* element) {
 	//component->_model->getTraceManager()->trace(Util::TraceLevel::blockArrival, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));
@@ -173,7 +201,9 @@ bool ModelElement::Check(ModelElement* element, std::string* errorMessage) {
 
 void ModelElement::CreateInternalElements(ModelElement* element) {
 	try {
+		Util::IncIndent();
 		element->_createInternalElements();
+		Util::DecIndent();
 	} catch (const std::exception& e) {
 		//element->...->_model->getTraceManager()->traceError(e, "Error creating elements of element " + element->show());
 	};
@@ -181,4 +211,12 @@ void ModelElement::CreateInternalElements(ModelElement* element) {
 
 void ModelElement::_createInternalElements() {
 
+}
+
+void ModelElement::setReportStatistics(bool reportStatistics) {
+	this->_reportStatistics = reportStatistics;
+}
+
+bool ModelElement::isReportStatistics() const {
+	return _reportStatistics;
 }
