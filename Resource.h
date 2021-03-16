@@ -149,14 +149,14 @@ private: // only gets
 private: // not gets nor sets
 	//unsigned int _seizes = 0;
 	//double _whenSeized; // same as last? check
-private: // inner children elements
-	StatisticsCollector* _cstatTimeSeized;
-	Counter* _numSeizes;
-	Counter* _numReleases;
 private: //1::n
 	List<ResourceEventHandler>* _resourceEventHandlers = new List<ResourceEventHandler>();
 	//aFailures:	TStringList;
 	//std::list<Failure*>* _failures;
+private: // inner children elements
+	StatisticsCollector* _cstatTimeSeized;
+	Counter* _numSeizes;
+	Counter* _numReleases;
 };
 
 #endif /* RESOURCE_H */

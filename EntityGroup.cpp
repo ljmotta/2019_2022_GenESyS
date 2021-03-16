@@ -16,12 +16,6 @@
 #include "Attribute.h"
 
 EntityGroup::EntityGroup(Model* model, std::string name) : ModelElement(model, Util::TypeOf<EntityGroup>(), name) {
-	_initCStats();
-}
-
-void EntityGroup::_initCStats() {
-	_cstatNumberInGroup = new StatisticsCollector(_parentModel, "Number In Group", this);
-	_childrenElements->insert({"NumberInGroup", _cstatNumberInGroup});
 }
 
 EntityGroup::~EntityGroup() {
@@ -46,6 +40,7 @@ void EntityGroup::removeElement(Entity* element) {
 
 void EntityGroup::initBetweenReplications() {
 	this->_list->clear();
+	this->_cstatNumberInGroup->getStatistics()->getCollector()->clear();
 }
 
 unsigned int EntityGroup::size() {
@@ -97,4 +92,17 @@ bool EntityGroup::_check(std::string* errorMessage) {
 	}
 	return true;
 }
+
+void EntityGroup::_createInternalElements() {
+	if (_reportStatistics) {
+		if (_cstatNumberInGroup == nullptr) {
+			_cstatNumberInGroup = new StatisticsCollector(_parentModel, "NumberInGroup", this);
+			_childrenElements->insert({"NumberInGroup", _cstatNumberInGroup});
+		}
+	} else
+		if (_cstatNumberInGroup != nullptr) {
+		_removeChildrenElements();
+	}
+}
+
 

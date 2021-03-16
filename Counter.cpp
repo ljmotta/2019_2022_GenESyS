@@ -19,17 +19,15 @@
 
 Counter::Counter(Model* model, std::string name, ModelElement* parent) : ModelElement(model, Util::TypeOf<Counter>(), name) {
 	_parent = parent;
-	_addSimulationResponse();
-}
-
-void Counter::_addSimulationResponse() {
 	GetterMember getterMember = DefineGetterMember<Counter>(this, &Counter::getCountValue);
-	std::string parentName = "";
-	if (_parent != nullptr)
-		parentName = _parent->name();
-	SimulationResponse* resp = new SimulationResponse(Util::TypeOf<Counter>(), parentName + ":" + _name, getterMember);
+	//std::string parentName = "";
+	//if (_parent != nullptr)
+	//	parentName = _parent->name();
+	SimulationResponse* resp = new SimulationResponse(Util::TypeOf<Counter>(), /*parentName + ":" +*/ _name, getterMember);
 	_parentModel->responses()->insert(resp);
 }
+
+
 
 std::string Counter::show() {
 	return ModelElement::show() +

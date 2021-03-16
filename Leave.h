@@ -16,6 +16,7 @@
 
 #include "ModelComponent.h"
 #include "Station.h"
+#include "Counter.h"
 
 /*!
 Leave module
@@ -109,8 +110,11 @@ protected:
 	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
 	virtual std::map<std::string, std::string>* _saveInstance();
 	virtual bool _check(std::string* errorMessage);
+	virtual void _createInternalElements();
 private: // association
 	Station* _station;
+private: // children elements
+	Counter* _numberIn;
 };
 
 #endif /* LEAVE_H */

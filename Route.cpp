@@ -71,9 +71,12 @@ Route::DestinationType Route::getRouteDestinationType() const {
 }
 
 void Route::_execute(Entity* entity) {
+	if (_reportStatistics)
+		_numberIn->incCountValue();
 	// adds the route time to the TransferTime statistics / attribute related to the Entitys
 	double routeTime = _parentModel->parseExpression(_routeTimeExpression) * Util::TimeUnitConvert(_routeTimeTimeUnit, _parentModel->infos()->replicationLengthTimeUnit());
-	entity->entityType()->addGetStatisticsCollector("Transfer Time")->getStatistics()->getCollector()->addValue(routeTime);
+	if (entity->entityType()->isReportStatistics())
+		entity->entityType()->addGetStatisticsCollector("TransferTime")->getStatistics()->getCollector()->addValue(routeTime);
 	entity->setAttributeValue("Entity.TransferTime", entity->attributeValue("Entity.TransferTime") + routeTime);
 	if (routeTime > 0.0) {
 		// calculates when this Entity will reach the end of this route and schedule this Event
@@ -101,6 +104,7 @@ bool Route::_loadInstance(std::map<std::string, std::string>* fields) {
 }
 
 void Route::_initBetweenReplications() {
+	_numberIn->clear();
 }
 
 std::map<std::string, std::string>* Route::_saveInstance() {
@@ -128,7 +132,8 @@ bool Route::_check(std::string* errorMessage) {
 	// include StatisticsCollector needed in EntityType
 	std::list<ModelElement*>* enttypes = elements->elementList(Util::TypeOf<EntityType>())->list();
 	for (std::list<ModelElement*>::iterator it = enttypes->begin(); it != enttypes->end(); it++) {
-		static_cast<EntityType*> ((*it))->addGetStatisticsCollector("Transfer Time"); // force create this CStat before simulation starts
+		if ((*it)->isReportStatistics())
+			static_cast<EntityType*> ((*it))->addGetStatisticsCollector("TransferTime"); // force create this CStat before simulation starts
 	}
 	bool resultAll = true;
 	resultAll &= _parentModel->checkExpression(_routeTimeExpression, "Route time expression", errorMessage);
@@ -150,4 +155,14 @@ PluginInformation* Route::GetPluginInformation() {
 	return info;
 }
 
-
+void Route::_createInternalElements() {
+	if (_reportStatistics) {
+		if (_numberIn == nullptr) {
+			_numberIn = new Counter(_parentModel, _name + "." + "CountNumberIn", this);
+			_childrenElements->insert({"CountNumberIn", _numberIn});
+		}
+	} else
+		if (_numberIn != nullptr) {
+		_removeChildrenElements();
+	}
+}

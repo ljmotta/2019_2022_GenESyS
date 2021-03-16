@@ -172,8 +172,8 @@ void Resource::_createInternalElements() {
 		_numSeizes = new Counter(_parentModel, _name + "." + "Seizes", this);
 		_numReleases = new Counter(_parentModel, _name + "." + "Releases", this);
 		_childrenElements->insert({"TimeSeized", _cstatTimeSeized});
-		_childrenElements->insert({"NumSeizes", _numSeizes});
-		_childrenElements->insert({"NumReleases", _numReleases});
+		_childrenElements->insert({"Seizes", _numSeizes});
+		_childrenElements->insert({"Releases", _numReleases});
 	} else if (!_reportStatistics && _cstatTimeSeized != nullptr) {
 		_removeChildrenElements();
 	}

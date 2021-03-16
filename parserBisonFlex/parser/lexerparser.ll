@@ -175,11 +175,12 @@ L      [A-Za-z0-9_.]+
 
 
 [ \t\n]        ;
-
+T
 
 {L}   {
         ModelElement* element; 
 
+		//std::cout << "Verificando o que é o Literal \""+std::string(yytext)+"\"\n";
         // check if it is an ATTRIBUTE (and return the attribute ID (and not the value!)
         element = driver.getModel()->elements()->element(Util::TypeOf<Attribute>(), std::string(yytext));
         if (element != nullptr) { 

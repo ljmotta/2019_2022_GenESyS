@@ -40,6 +40,8 @@ Station* Leave::getStation() const {
 }
 
 void Leave::_execute(Entity* entity) {
+	if (_reportStatistics)
+		_numberIn->incCountValue();
 	_station->leave(entity);
 	_parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
 }
@@ -55,6 +57,7 @@ bool Leave::_loadInstance(std::map<std::string, std::string>* fields) {
 }
 
 void Leave::_initBetweenReplications() {
+	_numberIn->clear();
 }
 
 std::map<std::string, std::string>* Leave::_saveInstance() {
@@ -75,4 +78,14 @@ PluginInformation* Leave::GetPluginInformation() {
 	return info;
 }
 
+void Leave::_createInternalElements() {
+	if (_reportStatistics)
+		if (_numberIn == nullptr) {
+			_numberIn = new Counter(_parentModel, _name + "." + "CountNumberIn", this);
+			_childrenElements->insert({"CountNumberIn", _numberIn});
+		} else
+			if (_numberIn != nullptr) {
+			_removeChildrenElements();
+		}
+}
 

@@ -207,7 +207,7 @@ expressao   : numero                           {$$.valor = $1.valor;}
             | funcao                           {$$.valor = $1.valor;}
             | comando                          {$$.valor = $1.valor;}
             | atribuicao                       {$$.valor = $1.valor;}
-	    | aritmetica                       {$$.valor = $1.valor;}
+			| aritmetica                       {$$.valor = $1.valor;}
             | relacional                       {$$.valor = $1.valor;}
             | "(" expressao ")"                {$$.valor = $2.valor;}
             | atributo                         {$$.valor = $1.valor;}
@@ -275,7 +275,7 @@ funcaoArit  : fROUND "(" expressao ")"			    { $$.valor = round($3.valor);}
             ;
 
 funcaoProb  : fRND1					    { $$.valor = driver.sampler()->sampleUniform(0.0,1.0); $$.tipo = "Uniforme"; }
-	    | fEXPO  "(" expressao ")"                      { $$.valor = driver.sampler()->sampleExponential($3.valor); $$.tipo = "Exponencial";}
+			| fEXPO  "(" expressao ")"                      { $$.valor = driver.sampler()->sampleExponential($3.valor); $$.tipo = "Exponencial";}
             | fNORM  "(" expressao "," expressao ")"        { $$.valor = driver.sampler()->sampleNormal($3.valor,$5.valor); $$.tipo = "Normal"; }
             | fUNIF  "(" expressao "," expressao ")"        { $$.valor = driver.sampler()->sampleUniform($3.valor,$5.valor); $$.tipo = "Uniforme"; }
             | fWEIB  "(" expressao "," expressao ")"        { $$.valor = driver.sampler()->sampleWeibull($3.valor,$5.valor); $$.tipo = "Weibull"; }

@@ -61,9 +61,10 @@ int FullSimulationOfComplexModel::main(int argc, char** argv) {
 	infos->setAnalystName("Your name");
 	infos->setProjectTitle("The title of the project");
 	infos->setDescription("This simulation model tests the components and elements that have been implemented so far.");
-	infos->setReplicationLength(1e3);
+	infos->setReplicationLength(1e4);
 	infos->setReplicationLengthTimeUnit(Util::TimeUnit::minute);
-	infos->setNumberOfReplications(30);
+	infos->setNumberOfReplications(3000);
+	tm->setTraceLevel(Util::TraceLevel::modelResult);
 
 	EntityType* entityType1 = new EntityType(model, "Representative_EntityType");
 	elements->insert(entityType1);
@@ -104,7 +105,7 @@ int FullSimulationOfComplexModel::main(int argc, char** argv) {
 	components->insert(seize1);
 
 	Delay* delay1 = new Delay(model);
-	delay1->setDelayExpression("NORM(5,1.5)");
+	delay1->setDelayExpression("NORM(5,3)");
 	delay1->setDelayTimeUnit(Util::TimeUnit::minute);
 
 	components->insert(delay1);
@@ -135,10 +136,8 @@ int FullSimulationOfComplexModel::main(int argc, char** argv) {
 	// insert the model into the simulator
 	simulator->models()->insert(model);
 
-	// if the model is ok then save the model into a text file
-	if (model->check()) {
-		model->save("./temp/fullSimulationModel.txt");
-	}
+	// then save the model into a text file
+	model->save("./temp/fullSimulationModel.txt");
 
 	// execute the simulation
 	model->simulation()->start();

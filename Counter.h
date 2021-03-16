@@ -40,8 +40,6 @@
 		virtual bool _loadInstance(std::map<std::string, std::string>* fields);
 		virtual std::map<std::string, std::string>* _saveInstance();
 		virtual bool _check(std::string* errorMessage);
-	protected:
-		void _addSimulationResponse();
 	private:
 		ModelElement* _parent;
 		unsigned long _count = 0;

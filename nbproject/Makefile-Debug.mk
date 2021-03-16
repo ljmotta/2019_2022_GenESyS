@@ -68,11 +68,13 @@ OBJECTFILES= \
 	${OBJECTDIR}/FullSimulationOfComplexModel.o \
 	${OBJECTDIR}/GenesysConsole.o \
 	${OBJECTDIR}/GenesysGUI.o \
+	${OBJECTDIR}/Hold.o \
 	${OBJECTDIR}/HypothesisTesterBoostImpl.o \
 	${OBJECTDIR}/HypothesisTesterDefaultImpl1.o \
 	${OBJECTDIR}/IntegratorDefaultImpl1.o \
 	${OBJECTDIR}/Leave.o \
 	${OBJECTDIR}/LicenceManager.o \
+	${OBJECTDIR}/Match.o \
 	${OBJECTDIR}/MathMeth.o \
 	${OBJECTDIR}/Model.o \
 	${OBJECTDIR}/ModelCheckerDefaultImpl1.o \
@@ -87,6 +89,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/ParserChangesInformation.o \
 	${OBJECTDIR}/ParserDefaultImpl1.o \
 	${OBJECTDIR}/ParserManager.o \
+	${OBJECTDIR}/PickUp.o \
 	${OBJECTDIR}/Plugin.o \
 	${OBJECTDIR}/PluginConnectorDummyImpl1.o \
 	${OBJECTDIR}/PluginInformation.o \
@@ -106,6 +109,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Seize.o \
 	${OBJECTDIR}/Sequence.o \
 	${OBJECTDIR}/Set.o \
+	${OBJECTDIR}/Signal.o \
 	${OBJECTDIR}/SimulationControl.o \
 	${OBJECTDIR}/SimulationReporterDefaultImpl1.o \
 	${OBJECTDIR}/SimulationResponse.o \
@@ -327,6 +331,11 @@ ${OBJECTDIR}/GenesysGUI.o: GenesysGUI.cpp nbproject/Makefile-${CND_CONF}.mk
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/GenesysGUI.o GenesysGUI.cpp
 
+${OBJECTDIR}/Hold.o: Hold.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Hold.o Hold.cpp
+
 ${OBJECTDIR}/HypothesisTesterBoostImpl.o: HypothesisTesterBoostImpl.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -351,6 +360,11 @@ ${OBJECTDIR}/LicenceManager.o: LicenceManager.cpp nbproject/Makefile-${CND_CONF}
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/LicenceManager.o LicenceManager.cpp
+
+${OBJECTDIR}/Match.o: Match.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Match.o Match.cpp
 
 ${OBJECTDIR}/MathMeth.o: MathMeth.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -421,6 +435,11 @@ ${OBJECTDIR}/ParserManager.o: ParserManager.cpp nbproject/Makefile-${CND_CONF}.m
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ParserManager.o ParserManager.cpp
+
+${OBJECTDIR}/PickUp.o: PickUp.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PickUp.o PickUp.cpp
 
 ${OBJECTDIR}/Plugin.o: Plugin.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -516,6 +535,11 @@ ${OBJECTDIR}/Set.o: Set.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Set.o Set.cpp
+
+${OBJECTDIR}/Signal.o: Signal.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Signal.o Signal.cpp
 
 ${OBJECTDIR}/SimulationControl.o: SimulationControl.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

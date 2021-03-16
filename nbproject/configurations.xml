@@ -146,86 +146,70 @@
     </logicalFolder>
     <logicalFolder name="f3" displayName="Plugins" projectFiles="true">
       <logicalFolder name="f2" displayName="Components" projectFiles="true">
-        <logicalFolder name="f2" displayName="Advanced Process" projectFiles="true">
-          <itemPath>Delay.cpp</itemPath>
-          <itemPath>Delay.h</itemPath>
-          <itemPath>Release.cpp</itemPath>
-          <itemPath>Release.h</itemPath>
-          <itemPath>Seize.cpp</itemPath>
-          <itemPath>Seize.h</itemPath>
-          <itemPath>Write.cpp</itemPath>
-          <itemPath>Write.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="f1" displayName="Basic Process" projectFiles="true">
-          <itemPath>Assign.cpp</itemPath>
-          <itemPath>Assign.h</itemPath>
-          <itemPath>Create.cpp</itemPath>
-          <itemPath>Create.h</itemPath>
-          <itemPath>Decide.cpp</itemPath>
-          <itemPath>Decide.h</itemPath>
-          <itemPath>Dispose.cpp</itemPath>
-          <itemPath>Dispose.h</itemPath>
-          <itemPath>Record.cpp</itemPath>
-          <itemPath>Record.h</itemPath>
-          <itemPath>Submodel.cpp</itemPath>
-          <itemPath>Submodel.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="f4" displayName="Conveyours" projectFiles="true">
-        </logicalFolder>
-        <logicalFolder name="f6" displayName="Others" projectFiles="true">
-          <itemPath>Dummy.cpp</itemPath>
-          <itemPath>Dummy.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="f3" displayName="Transfers" projectFiles="true">
-          <itemPath>Enter.cpp</itemPath>
-          <itemPath>Enter.h</itemPath>
-          <itemPath>Leave.cpp</itemPath>
-          <itemPath>Leave.h</itemPath>
-          <itemPath>Route.cpp</itemPath>
-          <itemPath>Route.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="f5" displayName="Transports" projectFiles="true">
-        </logicalFolder>
+        <itemPath>Assign.cpp</itemPath>
+        <itemPath>Assign.h</itemPath>
+        <itemPath>Create.cpp</itemPath>
+        <itemPath>Create.h</itemPath>
+        <itemPath>Decide.cpp</itemPath>
+        <itemPath>Decide.h</itemPath>
+        <itemPath>Delay.cpp</itemPath>
+        <itemPath>Delay.h</itemPath>
+        <itemPath>Dispose.cpp</itemPath>
+        <itemPath>Dispose.h</itemPath>
+        <itemPath>Dummy.cpp</itemPath>
+        <itemPath>Dummy.h</itemPath>
+        <itemPath>Enter.cpp</itemPath>
+        <itemPath>Enter.h</itemPath>
+        <itemPath>Hold.cpp</itemPath>
+        <itemPath>Hold.h</itemPath>
+        <itemPath>Leave.cpp</itemPath>
+        <itemPath>Leave.h</itemPath>
+        <itemPath>Match.cpp</itemPath>
+        <itemPath>Match.h</itemPath>
+        <itemPath>PickUp.cpp</itemPath>
+        <itemPath>PickUp.h</itemPath>
+        <itemPath>Record.cpp</itemPath>
+        <itemPath>Record.h</itemPath>
+        <itemPath>Release.cpp</itemPath>
+        <itemPath>Release.h</itemPath>
+        <itemPath>Route.cpp</itemPath>
+        <itemPath>Route.h</itemPath>
+        <itemPath>Seize.cpp</itemPath>
+        <itemPath>Seize.h</itemPath>
+        <itemPath>Signal.cpp</itemPath>
+        <itemPath>Signal.h</itemPath>
+        <itemPath>Submodel.cpp</itemPath>
+        <itemPath>Submodel.h</itemPath>
+        <itemPath>Write.cpp</itemPath>
+        <itemPath>Write.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="Elements" projectFiles="true">
-        <logicalFolder name="f1" displayName="Advanced Process" projectFiles="true">
-          <itemPath>Failure.cpp</itemPath>
-          <itemPath>Failure.h</itemPath>
-          <itemPath>File.cpp</itemPath>
-          <itemPath>File.h</itemPath>
-          <itemPath>Resource.cpp</itemPath>
-          <itemPath>Resource.h</itemPath>
-          <itemPath>Storage.cpp</itemPath>
-          <itemPath>Storage.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="f2" displayName="Basic Process" projectFiles="true">
-          <itemPath>EntityGroup.cpp</itemPath>
-          <itemPath>EntityGroup.h</itemPath>
-          <itemPath>Formula.cpp</itemPath>
-          <itemPath>Formula.h</itemPath>
-          <itemPath>Queue.cpp</itemPath>
-          <itemPath>Queue.h</itemPath>
-          <itemPath>Schedule.cpp</itemPath>
-          <itemPath>Schedule.h</itemPath>
-          <itemPath>Set.cpp</itemPath>
-          <itemPath>Set.h</itemPath>
-          <itemPath>Variable.cpp</itemPath>
-          <itemPath>Variable.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="f3" displayName="Conveyours" projectFiles="true">
-        </logicalFolder>
-        <logicalFolder name="f6" displayName="Others" projectFiles="true">
-          <itemPath>OLD_ODEelement.cpp</itemPath>
-          <itemPath>OLD_ODEelement.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="f4" displayName="Transfers" projectFiles="true">
-          <itemPath>Sequence.cpp</itemPath>
-          <itemPath>Sequence.h</itemPath>
-          <itemPath>Station.cpp</itemPath>
-          <itemPath>Station.h</itemPath>
-        </logicalFolder>
-        <logicalFolder name="f5" displayName="Transports" projectFiles="true">
-        </logicalFolder>
+        <itemPath>EntityGroup.cpp</itemPath>
+        <itemPath>EntityGroup.h</itemPath>
+        <itemPath>Failure.cpp</itemPath>
+        <itemPath>Failure.h</itemPath>
+        <itemPath>File.cpp</itemPath>
+        <itemPath>File.h</itemPath>
+        <itemPath>Formula.cpp</itemPath>
+        <itemPath>Formula.h</itemPath>
+        <itemPath>OLD_ODEelement.cpp</itemPath>
+        <itemPath>OLD_ODEelement.h</itemPath>
+        <itemPath>Queue.cpp</itemPath>
+        <itemPath>Queue.h</itemPath>
+        <itemPath>Resource.cpp</itemPath>
+        <itemPath>Resource.h</itemPath>
+        <itemPath>Schedule.cpp</itemPath>
+        <itemPath>Schedule.h</itemPath>
+        <itemPath>Sequence.cpp</itemPath>
+        <itemPath>Sequence.h</itemPath>
+        <itemPath>Set.cpp</itemPath>
+        <itemPath>Set.h</itemPath>
+        <itemPath>Station.cpp</itemPath>
+        <itemPath>Station.h</itemPath>
+        <itemPath>Storage.cpp</itemPath>
+        <itemPath>Storage.h</itemPath>
+        <itemPath>Variable.cpp</itemPath>
+        <itemPath>Variable.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="f4" displayName="Statistics" projectFiles="true">
@@ -524,6 +508,10 @@
       </item>
       <item path="GenesysGUI.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Hold.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Hold.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="HypothesisTesterBoostImpl.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="HypothesisTesterBoostImpl.h" ex="false" tool="3" flavor2="0">
@@ -549,6 +537,10 @@
       <item path="LicenceManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="List.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Match.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Match.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="MathMeth.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -611,6 +603,10 @@
       <item path="ParserManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Parser_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PickUp.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PickUp.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Plugin.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -695,6 +691,10 @@
       <item path="Set.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Set.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Signal.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Signal.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="SimulationControl.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -1032,6 +1032,10 @@
       </item>
       <item path="GenesysGUI.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Hold.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Hold.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="HypothesisTesterBoostImpl.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="HypothesisTesterBoostImpl.h" ex="false" tool="3" flavor2="0">
@@ -1057,6 +1061,10 @@
       <item path="LicenceManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="List.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Match.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Match.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="MathMeth.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -1119,6 +1127,10 @@
       <item path="ParserManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Parser_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PickUp.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PickUp.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Plugin.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -1203,6 +1215,10 @@
       <item path="Set.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Set.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Signal.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Signal.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="SimulationControl.cpp" ex="false" tool="1" flavor2="0">
       </item>

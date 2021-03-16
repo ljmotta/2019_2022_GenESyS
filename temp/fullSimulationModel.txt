@@ -1,38 +1,36 @@
 # Genesys simulation model 
-# Last saved on Wed Sep 11 21:25:56 2019
+# Last saved on Mon Mar 15 16:43:52 2021
 # simulator infos
-name=ReGenESyS - Reborn Generic and Expansible System Simulator; typename=SimulatorInfo; version=190909; 
+0   SimulatorInfo   name="GenESyS - GENeric and Expansible SYstem Simulator"  version="21.02 (winer)"  
 
 # model infos
-analystName=Your name; description=This simulation model tests the components and elements that have been implemented so far.; name=Model 1; numberOfReplications=30; projectTitle=The title of the project; replicationLength=1000.000000; replicationLengthTimeUnit=6; terminatingCondition=; typename=ModelInfo; version=1.0; warmUpTime=0.000000; warmUpTimeTimeUnit=5; 
+0   ModelInfo       analystName="Your name"  description="This simulation model tests the components and elements that have been implemented so far."  name="Model 1"  numberOfReplications=3000  projectTitle="The title of the project"  replicationLength=10000.000000  replicationLengthTimeUnit=6  terminatingCondition=""  version="1.0"  warmUpTime=0.000000  warmUpTimeTimeUnit=5  
 
 # model elements
-attributeName=; id=12; name=Queue 1; orderRule=1; typename=Queue; 
+1   EntityType      initialNVACost=0.000000  initialOtherCost=0.000000  initialPicture=report  initialVACost=0.000000  initialWaitingCost=0.000000  name=Representative_EntityType  reportStatistics=1  
 
-capacity=1; costBusyHour=1.000000; costIdleHour=1.000000; costPerUse=1.000000; id=8; name=Máquina 1; typename=Resource; 
+3   Attribute       name=Attribute_1  reportStatistics=1  
 
-id=1; initialNVACost=0.000000; initialOtherCost=0.000000; initialPicture=report; initialVACost=0.000000; initialWaitingCost=0.000000; name=Representative_EntityType; typename=EntityType; 
+4   Variable        name=Variable_1  numValues=0  reportStatistics=1  
 
-id=22; name=Entity.ArrivalTime; typename=Attribute; 
+7   Resource        capacity=1  costBusyHour=1.000000  costIdleHour=1.000000  costPerUse=1.000000  name=Máquina 1  reportStatistics=1  
 
-id=23; name=Entity.WaitTime; typename=Attribute; 
-
-id=4; name=Attribute_1; typename=Attribute; 
-
-id=5; name=Variable_1; numCols=1; numRows=1; numValues=0; typename=Variable; 
+8   Queue           attributeName=  name=Queue_1  orderRule=1  reportStatistics=1  
 
 # model components
-allocationType=0; id=15; name=Seize 1; nextId0=16; nextSize=1; priority==0; quantity=1; queueId=12; queueName=Queue 1; resourceId=8; resourceName=Máquina 1; resourceType=2; rule=4; saveAttribute=; typename=Seize; 
+10  Delay           delayExpression="NORM(5,3)"  delayExpressionTimeUnit=6  name=Delay_1  nextId0=11  nextInputNumber0=0  nextSize=1  reportStatistics=1  
 
-assignments=2; destination0=Variable_1; destinationType0=1; expression0=Variable_1 + 1; id=6; name=Assign 1; nextId0=7; nextSize=1; typename=Assign; 
+11  Release         name=Release_1  nextId0=12  nextInputNumber0=0  nextSize=1  priority=0  quantity="1"  reportStatistics=1  resourceId=7  resourceName=Máquina 1  resourceType=2  rule=4  saveAttribute=  
 
-delayExpression=NORM(5,1.5); delayExpressionTimeUnit=6; id=16; name=Delay 1; nextId0=17; nextSize=1; typename=Delay; 
+12  Record          expression0="TNOW - Entity.ArrivalTime"  expressionName0=Tempo total no sistema  fileName0="./temp/TotalTimeInSystem.txt"  name=Record_1  nextId0=14  nextInputNumber0=0  nextSize=1  reportStatistics=1  
 
-entitiesPerCreation=1; entityTypename=Representative_EntityType; firstCreation=0.000000; id=2; maxCreations=4294967295; name=Create 1; nextId0=6; nextSize=1; timeBetweenCreations=EXPO(5); timeBetweenCreationsTimeUnit=6; typename=Create; 
+14  Dispose         name=Dispose_1  nextSize=0  reportStatistics=1  
 
-expression0=TNOW - Entity.ArrivalTime; expressionName0=Tempo total no sistema; fileName0=./temp/TotalTimeInSystem.txt; id=18; name=Record 1; nextId0=20; nextSize=1; typename=Record; 
+2   Create          entitiesPerCreation=1  entityTypename=Representative_EntityType  firstCreation=0.000000  maxCreations="4294967295"  name=Create_1  nextId0=5  nextInputNumber0=0  nextSize=1  reportStatistics=1  timeBetweenCreations="EXPO(5)"  timeBetweenCreationsTimeUnit=6  
 
-id=17; name=Release 1; nextId0=18; nextSize=1; priority=0; quantity=1; resourceId=8; resourceName=Máquina 1; resourceType=2; rule=4; saveAttribute=; typename=Release; 
+5   Assign          assignments=2  destination0=Variable_1  expression0="Variable_1 + 1"  name=Assign_1  nextId0=6  nextInputNumber0=0  nextSize=1  reportStatistics=1  
 
-id=20; name=Dispose 1; nextSize=0; typename=Dispose; 
+6   Decide          condition0="UNIF(0,1)>0.5"  conditions=1  name=Decide_1  nextId0=9  nextId1=14  nextInputNumber0=0  nextInputNumber1=0  nextSize=2  reportStatistics=1  
+
+9   Seize           allocationType=0  name=Seize_1  nextId0=10  nextInputNumber0=0  nextSize=1  priority==0  quantity="1"  queueId=8  queueName=Queue_1  reportStatistics=1  resourceId=7  resourceName=Máquina 1  resourceType=2  rule=4  saveAttribute=  
 

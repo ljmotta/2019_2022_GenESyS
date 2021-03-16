@@ -94,7 +94,7 @@ typedef unsigned int flex_uint32_t;
 
 /* begin standard C++ headers. */
 
-/* \todo: this is always defined, so inline it */
+/* TODO: this is always defined, so inline it */
 #define yyconst const
 
 #if defined(__GNUC__) && __GNUC__ >= 3
@@ -4780,6 +4780,7 @@ YY_RULE_SETUP
 {
         ModelElement* element; 
 
+		//std::cout << "Verificando o que é o Literal \""+std::string(yytext)+"\"\n";
         // check if it is an ATTRIBUTE (and return the attribute ID (and not the value!)
         element = driver.getModel()->elements()->element(Util::TypeOf<Attribute>(), std::string(yytext));
         if (element != nullptr) { 
@@ -4840,19 +4841,19 @@ YY_RULE_SETUP
 	YY_BREAK
 case 69:
 YY_RULE_SETUP
-#line 242 "lexerparser.ll"
+#line 243 "lexerparser.ll"
 {return yy::genesyspp_parser::make_ILLEGAL(obj_t(1, std::string("Illegal")), loc);}
 	YY_BREAK
 case YY_STATE_EOF(INITIAL):
-#line 244 "lexerparser.ll"
+#line 245 "lexerparser.ll"
 {return yy::genesyspp_parser::make_END(loc);}
 	YY_BREAK
 case 70:
 YY_RULE_SETUP
-#line 247 "lexerparser.ll"
+#line 248 "lexerparser.ll"
 ECHO;
 	YY_BREAK
-#line 4856 "../Genesys++-scanner.cpp"
+#line 4857 "../Genesys++-scanner.cpp"
 
 	case YY_END_OF_BUFFER:
 		{
@@ -5282,7 +5283,7 @@ static int yy_get_next_buffer (void)
     void yy_switch_to_buffer  (YY_BUFFER_STATE  new_buffer )
 {
     
-	/* \todo. We should be able to replace this entire function body
+	/* TODO. We should be able to replace this entire function body
 	 * with
 	 *		yypop_buffer_state();
 	 *		yypush_buffer_state(new_buffer);
@@ -5813,7 +5814,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 247 "lexerparser.ll"
+#line 248 "lexerparser.ll"
 
 
 void

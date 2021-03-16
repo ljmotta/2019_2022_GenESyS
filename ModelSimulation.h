@@ -14,6 +14,7 @@
 #ifndef MODELSIMULATION_H
 #define MODELSIMULATION_H
 
+//#include <chrono>
 #include "Event.h"
 #include "Entity.h"
 #include "ModelInfo.h"
@@ -94,14 +95,16 @@
 		ModelComponent* _currentComponent;
 		unsigned int _currentInputNumber;
 		unsigned int _currentReplicationNumber;
+		//std::chrono::steady_clock::time_point _replicationStartTime;
+		//std::chrono::steady_clock::time_point _replicationEndTime;
 	private:
-		SimulationReporter_if* _simulationReporter;
-		List<ModelElement*>* _statsCountersSimulation = new List<ModelElement*>();
 		const std::string _cte_stCountSimulNamePrefix = ""; //Simul.";
 		//std::list<ModelElement*>* _countersSimulation = new std::list<ModelElement*>();
 	private:
 		Model* _model;
 		ModelInfo* _info;
+		SimulationReporter_if* _simulationReporter;
+		List<ModelElement*>* _statsCountersSimulation = new List<ModelElement*>();
 	};
 //namespace\\}
 #endif /* MODELSIMULATION_H */

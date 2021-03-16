@@ -94,7 +94,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		write1->writeElements()->insert(new WriteElement("Valor do atributo 'index' da 2ª entidade na fila 3: "));
 		write1->writeElements()->insert(new WriteElement("AQUE(Queue_Seize_3,2,index)", true, true));
 		write1->writeElements()->insert(new WriteElement("Tempo médio das entidades na fila 3: "));
-		write1->writeElements()->insert(new WriteElement("TAVG(Queue_Seize_3.Time_In_Queue)", true, true));
+		write1->writeElements()->insert(new WriteElement("TAVG(Queue_Seize_3.TimeInQueue)", true, true));
 		// model->insert(write1);
 		//
 		Resource* machine1 = new Resource(model, "Machine_1");
@@ -178,9 +178,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		release3->nextComponents()->insert(dispose1);
 		//
 		simulator->models()->insert(model);
-		if (model->check()) {
-			model->save("./temp/forthExampleOfSimulation.txt");
-		}
+		model->save("./temp/forthExampleOfSimulation.txt");
 	} else { // load previously saved model
 		simulator->models()->loadModel("./temp/forthExampleOfSimulation.txt");
 		model = simulator->models()->current();

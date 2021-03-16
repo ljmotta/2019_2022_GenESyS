@@ -13,6 +13,7 @@
 
 #include "Enter.h"
 #include "Model.h"
+#include "Counter.h"
 
 Enter::Enter(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Enter>(), name) {
 }
@@ -40,6 +41,8 @@ Station* Enter::getStation() const {
 }
 
 void Enter::_execute(Entity* entity) {
+	if (_reportStatistics)
+		_numberIn->incCountValue();
 	_station->enter(entity);
 	_parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
 }
@@ -55,6 +58,7 @@ bool Enter::_loadInstance(std::map<std::string, std::string>* fields) {
 }
 
 void Enter::_initBetweenReplications() {
+	_numberIn->clear();
 }
 
 std::map<std::string, std::string>* Enter::_saveInstance() {
@@ -79,3 +83,14 @@ PluginInformation* Enter::GetPluginInformation() {
 	return info;
 }
 
+void Enter::_createInternalElements() {
+	if (_reportStatistics) {
+		if (_numberIn == nullptr) {
+			_numberIn = new Counter(_parentModel, _name + "." + "CountNumberIn", this);
+			_childrenElements->insert({"CountNumberIn", _numberIn});
+		}
+	} else
+		if (_numberIn != nullptr) {
+		_removeChildrenElements();
+	}
+}

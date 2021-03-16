@@ -28,7 +28,8 @@ void Dispose::_execute(Entity* entity) {
 	if (_reportStatistics) {
 		_numberOut->incCountValue();
 		double timeInSystem = _parentModel->simulation()->simulatedTime() - entity->attributeValue("Entity.ArrivalTime");
-		entity->entityType()->addGetStatisticsCollector(entity->entityType()->name() + "." + "Total_Time")->getStatistics()->getCollector()->addValue(timeInSystem);
+		if (entity->entityType()->isReportStatistics())
+			entity->entityType()->addGetStatisticsCollector(entity->entityType()->name() + "." + "TotalTime")->getStatistics()->getCollector()->addValue(timeInSystem);
 	}
 	_parentModel->removeEntity(entity, _reportStatistics);
 }
@@ -60,7 +61,8 @@ void Dispose::_createInternalElements() {
 		// include StatisticsCollector needed for each EntityType
 		std::list<ModelElement*>* enttypes = _parentModel->elements()->elementList(Util::TypeOf<EntityType>())->list();
 		for (std::list<ModelElement*>::iterator it = enttypes->begin(); it != enttypes->end(); it++) {
-			static_cast<EntityType*> ((*it))->addGetStatisticsCollector((*it)->name() + "." + "Total_Time"); // force create this CStat before model checking
+			if ((*it)->isReportStatistics())
+				static_cast<EntityType*> ((*it))->addGetStatisticsCollector((*it)->name() + "." + "TotalTime"); // force create this CStat before model checking
 		}
 	} else if (!_reportStatistics && _numberOut != nullptr) {
 		//_numberOut->~Counter();

@@ -97,8 +97,8 @@ template <> struct Traits<GenesysApplication_if> {
 	// examples
 	//typedef FirstExampleOfSimulation Application;
 	//typedef SecondExampleOfSimulation Application;
-	typedef ThirdExampleOfSimulation Application;
-	//typedef FourthExampleOfSimulation Application;
+	//typedef ThirdExampleOfSimulation Application;
+	typedef FourthExampleOfSimulation Application;
 	//typedef FullSimulationOfComplexModel Application;
 	// full aplications
 	//typedef GenesysGUI Application;
@@ -142,7 +142,7 @@ template <> struct Traits<ModelChecker_if> {
 template <> struct Traits<ModelComponent> {
 	typedef StatisticsDefaultImpl1 StatisticsCollector_StatisticsImplementation;
 	typedef CollectorDefaultImpl1 StatisticsCollector_CollectorImplementation;
-	static constexpr bool reportStatistics = false;
+	static constexpr bool reportStatistics = true;
 };
 template <> struct Traits<ModelElement> {
 	static constexpr bool reportStatistics = true;

@@ -1032,7 +1032,7 @@ namespace yy {
 
   case 12:
 #line 210 "bisonparser.yy"
-                                               {yylhs.value.as < obj_t > ().valor = yystack_[0].value.as < obj_t > ().valor;}
+                                                           {yylhs.value.as < obj_t > ().valor = yystack_[0].value.as < obj_t > ().valor;}
 #line 1037 "../GenesysParser.cpp"
     break;
 
@@ -1296,7 +1296,7 @@ namespace yy {
 
   case 56:
 #line 278 "bisonparser.yy"
-                                                            { yylhs.value.as < obj_t > ().valor = driver.sampler()->sampleExponential(yystack_[1].value.as < obj_t > ().valor); yylhs.value.as < obj_t > ().tipo = "Exponencial";}
+                                                                        { yylhs.value.as < obj_t > ().valor = driver.sampler()->sampleExponential(yystack_[1].value.as < obj_t > ().valor); yylhs.value.as < obj_t > ().tipo = "Exponencial";}
 #line 1301 "../GenesysParser.cpp"
     break;
 

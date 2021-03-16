@@ -86,7 +86,8 @@ private:
 	std::string _expression = "";
 	std::string _expressionName = "";
 	std::string _filename = "";
-private:
+private: 
+	// not a child element
 	StatisticsCollector* _cstatExpression; /* \todo: Cretae an internal class to agregate ExpressionStatisticsColelctor, and change Record to got a list of it, so Record cn record a set of expressions into a set of files */
 };
 

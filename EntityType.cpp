@@ -18,14 +18,17 @@
 //using namespace GenesysKernel;
 
 EntityType::EntityType(Model* model, std::string name) : ModelElement(model, Util::TypeOf<EntityType>(), name) {
-	_initCostsAndStatistics();
 }
 
-void EntityType::_initCostsAndStatistics() {
+
+void EntityType::_initBetweenReplications() {
 	_initialWaitingCost = 0.0;
 	_initialVACost = 0.0;
 	_initialNVACost = 0.0;
 	_initialOtherCost = 0.0;
+	for (std::list<StatisticsCollector*>::iterator it = this->_statisticsCollectors->list()->begin(); it != this->_statisticsCollectors->list()->end(); it++) {
+		(*it)->getStatistics()->getCollector()->clear();
+	}
 }
 
 EntityType::~EntityType() {
@@ -137,4 +140,12 @@ bool EntityType::_check(std::string* errorMessage) {
 	return true;
 }
 
+void EntityType::_createInternalElements() {
+	if (!_reportStatistics)
+		while (_statisticsCollectors->size() > 0) {
+			_parentModel->elements()->remove(_statisticsCollectors->front());
+			_statisticsCollectors->front()->~StatisticsCollector();
+			_statisticsCollectors->pop_front();
+		}
+}
 

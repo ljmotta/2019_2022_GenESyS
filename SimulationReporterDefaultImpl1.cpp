@@ -124,7 +124,6 @@ void SimulationReporterDefaultImpl1::showReplicationStatistics() {
 		}
 		Util::DecIndent();
 	}
-
 	Util::DecIndent();
 	_model->tracer()->traceReport("End of Report for replication " + std::to_string(_simulation->currentReplicationNumber()) + " of " + std::to_string(_model->infos()->numberOfReplications()));
 	_model->tracer()->traceReport("------------------------------");

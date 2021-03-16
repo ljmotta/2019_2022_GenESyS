@@ -65,9 +65,9 @@ int FirstExampleOfSimulation::main(int argc, char** argv) {
 		delay1->nextComponents()->insert(dispose1);
 		// insert the model into the simulator
 		simulator->models()->insert(model);
-		// if the model is ok then save the model into a text file
-		if (model->check())
-			model->save("./temp/firstExampleOfSimulation.txt");
+
+		// save the model into a text file
+		model->save("./temp/firstExampleOfSimulation.txt");
 	} else {
 		simulator->models()->loadModel("./temp/firstExampleOfSimulation.txt");
 		model = simulator->models()->current();

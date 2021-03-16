@@ -16,6 +16,7 @@
 
 #include "ModelComponent.h"
 #include "Station.h"
+#include "Counter.h"
 
 /*!
 Route module
@@ -79,12 +80,15 @@ protected:
 	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
 	virtual std::map<std::string, std::string>* _saveInstance();
 	virtual bool _check(std::string* errorMessage);
+	virtual void _createInternalElements();
 private:
 	std::string _routeTimeExpression = "0.0";
 	Util::TimeUnit _routeTimeTimeUnit = Util::TimeUnit::second;
 	Route::DestinationType _routeDestinationType = DestinationType::Station;
 private: // association
 	Station* _station;
+private: // children elements
+	Counter* _numberIn;
 };
 
 #endif /* ROUTE_H */

@@ -13,6 +13,8 @@
 
 #include "ModelSimulation.h"
 #include <iostream>
+#include <cassert>
+#include <chrono>
 #include "Model.h"
 #include "Simulator.h"
 #include "SourceModelComponent.h"
@@ -78,6 +80,7 @@ void ModelSimulation::start() {
 	}
 	_running = true;
 	_isPaused = false;
+	//std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long int, std::ratio < 1, 1000000000 >> > replicationStartTime = std::chrono::high_resolution_clock::now();
 	do {
 		Util::SetIndent(1);
 		_model->onEvents()->NotifyReplicationStartHandlers(new SimulationEvent(_currentReplicationNumber, nullptr));
@@ -346,6 +349,7 @@ void ModelSimulation::_processEvent(Event* event) {
 	this->_currentEntity = event->entity();
 	this->_currentComponent = event->component();
 	this->_currentInputNumber = event->componentInputNumber();
+	assert(_simulatedTime <= event->time());
 	_simulatedTime = event->time();
 	_model->onEvents()->NotifyProcessEventHandlers(new SimulationEvent(_currentReplicationNumber, event));
 	Util::IncIndent();

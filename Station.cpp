@@ -17,15 +17,6 @@
 #include "Attribute.h"
 
 Station::Station(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Station>(), name) {
-	_initCStats();
-}
-
-void Station::_initCStats() {
-	_cstatNumberInStation = new StatisticsCollector(_parentModel, _name + "." + "Number_In_Station", this);
-	_cstatTimeInStation = new StatisticsCollector(_parentModel, _name + "." + "Time_In_Station", this);
-	_childrenElements->insert({"NumberInStation", _cstatNumberInStation});
-	_childrenElements->insert({"TimeInStation", _cstatTimeInStation});
-
 }
 
 Station::~Station() {
@@ -43,7 +34,9 @@ std::string Station::show() {
 }
 
 void Station::initBetweenReplications() {
-	//this->_list->clear();
+	_cstatNumberInStation->getStatistics()->getCollector()->clear();
+	_cstatTimeInStation->getStatistics()->getCollector()->clear();
+
 }
 
 void Station::enter(Entity* entity) {
@@ -52,7 +45,8 @@ void Station::enter(Entity* entity) {
 	entity->setAttributeValue(attributeName, _parentModel->simulation()->simulatedTime());
 	entity->setAttributeValue("Entity.Station", _id);
 	_numberInStation++;
-	this->_cstatNumberInStation->getStatistics()->getCollector()->addValue(_numberInStation);
+	if (_reportStatistics)
+		this->_cstatNumberInStation->getStatistics()->getCollector()->addValue(_numberInStation);
 }
 
 void Station::leave(Entity* entity) {
@@ -60,11 +54,14 @@ void Station::leave(Entity* entity) {
 	trimwithin(attributeName);
 	double arrivalTime = entity->attributeValue(attributeName);
 	double timeInStation = _parentModel->simulation()->simulatedTime() - arrivalTime;
-	_cstatTimeInStation->getStatistics()->getCollector()->addValue(timeInStation);
-	entity->entityType()->addGetStatisticsCollector("Time in Stations")->getStatistics()->getCollector()->addValue(timeInStation);
 	entity->setAttributeValue("Entity.Station", 0.0);
 	_numberInStation--;
-	_cstatNumberInStation->getStatistics()->getCollector()->addValue(_numberInStation);
+	if (_reportStatistics) {
+		_cstatNumberInStation->getStatistics()->getCollector()->addValue(_numberInStation);
+		_cstatTimeInStation->getStatistics()->getCollector()->addValue(timeInStation);
+		if (entity->entityType()->isReportStatistics())
+			entity->entityType()->addGetStatisticsCollector("TimeInStations")->getStatistics()->getCollector()->addValue(timeInStation); // \todo: should check if entitytype reports (?)
+	}
 }
 
 void Station::setEnterIntoStationComponent(ModelComponent* _enterIntoStationComponent) {
@@ -116,16 +113,28 @@ bool Station::_check(std::string* errorMessage) {
 			new Attribute(_parentModel, neededName);
 		}
 	}
-	// include StatisticsCollector needed in EntityType
-	std::list<ModelElement*>* enttypes = _parentModel->elements()->elementList(Util::TypeOf<EntityType>())->list();
-	for (std::list<ModelElement*>::iterator it = enttypes->begin(); it != enttypes->end(); it++) {
-		static_cast<EntityType*> ((*it))->addGetStatisticsCollector("Time in Stations"); // force create this CStat before simulation starts
-	}
 	//
 	return true;
 }
 
 void Station::_createInternalElements() {
-	//_initCStats();
-}
+	if (_reportStatistics) {
+		if (_cstatNumberInStation == nullptr) {
+			_cstatNumberInStation = new StatisticsCollector(_parentModel, _name + "." + "NumberInStation", this);
+			_cstatTimeInStation = new StatisticsCollector(_parentModel, _name + "." + "TimeInStation", this);
+			_childrenElements->insert({"NumberInStation", _cstatNumberInStation});
+			_childrenElements->insert({"TimeInStation", _cstatTimeInStation});
+			//
+			// include StatisticsCollector needed in EntityType
+			std::list<ModelElement*>* enttypes = _parentModel->elements()->elementList(Util::TypeOf<EntityType>())->list();
+			for (std::list<ModelElement*>::iterator it = enttypes->begin(); it != enttypes->end(); it++) {
+				if ((*it)->isReportStatistics())
+					static_cast<EntityType*> ((*it))->addGetStatisticsCollector("TimeInStations"); // force create this CStat before simulation starts
+			}
 
+		}
+	} else
+		if (_cstatNumberInStation != nullptr) {
+		_removeChildrenElements();
+	}
+}

@@ -62,6 +62,8 @@ protected:
 private:
 	std::string _delayExpression = "1.0";
 	Util::TimeUnit _delayTimeUnit = Util::TimeUnit::second;
+private: // inner children elements
+	StatisticsCollector* _cstatWaitTime;
 };
 
 #endif /* DELAY_H */

@@ -80,7 +80,7 @@ protected:
 	virtual std::map<std::string, std::string>* _saveInstance();
 	virtual bool _check(std::string* errorMessage);
 	virtual void _createInternalElements();
-private:
+private: // children elements
 	Counter* _numberOut;
 };
 

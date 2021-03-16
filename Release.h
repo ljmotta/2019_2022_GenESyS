@@ -99,7 +99,6 @@ private:
 	std::string _quantityExpression = "1";
 	Resource::ResourceRule _rule = Resource::ResourceRule::SMALLESTBUSY;
 	std::string _saveAttribute = "";
-
 private: // no g&s
 	Resource* _resource;
 };

@@ -82,14 +82,11 @@ protected:
 	virtual bool _check(std::string* errorMessage);
 	virtual void _createInternalElements();
 private:
-	void _initCStats();
-private:
 	unsigned int _numberInStation = 0;
 	ModelComponent* _enterIntoStationComponent;
 private: // inner elements
 	StatisticsCollector* _cstatNumberInStation;
 	StatisticsCollector* _cstatTimeInStation;
-
 };
 
 #endif /* STATION_H */
