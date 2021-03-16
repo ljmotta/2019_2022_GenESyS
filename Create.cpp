@@ -25,7 +25,7 @@ Create::Create(Model* model, std::string name) : SourceModelComponent(model, Uti
 	_connections->setMaxInputConnections(0);
 	GetterMember getter = DefineGetterMember<SourceModelComponent>(this, &Create::entitiesPerCreation);
 	SetterMember setter = DefineSetterMember<SourceModelComponent>(this, &Create::setEntitiesPerCreation);
-	model->controls()->insert(new SimulationControl(Util::TypeOf<Create>(), "Entities Per Creation", getter, setter));
+	model->controls()->insert(new SimulationControl(Util::TypeOf<Create>(), _name + ".EntitiesPerCreation", getter, setter));
 	/* \todo:
 	model->getControls()->insert(new SimulationControl(Util::TypeOf<Create>(), "Time Between Creations",
 		DefineGetterMember<SourceModelComponent>(this, &Create::getTimeBetweenCreationsExpression),

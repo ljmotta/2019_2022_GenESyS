@@ -205,6 +205,7 @@ void ModelSimulation::_showSimulationHeader() {
 		responses += (*it)->name() + "(" + (*it)->type() + "), ";
 	}
 	tm->traceReport("Simulation responses: " + responses);
+	tm->traceReport("");
 }
 
 /*!

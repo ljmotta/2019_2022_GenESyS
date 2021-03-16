@@ -18,7 +18,7 @@
 Resource::Resource(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Resource>(), name) {
 	GetterMember getter = DefineGetterMember<Resource>(this, &Resource::getCapacity);
 	SetterMember setter = DefineSetterMember<Resource>(this, &Resource::setCapacity);
-	model->controls()->insert(new SimulationControl(Util::TypeOf<Resource>(), "Capacity", getter, setter));
+	model->controls()->insert(new SimulationControl(Util::TypeOf<Resource>(), _name + ".Capacity", getter, setter));
 }
 
 Resource::~Resource() {

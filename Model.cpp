@@ -53,15 +53,15 @@ Model::Model(Simulator* simulator) {
 	_responses = new List<SimulationResponse*>();
 	_controls = new List<SimulationControl*>();
 	// insert controls
-	_controls->insert(new SimulationControl("Model Info", "Number of Replications",
+	_controls->insert(new SimulationControl("Model Info", "NumberOfReplications",
 			DefineGetterMember<ModelInfo>(this->_modelInfo, &ModelInfo::numberOfReplications),
 			DefineSetterMember<ModelInfo>(this->_modelInfo, &ModelInfo::setNumberOfReplications))
 			);
-	_controls->insert(new SimulationControl("Model Info", "Replication Length",
+	_controls->insert(new SimulationControl("Model Info", "ReplicationLength",
 			DefineGetterMember<ModelInfo>(this->_modelInfo, &ModelInfo::replicationLength),
 			DefineSetterMember<ModelInfo>(this->_modelInfo, &ModelInfo::setReplicationLength))
 			);
-	_controls->insert(new SimulationControl("Model Info", "Warmup Period",
+	_controls->insert(new SimulationControl("Model Info", "WarmupPeriod",
 			DefineGetterMember<ModelInfo>(this->_modelInfo, &ModelInfo::warmUpPeriod),
 			DefineSetterMember<ModelInfo>(this->_modelInfo, &ModelInfo::setWarmUpPeriod))
 			);

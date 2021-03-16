@@ -41,7 +41,7 @@ FourthExampleOfSimulation::FourthExampleOfSimulation() {
 
 int FourthExampleOfSimulation::main(int argc, char** argv) {
 	Simulator* simulator = new Simulator();
-	simulator->tracer()->setTraceLevel(Util::TraceLevel::componentArrival);
+	simulator->tracer()->setTraceLevel(Util::TraceLevel::modelResult); //componentArrival);
 	this->setDefaultTraceHandlers(simulator->tracer());
 	this->insertFakePluginsByHand(simulator);
 	bool wantToCreateNewModelAndSaveInsteadOfJustLoad = true;
@@ -50,7 +50,8 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		model = new Model(simulator);
 		// build the simulation model
 		ModelInfo* infos = model->infos();
-		infos->setNumberOfReplications(1);
+		infos->setNumberOfReplications(10);
+		//infos->setReplicationLength(50);
 		EntityType* part = new EntityType(model, "Part");
 		// model->insert(part);
 		Create* create1 = new Create(model);
