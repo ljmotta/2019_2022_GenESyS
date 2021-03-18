@@ -32,7 +32,7 @@ double StatisticsDataFileDummyImpl::max() {
 }
 
 double StatisticsDataFileDummyImpl::average() {
-	return 0.0; // dummy
+
 }
 
 double StatisticsDataFileDummyImpl::mode() {

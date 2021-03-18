@@ -70,8 +70,9 @@ int ThirdExampleOfSimulation::main(int argc, char** argv) {
 		queueSeize1->setOrderRule(Queue::OrderRule::FIFO);
 		//
 		Seize* seize1 = new Seize(model);
-		seize1->setResource(machine1);
-		seize1->setQuantity("1");
+		//seize1->setResource(machine1);
+		//seize1->setQuantity("1");
+		seize1->setSeizeRequest(new ResourceItemRequest(machine1, "1"));
 		seize1->setQueue(queueSeize1);
 		//
 		Delay* delay1 = new Delay(model);
@@ -79,8 +80,9 @@ int ThirdExampleOfSimulation::main(int argc, char** argv) {
 		delay1->setDelayTimeUnit(Util::TimeUnit::second);
 		//
 		Release* release1 = new Release(model);
-		release1->setResource(machine1);
-		release1->setQuantity("1");
+		//release1->setResource(machine1);
+		//release1->setQuantity("1");
+		release1->setReleaseRequest(new ResourceItemRequest(machine1, "1"));
 		//
 		Dispose* dispose1 = new Dispose(model);
 		// connect model components to create a "workflow"

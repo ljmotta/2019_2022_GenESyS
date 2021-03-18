@@ -20,6 +20,36 @@
 #include "Counter.h"
 #include "Plugin.h"
 
+class Resource;
+
+class ResourceItemRequest {
+public:
+
+	ResourceItemRequest(Resource* resource, std::string quantityExpression = "1") {
+		_resource = resource;
+		_quantityExpression = quantityExpression;
+	}
+
+	std::string quantityExpression() const {
+		return _quantityExpression;
+	}
+
+	Resource* resource() const {
+		return _resource;
+	}
+
+    void setQuantityExpression(std::string _quantityExpression) {
+    	this->_quantityExpression = _quantityExpression;
+    }
+
+    void setResource(Resource* _resource) {
+    	this->_resource = _resource;
+    }
+private:
+	Resource* _resource;
+	std::string _quantityExpression;
+};
+
 /*!
 Resource module
 DESCRIPTION
@@ -124,7 +154,7 @@ public: // g&s
 public: // gets
 	unsigned int getNumberBusy() const;
 public:
-	void addResourceEventHandler(ResourceEventHandler eventHandler);
+	void addReleaseResourceEventHandler(ResourceEventHandler eventHandler);
 	double getLastTimeSeized() const;
 protected:
 	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
@@ -133,7 +163,7 @@ protected:
 	virtual void _createInternalElements();
 
 private:
-	void _notifyEventHandlers(); ///< Notify observer classes that some of the resource capacity has been released. It is useful for allocation components (such as Seize) to know when an entity waiting into a queue can try to seize the resource again
+	void _notifyReleaseEventHandlers(); ///< Notify observer classes that some of the resource capacity has been released. It is useful for allocation components (such as Seize) to know when an entity waiting into a queue can try to seize the resource again
 	//private:
 	//    ElementManager* _elems;
 private:

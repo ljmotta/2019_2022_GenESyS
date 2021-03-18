@@ -21,8 +21,8 @@ Seize::Seize(Model* model, std::string name) : ModelComponent(model, Util::TypeO
 std::string Seize::show() {
 	return ModelComponent::show() +
 			",resourceType=" + std::to_string(static_cast<int> (this->_resourceType)) +
-			",resource=\"" + this->_resource->name() + "\"" +
-			",quantity=" + this->_quantityExpression;
+			",resource=\"" + this->_seizeRequest->resource()->name() + "\"" +
+			",quantity=" + this->_seizeRequest->quantityExpression();
 }
 
 void Seize::setLastMemberSeized(unsigned int _lastMemberSeized) {
@@ -49,13 +49,13 @@ Resource::ResourceRule Seize::getRule() const {
 	return _rule;
 }
 
-void Seize::setQuantity(std::string _quantity) {
-	this->_quantityExpression = _quantity;
-}
+//void Seize::setQuantity(std::string _quantity) {
+//	this->_quantityExpression = _quantity;
+//}
 
-std::string Seize::getQuantity() const {
-	return _quantityExpression;
-}
+//std::string Seize::getQuantity() const {
+//	return _quantityExpression;
+//}
 
 void Seize::setResourceType(Resource::ResourceType _resourceType) {
 	this->_resourceType = _resourceType;
@@ -93,7 +93,7 @@ void Seize::setQueueName(std::string queueName) throw () {
 void Seize::_handlerForResourceEvent(Resource* resource) {
 	Waiting* first = _queue->first();
 	if (first != nullptr) { // there are entities waiting in the queue
-		unsigned int quantity = _parentModel->parseExpression(this->_quantityExpression);
+		unsigned int quantity = _parentModel->parseExpression(this->_seizeRequest->quantityExpression());
 		if ((resource->getCapacity() - resource->getNumberBusy()) >= quantity) { //enought quantity to seize
 			double tnow = _parentModel->simulation()->simulatedTime();
 			resource->seize(quantity, tnow);
@@ -105,31 +105,31 @@ void Seize::_handlerForResourceEvent(Resource* resource) {
 	}
 }
 
-void Seize::setResourceName(std::string resourceName) throw () {
-	Resource* resource = dynamic_cast<Resource*> (_parentModel->elements()->element(Util::TypeOf<Resource>(), resourceName));
-	if (resource != nullptr) {
-		_resource = resource;
-	} else {
-		throw std::invalid_argument("Resource does not exist");
-	}
-}
+//void Seize::setResourceName(std::string resourceName) throw () {
+//	Resource* resource = dynamic_cast<Resource*> (_parentModel->elements()->element(Util::TypeOf<Resource>(), resourceName));
+//	if (resource != nullptr) {
+//		_resource = resource;
+//	} else {
+//		throw std::invalid_argument("Resource does not exist");
+//	}
+//}
 
-std::string Seize::getResourceName() const {
-	return _resource->name();
-}
+//std::string Seize::getResourceName() const {
+//	return _seizeRequest->resource()->name();
+//}
 
 std::string Seize::getQueueName() const {
 	return _queue->name();
 }
 
-void Seize::setResource(Resource* resource) {
-	this->_resource = resource;
-	_resource->addResourceEventHandler(Resource::SetResourceEventHandler<Seize>(&Seize::_handlerForResourceEvent, this));
-}
+//void Seize::setResource(Resource* resource) {
+//	this->_resource = resource;
+//	_resource->addReleaseResourceEventHandler(Resource::SetResourceEventHandler<Seize>(&Seize:://_handlerForResourceEvent, this));
+//}
 
-Resource* Seize::getResource() const {
-	return _resource;
-}
+//Resource* Seize::getResource() const {
+//	return _resource;
+//}
 
 void Seize::setQueue(Queue* queue) {
 	this->_queue = queue;
@@ -139,15 +139,22 @@ Queue* Seize::getQueue() const {
 	return _queue;
 }
 
+void Seize::setSeizeRequest(ResourceItemRequest* _seizeRequest) {
+	this->_seizeRequest = _seizeRequest;
+}
+
+ResourceItemRequest* Seize::seizeRequest() const {
+	return _seizeRequest;
+}
+
 void Seize::_execute(Entity* entity) {
-	/*  \todo: +: not implemented yet */
 	Resource* resource = nullptr;
 	if (this->_resourceType == Resource::ResourceType::SET) {
 		/*  \todo: +: not implemented yet */
 	} else {
-		resource = this->_resource;
+		resource = this->_seizeRequest->resource();
 	}
-	unsigned int quantity = _parentModel->parseExpression(this->_quantityExpression);
+	unsigned int quantity = _parentModel->parseExpression(this->_seizeRequest->quantityExpression());
 	if (resource->getCapacity() - resource->getNumberBusy() < quantity) { // not enought free quantity to allocate. Entity goes to the queue
 		WaitingResource* waitingRec = new WaitingResource(entity, this, _parentModel->simulation()->simulatedTime(), quantity);
 		this->_queue->insertElement(waitingRec); // ->list()->insert(waitingRec);
@@ -163,7 +170,7 @@ void Seize::_execute(Entity* entity) {
 void Seize::_initBetweenReplications() {
 	this->_lastMemberSeized = 0;
 	this->_queue->initBetweenReplications();
-	this->_resource->initBetweenReplications();
+	this->_seizeRequest->resource()->initBetweenReplications();
 }
 
 bool Seize::_loadInstance(std::map<std::string, std::string>* fields) {
@@ -171,7 +178,6 @@ bool Seize::_loadInstance(std::map<std::string, std::string>* fields) {
 	if (res) {
 		this->_allocationType = std::stoi((*(fields->find("allocationType"))).second);
 		this->_priority = std::stoi((*(fields->find("priority"))).second);
-		this->_quantityExpression = ((*(fields->find("quantity"))).second);
 		this->_resourceType = static_cast<Resource::ResourceType> (std::stoi((*(fields->find("resourceType"))).second));
 		this->_rule = static_cast<Resource::ResourceRule> (std::stoi((*(fields->find("rule"))).second));
 		this->_saveAttribute = ((*(fields->find("saveAttribute"))).second);
@@ -182,10 +188,12 @@ bool Seize::_loadInstance(std::map<std::string, std::string>* fields) {
 		this->_queue = queue;
 		//Util::identitifcation resourceId = std::stoi((*(fields->find("resourceId"))).second);
 		//Resource* resource = dynamic_cast<Resource*> (_model->elements()->element(Util::TypeOf<Resource>(), resourceId));
+		// \todo: next fields form a pair, and it should be a list of them
+		std::string quantityExpression = ((*(fields->find("quantity"))).second);
 		std::string resourceName = ((*(fields->find("resourceName"))).second);
 		Resource* resource = dynamic_cast<Resource*> (_parentModel->elements()->element(Util::TypeOf<Resource>(), resourceName));
-		this->_resource = resource;
-		_resource->addResourceEventHandler(Resource::SetResourceEventHandler<Seize>(&Seize::_handlerForResourceEvent, this));
+		this->_seizeRequest = new ResourceItemRequest(resource, quantityExpression);
+		resource->addReleaseResourceEventHandler(Resource::SetResourceEventHandler<Seize>(&Seize::_handlerForResourceEvent, this));
 
 	}
 	return res;
@@ -195,12 +203,14 @@ std::map<std::string, std::string>* Seize::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance(); //Util::TypeOf<Seize>());
 	fields->emplace("allocationType", std::to_string(this->_allocationType));
 	fields->emplace("priority=", std::to_string(this->_priority));
-	fields->emplace("quantity", "\"" + this->_quantityExpression + "\"");
 	fields->emplace("queueId", std::to_string(this->_queue->id()));
 	fields->emplace("queueName", (this->_queue->name()));
 	fields->emplace("resourceType", std::to_string(static_cast<int> (this->_resourceType)));
-	fields->emplace("resourceId", std::to_string(this->_resource->id()));
-	fields->emplace("resourceName", (this->_resource->name()));
+	// \todo: put together as ResurceItemRequest ans it should be a list of them
+	fields->emplace("quantity", "\"" + this->_seizeRequest->quantityExpression() + "\"");
+	fields->emplace("resourceId", std::to_string(this->_seizeRequest->resource()->id()));
+	fields->emplace("resourceName", (this->_seizeRequest->resource()->name()));
+
 	fields->emplace("rule", std::to_string(static_cast<int> (this->_rule)));
 	fields->emplace("saveAttribute", this->_saveAttribute);
 	return fields;
@@ -208,8 +218,8 @@ std::map<std::string, std::string>* Seize::_saveInstance() {
 
 bool Seize::_check(std::string* errorMessage) {
 	bool resultAll = true;
-	resultAll &= _parentModel->checkExpression(_quantityExpression, "quantity", errorMessage);
-	resultAll &= _parentModel->elements()->check(Util::TypeOf<Resource>(), _resource, "Resource", errorMessage);
+	resultAll &= _parentModel->checkExpression(_seizeRequest->quantityExpression(), "quantity", errorMessage);
+	resultAll &= _parentModel->elements()->check(Util::TypeOf<Resource>(), _seizeRequest->resource(), "Resource", errorMessage);
 	resultAll &= _parentModel->elements()->check(Util::TypeOf<Queue>(), _queue, "Queue", errorMessage);
 	resultAll &= _parentModel->elements()->check(Util::TypeOf<Attribute>(), _saveAttribute, "SaveAttribute", false, errorMessage);
 	return resultAll;

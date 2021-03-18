@@ -39,6 +39,7 @@ void Resource::seize(unsigned int quantity, double tnow) {
 		_numSeizes->incCountValue(quantity);
 	_lastTimeSeized = tnow;
 	_resourceState = Resource::ResourceState::BUSY;
+	// \todo implement costs
 }
 
 void Resource::release(unsigned int quantity, double tnow) {
@@ -57,7 +58,7 @@ void Resource::release(unsigned int quantity, double tnow) {
 	}
 	//
 	_lastTimeSeized = timeSeized;
-	_notifyEventHandlers();
+	_notifyReleaseEventHandlers();
 }
 
 void Resource::initBetweenReplications() {
@@ -113,7 +114,7 @@ unsigned int Resource::getNumberBusy() const {
 	return _numberBusy;
 }
 
-void Resource::addResourceEventHandler(ResourceEventHandler eventHandler) {
+void Resource::addReleaseResourceEventHandler(ResourceEventHandler eventHandler) {
 	this->_resourceEventHandlers->insert(eventHandler); // \todo: priority should be registered as well, so handlers are invoqued ordered by priority
 }
 
@@ -121,7 +122,7 @@ double Resource::getLastTimeSeized() const {
 	return _lastTimeSeized;
 }
 
-void Resource::_notifyEventHandlers() {
+void Resource::_notifyReleaseEventHandlers() {
 	for (std::list<ResourceEventHandler>::iterator it = this->_resourceEventHandlers->list()->begin(); it != _resourceEventHandlers->list()->end(); it++) {
 		(*it)(this);
 	}

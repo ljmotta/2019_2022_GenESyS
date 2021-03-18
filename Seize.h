@@ -31,8 +31,7 @@ public:
 	WaitingResource(const WaitingResource& orig) : Waiting(orig) {
 	}
 
-	virtual ~WaitingResource() {
-	}
+	virtual ~WaitingResource() = default;
 public:
 
 	virtual std::string show() {
@@ -138,8 +137,8 @@ public: // get & set
 	std::string getSaveAttribute() const;
 	void setRule(Resource::ResourceRule _rule);
 	Resource::ResourceRule getRule() const;
-	void setQuantity(std::string _quantity);
-	std::string getQuantity() const;
+	//void setQuantity(std::string _quantity);
+	//std::string getQuantity() const;
 	void setResourceType(Resource::ResourceType _resourceType);
 	Resource::ResourceType getResourceType() const;
 	void setPriority(unsigned short _priority);
@@ -147,34 +146,38 @@ public: // get & set
 	void setAllocationType(unsigned int _allocationType);
 	unsigned int getAllocationType() const;
 	// indirect access to Queue* and Resource*
-	void setResourceName(std::string _resourceName) throw ();
-	std::string getResourceName() const;
+	//void setResourceName(std::string _resourceName) throw ();
+	//std::string getResourceName() const;
 	void setQueueName(std::string queueName) throw ();
 	std::string getQueueName() const;
-	void setResource(Resource* resource);
-	Resource* getResource() const;
+	//void setResource(Resource* resource);
+	//Resource* getResource() const;
 	void setQueue(Queue* queue);
 	Queue* getQueue() const;
+    void setSeizeRequest(ResourceItemRequest* _seizeRequest);
+    ResourceItemRequest* seizeRequest() const;
 protected:
 	virtual void _execute(Entity* entity);
 	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
 	virtual void _initBetweenReplications();
 	virtual std::map<std::string, std::string>* _saveInstance();
 	virtual bool _check(std::string* errorMessage);
+	//virtual void _createInternalElements(); 
 private:
 	void _handlerForResourceEvent(Resource* resource);
 private:
 	unsigned int _allocationType = 0; // uint ? enum?
 	unsigned short _priority = 0;
 	Resource::ResourceType _resourceType = Resource::ResourceType::RESOURCE;
-	std::string _quantityExpression = "1";
 	Resource::ResourceRule _rule = Resource::ResourceRule::SMALLESTBUSY;
 	std::string _saveAttribute = "";
+	Queue* _queue; // usually has a queue, but not always (it could be a hold) 
+	ResourceItemRequest* _seizeRequest; // todo: should be a list
+	//std::string _quantityExpression = "1";
+	//Resource* _resource; // usually has a resource, but not always (it could be a set)
 	//std::string _resourceName = "Resource 1";  // trying to access resource and queue indirectly
 	//std::string _queueName;
 private: // not gets or sets
-	Queue* _queue; // usually has a queue, but not always (it could be a hold) /* \todo: Evaluate if is better to associate queue to seize or to the resource */
-	Resource* _resource; // usually has a resource, but not always (it could be a set)
 	//Set* _set;
 	unsigned int _lastMemberSeized = 0;
 };

@@ -23,8 +23,8 @@ Release::Release(Model* model, std::string name) : ModelComponent(model, Util::T
 std::string Release::show() {
 	return ModelComponent::show() +
 			",resourceType=" + std::to_string(static_cast<int> (this->_resourceType)) +
-			",resource=\"" + this->_resource->name() + "\"" +
-			",quantity=" + this->_quantityExpression;
+			",resource=\"" + this->_releaseRequest->resource()->name() + "\"" +
+			",quantity=" + this->_releaseRequest->quantityExpression();
 }
 
 void Release::setPriority(unsigned short _priority) {
@@ -43,13 +43,13 @@ Resource::ResourceType Release::resourceType() const {
 	return _resourceType;
 }
 
-void Release::setQuantity(std::string _quantity) {
-	this->_quantityExpression = _quantity;
-}
+//void Release::setQuantity(std::string _quantity) {
+//	this->_quantityExpression = _quantity;
+//}
 
-std::string Release::quantity() const {
-	return _quantityExpression;
-}
+//std::string Release::quantity() const {
+//	return _quantityExpression;
+//}
 
 void Release::setRule(Resource::ResourceRule _rule) {
 	this->_rule = _rule;
@@ -67,37 +67,44 @@ std::string Release::saveAttribute() const {
 	return _saveAttribute;
 }
 
-void Release::setResource(Resource* _resource) {
-	this->_resource = _resource;
+void Release::setReleaseRequest(ResourceItemRequest* _releaseRequest) {
+	this->_releaseRequest = _releaseRequest;
 }
 
-Resource* Release::resource() const {
-	return _resource;
+ResourceItemRequest* Release::releaseRequest() const {
+	return _releaseRequest;
 }
+
+//void Release::setResource(Resource* _resource) {
+//	this->_resource = _resource;
+//}
+
+//Resource* Release::resource() const {
+//	return _resource;
+//}
 
 void Release::_execute(Entity* entity) {
 	Resource* resource = nullptr;
 	if (this->_resourceType == Resource::ResourceType::SET) {
 		/*  \todo: +: not implemented yet */
 	} else {
-		resource = this->_resource;
+		resource = this->_releaseRequest->resource();
 	}
-	unsigned int quantity = _parentModel->parseExpression(this->_quantityExpression);
-	assert(_resource->getNumberBusy() >= quantity);
-	_parentModel->tracer()->traceSimulation(_parentModel->simulation()->simulatedTime(), entity, this, "Entity frees " + std::to_string(quantity) + " units of resource \"" + resource->name() + "\" seized on time " + std::to_string(_resource->getLastTimeSeized()));
-	_resource->release(quantity, _parentModel->simulation()->simulatedTime()); //{releases and sets the 'LastTimeSeized'property}
+	unsigned int quantity = _parentModel->parseExpression(this->_releaseRequest->quantityExpression());
+	assert(_releaseRequest->resource()->getNumberBusy() >= quantity);
+	_parentModel->tracer()->traceSimulation(_parentModel->simulation()->simulatedTime(), entity, this, "Entity frees " + std::to_string(quantity) + " units of resource \"" + resource->name() + "\" seized on time " + std::to_string(_releaseRequest->resource()->getLastTimeSeized()));
+	_releaseRequest->resource()->release(quantity, _parentModel->simulation()->simulatedTime()); //{releases and sets the 'LastTimeSeized'property}
 	_parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
 }
 
 void Release::_initBetweenReplications() {
-	this->_resource->initBetweenReplications();
+	this->_releaseRequest->resource()->initBetweenReplications();
 }
 
 bool Release::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelComponent::_loadInstance(fields);
 	if (res) {
 		this->_priority = std::stoi((*(fields->find("priority"))).second);
-		this->_quantityExpression = ((*(fields->find("quantity"))).second);
 		this->_resourceType = static_cast<Resource::ResourceType> (std::stoi((*(fields->find("resourceType"))).second));
 		this->_rule = static_cast<Resource::ResourceRule> (std::stoi((*(fields->find("rule"))).second));
 		this->_saveAttribute = ((*(fields->find("saveAttribute"))).second);
@@ -105,7 +112,8 @@ bool Release::_loadInstance(std::map<std::string, std::string>* fields) {
 		//Resource* res = dynamic_cast<Resource*> (_model->elements()->element(Util::TypeOf<Resource>(), resourceId));
 		std::string resourceName = ((*(fields->find("resourceName"))).second);
 		Resource* res = dynamic_cast<Resource*> (_parentModel->elements()->element(Util::TypeOf<Resource>(), resourceName));
-		this->_resource = res;
+		this->_releaseRequest->setQuantityExpression(((*(fields->find("quantity"))).second));
+		this->_releaseRequest->setResource(res);
 	}
 	return res;
 }
@@ -113,10 +121,10 @@ bool Release::_loadInstance(std::map<std::string, std::string>* fields) {
 std::map<std::string, std::string>* Release::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance(); //Util::TypeOf<Release>());
 	fields->emplace("priority", std::to_string(this->_priority));
-	fields->emplace("quantity", "\"" + this->_quantityExpression + "\"");
+	fields->emplace("quantity", "\"" + this->_releaseRequest->quantityExpression() + "\"");
 	fields->emplace("resourceType", std::to_string(static_cast<int> (this->_resourceType)));
-	fields->emplace("resourceId", std::to_string(this->_resource->id()));
-	fields->emplace("resourceName", (this->_resource->name()));
+	fields->emplace("resourceId", std::to_string(this->_releaseRequest->resource()->id()));
+	fields->emplace("resourceName", (this->_releaseRequest->resource()->name()));
 	fields->emplace("rule", std::to_string(static_cast<int> (this->_rule)));
 	fields->emplace("saveAttribute", this->_saveAttribute);
 	return fields;
@@ -125,24 +133,24 @@ std::map<std::string, std::string>* Release::_saveInstance() {
 
 bool Release::_check(std::string* errorMessage) {
 	bool resultAll = true;
-	resultAll &= _parentModel->checkExpression(_quantityExpression, "quantity", errorMessage);
-	resultAll &= _parentModel->elements()->check(Util::TypeOf<Resource>(), _resource, "resource", errorMessage);
+	resultAll &= _parentModel->checkExpression(_releaseRequest->quantityExpression(), "quantity", errorMessage);
+	resultAll &= _parentModel->elements()->check(Util::TypeOf<Resource>(), _releaseRequest->resource(), "resource", errorMessage);
 	resultAll &= _parentModel->elements()->check(Util::TypeOf<Attribute>(), _saveAttribute, "SaveAttribute", false, errorMessage);
 	return resultAll;
 }
 
-void Release::setResourceName(std::string resourceName) throw () {
-	ModelElement* resource = _parentModel->elements()->element(Util::TypeOf<Resource>(), resourceName);
-	if (resource != nullptr) {
-		this->_resource = dynamic_cast<Resource*> (resource);
-	} else {
-		throw std::invalid_argument("Resource does not exist");
-	}
-}
+//void Release::setResourceName(std::string resourceName) throw () {
+//	ModelElement* resource = _parentModel->elements()->element(Util::TypeOf<Resource>(), resourceName);
+//	if (resource != nullptr) {
+//		this->_resource = dynamic_cast<Resource*> (resource);
+//	} else {
+//		throw std::invalid_argument("Resource does not exist");
+//	}
+//}
 
-std::string Release::resourceName() const {
-	return _resource->name();
-}
+//std::string Release::resourceName() const {
+//	return _resource->name();
+//}
 
 PluginInformation* Release::GetPluginInformation() {
 	PluginInformation* info = new PluginInformation(Util::TypeOf<Release>(), &Release::LoadInstance);

@@ -44,7 +44,7 @@ void ConnectionManager::insert(ModelComponent* component, unsigned int inputNumb
 }
 
 void ConnectionManager::insertAtRank(unsigned int rank, Connection* connection) {
-	_nextConnections->setAtRank(rank, connection); // \TODO: it does not work if there is less then rank connections
+	_nextConnections->setAtRank(rank, connection); // \TODO: it does not work if there is less then rank connections. Model designer responsability?
 	_currentOutputConnections++;
 }
 

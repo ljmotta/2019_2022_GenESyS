@@ -74,17 +74,19 @@ public: // get & set
 	unsigned short priority() const;
 	void setResourceType(Resource::ResourceType _resourceType);
 	Resource::ResourceType resourceType() const;
-	void setQuantity(std::string _quantity);
-	std::string quantity() const;
+	//void setQuantity(std::string _quantity);
+	//std::string quantity() const;
 	void setRule(Resource::ResourceRule _rule);
 	Resource::ResourceRule rule() const;
 	void setSaveAttribute(std::string _saveAttribute);
 	std::string saveAttribute() const;
-	void setResource(Resource* _resource);
-	Resource* resource() const;
+    void setReleaseRequest(ResourceItemRequest* _releaseRequest);
+    ResourceItemRequest* releaseRequest() const;
+	//void setResource(Resource* _resource);
+	//Resource* resource() const;
 	// indirect access to and Resource*
-	void setResourceName(std::string resourceName) throw ();
-	std::string resourceName() const;
+	//void setResourceName(std::string resourceName) throw ();
+	//std::string resourceName() const;
 
 protected:
 	virtual void _execute(Entity* entity);
@@ -96,11 +98,11 @@ private:
 	//	unsigned int _allocationType = 0; // uint ? enum?
 	unsigned short _priority = 0;
 	Resource::ResourceType _resourceType = Resource::ResourceType::RESOURCE;
-	std::string _quantityExpression = "1";
 	Resource::ResourceRule _rule = Resource::ResourceRule::SMALLESTBUSY;
 	std::string _saveAttribute = "";
-private: // no g&s
-	Resource* _resource;
+	ResourceItemRequest* _releaseRequest;
+	//std::string _quantityExpression = "1";
+	//Resource* _resource;
 };
 
 #endif /* RELEASE_H */

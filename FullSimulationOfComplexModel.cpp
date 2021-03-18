@@ -100,7 +100,7 @@ int FullSimulationOfComplexModel::main(int argc, char** argv) {
 	elements->insert(filaSeize1);
 
 	Seize* seize1 = new Seize(model);
-	seize1->setResource(maquina1);
+	seize1->setSeizeRequest(new ResourceItemRequest(maquina1));
 	seize1->setQueue(filaSeize1);
 	components->insert(seize1);
 
@@ -111,7 +111,7 @@ int FullSimulationOfComplexModel::main(int argc, char** argv) {
 	components->insert(delay1);
 
 	Release* release1 = new Release(model);
-	release1->setResource(maquina1);
+	release1->setReleaseRequest(new ResourceItemRequest(maquina1));
 	components->insert(release1);
 
 	Record* record1 = new Record(model);
