@@ -87,7 +87,7 @@ std::map<std::string, std::string>* EntityGroup::_saveInstance() {
 
 bool EntityGroup::_check(std::string* errorMessage) {
 	std::string newNeededAttributeName = "Entity.Group";
-	if (_parentModel->elements()->element(Util::TypeOf<Attribute>(), newNeededAttributeName) == nullptr) {
+	if (_parentModel->getElements()->getElement(Util::TypeOf<Attribute>(), newNeededAttributeName) == nullptr) {
 		new Attribute(_parentModel, newNeededAttributeName);
 	}
 	return true;

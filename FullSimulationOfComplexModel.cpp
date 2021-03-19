@@ -47,17 +47,17 @@ int FullSimulationOfComplexModel::main(int argc, char** argv) {
 	Model* model = new Model(simulator);
 
 	// Handle traces and simulation events to output them
-	TraceManager* tm = model->tracer();
+	TraceManager* tm = model->getTracer();
 	this->setDefaultTraceHandlers(tm);
 
 	// get easy access to classes used to insert components and elements into a model
-	ComponentManager* components = model->components();
-	ElementManager* elements = model->elements();
+	ComponentManager* components = model->getComponents();
+	ElementManager* elements = model->getElements();
 
 	//
 	// build the simulation model
 	//
-	ModelInfo* infos = model->infos();
+	ModelInfo* infos = model->getInfos();
 	infos->setAnalystName("Your name");
 	infos->setProjectTitle("The title of the project");
 	infos->setDescription("This simulation model tests the components and elements that have been implemented so far.");
@@ -124,23 +124,23 @@ int FullSimulationOfComplexModel::main(int argc, char** argv) {
 	components->insert(dispose1);
 
 	// connect model components to create a "workflow" -- should always start from a SourceModelComponent and end at a SinkModelComponent (it will be checked)
-	create1->nextComponents()->insert(assign1);
-	assign1->nextComponents()->insert(decide1);
-	decide1->nextComponents()->insert(seize1);
-	decide1->nextComponents()->insert(dispose1);
-	seize1->nextComponents()->insert(delay1);
-	delay1->nextComponents()->insert(release1);
-	release1->nextComponents()->insert(record1);
-	record1->nextComponents()->insert(dispose1);
+	create1->getNextComponents()->insert(assign1);
+	assign1->getNextComponents()->insert(decide1);
+	decide1->getNextComponents()->insert(seize1);
+	decide1->getNextComponents()->insert(dispose1);
+	seize1->getNextComponents()->insert(delay1);
+	delay1->getNextComponents()->insert(release1);
+	release1->getNextComponents()->insert(record1);
+	record1->getNextComponents()->insert(dispose1);
 
 	// insert the model into the simulator
-	simulator->models()->insert(model);
+	simulator->getModels()->insert(model);
 
 	// then save the model into a text file
 	model->save("./temp/fullSimulationModel.txt");
 
 	// execute the simulation
-	model->simulation()->start();
+	model->getSimulation()->start();
 
 	return 0;
 };

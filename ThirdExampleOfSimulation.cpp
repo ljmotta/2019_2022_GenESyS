@@ -38,8 +38,8 @@ ThirdExampleOfSimulation::ThirdExampleOfSimulation() {
 int ThirdExampleOfSimulation::main(int argc, char** argv) {
 	Simulator* simulator = new Simulator();
 	// Handle traces and simulation events to output them
-	this->setDefaultTraceHandlers(simulator->tracer());
-	simulator->tracer()->setTraceLevel(Util::TraceLevel::modelResult);
+	this->setDefaultTraceHandlers(simulator->getTracer());
+	simulator->getTracer()->setTraceLevel(Util::TraceLevel::modelResult);
 	// insert plugins
 	this->insertFakePluginsByHand(simulator);
 	//
@@ -49,7 +49,7 @@ int ThirdExampleOfSimulation::main(int argc, char** argv) {
 		model = new Model(simulator);
 		// build the simulation model
 		// set model infos
-		ModelInfo* infos = model->infos();
+		ModelInfo* infos = model->getInfos();
 		infos->setReplicationLength(3600);
 		infos->setReplicationLengthTimeUnit(Util::TimeUnit::second);
 		infos->setNumberOfReplications(30);
@@ -86,20 +86,20 @@ int ThirdExampleOfSimulation::main(int argc, char** argv) {
 		//
 		Dispose* dispose1 = new Dispose(model);
 		// connect model components to create a "workflow"
-		create1->nextComponents()->insert(seize1);
-		seize1->nextComponents()->insert(delay1);
-		delay1->nextComponents()->insert(release1);
-		release1->nextComponents()->insert(dispose1);
+		create1->getNextComponents()->insert(seize1);
+		seize1->getNextComponents()->insert(delay1);
+		delay1->getNextComponents()->insert(release1);
+		release1->getNextComponents()->insert(dispose1);
 		// insert the model into the simulator
-		simulator->models()->insert(model);
+		simulator->getModels()->insert(model);
 		// save the model into a text file
 		model->save("./temp/thirdExampleOfSimulation.txt");
 	} else {
-		simulator->models()->loadModel("./temp/thirdExampleOfSimulation.txt");
-		model = simulator->models()->current();
+		simulator->getModels()->loadModel("./temp/thirdExampleOfSimulation.txt");
+		model = simulator->getModels()->current();
 	}
 	// execute the simulation
-	model->simulation()->start();
+	model->getSimulation()->start();
 
 	return 0;
 };

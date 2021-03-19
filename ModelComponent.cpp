@@ -19,11 +19,11 @@
 
 ModelComponent::ModelComponent(Model* model, std::string componentTypename, std::string name) : ModelElement(model, componentTypename, name, false) {
 	_reportStatistics = Traits<ModelComponent>::reportStatistics;
-	model->components()->insert(this);
+	model->getComponents()->insert(this);
 }
 
 ModelComponent::~ModelComponent() {
-	_parentModel->components()->remove(this);
+	_parentModel->getComponents()->remove(this);
 }
 
 void ModelComponent::Execute(Entity* entity, ModelComponent* component, unsigned int inputNumber) {
@@ -31,12 +31,12 @@ void ModelComponent::Execute(Entity* entity, ModelComponent* component, unsigned
 	// \todo: How can I know the number of inputs?
 	if (inputNumber > 0)
 		msg += " by input " + std::to_string(inputNumber);
-	component->_parentModel->tracer()->trace(Util::TraceLevel::componentArrival, msg);
+	component->_parentModel->getTracer()->trace(Util::TraceLevel::componentArrival, msg);
 	Util::IncIndent();
 	try {
 		component->_execute(entity);
 	} catch (const std::exception& e) {
-		component->_parentModel->tracer()->traceError(e, "Error executing component " + component->show());
+		component->_parentModel->getTracer()->traceError(e, "Error executing component " + component->show());
 	}
 	Util::DecIndent();
 }
@@ -46,23 +46,23 @@ void ModelComponent::CreateInternalElements(ModelComponent* component) {
 	try {
 		component->_createInternalElements();
 	} catch (const std::exception& e) {
-		component->_parentModel->tracer()->traceError(e, "Error creating elements of component " + component->show());
+		component->_parentModel->getTracer()->traceError(e, "Error creating elements of component " + component->show());
 	};
 }
 
 std::map<std::string, std::string>* ModelComponent::SaveInstance(ModelComponent* component) {
-	component->_parentModel->tracer()->trace(Util::TraceLevel::componentDetailed, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));
+	component->_parentModel->getTracer()->trace(Util::TraceLevel::componentDetailed, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));
 	std::map<std::string, std::string>* fields = new std::map<std::string, std::string>();
 	try {
 		fields = component->_saveInstance();
 	} catch (const std::exception& e) {
-		component->_parentModel->tracer()->traceError(e, "Error executing component " + component->show());
+		component->_parentModel->getTracer()->traceError(e, "Error executing component " + component->show());
 	}
 	return fields;
 }
 
 bool ModelComponent::Check(ModelComponent* component) {
-	component->_parentModel->tracer()->trace(Util::TraceLevel::componentDetailed, "Checking " + component->_typename + ": \"" + component->_name + "\""); //std::to_string(component->_id));
+	component->_parentModel->getTracer()->trace(Util::TraceLevel::componentDetailed, "Checking " + component->_typename + ": \"" + component->_name + "\""); //std::to_string(component->_id));
 	bool res = false;
 	std::string* errorMessage = new std::string();
 	Util::IncIndent();
@@ -70,17 +70,17 @@ bool ModelComponent::Check(ModelComponent* component) {
 		try {
 			res = component->_check(errorMessage);
 			if (!res) {
-				component->_parentModel->tracer()->trace(Util::TraceLevel::errorFatal, "Error: Checking has failed with message '" + *errorMessage + "'");
+				component->_parentModel->getTracer()->trace(Util::TraceLevel::errorFatal, "Error: Checking has failed with message '" + *errorMessage + "'");
 			}
 		} catch (const std::exception& e) {
-			component->_parentModel->tracer()->traceError(e, "Error verifying component " + component->show());
+			component->_parentModel->getTracer()->traceError(e, "Error verifying component " + component->show());
 		}
 	}
 	Util::DecIndent();
 	return res;
 }
 
-ConnectionManager* ModelComponent::nextComponents() const {
+ConnectionManager* ModelComponent::getNextComponents() const {
 	return _connections;
 }
 

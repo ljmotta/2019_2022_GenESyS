@@ -35,23 +35,23 @@ TestMatricesOfAttributesAndVariables::~TestMatricesOfAttributesAndVariables() {
 
 int TestMatricesOfAttributesAndVariables::main(int argc, char** argv) {
 	Simulator* sim = new Simulator();
-	setDefaultTraceHandlers(sim->tracer());
-	sim->tracer()->setTraceLevel(Util::TraceLevel::modelSimulationInternal);
+	setDefaultTraceHandlers(sim->getTracer());
+	sim->getTracer()->setTraceLevel(Util::TraceLevel::modelSimulationInternal);
 	insertFakePluginsByHand(sim);
 	Model* m = new Model(sim);
-	sim->models()->insert(m);
-	m->infos()->setProjectTitle("Stochastic Simulation of Chemical Reactions");
-	m->infos()->setReplicationLength(500);
+	sim->getModels()->insert(m);
+	m->getInfos()->setProjectTitle("Stochastic Simulation of Chemical Reactions");
+	m->getInfos()->setReplicationLength(500);
 	Create* cr1 = new Create(m);
 	Write* w1 = new Write(m);
 	Assign* as1 = new Assign(m, "Define próxima reação a ocorrer");
 	Delay* de1 = new Delay(m, "Aguarda tempo em que a reação ocorre");
 	Dispose* di1 = new Dispose(m);
-	cr1->nextComponents()->insert(w1);
-	w1->nextComponents()->insert(as1);
-	as1->nextComponents()->insert(de1);
-	de1->nextComponents()->insert(w1);
-	de1->nextComponents()->insert(di1); // trick to be connected
+	cr1->getNextComponents()->insert(w1);
+	w1->getNextComponents()->insert(as1);
+	as1->getNextComponents()->insert(de1);
+	de1->getNextComponents()->insert(w1);
+	de1->getNextComponents()->insert(di1); // trick to be connected
 	cr1->setEntityType(new EntityType(m));
 	cr1->setMaxCreations("1");
 	Variable* s = new Variable(m, "s");
@@ -94,8 +94,8 @@ int TestMatricesOfAttributesAndVariables::main(int argc, char** argv) {
 	as1->assignments()->insert(new Assign::Assignment("temp[6]", "1-exp(-temp[3])"));
 	as1->assignments()->insert(new Assign::Assignment("temp[7]", "expo(temp[6])"));
 	de1->setDelayExpression("temp[7]");
-	m->infos()->setTerminatingCondition("(N[1]+N[2]+N[3])==0");
-	m->simulation()->start();
+	m->getInfos()->setTerminatingCondition("(N[1]+N[2]+N[3])==0");
+	m->getSimulation()->start();
 	return 0;
 
 	/*

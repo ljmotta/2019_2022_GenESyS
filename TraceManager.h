@@ -35,11 +35,11 @@
 			_text = text;
 		}
 
-		Util::TraceLevel tracelevel() const {
+		Util::TraceLevel getTracelevel() const {
 			return _tracelevel;
 		}
 
-		std::string text() const {
+		std::string getText() const {
 			return _text;
 		}
 	private:
@@ -70,15 +70,15 @@
 			_component = component;
 		}
 
-		ModelComponent* component() const {
+		ModelComponent* getComponent() const {
 			return _component;
 		}
 
-		Entity* entity() const {
+		Entity* getEntity() const {
 			return _entity;
 		}
 
-		double time() const {
+		double getTime() const {
 			return _time;
 		}
 
@@ -142,8 +142,8 @@
 	public:
 		List<std::string>* errorMessages() const;
 		void setTraceLevel(Util::TraceLevel _traceLevel);
-		Util::TraceLevel traceLevel() const;
-		Simulator* parentSimulator() const;
+		Util::TraceLevel getTraceLevel() const;
+		Simulator* getParentSimulator() const;
 	private:
 		//void _addHandler(List<traceListener>* list, )
 		bool _traceConditionPassed(Util::TraceLevel level);

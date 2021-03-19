@@ -32,7 +32,7 @@
 	public:
 		//ModelComponent* getComponent(Util::identification id);
 		//ModelComponent* getComponent(std::string name);
-		unsigned int numberOfComponents();
+		unsigned int getNumberOfComponents();
 		std::list<ModelComponent*>::iterator begin();
 		std::list<ModelComponent*>::iterator end();
 		ModelComponent* front();

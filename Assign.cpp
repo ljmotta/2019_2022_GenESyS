@@ -54,10 +54,10 @@ void Assign::_execute(Entity* entity) {
 		let = (*it);
 		double value = _parentModel->parseExpression(let->getExpression());
 		_parentModel->parseExpression(let->getDestination() + "=" + std::to_string(value));
-		_parentModel->tracer()->trace("Let \"" + let->getDestination() + "\" = " + std::to_string(value) + "  // " + let->getExpression());
+		_parentModel->getTracer()->trace("Let \"" + let->getDestination() + "\" = " + std::to_string(value) + "  // " + let->getExpression());
 	}
 
-	this->_parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
+	this->_parentModel->sendEntityToComponent(entity, this->getNextComponents()->getFrontConnection(), 0.0);
 }
 
 void Assign::_initBetweenReplications() {

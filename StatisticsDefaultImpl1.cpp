@@ -23,16 +23,16 @@
 StatisticsDefaultImpl1::StatisticsDefaultImpl1() {
 	//_collector = new Traits<Statistics_if>::CollectorImplementation();
 	_collector = new Traits<ModelComponent>::StatisticsCollector_CollectorImplementation();
-	_collector->setAddValueHandler(SetCollectorAddValueHandler(&StatisticsDefaultImpl1::collectorAddHandler, this));
-	_collector->setClearHandler(SetCollectorClearHandler(&StatisticsDefaultImpl1::collectorClearHandler, this));
+	_collector->setAddValueHandler(setCollectorAddValueHandler(&StatisticsDefaultImpl1::collectorAddHandler, this));
+	_collector->setClearHandler(setCollectorClearHandler(&StatisticsDefaultImpl1::collectorClearHandler, this));
 	//_collector->setAddValueHandler(std::bind(&StatisticsDefaultImpl1::collectorAddHandler, this, std::placeholders::_1));
 	this->initStatistics();
 }
 
 StatisticsDefaultImpl1::StatisticsDefaultImpl1(Collector_if* collector) {
 	_collector = collector;
-	_collector->setAddValueHandler(SetCollectorAddValueHandler(&StatisticsDefaultImpl1::collectorAddHandler, this));
-	_collector->setClearHandler(SetCollectorClearHandler(&StatisticsDefaultImpl1::collectorClearHandler, this));
+	_collector->setAddValueHandler(setCollectorAddValueHandler(&StatisticsDefaultImpl1::collectorAddHandler, this));
+	_collector->setClearHandler(setCollectorClearHandler(&StatisticsDefaultImpl1::collectorClearHandler, this));
 	//_collector->setAddValueHandler(std::bind(&StatisticsDefaultImpl1::collectorAddHandler, this, std::placeholders::_1));
 	this->initStatistics();
 }

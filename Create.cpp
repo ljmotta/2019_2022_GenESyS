@@ -23,9 +23,9 @@ Create::Create(Model* model, std::string name) : SourceModelComponent(model, Uti
 	// \todo Check if element has already been inserted and this is not needed: _parentModel->elements()->insert(_numberOut);
 	_connections->setMinInputConnections(0);
 	_connections->setMaxInputConnections(0);
-	GetterMember getter = DefineGetterMember<SourceModelComponent>(this, &Create::entitiesPerCreation);
+	GetterMember getter = DefineGetterMember<SourceModelComponent>(this, &Create::getEntitiesPerCreation);
 	SetterMember setter = DefineSetterMember<SourceModelComponent>(this, &Create::setEntitiesPerCreation);
-	model->controls()->insert(new SimulationControl(Util::TypeOf<Create>(), _name + ".EntitiesPerCreation", getter, setter));
+	model->getControls()->insert(new SimulationControl(Util::TypeOf<Create>(), _name + ".EntitiesPerCreation", getter, setter));
 	/* \todo:
 	model->getControls()->insert(new SimulationControl(Util::TypeOf<Create>(), "Time Between Creations",
 		DefineGetterMember<SourceModelComponent>(this, &Create::getTimeBetweenCreationsExpression),
@@ -39,7 +39,7 @@ std::string Create::show() {
 }
 
 void Create::_execute(Entity* entity) {
-	double tnow = _parentModel->simulation()->simulatedTime();
+	double tnow = _parentModel->getSimulation()->getSimulatedTime();
 	entity->setAttributeValue("Entity.ArrivalTime", tnow); // ->find("Entity.ArrivalTime")->second->setValue(tnow);
 	//entity->setAttributeValue("Entity.Picture", 1); // ->find("Entity.ArrivalTime")->second->setValue(tnow);
 	double timeBetweenCreations, timeScale, newArrivalTime;
@@ -51,17 +51,17 @@ void Create::_execute(Entity* entity) {
 			newEntity->setEntityType(entity->entityType());
 			//_parentModel->elements()->insert(newEntity); // ->getEntities()->insert(newEntity);
 			timeBetweenCreations = _parentModel->parseExpression(this->_timeBetweenCreationsExpression);
-			timeScale = Util::TimeUnitConvert(this->_timeBetweenCreationsTimeUnit, _parentModel->infos()->replicationLengthTimeUnit());
+			timeScale = Util::TimeUnitConvert(this->_timeBetweenCreationsTimeUnit, _parentModel->getInfos()->getReplicationLengthTimeUnit());
 			newArrivalTime = tnow + timeBetweenCreations*timeScale;
 			Event* newEvent = new Event(newArrivalTime, newEntity, this);
-			_parentModel->futureEvents()->insert(newEvent);
-			_parentModel->tracer()->trace("Arrival of entity " + std::to_string(newEntity->entityNumber()) + " schedule for time " + std::to_string(newArrivalTime));
+			_parentModel->getFutureEvents()->insert(newEvent);
+			_parentModel->getTracer()->trace("Arrival of entity " + std::to_string(newEntity->entityNumber()) + " schedule for time " + std::to_string(newArrivalTime));
 			//_model->getTrace()->trace("Arrival of entity "+std::to_string(entity->getId()) + " schedule for time " +std::to_string(newArrivalTime));
 		}
 	}
 	if (_reportStatistics)
 		_numberOut->incCountValue();
-	_parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
+	_parentModel->sendEntityToComponent(entity, this->getNextComponents()->getFrontConnection(), 0.0);
 }
 
 PluginInformation* Create::GetPluginInformation() {

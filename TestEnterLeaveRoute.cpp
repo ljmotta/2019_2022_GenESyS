@@ -40,20 +40,20 @@ int TestEnterLeaveRoute::main(int argc, char** argv) {
 	// creates an empty model
 	Model* model = new Model(simulator);
 	// Handle traces and simulation events to output them
-	TraceManager* tm = model->tracer();
+	TraceManager* tm = model->getTracer();
 	this->setDefaultTraceHandlers(tm);
 	// set the trace level of simulation to "blockArrival" level, which is an intermediate level of tracing
 	tm->setTraceLevel(Util::TraceLevel::componentArrival);
 	// insert "fake plugins" since plugins based on dynamic loaded library are not implemented yet
 	this->insertFakePluginsByHand(simulator);
 	// get easy access to classes used to insert components and elements into a model
-	ComponentManager* components = model->components();
-	ElementManager* elements = model->elements();
+	ComponentManager* components = model->getComponents();
+	ElementManager* elements = model->getElements();
 	//
 	// build the simulation model
 	//
 	// set general info about the model
-	ModelInfo* infos = model->infos();
+	ModelInfo* infos = model->getInfos();
 	infos->setReplicationLength(30);
 	infos->setNumberOfReplications(3);
 	// create a (Source)ModelElement of type EntityType, used by a ModelComponent that follows
@@ -119,21 +119,21 @@ int TestEnterLeaveRoute::main(int argc, char** argv) {
 	Dispose* dispose1 = new Dispose(model);
 	components->insert(dispose1);
 	// connect model components to create a "workflow"
-	create1->nextComponents()->insert(route0);
+	create1->getNextComponents()->insert(route0);
 	//
-	enter1->nextComponents()->insert(delay1);
-	delay1->nextComponents()->insert(leave1);
-	leave1->nextComponents()->insert(route1);
+	enter1->getNextComponents()->insert(delay1);
+	delay1->getNextComponents()->insert(leave1);
+	leave1->getNextComponents()->insert(route1);
 	//
-	enter2->nextComponents()->insert(delay2);
-	delay2->nextComponents()->insert(leave2);
-	leave2->nextComponents()->insert(route2);
+	enter2->getNextComponents()->insert(delay2);
+	delay2->getNextComponents()->insert(leave2);
+	leave2->getNextComponents()->insert(route2);
 	//
-	enter3->nextComponents()->insert(delay3);
-	delay3->nextComponents()->insert(leave3);
-	leave3->nextComponents()->insert(dispose1);
+	enter3->getNextComponents()->insert(delay3);
+	delay3->getNextComponents()->insert(leave3);
+	leave3->getNextComponents()->insert(dispose1);
 	// insert the model into the simulator
-	simulator->models()->insert(model);
+	simulator->getModels()->insert(model);
 	// check the model
 	model->check();
 	// save the model into a text file
@@ -141,7 +141,7 @@ int TestEnterLeaveRoute::main(int argc, char** argv) {
 	// show the model
 	model->show();
 	// execute the simulation
-	model->simulation()->start();
+	model->getSimulation()->start();
 	return 0;
 }
 

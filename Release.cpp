@@ -23,7 +23,7 @@ Release::Release(Model* model, std::string name) : ModelComponent(model, Util::T
 std::string Release::show() {
 	return ModelComponent::show() +
 			",resourceType=" + std::to_string(static_cast<int> (this->_resourceType)) +
-			",resource=\"" + this->_releaseRequest->resource()->name() + "\"" +
+			",resource=\"" + this->_releaseRequest->resource()->getName() + "\"" +
 			",quantity=" + this->_releaseRequest->quantityExpression();
 }
 
@@ -92,9 +92,9 @@ void Release::_execute(Entity* entity) {
 	}
 	unsigned int quantity = _parentModel->parseExpression(this->_releaseRequest->quantityExpression());
 	assert(_releaseRequest->resource()->getNumberBusy() >= quantity);
-	_parentModel->tracer()->traceSimulation(_parentModel->simulation()->simulatedTime(), entity, this, "Entity frees " + std::to_string(quantity) + " units of resource \"" + resource->name() + "\" seized on time " + std::to_string(_releaseRequest->resource()->getLastTimeSeized()));
-	_releaseRequest->resource()->release(quantity, _parentModel->simulation()->simulatedTime()); //{releases and sets the 'LastTimeSeized'property}
-	_parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
+	_parentModel->getTracer()->traceSimulation(_parentModel->getSimulation()->getSimulatedTime(), entity, this, "Entity frees " + std::to_string(quantity) + " units of resource \"" + resource->getName() + "\" seized on time " + std::to_string(_releaseRequest->resource()->getLastTimeSeized()));
+	_releaseRequest->resource()->release(quantity, _parentModel->getSimulation()->getSimulatedTime()); //{releases and sets the 'LastTimeSeized'property}
+	_parentModel->sendEntityToComponent(entity, this->getNextComponents()->getFrontConnection(), 0.0);
 }
 
 void Release::_initBetweenReplications() {
@@ -111,7 +111,7 @@ bool Release::_loadInstance(std::map<std::string, std::string>* fields) {
 		//Util::identitifcation resourceId = std::stoi((*(fields->find("resourceId"))).second);
 		//Resource* res = dynamic_cast<Resource*> (_model->elements()->element(Util::TypeOf<Resource>(), resourceId));
 		std::string resourceName = ((*(fields->find("resourceName"))).second);
-		Resource* res = dynamic_cast<Resource*> (_parentModel->elements()->element(Util::TypeOf<Resource>(), resourceName));
+		Resource* res = dynamic_cast<Resource*> (_parentModel->getElements()->getElement(Util::TypeOf<Resource>(), resourceName));
 		this->_releaseRequest->setQuantityExpression(((*(fields->find("quantity"))).second));
 		this->_releaseRequest->setResource(res);
 	}
@@ -123,8 +123,8 @@ std::map<std::string, std::string>* Release::_saveInstance() {
 	fields->emplace("priority", std::to_string(this->_priority));
 	fields->emplace("quantity", "\"" + this->_releaseRequest->quantityExpression() + "\"");
 	fields->emplace("resourceType", std::to_string(static_cast<int> (this->_resourceType)));
-	fields->emplace("resourceId", std::to_string(this->_releaseRequest->resource()->id()));
-	fields->emplace("resourceName", (this->_releaseRequest->resource()->name()));
+	fields->emplace("resourceId", std::to_string(this->_releaseRequest->resource()->getId()));
+	fields->emplace("resourceName", (this->_releaseRequest->resource()->getName()));
 	fields->emplace("rule", std::to_string(static_cast<int> (this->_rule)));
 	fields->emplace("saveAttribute", this->_saveAttribute);
 	return fields;
@@ -134,8 +134,8 @@ std::map<std::string, std::string>* Release::_saveInstance() {
 bool Release::_check(std::string* errorMessage) {
 	bool resultAll = true;
 	resultAll &= _parentModel->checkExpression(_releaseRequest->quantityExpression(), "quantity", errorMessage);
-	resultAll &= _parentModel->elements()->check(Util::TypeOf<Resource>(), _releaseRequest->resource(), "resource", errorMessage);
-	resultAll &= _parentModel->elements()->check(Util::TypeOf<Attribute>(), _saveAttribute, "SaveAttribute", false, errorMessage);
+	resultAll &= _parentModel->getElements()->check(Util::TypeOf<Resource>(), _releaseRequest->resource(), "resource", errorMessage);
+	resultAll &= _parentModel->getElements()->check(Util::TypeOf<Attribute>(), _saveAttribute, "SaveAttribute", false, errorMessage);
 	return resultAll;
 }
 

@@ -30,13 +30,13 @@ ModelPersistenceDefaultImpl1::ModelPersistenceDefaultImpl1(Model* model) {
 std::map<std::string, std::string>* ModelPersistenceDefaultImpl1::_getSimulatorInfoFieldsToSave() {
 	std::map<std::string, std::string>* fields = new std::map<std::string, std::string>();
 	fields->emplace("typename", "SimulatorInfo");
-	fields->emplace("name", "\"" + _model->parentSimulator()->name() + "\"");
-	fields->emplace("version", "\"" + _model->parentSimulator()->version() + "\"");
+	fields->emplace("name", "\"" + _model->getParentSimulator()->name() + "\"");
+	fields->emplace("version", "\"" + _model->getParentSimulator()->version() + "\"");
 	return fields;
 }
 
 bool ModelPersistenceDefaultImpl1::save(std::string filename) {
-	_model->tracer()->trace(Util::TraceLevel::toolInternal, "Saving file \"" + filename + "\"");
+	_model->getTracer()->trace(Util::TraceLevel::toolInternal, "Saving file \"" + filename + "\"");
 	Util::IncIndent();
 	std::list<std::string> *simulInfosToSave, *modelInfosToSave, *modelElementsToSave, *modelComponentsToSave;
 	{
@@ -45,20 +45,20 @@ bool ModelPersistenceDefaultImpl1::save(std::string filename) {
 		fields = _getSimulatorInfoFieldsToSave();
 		simulInfosToSave = _adjustFieldsToSave(fields);
 		// save model own infos
-		fields = _model->infos()->saveInstance();
+		fields = _model->getInfos()->saveInstance();
 		modelInfosToSave = _adjustFieldsToSave(fields);
 		// save infras
 		modelElementsToSave = new std::list<std::string>();
-		std::list<std::string>* elementTypenames = _model->elements()->elementClassnames();
+		std::list<std::string>* elementTypenames = _model->getElements()->getElementClassnames();
 		const std::string UtilTypeOfCounter = Util::TypeOf<Counter>();
 		for (std::list<std::string>::iterator itTypenames = elementTypenames->begin(); itTypenames != elementTypenames->end(); itTypenames++) {
 			if ((*itTypenames) != Util::TypeOf<StatisticsCollector>() && (*itTypenames) != UtilTypeOfCounter) { // STATISTICSCOLLECTR and COUNTERs do NOT need to be saved
-				List<ModelElement*>* infras = _model->elements()->elementList((*itTypenames));
-				_model->tracer()->trace(Util::TraceLevel::toolDetailed, "Writing elements of type \"" + (*itTypenames) + "\":");
+				List<ModelElement*>* infras = _model->getElements()->getElementList((*itTypenames));
+				_model->getTracer()->trace(Util::TraceLevel::toolDetailed, "Writing elements of type \"" + (*itTypenames) + "\":");
 				Util::IncIndent();
 				{
 					for (std::list<ModelElement*>::iterator it = infras->list()->begin(); it != infras->list()->end(); it++) {
-						_model->tracer()->trace(Util::TraceLevel::toolDetailed, "Writing " + (*itTypenames) + " \"" + (*it)->name() + "\"");
+						_model->getTracer()->trace(Util::TraceLevel::toolDetailed, "Writing " + (*itTypenames) + " \"" + (*it)->getName() + "\"");
 						fields = (*it)->SaveInstance((*it));
 						Util::IncIndent();
 						modelElementsToSave->merge(*_adjustFieldsToSave(fields));
@@ -69,12 +69,12 @@ bool ModelPersistenceDefaultImpl1::save(std::string filename) {
 			}
 		}
 		// save components
-		_model->tracer()->trace(Util::TraceLevel::toolDetailed, "Writing components\":");
+		_model->getTracer()->trace(Util::TraceLevel::toolDetailed, "Writing components\":");
 		//List<ModelComponent*>* components = this->_model->getComponents();
 		modelComponentsToSave = new std::list<std::string>();
 		Util::IncIndent();
 		{
-			for (std::list<ModelComponent*>::iterator it = _model->components()->begin(); it != _model->components()->end(); it++) {
+			for (std::list<ModelComponent*>::iterator it = _model->getComponents()->begin(); it != _model->getComponents()->end(); it++) {
 				fields = (*it)->SaveInstance((*it));
 				Util::IncIndent();
 				modelComponentsToSave->merge(*_adjustFieldsToSave(fields));
@@ -83,7 +83,7 @@ bool ModelPersistenceDefaultImpl1::save(std::string filename) {
 		}
 		Util::DecIndent();
 		// SAVE FILE
-		_model->tracer()->trace(Util::TraceLevel::toolDetailed, "Saving file");
+		_model->getTracer()->trace(Util::TraceLevel::toolDetailed, "Saving file");
 		Util::IncIndent();
 		{
 			// open file
@@ -118,7 +118,7 @@ void ModelPersistenceDefaultImpl1::_saveContent(std::list<std::string>* content,
 
 bool ModelPersistenceDefaultImpl1::_loadFields(std::string line) {
 	//std::regex regex{R"([=]+)"}; // split on space R"([\s]+)" \todo: HOW SEPARATOR WITH MORE THAN ONE CHAR
-	_model->tracer()->trace(Util::TraceLevel::everythingMostDetailed, line);
+	_model->getTracer()->trace(Util::TraceLevel::everythingMostDetailed, line);
 	bool res = true;
 	std::regex regex{R"([;]+)"}; // split on "; ". \todo:: How change it by the attribute _linefieldseparator ??
 	std::sregex_token_iterator tit{line.begin(), line.end(), regex, -1};
@@ -146,31 +146,31 @@ bool ModelPersistenceDefaultImpl1::_loadFields(std::string line) {
 		Util::IncIndent();
 		{
 			std::string thistypename = (*fields->find("typename")).second;
-			_model->tracer()->trace(Util::TraceLevel::toolInternal, "loading " + thistypename + "");
+			_model->getTracer()->trace(Util::TraceLevel::toolInternal, "loading " + thistypename + "");
 			if (thistypename == "SimulatorInfo") {
 				this->_loadSimulatorInfoFields(fields);
 			} else if (thistypename == "ModelInfo") {
-				_model->infos()->loadInstance(fields);
+				_model->getInfos()->loadInstance(fields);
 			} else {
 				// this should be a ModelComponent or ModelElement.
 				//std::string thistypename = (*fields->find("typename")).second;
 				ModelElement* newTemUselessElement = ModelElement::LoadInstance(_model, fields, false);
 				if (newTemUselessElement != nullptr) {
 					newTemUselessElement->~ModelElement();
-					Plugin* plugin = this->_model->parentSimulator()->plugins()->find(thistypename);
+					Plugin* plugin = this->_model->getParentSimulator()->getPlugins()->find(thistypename);
 					if (plugin != nullptr) {
 						res = plugin->loadAndInsertNew(_model, fields);
 						// save fields for components, in order to allow to connect components after all of them have been loaded
-						if (res && plugin->pluginInfo()->isComponent()) {
+						if (res && plugin->getPluginInfo()->isComponent()) {
 							_componentFields->insert(_componentFields->end(), fields);
 							//_model->getTraceManager()->trace(Util::TraceLevel::errors, "Inserindo fields do componente "+plugin->getPluginInfo()->getPluginTypename());
 						}
 					} else {
-						_model->tracer()->trace(Util::TraceLevel::errorFatal, "Error loading file: Could not identity typename \"" + thistypename + "\"");
+						_model->getTracer()->trace(Util::TraceLevel::errorFatal, "Error loading file: Could not identity typename \"" + thistypename + "\"");
 						res = false;
 					}
 				} else {
-					_model->tracer()->trace(Util::TraceLevel::errorFatal, "Error loading file: Could not identity typename \"" + thistypename + "\"");
+					_model->getTracer()->trace(Util::TraceLevel::errorFatal, "Error loading file: Could not identity typename \"" + thistypename + "\"");
 					res = false;
 				}
 
@@ -191,7 +191,7 @@ bool ModelPersistenceDefaultImpl1::load(std::string filename) {
 	//plugins->front()->
 	//return false;
 	bool res = true;
-	_model->tracer()->trace(Util::TraceLevel::toolInternal, "Loading file \"" + filename + "\"");
+	_model->getTracer()->trace(Util::TraceLevel::toolInternal, "Loading file \"" + filename + "\"");
 	Util::IncIndent();
 	_componentFields->clear();
 	{
@@ -209,15 +209,15 @@ bool ModelPersistenceDefaultImpl1::load(std::string filename) {
 			}
 			modelFile.close();
 		} catch (...) {
-			_model->tracer()->trace(Util::TraceLevel::errorFatal, "Error loading file \"" + filename + "\"");
+			_model->getTracer()->trace(Util::TraceLevel::errorFatal, "Error loading file \"" + filename + "\"");
 		}
 	}
 	// check if something was loaded
-	res &= (_model->components()->numberOfComponents() > 0) & (_model->elements()->numberOfElements() > 0);
+	res &= (_model->getComponents()->getNumberOfComponents() > 0) & (_model->getElements()->getNumberOfElements() > 0);
 	if (res) {
 		// connect loaded components
-		ComponentManager* cm = _model->components();
-		_model->tracer()->trace(Util::TraceLevel::simulatorDetailed, "Connecting loaded components");
+		ComponentManager* cm = _model->getComponents();
+		_model->getTracer()->trace(Util::TraceLevel::simulatorDetailed, "Connecting loaded components");
 		Util::IncIndent();
 		{
 			for (std::list<std::map<std::string, std::string>*>::iterator it = _componentFields->begin(); it != _componentFields->end(); it++) {
@@ -226,7 +226,7 @@ bool ModelPersistenceDefaultImpl1::load(std::string filename) {
 				ModelComponent* thisComponent = nullptr;
 				Util::identification thisId = std::stoi((*fields->find("id")).second);
 				for (std::list<ModelComponent*>::iterator itcomp = cm->begin(); itcomp != cm->end(); itcomp++) {
-					if ((*itcomp)->id() == thisId) {
+					if ((*itcomp)->getId() == thisId) {
 						thisComponent = (*itcomp);
 						break; // end inner for loop
 					}
@@ -242,10 +242,10 @@ bool ModelPersistenceDefaultImpl1::load(std::string filename) {
 						nextInputNumber = std::stoi((*fields->find("nextInputNumber" + std::to_string(i))).second);
 					ModelComponent* nextComponent = nullptr;
 					for (std::list<ModelComponent*>::iterator itcomp = cm->begin(); itcomp != cm->end(); itcomp++) {// connect the components
-						if ((*itcomp)->id() == nextId) { // connect the components
+						if ((*itcomp)->getId() == nextId) { // connect the components
 							nextComponent = (*itcomp);
-							thisComponent->nextComponents()->insert(nextComponent, nextInputNumber);
-							_model->tracer()->trace(Util::TraceLevel::toolDetailed, thisComponent->name() + " -> " + nextComponent->name());
+							thisComponent->getNextComponents()->insert(nextComponent, nextInputNumber);
+							_model->getTracer()->trace(Util::TraceLevel::toolDetailed, thisComponent->getName() + " -> " + nextComponent->getName());
 							break;
 						}
 					}
@@ -255,7 +255,7 @@ bool ModelPersistenceDefaultImpl1::load(std::string filename) {
 			}
 		}
 		Util::DecIndent();
-		_model->tracer()->trace(Util::TraceLevel::simulatorInternal, "File successfully loaded with " + std::to_string(_model->components()->numberOfComponents()) + " components and " + std::to_string(_model->elements()->numberOfElements()) + " elements");
+		_model->getTracer()->trace(Util::TraceLevel::simulatorInternal, "File successfully loaded with " + std::to_string(_model->getComponents()->getNumberOfComponents()) + " components and " + std::to_string(_model->getElements()->getNumberOfElements()) + " elements");
 	}
 	Util::DecIndent();
 	if (res) {
@@ -282,7 +282,7 @@ std::list<std::string>* ModelPersistenceDefaultImpl1::_adjustFieldsToSave(std::m
 	while (typenameV2003.length() < 15)
 		typenameV2003 += " ";
 	strV2003 = idV2003 + " " + typenameV2003 + " " + strV2003;
-	_model->tracer()->trace(Util::TraceLevel::toolDetailed, strV2003); //newStr
+	_model->getTracer()->trace(Util::TraceLevel::toolDetailed, strV2003); //newStr
 	newList->push_back(strV2003); //newStr
 	return newList;
 }

@@ -35,7 +35,7 @@ void Queue::insertElement(Waiting* element) {
 }
 
 void Queue::removeElement(Waiting* element) {
-	double tnow = _parentModel->simulation()->simulatedTime();
+	double tnow = _parentModel->getSimulation()->getSimulatedTime();
 	_list->remove(element);
 	if (_reportStatistics) {
 		this->_cstatNumberInQueue->getStatistics()->getCollector()->addValue(_list->size());
@@ -127,7 +127,7 @@ std::map<std::string, std::string>* Queue::_saveInstance() {
 }
 
 bool Queue::_check(std::string* errorMessage) {
-	return _parentModel->elements()->check(Util::TypeOf<Attribute>(), _attributeName, "AttributeName", false, errorMessage);
+	return _parentModel->getElements()->check(Util::TypeOf<Attribute>(), _attributeName, "AttributeName", false, errorMessage);
 }
 
 void Queue::_createInternalElements() {

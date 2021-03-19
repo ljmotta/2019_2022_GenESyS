@@ -63,22 +63,22 @@ void LicenceManager::removeActivationCode() {
 	this->setDefaultLicenceAndLimits();
 }
 
-unsigned int LicenceManager::modelComponentsLimit() {
+unsigned int LicenceManager::getModelComponentsLimit() {
 	return this->_components;
 }
 
-unsigned int LicenceManager::modelElementsLimit() {
+unsigned int LicenceManager::getModelElementsLimit() {
 	return this->_elements;
 }
 
-unsigned int LicenceManager::entityLimit() {
+unsigned int LicenceManager::getEntityLimit() {
 	return this->_entities;
 }
 
-unsigned int LicenceManager::hostsLimit() {
+unsigned int LicenceManager::getHostsLimit() {
 	return this->_hosts;
 }
 
-unsigned int LicenceManager::threadsLimit() {
+unsigned int LicenceManager::getThreadsLimit() {
 	return this->_threads;
 }

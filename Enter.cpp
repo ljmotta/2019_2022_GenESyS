@@ -19,7 +19,7 @@ Enter::Enter(Model* model, std::string name) : ModelComponent(model, Util::TypeO
 }
 
 std::string Enter::show() {
-	return ModelComponent::show() + ",station=" + this->_station->name();
+	return ModelComponent::show() + ",station=" + this->_station->getName();
 }
 
 ModelComponent* Enter::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
@@ -44,14 +44,14 @@ void Enter::_execute(Entity* entity) {
 	if (_reportStatistics)
 		_numberIn->incCountValue();
 	_station->enter(entity);
-	_parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
+	_parentModel->sendEntityToComponent(entity, this->getNextComponents()->getFrontConnection(), 0.0);
 }
 
 bool Enter::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelComponent::_loadInstance(fields);
 	if (res) {
 		std::string stationName = ((*(fields->find("stationName"))).second);
-		Station* station = dynamic_cast<Station*> (_parentModel->elements()->element(Util::TypeOf<Station>(), stationName));
+		Station* station = dynamic_cast<Station*> (_parentModel->getElements()->getElement(Util::TypeOf<Station>(), stationName));
 		this->_station = station;
 	}
 	return res;
@@ -63,13 +63,13 @@ void Enter::_initBetweenReplications() {
 
 std::map<std::string, std::string>* Enter::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
-	fields->emplace("stationName", (this->_station->name()));
+	fields->emplace("stationName", (this->_station->getName()));
 	return fields;
 }
 
 bool Enter::_check(std::string* errorMessage) {
 	bool resultAll = true;
-	resultAll &= _parentModel->elements()->check(Util::TypeOf<Station>(), _station, "Station", errorMessage);
+	resultAll &= _parentModel->getElements()->check(Util::TypeOf<Station>(), _station, "Station", errorMessage);
 	if (resultAll) {
 		_station->setEnterIntoStationComponent(this); // this component will be executed when an entity enters into the station
 	}

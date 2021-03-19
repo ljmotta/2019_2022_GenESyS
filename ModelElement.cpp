@@ -40,16 +40,16 @@ ModelElement::ModelElement(Model* model, std::string thistypename, std::string n
 //}
 
 ModelElement::~ModelElement() {
-	_parentModel->tracer()->trace(Util::TraceLevel::everythingMostDetailed, "Removing Element \"" + this->_name + "\" from the model");
+	_parentModel->getTracer()->trace(Util::TraceLevel::everythingMostDetailed, "Removing Element \"" + this->_name + "\" from the model");
 	_removeChildrenElements();
-	_parentModel->elements()->remove(this);
+	_parentModel->getElements()->remove(this);
 }
 
 void ModelElement::_removeChildrenElements() {
 	Util::IncIndent();
 	{
 		for (std::map<std::string, ModelElement*>::iterator it = _childrenElements->begin(); it != _childrenElements->end(); it++) {
-			this->_parentModel->elements()->remove((*it).second);
+			this->_parentModel->getElements()->remove((*it).second);
 			(*it).second->~ModelElement();
 		}
 		_childrenElements->clear();
@@ -65,7 +65,7 @@ void ModelElement::_removeChildElement(std::string key) {
 		std::map<std::string, ModelElement*>::iterator it = _childrenElements->begin();
 		while (it != _childrenElements->end()) {
 			if ((*it).first == key) {
-				this->_parentModel->elements()->remove((*it).second);
+				this->_parentModel->getElements()->remove((*it).second);
 				(*it).second->~ModelElement();
 				_childrenElements->erase(it);
 				it = _childrenElements->begin();
@@ -124,12 +124,12 @@ std::string ModelElement::show() {
 	return "id=" + std::to_string(_id) + ",name=\"" + _name + "\"";
 }
 
-std::list<std::string>* ModelElement::childrenElementKeys() const {
+std::list<std::string>* ModelElement::getChildrenElementKeys() const {
 	std::list<std::string>* result = new std::list<std::string>();
 	return result;
 }
 
-Util::identification ModelElement::id() const {
+Util::identification ModelElement::getId() const {
 	return _id;
 }
 
@@ -137,11 +137,11 @@ void ModelElement::setName(std::string _name) {
 	this->_name = _name;
 }
 
-std::string ModelElement::name() const {
+std::string ModelElement::getName() const {
 	return _name;
 }
 
-std::string ModelElement::classname() const {
+std::string ModelElement::getClassname() const {
 	return _typename;
 }
 
@@ -150,7 +150,7 @@ void ModelElement::InitBetweenReplications(ModelElement* element) {
 	try {
 		element->_initBetweenReplications();
 	} catch (const std::exception& e) {
-		element->_parentModel->tracer()->traceError(e, "Error initing component " + element->show());
+		element->_parentModel->getTracer()->traceError(e, "Error initing component " + element->show());
 	};
 }
 

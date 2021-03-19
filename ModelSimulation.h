@@ -50,15 +50,15 @@
 		bool isPauseOnReplication() const;
 	public: // gets and sets ModelSubParts 
         void setReporter(SimulationReporter_if* _simulationReporter);
-        SimulationReporter_if* reporter() const;
+        SimulationReporter_if* getReporter() const;
 	public: // only gets
-		double simulatedTime() const; /*! The current time in the model being simulated, i.e., the instant when the current event was triggered */
+		double getSimulatedTime() const; /*! The current time in the model being simulated, i.e., the instant when the current event was triggered */
 		bool isRunning() const;
         bool isPaused() const;
-		unsigned int currentReplicationNumber() const;
-		ModelComponent* currentComponent() const;
-		Entity* currentEntity() const;
-		unsigned int currentInputNumber() const;
+		unsigned int getCurrentReplicationNumber() const;
+		ModelComponent* getCurrentComponent() const;
+		Entity* getCurrentEntity() const;
+		unsigned int getCurrentInputNumber() const;
 		/*
 		 * PRIVATE
 		 */

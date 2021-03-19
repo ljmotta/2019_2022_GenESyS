@@ -31,7 +31,7 @@ Plugin::Plugin(StaticGetPluginInformation getInformation) {
 	}
 }
 
-PluginInformation* Plugin::pluginInfo() const {
+PluginInformation* Plugin::getPluginInfo() const {
 	return _pluginInfo;
 }
 
@@ -72,13 +72,13 @@ bool Plugin::loadAndInsertNew(Model* model, std::map<std::string, std::string>* 
 
 ModelComponent* Plugin::_loadNewComponent(Model* model, std::map<std::string, std::string>* fields) {
 	//return this->_pluginInfo->loader(model, fields);
-	StaticLoaderComponentInstance loader = this->_pluginInfo->componentLoader();
+	StaticLoaderComponentInstance loader = this->_pluginInfo->GetComponentLoader();
 	ModelComponent* newElementOrComponent = loader(model, fields);
 	return newElementOrComponent;
 }
 
 ModelElement* Plugin::_loadNewElement(Model* model, std::map<std::string, std::string>* fields) {
-	StaticLoaderElementInstance loader = this->_pluginInfo->elementloader();
+	StaticLoaderElementInstance loader = this->_pluginInfo->getElementLoader();
 	ModelElement* newElementOrComponent = loader(model, fields);
 	return newElementOrComponent;
 }

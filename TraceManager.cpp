@@ -26,11 +26,11 @@ void TraceManager::setTraceLevel(Util::TraceLevel _traceLevel) {
 	this->_traceLevel = _traceLevel;
 }
 
-Util::TraceLevel TraceManager::traceLevel() const {
+Util::TraceLevel TraceManager::getTraceLevel() const {
 	return _traceLevel;
 }
 
-Simulator* TraceManager::parentSimulator() const {
+Simulator* TraceManager::getParentSimulator() const {
 	return _simulator;
 }
 

@@ -36,23 +36,23 @@
 		PluginInformation(std::string pluginTypename, StaticLoaderElementInstance elementloader);
 	public:
 		// gets
-		StaticLoaderElementInstance elementloader() const;
-		StaticLoaderComponentInstance componentLoader() const;
+		StaticLoaderElementInstance getElementLoader() const;
+		StaticLoaderComponentInstance GetComponentLoader() const;
 		bool isGenerateReport() const;
 		bool isComponent() const;
 		bool isSendTransfer() const;
 		bool isReceiveTransfer() const;
 		bool isSink() const;
 		bool isSource() const;
-		std::string observation() const;
-		std::string version() const;
-		std::string date() const;
-		std::string author() const;
-		std::string pluginTypename() const;
+		std::string getObservation() const;
+		std::string getVersion() const;
+		std::string getDate() const;
+		std::string getAuthor() const;
+		std::string getPluginTypename() const;
 		// sets
 		void insertDynamicLibFileDependence(std::string filename);
 		void setDynamicLibFilenameDependencies(std::list<std::string>* dynamicLibFilenameDependencies);
-		std::list<std::string>* dynamicLibFilenameDependencies() const;
+		std::list<std::string>* getDynamicLibFilenameDependencies() const;
 		void setGenerateReport(bool generateReport);
 		void setSendTransfer(bool sendTransfer);
 		void setReceiveTransfer(bool receiveTransfer);
@@ -63,13 +63,13 @@
 		void setDate(std::string date);
 		void setAuthor(std::string author);
 		void setMaximumOutputs(unsigned short _maximumOutputs);
-		unsigned short maximumOutputs() const;
+		unsigned short getMaximumOutputs() const;
 		void setMinimumOutputs(unsigned short _minimumOutputs);
-		unsigned short minimumOutputs() const;
+		unsigned short getMinimumOutputs() const;
 		void setMaximumInputs(unsigned short _maximumInputs);
-		unsigned short maximumInputs() const;
+		unsigned short getMaximumInputs() const;
 		void setMinimumInputs(unsigned short _minimumInputs);
-		unsigned short minimumInputs() const;
+		unsigned short getMinimumInputs() const;
 	public:
 	private:
 		std::string _author = "prof. Dr. Ing. Rafael Luiz Cancian";

@@ -37,10 +37,10 @@
 		virtual ~ModelElement();
 
 	public: // get & set
-		Util::identification id() const;
+		Util::identification getId() const;
 		void setName(std::string _name);
-		std::string name() const;
-		std::string classname() const;
+		std::string getName() const;
+		std::string getClassname() const;
         bool isReportStatistics() const;
         void setReportStatistics(bool reportStatistics);
 	public: // static
@@ -51,8 +51,8 @@
 		static void InitBetweenReplications(ModelElement* element);
 	public:
 		virtual std::string show();
-		std::list<std::string>* childrenElementKeys() const;
-		ModelElement* childElement(std::string key) const;
+		std::list<std::string>* getChildrenElementKeys() const;
+		ModelElement* getChildElement(std::string key) const;
 	protected:
 		void _setChildElement(std::string key, ModelElement* child);
 		void _removeChildrenElements();

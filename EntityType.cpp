@@ -34,7 +34,7 @@ void EntityType::_initBetweenReplications() {
 EntityType::~EntityType() {
 	// remove all CStats
 	for (std::list<StatisticsCollector*>::iterator it = this->_statisticsCollectors->list()->begin(); it != this->_statisticsCollectors->list()->end(); it++) {
-		_parentModel->elements()->remove(Util::TypeOf<StatisticsCollector>(), (*it));
+		_parentModel->getElements()->remove(Util::TypeOf<StatisticsCollector>(), (*it));
 	}
 }
 
@@ -87,7 +87,7 @@ StatisticsCollector* EntityType::addGetStatisticsCollector(std::string name) {
 	StatisticsCollector* cstat;
 	for (std::list<StatisticsCollector*>::iterator it = _statisticsCollectors->list()->begin(); it != _statisticsCollectors->list()->end(); it++) {
 		cstat = (*it);
-		if (cstat->name() == name) {
+		if (cstat->getName() == name) {
 			return cstat;
 		}
 	}
@@ -143,7 +143,7 @@ bool EntityType::_check(std::string* errorMessage) {
 void EntityType::_createInternalElements() {
 	if (!_reportStatistics)
 		while (_statisticsCollectors->size() > 0) {
-			_parentModel->elements()->remove(_statisticsCollectors->front());
+			_parentModel->getElements()->remove(_statisticsCollectors->front());
 			_statisticsCollectors->front()->~StatisticsCollector();
 			_statisticsCollectors->pop_front();
 		}

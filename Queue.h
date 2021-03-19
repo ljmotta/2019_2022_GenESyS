@@ -36,8 +36,8 @@ public:
 
 	virtual std::string show() {
 		return //ModelElement::show()+
-		",entity=" + std::to_string(_entity->id()) +
-				",component=\"" + _component->name() + "\"" +
+		",entity=" + std::to_string(_entity->getId()) +
+				",component=\"" + _component->getName() + "\"" +
 				",timeStatedWaiting=" + std::to_string(_timeStartedWaiting);
 	}
 public:

@@ -33,11 +33,11 @@ void StatisticsCollector::_addSimulationResponses() {
 	// add the average as response
 	GetterMember getterMemberAverage = DefineGetterMember<StatisticsClass>(static_cast<StatisticsClass*> (this->_statistics), &StatisticsClass::average);
 	SimulationResponse* resp = new SimulationResponse(Util::TypeOf<StatisticsClass>(), /*parentName + ":" + */_name + ".average", getterMemberAverage);
-	_parentModel->responses()->insert(resp);
-	// add the variance as response
-	//GetterMember getterMemberVariance = DefineGetterMember<StatisticsClass>(static_cast<StatisticsClass*> (this->_statistics), &StatisticsClass::variance);
-	//resp = new SimulationResponse(Util::TypeOf<StatisticsClass>(), parentName + ":" + _name + ".variance", getterMemberVariance);
-	//_parentModel->responses()->insert(resp);
+	_parentModel->getResponses()->insert(resp);
+	// add the halfwidth as response
+	GetterMember getterMemberHalfWidth = DefineGetterMember<StatisticsClass>(static_cast<StatisticsClass*> (this->_statistics), &StatisticsClass::halfWidthConfidenceInterval);
+	resp = new SimulationResponse(Util::TypeOf<StatisticsClass>(), /*parentName + ":" + */_name + ".halfWidth", getterMemberHalfWidth);
+	_parentModel->getResponses()->insert(resp);
 }
 
 void StatisticsCollector::_initStaticsAndCollector() {
@@ -49,7 +49,7 @@ std::string StatisticsCollector::show() {
 	std::string parentStr = "";
 	if (_parent != nullptr) {
 		try {
-			parentStr = _parent->name();
+			parentStr = _parent->getName();
 		} catch (...) { // if parent changed or deleted, can cause seg fault
 			parentStr = "<<INCONSISTENT>>"; /* \todo: ++*/
 		}
@@ -94,8 +94,8 @@ std::map<std::string, std::string>* StatisticsCollector::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelElement::_saveInstance(); //Util::TypeOf<StatisticsCollector>());
 	std::string parentId = "", parentTypename = "";
 	if (this->_parent != nullptr) {
-		parentId = std::to_string(_parent->id());
-		parentTypename = _parent->classname();
+		parentId = std::to_string(_parent->getId());
+		parentTypename = _parent->getClassname();
 	}
 	fields->emplace("parentTypename", parentTypename);
 	fields->emplace("parentId", parentId);

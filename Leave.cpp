@@ -18,7 +18,7 @@ Leave::Leave(Model* model, std::string name) : ModelComponent(model, Util::TypeO
 }
 
 std::string Leave::show() {
-	return ModelComponent::show() + ",station=" + this->_station->name();
+	return ModelComponent::show() + ",station=" + this->_station->getName();
 }
 
 ModelComponent* Leave::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
@@ -43,14 +43,14 @@ void Leave::_execute(Entity* entity) {
 	if (_reportStatistics)
 		_numberIn->incCountValue();
 	_station->leave(entity);
-	_parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
+	_parentModel->sendEntityToComponent(entity, this->getNextComponents()->getFrontConnection(), 0.0);
 }
 
 bool Leave::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelComponent::_loadInstance(fields);
 	if (res) {
 		std::string stationName = ((*(fields->find("stationName"))).second);
-		Station* station = dynamic_cast<Station*> (_parentModel->elements()->element(Util::TypeOf<Station>(), stationName));
+		Station* station = dynamic_cast<Station*> (_parentModel->getElements()->getElement(Util::TypeOf<Station>(), stationName));
 		this->_station = station;
 	}
 	return res;
@@ -62,13 +62,13 @@ void Leave::_initBetweenReplications() {
 
 std::map<std::string, std::string>* Leave::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
-	fields->emplace("stationName", (this->_station->name()));
+	fields->emplace("stationName", (this->_station->getName()));
 	return fields;
 }
 
 bool Leave::_check(std::string* errorMessage) {
 	bool resultAll = true;
-	resultAll &= _parentModel->elements()->check(Util::TypeOf<Station>(), _station, "Station", errorMessage);
+	resultAll &= _parentModel->getElements()->check(Util::TypeOf<Station>(), _station, "Station", errorMessage);
 	return resultAll;
 }
 

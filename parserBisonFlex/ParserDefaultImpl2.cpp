@@ -30,7 +30,7 @@ double ParserDefaultImpl2::parse(const std::string expression) { // may throw ex
 			throw std::string("Error parsing expression \"" + expression + "\"");
 		}
 	} catch (std::string e) {
-		_model->tracer()->trace(Util::TraceLevel::errorFatal, e);
+		_model->getTracer()->trace(Util::TraceLevel::errorFatal, e);
 		return _wrapper.getResult();
 	}
 }

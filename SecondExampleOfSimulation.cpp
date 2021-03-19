@@ -37,9 +37,9 @@ SecondExampleOfSimulation::SecondExampleOfSimulation() {
 int SecondExampleOfSimulation::main(int argc, char** argv) {
 	Simulator* simulator = new Simulator();
 	// set the trace level of simulation to "blockArrival" level, which is an intermediate level of tracing
-	simulator->tracer()->setTraceLevel(Util::TraceLevel::componentArrival);
+	simulator->getTracer()->setTraceLevel(Util::TraceLevel::componentArrival);
 	// Handle traces and simulation events to output them
-	this->setDefaultTraceHandlers(simulator->tracer());
+	this->setDefaultTraceHandlers(simulator->getTracer());
 	// insert "fake plugins" since plugins based on dynamic loaded library are not implemented yet
 	this->insertFakePluginsByHand(simulator);
 	bool wantToCreateNewModelAndSaveInsteadOfJustLoad = true;
@@ -49,7 +49,7 @@ int SecondExampleOfSimulation::main(int argc, char** argv) {
 		model = new Model(simulator);
 		// build the simulation model
 		// set general info about the model
-		ModelInfo* infos = model->infos();
+		ModelInfo* infos = model->getInfos();
 		infos->setAnalystName("Your name");
 		infos->setProjectTitle("The title of the project");
 		infos->setDescription("This simulation model tests one of the most basic models possible.");
@@ -75,18 +75,18 @@ int SecondExampleOfSimulation::main(int argc, char** argv) {
 		Dispose* dispose1 = new Dispose(model);
 		// model->insert(dispose1);
 		// connect model components to create a "workflow"
-		create1->nextComponents()->insert(delay1);
-		delay1->nextComponents()->insert(dispose1);
+		create1->getNextComponents()->insert(delay1);
+		delay1->getNextComponents()->insert(dispose1);
 		// insert the model into the simulator
-		simulator->models()->insert(model);
+		simulator->getModels()->insert(model);
 		// save the model into a text file
 		model->save("./temp/secondExampleOfSimulation.txt");
 	} else {
-		simulator->models()->loadModel("./temp/secondExampleOfSimulation.txt");
-		model = simulator->models()->current();
+		simulator->getModels()->loadModel("./temp/secondExampleOfSimulation.txt");
+		model = simulator->getModels()->current();
 	}
 	// execute the simulation
-	model->simulation()->start();
+	model->getSimulation()->start();
 
 	return 0;
 };

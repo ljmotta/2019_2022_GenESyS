@@ -41,15 +41,15 @@ FourthExampleOfSimulation::FourthExampleOfSimulation() {
 
 int FourthExampleOfSimulation::main(int argc, char** argv) {
 	Simulator* simulator = new Simulator();
-	simulator->tracer()->setTraceLevel(Util::TraceLevel::modelResult); //componentArrival);
-	this->setDefaultTraceHandlers(simulator->tracer());
+	simulator->getTracer()->setTraceLevel(Util::TraceLevel::modelResult); //componentArrival);
+	this->setDefaultTraceHandlers(simulator->getTracer());
 	this->insertFakePluginsByHand(simulator);
 	bool wantToCreateNewModelAndSaveInsteadOfJustLoad = true;
 	Model* model;
 	if (wantToCreateNewModelAndSaveInsteadOfJustLoad) {
 		model = new Model(simulator);
 		// build the simulation model
-		ModelInfo* infos = model->infos();
+		ModelInfo* infos = model->getInfos();
 		infos->setNumberOfReplications(5);
 		infos->setReplicationLength(100);
 		EntityType* part = new EntityType(model, "Part");
@@ -162,30 +162,30 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		Dispose* dispose1 = new Dispose(model);
 		// model->insert(dispose1);
 		//
-		create1->nextComponents()->insert(assign1);
-		assign1->nextComponents()->insert(write1);
-		write1->nextComponents()->insert(decide1);
-		decide1->nextComponents()->insert(seize1);
-		decide1->nextComponents()->insert(seize2);
-		decide1->nextComponents()->insert(seize3);
-		seize1->nextComponents()->insert(delay1);
-		delay1->nextComponents()->insert(release1);
-		release1->nextComponents()->insert(dispose1);
-		seize2->nextComponents()->insert(delay2);
-		delay2->nextComponents()->insert(release2);
-		release2->nextComponents()->insert(dispose1);
-		seize3->nextComponents()->insert(delay3);
-		delay3->nextComponents()->insert(release3);
-		release3->nextComponents()->insert(dispose1);
+		create1->getNextComponents()->insert(assign1);
+		assign1->getNextComponents()->insert(write1);
+		write1->getNextComponents()->insert(decide1);
+		decide1->getNextComponents()->insert(seize1);
+		decide1->getNextComponents()->insert(seize2);
+		decide1->getNextComponents()->insert(seize3);
+		seize1->getNextComponents()->insert(delay1);
+		delay1->getNextComponents()->insert(release1);
+		release1->getNextComponents()->insert(dispose1);
+		seize2->getNextComponents()->insert(delay2);
+		delay2->getNextComponents()->insert(release2);
+		release2->getNextComponents()->insert(dispose1);
+		seize3->getNextComponents()->insert(delay3);
+		delay3->getNextComponents()->insert(release3);
+		release3->getNextComponents()->insert(dispose1);
 		//
-		simulator->models()->insert(model);
+		simulator->getModels()->insert(model);
 		model->save("./temp/forthExampleOfSimulation.txt");
 	} else { // load previously saved model
-		simulator->models()->loadModel("./temp/forthExampleOfSimulation.txt");
-		model = simulator->models()->current();
+		simulator->getModels()->loadModel("./temp/forthExampleOfSimulation.txt");
+		model = simulator->getModels()->current();
 	}
-	this->setDefaultEventHandlers(model->onEvents());
-	model->simulation()->start();
+	this->setDefaultEventHandlers(model->getOnEvents());
+	model->getSimulation()->start();
 	return 0;
 }
 

@@ -38,11 +38,11 @@
 	public: // only get
 		std::string version() const;
 		std::string name() const;
-		LicenceManager* licenceManager() const;
-		PluginManager* plugins() const;
-		ModelManager* models() const;
-		TraceManager* tracer() const;
-		ParserManager* parser() const;
+		LicenceManager* getLicenceManager() const;
+		PluginManager* getPlugins() const;
+		ModelManager* getModels() const;
+		TraceManager* getTracer() const;
+		ParserManager* getParser() const;
 	private:
 	private: // attributes 1:1 objects
 		LicenceManager* _licenceManager;
@@ -52,7 +52,7 @@
 		ParserManager* _parserManager;
 	private: // attributes 1:1 native
 		const std::string _name = "GenESyS - GENeric and Expansible SYstem Simulator";
-		const std::string _version = "21.02 (winer)";
+		const std::string _version = "21.03 (backtotrack)";
 	};
 //namespace\\}
 

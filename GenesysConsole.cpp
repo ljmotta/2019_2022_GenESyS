@@ -45,7 +45,7 @@ void GenesysConsole::cmdTraceLevel() {
 	try {
 		int tlnum = std::stoi(_parameter);
 		Util::TraceLevel tl = static_cast<Util::TraceLevel> (tlnum);
-		_simulator->models()->current()->tracer()->setTraceLevel(tl);
+		_simulator->getModels()->current()->getTracer()->setTraceLevel(tl);
 	} catch (...) {
 		Trace("Error setting trace level");
 	}
@@ -54,7 +54,7 @@ void GenesysConsole::cmdTraceLevel() {
 void GenesysConsole::cmdModelCheck() {
 	Trace("Check model");
 	try {
-		_simulator->models()->current()->check();
+		_simulator->getModels()->current()->check();
 	} catch (...) {
 		Trace("Error checking model");
 	}
@@ -63,7 +63,7 @@ void GenesysConsole::cmdModelCheck() {
 void GenesysConsole::cmdStart() {
 	Trace("Start simulation");
 	try {
-		_simulator->models()->current()->simulation()->start();
+		_simulator->getModels()->current()->getSimulation()->start();
 	} catch (...) {
 		Trace("Error starting simulation");
 	}
@@ -72,7 +72,7 @@ void GenesysConsole::cmdStart() {
 void GenesysConsole::cmdStep() {
 	Trace("Step simulation");
 	try {
-		_simulator->models()->current()->simulation()->step();
+		_simulator->getModels()->current()->getSimulation()->step();
 	} catch (...) {
 		Trace("Error stepping simulation");
 	}
@@ -81,7 +81,7 @@ void GenesysConsole::cmdStep() {
 void GenesysConsole::cmdStop() {
 	Trace("Stop simulation");
 	try {
-		_simulator->models()->current()->simulation()->stop();
+		_simulator->getModels()->current()->getSimulation()->stop();
 	} catch (...) {
 		Trace("Error stopping simulation");
 	}
@@ -90,7 +90,7 @@ void GenesysConsole::cmdStop() {
 void GenesysConsole::cmdShowReport() {
 	Trace("Show report");
 	try {
-		_simulator->models()->current()->simulation()->reporter()->showSimulationStatistics();
+		_simulator->getModels()->current()->getSimulation()->getReporter()->showSimulationStatistics();
 	} catch (...) {
 		Trace("Error showing reports");
 	}
@@ -131,7 +131,7 @@ void GenesysConsole::cmdModelLoad() {
 void GenesysConsole::cmdModelShow() {
 	Trace("Model Show");
 	try {
-		_simulator->models()->current()->show();
+		_simulator->getModels()->current()->show();
 	} catch (...) {
 		//        _commands
 		Trace("   Error showing");

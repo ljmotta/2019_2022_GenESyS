@@ -62,23 +62,23 @@
 		double parseExpression(const std::string expression, bool* success, std::string* errorMessage);
 		bool checkExpression(const std::string expression, const std::string expressionName, std::string* errorMessage);
 	public: // only gets	
-		Util::identification id() const;
+		Util::identification getId() const;
 		bool hasChanged() const;
 		// 1:1
-		OnEventManager* onEvents() const;
-		ElementManager* elements() const; ///< Provides access to the class that manages the most basic elements of the simulation model (such as queues, resources, variables, etc.).
-		ComponentManager* components() const; ///< The future events list chronologically sorted; Events are scheduled by components when processing other events, and a replication evolves over time by sequentially processing the very first event in this list. It's initialized with events first described by source components (SourceComponentModel).
-		ModelInfo* infos() const;
-		Simulator* parentSimulator() const;
-		ModelSimulation* simulation() const; ///< Provides access to the class that manages the model simulation.
+		OnEventManager* getOnEvents() const;
+		ElementManager* getElements() const; ///< Provides access to the class that manages the most basic elements of the simulation model (such as queues, resources, variables, etc.).
+		ComponentManager* getComponents() const; ///< The future events list chronologically sorted; Events are scheduled by components when processing other events, and a replication evolves over time by sequentially processing the very first event in this list. It's initialized with events first described by source components (SourceComponentModel).
+		ModelInfo* getInfos() const;
+		Simulator* getParentSimulator() const;
+		ModelSimulation* getSimulation() const; ///< Provides access to the class that manages the model simulation.
 		// 1:n
 		//List<ModelComponent*>* getComponents() const; ///< Returns the list of components (such as Create, Delay, Dispose, etc.) that make up the simulation model.
-		List<Event*>* futureEvents() const;
-		List<SimulationControl*>* controls() const; ///< Returns a list of values that can be externally controlled (changed). They usually correspond to input parameters in the simulation model that must be changed for an experimental design.
-		List<SimulationResponse*>* responses() const; ///< Returns a list of exits or simulation results that can be read externally. They usually correspond to statistics resulting from the simulation that must be read for an experiment design.
+		List<Event*>* getFutureEvents() const;
+		List<SimulationControl*>* getControls() const; ///< Returns a list of values that can be externally controlled (changed). They usually correspond to input parameters in the simulation model that must be changed for an experimental design.
+		List<SimulationResponse*>* getResponses() const; ///< Returns a list of exits or simulation results that can be read externally. They usually correspond to statistics resulting from the simulation that must be read for an experiment design.
 	public: // gets and sets	
 		void setTracer(TraceManager* _traceManager);
-		TraceManager* tracer() const; ///< Provides access to the class that performs the trace of simulation and replications.
+		TraceManager* getTracer() const; ///< Provides access to the class that performs the trace of simulation and replications.
 		/*
 		 * PRIVATE
 		 */

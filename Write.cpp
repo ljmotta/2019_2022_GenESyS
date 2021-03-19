@@ -66,7 +66,7 @@ void Write::_execute(Entity* entity) {
 		}
 		if (msgElem->newline) {
 			if (this->_writeToType == Write::WriteToType::SCREEN) { //\todo: Write To FILE not implemented
-				_parentModel->tracer()->trace(Util::TraceLevel::report, message);
+				_parentModel->getTracer()->trace(Util::TraceLevel::report, message);
 			} else if (this->_writeToType == Write::WriteToType::FILE) {
 				// open file
 				std::ofstream savefile;
@@ -78,7 +78,7 @@ void Write::_execute(Entity* entity) {
 		}
 	}
 
-	this->_parentModel->sendEntityToComponent(entity, this->nextComponents()->frontConnection(), 0.0);
+	this->_parentModel->sendEntityToComponent(entity, this->getNextComponents()->getFrontConnection(), 0.0);
 }
 
 bool Write::_loadInstance(std::map<std::string, std::string>* fields) {
@@ -93,7 +93,7 @@ void Write::_initBetweenReplications() {
 	try {
 		std::ofstream savefile;
 		savefile.open(_filename, std::ofstream::app);
-		savefile << "# Replication number " << _parentModel->simulation()->currentReplicationNumber() << "/" << _parentModel->infos()->numberOfReplications() << std::endl;
+		savefile << "# Replication number " << _parentModel->getSimulation()->getCurrentReplicationNumber() << "/" << _parentModel->getInfos()->getNumberOfReplications() << std::endl;
 		savefile.close();
 	} catch (...) {
 

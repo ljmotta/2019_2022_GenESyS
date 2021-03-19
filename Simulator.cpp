@@ -47,19 +47,19 @@ Simulator::Simulator() {
 	//std::cout << '|' << '\t' << _licenceManager->showLimits() << std::endl;
 }
 
-PluginManager* Simulator::plugins() const {
+PluginManager* Simulator::getPlugins() const {
 	return _pluginManager;
 }
 
-ModelManager* Simulator::models() const {
+ModelManager* Simulator::getModels() const {
 	return _modelManager;
 }
 
-TraceManager* Simulator::tracer() const {
+TraceManager* Simulator::getTracer() const {
 	return _traceManager;
 }
 
-ParserManager* Simulator::parser() const {
+ParserManager* Simulator::getParser() const {
 	return _parserManager;
 }
 
@@ -71,7 +71,7 @@ std::string Simulator::name() const {
 	return _name;
 }
 
-LicenceManager* Simulator::licenceManager() const {
+LicenceManager* Simulator::getLicenceManager() const {
 	return _licenceManager;
 }
 

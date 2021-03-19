@@ -30,27 +30,27 @@
 		std::string show();
 	public: // gets and sets
 		void setName(std::string _name);
-		std::string name() const;
+		std::string getName() const;
 		void setAnalystName(std::string _analystName);
-		std::string analystName() const;
+		std::string getAnalystName() const;
 		void setDescription(std::string _description);
-		std::string description() const;
+		std::string getDescription() const;
 		void setProjectTitle(std::string _projectTitle);
-		std::string projectTitle() const;
+		std::string getProjectTitle() const;
 		void setVersion(std::string _version);
-		std::string version() const;
+		std::string getVersion() const;
 		void setNumberOfReplications(unsigned int _numberOfReplications);
-		unsigned int numberOfReplications() const;
+		unsigned int getNumberOfReplications() const;
 		void setReplicationLength(double _replicationLength);
-		double replicationLength() const;
+		double getReplicationLength() const;
 		void setReplicationLengthTimeUnit(Util::TimeUnit _replicationLengthTimeUnit);
-		Util::TimeUnit replicationLengthTimeUnit() const;
+		Util::TimeUnit getReplicationLengthTimeUnit() const;
 		void setWarmUpPeriod(double _warmUpPeriod);
-		double warmUpPeriod() const;
+		double getWarmUpPeriod() const;
 		void setWarmUpPeriodTimeUnit(Util::TimeUnit _warmUpPeriodTimeUnit);
-		Util::TimeUnit warmUpPeriodTimeUnit() const;
+		Util::TimeUnit getWarmUpPeriodTimeUnit() const;
 		void setTerminatingCondition(std::string _terminatingCondition);
-		std::string terminatingCondition() const;
+		std::string getTerminatingCondition() const;
 	public:
 		void loadInstance(std::map<std::string, std::string>* fields);
 		std::map<std::string, std::string>* saveInstance();

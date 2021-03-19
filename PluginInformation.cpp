@@ -29,11 +29,11 @@ PluginInformation::PluginInformation(std::string pluginTypename, StaticLoaderEle
 	this->_pluginTypename = pluginTypename;
 }
 
-StaticLoaderElementInstance PluginInformation::elementloader() const {
+StaticLoaderElementInstance PluginInformation::getElementLoader() const {
 	return _elementloader;
 }
 
-StaticLoaderComponentInstance PluginInformation::componentLoader() const {
+StaticLoaderComponentInstance PluginInformation::GetComponentLoader() const {
 	return _componentloader;
 }
 
@@ -61,23 +61,23 @@ bool PluginInformation::isSource() const {
 	return _isSource;
 }
 
-std::string PluginInformation::observation() const {
+std::string PluginInformation::getObservation() const {
 	return _observation;
 }
 
-std::string PluginInformation::version() const {
+std::string PluginInformation::getVersion() const {
 	return _version;
 }
 
-std::string PluginInformation::date() const {
+std::string PluginInformation::getDate() const {
 	return _date;
 }
 
-std::string PluginInformation::author() const {
+std::string PluginInformation::getAuthor() const {
 	return _author;
 }
 
-std::string PluginInformation::pluginTypename() const {
+std::string PluginInformation::getPluginTypename() const {
 	return _pluginTypename;
 }
 
@@ -89,7 +89,7 @@ void PluginInformation::setDynamicLibFilenameDependencies(std::list<std::string>
 	this->_dynamicLibFilenameDependencies = dynamicLibFilenameDependencies;
 }
 
-std::list<std::string>* PluginInformation::dynamicLibFilenameDependencies() const {
+std::list<std::string>* PluginInformation::getDynamicLibFilenameDependencies() const {
 	return _dynamicLibFilenameDependencies;
 }
 
@@ -133,7 +133,7 @@ void PluginInformation::setMaximumOutputs(unsigned short _maximumOutputs) {
 	this->_maximumOutputs = _maximumOutputs;
 }
 
-unsigned short PluginInformation::maximumOutputs() const {
+unsigned short PluginInformation::getMaximumOutputs() const {
 	return _maximumOutputs;
 }
 
@@ -141,7 +141,7 @@ void PluginInformation::setMinimumOutputs(unsigned short _minimumOutputs) {
 	this->_minimumOutputs = _minimumOutputs;
 }
 
-unsigned short PluginInformation::minimumOutputs() const {
+unsigned short PluginInformation::getMinimumOutputs() const {
 	return _minimumOutputs;
 }
 
@@ -149,7 +149,7 @@ void PluginInformation::setMaximumInputs(unsigned short _maximumInputs) {
 	this->_maximumInputs = _maximumInputs;
 }
 
-unsigned short PluginInformation::maximumInputs() const {
+unsigned short PluginInformation::getMaximumInputs() const {
 	return _maximumInputs;
 }
 
@@ -157,7 +157,7 @@ void PluginInformation::setMinimumInputs(unsigned short _minimumInputs) {
 	this->_minimumInputs = _minimumInputs;
 }
 
-unsigned short PluginInformation::minimumInputs() const {
+unsigned short PluginInformation::getMinimumInputs() const {
 	return _minimumInputs;
 }
 

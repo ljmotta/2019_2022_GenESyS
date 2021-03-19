@@ -40,20 +40,20 @@
 		bool check(std::string elementTypename, std::string elementName, std::string expressionName, bool mandatory, std::string* errorMessage);
 		void clear();
 	public:
-		ModelElement* element(std::string elementTypename, Util::identification id);
-		ModelElement* element(std::string elementTypename, std::string name);
-		unsigned int numberOfElements(std::string elementTypename);
-		unsigned int numberOfElements();
-		int rankOf(std::string elementTypename, std::string name); ///< returns the position (1st position=0) of the element if found, or negative value if not found
-		std::list<std::string>* elementClassnames() const;
+		ModelElement* getElement(std::string elementTypename, Util::identification id);
+		ModelElement* getElement(std::string elementTypename, std::string name);
+		unsigned int getNumberOfElements(std::string elementTypename);
+		unsigned int getNumberOfElements();
+		int getRankOf(std::string elementTypename, std::string name); ///< returns the position (1st position=0) of the element if found, or negative value if not found
+		std::list<std::string>* getElementClassnames() const;
 
 		//private:
 	public:
 		// \todo: MUST BE PRIVATE
-		List<ModelElement*>* elementList(std::string elementTypename) const;
+		List<ModelElement*>* getElementList(std::string elementTypename) const;
 	public:
 		void show();
-		Model* parentModel() const;
+		Model* getParentModel() const;
 		bool hasChanged() const;
 		void setHasChanged(bool _hasChanged);
 	private:

@@ -27,7 +27,7 @@ ElementManager::ElementManager(Model* model) {
 }
 
 bool ElementManager::insert(ModelElement* anElement) {
-	std::string elementTypename = anElement->classname();
+	std::string elementTypename = anElement->getClassname();
 	bool res = insert(elementTypename, anElement);
 	/*
 	if (res)
@@ -39,26 +39,26 @@ bool ElementManager::insert(ModelElement* anElement) {
 }
 
 bool ElementManager::insert(std::string elementTypename, ModelElement* anElement) {
-	List<ModelElement*>* listElements = elementList(elementTypename);
+	List<ModelElement*>* listElements = getElementList(elementTypename);
 	if (listElements->find(anElement) == listElements->list()->end()) { //not found
 		listElements->insert(anElement);
-		this->_parentModel->tracer()->trace(Util::TraceLevel::toolDetailed, "Element " + anElement->classname() + " \"" + anElement->name() + "\" successfully inserted.");
+		this->_parentModel->getTracer()->trace(Util::TraceLevel::toolDetailed, "Element " + anElement->getClassname() + " \"" + anElement->getName() + "\" successfully inserted.");
 		return true;
 	}
-	this->_parentModel->tracer()->trace(Util::TraceLevel::toolDetailed, "Element \"" + anElement->name() + "\" could not be inserted.");
+	this->_parentModel->getTracer()->trace(Util::TraceLevel::toolDetailed, "Element \"" + anElement->getName() + "\" could not be inserted.");
 	return false;
 }
 
 void ElementManager::remove(ModelElement* anElement) {
-	std::string elementTypename = anElement->classname();
-	List<ModelElement*>* listElements = elementList(elementTypename);
+	std::string elementTypename = anElement->getClassname();
+	List<ModelElement*>* listElements = getElementList(elementTypename);
 	listElements->remove(anElement);
-	_parentModel->tracer()->trace(Util::TraceLevel::elementResult, "Element successfully removed");
+	_parentModel->getTracer()->trace(Util::TraceLevel::elementResult, "Element successfully removed");
 
 }
 
 void ElementManager::remove(std::string elementTypename, ModelElement* anElement) {
-	List<ModelElement*>* listElements = elementList(elementTypename);
+	List<ModelElement*>* listElements = getElementList(elementTypename);
 	listElements->remove(anElement);
 }
 
@@ -66,7 +66,7 @@ bool ElementManager::check(std::string elementTypename, std::string elementName,
 	if (elementName == "" && !mandatory) {
 		return true;
 	}
-	bool result = element(elementTypename, elementName) != nullptr;
+	bool result = getElement(elementTypename, elementName) != nullptr;
 	if (!result) {
 		std::string msg = elementTypename + " \"" + elementName + "\" for '" + expressionName + "' is not in the model.";
 		errorMessage->append(msg);
@@ -80,7 +80,7 @@ bool ElementManager::check(std::string elementTypename, ModelElement* anElement,
 		std::string msg = elementTypename + " for '" + expressionName + "' is null.";
 		errorMessage->append(msg);
 	} else {
-		result = check(elementTypename, anElement->name(), expressionName, true, errorMessage);
+		result = check(elementTypename, anElement->getName(), expressionName, true, errorMessage);
 	}
 	return result;
 }
@@ -89,12 +89,12 @@ void ElementManager::clear() {
 	this->_elements->clear();
 }
 
-unsigned int ElementManager::numberOfElements(std::string elementTypename) {
-	List<ModelElement*>* listElements = elementList(elementTypename);
+unsigned int ElementManager::getNumberOfElements(std::string elementTypename) {
+	List<ModelElement*>* listElements = getElementList(elementTypename);
 	return listElements->size();
 }
 
-unsigned int ElementManager::numberOfElements() {
+unsigned int ElementManager::getNumberOfElements() {
 	unsigned int total = 0;
 	for (std::map<std::string, List<ModelElement*>*>::iterator it = _elements->begin(); it != _elements->end(); it++) {
 		total += (*it).second->size();
@@ -103,7 +103,7 @@ unsigned int ElementManager::numberOfElements() {
 }
 
 void ElementManager::show() {
-	_parentModel->tracer()->trace(Util::TraceLevel::toolDetailed, "Model Elements:");
+	_parentModel->getTracer()->trace(Util::TraceLevel::toolDetailed, "Model Elements:");
 	//std::map<std::string, List<ModelElement*>*>* _elements;
 	std::string key;
 	List<ModelElement*>* list;
@@ -112,11 +112,11 @@ void ElementManager::show() {
 		for (std::map<std::string, List<ModelElement*>*>::iterator infraIt = _elements->begin(); infraIt != _elements->end(); infraIt++) {
 			key = (*infraIt).first;
 			list = (*infraIt).second;
-			_parentModel->tracer()->trace(Util::TraceLevel::toolDetailed, key + ": (" + std::to_string(list->size()) + ")");
+			_parentModel->getTracer()->trace(Util::TraceLevel::toolDetailed, key + ": (" + std::to_string(list->size()) + ")");
 			Util::IncIndent();
 			{
 				for (std::list<ModelElement*>::iterator it = list->list()->begin(); it != list->list()->end(); it++) {
-					_parentModel->tracer()->trace(Util::TraceLevel::toolDetailed, (*it)->show());
+					_parentModel->getTracer()->trace(Util::TraceLevel::toolDetailed, (*it)->show());
 				}
 			}
 			Util::DecIndent();
@@ -125,7 +125,7 @@ void ElementManager::show() {
 	Util::DecIndent();
 }
 
-Model* ElementManager::parentModel() const {
+Model* ElementManager::getParentModel() const {
 	return _parentModel;
 }
 
@@ -137,13 +137,13 @@ void ElementManager::setHasChanged(bool _hasChanged) {
 	this->_hasChanged = _hasChanged;
 }
 
-List<ModelElement*>* ElementManager::elementList(std::string elementTypename) const {
+List<ModelElement*>* ElementManager::getElementList(std::string elementTypename) const {
 	std::map<std::string, List<ModelElement*>*>::iterator it = this->_elements->find(elementTypename);
 	if (it == this->_elements->end()) {
 		// list does not exists yet. Create it and set a valid iterator
 		List<ModelElement*>* newList = new List<ModelElement*>();
 		newList->setSortFunc([](const ModelElement* a, const ModelElement * b) {
-			return a->id() < b->id();
+			return a->getId() < b->getId();
 		});
 		_elements->insert(std::pair<std::string, List<ModelElement*>*>(elementTypename, newList));
 		it = this->_elements->find(elementTypename);
@@ -152,21 +152,21 @@ List<ModelElement*>* ElementManager::elementList(std::string elementTypename) co
 	return infras;
 }
 
-ModelElement* ElementManager::element(std::string elementTypename, Util::identification id) {
-	List<ModelElement*>* list = elementList(elementTypename);
+ModelElement* ElementManager::getElement(std::string elementTypename, Util::identification id) {
+	List<ModelElement*>* list = getElementList(elementTypename);
 	for (std::list<ModelElement*>::iterator it = list->list()->begin(); it != list->list()->end(); it++) {
-		if ((*it)->id() == id) { // found
+		if ((*it)->getId() == id) { // found
 			return (*it);
 		}
 	}
 	return nullptr;
 }
 
-int ElementManager::rankOf(std::string elementTypename, std::string name) {
+int ElementManager::getRankOf(std::string elementTypename, std::string name) {
 	int rank = 0;
-	List<ModelElement*>* list = elementList(elementTypename);
+	List<ModelElement*>* list = getElementList(elementTypename);
 	for (std::list<ModelElement*>::iterator it = list->list()->begin(); it != list->list()->end(); it++) {
-		if ((*it)->name() == name) { // found
+		if ((*it)->getName() == name) { // found
 			return rank;
 		} else {
 			rank++;
@@ -175,7 +175,7 @@ int ElementManager::rankOf(std::string elementTypename, std::string name) {
 	return -1;
 }
 
-std::list<std::string>* ElementManager::elementClassnames() const {
+std::list<std::string>* ElementManager::getElementClassnames() const {
 	std::list<std::string>* keys = new std::list<std::string>();
 	for (std::map<std::string, List<ModelElement*>*>::iterator it = _elements->begin(); it != _elements->end(); it++) {
 		keys->insert(keys->end(), (*it).first);
@@ -183,10 +183,10 @@ std::list<std::string>* ElementManager::elementClassnames() const {
 	return keys;
 }
 
-ModelElement* ElementManager::element(std::string elementTypename, std::string name) {
-	List<ModelElement*>* list = elementList(elementTypename);
+ModelElement* ElementManager::getElement(std::string elementTypename, std::string name) {
+	List<ModelElement*>* list = getElementList(elementTypename);
 	for (std::list<ModelElement*>::iterator it = list->list()->begin(); it != list->list()->end(); it++) {
-		if ((*it)->name() == name) { // found
+		if ((*it)->getName() == name) { // found
 			return (*it);
 		}
 	}

@@ -1,7 +1,7 @@
 # Genesys simulation model 
-# Last saved on Thu Mar 18 22:19:44 2021
+# Last saved on Fri Mar 19 13:36:09 2021
 # simulator infos
-0   SimulatorInfo   name="GenESyS - GENeric and Expansible SYstem Simulator"  version="21.02 (winer)"  
+0   SimulatorInfo   name="GenESyS - GENeric and Expansible SYstem Simulator"  version="21.03 (backtotrack)"  
 
 # model infos
 0   ModelInfo       analystName=""  description=""  name="Model 1"  numberOfReplications=5  projectTitle=""  replicationLength=100.000000  replicationLengthTimeUnit=5  terminatingCondition=""  version="1.0"  warmUpTime=0.000000  warmUpTimeTimeUnit=5  

@@ -66,7 +66,7 @@ double Formula::value(std::string index) {
 	try {
 		value = _parentModel->parseExpression(strexpression);
 	} catch (const std::exception& e) {
-		_parentModel->tracer()->traceError(e, "Error parsing formula \"" + strexpression + "\"");
+		_parentModel->getTracer()->traceError(e, "Error parsing formula \"" + strexpression + "\"");
 	}
 	return value;
 }
@@ -107,7 +107,7 @@ bool Formula::_check(std::string* errorMessage) {
 	for (std::map<std::string, std::string>::iterator it = _formulaExpressions->begin(); it != _formulaExpressions->end(); it++) {
 		res = _parentModel->checkExpression((*it).second, "formula expression[" + (*it).first + "]", &errorMsg);
 		if (!res) {
-			_parentModel->tracer()->trace(Util::TraceLevel::errorFatal, "Error parsing expression \"" + (*it).second + "\"");
+			_parentModel->getTracer()->trace(Util::TraceLevel::errorFatal, "Error parsing expression \"" + (*it).second + "\"");
 		}
 		resAll &= res;
 	}

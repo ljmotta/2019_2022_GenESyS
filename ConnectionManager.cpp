@@ -30,11 +30,11 @@ ModelComponent* ConnectionManager::atRank(unsigned int rank) {
 	return _nextConnections->getAtRank(rank)->first;
 }
 
-Connection* ConnectionManager::frontConnection() {
+Connection* ConnectionManager::getFrontConnection() {
 	return _nextConnections->front();
 }
 
-Connection* ConnectionManager::connectionAtRank(unsigned int rank) {
+Connection* ConnectionManager::getConnectionAtRank(unsigned int rank) {
 	return _nextConnections->getAtRank(rank);
 }
 
@@ -56,7 +56,7 @@ std::list<Connection*>* ConnectionManager::list() const {
 //    this->_currentOutputConnections = _currentOutputConnections;
 //}
 
-unsigned int ConnectionManager::currentOutputConnections() const {
+unsigned int ConnectionManager::getCurrentOutputConnections() const {
 	return _currentOutputConnections;
 }
 
@@ -64,7 +64,7 @@ void ConnectionManager::setMaxOutputConnections(unsigned int _maxOutputConnectio
 	this->_maxOutputConnections = _maxOutputConnections;
 }
 
-unsigned int ConnectionManager::maxOutputConnections() const {
+unsigned int ConnectionManager::getMaxOutputConnections() const {
 	return _maxOutputConnections;
 }
 
@@ -72,7 +72,7 @@ void ConnectionManager::setMinOutputConnections(unsigned int _minOutputConnectio
 	this->_minOutputConnections = _minOutputConnections;
 }
 
-unsigned int ConnectionManager::minOutputConnections() const {
+unsigned int ConnectionManager::getMinOutputConnections() const {
 	return _minOutputConnections;
 }
 
@@ -80,7 +80,7 @@ unsigned int ConnectionManager::minOutputConnections() const {
 //    this->_currentInputConnections = _currentInputConnections;
 //}
 
-unsigned int ConnectionManager::currentInputConnections() const {
+unsigned int ConnectionManager::getCurrentInputConnections() const {
 	return _currentInputConnections;
 }
 
@@ -88,7 +88,7 @@ void ConnectionManager::setMaxInputConnections(unsigned int _maxInputConnections
 	this->_maxInputConnections = _maxInputConnections;
 }
 
-unsigned int ConnectionManager::maxInputConnections() const {
+unsigned int ConnectionManager::getMaxInputConnections() const {
 	return _maxInputConnections;
 }
 
@@ -96,6 +96,6 @@ void ConnectionManager::setMinInputConnections(unsigned int _minInputConnections
 	this->_minInputConnections = _minInputConnections;
 }
 
-unsigned int ConnectionManager::minInputConnections() const {
+unsigned int ConnectionManager::getMinInputConnections() const {
 	return _minInputConnections;
 }
