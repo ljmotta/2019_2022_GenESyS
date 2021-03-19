@@ -115,6 +115,7 @@ void ModelSimulation::_replicationEnded() {
 	_traceReplicationEnded();
 	_model->onEvents()->NotifyReplicationEndHandlers(new SimulationEvent(_currentReplicationNumber, nullptr));
 	_simulationReporter->showReplicationStatistics();
+	//_simulationReporter->showSimulationResponses();
 	_actualizeSimulationStatistics();
 }
 

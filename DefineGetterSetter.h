@@ -20,6 +20,9 @@
 typedef std::function<double() > GetterMember;
 typedef std::function<void(double) > SetterMember;
 
+typedef std::function<std::string() > GetterMemberString;
+typedef std::function<void(std::string) > SetterMemberString;
+
 // double
 
 template<typename Class>
@@ -85,6 +88,17 @@ template<typename Class>
 SetterMember DefineSetterMember(Class * object, void (Class::*function)(std::string) const) {
 	return std::bind(function, object, std::placeholders::_1);
 }
+
+template<typename Class>
+GetterMemberString DefineGetterMember(Class * object, std::string(Class::*function)() const) {
+	return std::bind(function, object);
+}
+
+template<typename Class>
+SetterMemberString DefineSetterMember(Class * object, void (Class::*function)(std::string) const) {
+	return std::bind(function, object, std::placeholders::_1);
+}
+
 
 // Util::TimeUnit
 

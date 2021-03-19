@@ -31,6 +31,7 @@
 		void setValue(double value);
 	private:
 		SetterMember _setMemberFunction;
+		//SetterMemberString  _setMemberStringFunction;
 	};
 //namespace\\}
 #endif /* SIMULATIONCONTROL_H */

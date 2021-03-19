@@ -50,8 +50,8 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		model = new Model(simulator);
 		// build the simulation model
 		ModelInfo* infos = model->infos();
-		infos->setNumberOfReplications(10);
-		//infos->setReplicationLength(50);
+		infos->setNumberOfReplications(5);
+		infos->setReplicationLength(100);
 		EntityType* part = new EntityType(model, "Part");
 		// model->insert(part);
 		Create* create1 = new Create(model);

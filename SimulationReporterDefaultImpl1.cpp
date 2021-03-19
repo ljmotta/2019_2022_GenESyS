@@ -25,6 +25,18 @@ SimulationReporterDefaultImpl1::SimulationReporterDefaultImpl1(ModelSimulation* 
 	_statsCountersSimulation = statsCountersSimulation;
 }
 
+void SimulationReporterDefaultImpl1::showSimulationControls() {
+	_model->tracer()->traceReport("Simulation Controls:");
+	Util::IncIndent();
+	{
+		for (std::list<SimulationControl*>::iterator it = _model->controls()->list()->begin(); it != _model->controls()->list()->end(); it++) {
+			SimulationControl* control = (*it);
+			_model->tracer()->traceReport(control->name() + ": " + std::to_string(control->value()));
+		}
+	}
+	Util::DecIndent();
+}
+
 void SimulationReporterDefaultImpl1::showReplicationStatistics() {
 	_model->tracer()->traceReport("");
 	_model->tracer()->traceReport("Begin of Report for replication " + std::to_string(_simulation->currentReplicationNumber()) + " of " + std::to_string(_model->infos()->numberOfReplications()));
@@ -36,6 +48,7 @@ void SimulationReporterDefaultImpl1::showReplicationStatistics() {
 	const std::string UtilTypeOfCounter = Util::TypeOf<Counter>();
 	// runs over all elements and list the statistics for each one, and then the statistics with no parent
 	Util::IncIndent();
+	this->showSimulationControls();
 	// copy the ist of statistics and counters into a single new list
 	std::list<ModelElement*>* statisticsAndCounters = new std::list<ModelElement*>(*(_model->elements()->elementList(UtilTypeOfStatisticsCollector)->list()));
 	std::list<ModelElement*>* counters = new std::list<ModelElement*>(*(_model->elements()->elementList(UtilTypeOfCounter)->list()));
@@ -124,9 +137,22 @@ void SimulationReporterDefaultImpl1::showReplicationStatistics() {
 		}
 		Util::DecIndent();
 	}
+	this->showSimulationResponses();
 	Util::DecIndent();
 	_model->tracer()->traceReport("End of Report for replication " + std::to_string(_simulation->currentReplicationNumber()) + " of " + std::to_string(_model->infos()->numberOfReplications()));
 	_model->tracer()->traceReport("------------------------------");
+}
+
+void SimulationReporterDefaultImpl1::showSimulationResponses() {
+	_model->tracer()->traceReport("Simulation Responses:");
+	Util::IncIndent();
+	{
+		for (std::list<SimulationResponse*>::iterator it = _model->responses()->list()->begin(); it != _model->responses()->list()->end(); it++) {
+			SimulationResponse* response = (*it);
+			_model->tracer()->traceReport(response->name() + ": " + std::to_string(response->value()));
+		}
+	}
+	Util::DecIndent();
 }
 
 void SimulationReporterDefaultImpl1::showSimulationStatistics() {//List<StatisticsCollector*>* cstatsSimulation) {

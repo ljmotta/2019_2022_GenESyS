@@ -45,6 +45,8 @@ public:
 public:
 	void setDelayExpression(std::string _delayExpression);
 	std::string delayExpression() const;
+	void setDelay(double delay);
+	double delay() const;
 	void setDelayTimeUnit(Util::TimeUnit _delayTimeUnit);
 	Util::TimeUnit delayTimeUnit() const;
 public:

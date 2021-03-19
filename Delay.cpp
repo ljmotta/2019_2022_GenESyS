@@ -16,7 +16,26 @@
 #include "Attribute.h"
 
 Delay::Delay(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Delay>(), name) {
+
+	GetterMember getter = DefineGetterMember<Delay>(this, &Delay::delay);
+	SetterMember setter = DefineSetterMember<Delay>(this, &Delay::setDelay);
+	model->controls()->insert(new SimulationControl(Util::TypeOf<Delay>(), _name + ".Delay", getter, setter));
+
+	//GetterMember getter2 = DefineGetterMember<Delay>(this, &Delay::delayTimeUnit);
+	//SetterMember setter2 = DefineSetterMember<Delay>(this, &Delay::setDelayTimeUnit);
+	//model->controls()->insert(new SimulationControl(Util::TypeOf<Delay>(), _name + ".DelayTimeUnit", getter2, setter2));
+	
+
 }
+
+void Delay::setDelay(double delay) {
+	_delayExpression = std::to_string(delay);
+}
+
+double Delay::delay() const {
+	return _parentModel->parseExpression(_delayExpression);
+}
+
 
 std::string Delay::show() {
 	return ModelComponent::show() +

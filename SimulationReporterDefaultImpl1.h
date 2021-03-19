@@ -29,9 +29,9 @@
 		virtual ~SimulationReporterDefaultImpl1() = default;
 	public:
 		virtual void showReplicationStatistics();
-		virtual void showSimulationStatistics(); //List<StatisticsCollector*>* cstatsSimulation);
-	private:
-		//List<StatisticsCollector*>* getStatisticsFromParent( std::string parent );
+		virtual void showSimulationStatistics(); 
+		virtual void showSimulationResponses();
+		virtual void showSimulationControls();
 	private:
 		ModelSimulation* _simulation;
 		Model* _model;

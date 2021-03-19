@@ -19,6 +19,12 @@ Resource::Resource(Model* model, std::string name) : ModelElement(model, Util::T
 	GetterMember getter = DefineGetterMember<Resource>(this, &Resource::getCapacity);
 	SetterMember setter = DefineSetterMember<Resource>(this, &Resource::setCapacity);
 	model->controls()->insert(new SimulationControl(Util::TypeOf<Resource>(), _name + ".Capacity", getter, setter));
+
+	GetterMember getter2 = DefineGetterMember<Resource>(this, &Resource::getCostPerUse);
+	SetterMember setter2 = DefineSetterMember<Resource>(this, &Resource::setCostPerUse);
+	model->controls()->insert(new SimulationControl(Util::TypeOf<Resource>(), _name + ".CostPerUse", getter2, setter2));
+	// ...
+
 }
 
 Resource::~Resource() {
