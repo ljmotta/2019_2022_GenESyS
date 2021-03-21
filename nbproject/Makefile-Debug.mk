@@ -63,7 +63,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/File.o \
 	${OBJECTDIR}/FirstExampleOfSimulation.o \
 	${OBJECTDIR}/FitterDefaultImpl1.o \
-	${OBJECTDIR}/Formula.o \
 	${OBJECTDIR}/FourthExampleOfSimulation.o \
 	${OBJECTDIR}/FullSimulationOfComplexModel.o \
 	${OBJECTDIR}/GenesysConsole.o \
@@ -160,11 +159,11 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/genesysincludingkernel
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/2019_2022_genesys
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/genesysincludingkernel: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/2019_2022_genesys: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/genesysincludingkernel ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/2019_2022_genesys ${OBJECTFILES} ${LDLIBSOPTIONS} -L/home/luiz/Documents/modsim/2019_2022_GenESyS/plugins/elements -Wl,-rpath=/home/luiz/Documents/modsim/2019_2022_GenESyS/plugins/elements -lFormula
 
 ${OBJECTDIR}/Assign.o: Assign.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -306,11 +305,6 @@ ${OBJECTDIR}/FitterDefaultImpl1.o: FitterDefaultImpl1.cpp nbproject/Makefile-${C
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FitterDefaultImpl1.o FitterDefaultImpl1.cpp
 
-${OBJECTDIR}/Formula.o: Formula.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Formula.o Formula.cpp
-
 ${OBJECTDIR}/FourthExampleOfSimulation.o: FourthExampleOfSimulation.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -319,7 +313,7 @@ ${OBJECTDIR}/FourthExampleOfSimulation.o: FourthExampleOfSimulation.cpp nbprojec
 ${OBJECTDIR}/FullSimulationOfComplexModel.o: FullSimulationOfComplexModel.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FullSimulationOfComplexModel.o FullSimulationOfComplexModel.cpp
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FullSimulationOfComplexModel.o FullSimulationOfComplexModel.cpp -L/home/luiz/Documents/modsim/2019_2022_GenESyS/plugins/elements -Wl,-rpath=/home/luiz/Documents/modsim/2019_2022_GenESyS/plugins/elements -lFormula
 
 ${OBJECTDIR}/GenesysConsole.o: GenesysConsole.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -449,7 +443,7 @@ ${OBJECTDIR}/Plugin.o: Plugin.cpp nbproject/Makefile-${CND_CONF}.mk
 ${OBJECTDIR}/PluginConnectorDummyImpl1.o: PluginConnectorDummyImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PluginConnectorDummyImpl1.o PluginConnectorDummyImpl1.cpp
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PluginConnectorDummyImpl1.o PluginConnectorDummyImpl1.cpp -L/home/luiz/Documents/modsim/2019_2022_GenESyS/plugins/elements -Wl,-rpath=/home/luiz/Documents/modsim/2019_2022_GenESyS/plugins/elements -lFormula
 
 ${OBJECTDIR}/PluginInformation.o: PluginInformation.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -619,7 +613,7 @@ ${OBJECTDIR}/TestFunctions.o: TestFunctions.cpp nbproject/Makefile-${CND_CONF}.m
 ${OBJECTDIR}/TestMatricesOfAttributesAndVariables.o: TestMatricesOfAttributesAndVariables.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestMatricesOfAttributesAndVariables.o TestMatricesOfAttributesAndVariables.cpp
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestMatricesOfAttributesAndVariables.o TestMatricesOfAttributesAndVariables.cpp -L/home/luiz/Documents/modsim/2019_2022_GenESyS/plugins/elements -Wl,-rpath=/home/luiz/Documents/modsim/2019_2022_GenESyS/plugins/elements -lFormula
 
 ${OBJECTDIR}/TestParser.o: TestParser.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

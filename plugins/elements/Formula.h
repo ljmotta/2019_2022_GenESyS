@@ -14,10 +14,10 @@
 #ifndef FORMULA_H
 #define FORMULA_H
 
-#include "ModelElement.h"
-#include "ElementManager.h"
-#include "Plugin.h"
-#include "Parser_if.h"
+#include "../../ModelElement.h"
+#include "../../ElementManager.h"
+#include "../Plugin.h"
+#include "../../Parser_if.h"
 
 class Formula : public ModelElement {
 public:

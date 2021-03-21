@@ -16,10 +16,10 @@
 
 #include <string>
 #include <list>
-#include "List.h"
-#include "ModelElement.h"
-#include "ElementManager.h"
-#include "Plugin.h"
+#include "../../List.h"
+#include "../../ModelElement.h"
+#include "../../ElementManager.h"
+#include "../Plugin.h"
 
 /*!
  Attribute module

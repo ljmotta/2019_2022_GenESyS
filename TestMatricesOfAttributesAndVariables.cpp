@@ -21,7 +21,7 @@
 #include "Delay.h"
 #include "Dispose.h"
 // #include "Separate.h"
-#include "Formula.h"
+#include "plugins/elements/Formula.h"
 #include "Write.h"
 
 TestMatricesOfAttributesAndVariables::TestMatricesOfAttributesAndVariables() {

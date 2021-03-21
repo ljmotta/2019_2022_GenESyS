@@ -63,7 +63,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/File.o \
 	${OBJECTDIR}/FirstExampleOfSimulation.o \
 	${OBJECTDIR}/FitterDefaultImpl1.o \
-	${OBJECTDIR}/Formula.o \
 	${OBJECTDIR}/FourthExampleOfSimulation.o \
 	${OBJECTDIR}/FullSimulationOfComplexModel.o \
 	${OBJECTDIR}/GenesysConsole.o \
@@ -160,11 +159,11 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/genesysincludingkernel
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/2019_2022_genesys
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/genesysincludingkernel: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/2019_2022_genesys: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/genesysincludingkernel ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/2019_2022_genesys ${OBJECTFILES} ${LDLIBSOPTIONS}
 
 ${OBJECTDIR}/Assign.o: Assign.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -305,11 +304,6 @@ ${OBJECTDIR}/FitterDefaultImpl1.o: FitterDefaultImpl1.cpp nbproject/Makefile-${C
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FitterDefaultImpl1.o FitterDefaultImpl1.cpp
-
-${OBJECTDIR}/Formula.o: Formula.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Formula.o Formula.cpp
 
 ${OBJECTDIR}/FourthExampleOfSimulation.o: FourthExampleOfSimulation.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

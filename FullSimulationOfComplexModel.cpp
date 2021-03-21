@@ -26,7 +26,7 @@
 #include "Variable.h"
 #include "ProbDistribDefaultImpl1.h"
 #include "EntityGroup.h"
-#include "Formula.h"
+#include "plugins/elements/Formula.h"
 #include "OLD_ODEelement.h"
 
 FullSimulationOfComplexModel::FullSimulationOfComplexModel() {

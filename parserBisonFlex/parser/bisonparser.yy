@@ -17,7 +17,7 @@
 #include "../Variable.h"
 #include "../Attribute.h"
 #include "../Queue.h"
-#include "../Formula.h"
+#include "../plugins/elements/Formula.h"
 #include "../Resource.h"
 #include "../Set.h"
 class genesyspp_driver;
