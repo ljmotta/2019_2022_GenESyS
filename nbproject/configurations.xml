@@ -138,8 +138,8 @@
     </logicalFolder>
     <logicalFolder name="f3" displayName="Plugins" projectFiles="true">
       <logicalFolder name="f2" displayName="Components" projectFiles="true">
-        <itemPath>Assign.cpp</itemPath>
-        <itemPath>Assign.h</itemPath>
+        <itemPath>plugins/Assign.cpp</itemPath>
+        <itemPath>plugins/Assign.h</itemPath>
         <itemPath>Create.cpp</itemPath>
         <itemPath>Create.h</itemPath>
         <itemPath>Decide.cpp</itemPath>
@@ -331,6 +331,7 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>plugins/Build</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -350,10 +351,6 @@
         </asmTool>
       </compileType>
       <item path="AnalysisOfVariance_if.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Assign.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Assign.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Attribute.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -851,6 +848,12 @@
       <item path="parserBisonFlex/position.hh" ex="false" tool="3" flavor2="0">
       </item>
       <item path="parserBisonFlex/stack.hh" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="plugins/Assign.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="plugins/Assign.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="plugins/Build" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -875,10 +878,6 @@
       </compileType>
       <item path="AnalysisOfVariance_if.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Assign.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Assign.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="Attribute.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Attribute.h" ex="false" tool="3" flavor2="0">
@@ -1375,6 +1374,12 @@
       <item path="parserBisonFlex/position.hh" ex="false" tool="3" flavor2="0">
       </item>
       <item path="parserBisonFlex/stack.hh" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="plugins/Assign.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="plugins/Assign.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="plugins/Build" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>

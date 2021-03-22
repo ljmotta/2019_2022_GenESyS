@@ -14,9 +14,9 @@
 #ifndef ASSIGN_H
 #define ASSIGN_H
 
-#include "ModelComponent.h"
-#include "Model.h"
-#include "Plugin.h"
+#include "../ModelComponent.h"
+#include "../Model.h"
+#include "../Plugin.h"
 
 /*!
  Assign module

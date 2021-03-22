@@ -13,10 +13,10 @@
 
 #include "Assign.h"
 #include <string>
-#include "Model.h"
-#include "Variable.h"
-#include "Attribute.h"
-#include "Resource.h"
+#include "../Model.h"
+#include "../Variable.h"
+#include "../Attribute.h"
+#include "../Resource.h"
 
 Assign::Assign(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Assign>(), name) {
 }

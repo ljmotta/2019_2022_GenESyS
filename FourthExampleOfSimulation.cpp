@@ -22,7 +22,7 @@
 #include "Dispose.h"
 #include "Seize.h"
 #include "Release.h"
-#include "Assign.h"
+#include "plugins/Assign.h"
 #include "Record.h"
 #include "Decide.h"
 #include "Write.h"

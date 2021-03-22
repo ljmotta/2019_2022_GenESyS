@@ -35,7 +35,6 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/Assign.o \
 	${OBJECTDIR}/Attribute.o \
 	${OBJECTDIR}/BaseConsoleGenesysApplication.o \
 	${OBJECTDIR}/CollectorDatafileDefaultImpl1.o \
@@ -138,7 +137,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/parserBisonFlex/Genesys++-scanner.o \
 	${OBJECTDIR}/parserBisonFlex/GenesysParser.o \
 	${OBJECTDIR}/parserBisonFlex/ParserDefaultImpl2.o \
-	${OBJECTDIR}/parserBisonFlex/obj_t.o
+	${OBJECTDIR}/parserBisonFlex/obj_t.o \
+	${OBJECTDIR}/plugins/Assign.o
 
 
 # C Compiler Flags
@@ -163,12 +163,9 @@ LDLIBSOPTIONS=
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/2019_2022_genesys: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/2019_2022_genesys ${OBJECTFILES} ${LDLIBSOPTIONS}
-
-${OBJECTDIR}/Assign.o: Assign.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Assign.o Assign.cpp
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/2019_2022_genesys ${OBJECTFILES} ${LDLIBSOPTIONS} \
+	-L/home/luiz/Documents/modsim/2019_2022_GenESyS/plugins/build -Wl,-rpath=/home/luiz/Documents/modsim/2019_2022_GenESyS/plugins/build -lAssign \
+	-L/home/luiz/Documents/modsim/2019_2022_GenESyS/plugins/build -Wl,-rpath=/home/luiz/Documents/modsim/2019_2022_GenESyS/plugins/build -lFormula
 
 ${OBJECTDIR}/Attribute.o: Attribute.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
@@ -684,6 +681,11 @@ ${OBJECTDIR}/parserBisonFlex/obj_t.o: parserBisonFlex/obj_t.cpp nbproject/Makefi
 	${MKDIR} -p ${OBJECTDIR}/parserBisonFlex
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/parserBisonFlex/obj_t.o parserBisonFlex/obj_t.cpp
+
+${OBJECTDIR}/plugins/Assign.o: plugins/Assign.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}/plugins
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/plugins/Assign.o plugins/Assign.cpp
 
 # Subprojects
 .build-subprojects:

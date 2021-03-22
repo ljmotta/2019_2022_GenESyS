@@ -19,7 +19,7 @@
 #include "Dispose.h"
 #include "Seize.h"
 #include "Release.h"
-#include "Assign.h"
+#include "plugins/Assign.h"
 #include "Record.h"
 #include "Decide.h"
 #include "Dummy.h"
@@ -61,7 +61,7 @@
 #include "ProbDistribDefaultImpl1.h"
 #include "EntityGroup.h"
 #include "Station.h"
-#include "./plugins/elements/Formula.h"
+#include "plugins/Formula.h"
 #include "Set.h"
 #// include "OLD_ODEelement.h"
 

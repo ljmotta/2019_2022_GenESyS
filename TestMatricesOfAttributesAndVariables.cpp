@@ -14,14 +14,14 @@
 #include "TestMatricesOfAttributesAndVariables.h"
 #include "Simulator.h"
 #include "SourceModelComponent.h"
-#include "Assign.h"
+#include "plugins/Assign.h"
 #include "Attribute.h"
 #include "Variable.h"
 #include "Create.h"
 #include "Delay.h"
 #include "Dispose.h"
 // #include "Separate.h"
-#include "plugins/elements/Formula.h"
+#include "plugins/Formula.h"
 #include "Write.h"
 
 TestMatricesOfAttributesAndVariables::TestMatricesOfAttributesAndVariables() {

@@ -13,9 +13,9 @@
 
 #include "Formula.h"
 #include <iostream>
-#include "../../ElementManager.h"
-#include "../../Model.h"
-#include "../../Traits.h"
+#include "../ElementManager.h"
+#include "../Model.h"
+#include "../Traits.h"
 
 Formula::Formula(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Formula>(), name) {
 	//_myPrivateParser = new Traits<Parser_if>::Implementation(_parentModel);
