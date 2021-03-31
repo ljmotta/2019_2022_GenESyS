@@ -14,9 +14,9 @@
 #ifndef ASSIGN_H
 #define ASSIGN_H
 
-#include "ModelComponent.h"
-#include "Model.h"
-#include "Plugin.h"
+#include "../../ModelComponent.h"
+#include "../../Model.h"
+#include "../../Plugin.h"
 
 /*!
  Assign module
@@ -99,7 +99,6 @@ public:
 public:
 	static PluginInformation* GetPluginInformation();
 	static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
-	void helloWorld();
 public:
 	List<Assignment*>* assignments() const;
 protected:
@@ -112,9 +111,6 @@ private:
 private:
 	List<Assignment*>* _assignments = new List<Assignment*>();
 };
-
-typedef Assign* create_assign(Model* model);
-typedef void destroy_assign(Assign* assign);
 
 #endif /* ASSIGN_H */
 

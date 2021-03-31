@@ -35,6 +35,7 @@
 #include "ProbDistribDefaultImpl1.h"
 #include "EntityGroup.h"
 #include "Set.h"
+#include <dlfcn.h>
 
 FourthExampleOfSimulation::FourthExampleOfSimulation() {
 }
@@ -60,6 +61,22 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		create1->setTimeUnit(Util::TimeUnit::second);
 		create1->setEntitiesPerCreation(1);
 		// model->insert(create1);
+	    void* _assign = dlopen("/home/luiz/Documents/modsim/2019_2022_GenESyS/libassign.so", RTLD_LAZY);
+		if (!_assign) {
+			std::cout << "error" << std::endl;
+			std::cout << dlerror() << std::endl;
+		}
+
+		create_assign* createAssign = (create_assign*) dlsym(_assign, "create");
+		destroy_assign* destroyAssign = (destroy_assign*) dlsym(_assign, "destroy");
+
+		// Esta retornando uma instancia do tipo especificado?
+		Assign* assignInstance = createAssign(model);
+		assignInstance->helloWorld();
+
+		destroyAssign(assignInstance);
+		dlclose(_assign);
+
 		Assign* assign1 = new Assign(model);
 		assign1->assignments()->insert(new Assign::Assignment("varNextIndex", "varNextIndex+1"));
 		assign1->assignments()->insert(new Assign::Assignment("index", "varNextIndex"));

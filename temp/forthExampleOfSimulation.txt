@@ -1,5 +1,5 @@
 # Genesys simulation model 
-# Last saved on Fri Mar 19 13:36:09 2021
+# Last saved on Wed Mar 31 01:15:13 2021
 # simulator infos
 0   SimulatorInfo   name="GenESyS - GENeric and Expansible SYstem Simulator"  version="21.03 (backtotrack)"  
 
@@ -9,50 +9,50 @@
 # model elements
 1   EntityType      initialNVACost=0.000000  initialOtherCost=0.000000  initialPicture=report  initialVACost=0.000000  initialWaitingCost=0.000000  name=Part  reportStatistics=1  
 
-10  Set             name=Machine_Set  reportStatistics=1  
+10  Resource        capacity=3  costBusyHour=1.000000  costIdleHour=1.000000  costPerUse=1.000000  name=Machine_3  reportStatistics=1  
 
-12  Queue           attributeName=  name=Queue_Seize_1  orderRule=1  reportStatistics=1  
+11  Set             name=Machine_Set  reportStatistics=1  
 
-16  Queue           attributeName=  name=Queue_Seize_2  orderRule=1  reportStatistics=1  
+13  Queue           attributeName=  name=Queue_Seize_1  orderRule=1  reportStatistics=1  
 
-20  Queue           attributeName=  name=Queue_Seize_3  orderRule=1  reportStatistics=1  
+17  Queue           attributeName=  name=Queue_Seize_2  orderRule=1  reportStatistics=1  
 
-4   Attribute       name=index  reportStatistics=1  
+21  Queue           attributeName=  name=Queue_Seize_3  orderRule=1  reportStatistics=1  
 
-5   Variable        name=varNextIndex  numValues=0  reportStatistics=1  
+5   Attribute       name=index  reportStatistics=1  
 
-7   Resource        capacity=1  costBusyHour=1.000000  costIdleHour=1.000000  costPerUse=1.000000  name=Machine_1  reportStatistics=1  
+6   Variable        name=varNextIndex  numValues=0  reportStatistics=1  
 
-8   Resource        capacity=2  costBusyHour=1.000000  costIdleHour=1.000000  costPerUse=1.000000  name=Machine_2  reportStatistics=1  
+8   Resource        capacity=1  costBusyHour=1.000000  costIdleHour=1.000000  costPerUse=1.000000  name=Machine_1  reportStatistics=1  
 
-9   Resource        capacity=3  costBusyHour=1.000000  costIdleHour=1.000000  costPerUse=1.000000  name=Machine_3  reportStatistics=1  
+9   Resource        capacity=2  costBusyHour=1.000000  costIdleHour=1.000000  costPerUse=1.000000  name=Machine_2  reportStatistics=1  
 
 # model components
-11  Decide          condition0="NR(Machine_1)<MR(Machine_1)"  condition1="NR(Machine_2)<MR(Machine_2)"  conditions=2  name=Decide_1  nextId0=13  nextId1=17  nextId2=21  nextInputNumber0=0  nextInputNumber1=0  nextInputNumber2=0  nextSize=3  reportStatistics=1  
+12  Decide          condition0="NR(Machine_1)<MR(Machine_1)"  condition1="NR(Machine_2)<MR(Machine_2)"  conditions=2  name=Decide_1  nextId0=14  nextId1=18  nextId2=22  nextInputNumber0=0  nextInputNumber1=0  nextInputNumber2=0  nextSize=3  reportStatistics=1  
 
-13  Seize           allocationType=0  name=Seize_1  nextId0=14  nextInputNumber0=0  nextSize=1  priority==0  quantity="1"  queueId=12  queueName=Queue_Seize_1  reportStatistics=1  resourceId=7  resourceName=Machine_1  resourceType=2  rule=4  saveAttribute=  
+14  Seize           allocationType=0  name=Seize_1  nextId0=15  nextInputNumber0=0  nextSize=1  priority==0  quantity="1"  queueId=13  queueName=Queue_Seize_1  reportStatistics=1  resourceId=8  resourceName=Machine_1  resourceType=2  rule=4  saveAttribute=  
 
-14  Delay           delayExpression="norm(15,1)"  delayExpressionTimeUnit=5  name=Delay_1  nextId0=15  nextInputNumber0=0  nextSize=1  reportStatistics=1  
+15  Delay           delayExpression="norm(15,1)"  delayExpressionTimeUnit=5  name=Delay_1  nextId0=16  nextInputNumber0=0  nextSize=1  reportStatistics=1  
 
-15  Release         name=Release_1  nextId0=24  nextInputNumber0=0  nextSize=1  priority=0  quantity="1"  reportStatistics=1  resourceId=7  resourceName=Machine_1  resourceType=2  rule=4  saveAttribute=  
+16  Release         name=Release_1  nextId0=25  nextInputNumber0=0  nextSize=1  priority=0  quantity="1"  reportStatistics=1  resourceId=8  resourceName=Machine_1  resourceType=2  rule=4  saveAttribute=  
 
-17  Seize           allocationType=0  name=Seize_2  nextId0=18  nextInputNumber0=0  nextSize=1  priority==0  quantity="1"  queueId=16  queueName=Queue_Seize_2  reportStatistics=1  resourceId=8  resourceName=Machine_2  resourceType=2  rule=4  saveAttribute=  
+18  Seize           allocationType=0  name=Seize_2  nextId0=19  nextInputNumber0=0  nextSize=1  priority==0  quantity="1"  queueId=17  queueName=Queue_Seize_2  reportStatistics=1  resourceId=9  resourceName=Machine_2  resourceType=2  rule=4  saveAttribute=  
 
-18  Delay           delayExpression="norm(15,1)"  delayExpressionTimeUnit=5  name=Delay_2  nextId0=19  nextInputNumber0=0  nextSize=1  reportStatistics=1  
+19  Delay           delayExpression="norm(15,1)"  delayExpressionTimeUnit=5  name=Delay_2  nextId0=20  nextInputNumber0=0  nextSize=1  reportStatistics=1  
 
-19  Release         name=Release_2  nextId0=24  nextInputNumber0=0  nextSize=1  priority=0  quantity="1"  reportStatistics=1  resourceId=8  resourceName=Machine_2  resourceType=2  rule=4  saveAttribute=  
+2   Create          entitiesPerCreation=1  entityTypename=Part  firstCreation=0.000000  maxCreations="4294967295"  name=Create_1  nextId0=4  nextInputNumber0=0  nextSize=1  reportStatistics=1  timeBetweenCreations="norm(1.5,0.5)"  timeBetweenCreationsTimeUnit=5  
 
-2   Create          entitiesPerCreation=1  entityTypename=Part  firstCreation=0.000000  maxCreations="4294967295"  name=Create_1  nextId0=3  nextInputNumber0=0  nextSize=1  reportStatistics=1  timeBetweenCreations="norm(1.5,0.5)"  timeBetweenCreationsTimeUnit=5  
+20  Release         name=Release_2  nextId0=25  nextInputNumber0=0  nextSize=1  priority=0  quantity="1"  reportStatistics=1  resourceId=9  resourceName=Machine_2  resourceType=2  rule=4  saveAttribute=  
 
-21  Seize           allocationType=0  name=Seize_3  nextId0=22  nextInputNumber0=0  nextSize=1  priority==0  quantity="1"  queueId=20  queueName=Queue_Seize_3  reportStatistics=1  resourceId=9  resourceName=Machine_3  resourceType=2  rule=4  saveAttribute=  
+22  Seize           allocationType=0  name=Seize_3  nextId0=23  nextInputNumber0=0  nextSize=1  priority==0  quantity="1"  queueId=21  queueName=Queue_Seize_3  reportStatistics=1  resourceId=10  resourceName=Machine_3  resourceType=2  rule=4  saveAttribute=  
 
-22  Delay           delayExpression="norm(15,1)"  delayExpressionTimeUnit=5  name=Delay_3  nextId0=23  nextInputNumber0=0  nextSize=1  reportStatistics=1  
+23  Delay           delayExpression="norm(15,1)"  delayExpressionTimeUnit=5  name=Delay_3  nextId0=24  nextInputNumber0=0  nextSize=1  reportStatistics=1  
 
-23  Release         name=Release_3  nextId0=24  nextInputNumber0=0  nextSize=1  priority=0  quantity="1"  reportStatistics=1  resourceId=9  resourceName=Machine_3  resourceType=2  rule=4  saveAttribute=  
+24  Release         name=Release_3  nextId0=25  nextInputNumber0=0  nextSize=1  priority=0  quantity="1"  reportStatistics=1  resourceId=10  resourceName=Machine_3  resourceType=2  rule=4  saveAttribute=  
 
-24  Dispose         name=Dispose_1  nextSize=0  reportStatistics=1  
+25  Dispose         name=Dispose_1  nextSize=0  reportStatistics=1  
 
-3   Assign          assignments=2  destination0=varNextIndex  expression0="varNextIndex+1"  name=Assign_1  nextId0=6  nextInputNumber0=0  nextSize=1  reportStatistics=1  
+4   Assign          assignments=2  destination0=varNextIndex  expression0="varNextIndex+1"  name=Assign_2  nextId0=7  nextInputNumber0=0  nextSize=1  reportStatistics=1  
 
-6   Write           name=Write_1  nextId0=11  nextInputNumber0=0  nextSize=1  reportStatistics=1  
+7   Write           name=Write_1  nextId0=12  nextInputNumber0=0  nextSize=1  reportStatistics=1  
 

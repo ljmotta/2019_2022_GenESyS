@@ -11,15 +11,27 @@
  * Created on 31 de Agosto de 2018, 10:10
  */
 
-#include "Assign.h"
 #include <string>
-#include "Model.h"
-#include "Variable.h"
-#include "Attribute.h"
-#include "Resource.h"
+#include "../../Assign.h"
+#include "../../Model.h"
+#include "../../Variable.h"
+#include "../../Attribute.h"
+#include "../../Resource.h"
 #include <iostream>
 
+extern "C" ModelComponent* create(Model* model) {
+	std::cout << "criando um assign" << std::endl;
+    return new Assign(model);
+}
+
+extern "C" void destroy(ModelComponent* modelComponent) {
+	std::cout << "deletando um assign" << std::endl;
+    delete modelComponent;
+}
+
+
 Assign::Assign(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Assign>(), name) {
+	std::cout << "construindo um assign" << std::endl;
 }
 
 std::string Assign::show() {
@@ -106,5 +118,5 @@ bool Assign::_check(std::string* errorMessage) {
 }
 
 void Assign::helloWorld() {
-    std::cout << "Hello from assign =(" << std::endl;
+    std::cout << "Hello from assign =)" << std::endl;
 }

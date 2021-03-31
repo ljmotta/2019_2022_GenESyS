@@ -220,3 +220,7 @@ void ModelElement::setReportStatistics(bool reportStatistics) {
 bool ModelElement::isReportStatistics() const {
 	return _reportStatistics;
 }
+
+void ModelElement::helloWorld() {
+    std::cout << "Hello from model element" << std::endl;
+}
