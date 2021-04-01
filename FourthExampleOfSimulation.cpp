@@ -61,25 +61,52 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		create1->setTimeUnit(Util::TimeUnit::second);
 		create1->setEntitiesPerCreation(1);
 		// model->insert(create1);
-	    void* _assign = dlopen("/home/luiz/Documents/modsim/2019_2022_GenESyS/libassign.so", RTLD_LAZY);
+
+		void* _assign = dlopen("/home/luiz/Documents/modsim/2019_2022_GenESyS/libassign.so", RTLD_LAZY);
 		if (!_assign) {
 			std::cout << "error" << std::endl;
 			std::cout << dlerror() << std::endl;
+			return 1;
 		}
 
-		create_assign* createAssign = (create_assign*) dlsym(_assign, "create");
-		destroy_assign* destroyAssign = (destroy_assign*) dlsym(_assign, "destroy");
+		const char* dlsym_error;
+		create_assign_t* createAssign = (create_assign_t*) dlsym(_assign, "create");
+		dlsym_error = dlerror();
+		if (dlsym_error) {
+			std::cout << "error" << std::endl;
+			std::cout << dlsym_error << std::endl;
+			return 1;
+		}
 
-		// Esta retornando uma instancia do tipo especificado?
+		destroy_assign_t* destroyAssign = (destroy_assign_t*) dlsym(_assign, "destroy");
+		dlsym_error = dlerror();
+		if (dlsym_error) {
+			std::cout << "error" << std::endl;
+			std::cout << dlsym_error << std::endl;
+			return 1;
+		}
+
+		create_assignment_t* createAssignment = (create_assignment_t*) dlsym(_assign, "createAssignment");
+		dlsym_error = dlerror();
+		if (dlsym_error) {
+			std::cout << "error" << std::endl;
+			std::cout << dlsym_error << std::endl;
+			return 1;
+		}
+
+		destroy_assignment_t* destroyAssignment = (destroy_assignment_t*) dlsym(_assign, "destroyAssigment");
+		dlsym_error = dlerror();
+		if (dlsym_error) {
+			std::cout << "error" << std::endl;
+			std::cout << dlsym_error << std::endl;
+			return 1;
+		}
+
 		Assign* assignInstance = createAssign(model);
-		assignInstance->helloWorld();
-
-		destroyAssign(assignInstance);
-		dlclose(_assign);
-
-		Assign* assign1 = new Assign(model);
-		assign1->assignments()->insert(new Assign::Assignment("varNextIndex", "varNextIndex + 1"));
-		assign1->assignments()->insert(new Assign::Assignment("index", "varNextIndex"));
+		Assign::Assignment* assigmentInstance1 = createAssignment("varNextIndex", "varNextIndex+1");
+		Assign::Assignment* assigmentInstance2 = createAssignment("index", "varNextIndex");
+		assignInstance->assignments()->insert(assigmentInstance1);
+		assignInstance->assignments()->insert(assigmentInstance2);
 		// model->insert(assign1);
 		Attribute* attr1 = new Attribute(model, "index");
 		// model->insert(attr1);
@@ -179,8 +206,8 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		Dispose* dispose1 = new Dispose(model);
 		// model->insert(dispose1);
 		//
-		create1->getNextComponents()->insert(assign1);
-		assign1->getNextComponents()->insert(write1);
+		create1->getNextComponents()->insert(assignInstance);
+		assignInstance->getNextComponents()->insert(write1);
 		write1->getNextComponents()->insert(decide1);
 		decide1->getNextComponents()->insert(seize1);
 		decide1->getNextComponents()->insert(seize2);
@@ -197,10 +224,15 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		//
 		simulator->getModels()->insert(model);
 		model->save("./temp/forthExampleOfSimulation.txt");
+		destroyAssign(assignInstance);
+		destroyAssignment(assigmentInstance1);
+		destroyAssignment(assigmentInstance2);
+		dlclose(_assign);
 	} else { // load previously saved model
 		simulator->getModels()->loadModel("./temp/forthExampleOfSimulation.txt");
 		model = simulator->getModels()->current();
 	}
+	// std::cout << "abc" << std::endl;
 	this->setDefaultEventHandlers(model->getOnEvents());
 	model->getSimulation()->start();
 	return 0;

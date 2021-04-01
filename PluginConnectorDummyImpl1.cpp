@@ -66,6 +66,8 @@
 #// include "OLD_ODEelement.h"
 
 #include "Util.h"
+#include <dlfcn.h>
+#include <iostream>
 
 //namespace GenesysKernel {
 
@@ -83,8 +85,17 @@
 	// model elements
 	if (fn == "attribute.so")
 		GetInfo = &Attribute::GetPluginInformation;
-	else if (fn == "assign.so")
-		GetInfo = &Assign::GetPluginInformation;
+	// else if (fn == "assign.so") {
+	// 	void* _assign = dlopen("/home/luiz/Documents/modsim/2019_2022_GenESyS/libassign.so", RTLD_LAZY);
+	// 	if (!_assign) {
+	// 		std::cout << "error" << std::endl;
+	// 		std::cout << dlerror() << std::endl;
+	// 	}
+
+	// 	get_plugin_information_t* assignGetPluginInformation = (get_plugin_information_t*) dlsym(_assign, "getPluginInformation");
+	// 	GetInfo = assignGetPluginInformation();
+		
+	// }
 	else if (fn == "counter.so")
 		GetInfo = &Counter::GetPluginInformation;
 	else if (fn == "entitygroup.so")

@@ -12,11 +12,11 @@
  */
 
 #include <string>
-#include "../../Assign.h"
-#include "../../Model.h"
-#include "../../Variable.h"
-#include "../../Attribute.h"
-#include "../../Resource.h"
+#include "../Assign.h"
+#include "../Model.h"
+#include "../Variable.h"
+#include "../Attribute.h"
+#include "../Resource.h"
 #include <iostream>
 
 extern "C" ModelComponent* create(Model* model) {
@@ -27,6 +27,22 @@ extern "C" ModelComponent* create(Model* model) {
 extern "C" void destroy(ModelComponent* modelComponent) {
 	std::cout << "deletando um assign" << std::endl;
     delete modelComponent;
+}
+
+extern "C" Assign::Assignment* createAssignment(std::string arg1, std::string arg2) {
+	return new Assign::Assignment(arg1, arg2);
+}
+
+extern "C" void destroyAssigment(Assign::Assignment* assignment) {
+	std::cout << "deletando um assignment !!!!!! " << std::endl;
+	delete assignment;
+}
+
+extern "C" {
+	static PluginInformation* getPluginInformation() {
+		std::cout << "get plugin info assign" << std::endl;
+		return Assign::GetPluginInformation();
+	}
 }
 
 
@@ -118,5 +134,5 @@ bool Assign::_check(std::string* errorMessage) {
 }
 
 void Assign::helloWorld() {
-    std::cout << "Hello from assign =)" << std::endl;
+    std::cout << "Hello from assign =|" << std::endl;
 }

@@ -35,7 +35,6 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/Assign.o \
 	${OBJECTDIR}/Attribute.o \
 	${OBJECTDIR}/BaseConsoleGenesysApplication.o \
 	${OBJECTDIR}/CollectorDatafileDefaultImpl1.o \
@@ -164,12 +163,7 @@ LDLIBSOPTIONS=
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/2019_2022_genesys: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/2019_2022_genesys ${OBJECTFILES} ${LDLIBSOPTIONS} -Wl,--export-dynamic -L/home/luiz/Documents/modsim/2019_2022_GenESyS -Wl,-rpath=/home/luiz/Documents/modsim/2019_2022_GenESyS -Wl,--no-as-needed -ldl
-
-${OBJECTDIR}/Assign.o: Assign.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Assign.o Assign.cpp
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/2019_2022_genesys ${OBJECTFILES} ${LDLIBSOPTIONS} Assign.h -Wl,--export-dynamic -L/home/luiz/Documents/modsim/2019_2022_GenESyS -Wl,-rpath=/home/luiz/Documents/modsim/2019_2022_GenESyS -Wl,--no-as-needed -ldl
 
 ${OBJECTDIR}/Attribute.o: Attribute.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

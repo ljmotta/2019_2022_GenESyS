@@ -96,12 +96,12 @@ public:
 	virtual ~Assign() = default;
 public:
 	virtual std::string show();
+	virtual void helloWorld();
 public:
 	static PluginInformation* GetPluginInformation();
 	static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
-	void helloWorld();
 public:
-	List<Assignment*>* assignments() const;
+	virtual List<Assignment*>* assignments() const;
 protected:
 	virtual void _execute(Entity* entity);
 	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
@@ -113,8 +113,11 @@ private:
 	List<Assignment*>* _assignments = new List<Assignment*>();
 };
 
-typedef Assign* create_assign(Model* model);
-typedef void destroy_assign(Assign* assign);
+typedef StaticGetPluginInformation get_plugin_information_t();
+typedef Assign::Assignment* create_assignment_t(std::string arg1, std::string arg2);
+typedef void destroy_assignment_t(Assign::Assignment* assigment);
+typedef Assign* create_assign_t(Model* model);
+typedef void destroy_assign_t(Assign* assign);
 
 #endif /* ASSIGN_H */
 

@@ -35,7 +35,6 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/Assign.o \
 	${OBJECTDIR}/Attribute.o \
 	${OBJECTDIR}/BaseConsoleGenesysApplication.o \
 	${OBJECTDIR}/CollectorDatafileDefaultImpl1.o \
@@ -164,12 +163,7 @@ LDLIBSOPTIONS=
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/2019_2022_genesys: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/2019_2022_genesys ${OBJECTFILES} ${LDLIBSOPTIONS} -Wl,--no-as-needed -ldl
-
-${OBJECTDIR}/Assign.o: Assign.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Assign.o Assign.cpp
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/2019_2022_genesys ${OBJECTFILES} ${LDLIBSOPTIONS}
 
 ${OBJECTDIR}/Attribute.o: Attribute.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
