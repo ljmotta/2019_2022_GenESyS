@@ -86,15 +86,21 @@
 	if (fn == "attribute.so")
 		GetInfo = &Attribute::GetPluginInformation;
 	// else if (fn == "assign.so") {
+	// 	std::cout << "IHUUUUUUUUUUUUUUUUUUUUUL" << std::endl;
 	// 	void* _assign = dlopen("/home/luiz/Documents/modsim/2019_2022_GenESyS/libassign.so", RTLD_LAZY);
 	// 	if (!_assign) {
 	// 		std::cout << "error" << std::endl;
 	// 		std::cout << dlerror() << std::endl;
 	// 	}
 
-	// 	get_plugin_information_t* assignGetPluginInformation = (get_plugin_information_t*) dlsym(_assign, "getPluginInformation");
-	// 	GetInfo = assignGetPluginInformation();
-		
+	// 	StaticGetPluginInformation assignGetPluginInformation = (StaticGetPluginInformation) dlsym(_assign, "getPluginInformation");
+	// 	const char* dlsym_error = dlerror();
+	// 	if (dlsym_error) {
+	// 		std::cout << "error" << std::endl;
+	// 		std::cout << dlsym_error << std::endl;
+	// 		return;
+	// 	}
+	// 	GetInfo = assignGetPluginInformation;
 	// }
 	else if (fn == "counter.so")
 		GetInfo = &Counter::GetPluginInformation;

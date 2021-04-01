@@ -41,11 +41,54 @@ FourthExampleOfSimulation::FourthExampleOfSimulation() {
 }
 
 int FourthExampleOfSimulation::main(int argc, char** argv) {
+	void* _assign = dlopen("/home/luiz/Documents/modsim/2019_2022_GenESyS/libassign.so", RTLD_LAZY);
+	if (!_assign) {
+		std::cout << "error" << std::endl;
+		std::cout << dlerror() << std::endl;
+		return 1;
+	}
+
+	const char* dlsym_error;
+	create_assign_t* createAssign = (create_assign_t*) dlsym(_assign, "create");
+	dlsym_error = dlerror();
+	if (dlsym_error) {
+		std::cout << "error" << std::endl;
+		std::cout << dlsym_error << std::endl;
+		return 1;
+	}
+
+	destroy_assign_t* destroyAssign = (destroy_assign_t*) dlsym(_assign, "destroy");
+	dlsym_error = dlerror();
+	if (dlsym_error) {
+		std::cout << "error" << std::endl;
+		std::cout << dlsym_error << std::endl;
+		return 1;
+	}
+
+	create_assignment_t* createAssignment = (create_assignment_t*) dlsym(_assign, "createAssignment");
+	dlsym_error = dlerror();
+	if (dlsym_error) {
+		std::cout << "error" << std::endl;
+		std::cout << dlsym_error << std::endl;
+		return 1;
+	}
+
+	destroy_assignment_t* destroyAssignment = (destroy_assignment_t*) dlsym(_assign, "destroyAssigment");
+	dlsym_error = dlerror();
+	if (dlsym_error) {
+		std::cout << "error" << std::endl;
+		std::cout << dlsym_error << std::endl;
+		return 1;
+	}
+
+	Assign* assignInstance;
+	Assign::Assignment* assigmentInstance1;
+	Assign::Assignment* assigmentInstance2;
 	Simulator* simulator = new Simulator();
 	simulator->getTracer()->setTraceLevel(Util::TraceLevel::everythingMostDetailed); //modelResult); //componentArrival);
 	this->setDefaultTraceHandlers(simulator->getTracer());
 	this->insertFakePluginsByHand(simulator);
-	bool wantToCreateNewModelAndSaveInsteadOfJustLoad = false; //true;
+	bool wantToCreateNewModelAndSaveInsteadOfJustLoad = true; //true;
 	Model* model;
 	if (wantToCreateNewModelAndSaveInsteadOfJustLoad) {
 		model = new Model(simulator);
@@ -62,49 +105,10 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		create1->setEntitiesPerCreation(1);
 		// model->insert(create1);
 
-		void* _assign = dlopen("/home/luiz/Documents/modsim/2019_2022_GenESyS/libassign.so", RTLD_LAZY);
-		if (!_assign) {
-			std::cout << "error" << std::endl;
-			std::cout << dlerror() << std::endl;
-			return 1;
-		}
 
-		const char* dlsym_error;
-		create_assign_t* createAssign = (create_assign_t*) dlsym(_assign, "create");
-		dlsym_error = dlerror();
-		if (dlsym_error) {
-			std::cout << "error" << std::endl;
-			std::cout << dlsym_error << std::endl;
-			return 1;
-		}
-
-		destroy_assign_t* destroyAssign = (destroy_assign_t*) dlsym(_assign, "destroy");
-		dlsym_error = dlerror();
-		if (dlsym_error) {
-			std::cout << "error" << std::endl;
-			std::cout << dlsym_error << std::endl;
-			return 1;
-		}
-
-		create_assignment_t* createAssignment = (create_assignment_t*) dlsym(_assign, "createAssignment");
-		dlsym_error = dlerror();
-		if (dlsym_error) {
-			std::cout << "error" << std::endl;
-			std::cout << dlsym_error << std::endl;
-			return 1;
-		}
-
-		destroy_assignment_t* destroyAssignment = (destroy_assignment_t*) dlsym(_assign, "destroyAssigment");
-		dlsym_error = dlerror();
-		if (dlsym_error) {
-			std::cout << "error" << std::endl;
-			std::cout << dlsym_error << std::endl;
-			return 1;
-		}
-
-		Assign* assignInstance = createAssign(model);
-		Assign::Assignment* assigmentInstance1 = createAssignment("varNextIndex", "varNextIndex+1");
-		Assign::Assignment* assigmentInstance2 = createAssignment("index", "varNextIndex");
+		assignInstance = createAssign(model);
+		assigmentInstance1 = createAssignment("varNextIndex", "varNextIndex+1");
+		assigmentInstance2 = createAssignment("index", "varNextIndex");
 		assignInstance->assignments()->insert(assigmentInstance1);
 		assignInstance->assignments()->insert(assigmentInstance2);
 		// model->insert(assign1);
@@ -224,10 +228,8 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		//
 		simulator->getModels()->insert(model);
 		model->save("./temp/forthExampleOfSimulation.txt");
-		destroyAssign(assignInstance);
-		destroyAssignment(assigmentInstance1);
-		destroyAssignment(assigmentInstance2);
-		dlclose(_assign);
+
+
 	} else { // load previously saved model
 		simulator->getModels()->loadModel("./temp/forthExampleOfSimulation.txt");
 		model = simulator->getModels()->current();
@@ -235,6 +237,11 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	// std::cout << "abc" << std::endl;
 	this->setDefaultEventHandlers(model->getOnEvents());
 	model->getSimulation()->start();
+	
+	destroyAssign(assignInstance);
+	destroyAssignment(assigmentInstance1);
+	destroyAssignment(assigmentInstance2);
+	dlclose(_assign);
 	return 0;
 }
 

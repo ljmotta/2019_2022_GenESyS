@@ -43,8 +43,6 @@ bool ModelCheckerDefaultImpl1::checkAll() {
 void ModelCheckerDefaultImpl1::_recursiveConnectedTo(PluginManager* pluginManager, ModelComponent* comp, List<ModelComponent*>* visited, List<ModelComponent*>* unconnected, bool* drenoFound) {
 	// model component insere na lista de visitados
 	visited->insert(comp);
-
-	
 	_model->getTracer()->trace(Util::TraceLevel::toolDetailed, "Connected to component \"" + comp->getName() + "\"");
 	Plugin* plugin = pluginManager->find(comp->getClassname());
 	assert(plugin != nullptr);

@@ -38,11 +38,8 @@ extern "C" void destroyAssigment(Assign::Assignment* assignment) {
 	delete assignment;
 }
 
-extern "C" {
-	static PluginInformation* getPluginInformation() {
-		std::cout << "get plugin info assign" << std::endl;
-		return Assign::GetPluginInformation();
-	}
+extern "C" StaticGetPluginInformation getPluginInformation() {
+	return &Assign::GetPluginInformation;
 }
 
 
