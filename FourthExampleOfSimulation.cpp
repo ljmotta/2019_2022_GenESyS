@@ -42,10 +42,10 @@ FourthExampleOfSimulation::FourthExampleOfSimulation() {
 
 int FourthExampleOfSimulation::main(int argc, char** argv) {
 	Simulator* simulator = new Simulator();
-	simulator->getTracer()->setTraceLevel(Util::TraceLevel::modelResult); //componentArrival);
+	simulator->getTracer()->setTraceLevel(Util::TraceLevel::everythingMostDetailed); //modelResult); //componentArrival);
 	this->setDefaultTraceHandlers(simulator->getTracer());
 	this->insertFakePluginsByHand(simulator);
-	bool wantToCreateNewModelAndSaveInsteadOfJustLoad = true;
+	bool wantToCreateNewModelAndSaveInsteadOfJustLoad = false; //true;
 	Model* model;
 	if (wantToCreateNewModelAndSaveInsteadOfJustLoad) {
 		model = new Model(simulator);
@@ -78,7 +78,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		dlclose(_assign);
 
 		Assign* assign1 = new Assign(model);
-		assign1->assignments()->insert(new Assign::Assignment("varNextIndex", "varNextIndex+1"));
+		assign1->assignments()->insert(new Assign::Assignment("varNextIndex", "varNextIndex + 1"));
 		assign1->assignments()->insert(new Assign::Assignment("index", "varNextIndex"));
 		// model->insert(assign1);
 		Attribute* attr1 = new Attribute(model, "index");
@@ -92,7 +92,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		write1->writeElements()->insert(new WriteElement("Variável nextIndex: "));
 		write1->writeElements()->insert(new WriteElement("varNextIndex", true, true));
 		write1->writeElements()->insert(new WriteElement("Quantidade ocupada das máquinas: "));
-		write1->writeElements()->insert(new WriteElement("NR(Machine_1)", true));
+		write1->writeElements()->insert(new WriteElement("NR( Machine_1 )", true));
 		write1->writeElements()->insert(new WriteElement(", "));
 		write1->writeElements()->insert(new WriteElement("NR(Machine_2)", true));
 		write1->writeElements()->insert(new WriteElement(", "));
@@ -131,8 +131,8 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		machSet->getElementSet()->insert(machine3);
 		// model->insert(machSet);
 		Decide* decide1 = new Decide(model);
-		decide1->getConditions()->insert("NR(Machine_1)<MR(Machine_1)");
-		decide1->getConditions()->insert("NR(Machine_2)<MR(Machine_2)");
+		decide1->getConditions()->insert("NR(Machine_1) < MR(Machine_1)");
+		decide1->getConditions()->insert("NR(Machine_2) < MR(Machine_2)");
 		// model->insert(decide1);
 		Queue* queueSeize1 = new Queue(model, "Queue_Seize_1");
 		queueSeize1->setOrderRule(Queue::OrderRule::FIFO);

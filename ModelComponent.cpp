@@ -91,7 +91,7 @@ std::string ModelComponent::show() {
 bool ModelComponent::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelElement::_loadInstance(fields);
 	if (res) {
-		// Now it should load nextComponents. The problem is that the nextCOmponent may not be loaded yet.
+		// Now it should load nextComponents. The problem is that the nextComponent may not be loaded yet.
 		// So, what can be done is to temporarily load the ID of the nextComponents, and to wait until all the components have been loaded to update nextComponents based on the temporarilyIDs now being loaded
 		//unsigned short nextSize = std::stoi((*fields->find("nextSize")).second);
 		//this->_tempLoadNextComponentsIDs = new List<Util::identification>();
@@ -105,11 +105,15 @@ bool ModelComponent::_loadInstance(std::map<std::string, std::string>* fields) {
 
 std::map<std::string, std::string>* ModelComponent::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelElement::_saveInstance();
-	fields->emplace("nextSize", std::to_string(this->_connections->size()));
+	////if (_connections->size() != 1) { // save nextSize only if it is != 1
+		fields->emplace("nextSize", std::to_string(_connections->size()));
+	////}
 	unsigned short i = 0;
 	for (std::list<Connection*>::iterator it = _connections->list()->begin(); it != _connections->list()->end(); it++) {
 		fields->emplace("nextId" + std::to_string(i), std::to_string((*it)->first->_id));
-		fields->emplace("nextInputNumber" + std::to_string(i), std::to_string((*it)->second));
+		////if ((*it)->second != 0) { // save nextInputNumber only if it is != 0
+			fields->emplace("nextInputNumber" + std::to_string(i), std::to_string((*it)->second));
+		////}
 		i++;
 	}
 	return fields;
