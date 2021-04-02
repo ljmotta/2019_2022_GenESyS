@@ -51,6 +51,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	PluginLoader::DecidePlugin* decidePlugin = pluginLoader->getDecide();
 	PluginLoader::QueuePlugin* queuePlugin = pluginLoader->getQueue();
 	PluginLoader::SeizePlugin* seizePlugin = pluginLoader->getSeize();
+	PluginLoader::ReleasePlugin* releasePlugin = pluginLoader->getRelease();
 	
 	Simulator* simulator = new Simulator();
 	simulator->getTracer()->setTraceLevel(Util::TraceLevel::everythingMostDetailed); //modelResult); //componentArrival);
@@ -81,12 +82,18 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	Resource* machine3;
 
 	Decide* decide1;
+
 	Queue* queueSeize1;
 	Queue* queueSeize2;
 	Queue* queueSeize3;
+
 	Seize* seize1;
 	Seize* seize2;
 	Seize* seize3;
+
+	Release* release1;
+	Release* release2;
+	Release* release3;
 
 	if (wantToCreateNewModelAndSaveInsteadOfJustLoad) {
 		model = new Model(simulator);
@@ -186,7 +193,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		delay1->setDelayExpression("norm(15,1)");
 		delay1->setDelayTimeUnit(Util::TimeUnit::second);
 		// model->insert(delay1);
-		Release* release1 = new Release(model);
+		release1 = releasePlugin->create(model);
 		release1->setReleaseRequest(new ResourceItemRequest(machine1));
 		// model->insert(release1);
 		queueSeize2 = queuePlugin->create(model, "Queue_Seize_2");
@@ -200,7 +207,8 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		delay2->setDelayExpression("norm(15,1)");
 		delay2->setDelayTimeUnit(Util::TimeUnit::second);
 		// model->insert(delay2);
-		Release* release2 = new Release(model);
+		//Release* release2 = new Release(model);
+		release2 = releasePlugin->create(model);
 		release2->setReleaseRequest(new ResourceItemRequest(machine2));
 		// model->insert(release2);
 		queueSeize3 = queuePlugin->create(model, "Queue_Seize_3");
@@ -215,7 +223,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		delay3->setDelayExpression("norm(15,1)");
 		delay3->setDelayTimeUnit(Util::TimeUnit::second);
 		// model->insert(delay3);
-		Release* release3 = new Release(model);
+		release3 = releasePlugin->create(model);
 		release3->setReleaseRequest(new ResourceItemRequest(machine3));
 		// model->insert(release3);
 		Dispose* dispose1 = new Dispose(model);

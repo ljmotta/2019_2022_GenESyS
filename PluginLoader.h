@@ -21,6 +21,7 @@
 #include "Decide.h"
 #include "Queue.h"
 #include "Seize.h"
+#include "Release.h"
 
 class PluginLoader {
 public:
@@ -114,6 +115,13 @@ public:
         public:
             Seize* create(Model* model, std::string name = "");
     };
+    class ReleasePlugin : public Plugin<Release>{
+        public:
+            ReleasePlugin(PluginLoader* pluginLoader);
+            virtual ~ReleasePlugin() = default;
+        public:
+            Release* create(Model* model, std::string name = "");
+    };
 public:
     PluginLoader::AssignPlugin* _assignPlugin;
     PluginLoader::WritePlugin* _writePlugin;
@@ -122,6 +130,7 @@ public:
     PluginLoader::DecidePlugin* _decidePlugin;
     PluginLoader::QueuePlugin* _queuePlugin;
     PluginLoader::SeizePlugin* _seizePlugin;
+    PluginLoader::ReleasePlugin* _releasePlugin;
 public:
     PluginLoader::AssignPlugin* getAssign();
     PluginLoader::WritePlugin* getWrite();
@@ -130,6 +139,7 @@ public:
     PluginLoader::DecidePlugin* getDecide();
     PluginLoader::QueuePlugin* getQueue();
     PluginLoader::SeizePlugin* getSeize();
+    PluginLoader::ReleasePlugin* getRelease();
 public:
     const char*_handleRootPath = "";
 };

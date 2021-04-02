@@ -24,6 +24,7 @@ PluginLoader::PluginLoader(const char* handleRootPath) {
     _decidePlugin = new PluginLoader::DecidePlugin(this);
     _queuePlugin = new PluginLoader::QueuePlugin(this);
     _seizePlugin = new PluginLoader::SeizePlugin(this);
+    _releasePlugin = new PluginLoader::ReleasePlugin(this);
 }
 
 void* PluginLoader::open(const char* handleName) {
@@ -110,6 +111,10 @@ PluginLoader::QueuePlugin* PluginLoader::getQueue() {
 
 PluginLoader::SeizePlugin* PluginLoader::getSeize() {
     return _seizePlugin;
+}
+
+PluginLoader::ReleasePlugin* PluginLoader::getRelease() {
+    return _releasePlugin;
 }
 
 // ASSIGN
@@ -230,4 +235,16 @@ PluginLoader::SeizePlugin::SeizePlugin(PluginLoader* pluginLoader) : PluginLoade
 Seize* PluginLoader::SeizePlugin::create(Model* model, std::string name) {
     create_seize_t* createSeize = (create_seize_t*) _pluginLoader->getAddress(PluginLoader::SeizePlugin::_handle, "create");
     return createSeize(model, name);
+} 
+
+// RELEASE
+
+PluginLoader::ReleasePlugin::ReleasePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Release>(pluginLoader) {
+    PluginLoader::ReleasePlugin::_pluginLoader = pluginLoader;
+    PluginLoader::ReleasePlugin::_handle = pluginLoader->open("librelease.so");
+}
+
+Release* PluginLoader::ReleasePlugin::create(Model* model, std::string name) {
+    create_release_t* createRelease = (create_release_t*) _pluginLoader->getAddress(PluginLoader::ReleasePlugin::_handle, "create");
+    return createRelease(model, name);
 } 

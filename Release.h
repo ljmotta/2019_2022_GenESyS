@@ -105,5 +105,7 @@ private:
 	//Resource* _resource;
 };
 
+typedef Release* create_release_t(Model* model, std::string name);
+
 #endif /* RELEASE_H */
 
