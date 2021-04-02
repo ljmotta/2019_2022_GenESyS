@@ -26,6 +26,7 @@
 #include "Record.h"
 #include "Decide.h"
 #include "Write.h"
+#include "Resource.h"
 #include "PluginLoader.h"
 
 // Model elements
@@ -46,6 +47,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	PluginLoader::AssignPlugin* assignPlugin = pluginLoader->getAssign();
 	PluginLoader::WritePlugin* writePlugin = pluginLoader->getWrite();
 	PluginLoader::SetPlugin* setPlugin = pluginLoader->getSet();
+	PluginLoader::ResourcePlugin* resourcePlugin = pluginLoader->getResource();
 	
 	Simulator* simulator = new Simulator();
 	simulator->getTracer()->setTraceLevel(Util::TraceLevel::everythingMostDetailed); //modelResult); //componentArrival);
@@ -71,6 +73,10 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	WriteElement* writeElement10;
 
 	Set* machSet;
+	Resource* machine1;
+	Resource* machine2;
+	Resource* machine3;
+
 	if (wantToCreateNewModelAndSaveInsteadOfJustLoad) {
 		model = new Model(simulator);
 		// build the simulation model
@@ -138,13 +144,13 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 //		write1->writeElements()->insert(new WriteElement("TAVG(Queue_Seize_3.TimeInQueue)", true, true));
 		// model->insert(write1);
 		//
-		Resource* machine1 = new Resource(model, "Machine_1");
+		machine1 = resourcePlugin->create(model, "Machine_1");
 		machine1->setCapacity(1);
 		// model->insert(machine1);
-		Resource* machine2 = new Resource(model, "Machine_2");
+		machine2 = resourcePlugin->create(model, "Machine_2");
 		machine2->setCapacity(2);
 		// model->insert(machine2);
-		Resource* machine3 = new Resource(model, "Machine_3");
+		machine3 = resourcePlugin->create(model, "Machine_3");
 		machine3->setCapacity(3);
 		// model->insert(machine3);
 
@@ -246,9 +252,13 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	writePlugin->getWriteElement()->destroy(writeElement9);
 	writePlugin->getWriteElement()->destroy(writeElement10);
     setPlugin->destroy(machSet);
+	resourcePlugin->destroy(machine1);
+	resourcePlugin->destroy(machine2);
+	resourcePlugin->destroy(machine3);
 	dlclose(assignPlugin->getHandle());
 	dlclose(writePlugin->getHandle());
 	dlclose(setPlugin->getHandle());
+	dlclose(resourcePlugin->getHandle());
 	return 0;
 }
 

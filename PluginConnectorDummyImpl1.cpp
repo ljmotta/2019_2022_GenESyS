@@ -104,7 +104,7 @@
 	else if (fn == "queue.so")
 		GetInfo = &Queue::GetPluginInformation;
 	else if (fn == "resource.so")
-		GetInfo = &Resource::GetPluginInformation;
+		GetInfo = pluginLoader->getResource()->GetPluginInfo();
 	else if (fn == "set.so")
 		GetInfo = pluginLoader->getSet()->GetPluginInfo();
 	else if (fn == "statisticscollector.so")

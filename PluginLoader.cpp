@@ -20,6 +20,7 @@ PluginLoader::PluginLoader(const char* handleRootPath) {
     _assignPlugin = new PluginLoader::AssignPlugin(this);
     _writePlugin = new PluginLoader::WritePlugin(this);
     _setPlugin = new PluginLoader::SetPlugin(this);
+    _resourcePlugin = new PluginLoader::ResourcePlugin(this);
 }
 
 void* PluginLoader::open(const char* handleName) {
@@ -92,6 +93,10 @@ PluginLoader::SetPlugin* PluginLoader::getSet() {
     return _setPlugin;
 }
 
+PluginLoader::ResourcePlugin* PluginLoader::getResource() {
+    return _resourcePlugin;
+}
+
 // ASSIGN
 
 PluginLoader::AssignPlugin::AssignPlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Assign>(pluginLoader) {
@@ -162,4 +167,16 @@ PluginLoader::SetPlugin::SetPlugin(PluginLoader* pluginLoader) : PluginLoader::P
 Set* PluginLoader::SetPlugin::create(Model* model, std::string name) {
     create_set_t* createSet = (create_set_t*) _pluginLoader->getAddress(PluginLoader::SetPlugin::_handle, "create");
     return createSet(model, name);
+}
+
+// RESOURCE PLUGIN
+
+PluginLoader::ResourcePlugin::ResourcePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Resource>(pluginLoader) {
+    PluginLoader::ResourcePlugin::_pluginLoader = pluginLoader;
+    PluginLoader::ResourcePlugin::_handle = pluginLoader->open("libresource.so");
+}
+
+Resource* PluginLoader::ResourcePlugin::create(Model* model, std::string name) {
+    create_resource_t* createResource = (create_resource_t*) _pluginLoader->getAddress(PluginLoader::ResourcePlugin::_handle, "create");
+    return createResource(model, name);
 }

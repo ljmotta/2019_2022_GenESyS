@@ -15,6 +15,7 @@
 #define PLUGINLOADER_H
 #include "Assign.h"
 #include "Write.h"
+#include "Resource.h"
 #include "Model.h"
 #include "Set.h"
 
@@ -81,14 +82,24 @@ public:
         public:
             Set* create(Model* model, std::string name = "");
     };
+
+    class ResourcePlugin : public Plugin<Resource>{
+        public:
+            ResourcePlugin(PluginLoader* pluginLoader);
+            virtual ~ResourcePlugin() = default;
+        public:
+            Resource* create(Model* model, std::string name = "");
+    };
 public:
     PluginLoader::AssignPlugin* _assignPlugin;
     PluginLoader::WritePlugin* _writePlugin;
     PluginLoader::SetPlugin* _setPlugin;
+    PluginLoader::ResourcePlugin* _resourcePlugin;
 public:
     PluginLoader::AssignPlugin* getAssign();
     PluginLoader::WritePlugin* getWrite();
     PluginLoader::SetPlugin* getSet();
+    PluginLoader::ResourcePlugin* getResource();
 public:
     const char*_handleRootPath = "";
 };
