@@ -33,7 +33,7 @@ extern "C" Assign::Assignment* createAssignment(std::string arg1, std::string ar
 	return new Assign::Assignment(arg1, arg2);
 }
 
-extern "C" void destroyAssigment(Assign::Assignment* assignment) {
+extern "C" void destroyAssignment(Assign::Assignment* assignment) {
 	std::cout << "deletando um assignment !!!!!! " << std::endl;
 	delete assignment;
 }

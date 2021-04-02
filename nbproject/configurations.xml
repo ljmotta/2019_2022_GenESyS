@@ -148,7 +148,6 @@
     </logicalFolder>
     <logicalFolder name="f3" displayName="Plugins" projectFiles="true">
       <logicalFolder name="f2" displayName="Components" projectFiles="true">
-        <itemPath>Assign.cpp</itemPath>
         <itemPath>Assign.h</itemPath>
         <itemPath>Create.cpp</itemPath>
         <itemPath>Create.h</itemPath>
@@ -331,6 +330,8 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>PluginLoader.cpp</itemPath>
+    <itemPath>PluginLoader.h</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -343,15 +344,16 @@
       <compileType>
         <ccTool>
           <standard>8</standard>
-          <commandLine>-fpermissive</commandLine>
+          <incFile>
+            <pElem>Assign.h</pElem>
+          </incFile>
+          <commandLine>-fpermissive -Wl,--export-dynamic -L/home/luiz/Documents/modsim/2019_2022_GenESyS -Wl,-rpath=/home/luiz/Documents/modsim/2019_2022_GenESyS -Wl,--no-as-needed -ldl</commandLine>
         </ccTool>
         <asmTool>
           <warningLevel>2</warningLevel>
         </asmTool>
       </compileType>
       <item path="AnalysisOfVariance_if.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Assign.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Assign.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -613,6 +615,10 @@
       <item path="PluginInformation.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="PluginInformation.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PluginLoader.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PluginLoader.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="PluginManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -875,8 +881,6 @@
       </compileType>
       <item path="AnalysisOfVariance_if.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Assign.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="Assign.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Attribute.cpp" ex="false" tool="1" flavor2="0">
@@ -1137,6 +1141,10 @@
       <item path="PluginInformation.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="PluginInformation.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PluginLoader.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PluginLoader.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="PluginManager.cpp" ex="false" tool="1" flavor2="0">
       </item>

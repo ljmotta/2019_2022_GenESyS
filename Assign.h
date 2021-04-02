@@ -119,5 +119,11 @@ typedef void destroy_assignment_t(Assign::Assignment* assigment);
 typedef Assign* create_assign_t(Model* model);
 typedef void destroy_assign_t(Assign* assign);
 
+// typedef struct AssignmentAddresses {
+// 	const char* create;
+// 	const char* destroy;
+// } AssignmentAddresses;
+// AssignmentAddresses assignmentAddresses = { "createAssignment", "destroyAssignment" };
+
 #endif /* ASSIGN_H */
 

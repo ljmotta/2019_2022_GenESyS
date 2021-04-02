@@ -92,6 +92,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Plugin.o \
 	${OBJECTDIR}/PluginConnectorDummyImpl1.o \
 	${OBJECTDIR}/PluginInformation.o \
+	${OBJECTDIR}/PluginLoader.o \
 	${OBJECTDIR}/PluginManager.o \
 	${OBJECTDIR}/ProbDistribBoostImpl.o \
 	${OBJECTDIR}/ProbDistribDefaultImpl1.o \
@@ -449,6 +450,11 @@ ${OBJECTDIR}/PluginInformation.o: PluginInformation.cpp nbproject/Makefile-${CND
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PluginInformation.o PluginInformation.cpp
+
+${OBJECTDIR}/PluginLoader.o: PluginLoader.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PluginLoader.o PluginLoader.cpp
 
 ${OBJECTDIR}/PluginManager.o: PluginManager.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

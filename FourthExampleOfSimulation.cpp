@@ -26,6 +26,7 @@
 #include "Record.h"
 #include "Decide.h"
 #include "Write.h"
+#include "PluginLoader.h"
 
 // Model elements
 #include "ElementManager.h"
@@ -41,45 +42,14 @@ FourthExampleOfSimulation::FourthExampleOfSimulation() {
 }
 
 int FourthExampleOfSimulation::main(int argc, char** argv) {
-	void* _assign = dlopen("/home/luiz/Documents/modsim/2019_2022_GenESyS/libassign.so", RTLD_LAZY);
-	if (!_assign) {
-		std::cout << "error" << std::endl;
-		std::cout << dlerror() << std::endl;
-		return 1;
-	}
+	PluginLoader* pluginLoader = new PluginLoader("/home/luiz/Documents/modsim/2019_2022_GenESyS/");
+	void* assignHandle = pluginLoader->open("libassign.so");
 
-	const char* dlsym_error;
-	create_assign_t* createAssign = (create_assign_t*) dlsym(_assign, "create");
-	dlsym_error = dlerror();
-	if (dlsym_error) {
-		std::cout << "error" << std::endl;
-		std::cout << dlsym_error << std::endl;
-		return 1;
-	}
-
-	destroy_assign_t* destroyAssign = (destroy_assign_t*) dlsym(_assign, "destroy");
-	dlsym_error = dlerror();
-	if (dlsym_error) {
-		std::cout << "error" << std::endl;
-		std::cout << dlsym_error << std::endl;
-		return 1;
-	}
-
-	create_assignment_t* createAssignment = (create_assignment_t*) dlsym(_assign, "createAssignment");
-	dlsym_error = dlerror();
-	if (dlsym_error) {
-		std::cout << "error" << std::endl;
-		std::cout << dlsym_error << std::endl;
-		return 1;
-	}
-
-	destroy_assignment_t* destroyAssignment = (destroy_assignment_t*) dlsym(_assign, "destroyAssigment");
-	dlsym_error = dlerror();
-	if (dlsym_error) {
-		std::cout << "error" << std::endl;
-		std::cout << dlsym_error << std::endl;
-		return 1;
-	}
+	// UNDEFINED REFERENCE TO "Assign* "
+	create_assign_t* createAssign = (create_assign_t*) pluginLoader->getAddress(assignHandle, "create");
+	destroy_assign_t* destroyAssign = (destroy_assign_t*) pluginLoader->getAddress(assignHandle, "destroy");
+	create_assignment_t* createAssignment = (create_assignment_t*) pluginLoader->getAddress(assignHandle, "createAssignment");
+	destroy_assignment_t* destroyAssignment = (destroy_assignment_t*) pluginLoader->getAddress(assignHandle, "destroyAssignment");
 
 	Assign* assignInstance;
 	Assign::Assignment* assigmentInstance1;
@@ -241,7 +211,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	destroyAssign(assignInstance);
 	destroyAssignment(assigmentInstance1);
 	destroyAssignment(assigmentInstance2);
-	dlclose(_assign);
+	dlclose(assignHandle);
 	return 0;
 }
 
