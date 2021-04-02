@@ -18,6 +18,7 @@
 #include "Model.h"
 #include "Set.h"
 #include "Dispose.h"
+#include "Delay.h"
 
 class PluginLoader {
 public:
@@ -89,16 +90,26 @@ public:
         public:
             Dispose* create(Model* model, std::string name = "");
     };
+
+    class DelayPlugin : public Plugin<Delay> {
+        public:
+            DelayPlugin(PluginLoader* pluginLoader);
+            virtual ~DelayPlugin() = default;
+        public:
+            Delay* create(Model* model, std::string name = "");
+    };
 public:
     PluginLoader::AssignPlugin* _assignPlugin;
     PluginLoader::WritePlugin* _writePlugin;
     PluginLoader::SetPlugin* _setPlugin;
     PluginLoader::DisposePlugin* _disposePlugin;
+    PluginLoader::DelayPlugin* _delayPlugin;
 public:
     PluginLoader::AssignPlugin* getAssign();
     PluginLoader::WritePlugin* getWrite();
     PluginLoader::SetPlugin* getSet();
     PluginLoader::DisposePlugin* getDispose();
+    PluginLoader::DelayPlugin* getDelay();
 public:
     const char*_handleRootPath = "";
 };

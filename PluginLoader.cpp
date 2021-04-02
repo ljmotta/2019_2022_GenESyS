@@ -21,6 +21,7 @@ PluginLoader::PluginLoader(const char* handleRootPath) {
     _writePlugin = new PluginLoader::WritePlugin(this);
     _setPlugin = new PluginLoader::SetPlugin(this);
     _disposePlugin = new PluginLoader::DisposePlugin(this);
+    _delayPlugin = new PluginLoader::DelayPlugin(this);
 }
 
 void* PluginLoader::open(const char* handleName) {
@@ -96,6 +97,11 @@ PluginLoader::SetPlugin* PluginLoader::getSet() {
 PluginLoader::DisposePlugin* PluginLoader::getDispose() {
     return _disposePlugin;
 }
+
+PluginLoader::DelayPlugin* PluginLoader::getDelay() {
+    return _delayPlugin;
+}
+
 // ASSIGN
 
 PluginLoader::AssignPlugin::AssignPlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Assign>(pluginLoader) {
@@ -166,7 +172,9 @@ PluginLoader::SetPlugin::SetPlugin(PluginLoader* pluginLoader) : PluginLoader::P
 Set* PluginLoader::SetPlugin::create(Model* model, std::string name) {
     create_set_t* createSet = (create_set_t*) _pluginLoader->getAddress(PluginLoader::SetPlugin::_handle, "create");
     return createSet(model, name);
-}// Dipose
+}
+
+// Dipose
 
 PluginLoader::DisposePlugin::DisposePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Dispose>(pluginLoader) {
     PluginLoader::DisposePlugin::_pluginLoader = pluginLoader;
@@ -176,4 +184,16 @@ PluginLoader::DisposePlugin::DisposePlugin(PluginLoader* pluginLoader) : PluginL
 Dispose* PluginLoader::DisposePlugin::create(Model* model, std::string name) {
     create_dispose_t* createDispose = (create_dispose_t*) _pluginLoader->getAddress(PluginLoader::DisposePlugin::_handle, "create");
     return createDispose(model, name);
+}
+
+// Delay
+
+PluginLoader::DelayPlugin::DelayPlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Delay>(pluginLoader) {
+    PluginLoader::DelayPlugin::_pluginLoader = pluginLoader;
+    PluginLoader::DelayPlugin::_handle = pluginLoader->open("libdelay.so");
+}
+
+Delay* PluginLoader::DelayPlugin::create(Model* model, std::string name) {
+    create_delay_t* createDelay = (create_delay_t*) _pluginLoader->getAddress(PluginLoader::DelayPlugin::_handle, "create");
+    return createDelay(model, name);
 }
