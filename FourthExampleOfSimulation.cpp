@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   FourthExampleOfSimulation.cpp
  * Author: rlcancian
- * 
+ *
  * Created on 24 de Setembro de 2019, 20:56
  */
 
@@ -46,7 +46,8 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	PluginLoader::AssignPlugin* assignPlugin = pluginLoader->getAssign();
 	PluginLoader::WritePlugin* writePlugin = pluginLoader->getWrite();
 	PluginLoader::SetPlugin* setPlugin = pluginLoader->getSet();
-	
+	PluginLoader::DelayPlugin* delayPlugin = pluginLoader->getDelay();
+
 	Simulator* simulator = new Simulator();
 	simulator->getTracer()->setTraceLevel(Util::TraceLevel::everythingMostDetailed); //modelResult); //componentArrival);
 	this->setDefaultTraceHandlers(simulator->getTracer());
@@ -57,7 +58,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	Assign* assign;
 	Assign::Assignment* assigment1;
 	Assign::Assignment* assigment2;
-        
+
 	Write* write1;
 	WriteElement* writeElement1;
 	WriteElement* writeElement2;
@@ -71,6 +72,11 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	WriteElement* writeElement10;
 
 	Set* machSet;
+
+	Delay* delay1;
+	Delay* delay2;
+	Delay* delay3;
+
 	if (wantToCreateNewModelAndSaveInsteadOfJustLoad) {
 		model = new Model(simulator);
 		// build the simulation model
@@ -107,8 +113,8 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		writeElement8 = writePlugin->getWriteElement()->create(", ");
 		writeElement9 = writePlugin->getWriteElement()->create("NR(Machine_3)", true, true);
 		writeElement10 = writePlugin->getWriteElement()->create("Estado das máquinas: ");
-                
-                
+
+
 		write1->setWriteToType(Write::WriteToType::SCREEN);
 		write1->writeElements()->insert(writeElement1);
 		write1->writeElements()->insert(writeElement2);
@@ -165,7 +171,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		seize1->setSeizeRequest(new ResourceItemRequest(machine1));
 		seize1->setQueue(queueSeize1);
 		// model->insert(seize1);
-		Delay* delay1 = new Delay(model);
+		delay1 = delayPlugin->create(model);
 		delay1->setDelayExpression("norm(15,1)");
 		delay1->setDelayTimeUnit(Util::TimeUnit::second);
 		// model->insert(delay1);
@@ -179,7 +185,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		seize2->setSeizeRequest(new ResourceItemRequest(machine2));
 		seize2->setQueue(queueSeize2);
 		// model->insert(seize2);
-		Delay* delay2 = new Delay(model);
+		delay2 = delayPlugin->create(model);
 		delay2->setDelayExpression("norm(15,1)");
 		delay2->setDelayTimeUnit(Util::TimeUnit::second);
 		// model->insert(delay2);
@@ -193,7 +199,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		seize3->setSeizeRequest(new ResourceItemRequest(machine3));
 		seize3->setQueue(queueSeize3);
 		// model->insert(seize3);
-		Delay* delay3 = new Delay(model);
+		delay3 = delayPlugin->create(model);
 		delay3->setDelayExpression("norm(15,1)");
 		delay3->setDelayTimeUnit(Util::TimeUnit::second);
 		// model->insert(delay3);
@@ -230,7 +236,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	// std::cout << "abc" << std::endl;
 	this->setDefaultEventHandlers(model->getOnEvents());
 	model->getSimulation()->start();
-	
+
 	assignPlugin->destroy(assign);
 	assignPlugin->getAssignment()->destroy(assigment1);
 	assignPlugin->getAssignment()->destroy(assigment2);
@@ -251,4 +257,3 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	dlclose(setPlugin->getHandle());
 	return 0;
 }
-

@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   PluginLoader.cpp
  * Author: luiz
- * 
+ *
  * Created on 1 de Abril de 2021, 22:42
  */
 
@@ -20,6 +20,7 @@ PluginLoader::PluginLoader(const char* handleRootPath) {
     _assignPlugin = new PluginLoader::AssignPlugin(this);
     _writePlugin = new PluginLoader::WritePlugin(this);
     _setPlugin = new PluginLoader::SetPlugin(this);
+    _delayPlugin = new PluginLoader::DelayPlugin(this);
 }
 
 void* PluginLoader::open(const char* handleName) {
@@ -71,7 +72,7 @@ StaticGetPluginInformation PluginLoader::Plugin<T>::GetPluginInfo() {
 };
 
 // GETTERS
- 
+
 PluginLoader::AssignPlugin* PluginLoader::getAssign() {
     return _assignPlugin;
 }
@@ -90,6 +91,10 @@ PluginLoader::WritePlugin::WriteElementPlugin* PluginLoader::WritePlugin::getWri
 
 PluginLoader::SetPlugin* PluginLoader::getSet() {
     return _setPlugin;
+}
+
+PluginLoader::DelayPlugin* PluginLoader::getDelay() {
+    return _delayPlugin;
 }
 
 // ASSIGN
@@ -162,4 +167,16 @@ PluginLoader::SetPlugin::SetPlugin(PluginLoader* pluginLoader) : PluginLoader::P
 Set* PluginLoader::SetPlugin::create(Model* model, std::string name) {
     create_set_t* createSet = (create_set_t*) _pluginLoader->getAddress(PluginLoader::SetPlugin::_handle, "create");
     return createSet(model, name);
+}
+
+// Delay
+
+PluginLoader::DelayPlugin::DelayPlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Delay>(pluginLoader) {
+    PluginLoader::DelayPlugin::_pluginLoader = pluginLoader;
+    PluginLoader::DelayPlugin::_handle = pluginLoader->open("libdelay.so");
+}
+
+Delay* PluginLoader::DelayPlugin::create(Model* model, std::string name) {
+    create_delay_t* createDelay = (create_delay_t*) _pluginLoader->getAddress(PluginLoader::DelayPlugin::_handle, "create");
+    return createDelay(model, name);
 }
