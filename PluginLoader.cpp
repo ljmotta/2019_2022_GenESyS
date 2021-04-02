@@ -23,6 +23,7 @@ PluginLoader::PluginLoader(const char* handleRootPath) {
     _resourcePlugin = new PluginLoader::ResourcePlugin(this);
     _decidePlugin = new PluginLoader::DecidePlugin(this);
     _queuePlugin = new PluginLoader::QueuePlugin(this);
+    _seizePlugin = new PluginLoader::SeizePlugin(this);
 }
 
 void* PluginLoader::open(const char* handleName) {
@@ -105,6 +106,10 @@ PluginLoader::DecidePlugin* PluginLoader::getDecide() {
 
 PluginLoader::QueuePlugin* PluginLoader::getQueue() {
     return _queuePlugin;
+}
+
+PluginLoader::SeizePlugin* PluginLoader::getSeize() {
+    return _seizePlugin;
 }
 
 // ASSIGN
@@ -213,4 +218,16 @@ PluginLoader::QueuePlugin::QueuePlugin(PluginLoader* pluginLoader) : PluginLoade
 Queue* PluginLoader::QueuePlugin::create(Model* model, std::string name) {
     create_queue_t* createQueue = (create_queue_t*) _pluginLoader->getAddress(PluginLoader::QueuePlugin::_handle, "create");
     return createQueue(model, name);
+} 
+
+// SEIZE
+
+PluginLoader::SeizePlugin::SeizePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Seize>(pluginLoader) {
+    PluginLoader::SeizePlugin::_pluginLoader = pluginLoader;
+    PluginLoader::SeizePlugin::_handle = pluginLoader->open("libseize.so");
+}
+
+Seize* PluginLoader::SeizePlugin::create(Model* model, std::string name) {
+    create_seize_t* createSeize = (create_seize_t*) _pluginLoader->getAddress(PluginLoader::SeizePlugin::_handle, "create");
+    return createSeize(model, name);
 } 

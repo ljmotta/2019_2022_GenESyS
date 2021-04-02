@@ -20,6 +20,7 @@
 #include "Set.h"
 #include "Decide.h"
 #include "Queue.h"
+#include "Seize.h"
 
 class PluginLoader {
 public:
@@ -106,6 +107,13 @@ public:
         public:
             Queue* create(Model* model, std::string name = "");
     };
+    class SeizePlugin : public Plugin<Seize>{
+        public:
+            SeizePlugin(PluginLoader* pluginLoader);
+            virtual ~SeizePlugin() = default;
+        public:
+            Seize* create(Model* model, std::string name = "");
+    };
 public:
     PluginLoader::AssignPlugin* _assignPlugin;
     PluginLoader::WritePlugin* _writePlugin;
@@ -113,6 +121,7 @@ public:
     PluginLoader::ResourcePlugin* _resourcePlugin;
     PluginLoader::DecidePlugin* _decidePlugin;
     PluginLoader::QueuePlugin* _queuePlugin;
+    PluginLoader::SeizePlugin* _seizePlugin;
 public:
     PluginLoader::AssignPlugin* getAssign();
     PluginLoader::WritePlugin* getWrite();
@@ -120,6 +129,7 @@ public:
     PluginLoader::ResourcePlugin* getResource();
     PluginLoader::DecidePlugin* getDecide();
     PluginLoader::QueuePlugin* getQueue();
+    PluginLoader::SeizePlugin* getSeize();
 public:
     const char*_handleRootPath = "";
 };

@@ -50,6 +50,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	PluginLoader::ResourcePlugin* resourcePlugin = pluginLoader->getResource();
 	PluginLoader::DecidePlugin* decidePlugin = pluginLoader->getDecide();
 	PluginLoader::QueuePlugin* queuePlugin = pluginLoader->getQueue();
+	PluginLoader::SeizePlugin* seizePlugin = pluginLoader->getSeize();
 	
 	Simulator* simulator = new Simulator();
 	simulator->getTracer()->setTraceLevel(Util::TraceLevel::everythingMostDetailed); //modelResult); //componentArrival);
@@ -83,6 +84,9 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	Queue* queueSeize1;
 	Queue* queueSeize2;
 	Queue* queueSeize3;
+	Seize* seize1;
+	Seize* seize2;
+	Seize* seize3;
 
 	if (wantToCreateNewModelAndSaveInsteadOfJustLoad) {
 		model = new Model(simulator);
@@ -174,7 +178,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		queueSeize1 = queuePlugin->create(model, "Queue_Seize_1");
 		queueSeize1->setOrderRule(Queue::OrderRule::FIFO);
 		// model->insert(queueSeize1);
-		Seize* seize1 = new Seize(model);
+		seize1 = seizePlugin->create(model);
 		seize1->setSeizeRequest(new ResourceItemRequest(machine1));
 		seize1->setQueue(queueSeize1);
 		// model->insert(seize1);
@@ -188,7 +192,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		queueSeize2 = queuePlugin->create(model, "Queue_Seize_2");
 		queueSeize2->setOrderRule(Queue::OrderRule::FIFO);
 		// model->insert(queueSeize2);
-		Seize* seize2 = new Seize(model);
+		seize2 = seizePlugin->create(model);
 		seize2->setSeizeRequest(new ResourceItemRequest(machine2));
 		seize2->setQueue(queueSeize2);
 		// model->insert(seize2);
@@ -202,7 +206,8 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		queueSeize3 = queuePlugin->create(model, "Queue_Seize_3");
 		queueSeize3->setOrderRule(Queue::OrderRule::FIFO);
 		// model->insert(queueSeize3);
-		Seize* seize3 = new Seize(model);
+
+		seize3 = seizePlugin->create(model);
 		seize3->setSeizeRequest(new ResourceItemRequest(machine3));
 		seize3->setQueue(queueSeize3);
 		// model->insert(seize3);
@@ -266,12 +271,16 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	queuePlugin->destroy(queueSeize1);
 	queuePlugin->destroy(queueSeize2);
 	queuePlugin->destroy(queueSeize3);
+	seizePlugin->destroy(seize1);
+	seizePlugin->destroy(seize2);
+	seizePlugin->destroy(seize3);
 	dlclose(assignPlugin->getHandle());
 	dlclose(writePlugin->getHandle());
 	dlclose(setPlugin->getHandle());
 	dlclose(resourcePlugin->getHandle());
 	dlclose(decidePlugin->getHandle());
 	dlclose(queuePlugin->getHandle());
+	dlclose(seizePlugin->getHandle());
 	return 0;
 }
 

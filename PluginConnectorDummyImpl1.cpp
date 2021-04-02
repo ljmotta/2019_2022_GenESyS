@@ -131,7 +131,7 @@
 	else if (fn == "release.so")
 		GetInfo = &Release::GetPluginInformation;
 	else if (fn == "seize.so")
-		GetInfo = &Seize::GetPluginInformation;
+		GetInfo = pluginLoader->getSeize()->GetPluginInfo();
 	else if (fn == "route.so")
 		GetInfo = &Route::GetPluginInformation;
 	else if (fn == "enter.so")
