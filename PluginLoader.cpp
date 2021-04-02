@@ -21,6 +21,7 @@ PluginLoader::PluginLoader(const char* handleRootPath) {
     _writePlugin = new PluginLoader::WritePlugin(this);
     _setPlugin = new PluginLoader::SetPlugin(this);
     _resourcePlugin = new PluginLoader::ResourcePlugin(this);
+    _decidePlugin = new PluginLoader::DecidePlugin(this);
 }
 
 void* PluginLoader::open(const char* handleName) {
@@ -95,6 +96,10 @@ PluginLoader::SetPlugin* PluginLoader::getSet() {
 
 PluginLoader::ResourcePlugin* PluginLoader::getResource() {
     return _resourcePlugin;
+}
+
+PluginLoader::DecidePlugin* PluginLoader::getDecide() {
+    return _decidePlugin;
 }
 
 // ASSIGN
@@ -179,4 +184,16 @@ PluginLoader::ResourcePlugin::ResourcePlugin(PluginLoader* pluginLoader) : Plugi
 Resource* PluginLoader::ResourcePlugin::create(Model* model, std::string name) {
     create_resource_t* createResource = (create_resource_t*) _pluginLoader->getAddress(PluginLoader::ResourcePlugin::_handle, "create");
     return createResource(model, name);
+}
+
+// DECIDE
+
+PluginLoader::DecidePlugin::DecidePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Decide>(pluginLoader) {
+    PluginLoader::DecidePlugin::_pluginLoader = pluginLoader;
+    PluginLoader::DecidePlugin::_handle = pluginLoader->open("libdecide.so");
+}
+
+Decide* PluginLoader::DecidePlugin::create(Model* model, std::string name) {
+    create_decide_t* createDecide = (create_decide_t*) _pluginLoader->getAddress(PluginLoader::DecidePlugin::_handle, "create");
+    return createDecide(model, name);
 }

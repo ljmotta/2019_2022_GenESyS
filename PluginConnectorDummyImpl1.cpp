@@ -80,7 +80,7 @@
 	}
 
 	Plugin* PluginConnectorDummyImpl1::connect(const std::string dynamicLibraryFilename) {
-		PluginLoader* pluginLoader = new PluginLoader("/home/luiz/Documents/modsim/2019_2022_GenESyS/");
+		PluginLoader* pluginLoader = new PluginLoader("/home/rafael/Documents/ModSim/2019_2022_GenESyS/");
 
 		std::string fn = getFileName(dynamicLibraryFilename);
 		StaticGetPluginInformation GetInfo = nullptr;
@@ -119,7 +119,7 @@
 	else if (fn == "write.so")
 		GetInfo = pluginLoader->getWrite()->GetPluginInfo();
 	else if (fn == "decide.so")
-		GetInfo = &Decide::GetPluginInformation;
+		GetInfo = pluginLoader->getDecide()->GetPluginInfo();
 	else if (fn == "delay.so")
 		GetInfo = &Delay::GetPluginInformation;
 	else if (fn == "dispose.so")

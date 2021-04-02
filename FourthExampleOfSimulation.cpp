@@ -43,11 +43,12 @@ FourthExampleOfSimulation::FourthExampleOfSimulation() {
 }
 
 int FourthExampleOfSimulation::main(int argc, char** argv) {
-	PluginLoader* pluginLoader = new PluginLoader("/home/luiz/Documents/modsim/2019_2022_GenESyS/");
+	PluginLoader* pluginLoader = new PluginLoader("/home/rafael/Documents/ModSim/2019_2022_GenESyS/");
 	PluginLoader::AssignPlugin* assignPlugin = pluginLoader->getAssign();
 	PluginLoader::WritePlugin* writePlugin = pluginLoader->getWrite();
 	PluginLoader::SetPlugin* setPlugin = pluginLoader->getSet();
 	PluginLoader::ResourcePlugin* resourcePlugin = pluginLoader->getResource();
+	PluginLoader::DecidePlugin* decidePlugin = pluginLoader->getDecide();
 	
 	Simulator* simulator = new Simulator();
 	simulator->getTracer()->setTraceLevel(Util::TraceLevel::everythingMostDetailed); //modelResult); //componentArrival);
@@ -76,6 +77,8 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	Resource* machine1;
 	Resource* machine2;
 	Resource* machine3;
+
+	Decide* decide1;
 
 	if (wantToCreateNewModelAndSaveInsteadOfJustLoad) {
 		model = new Model(simulator);
@@ -160,7 +163,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		machSet->getElementSet()->insert(machine2);
 		machSet->getElementSet()->insert(machine3);
 		// model->insert(machSet);
-		Decide* decide1 = new Decide(model);
+		decide1 = decidePlugin->create(model, "k");
 		decide1->getConditions()->insert("NR(Machine_1) < MR(Machine_1)");
 		decide1->getConditions()->insert("NR(Machine_2) < MR(Machine_2)");
 		// model->insert(decide1);
@@ -255,10 +258,12 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	resourcePlugin->destroy(machine1);
 	resourcePlugin->destroy(machine2);
 	resourcePlugin->destroy(machine3);
+	decidePlugin->destroy(decide1);
 	dlclose(assignPlugin->getHandle());
 	dlclose(writePlugin->getHandle());
 	dlclose(setPlugin->getHandle());
 	dlclose(resourcePlugin->getHandle());
+	dlclose(decidePlugin->getHandle());
 	return 0;
 }
 

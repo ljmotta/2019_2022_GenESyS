@@ -18,6 +18,7 @@
 #include "Resource.h"
 #include "Model.h"
 #include "Set.h"
+#include "Decide.h"
 
 class PluginLoader {
 public:
@@ -90,16 +91,25 @@ public:
         public:
             Resource* create(Model* model, std::string name = "");
     };
+    class DecidePlugin : public Plugin<Decide>{
+        public:
+            DecidePlugin(PluginLoader* pluginLoader);
+            virtual ~DecidePlugin() = default;
+        public:
+            Decide* create(Model* model, std::string name = "");
+    };
 public:
     PluginLoader::AssignPlugin* _assignPlugin;
     PluginLoader::WritePlugin* _writePlugin;
     PluginLoader::SetPlugin* _setPlugin;
     PluginLoader::ResourcePlugin* _resourcePlugin;
+    PluginLoader::DecidePlugin* _decidePlugin;
 public:
     PluginLoader::AssignPlugin* getAssign();
     PluginLoader::WritePlugin* getWrite();
     PluginLoader::SetPlugin* getSet();
     PluginLoader::ResourcePlugin* getResource();
+    PluginLoader::DecidePlugin* getDecide();
 public:
     const char*_handleRootPath = "";
 };
