@@ -19,6 +19,7 @@
 #include "Model.h"
 #include "Set.h"
 #include "Decide.h"
+#include "Queue.h"
 
 class PluginLoader {
 public:
@@ -98,18 +99,27 @@ public:
         public:
             Decide* create(Model* model, std::string name = "");
     };
+    class QueuePlugin : public Plugin<Queue>{
+        public:
+            QueuePlugin(PluginLoader* pluginLoader);
+            virtual ~QueuePlugin() = default;
+        public:
+            Queue* create(Model* model, std::string name = "");
+    };
 public:
     PluginLoader::AssignPlugin* _assignPlugin;
     PluginLoader::WritePlugin* _writePlugin;
     PluginLoader::SetPlugin* _setPlugin;
     PluginLoader::ResourcePlugin* _resourcePlugin;
     PluginLoader::DecidePlugin* _decidePlugin;
+    PluginLoader::QueuePlugin* _queuePlugin;
 public:
     PluginLoader::AssignPlugin* getAssign();
     PluginLoader::WritePlugin* getWrite();
     PluginLoader::SetPlugin* getSet();
     PluginLoader::ResourcePlugin* getResource();
     PluginLoader::DecidePlugin* getDecide();
+    PluginLoader::QueuePlugin* getQueue();
 public:
     const char*_handleRootPath = "";
 };

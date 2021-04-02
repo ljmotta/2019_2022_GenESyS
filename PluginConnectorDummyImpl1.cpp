@@ -102,7 +102,7 @@
 		//	else if (fn == "ode.so")
 		//		GetInfo = &OLD_ODEelement::GetPluginInformation;
 	else if (fn == "queue.so")
-		GetInfo = &Queue::GetPluginInformation;
+		GetInfo = pluginLoader->getQueue()->GetPluginInfo();
 	else if (fn == "resource.so")
 		GetInfo = pluginLoader->getResource()->GetPluginInfo();
 	else if (fn == "set.so")

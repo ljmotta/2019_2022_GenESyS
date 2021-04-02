@@ -22,6 +22,7 @@ PluginLoader::PluginLoader(const char* handleRootPath) {
     _setPlugin = new PluginLoader::SetPlugin(this);
     _resourcePlugin = new PluginLoader::ResourcePlugin(this);
     _decidePlugin = new PluginLoader::DecidePlugin(this);
+    _queuePlugin = new PluginLoader::QueuePlugin(this);
 }
 
 void* PluginLoader::open(const char* handleName) {
@@ -100,6 +101,10 @@ PluginLoader::ResourcePlugin* PluginLoader::getResource() {
 
 PluginLoader::DecidePlugin* PluginLoader::getDecide() {
     return _decidePlugin;
+}
+
+PluginLoader::QueuePlugin* PluginLoader::getQueue() {
+    return _queuePlugin;
 }
 
 // ASSIGN
@@ -197,3 +202,15 @@ Decide* PluginLoader::DecidePlugin::create(Model* model, std::string name) {
     create_decide_t* createDecide = (create_decide_t*) _pluginLoader->getAddress(PluginLoader::DecidePlugin::_handle, "create");
     return createDecide(model, name);
 }
+
+// QUEUE
+
+PluginLoader::QueuePlugin::QueuePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Queue>(pluginLoader) {
+    PluginLoader::QueuePlugin::_pluginLoader = pluginLoader;
+    PluginLoader::QueuePlugin::_handle = pluginLoader->open("libqueue.so");
+}
+
+Queue* PluginLoader::QueuePlugin::create(Model* model, std::string name) {
+    create_queue_t* createQueue = (create_queue_t*) _pluginLoader->getAddress(PluginLoader::QueuePlugin::_handle, "create");
+    return createQueue(model, name);
+} 
