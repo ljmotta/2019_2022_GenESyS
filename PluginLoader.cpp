@@ -25,6 +25,7 @@ PluginLoader::PluginLoader(const char* handleRootPath) {
     _queuePlugin = new PluginLoader::QueuePlugin(this);
     _seizePlugin = new PluginLoader::SeizePlugin(this);
     _releasePlugin = new PluginLoader::ReleasePlugin(this);
+    _variablePlugin = new PluginLoader::VariablePlugin(this);
 }
 
 void* PluginLoader::open(const char* handleName) {
@@ -115,6 +116,10 @@ PluginLoader::SeizePlugin* PluginLoader::getSeize() {
 
 PluginLoader::ReleasePlugin* PluginLoader::getRelease() {
     return _releasePlugin;
+}
+
+PluginLoader::VariablePlugin* PluginLoader::getVariable() {
+    return _variablePlugin;
 }
 
 // ASSIGN
@@ -247,4 +252,16 @@ PluginLoader::ReleasePlugin::ReleasePlugin(PluginLoader* pluginLoader) : PluginL
 Release* PluginLoader::ReleasePlugin::create(Model* model, std::string name) {
     create_release_t* createRelease = (create_release_t*) _pluginLoader->getAddress(PluginLoader::ReleasePlugin::_handle, "create");
     return createRelease(model, name);
+} 
+
+// VARIABLE
+
+PluginLoader::VariablePlugin::VariablePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Variable>(pluginLoader) {
+    PluginLoader::VariablePlugin::_pluginLoader = pluginLoader;
+    PluginLoader::VariablePlugin::_handle = pluginLoader->open("libvariable.so");
+}
+
+Variable* PluginLoader::VariablePlugin::create(Model* model, std::string name) {
+    create_variable_t* createVariable = (create_variable_t*) _pluginLoader->getAddress(PluginLoader::VariablePlugin::_handle, "create");
+    return createVariable(model, name);
 } 

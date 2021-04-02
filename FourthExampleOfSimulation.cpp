@@ -52,6 +52,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	PluginLoader::QueuePlugin* queuePlugin = pluginLoader->getQueue();
 	PluginLoader::SeizePlugin* seizePlugin = pluginLoader->getSeize();
 	PluginLoader::ReleasePlugin* releasePlugin = pluginLoader->getRelease();
+	PluginLoader::VariablePlugin* variablePlugin = pluginLoader->getVariable();
 	
 	Simulator* simulator = new Simulator();
 	simulator->getTracer()->setTraceLevel(Util::TraceLevel::everythingMostDetailed); //modelResult); //componentArrival);
@@ -95,6 +96,8 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	Release* release2;
 	Release* release3;
 
+	Variable* var1;
+
 	if (wantToCreateNewModelAndSaveInsteadOfJustLoad) {
 		model = new Model(simulator);
 		// build the simulation model
@@ -118,7 +121,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		// model->insert(assign1);
 		Attribute* attr1 = new Attribute(model, "index");
 		// model->insert(attr1);
-		Variable* var1 = new Variable(model, "varNextIndex");
+		var1 = variablePlugin->create(model, "varNextIndex");
 		// model->insert(var1);
 		write1 = writePlugin->create(model);
 		writeElement1 = writePlugin->getWriteElement()->create("Atributo index: ");

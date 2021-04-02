@@ -112,7 +112,7 @@
 	else if (fn == "station.so")
 		GetInfo = &Station::GetPluginInformation;
 	else if (fn == "variable.so")
-		GetInfo = &Variable::GetPluginInformation;
+		GetInfo = pluginLoader->getVariable()->GetPluginInfo();
 		// model components
 	else if (fn == "create.so")
 		GetInfo = &Create::GetPluginInformation;

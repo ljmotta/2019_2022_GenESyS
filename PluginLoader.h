@@ -22,6 +22,7 @@
 #include "Queue.h"
 #include "Seize.h"
 #include "Release.h"
+#include "Variable.h"
 
 class PluginLoader {
 public:
@@ -122,6 +123,13 @@ public:
         public:
             Release* create(Model* model, std::string name = "");
     };
+    class VariablePlugin : public Plugin<Variable>{
+        public:
+            VariablePlugin(PluginLoader* pluginLoader);
+            virtual ~VariablePlugin() = default;
+        public:
+            Variable* create(Model* model, std::string name = "");
+    };
 public:
     PluginLoader::AssignPlugin* _assignPlugin;
     PluginLoader::WritePlugin* _writePlugin;
@@ -131,6 +139,7 @@ public:
     PluginLoader::QueuePlugin* _queuePlugin;
     PluginLoader::SeizePlugin* _seizePlugin;
     PluginLoader::ReleasePlugin* _releasePlugin;
+    PluginLoader::VariablePlugin* _variablePlugin;
 public:
     PluginLoader::AssignPlugin* getAssign();
     PluginLoader::WritePlugin* getWrite();
@@ -140,6 +149,7 @@ public:
     PluginLoader::QueuePlugin* getQueue();
     PluginLoader::SeizePlugin* getSeize();
     PluginLoader::ReleasePlugin* getRelease();
+    PluginLoader::VariablePlugin* getVariable();
 public:
     const char*_handleRootPath = "";
 };
