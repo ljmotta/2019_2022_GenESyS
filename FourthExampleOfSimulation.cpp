@@ -47,6 +47,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	PluginLoader::WritePlugin* writePlugin = pluginLoader->getWrite();
 	PluginLoader::SetPlugin* setPlugin = pluginLoader->getSet();
 	
+	PluginLoader::DisposePlugin* disposePlugin = pluginLoader->getDispose();
 	Simulator* simulator = new Simulator();
 	simulator->getTracer()->setTraceLevel(Util::TraceLevel::everythingMostDetailed); //modelResult); //componentArrival);
 	this->setDefaultTraceHandlers(simulator->getTracer());
@@ -57,7 +58,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	Assign* assign;
 	Assign::Assignment* assigment1;
 	Assign::Assignment* assigment2;
-        
+
 	Write* write1;
 	WriteElement* writeElement1;
 	WriteElement* writeElement2;
@@ -71,6 +72,8 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	WriteElement* writeElement10;
 
 	Set* machSet;
+
+	Dispose* dispose1;
 	if (wantToCreateNewModelAndSaveInsteadOfJustLoad) {
 		model = new Model(simulator);
 		// build the simulation model
@@ -108,7 +111,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		writeElement9 = writePlugin->getWriteElement()->create("NR(Machine_3)", true, true);
 		writeElement10 = writePlugin->getWriteElement()->create("Estado das máquinas: ");
                 
-                
+
 		write1->setWriteToType(Write::WriteToType::SCREEN);
 		write1->writeElements()->insert(writeElement1);
 		write1->writeElements()->insert(writeElement2);
@@ -200,7 +203,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		Release* release3 = new Release(model);
 		release3->setReleaseRequest(new ResourceItemRequest(machine3));
 		// model->insert(release3);
-		Dispose* dispose1 = new Dispose(model);
+		dispose1 = disposePlugin->create(model);
 		// model->insert(dispose1);
 		//
 		create1->getNextComponents()->insert(assign);
@@ -230,7 +233,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	// std::cout << "abc" << std::endl;
 	this->setDefaultEventHandlers(model->getOnEvents());
 	model->getSimulation()->start();
-	
+
 	assignPlugin->destroy(assign);
 	assignPlugin->getAssignment()->destroy(assigment1);
 	assignPlugin->getAssignment()->destroy(assigment2);
@@ -245,10 +248,13 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	writePlugin->getWriteElement()->destroy(writeElement8);
 	writePlugin->getWriteElement()->destroy(writeElement9);
 	writePlugin->getWriteElement()->destroy(writeElement10);
+
     setPlugin->destroy(machSet);
+	disposePlugin->destroy(dispose1);
+
 	dlclose(assignPlugin->getHandle());
 	dlclose(writePlugin->getHandle());
 	dlclose(setPlugin->getHandle());
+	dlclose(disposePlugin->getHandle());
 	return 0;
 }
-

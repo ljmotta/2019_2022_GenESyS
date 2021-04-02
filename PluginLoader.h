@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   PluginLoader.h
  * Author: luiz
  *
@@ -17,6 +17,7 @@
 #include "Write.h"
 #include "Model.h"
 #include "Set.h"
+#include "Dispose.h"
 
 class PluginLoader {
 public:
@@ -39,7 +40,7 @@ public:
             virtual void destroy(T* instance);
             virtual StaticGetPluginInformation GetPluginInfo();
     };
-    
+
     class AssignPlugin : public Plugin<Assign> {
         public:
             AssignPlugin(PluginLoader* pluginLoader);
@@ -81,14 +82,23 @@ public:
         public:
             Set* create(Model* model, std::string name = "");
     };
+    class DisposePlugin : public Plugin<Dispose> {
+        public:
+            DisposePlugin(PluginLoader* pluginLoader);
+            virtual ~DisposePlugin() = default;
+        public:
+            Dispose* create(Model* model, std::string name = "");
+    };
 public:
     PluginLoader::AssignPlugin* _assignPlugin;
     PluginLoader::WritePlugin* _writePlugin;
     PluginLoader::SetPlugin* _setPlugin;
+    PluginLoader::DisposePlugin* _disposePlugin;
 public:
     PluginLoader::AssignPlugin* getAssign();
     PluginLoader::WritePlugin* getWrite();
     PluginLoader::SetPlugin* getSet();
+    PluginLoader::DisposePlugin* getDispose();
 public:
     const char*_handleRootPath = "";
 };

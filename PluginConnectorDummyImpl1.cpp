@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   PluginConnectorDummyImpl1.cpp
  * Author: rlcancian
- * 
+ *
  * Created on 9 de Setembro de 2019, 19:24
  */
 
@@ -123,7 +123,7 @@
 	else if (fn == "delay.so")
 		GetInfo = &Delay::GetPluginInformation;
 	else if (fn == "dispose.so")
-		GetInfo = &Dispose::GetPluginInformation;
+		GetInfo = pluginLoader->getDispose()->GetPluginInfo();
 	else if (fn == "dummy.so")
 		GetInfo = &Dummy::GetPluginInformation;
 	else if (fn == "record.so")

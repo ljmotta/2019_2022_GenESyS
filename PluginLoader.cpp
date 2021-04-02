@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   PluginLoader.cpp
  * Author: luiz
- * 
+ *
  * Created on 1 de Abril de 2021, 22:42
  */
 
@@ -20,6 +20,7 @@ PluginLoader::PluginLoader(const char* handleRootPath) {
     _assignPlugin = new PluginLoader::AssignPlugin(this);
     _writePlugin = new PluginLoader::WritePlugin(this);
     _setPlugin = new PluginLoader::SetPlugin(this);
+    _disposePlugin = new PluginLoader::DisposePlugin(this);
 }
 
 void* PluginLoader::open(const char* handleName) {
@@ -71,7 +72,7 @@ StaticGetPluginInformation PluginLoader::Plugin<T>::GetPluginInfo() {
 };
 
 // GETTERS
- 
+
 PluginLoader::AssignPlugin* PluginLoader::getAssign() {
     return _assignPlugin;
 }
@@ -92,6 +93,9 @@ PluginLoader::SetPlugin* PluginLoader::getSet() {
     return _setPlugin;
 }
 
+PluginLoader::DisposePlugin* PluginLoader::getDispose() {
+    return _disposePlugin;
+}
 // ASSIGN
 
 PluginLoader::AssignPlugin::AssignPlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Assign>(pluginLoader) {
@@ -162,4 +166,14 @@ PluginLoader::SetPlugin::SetPlugin(PluginLoader* pluginLoader) : PluginLoader::P
 Set* PluginLoader::SetPlugin::create(Model* model, std::string name) {
     create_set_t* createSet = (create_set_t*) _pluginLoader->getAddress(PluginLoader::SetPlugin::_handle, "create");
     return createSet(model, name);
+}// Dipose
+
+PluginLoader::DisposePlugin::DisposePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Dispose>(pluginLoader) {
+    PluginLoader::DisposePlugin::_pluginLoader = pluginLoader;
+    PluginLoader::DisposePlugin::_handle = pluginLoader->open("libdispose.so");
+}
+
+Dispose* PluginLoader::DisposePlugin::create(Model* model, std::string name) {
+    create_dispose_t* createDispose = (create_dispose_t*) _pluginLoader->getAddress(PluginLoader::DisposePlugin::_handle, "create");
+    return createDispose(model, name);
 }
