@@ -113,17 +113,11 @@ private:
 	List<Assignment*>* _assignments = new List<Assignment*>();
 };
 
-typedef StaticGetPluginInformation get_plugin_information_t();
-typedef Assign::Assignment* create_assignment_t(std::string arg1, std::string arg2);
-typedef void destroy_assignment_t(Assign::Assignment* assigment);
 typedef Assign* create_assign_t(Model* model);
 typedef void destroy_assign_t(Assign* assign);
 
-// typedef struct AssignmentAddresses {
-// 	const char* create;
-// 	const char* destroy;
-// } AssignmentAddresses;
-// AssignmentAddresses assignmentAddresses = { "createAssignment", "destroyAssignment" };
+typedef Assign::Assignment* create_assignment_t(std::string arg1, std::string arg2);
+typedef void destroy_assignment_t(Assign::Assignment* assignment);
 
 #endif /* ASSIGN_H */
 

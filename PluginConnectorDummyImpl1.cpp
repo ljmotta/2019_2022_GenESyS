@@ -89,9 +89,7 @@
 	if (fn == "attribute.so")
 		GetInfo = &Attribute::GetPluginInformation;
 	else if (fn == "assign.so") {
-		void* assignHandle = pluginLoader->open("libassign.so");
-		get_plugin_information_t* getPluginInformation = (get_plugin_information_t* ) pluginLoader->getAddress(assignHandle, "getPluginInformation");
-		GetInfo = getPluginInformation();
+		GetInfo = pluginLoader->getAssign()->GetPluginInfo();
 	}
 	else if (fn == "counter.so")
 		GetInfo = &Counter::GetPluginInformation;
@@ -119,7 +117,7 @@
 	else if (fn == "create.so")
 		GetInfo = &Create::GetPluginInformation;
 	else if (fn == "write.so")
-		GetInfo = &Write::GetPluginInformation;
+		GetInfo = pluginLoader->getWrite()->GetPluginInfo();
 	else if (fn == "decide.so")
 		GetInfo = &Decide::GetPluginInformation;
 	else if (fn == "delay.so")

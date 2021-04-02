@@ -43,23 +43,31 @@ FourthExampleOfSimulation::FourthExampleOfSimulation() {
 
 int FourthExampleOfSimulation::main(int argc, char** argv) {
 	PluginLoader* pluginLoader = new PluginLoader("/home/luiz/Documents/modsim/2019_2022_GenESyS/");
-	void* assignHandle = pluginLoader->open("libassign.so");
-
-	// UNDEFINED REFERENCE TO "Assign* "
-	create_assign_t* createAssign = (create_assign_t*) pluginLoader->getAddress(assignHandle, "create");
-	destroy_assign_t* destroyAssign = (destroy_assign_t*) pluginLoader->getAddress(assignHandle, "destroy");
-	create_assignment_t* createAssignment = (create_assignment_t*) pluginLoader->getAddress(assignHandle, "createAssignment");
-	destroy_assignment_t* destroyAssignment = (destroy_assignment_t*) pluginLoader->getAddress(assignHandle, "destroyAssignment");
-
-	Assign* assignInstance;
-	Assign::Assignment* assigmentInstance1;
-	Assign::Assignment* assigmentInstance2;
+	PluginLoader::AssignPlugin* assignPlugin = pluginLoader->getAssign();
+	PluginLoader::WritePlugin* writePlugin = pluginLoader->getWrite();
+	
 	Simulator* simulator = new Simulator();
 	simulator->getTracer()->setTraceLevel(Util::TraceLevel::everythingMostDetailed); //modelResult); //componentArrival);
 	this->setDefaultTraceHandlers(simulator->getTracer());
 	this->insertFakePluginsByHand(simulator);
 	bool wantToCreateNewModelAndSaveInsteadOfJustLoad = true; //true;
 	Model* model;
+
+	Assign* assign;
+	Assign::Assignment* assigment1;
+	Assign::Assignment* assigment2;
+        
+        Write* write1;
+	WriteElement* writeElement1;
+	WriteElement* writeElement2;
+	WriteElement* writeElement3;
+	WriteElement* writeElement4;
+	WriteElement* writeElement5;
+	WriteElement* writeElement6;
+	WriteElement* writeElement7;
+	WriteElement* writeElement8;
+	WriteElement* writeElement9;
+	WriteElement* writeElement10;
 	if (wantToCreateNewModelAndSaveInsteadOfJustLoad) {
 		model = new Model(simulator);
 		// build the simulation model
@@ -75,45 +83,56 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		create1->setEntitiesPerCreation(1);
 		// model->insert(create1);
 
-
-		assignInstance = createAssign(model);
-		assigmentInstance1 = createAssignment("varNextIndex", "varNextIndex+1");
-		assigmentInstance2 = createAssignment("index", "varNextIndex");
-		assignInstance->assignments()->insert(assigmentInstance1);
-		assignInstance->assignments()->insert(assigmentInstance2);
+		assign = assignPlugin->create(model);
+		assigment1 = assignPlugin->createAssignment("varNextIndex", "varNextIndex+1");
+		assigment2 = assignPlugin->createAssignment("index", "varNextIndex");
+		assign->assignments()->insert(assigment1);
+		assign->assignments()->insert(assigment2);
 		// model->insert(assign1);
 		Attribute* attr1 = new Attribute(model, "index");
 		// model->insert(attr1);
 		Variable* var1 = new Variable(model, "varNextIndex");
 		// model->insert(var1);
-		Write* write1 = new Write(model);
+		write1 = writePlugin->create(model);
+                writeElement1 = writePlugin->createWriteElement("Atributo index: ");
+                writeElement2 = writePlugin->createWriteElement("index", true, true);
+                writeElement3 = writePlugin->createWriteElement("varNextIndex", true, true);
+                writeElement4 = writePlugin->createWriteElement("Quantidade ocupada das máquinas: ");
+                writeElement5 = writePlugin->createWriteElement("NR( Machine_1 )", true);
+                writeElement6 = writePlugin->createWriteElement(", ");
+                writeElement7 = writePlugin->createWriteElement("NR(Machine_2)", true);
+                writeElement8 = writePlugin->createWriteElement(", ");
+                writeElement9 = writePlugin->createWriteElement("NR(Machine_3)", true, true);
+                writeElement10 = writePlugin->createWriteElement("Estado das máquinas: ");
+                
+                
 		write1->setWriteToType(Write::WriteToType::SCREEN);
-		write1->writeElements()->insert(new WriteElement("Atributo index: "));
-		write1->writeElements()->insert(new WriteElement("index", true, true));
-		write1->writeElements()->insert(new WriteElement("Variável nextIndex: "));
-		write1->writeElements()->insert(new WriteElement("varNextIndex", true, true));
-		write1->writeElements()->insert(new WriteElement("Quantidade ocupada das máquinas: "));
-		write1->writeElements()->insert(new WriteElement("NR( Machine_1 )", true));
-		write1->writeElements()->insert(new WriteElement(", "));
-		write1->writeElements()->insert(new WriteElement("NR(Machine_2)", true));
-		write1->writeElements()->insert(new WriteElement(", "));
-		write1->writeElements()->insert(new WriteElement("NR(Machine_3)", true, true));
-		write1->writeElements()->insert(new WriteElement("Estado das máquinas: "));
-		write1->writeElements()->insert(new WriteElement("STATE(Machine_1)", true));
-		write1->writeElements()->insert(new WriteElement(", "));
-		write1->writeElements()->insert(new WriteElement("STATE(Machine_2)", true));
-		write1->writeElements()->insert(new WriteElement(", "));
-		write1->writeElements()->insert(new WriteElement("STATE(Machine_3)", true, true));
-		write1->writeElements()->insert(new WriteElement("Quantidade de máquinas ocupadas no Set: "));
-		write1->writeElements()->insert(new WriteElement("SETSUM(Machine_Set)", true, true));
-		write1->writeElements()->insert(new WriteElement("Quantidade de entidades na fila 3: "));
-		write1->writeElements()->insert(new WriteElement("NQ(Queue_Seize_3)", true, true));
-		write1->writeElements()->insert(new WriteElement("Somatório do atributo 'index' das entidades na fila 3: "));
-		write1->writeElements()->insert(new WriteElement("SAQUE(Queue_Seize_3,index)", true, true));
-		write1->writeElements()->insert(new WriteElement("Valor do atributo 'index' da 2ª entidade na fila 3: "));
-		write1->writeElements()->insert(new WriteElement("AQUE(Queue_Seize_3,2,index)", true, true));
-		write1->writeElements()->insert(new WriteElement("Tempo médio das entidades na fila 3: "));
-		write1->writeElements()->insert(new WriteElement("TAVG(Queue_Seize_3.TimeInQueue)", true, true));
+		write1->writeElements()->insert(writeElement1);
+		write1->writeElements()->insert(writeElement2);
+		write1->writeElements()->insert(writeElement3);
+		write1->writeElements()->insert(writeElement4);
+		write1->writeElements()->insert(writeElement5);
+		write1->writeElements()->insert(writeElement6);
+		write1->writeElements()->insert(writeElement7);
+		write1->writeElements()->insert(writeElement8);
+		write1->writeElements()->insert(writeElement9);
+		write1->writeElements()->insert(writeElement10);
+//		write1->writeElements()->insert(new WriteElement("Estado das máquinas: "));
+//		write1->writeElements()->insert(new WriteElement("STATE(Machine_1)", true));
+//		write1->writeElements()->insert(new WriteElement(", "));
+//		write1->writeElements()->insert(new WriteElement("STATE(Machine_2)", true));
+//		write1->writeElements()->insert(new WriteElement(", "));
+//		write1->writeElements()->insert(new WriteElement("STATE(Machine_3)", true, true));
+//		write1->writeElements()->insert(new WriteElement("Quantidade de máquinas ocupadas no Set: "));
+//		write1->writeElements()->insert(new WriteElement("SETSUM(Machine_Set)", true, true));
+//		write1->writeElements()->insert(new WriteElement("Quantidade de entidades na fila 3: "));
+//		write1->writeElements()->insert(new WriteElement("NQ(Queue_Seize_3)", true, true));
+//		write1->writeElements()->insert(new WriteElement("Somatório do atributo 'index' das entidades na fila 3: "));
+//		write1->writeElements()->insert(new WriteElement("SAQUE(Queue_Seize_3,index)", true, true));
+//		write1->writeElements()->insert(new WriteElement("Valor do atributo 'index' da 2ª entidade na fila 3: "));
+//		write1->writeElements()->insert(new WriteElement("AQUE(Queue_Seize_3,2,index)", true, true));
+//		write1->writeElements()->insert(new WriteElement("Tempo médio das entidades na fila 3: "));
+//		write1->writeElements()->insert(new WriteElement("TAVG(Queue_Seize_3.TimeInQueue)", true, true));
 		// model->insert(write1);
 		//
 		Resource* machine1 = new Resource(model, "Machine_1");
@@ -180,8 +199,8 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		Dispose* dispose1 = new Dispose(model);
 		// model->insert(dispose1);
 		//
-		create1->getNextComponents()->insert(assignInstance);
-		assignInstance->getNextComponents()->insert(write1);
+		create1->getNextComponents()->insert(assign);
+		assign->getNextComponents()->insert(write1);
 		write1->getNextComponents()->insert(decide1);
 		decide1->getNextComponents()->insert(seize1);
 		decide1->getNextComponents()->insert(seize2);
@@ -208,10 +227,23 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	this->setDefaultEventHandlers(model->getOnEvents());
 	model->getSimulation()->start();
 	
-	destroyAssign(assignInstance);
-	destroyAssignment(assigmentInstance1);
-	destroyAssignment(assigmentInstance2);
-	dlclose(assignHandle);
+	assignPlugin->destroy(assign);
+	assignPlugin->destroyAssigmnent(assigment1);
+	assignPlugin->destroyAssigmnent(assigment2);
+        writePlugin->destroy(write1);
+        writePlugin->destroyWriteElement(writeElement1);
+        writePlugin->destroyWriteElement(writeElement2);
+        writePlugin->destroyWriteElement(writeElement3);
+        writePlugin->destroyWriteElement(writeElement4);
+        writePlugin->destroyWriteElement(writeElement5);
+        writePlugin->destroyWriteElement(writeElement6);
+        writePlugin->destroyWriteElement(writeElement7);
+        writePlugin->destroyWriteElement(writeElement8);
+        writePlugin->destroyWriteElement(writeElement9);
+        writePlugin->destroyWriteElement(writeElement10);
+        
+	dlclose(assignPlugin->getHandle());
+	dlclose(writePlugin->getHandle());
 	return 0;
 }
 
