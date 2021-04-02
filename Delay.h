@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   Delay.h
  * Author: rafael.luiz.cancian
  *
@@ -36,7 +36,7 @@ Name Unique module identifier displayed on the module shape.
 Allocation Type of category to which the entity’s incurred delay time and
 cost will be added.
 Delay Time Determines the value of the delay for the entity.
-Units Time units used for the delay time. 
+Units Time units used for the delay time.
  */
 class Delay : public ModelComponent {
 public:
@@ -68,5 +68,7 @@ private: // inner children elements
 	StatisticsCollector* _cstatWaitTime = nullptr;
 };
 
-#endif /* DELAY_H */
+typedef Delay* create_delay_t(Model* model, std::string name);
 
+
+#endif /* DELAY_H */

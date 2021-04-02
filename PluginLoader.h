@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   PluginLoader.h
  * Author: luiz
  *
@@ -17,6 +17,7 @@
 #include "Write.h"
 #include "Model.h"
 #include "Set.h"
+#include "Delay.h"
 
 class PluginLoader {
 public:
@@ -39,7 +40,7 @@ public:
             virtual void destroy(T* instance);
             virtual StaticGetPluginInformation GetPluginInfo();
     };
-    
+
     class AssignPlugin : public Plugin<Assign> {
         public:
             AssignPlugin(PluginLoader* pluginLoader);
@@ -81,14 +82,24 @@ public:
         public:
             Set* create(Model* model, std::string name = "");
     };
+
+    class DelayPlugin : public Plugin<Delay> {
+        public:
+            DelayPlugin(PluginLoader* pluginLoader);
+            virtual ~DelayPlugin() = default;
+        public:
+            Delay* create(Model* model, std::string name = "");
+    };
 public:
     PluginLoader::AssignPlugin* _assignPlugin;
     PluginLoader::WritePlugin* _writePlugin;
     PluginLoader::SetPlugin* _setPlugin;
+    PluginLoader::DelayPlugin* _delayPlugin;
 public:
     PluginLoader::AssignPlugin* getAssign();
     PluginLoader::WritePlugin* getWrite();
     PluginLoader::SetPlugin* getSet();
+    PluginLoader::DelayPlugin* getDelay();
 public:
     const char*_handleRootPath = "";
 };

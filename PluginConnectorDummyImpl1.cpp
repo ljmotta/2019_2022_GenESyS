@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   PluginConnectorDummyImpl1.cpp
  * Author: rlcancian
- * 
+ *
  * Created on 9 de Setembro de 2019, 19:24
  */
 
@@ -80,7 +80,7 @@
 	}
 
 	Plugin* PluginConnectorDummyImpl1::connect(const std::string dynamicLibraryFilename) {
-		PluginLoader* pluginLoader = new PluginLoader("/home/luiz/Documents/modsim/2019_2022_GenESyS/");
+		PluginLoader* pluginLoader = new PluginLoader("/home/balde/2019_2022_GenESyS/");
 
 		std::string fn = getFileName(dynamicLibraryFilename);
 		StaticGetPluginInformation GetInfo = nullptr;
@@ -121,7 +121,7 @@
 	else if (fn == "decide.so")
 		GetInfo = &Decide::GetPluginInformation;
 	else if (fn == "delay.so")
-		GetInfo = &Delay::GetPluginInformation;
+		GetInfo = pluginLoader->getDelay()->GetPluginInfo();
 	else if (fn == "dispose.so")
 		GetInfo = &Dispose::GetPluginInformation;
 	else if (fn == "dummy.so")
