@@ -19,6 +19,7 @@ PluginLoader::PluginLoader(const char* handleRootPath) {
 	_handleRootPath = handleRootPath;
     _assignPlugin = new PluginLoader::AssignPlugin(this);
     _writePlugin = new PluginLoader::WritePlugin(this);
+    _setPlugin = new PluginLoader::SetPlugin(this);
 }
 
 void* PluginLoader::open(const char* handleName) {
@@ -87,6 +88,10 @@ PluginLoader::WritePlugin::WriteElementPlugin* PluginLoader::WritePlugin::getWri
     return _writeElementPlugin;
 }
 
+PluginLoader::SetPlugin* PluginLoader::getSet() {
+    return _setPlugin;
+}
+
 // ASSIGN
 
 PluginLoader::AssignPlugin::AssignPlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Assign>(pluginLoader) {
@@ -145,4 +150,16 @@ WriteElement* PluginLoader::WritePlugin::WriteElementPlugin::create(std::string 
 void PluginLoader::WritePlugin::WriteElementPlugin::destroy(WriteElement* writeElement) {
     destroy_plugin_t* destroyWriteElement = (destroy_plugin_t*) _pluginLoader->getAddress(PluginLoader::Plugin<Write>::_handle, "destroyWriteElement");
     destroyWriteElement(writeElement);
+}
+
+// SET
+
+PluginLoader::SetPlugin::SetPlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Set>(pluginLoader) {
+    PluginLoader::SetPlugin::_pluginLoader = pluginLoader;
+    PluginLoader::SetPlugin::_handle = pluginLoader->open("libset.so");
+}
+
+Set* PluginLoader::SetPlugin::create(Model* model, std::string name) {
+    create_set_t* createSet = (create_set_t*) _pluginLoader->getAddress(PluginLoader::SetPlugin::_handle, "create");
+    return createSet(model, name);
 }

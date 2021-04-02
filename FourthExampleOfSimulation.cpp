@@ -45,6 +45,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	PluginLoader* pluginLoader = new PluginLoader("/home/luiz/Documents/modsim/2019_2022_GenESyS/");
 	PluginLoader::AssignPlugin* assignPlugin = pluginLoader->getAssign();
 	PluginLoader::WritePlugin* writePlugin = pluginLoader->getWrite();
+	PluginLoader::SetPlugin* setPlugin = pluginLoader->getSet();
 	
 	Simulator* simulator = new Simulator();
 	simulator->getTracer()->setTraceLevel(Util::TraceLevel::everythingMostDetailed); //modelResult); //componentArrival);
@@ -68,6 +69,8 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	WriteElement* writeElement8;
 	WriteElement* writeElement9;
 	WriteElement* writeElement10;
+
+	Set* machSet;
 	if (wantToCreateNewModelAndSaveInsteadOfJustLoad) {
 		model = new Model(simulator);
 		// build the simulation model
@@ -144,7 +147,8 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		Resource* machine3 = new Resource(model, "Machine_3");
 		machine3->setCapacity(3);
 		// model->insert(machine3);
-		Set* machSet = new Set(model, "Machine_Set");
+
+		machSet = setPlugin->create(model, "Machine_Set");
 		machSet->setSetOfType(Util::TypeOf<Resource>());
 		machSet->getElementSet()->insert(machine1);
 		machSet->getElementSet()->insert(machine2);
@@ -241,9 +245,10 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	writePlugin->getWriteElement()->destroy(writeElement8);
 	writePlugin->getWriteElement()->destroy(writeElement9);
 	writePlugin->getWriteElement()->destroy(writeElement10);
-        
+    setPlugin->destroy(machSet);
 	dlclose(assignPlugin->getHandle());
 	dlclose(writePlugin->getHandle());
+	dlclose(setPlugin->getHandle());
 	return 0;
 }
 

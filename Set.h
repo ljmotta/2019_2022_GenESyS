@@ -78,5 +78,7 @@ private:
 	std::string _setOfType;
 };
 
+typedef Set* create_set_t(Model* model, std::string name); 
+
 #endif /* SET_H */
 

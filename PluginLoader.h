@@ -16,6 +16,7 @@
 #include "Assign.h"
 #include "Write.h"
 #include "Model.h"
+#include "Set.h"
 
 class PluginLoader {
 public:
@@ -72,12 +73,22 @@ public:
             PluginLoader::WritePlugin::WriteElementPlugin* _writeElementPlugin;
             PluginLoader::WritePlugin::WriteElementPlugin* getWriteElement();
     };
+
+    class SetPlugin : public Plugin<Set> {
+        public:
+            SetPlugin(PluginLoader* pluginLoader);
+            virtual ~SetPlugin() = default;
+        public:
+            Set* create(Model* model, std::string name = "");
+    };
 public:
     PluginLoader::AssignPlugin* _assignPlugin;
     PluginLoader::WritePlugin* _writePlugin;
+    PluginLoader::SetPlugin* _setPlugin;
 public:
     PluginLoader::AssignPlugin* getAssign();
     PluginLoader::WritePlugin* getWrite();
+    PluginLoader::SetPlugin* getSet();
 public:
     const char*_handleRootPath = "";
 };

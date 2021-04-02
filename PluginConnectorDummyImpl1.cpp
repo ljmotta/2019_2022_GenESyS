@@ -106,7 +106,7 @@
 	else if (fn == "resource.so")
 		GetInfo = &Resource::GetPluginInformation;
 	else if (fn == "set.so")
-		GetInfo = &Set::GetPluginInformation;
+		GetInfo = pluginLoader->getSet()->GetPluginInfo();
 	else if (fn == "statisticscollector.so")
 		GetInfo = &StatisticsCollector::GetPluginInformation;
 	else if (fn == "station.so")

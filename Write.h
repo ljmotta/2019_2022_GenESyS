@@ -72,11 +72,7 @@ private: // attributes 1:n
 };
 
 typedef Write* create_write_t(Model* model, std::string name);
-typedef void destroy_write_t(Write* write);
-
 typedef WriteElement* create_write_element_t(std::string text, bool isExpression, bool newline);
-typedef void destroy_write_element_t(WriteElement* writeElement);
-
 
 #endif /* WRITE_H */
 
