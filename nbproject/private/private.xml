@@ -19,8 +19,16 @@
             <file>file:/home/rlcancian/Laboratory/Software_Lab/IA32_Architecture/GccProjects/RebornedGenESyS/GenESySIncludingKernel/main.cpp</file>
         </group>
         <group>
-            <file>file:/home/luiz/Documents/modsim/2019_2022_GenESyS/plugin/Assign/Assign.cpp</file>
-            <file>file:/home/luiz/Documents/modsim/2019_2022_GenESyS/Assign.h</file>
+            <file>file:/home/luiz/Documents/modsim/2019_2022_GenESyS/TestMatricesOfAttributesAndVariables.cpp</file>
+            <file>file:/home/luiz/Documents/modsim/2019_2022_GenESyS/PluginLoader.cpp</file>
+            <file>file:/home/luiz/Documents/modsim/2019_2022_GenESyS/Write.h</file>
+            <file>file:/home/luiz/Documents/modsim/2019_2022_GenESyS/TestSimulationControlAndSimulationResponse.cpp</file>
+            <file>file:/home/luiz/Documents/modsim/2019_2022_GenESyS/FourthExampleOfSimulation.cpp</file>
+            <file>file:/home/luiz/Documents/modsim/2019_2022_GenESyS/PluginLoader.h</file>
+            <file>file:/home/luiz/Documents/modsim/2019_2022_GenESyS/PluginConnectorDummyImpl1.cpp</file>
+            <file>file:/home/luiz/Documents/modsim/2019_2022_GenESyS/main.cpp</file>
+            <file>file:/home/luiz/Documents/modsim/2019_2022_GenESyS/Write.cpp</file>
+            <file>file:/home/luiz/Documents/modsim/2019_2022_GenESyS/PluginManager.cpp</file>
         </group>
     </open-files>
 </project-private>

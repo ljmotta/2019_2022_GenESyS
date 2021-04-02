@@ -25,36 +25,54 @@ public:
     void* open(const char* handleName);
     void* getAddress(void* handle, const char* symbol);
 public:
-    class AssignPlugin {
+    template <typename T>
+    class Plugin {
+        public:
+            Plugin(PluginLoader* pluginLoader);
+            virtual ~Plugin() = default;
+        public:
+            void* _handle;
+            PluginLoader* _pluginLoader;
+        public:
+            virtual void* getHandle();
+            virtual void destroy(T* instance);
+            virtual StaticGetPluginInformation GetPluginInfo();
+    };
+    
+    class AssignPlugin : public Plugin<Assign> {
         public:
             AssignPlugin(PluginLoader* pluginLoader);
+            virtual ~AssignPlugin() = default;
         public:
-            void* _handle;
-            PluginLoader* _pluginLoader;
-        public:
-            void* getHandle();
             Assign* create(Model* model);
-            void destroy(Assign* assign);
-            StaticGetPluginInformation GetPluginInfo();
-            Assign::Assignment* createAssignment(std::string arg1, std::string arg2);
-            void destroyAssigmnent(Assign::Assignment* assigment);
+        public:
+            class AssignmentPlugin : public Plugin<Assign> {
+                public:
+                    AssignmentPlugin(PluginLoader* pluginLoader, void* handle);
+                    Assign::Assignment* create(std::string arg1, std::string arg2);
+                    void destroy(Assign::Assignment* assignment);
+            };
+            PluginLoader::AssignPlugin::AssignmentPlugin* _assignmentPlugin;
+            PluginLoader::AssignPlugin::AssignmentPlugin* getAssignment();
     };
-    class WritePlugin {
+
+    class WritePlugin : public Plugin<Write> {
         public:
             WritePlugin(PluginLoader* pluginLoader);
+            virtual ~WritePlugin() = default;
         public:
-            void* _handle;
-            PluginLoader* _pluginLoader;
-        public:
-            void* getHandle();
             Write* create(Model* model, std::string name = "");
-            void destroy(Write* write);
-            StaticGetPluginInformation GetPluginInfo();
-            WriteElement* createWriteElement(std::string text, bool isExpression = false, bool newline = false);
-            void destroyWriteElement(WriteElement* writeElement);
+        public:
+            class WriteElementPlugin : public Plugin<Write> {
+                public:
+                    WriteElementPlugin(PluginLoader* pluginLoader, void* handle);
+                    WriteElement* create(std::string text, bool isExpression = false, bool newline = false);
+                    void destroy(WriteElement* writeElement);
+            };
+            PluginLoader::WritePlugin::WriteElementPlugin* _writeElementPlugin;
+            PluginLoader::WritePlugin::WriteElementPlugin* getWriteElement();
     };
 public:
-    // plugins
     PluginLoader::AssignPlugin* _assignPlugin;
     PluginLoader::WritePlugin* _writePlugin;
 public:
@@ -62,9 +80,9 @@ public:
     PluginLoader::WritePlugin* getWrite();
 public:
     const char*_handleRootPath = "";
-    // static constexpr PluginAddresses pluginAddresses = { "create", "destroy","getPluginInformation" };
 };
 
+typedef void destroy_plugin_t(void* instance);
 typedef StaticGetPluginInformation get_plugin_information_t();
 
 #endif /* PLUGINLOADER_H */

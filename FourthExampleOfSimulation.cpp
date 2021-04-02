@@ -57,7 +57,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	Assign::Assignment* assigment1;
 	Assign::Assignment* assigment2;
         
-        Write* write1;
+	Write* write1;
 	WriteElement* writeElement1;
 	WriteElement* writeElement2;
 	WriteElement* writeElement3;
@@ -84,8 +84,8 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		// model->insert(create1);
 
 		assign = assignPlugin->create(model);
-		assigment1 = assignPlugin->createAssignment("varNextIndex", "varNextIndex+1");
-		assigment2 = assignPlugin->createAssignment("index", "varNextIndex");
+		assigment1 = assignPlugin->getAssignment()->create("varNextIndex", "varNextIndex+1");
+		assigment2 = assignPlugin->getAssignment()->create("index", "varNextIndex");
 		assign->assignments()->insert(assigment1);
 		assign->assignments()->insert(assigment2);
 		// model->insert(assign1);
@@ -94,16 +94,16 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		Variable* var1 = new Variable(model, "varNextIndex");
 		// model->insert(var1);
 		write1 = writePlugin->create(model);
-                writeElement1 = writePlugin->createWriteElement("Atributo index: ");
-                writeElement2 = writePlugin->createWriteElement("index", true, true);
-                writeElement3 = writePlugin->createWriteElement("varNextIndex", true, true);
-                writeElement4 = writePlugin->createWriteElement("Quantidade ocupada das máquinas: ");
-                writeElement5 = writePlugin->createWriteElement("NR( Machine_1 )", true);
-                writeElement6 = writePlugin->createWriteElement(", ");
-                writeElement7 = writePlugin->createWriteElement("NR(Machine_2)", true);
-                writeElement8 = writePlugin->createWriteElement(", ");
-                writeElement9 = writePlugin->createWriteElement("NR(Machine_3)", true, true);
-                writeElement10 = writePlugin->createWriteElement("Estado das máquinas: ");
+		writeElement1 = writePlugin->getWriteElement()->create("Atributo index: ");
+		writeElement2 = writePlugin->getWriteElement()->create("index", true, true);
+		writeElement3 = writePlugin->getWriteElement()->create("varNextIndex", true, true);
+		writeElement4 = writePlugin->getWriteElement()->create("Quantidade ocupada das máquinas: ");
+		writeElement5 = writePlugin->getWriteElement()->create("NR( Machine_1 )", true);
+		writeElement6 = writePlugin->getWriteElement()->create(", ");
+		writeElement7 = writePlugin->getWriteElement()->create("NR(Machine_2)", true);
+		writeElement8 = writePlugin->getWriteElement()->create(", ");
+		writeElement9 = writePlugin->getWriteElement()->create("NR(Machine_3)", true, true);
+		writeElement10 = writePlugin->getWriteElement()->create("Estado das máquinas: ");
                 
                 
 		write1->setWriteToType(Write::WriteToType::SCREEN);
@@ -228,19 +228,19 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	model->getSimulation()->start();
 	
 	assignPlugin->destroy(assign);
-	assignPlugin->destroyAssigmnent(assigment1);
-	assignPlugin->destroyAssigmnent(assigment2);
-        writePlugin->destroy(write1);
-        writePlugin->destroyWriteElement(writeElement1);
-        writePlugin->destroyWriteElement(writeElement2);
-        writePlugin->destroyWriteElement(writeElement3);
-        writePlugin->destroyWriteElement(writeElement4);
-        writePlugin->destroyWriteElement(writeElement5);
-        writePlugin->destroyWriteElement(writeElement6);
-        writePlugin->destroyWriteElement(writeElement7);
-        writePlugin->destroyWriteElement(writeElement8);
-        writePlugin->destroyWriteElement(writeElement9);
-        writePlugin->destroyWriteElement(writeElement10);
+	assignPlugin->getAssignment()->destroy(assigment1);
+	assignPlugin->getAssignment()->destroy(assigment2);
+	writePlugin->destroy(write1);
+	writePlugin->getWriteElement()->destroy(writeElement1);
+	writePlugin->getWriteElement()->destroy(writeElement2);
+	writePlugin->getWriteElement()->destroy(writeElement3);
+	writePlugin->getWriteElement()->destroy(writeElement4);
+	writePlugin->getWriteElement()->destroy(writeElement5);
+	writePlugin->getWriteElement()->destroy(writeElement6);
+	writePlugin->getWriteElement()->destroy(writeElement7);
+	writePlugin->getWriteElement()->destroy(writeElement8);
+	writePlugin->getWriteElement()->destroy(writeElement9);
+	writePlugin->getWriteElement()->destroy(writeElement10);
         
 	dlclose(assignPlugin->getHandle());
 	dlclose(writePlugin->getHandle());
