@@ -27,6 +27,14 @@ extern "C" StaticGetPluginInformation getPluginInformation() {
 	return &Resource::GetPluginInformation;
 }
 
+extern "C" ResourceItemRequest* createResourceItemRequest(Resource* resource, std::string quantityExpression = "1") {
+    return new ResourceItemRequest(resource, quantityExpression);
+}
+
+extern "C" void destroyResourceItemRequest(ResourceItemRequest* resourceItemRequest) {
+    delete resourceItemRequest;
+}
+
 Resource::Resource(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Resource>(), name) {
 	GetterMember getter = DefineGetterMember<Resource>(this, &Resource::getCapacity);
 	SetterMember setter = DefineSetterMember<Resource>(this, &Resource::setCapacity);

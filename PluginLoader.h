@@ -94,6 +94,14 @@ public:
             virtual ~ResourcePlugin() = default;
         public:
             Resource* create(Model* model, std::string name = "");
+        public:
+            class ResourceItemRequestPlugin : public Plugin<Resource> {
+                ResourceItemRequestPlugin(PluginLoader* pluginLoader, void* handle);
+                ResourceItemRequest* create(Resource* resource, std::string quantityExpression = "1");
+                void destroy(ResourceItemRequest* resourceItemRequest);
+            };
+            PluginLoader::ResourcePlugin::ResourceItemRequestPlugin* _resourceItemRequestPlugin;
+            PluginLoader::ResourcePlugin::ResourceItemRequestPlugin* getResourceItemRequest();
     };
     class DecidePlugin : public Plugin<Decide>{
         public:

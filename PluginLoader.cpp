@@ -102,6 +102,10 @@ PluginLoader::ResourcePlugin* PluginLoader::getResource() {
     return _resourcePlugin;
 }
 
+PluginLoader::ResourcePlugin::ResourceItemRequest* PluginLoader::ResourcePlugin::getResourceItemRequest() {
+    return _resourceItemRequest;
+}
+
 PluginLoader::DecidePlugin* PluginLoader::getDecide() {
     return _decidePlugin;
 }
@@ -204,6 +208,23 @@ PluginLoader::ResourcePlugin::ResourcePlugin(PluginLoader* pluginLoader) : Plugi
 Resource* PluginLoader::ResourcePlugin::create(Model* model, std::string name) {
     create_resource_t* createResource = (create_resource_t*) _pluginLoader->getAddress(PluginLoader::ResourcePlugin::_handle, "create");
     return createResource(model, name);
+}
+
+// RESOURCE ITEM REQUEST
+
+PluginLoader::ResourcePlugin::ResourceItemRequestPlugin::ResourceItemRequestPlugin(PluginLoader* pluginLoader, void* handle) : PluginLoader::Plugin<Resource>(pluginLoader) {
+    _pluginLoader = pluginLoader;
+    _handle = handle;
+};
+
+ResourceItemRequest* PluginLoader::ResourcePlugin::ResourceItemRequestPlugin::create(Resource* resource, std::string quantityExpression) {
+    create_resource_item_request_t* createResourceItemRequest = (create_resource_item_request_t*) _pluginLoader->getAddress(PluginLoader::Plugin<Resource>::_handle, "createResourceItemRequest");
+    return createResourceItemRequest(resource, quantityExpression);
+}
+
+void PluginLoader::ResourcePlugin::ResourceItemRequestPlugin::destroy(ResourceItemRequest* resourceItemRequest) {
+    destroy_plugin_t* destroyResourceItemRequest = (destroy_plugin_t*) _pluginLoader->getAddress(PluginLoader::Plugin<Resource>::_handle, "destroyResourceItemRequest");
+    destroyWriteElement(resourceItemRequest);
 }
 
 // DECIDE
