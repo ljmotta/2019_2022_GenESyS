@@ -182,5 +182,7 @@ private: // not gets or sets
 	unsigned int _lastMemberSeized = 0;
 };
 
+typedef Seize* create_seize_t(Model* model, std::string name);
+
 #endif /* SEIZE_H */
 

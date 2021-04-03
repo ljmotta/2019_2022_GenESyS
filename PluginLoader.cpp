@@ -20,6 +20,12 @@ PluginLoader::PluginLoader(const char* handleRootPath) {
     _assignPlugin = new PluginLoader::AssignPlugin(this);
     _writePlugin = new PluginLoader::WritePlugin(this);
     _setPlugin = new PluginLoader::SetPlugin(this);
+    _resourcePlugin = new PluginLoader::ResourcePlugin(this);
+    _decidePlugin = new PluginLoader::DecidePlugin(this);
+    _queuePlugin = new PluginLoader::QueuePlugin(this);
+    _seizePlugin = new PluginLoader::SeizePlugin(this);
+    _releasePlugin = new PluginLoader::ReleasePlugin(this);
+    _variablePlugin = new PluginLoader::VariablePlugin(this);
 }
 
 void* PluginLoader::open(const char* handleName) {
@@ -90,6 +96,30 @@ PluginLoader::WritePlugin::WriteElementPlugin* PluginLoader::WritePlugin::getWri
 
 PluginLoader::SetPlugin* PluginLoader::getSet() {
     return _setPlugin;
+}
+
+PluginLoader::ResourcePlugin* PluginLoader::getResource() {
+    return _resourcePlugin;
+}
+
+PluginLoader::DecidePlugin* PluginLoader::getDecide() {
+    return _decidePlugin;
+}
+
+PluginLoader::QueuePlugin* PluginLoader::getQueue() {
+    return _queuePlugin;
+}
+
+PluginLoader::SeizePlugin* PluginLoader::getSeize() {
+    return _seizePlugin;
+}
+
+PluginLoader::ReleasePlugin* PluginLoader::getRelease() {
+    return _releasePlugin;
+}
+
+PluginLoader::VariablePlugin* PluginLoader::getVariable() {
+    return _variablePlugin;
 }
 
 // ASSIGN
@@ -163,3 +193,75 @@ Set* PluginLoader::SetPlugin::create(Model* model, std::string name) {
     create_set_t* createSet = (create_set_t*) _pluginLoader->getAddress(PluginLoader::SetPlugin::_handle, "create");
     return createSet(model, name);
 }
+
+// RESOURCE PLUGIN
+
+PluginLoader::ResourcePlugin::ResourcePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Resource>(pluginLoader) {
+    PluginLoader::ResourcePlugin::_pluginLoader = pluginLoader;
+    PluginLoader::ResourcePlugin::_handle = pluginLoader->open("libresource.so");
+}
+
+Resource* PluginLoader::ResourcePlugin::create(Model* model, std::string name) {
+    create_resource_t* createResource = (create_resource_t*) _pluginLoader->getAddress(PluginLoader::ResourcePlugin::_handle, "create");
+    return createResource(model, name);
+}
+
+// DECIDE
+
+PluginLoader::DecidePlugin::DecidePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Decide>(pluginLoader) {
+    PluginLoader::DecidePlugin::_pluginLoader = pluginLoader;
+    PluginLoader::DecidePlugin::_handle = pluginLoader->open("libdecide.so");
+}
+
+Decide* PluginLoader::DecidePlugin::create(Model* model, std::string name) {
+    create_decide_t* createDecide = (create_decide_t*) _pluginLoader->getAddress(PluginLoader::DecidePlugin::_handle, "create");
+    return createDecide(model, name);
+}
+
+// QUEUE
+
+PluginLoader::QueuePlugin::QueuePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Queue>(pluginLoader) {
+    PluginLoader::QueuePlugin::_pluginLoader = pluginLoader;
+    PluginLoader::QueuePlugin::_handle = pluginLoader->open("libqueue.so");
+}
+
+Queue* PluginLoader::QueuePlugin::create(Model* model, std::string name) {
+    create_queue_t* createQueue = (create_queue_t*) _pluginLoader->getAddress(PluginLoader::QueuePlugin::_handle, "create");
+    return createQueue(model, name);
+} 
+
+// SEIZE
+
+PluginLoader::SeizePlugin::SeizePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Seize>(pluginLoader) {
+    PluginLoader::SeizePlugin::_pluginLoader = pluginLoader;
+    PluginLoader::SeizePlugin::_handle = pluginLoader->open("libseize.so");
+}
+
+Seize* PluginLoader::SeizePlugin::create(Model* model, std::string name) {
+    create_seize_t* createSeize = (create_seize_t*) _pluginLoader->getAddress(PluginLoader::SeizePlugin::_handle, "create");
+    return createSeize(model, name);
+} 
+
+// RELEASE
+
+PluginLoader::ReleasePlugin::ReleasePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Release>(pluginLoader) {
+    PluginLoader::ReleasePlugin::_pluginLoader = pluginLoader;
+    PluginLoader::ReleasePlugin::_handle = pluginLoader->open("librelease.so");
+}
+
+Release* PluginLoader::ReleasePlugin::create(Model* model, std::string name) {
+    create_release_t* createRelease = (create_release_t*) _pluginLoader->getAddress(PluginLoader::ReleasePlugin::_handle, "create");
+    return createRelease(model, name);
+} 
+
+// VARIABLE
+
+PluginLoader::VariablePlugin::VariablePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Variable>(pluginLoader) {
+    PluginLoader::VariablePlugin::_pluginLoader = pluginLoader;
+    PluginLoader::VariablePlugin::_handle = pluginLoader->open("libvariable.so");
+}
+
+Variable* PluginLoader::VariablePlugin::create(Model* model, std::string name) {
+    create_variable_t* createVariable = (create_variable_t*) _pluginLoader->getAddress(PluginLoader::VariablePlugin::_handle, "create");
+    return createVariable(model, name);
+} 

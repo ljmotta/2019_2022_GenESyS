@@ -15,8 +15,14 @@
 #define PLUGINLOADER_H
 #include "Assign.h"
 #include "Write.h"
+#include "Resource.h"
 #include "Model.h"
 #include "Set.h"
+#include "Decide.h"
+#include "Queue.h"
+#include "Seize.h"
+#include "Release.h"
+#include "Variable.h"
 
 class PluginLoader {
 public:
@@ -81,14 +87,69 @@ public:
         public:
             Set* create(Model* model, std::string name = "");
     };
+
+    class ResourcePlugin : public Plugin<Resource>{
+        public:
+            ResourcePlugin(PluginLoader* pluginLoader);
+            virtual ~ResourcePlugin() = default;
+        public:
+            Resource* create(Model* model, std::string name = "");
+    };
+    class DecidePlugin : public Plugin<Decide>{
+        public:
+            DecidePlugin(PluginLoader* pluginLoader);
+            virtual ~DecidePlugin() = default;
+        public:
+            Decide* create(Model* model, std::string name = "");
+    };
+    class QueuePlugin : public Plugin<Queue>{
+        public:
+            QueuePlugin(PluginLoader* pluginLoader);
+            virtual ~QueuePlugin() = default;
+        public:
+            Queue* create(Model* model, std::string name = "");
+    };
+    class SeizePlugin : public Plugin<Seize>{
+        public:
+            SeizePlugin(PluginLoader* pluginLoader);
+            virtual ~SeizePlugin() = default;
+        public:
+            Seize* create(Model* model, std::string name = "");
+    };
+    class ReleasePlugin : public Plugin<Release>{
+        public:
+            ReleasePlugin(PluginLoader* pluginLoader);
+            virtual ~ReleasePlugin() = default;
+        public:
+            Release* create(Model* model, std::string name = "");
+    };
+    class VariablePlugin : public Plugin<Variable>{
+        public:
+            VariablePlugin(PluginLoader* pluginLoader);
+            virtual ~VariablePlugin() = default;
+        public:
+            Variable* create(Model* model, std::string name = "");
+    };
 public:
     PluginLoader::AssignPlugin* _assignPlugin;
     PluginLoader::WritePlugin* _writePlugin;
     PluginLoader::SetPlugin* _setPlugin;
+    PluginLoader::ResourcePlugin* _resourcePlugin;
+    PluginLoader::DecidePlugin* _decidePlugin;
+    PluginLoader::QueuePlugin* _queuePlugin;
+    PluginLoader::SeizePlugin* _seizePlugin;
+    PluginLoader::ReleasePlugin* _releasePlugin;
+    PluginLoader::VariablePlugin* _variablePlugin;
 public:
     PluginLoader::AssignPlugin* getAssign();
     PluginLoader::WritePlugin* getWrite();
     PluginLoader::SetPlugin* getSet();
+    PluginLoader::ResourcePlugin* getResource();
+    PluginLoader::DecidePlugin* getDecide();
+    PluginLoader::QueuePlugin* getQueue();
+    PluginLoader::SeizePlugin* getSeize();
+    PluginLoader::ReleasePlugin* getRelease();
+    PluginLoader::VariablePlugin* getVariable();
 public:
     const char*_handleRootPath = "";
 };
