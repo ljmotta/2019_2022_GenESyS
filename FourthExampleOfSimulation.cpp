@@ -43,7 +43,7 @@ FourthExampleOfSimulation::FourthExampleOfSimulation() {
 }
 
 int FourthExampleOfSimulation::main(int argc, char** argv) {
-	PluginLoader* pluginLoader = new PluginLoader("/home/rafael/Documents/ModSim/2019_2022_GenESyS/");
+	PluginLoader* pluginLoader = new PluginLoader("./plugin/");
 	PluginLoader::AssignPlugin* assignPlugin = pluginLoader->getAssign();
 	PluginLoader::WritePlugin* writePlugin = pluginLoader->getWrite();
 	PluginLoader::SetPlugin* setPlugin = pluginLoader->getSet();

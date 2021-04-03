@@ -17,15 +17,12 @@
 #include "../Variable.h"
 #include "../Attribute.h"
 #include "../Resource.h"
-#include <iostream>
 
 extern "C" ModelComponent* create(Model* model) {
-	std::cout << "criando um assign" << std::endl;
     return new Assign(model);
 }
 
 extern "C" void destroy(ModelComponent* modelComponent) {
-	std::cout << "deletando um assign" << std::endl;
     delete modelComponent;
 }
 
@@ -34,7 +31,6 @@ extern "C" Assign::Assignment* createAssignment(std::string arg1, std::string ar
 }
 
 extern "C" void destroyAssignment(Assign::Assignment* assignment) {
-	std::cout << "deletando um assignment !!!!!! " << std::endl;
 	delete assignment;
 }
 
@@ -43,9 +39,7 @@ extern "C" StaticGetPluginInformation getPluginInformation() {
 }
 
 
-Assign::Assign(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Assign>(), name) {
-	std::cout << "construindo um assign" << std::endl;
-}
+Assign::Assign(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Assign>(), name) {}
 
 std::string Assign::show() {
 	return ModelComponent::show() +
@@ -128,8 +122,4 @@ bool Assign::_check(std::string* errorMessage) {
 		resultAll &= _parentModel->checkExpression(let->getExpression(), "assignment", errorMessage);
 	}
 	return resultAll;
-}
-
-void Assign::helloWorld() {
-    std::cout << "Hello from assign =|" << std::endl;
 }

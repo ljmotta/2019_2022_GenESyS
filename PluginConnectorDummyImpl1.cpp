@@ -80,7 +80,7 @@
 	}
 
 	Plugin* PluginConnectorDummyImpl1::connect(const std::string dynamicLibraryFilename) {
-		PluginLoader* pluginLoader = new PluginLoader("/home/rafael/Documents/ModSim/2019_2022_GenESyS/");
+		PluginLoader* pluginLoader = new PluginLoader("./plugin/");
 
 		std::string fn = getFileName(dynamicLibraryFilename);
 		StaticGetPluginInformation GetInfo = nullptr;
