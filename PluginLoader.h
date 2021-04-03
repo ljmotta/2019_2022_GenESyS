@@ -41,6 +41,7 @@ public:
             void* _handle;
             PluginLoader* _pluginLoader;
         public:
+            virtual T* create(Model* model, std::string name = "");
             virtual void* getHandle();
             virtual void destroy(T* instance);
             virtual StaticGetPluginInformation GetPluginInfo();
@@ -50,8 +51,6 @@ public:
         public:
             AssignPlugin(PluginLoader* pluginLoader);
             virtual ~AssignPlugin() = default;
-        public:
-            Assign* create(Model* model);
         public:
             class AssignmentPlugin : public Plugin<Assign> {
                 public:
@@ -68,8 +67,6 @@ public:
             WritePlugin(PluginLoader* pluginLoader);
             virtual ~WritePlugin() = default;
         public:
-            Write* create(Model* model, std::string name = "");
-        public:
             class WriteElementPlugin : public Plugin<Write> {
                 public:
                     WriteElementPlugin(PluginLoader* pluginLoader, void* handle);
@@ -84,51 +81,37 @@ public:
         public:
             SetPlugin(PluginLoader* pluginLoader);
             virtual ~SetPlugin() = default;
-        public:
-            Set* create(Model* model, std::string name = "");
     };
 
     class ResourcePlugin : public Plugin<Resource>{
         public:
             ResourcePlugin(PluginLoader* pluginLoader);
             virtual ~ResourcePlugin() = default;
-        public:
-            Resource* create(Model* model, std::string name = "");
     };
     class DecidePlugin : public Plugin<Decide>{
         public:
             DecidePlugin(PluginLoader* pluginLoader);
             virtual ~DecidePlugin() = default;
-        public:
-            Decide* create(Model* model, std::string name = "");
     };
     class QueuePlugin : public Plugin<Queue>{
         public:
             QueuePlugin(PluginLoader* pluginLoader);
             virtual ~QueuePlugin() = default;
-        public:
-            Queue* create(Model* model, std::string name = "");
     };
     class SeizePlugin : public Plugin<Seize>{
         public:
             SeizePlugin(PluginLoader* pluginLoader);
             virtual ~SeizePlugin() = default;
-        public:
-            Seize* create(Model* model, std::string name = "");
     };
     class ReleasePlugin : public Plugin<Release>{
         public:
             ReleasePlugin(PluginLoader* pluginLoader);
             virtual ~ReleasePlugin() = default;
-        public:
-            Release* create(Model* model, std::string name = "");
     };
     class VariablePlugin : public Plugin<Variable>{
         public:
             VariablePlugin(PluginLoader* pluginLoader);
             virtual ~VariablePlugin() = default;
-        public:
-            Variable* create(Model* model, std::string name = "");
     };
 public:
     PluginLoader::AssignPlugin* _assignPlugin;
@@ -154,7 +137,11 @@ public:
     const char*_handleRootPath = "";
 };
 
-typedef void destroy_plugin_t(void* instance);
-typedef StaticGetPluginInformation get_plugin_information_t();
+template<typename T>
+struct plugin_t {
+    typedef T* create_plugin_t(Model* model, std::string name);
+    typedef void destroy_plugin_t(void* instance);
+    typedef StaticGetPluginInformation get_plugin_information_t();
+};
 
 #endif /* PLUGINLOADER_H */
