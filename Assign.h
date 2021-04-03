@@ -112,7 +112,6 @@ private:
 	List<Assignment*>* _assignments = new List<Assignment*>();
 };
 
-typedef Assign* create_assign_t(Model* model);
 typedef Assign::Assignment* create_assignment_t(std::string arg1, std::string arg2);
 
 #endif /* ASSIGN_H */

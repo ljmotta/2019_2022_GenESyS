@@ -108,7 +108,6 @@ PluginLoader::SetPlugin* PluginLoader::getSet() {
     return _setPlugin;
 }
 
-
 PluginLoader::DisposePlugin* PluginLoader::getDispose() {
     return _disposePlugin;
 }
@@ -119,6 +118,7 @@ PluginLoader::DelayPlugin* PluginLoader::getDelay() {
 
 PluginLoader::CreatePlugin* PluginLoader::getCreate() {
     return _createPlugin;
+}
 
 PluginLoader::ResourcePlugin* PluginLoader::getResource() {
     return _resourcePlugin;
@@ -201,21 +201,11 @@ PluginLoader::SetPlugin::SetPlugin(PluginLoader* pluginLoader) : PluginLoader::P
     PluginLoader::SetPlugin::_handle = pluginLoader->open("libset.so");
 }
 
-Set* PluginLoader::SetPlugin::create(Model* model, std::string name) {
-    create_set_t* createSet = (create_set_t*) _pluginLoader->getAddress(PluginLoader::SetPlugin::_handle, "create");
-    return createSet(model, name);
-}
-
 // Dipose
 
 PluginLoader::DisposePlugin::DisposePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Dispose>(pluginLoader) {
     PluginLoader::DisposePlugin::_pluginLoader = pluginLoader;
     PluginLoader::DisposePlugin::_handle = pluginLoader->open("libdispose.so");
-}
-
-Dispose* PluginLoader::DisposePlugin::create(Model* model, std::string name) {
-    create_dispose_t* createDispose = (create_dispose_t*) _pluginLoader->getAddress(PluginLoader::DisposePlugin::_handle, "create");
-    return createDispose(model, name);
 }
 
 // Delay
@@ -225,20 +215,12 @@ PluginLoader::DelayPlugin::DelayPlugin(PluginLoader* pluginLoader) : PluginLoade
     PluginLoader::DelayPlugin::_handle = pluginLoader->open("libdelay.so");
 }
 
-Delay* PluginLoader::DelayPlugin::create(Model* model, std::string name) {
-    create_delay_t* createDelay = (create_delay_t*) _pluginLoader->getAddress(PluginLoader::DelayPlugin::_handle, "create");
-    return createDelay(model, name);
-}
 // CREATE
 
 PluginLoader::CreatePlugin::CreatePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Create>(pluginLoader) {
     PluginLoader::CreatePlugin::_pluginLoader = pluginLoader;
     PluginLoader::CreatePlugin::_handle = pluginLoader->open("libcreate.so");
 }
-
-Create* PluginLoader::CreatePlugin::create(Model* model, std::string name) {
-    create_create_t* createCreate = (create_create_t*) _pluginLoader->getAddress(PluginLoader::CreatePlugin::_handle, "create");
-    return createCreate(model, name);
 
 // RESOURCE PLUGIN
 

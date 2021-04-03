@@ -84,6 +84,4 @@ private: // children elements
 	Counter* _numberOut = nullptr;
 };
 
-typedef Create* create_create_t(Model* model, std::string name);
-
 #endif /* CREATE_H */

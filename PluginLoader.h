@@ -120,24 +120,18 @@ public:
         public:
             DisposePlugin(PluginLoader* pluginLoader);
             virtual ~DisposePlugin() = default;
-        public:
-            Dispose* create(Model* model, std::string name = "");
     };
 
     class DelayPlugin : public Plugin<Delay> {
         public:
             DelayPlugin(PluginLoader* pluginLoader);
             virtual ~DelayPlugin() = default;
-        public:
-            Delay* create(Model* model, std::string name = "");
     };
 
     class CreatePlugin : public Plugin<Create> {
         public:
             CreatePlugin(PluginLoader* pluginLoader);
             virtual ~CreatePlugin() = default;
-        public:
-            Create* create(Model* model, std::string name = "");
     };
 public:
     PluginLoader::AssignPlugin* _assignPlugin;

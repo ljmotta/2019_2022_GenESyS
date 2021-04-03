@@ -189,7 +189,5 @@ private: // inner children elements
 	Counter* _numReleases;
 };
 
-typedef Resource* create_resource_t(Model* model, std::string name);
-
 #endif /* RESOURCE_H */
 

@@ -8,7 +8,10 @@ SHARED_OBJ_FILES := libassign.so \
 	libseize.so \
 	libvariable.so \
 	libdecide.so \
-	libresource.so
+	libresource.so \
+	libdelay.so \
+	libdispose.so \
+	libcreate.so
 
 .PHONY: all
 
@@ -49,6 +52,18 @@ libdecide.so: Decide.cpp
 libresource.so: Resource.cpp
 	${CC} -fPIC -c Resource.cpp -o Resource.o
 	${CC} -shared -Wl,-soname,libresource.so -o libresource.so Resource.o
+
+libdelay.so: Delay.cpp
+	${CC} -fPIC -c Delay.cpp -o Delay.o
+	${CC} -shared -Wl,-soname,libdelay.so -o libdelay.so Delay.o
+
+libdispose.so: Dispose.cpp
+	${CC} -fPIC -c Dispose.cpp -o Dispose.o
+	${CC} -shared -Wl,-soname,libdispose.so -o libdispose.so Dispose.o
+
+libcreate.so: Create.cpp
+	${CC} -fPIC -c Create.cpp -o Create.o
+	${CC} -shared -Wl,-soname,libcreate.so -o libcreate.so Create.o
 
 clean:
 	$(RM) -r $(BUILD)

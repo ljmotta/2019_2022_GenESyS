@@ -55,6 +55,4 @@ private: // children elements
 	Counter* _numberOut = nullptr;
 };
 
-typedef Dispose* create_dispose_t(Model* model, std::string name);
-
 #endif /* DISPOSE_H */

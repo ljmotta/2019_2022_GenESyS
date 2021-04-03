@@ -137,7 +137,5 @@ private: // inner children elements
 	StatisticsCollector* _cstatTimeInQueue;
 };
 
-typedef Queue* create_queue_t(Model* model, std::string name);
-
 #endif /* QUEUE_H */
 

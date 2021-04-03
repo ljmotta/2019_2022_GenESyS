@@ -330,7 +330,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	writePlugin->getWriteElement()->destroy(writeElement24);
 	writePlugin->getWriteElement()->destroy(writeElement25);
 
-  setPlugin->destroy(machSet);
+  	setPlugin->destroy(machSet);
 	disposePlugin->destroy(dispose1);
 	delayPlugin->destroy(delay1);
 	delayPlugin->destroy(delay2);
@@ -361,7 +361,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	dlclose(seizePlugin->getHandle());
 	dlclose(releasePlugin->getHandle());
 	dlclose(variablePlugin->getHandle());
-  dlclose(disposePlugin->getHandle());
+ 	dlclose(disposePlugin->getHandle());
 	dlclose(delayPlugin->getHandle());
 	dlclose(createPlugin->getHandle());
 	return 0;

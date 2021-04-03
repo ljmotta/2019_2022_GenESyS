@@ -71,7 +71,6 @@ private: // attributes 1:n
 	List<WriteElement*>* _writeElements = new List<WriteElement*>();
 };
 
-typedef Write* create_write_t(Model* model, std::string name);
 typedef WriteElement* create_write_element_t(std::string text, bool isExpression, bool newline);
 
 #endif /* WRITE_H */

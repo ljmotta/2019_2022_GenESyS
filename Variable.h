@@ -119,7 +119,5 @@ private:
 	std::map<std::string, double>* _initialValues = new std::map<std::string, double>();
 };
 
-typedef Variable* create_variable_t(Model* model, std::string name);
-
 #endif /* VARIABLE_H */
 

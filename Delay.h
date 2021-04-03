@@ -68,7 +68,4 @@ private: // inner children elements
 	StatisticsCollector* _cstatWaitTime = nullptr;
 };
 
-typedef Delay* create_delay_t(Model* model, std::string name);
-
-
 #endif /* DELAY_H */
