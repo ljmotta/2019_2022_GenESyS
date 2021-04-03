@@ -94,5 +94,7 @@ private:
 
 };
 
+typedef Decide* create_decide_t(Model* model, std::string name);
+
 #endif /* DECIDE_H */
 

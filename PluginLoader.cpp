@@ -23,6 +23,13 @@ PluginLoader::PluginLoader(const char* handleRootPath) {
     _disposePlugin = new PluginLoader::DisposePlugin(this);
     _delayPlugin = new PluginLoader::DelayPlugin(this);
     _createPlugin = new PluginLoader::CreatePlugin(this);
+    _resourcePlugin = new PluginLoader::ResourcePlugin(this);
+    _decidePlugin = new PluginLoader::DecidePlugin(this);
+    _queuePlugin = new PluginLoader::QueuePlugin(this);
+    _seizePlugin = new PluginLoader::SeizePlugin(this);
+    _releasePlugin = new PluginLoader::ReleasePlugin(this);
+    _variablePlugin = new PluginLoader::VariablePlugin(this);
+
 }
 
 void* PluginLoader::open(const char* handleName) {
@@ -62,14 +69,20 @@ void* PluginLoader::Plugin<T>::getHandle() {
 }
 
 template <typename T>
+T* PluginLoader::Plugin<T>::create(Model* model, std::string name = "") {
+    typename plugin_t<T>::create_plugin_t* createInstance = (typename plugin_t<T>::create_plugin_t*) _pluginLoader->getAddress(PluginLoader::Plugin<T>::_handle, "create");
+    return createInstance(model, name);
+}
+
+template <typename T>
 void PluginLoader::Plugin<T>::destroy(T* instance) {
-    destroy_plugin_t* destroyInstance = (destroy_plugin_t*) _pluginLoader->getAddress(PluginLoader::Plugin<T>::_handle, "destroy");
+    typename plugin_t<T>::destroy_plugin_t* destroyInstance = (typename plugin_t<T>::destroy_plugin_t*) _pluginLoader->getAddress(PluginLoader::Plugin<T>::_handle, "destroy");
     destroyInstance(instance);
 }
 
 template <typename T>
 StaticGetPluginInformation PluginLoader::Plugin<T>::GetPluginInfo() {
-    get_plugin_information_t* getPluginInformation = (get_plugin_information_t* ) _pluginLoader->getAddress(_handle, "getPluginInformation");
+    typename plugin_t<T>::get_plugin_information_t* getPluginInformation = (typename plugin_t<T>::get_plugin_information_t*) _pluginLoader->getAddress(_handle, "getPluginInformation");
     return getPluginInformation();
 };
 
@@ -95,6 +108,7 @@ PluginLoader::SetPlugin* PluginLoader::getSet() {
     return _setPlugin;
 }
 
+
 PluginLoader::DisposePlugin* PluginLoader::getDispose() {
     return _disposePlugin;
 }
@@ -105,6 +119,29 @@ PluginLoader::DelayPlugin* PluginLoader::getDelay() {
 
 PluginLoader::CreatePlugin* PluginLoader::getCreate() {
     return _createPlugin;
+
+PluginLoader::ResourcePlugin* PluginLoader::getResource() {
+    return _resourcePlugin;
+}
+
+PluginLoader::DecidePlugin* PluginLoader::getDecide() {
+    return _decidePlugin;
+}
+
+PluginLoader::QueuePlugin* PluginLoader::getQueue() {
+    return _queuePlugin;
+}
+
+PluginLoader::SeizePlugin* PluginLoader::getSeize() {
+    return _seizePlugin;
+}
+
+PluginLoader::ReleasePlugin* PluginLoader::getRelease() {
+    return _releasePlugin;
+}
+
+PluginLoader::VariablePlugin* PluginLoader::getVariable() {
+    return _variablePlugin;
 }
 
 // ASSIGN
@@ -114,11 +151,6 @@ PluginLoader::AssignPlugin::AssignPlugin(PluginLoader* pluginLoader) : PluginLoa
     PluginLoader::AssignPlugin::_handle = pluginLoader->open("libassign.so");
     _assignmentPlugin = new AssignPlugin::AssignmentPlugin(pluginLoader, _handle);
 };
-
-Assign* PluginLoader::AssignPlugin::create(Model* model) {
-    create_assign_t* createAssign = (create_assign_t*) _pluginLoader->getAddress(PluginLoader::Plugin<Assign>::_handle, "create");
-    return createAssign(model);
-}
 
 // ASSIGMENT
 
@@ -133,7 +165,7 @@ Assign::Assignment* PluginLoader::AssignPlugin::AssignmentPlugin::create(std::st
 }
 
 void PluginLoader::AssignPlugin::AssignmentPlugin::destroy(Assign::Assignment* assigment) {
-    destroy_plugin_t* destroyAssign = (destroy_plugin_t*) _pluginLoader->getAddress(PluginLoader::Plugin<Assign>::_handle, "destroyAssignment");
+    plugin_t<Assign>::destroy_plugin_t* destroyAssign = (plugin_t<Assign>::destroy_plugin_t*) _pluginLoader->getAddress(PluginLoader::Plugin<Assign>::_handle, "destroyAssignment");
     destroyAssign(assigment);
 }
 
@@ -143,11 +175,6 @@ PluginLoader::WritePlugin::WritePlugin(PluginLoader* pluginLoader) : PluginLoade
     PluginLoader::WritePlugin::_pluginLoader = pluginLoader;
     PluginLoader::WritePlugin::_handle = pluginLoader->open("libwrite.so");
     _writeElementPlugin = new WritePlugin::WriteElementPlugin(pluginLoader, _handle);
-}
-
-Write* PluginLoader::WritePlugin::create(Model* model, std::string name) {
-    create_write_t* createWrite = (create_write_t*) _pluginLoader->getAddress(PluginLoader::WritePlugin::_handle, "create");
-    return createWrite(model, name);
 }
 
 // WRITE ELEMENT
@@ -163,7 +190,7 @@ WriteElement* PluginLoader::WritePlugin::WriteElementPlugin::create(std::string 
 }
 
 void PluginLoader::WritePlugin::WriteElementPlugin::destroy(WriteElement* writeElement) {
-    destroy_plugin_t* destroyWriteElement = (destroy_plugin_t*) _pluginLoader->getAddress(PluginLoader::Plugin<Write>::_handle, "destroyWriteElement");
+    plugin_t<Write>::destroy_plugin_t* destroyWriteElement = (plugin_t<Write>::destroy_plugin_t*) _pluginLoader->getAddress(PluginLoader::Plugin<Write>::_handle, "destroyWriteElement");
     destroyWriteElement(writeElement);
 }
 
@@ -212,4 +239,45 @@ PluginLoader::CreatePlugin::CreatePlugin(PluginLoader* pluginLoader) : PluginLoa
 Create* PluginLoader::CreatePlugin::create(Model* model, std::string name) {
     create_create_t* createCreate = (create_create_t*) _pluginLoader->getAddress(PluginLoader::CreatePlugin::_handle, "create");
     return createCreate(model, name);
+
+// RESOURCE PLUGIN
+
+PluginLoader::ResourcePlugin::ResourcePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Resource>(pluginLoader) {
+    PluginLoader::ResourcePlugin::_pluginLoader = pluginLoader;
+    PluginLoader::ResourcePlugin::_handle = pluginLoader->open("libresource.so");
+}
+
+// DECIDE
+
+PluginLoader::DecidePlugin::DecidePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Decide>(pluginLoader) {
+    PluginLoader::DecidePlugin::_pluginLoader = pluginLoader;
+    PluginLoader::DecidePlugin::_handle = pluginLoader->open("libdecide.so");
+}
+
+// QUEUE
+
+PluginLoader::QueuePlugin::QueuePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Queue>(pluginLoader) {
+    PluginLoader::QueuePlugin::_pluginLoader = pluginLoader;
+    PluginLoader::QueuePlugin::_handle = pluginLoader->open("libqueue.so");
+}
+
+// SEIZE
+
+PluginLoader::SeizePlugin::SeizePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Seize>(pluginLoader) {
+    PluginLoader::SeizePlugin::_pluginLoader = pluginLoader;
+    PluginLoader::SeizePlugin::_handle = pluginLoader->open("libseize.so");
+}
+
+// RELEASE
+
+PluginLoader::ReleasePlugin::ReleasePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Release>(pluginLoader) {
+    PluginLoader::ReleasePlugin::_pluginLoader = pluginLoader;
+    PluginLoader::ReleasePlugin::_handle = pluginLoader->open("librelease.so");
+}
+
+// VARIABLE
+
+PluginLoader::VariablePlugin::VariablePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Variable>(pluginLoader) {
+    PluginLoader::VariablePlugin::_pluginLoader = pluginLoader;
+    PluginLoader::VariablePlugin::_handle = pluginLoader->open("libvariable.so");
 }

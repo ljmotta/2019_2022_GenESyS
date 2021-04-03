@@ -80,7 +80,7 @@
 	}
 
 	Plugin* PluginConnectorDummyImpl1::connect(const std::string dynamicLibraryFilename) {
-		PluginLoader* pluginLoader = new PluginLoader("/home/balde/2019_2022_GenESyS/");
+		PluginLoader* pluginLoader = new PluginLoader("./plugin/");
 
 		std::string fn = getFileName(dynamicLibraryFilename);
 		StaticGetPluginInformation GetInfo = nullptr;
@@ -102,9 +102,9 @@
 		//	else if (fn == "ode.so")
 		//		GetInfo = &OLD_ODEelement::GetPluginInformation;
 	else if (fn == "queue.so")
-		GetInfo = &Queue::GetPluginInformation;
+		GetInfo = pluginLoader->getQueue()->GetPluginInfo();
 	else if (fn == "resource.so")
-		GetInfo = &Resource::GetPluginInformation;
+		GetInfo = pluginLoader->getResource()->GetPluginInfo();
 	else if (fn == "set.so")
 		GetInfo = pluginLoader->getSet()->GetPluginInfo();
 	else if (fn == "statisticscollector.so")
@@ -112,14 +112,14 @@
 	else if (fn == "station.so")
 		GetInfo = &Station::GetPluginInformation;
 	else if (fn == "variable.so")
-		GetInfo = &Variable::GetPluginInformation;
+		GetInfo = pluginLoader->getVariable()->GetPluginInfo();
 		// model components
 	else if (fn == "create.so")
 		GetInfo = pluginLoader->getCreate()->GetPluginInfo();
 	else if (fn == "write.so")
 		GetInfo = pluginLoader->getWrite()->GetPluginInfo();
 	else if (fn == "decide.so")
-		GetInfo = &Decide::GetPluginInformation;
+		GetInfo = pluginLoader->getDecide()->GetPluginInfo();
 	else if (fn == "delay.so")
 		GetInfo = pluginLoader->getDelay()->GetPluginInfo();
 	else if (fn == "dispose.so")
@@ -129,9 +129,9 @@
 	else if (fn == "record.so")
 		GetInfo = &Record::GetPluginInformation;
 	else if (fn == "release.so")
-		GetInfo = &Release::GetPluginInformation;
+		GetInfo = pluginLoader->getRelease()->GetPluginInfo();
 	else if (fn == "seize.so")
-		GetInfo = &Seize::GetPluginInformation;
+		GetInfo = pluginLoader->getSeize()->GetPluginInfo();
 	else if (fn == "route.so")
 		GetInfo = &Route::GetPluginInformation;
 	else if (fn == "enter.so")

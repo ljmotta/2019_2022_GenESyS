@@ -346,8 +346,10 @@
           <standard>8</standard>
           <incFile>
             <pElem>Assign.h</pElem>
+            <pElem>Write.h</pElem>
+            <pElem>Set.h</pElem>
           </incFile>
-          <commandLine>-fpermissive -Wl,--export-dynamic -L/home/luiz/Documents/modsim/2019_2022_GenESyS -Wl,-rpath=/home/luiz/Documents/modsim/2019_2022_GenESyS -Wl,--no-as-needed -ldl</commandLine>
+          <commandLine>-fpermissive -Wl,--export-dynamic -L../plugin/ -Wl,-rpath=./plugin/ -Wl,--no-as-needed -ldl</commandLine>
         </ccTool>
         <asmTool>
           <warningLevel>2</warningLevel>

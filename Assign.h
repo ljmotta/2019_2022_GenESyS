@@ -96,7 +96,6 @@ public:
 	virtual ~Assign() = default;
 public:
 	virtual std::string show();
-	virtual void helloWorld();
 public:
 	static PluginInformation* GetPluginInformation();
 	static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
