@@ -18,12 +18,12 @@
 #include "../Attribute.h"
 #include "../Resource.h"
 
-extern "C" ModelComponent* create(Model* model) {
+extern "C" Assign* create(Model* model) {
     return new Assign(model);
 }
 
-extern "C" void destroy(ModelComponent* modelComponent) {
-    delete modelComponent;
+extern "C" void destroy(Assign* assign) {
+    delete assign;
 }
 
 extern "C" Assign::Assignment* createAssignment(std::string arg1, std::string arg2) {
