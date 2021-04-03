@@ -349,7 +349,7 @@
             <pElem>Write.h</pElem>
             <pElem>Set.h</pElem>
           </incFile>
-          <commandLine>-fpermissive -Wl,--export-dynamic -L../plugin/ -Wl,-rpath=./plugin/ -Wl,--no-as-needed -ldl</commandLine>
+          <commandLine>-fpermissive -Wl,--export-dynamic -L../plugin/build/ -Wl,-rpath=./plugin/build/ -Wl,--no-as-needed -ldl</commandLine>
         </ccTool>
         <asmTool>
           <warningLevel>2</warningLevel>

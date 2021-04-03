@@ -146,8 +146,8 @@ OBJECTFILES= \
 CFLAGS=
 
 # CC Compiler Flags
-CCFLAGS=-fpermissive -Wl,--export-dynamic -L../plugin/ -Wl,-rpath=./plugin/ -Wl,--no-as-needed -ldl
-CXXFLAGS=-fpermissive -Wl,--export-dynamic -L../plugin/ -Wl,-rpath=./plugin/ -Wl,--no-as-needed -ldl
+CCFLAGS=-fpermissive -Wl,--export-dynamic -L../plugin/build/ -Wl,-rpath=./plugin/build/ -Wl,--no-as-needed -ldl
+CXXFLAGS=-fpermissive -Wl,--export-dynamic -L../plugin/build/ -Wl,-rpath=./plugin/build/ -Wl,--no-as-needed -ldl
 
 # Fortran Compiler Flags
 FFLAGS=

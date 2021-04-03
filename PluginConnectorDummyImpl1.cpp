@@ -80,7 +80,7 @@
 	}
 
 	Plugin* PluginConnectorDummyImpl1::connect(const std::string dynamicLibraryFilename) {
-		PluginLoader* pluginLoader = new PluginLoader("./plugin/");
+		PluginLoader* pluginLoader = new PluginLoader("./plugin/build/");
 
 		std::string fn = getFileName(dynamicLibraryFilename);
 		StaticGetPluginInformation GetInfo = nullptr;

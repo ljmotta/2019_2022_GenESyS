@@ -43,7 +43,7 @@ FourthExampleOfSimulation::FourthExampleOfSimulation() {
 }
 
 int FourthExampleOfSimulation::main(int argc, char** argv) {
-	PluginLoader* pluginLoader = new PluginLoader("./plugin/");
+	PluginLoader* pluginLoader = new PluginLoader("./plugin/build/");
 	PluginLoader::AssignPlugin* assignPlugin = pluginLoader->getAssign();
 	PluginLoader::WritePlugin* writePlugin = pluginLoader->getWrite();
 	PluginLoader::SetPlugin* setPlugin = pluginLoader->getSet();
@@ -176,7 +176,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		writeElement23 = writePlugin->getWriteElement()->create("AQUE(Queue_Seize_3,2,index)", true, true);
 		writeElement24 = writePlugin->getWriteElement()->create("Tempo médio das entidades na fila 3: ");
 		writeElement25 = writePlugin->getWriteElement()->create("TAVG(Queue_Seize_3.TimeInQueue)", true, true);
-                
+
 		write1->setWriteToType(Write::WriteToType::SCREEN);
 		write1->writeElements()->insert(writeElement1);
 		write1->writeElements()->insert(writeElement2);
