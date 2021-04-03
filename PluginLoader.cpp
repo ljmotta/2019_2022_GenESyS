@@ -102,8 +102,8 @@ PluginLoader::ResourcePlugin* PluginLoader::getResource() {
     return _resourcePlugin;
 }
 
-PluginLoader::ResourcePlugin::ResourceItemRequest* PluginLoader::ResourcePlugin::getResourceItemRequest() {
-    return _resourceItemRequest;
+PluginLoader::ResourcePlugin::ResourceItemRequestPlugin* PluginLoader::ResourcePlugin::getResourceItemRequest() {
+    return _resourceItemRequestPlugin;
 }
 
 PluginLoader::DecidePlugin* PluginLoader::getDecide() {
@@ -112,6 +112,10 @@ PluginLoader::DecidePlugin* PluginLoader::getDecide() {
 
 PluginLoader::QueuePlugin* PluginLoader::getQueue() {
     return _queuePlugin;
+}
+
+PluginLoader::QueuePlugin::WaitingPlugin* PluginLoader::QueuePlugin::getWaiting() {
+    return _waitingPlugin;
 }
 
 PluginLoader::SeizePlugin* PluginLoader::getSeize() {
@@ -203,6 +207,7 @@ Set* PluginLoader::SetPlugin::create(Model* model, std::string name) {
 PluginLoader::ResourcePlugin::ResourcePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Resource>(pluginLoader) {
     PluginLoader::ResourcePlugin::_pluginLoader = pluginLoader;
     PluginLoader::ResourcePlugin::_handle = pluginLoader->open("libresource.so");
+    _resourceItemRequestPlugin = new ResourcePlugin::ResourceItemRequestPlugin(pluginLoader, _handle);
 }
 
 Resource* PluginLoader::ResourcePlugin::create(Model* model, std::string name) {
@@ -224,7 +229,7 @@ ResourceItemRequest* PluginLoader::ResourcePlugin::ResourceItemRequestPlugin::cr
 
 void PluginLoader::ResourcePlugin::ResourceItemRequestPlugin::destroy(ResourceItemRequest* resourceItemRequest) {
     destroy_plugin_t* destroyResourceItemRequest = (destroy_plugin_t*) _pluginLoader->getAddress(PluginLoader::Plugin<Resource>::_handle, "destroyResourceItemRequest");
-    destroyWriteElement(resourceItemRequest);
+    destroyResourceItemRequest(resourceItemRequest);
 }
 
 // DECIDE
@@ -250,6 +255,23 @@ Queue* PluginLoader::QueuePlugin::create(Model* model, std::string name) {
     create_queue_t* createQueue = (create_queue_t*) _pluginLoader->getAddress(PluginLoader::QueuePlugin::_handle, "create");
     return createQueue(model, name);
 } 
+
+// WAITING
+
+PluginLoader::QueuePlugin::WaitingPlugin::WaitingPlugin(PluginLoader* pluginLoader, void* handle) : PluginLoader::Plugin<Queue>(pluginLoader) {
+    _pluginLoader = pluginLoader;
+    _handle = handle;
+};
+
+Waiting* PluginLoader::QueuePlugin::WaitingPlugin::create(Entity* entity, ModelComponent* component, double timeStartedWaiting) {
+    create_waiting_t* createWaiting = (create_waiting_t*) _pluginLoader->getAddress(PluginLoader::Plugin<Queue>::_handle, "createWaiting");
+    return createWaiting(entity, component, timeStartedWaiting);
+}
+
+void PluginLoader::QueuePlugin::WaitingPlugin::destroy(Waiting* waiting) {
+    destroy_plugin_t* destroyWaiting = (destroy_plugin_t*) _pluginLoader->getAddress(PluginLoader::Plugin<Queue>::_handle, "destroyWaiting");
+    destroyWaiting(waiting);
+}
 
 // SEIZE
 

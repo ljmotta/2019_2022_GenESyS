@@ -96,9 +96,10 @@ public:
             Resource* create(Model* model, std::string name = "");
         public:
             class ResourceItemRequestPlugin : public Plugin<Resource> {
-                ResourceItemRequestPlugin(PluginLoader* pluginLoader, void* handle);
-                ResourceItemRequest* create(Resource* resource, std::string quantityExpression = "1");
-                void destroy(ResourceItemRequest* resourceItemRequest);
+                public:
+                    ResourceItemRequestPlugin(PluginLoader* pluginLoader, void* handle);
+                    ResourceItemRequest* create(Resource* resource, std::string quantityExpression = "1");
+                    void destroy(ResourceItemRequest* resourceItemRequest);
             };
             PluginLoader::ResourcePlugin::ResourceItemRequestPlugin* _resourceItemRequestPlugin;
             PluginLoader::ResourcePlugin::ResourceItemRequestPlugin* getResourceItemRequest();
@@ -116,6 +117,14 @@ public:
             virtual ~QueuePlugin() = default;
         public:
             Queue* create(Model* model, std::string name = "");
+        public:
+            class WaitingPlugin : public Plugin<Queue> {
+                WaitingPlugin(PluginLoader* pluginLoader, void *handle);
+                Waiting* create(Entity* entity, ModelComponent* component, double timeStartedWaiting);
+                void destroy(Waiting* waiting);
+            };
+            PluginLoader::QueuePlugin::WaitingPlugin* _waitingPlugin;
+            PluginLoader::QueuePlugin::WaitingPlugin* getWaiting();
     };
     class SeizePlugin : public Plugin<Seize>{
         public:

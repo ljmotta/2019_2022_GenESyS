@@ -27,6 +27,14 @@ extern "C" StaticGetPluginInformation getPluginInformation() {
 	return &Queue::GetPluginInformation;
 }
 
+extern "C" Waiting* createWaiting(Entity* entity, ModelComponent* component, double timeStartedWaiting) {
+    return new Waiting(entity, component, timeStartedWaiting);
+}
+
+extern "C" void destroyWaiting(Waiting* waiting) {
+    delete waiting;
+}
+
 Queue::Queue(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Queue>(), name) {
 }
 

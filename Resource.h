@@ -190,6 +190,7 @@ private: // inner children elements
 };
 
 typedef Resource* create_resource_t(Model* model, std::string name);
+typedef ResourceItemRequest* create_resource_item_request_t(Resource* resource, std::string quantityExpression);
 
 #endif /* RESOURCE_H */
 

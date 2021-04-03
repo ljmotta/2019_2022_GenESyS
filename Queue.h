@@ -138,6 +138,7 @@ private: // inner children elements
 };
 
 typedef Queue* create_queue_t(Model* model, std::string name);
+typedef Waiting* create_waiting_t(Entity* entity, ModelComponent* component, double timeStartedWaiting);
 
 #endif /* QUEUE_H */
 
