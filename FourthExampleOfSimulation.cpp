@@ -76,6 +76,21 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	WriteElement* writeElement8;
 	WriteElement* writeElement9;
 	WriteElement* writeElement10;
+	WriteElement* writeElement11;
+	WriteElement* writeElement12;
+	WriteElement* writeElement13;
+	WriteElement* writeElement14;
+	WriteElement* writeElement15;
+	WriteElement* writeElement16;
+	WriteElement* writeElement17;
+	WriteElement* writeElement18;
+	WriteElement* writeElement19;
+	WriteElement* writeElement20;
+	WriteElement* writeElement21;
+	WriteElement* writeElement22;
+	WriteElement* writeElement23;
+	WriteElement* writeElement24;
+	WriteElement* writeElement25;
 
 	Set* machSet;
 	Resource* machine1;
@@ -134,6 +149,21 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		writeElement8 = writePlugin->getWriteElement()->create(", ");
 		writeElement9 = writePlugin->getWriteElement()->create("NR(Machine_3)", true, true);
 		writeElement10 = writePlugin->getWriteElement()->create("Estado das máquinas: ");
+		writeElement11 = writePlugin->getWriteElement()->create("STATE(Machine_1)", true);
+		writeElement12 = writePlugin->getWriteElement()->create(", ");
+		writeElement13 = writePlugin->getWriteElement()->create("STATE(Machine_2)", true);
+		writeElement14 = writePlugin->getWriteElement()->create(", ");
+		writeElement15 = writePlugin->getWriteElement()->create("STATE(Machine_3)", true, true);
+		writeElement16 = writePlugin->getWriteElement()->create("Quantidade de máquinas ocupadas no Set: ");
+		writeElement17 = writePlugin->getWriteElement()->create("SETSUM(Machine_Set)", true, true);
+		writeElement18 = writePlugin->getWriteElement()->create("Quantidade de entidades na fila 3: ");
+		writeElement19 = writePlugin->getWriteElement()->create("NQ(Queue_Seize_3)", true, true);
+		writeElement20 = writePlugin->getWriteElement()->create("Somatório do atributo 'index' das entidades na fila 3: ");
+		writeElement21 = writePlugin->getWriteElement()->create("SAQUE(Queue_Seize_3,index)", true, true);
+		writeElement22 = writePlugin->getWriteElement()->create("Valor do atributo 'index' da 2ª entidade na fila 3: ");
+		writeElement23 = writePlugin->getWriteElement()->create("AQUE(Queue_Seize_3,2,index)", true, true);
+		writeElement24 = writePlugin->getWriteElement()->create("Tempo médio das entidades na fila 3: ");
+		writeElement25 = writePlugin->getWriteElement()->create("TAVG(Queue_Seize_3.TimeInQueue)", true, true);
                 
                 
 		write1->setWriteToType(Write::WriteToType::SCREEN);
@@ -147,22 +177,21 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		write1->writeElements()->insert(writeElement8);
 		write1->writeElements()->insert(writeElement9);
 		write1->writeElements()->insert(writeElement10);
-//		write1->writeElements()->insert(new WriteElement("Estado das máquinas: "));
-//		write1->writeElements()->insert(new WriteElement("STATE(Machine_1)", true));
-//		write1->writeElements()->insert(new WriteElement(", "));
-//		write1->writeElements()->insert(new WriteElement("STATE(Machine_2)", true));
-//		write1->writeElements()->insert(new WriteElement(", "));
-//		write1->writeElements()->insert(new WriteElement("STATE(Machine_3)", true, true));
-//		write1->writeElements()->insert(new WriteElement("Quantidade de máquinas ocupadas no Set: "));
-//		write1->writeElements()->insert(new WriteElement("SETSUM(Machine_Set)", true, true));
-//		write1->writeElements()->insert(new WriteElement("Quantidade de entidades na fila 3: "));
-//		write1->writeElements()->insert(new WriteElement("NQ(Queue_Seize_3)", true, true));
-//		write1->writeElements()->insert(new WriteElement("Somatório do atributo 'index' das entidades na fila 3: "));
-//		write1->writeElements()->insert(new WriteElement("SAQUE(Queue_Seize_3,index)", true, true));
-//		write1->writeElements()->insert(new WriteElement("Valor do atributo 'index' da 2ª entidade na fila 3: "));
-//		write1->writeElements()->insert(new WriteElement("AQUE(Queue_Seize_3,2,index)", true, true));
-//		write1->writeElements()->insert(new WriteElement("Tempo médio das entidades na fila 3: "));
-//		write1->writeElements()->insert(new WriteElement("TAVG(Queue_Seize_3.TimeInQueue)", true, true));
+		write1->writeElements()->insert(writeElement11);
+		write1->writeElements()->insert(writeElement12);
+		write1->writeElements()->insert(writeElement13);
+		write1->writeElements()->insert(writeElement14);
+		write1->writeElements()->insert(writeElement15);
+		write1->writeElements()->insert(writeElement16);
+		write1->writeElements()->insert(writeElement17);
+		write1->writeElements()->insert(writeElement18);
+		write1->writeElements()->insert(writeElement19);
+		write1->writeElements()->insert(writeElement20);
+		write1->writeElements()->insert(writeElement21);
+		write1->writeElements()->insert(writeElement22);
+		write1->writeElements()->insert(writeElement23);
+		write1->writeElements()->insert(writeElement24);
+		write1->writeElements()->insert(writeElement25);
 		// model->insert(write1);
 		//
 		machine1 = resourcePlugin->create(model, "Machine_1");
@@ -274,6 +303,21 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	writePlugin->getWriteElement()->destroy(writeElement8);
 	writePlugin->getWriteElement()->destroy(writeElement9);
 	writePlugin->getWriteElement()->destroy(writeElement10);
+	writePlugin->getWriteElement()->destroy(writeElement11);
+	writePlugin->getWriteElement()->destroy(writeElement12);
+	writePlugin->getWriteElement()->destroy(writeElement13);
+	writePlugin->getWriteElement()->destroy(writeElement14);
+	writePlugin->getWriteElement()->destroy(writeElement15);
+	writePlugin->getWriteElement()->destroy(writeElement16);
+	writePlugin->getWriteElement()->destroy(writeElement17);
+	writePlugin->getWriteElement()->destroy(writeElement18);
+	writePlugin->getWriteElement()->destroy(writeElement19);
+	writePlugin->getWriteElement()->destroy(writeElement20);
+	writePlugin->getWriteElement()->destroy(writeElement21);
+	writePlugin->getWriteElement()->destroy(writeElement22);
+	writePlugin->getWriteElement()->destroy(writeElement23);
+	writePlugin->getWriteElement()->destroy(writeElement24);
+	writePlugin->getWriteElement()->destroy(writeElement25);
     setPlugin->destroy(machSet);
 	resourcePlugin->destroy(machine1);
 	resourcePlugin->destroy(machine2);
@@ -285,6 +329,10 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	seizePlugin->destroy(seize1);
 	seizePlugin->destroy(seize2);
 	seizePlugin->destroy(seize3);
+	releasePlugin->destroy(release1);
+	releasePlugin->destroy(release2);
+	releasePlugin->destroy(release3);
+	variablePlugin->destroy(var1);
 	dlclose(assignPlugin->getHandle());
 	dlclose(writePlugin->getHandle());
 	dlclose(setPlugin->getHandle());
@@ -292,6 +340,8 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	dlclose(decidePlugin->getHandle());
 	dlclose(queuePlugin->getHandle());
 	dlclose(seizePlugin->getHandle());
+	dlclose(releasePlugin->getHandle());
+	dlclose(variablePlugin->getHandle());
 	return 0;
 }
 
