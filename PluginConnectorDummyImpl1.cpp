@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   PluginConnectorDummyImpl1.cpp
  * Author: rlcancian
- * 
+ *
  * Created on 9 de Setembro de 2019, 19:24
  */
 
@@ -115,15 +115,15 @@
 		GetInfo = pluginLoader->getVariable()->GetPluginInfo();
 		// model components
 	else if (fn == "create.so")
-		GetInfo = &Create::GetPluginInformation;
+		GetInfo = pluginLoader->getCreate()->GetPluginInfo();
 	else if (fn == "write.so")
 		GetInfo = pluginLoader->getWrite()->GetPluginInfo();
 	else if (fn == "decide.so")
 		GetInfo = pluginLoader->getDecide()->GetPluginInfo();
 	else if (fn == "delay.so")
-		GetInfo = &Delay::GetPluginInformation;
+		GetInfo = pluginLoader->getDelay()->GetPluginInfo();
 	else if (fn == "dispose.so")
-		GetInfo = &Dispose::GetPluginInformation;
+		GetInfo = pluginLoader->getDispose()->GetPluginInfo();
 	else if (fn == "dummy.so")
 		GetInfo = &Dummy::GetPluginInformation;
 	else if (fn == "record.so")

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   Dispose.h
  * Author: rafael.luiz.cancian
  *
@@ -33,7 +33,7 @@ Record Entity Statistics Determines whether or not the incoming entity’s stati
 recorded. Statistics include value-added time, non-value-added
 time, wait time, transfer time, other time, total time, value-added
 cost, non-value-added cost, wait cost, transfer cost, other cost,
-and total cost. 
+and total cost.
  */
 class Dispose : public SinkModelComponent {
 public:
@@ -55,5 +55,6 @@ private: // children elements
 	Counter* _numberOut = nullptr;
 };
 
-#endif /* DISPOSE_H */
+typedef Dispose* create_dispose_t(Model* model, std::string name);
 
+#endif /* DISPOSE_H */

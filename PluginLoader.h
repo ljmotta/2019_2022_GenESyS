@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   PluginLoader.h
  * Author: luiz
  *
@@ -18,6 +18,9 @@
 #include "Resource.h"
 #include "Model.h"
 #include "Set.h"
+#include "Dispose.h"
+#include "Delay.h"
+#include "Create.h"
 #include "Decide.h"
 #include "Queue.h"
 #include "Seize.h"
@@ -46,7 +49,7 @@ public:
             virtual void destroy(T* instance);
             virtual StaticGetPluginInformation GetPluginInfo();
     };
-    
+
     class AssignPlugin : public Plugin<Assign> {
         public:
             AssignPlugin(PluginLoader* pluginLoader);
@@ -113,26 +116,57 @@ public:
             VariablePlugin(PluginLoader* pluginLoader);
             virtual ~VariablePlugin() = default;
     };
+    class DisposePlugin : public Plugin<Dispose> {
+        public:
+            DisposePlugin(PluginLoader* pluginLoader);
+            virtual ~DisposePlugin() = default;
+        public:
+            Dispose* create(Model* model, std::string name = "");
+    };
+
+    class DelayPlugin : public Plugin<Delay> {
+        public:
+            DelayPlugin(PluginLoader* pluginLoader);
+            virtual ~DelayPlugin() = default;
+        public:
+            Delay* create(Model* model, std::string name = "");
+    };
+
+    class CreatePlugin : public Plugin<Create> {
+        public:
+            CreatePlugin(PluginLoader* pluginLoader);
+            virtual ~CreatePlugin() = default;
+        public:
+            Create* create(Model* model, std::string name = "");
+    };
 public:
     PluginLoader::AssignPlugin* _assignPlugin;
     PluginLoader::WritePlugin* _writePlugin;
     PluginLoader::SetPlugin* _setPlugin;
+    PluginLoader::DisposePlugin* _disposePlugin;
+    PluginLoader::DelayPlugin* _delayPlugin;
+    PluginLoader::CreatePlugin* _createPlugin;
     PluginLoader::ResourcePlugin* _resourcePlugin;
     PluginLoader::DecidePlugin* _decidePlugin;
     PluginLoader::QueuePlugin* _queuePlugin;
     PluginLoader::SeizePlugin* _seizePlugin;
     PluginLoader::ReleasePlugin* _releasePlugin;
     PluginLoader::VariablePlugin* _variablePlugin;
+
 public:
     PluginLoader::AssignPlugin* getAssign();
     PluginLoader::WritePlugin* getWrite();
     PluginLoader::SetPlugin* getSet();
+    PluginLoader::DisposePlugin* getDispose();
+    PluginLoader::DelayPlugin* getDelay();
+    PluginLoader::CreatePlugin* getCreate();
     PluginLoader::ResourcePlugin* getResource();
     PluginLoader::DecidePlugin* getDecide();
     PluginLoader::QueuePlugin* getQueue();
     PluginLoader::SeizePlugin* getSeize();
     PluginLoader::ReleasePlugin* getRelease();
     PluginLoader::VariablePlugin* getVariable();
+
 public:
     const char*_handleRootPath = "";
 };

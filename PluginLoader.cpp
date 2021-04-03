@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   PluginLoader.cpp
  * Author: luiz
- * 
+ *
  * Created on 1 de Abril de 2021, 22:42
  */
 
@@ -20,12 +20,16 @@ PluginLoader::PluginLoader(const char* handleRootPath) {
     _assignPlugin = new PluginLoader::AssignPlugin(this);
     _writePlugin = new PluginLoader::WritePlugin(this);
     _setPlugin = new PluginLoader::SetPlugin(this);
+    _disposePlugin = new PluginLoader::DisposePlugin(this);
+    _delayPlugin = new PluginLoader::DelayPlugin(this);
+    _createPlugin = new PluginLoader::CreatePlugin(this);
     _resourcePlugin = new PluginLoader::ResourcePlugin(this);
     _decidePlugin = new PluginLoader::DecidePlugin(this);
     _queuePlugin = new PluginLoader::QueuePlugin(this);
     _seizePlugin = new PluginLoader::SeizePlugin(this);
     _releasePlugin = new PluginLoader::ReleasePlugin(this);
     _variablePlugin = new PluginLoader::VariablePlugin(this);
+
 }
 
 void* PluginLoader::open(const char* handleName) {
@@ -83,7 +87,7 @@ StaticGetPluginInformation PluginLoader::Plugin<T>::GetPluginInfo() {
 };
 
 // GETTERS
- 
+
 PluginLoader::AssignPlugin* PluginLoader::getAssign() {
     return _assignPlugin;
 }
@@ -103,6 +107,18 @@ PluginLoader::WritePlugin::WriteElementPlugin* PluginLoader::WritePlugin::getWri
 PluginLoader::SetPlugin* PluginLoader::getSet() {
     return _setPlugin;
 }
+
+
+PluginLoader::DisposePlugin* PluginLoader::getDispose() {
+    return _disposePlugin;
+}
+
+PluginLoader::DelayPlugin* PluginLoader::getDelay() {
+    return _delayPlugin;
+}
+
+PluginLoader::CreatePlugin* PluginLoader::getCreate() {
+    return _createPlugin;
 
 PluginLoader::ResourcePlugin* PluginLoader::getResource() {
     return _resourcePlugin;
@@ -184,6 +200,45 @@ PluginLoader::SetPlugin::SetPlugin(PluginLoader* pluginLoader) : PluginLoader::P
     PluginLoader::SetPlugin::_pluginLoader = pluginLoader;
     PluginLoader::SetPlugin::_handle = pluginLoader->open("libset.so");
 }
+
+Set* PluginLoader::SetPlugin::create(Model* model, std::string name) {
+    create_set_t* createSet = (create_set_t*) _pluginLoader->getAddress(PluginLoader::SetPlugin::_handle, "create");
+    return createSet(model, name);
+}
+
+// Dipose
+
+PluginLoader::DisposePlugin::DisposePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Dispose>(pluginLoader) {
+    PluginLoader::DisposePlugin::_pluginLoader = pluginLoader;
+    PluginLoader::DisposePlugin::_handle = pluginLoader->open("libdispose.so");
+}
+
+Dispose* PluginLoader::DisposePlugin::create(Model* model, std::string name) {
+    create_dispose_t* createDispose = (create_dispose_t*) _pluginLoader->getAddress(PluginLoader::DisposePlugin::_handle, "create");
+    return createDispose(model, name);
+}
+
+// Delay
+
+PluginLoader::DelayPlugin::DelayPlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Delay>(pluginLoader) {
+    PluginLoader::DelayPlugin::_pluginLoader = pluginLoader;
+    PluginLoader::DelayPlugin::_handle = pluginLoader->open("libdelay.so");
+}
+
+Delay* PluginLoader::DelayPlugin::create(Model* model, std::string name) {
+    create_delay_t* createDelay = (create_delay_t*) _pluginLoader->getAddress(PluginLoader::DelayPlugin::_handle, "create");
+    return createDelay(model, name);
+}
+// CREATE
+
+PluginLoader::CreatePlugin::CreatePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Create>(pluginLoader) {
+    PluginLoader::CreatePlugin::_pluginLoader = pluginLoader;
+    PluginLoader::CreatePlugin::_handle = pluginLoader->open("libcreate.so");
+}
+
+Create* PluginLoader::CreatePlugin::create(Model* model, std::string name) {
+    create_create_t* createCreate = (create_create_t*) _pluginLoader->getAddress(PluginLoader::CreatePlugin::_handle, "create");
+    return createCreate(model, name);
 
 // RESOURCE PLUGIN
 

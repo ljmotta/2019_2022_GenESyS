@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   FourthExampleOfSimulation.cpp
  * Author: rlcancian
- * 
+ *
  * Created on 24 de Setembro de 2019, 20:56
  */
 
@@ -47,13 +47,16 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	PluginLoader::AssignPlugin* assignPlugin = pluginLoader->getAssign();
 	PluginLoader::WritePlugin* writePlugin = pluginLoader->getWrite();
 	PluginLoader::SetPlugin* setPlugin = pluginLoader->getSet();
+	PluginLoader::DisposePlugin* disposePlugin = pluginLoader->getDispose();
+	PluginLoader::DelayPlugin* delayPlugin = pluginLoader->getDelay();
+	PluginLoader::CreatePlugin* createPlugin = pluginLoader->getCreate();
 	PluginLoader::ResourcePlugin* resourcePlugin = pluginLoader->getResource();
 	PluginLoader::DecidePlugin* decidePlugin = pluginLoader->getDecide();
 	PluginLoader::QueuePlugin* queuePlugin = pluginLoader->getQueue();
 	PluginLoader::SeizePlugin* seizePlugin = pluginLoader->getSeize();
 	PluginLoader::ReleasePlugin* releasePlugin = pluginLoader->getRelease();
 	PluginLoader::VariablePlugin* variablePlugin = pluginLoader->getVariable();
-	
+
 	Simulator* simulator = new Simulator();
 	simulator->getTracer()->setTraceLevel(Util::TraceLevel::everythingMostDetailed); //modelResult); //componentArrival);
 	this->setDefaultTraceHandlers(simulator->getTracer());
@@ -64,7 +67,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	Assign* assign;
 	Assign::Assignment* assigment1;
 	Assign::Assignment* assigment2;
-        
+
 	Write* write1;
 	WriteElement* writeElement1;
 	WriteElement* writeElement2;
@@ -93,6 +96,15 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	WriteElement* writeElement25;
 
 	Set* machSet;
+
+	Dispose* dispose1;
+
+	Delay* delay1;
+	Delay* delay2;
+	Delay* delay3;
+
+	Create* create1;
+
 	Resource* machine1;
 	Resource* machine2;
 	Resource* machine3;
@@ -121,7 +133,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		infos->setReplicationLength(100);
 		EntityType* part = new EntityType(model, "Part");
 		// model->insert(part);
-		Create* create1 = new Create(model);
+		create1 = createPlugin->create(model);
 		create1->setEntityType(part);
 		create1->setTimeBetweenCreationsExpression("norm(1.5,0.5)");
 		create1->setTimeUnit(Util::TimeUnit::second);
@@ -164,7 +176,6 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		writeElement23 = writePlugin->getWriteElement()->create("AQUE(Queue_Seize_3,2,index)", true, true);
 		writeElement24 = writePlugin->getWriteElement()->create("Tempo médio das entidades na fila 3: ");
 		writeElement25 = writePlugin->getWriteElement()->create("TAVG(Queue_Seize_3.TimeInQueue)", true, true);
-                
                 
 		write1->setWriteToType(Write::WriteToType::SCREEN);
 		write1->writeElements()->insert(writeElement1);
@@ -221,7 +232,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		seize1->setSeizeRequest(new ResourceItemRequest(machine1));
 		seize1->setQueue(queueSeize1);
 		// model->insert(seize1);
-		Delay* delay1 = new Delay(model);
+		delay1 = delayPlugin->create(model);
 		delay1->setDelayExpression("norm(15,1)");
 		delay1->setDelayTimeUnit(Util::TimeUnit::second);
 		// model->insert(delay1);
@@ -235,7 +246,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		seize2->setSeizeRequest(new ResourceItemRequest(machine2));
 		seize2->setQueue(queueSeize2);
 		// model->insert(seize2);
-		Delay* delay2 = new Delay(model);
+		delay2 = delayPlugin->create(model);
 		delay2->setDelayExpression("norm(15,1)");
 		delay2->setDelayTimeUnit(Util::TimeUnit::second);
 		// model->insert(delay2);
@@ -251,14 +262,14 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		seize3->setSeizeRequest(new ResourceItemRequest(machine3));
 		seize3->setQueue(queueSeize3);
 		// model->insert(seize3);
-		Delay* delay3 = new Delay(model);
+		delay3 = delayPlugin->create(model);
 		delay3->setDelayExpression("norm(15,1)");
 		delay3->setDelayTimeUnit(Util::TimeUnit::second);
 		// model->insert(delay3);
 		release3 = releasePlugin->create(model);
 		release3->setReleaseRequest(new ResourceItemRequest(machine3));
 		// model->insert(release3);
-		Dispose* dispose1 = new Dispose(model);
+		dispose1 = disposePlugin->create(model);
 		// model->insert(dispose1);
 		//
 		create1->getNextComponents()->insert(assign);
@@ -288,7 +299,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	// std::cout << "abc" << std::endl;
 	this->setDefaultEventHandlers(model->getOnEvents());
 	model->getSimulation()->start();
-	
+
 	assignPlugin->destroy(assign);
 	assignPlugin->getAssignment()->destroy(assigment1);
 	assignPlugin->getAssignment()->destroy(assigment2);
@@ -318,7 +329,14 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	writePlugin->getWriteElement()->destroy(writeElement23);
 	writePlugin->getWriteElement()->destroy(writeElement24);
 	writePlugin->getWriteElement()->destroy(writeElement25);
-    setPlugin->destroy(machSet);
+
+  setPlugin->destroy(machSet);
+	disposePlugin->destroy(dispose1);
+	delayPlugin->destroy(delay1);
+	delayPlugin->destroy(delay2);
+	delayPlugin->destroy(delay3);
+	createPlugin->destroy(create1);
+
 	resourcePlugin->destroy(machine1);
 	resourcePlugin->destroy(machine2);
 	resourcePlugin->destroy(machine3);
@@ -333,6 +351,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	releasePlugin->destroy(release2);
 	releasePlugin->destroy(release3);
 	variablePlugin->destroy(var1);
+
 	dlclose(assignPlugin->getHandle());
 	dlclose(writePlugin->getHandle());
 	dlclose(setPlugin->getHandle());
@@ -342,6 +361,8 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	dlclose(seizePlugin->getHandle());
 	dlclose(releasePlugin->getHandle());
 	dlclose(variablePlugin->getHandle());
+  dlclose(disposePlugin->getHandle());
+	dlclose(delayPlugin->getHandle());
+	dlclose(createPlugin->getHandle());
 	return 0;
 }
-
