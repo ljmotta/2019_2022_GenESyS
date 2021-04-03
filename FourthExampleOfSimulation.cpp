@@ -259,10 +259,16 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 
     setPlugin->destroy(machSet);
 	disposePlugin->destroy(dispose1);
+	delayPlugin->destroy(delay1);
+	delayPlugin->destroy(delay2);
+	delayPlugin->destroy(delay3);
+	createPlugin->destroy(create1);
 
 	dlclose(assignPlugin->getHandle());
 	dlclose(writePlugin->getHandle());
 	dlclose(setPlugin->getHandle());
 	dlclose(disposePlugin->getHandle());
+	dlclose(delayPlugin->getHandle());
+	dlclose(createPlugin->getHandle());
 	return 0;
 }
