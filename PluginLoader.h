@@ -19,7 +19,7 @@
 #include "Set.h"
 #include "Dispose.h"
 #include "Delay.h"
-
+#include "Create.h"
 class PluginLoader {
 public:
     PluginLoader(const char* handleRootPath);
@@ -98,18 +98,28 @@ public:
         public:
             Delay* create(Model* model, std::string name = "");
     };
+
+    class CreatePlugin : public Plugin<Create> {
+        public:
+            CreatePlugin(PluginLoader* pluginLoader);
+            virtual ~CreatePlugin() = default;
+        public:
+            Create* create(Model* model, std::string name = "");
+    };
 public:
     PluginLoader::AssignPlugin* _assignPlugin;
     PluginLoader::WritePlugin* _writePlugin;
     PluginLoader::SetPlugin* _setPlugin;
     PluginLoader::DisposePlugin* _disposePlugin;
     PluginLoader::DelayPlugin* _delayPlugin;
+    PluginLoader::CreatePlugin* _createPlugin;
 public:
     PluginLoader::AssignPlugin* getAssign();
     PluginLoader::WritePlugin* getWrite();
     PluginLoader::SetPlugin* getSet();
     PluginLoader::DisposePlugin* getDispose();
     PluginLoader::DelayPlugin* getDelay();
+    PluginLoader::CreatePlugin* getCreate();
 public:
     const char*_handleRootPath = "";
 };

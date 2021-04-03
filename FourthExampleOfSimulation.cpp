@@ -48,6 +48,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	PluginLoader::SetPlugin* setPlugin = pluginLoader->getSet();
 	PluginLoader::DisposePlugin* disposePlugin = pluginLoader->getDispose();
 	PluginLoader::DelayPlugin* delayPlugin = pluginLoader->getDelay();
+	PluginLoader::CreatePlugin* createPlugin = pluginLoader->getCreate();
 
 	Simulator* simulator = new Simulator();
 	simulator->getTracer()->setTraceLevel(Util::TraceLevel::everythingMostDetailed); //modelResult); //componentArrival);
@@ -80,6 +81,8 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	Delay* delay2;
 	Delay* delay3;
 
+	Create* create1;
+
 	if (wantToCreateNewModelAndSaveInsteadOfJustLoad) {
 		model = new Model(simulator);
 		// build the simulation model
@@ -88,7 +91,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		infos->setReplicationLength(100);
 		EntityType* part = new EntityType(model, "Part");
 		// model->insert(part);
-		Create* create1 = new Create(model);
+		create1 = createPlugin->create(model);
 		create1->setEntityType(part);
 		create1->setTimeBetweenCreationsExpression("norm(1.5,0.5)");
 		create1->setTimeUnit(Util::TimeUnit::second);

@@ -22,6 +22,7 @@ PluginLoader::PluginLoader(const char* handleRootPath) {
     _setPlugin = new PluginLoader::SetPlugin(this);
     _disposePlugin = new PluginLoader::DisposePlugin(this);
     _delayPlugin = new PluginLoader::DelayPlugin(this);
+    _createPlugin = new PluginLoader::CreatePlugin(this);
 }
 
 void* PluginLoader::open(const char* handleName) {
@@ -100,6 +101,10 @@ PluginLoader::DisposePlugin* PluginLoader::getDispose() {
 
 PluginLoader::DelayPlugin* PluginLoader::getDelay() {
     return _delayPlugin;
+}
+
+PluginLoader::CreatePlugin* PluginLoader::getCreate() {
+    return _createPlugin;
 }
 
 // ASSIGN
@@ -196,4 +201,15 @@ PluginLoader::DelayPlugin::DelayPlugin(PluginLoader* pluginLoader) : PluginLoade
 Delay* PluginLoader::DelayPlugin::create(Model* model, std::string name) {
     create_delay_t* createDelay = (create_delay_t*) _pluginLoader->getAddress(PluginLoader::DelayPlugin::_handle, "create");
     return createDelay(model, name);
+}
+// CREATE
+
+PluginLoader::CreatePlugin::CreatePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Create>(pluginLoader) {
+    PluginLoader::CreatePlugin::_pluginLoader = pluginLoader;
+    PluginLoader::CreatePlugin::_handle = pluginLoader->open("libcreate.so");
+}
+
+Create* PluginLoader::CreatePlugin::create(Model* model, std::string name) {
+    create_create_t* createCreate = (create_create_t*) _pluginLoader->getAddress(PluginLoader::CreatePlugin::_handle, "create");
+    return createCreate(model, name);
 }

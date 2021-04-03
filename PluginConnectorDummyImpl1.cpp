@@ -115,7 +115,7 @@
 		GetInfo = &Variable::GetPluginInformation;
 		// model components
 	else if (fn == "create.so")
-		GetInfo = &Create::GetPluginInformation;
+		GetInfo = pluginLoader->getCreate()->GetPluginInfo();
 	else if (fn == "write.so")
 		GetInfo = pluginLoader->getWrite()->GetPluginInfo();
 	else if (fn == "decide.so")
