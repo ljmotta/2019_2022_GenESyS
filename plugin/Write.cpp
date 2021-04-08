@@ -16,22 +16,6 @@
 
 #include <fstream>
 
-extern "C" Write* create(Model* model, std::string name = "") {
-    return new Write(model, name);
-}
-
-extern "C" void destroy(Write* write) {
-    delete write;
-}
-
-extern "C" WriteElement* createWriteElement(std::string text, bool isExpression = false, bool newline = false) {
-    return new WriteElement(text, isExpression, newline);
-}
-
-extern "C" void destroyWriteElement(WriteElement* writeElement) {
-    delete writeElement;
-}
-
 extern "C" StaticGetPluginInformation getPluginInformation() {
 	return &Write::GetPluginInformation;
 }
@@ -50,6 +34,11 @@ ModelComponent* Write::LoadInstance(Model* model, std::map<std::string, std::str
 	} catch (const std::exception& e) {
 
 	}
+	return newComponent;
+}
+
+ModelComponent* Write::CreateInstance(Model* model, std::string name) {
+	Write* newComponent = new Write(model, name);
 	return newComponent;
 }
 
@@ -164,7 +153,7 @@ bool Write::_check(std::string* errorMessage) {
 }
 
 PluginInformation* Write::GetPluginInformation() {
-	PluginInformation* info = new PluginInformation(Util::TypeOf<Write>(), &Write::LoadInstance);
+	PluginInformation* info = new PluginInformation(Util::TypeOf<Write>(), &Write::LoadInstance, &Write::CreateInstance);
 	// ...
 	return info;
 }

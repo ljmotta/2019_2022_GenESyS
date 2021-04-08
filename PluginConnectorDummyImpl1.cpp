@@ -117,7 +117,7 @@
 	else if (fn == "create.so")
 		GetInfo = pluginLoader->getCreate()->GetPluginInfo();
 	else if (fn == "write.so")
-		GetInfo = pluginLoader->getWrite()->GetPluginInfo();
+		GetInfo = pluginLoader->GetPluginInfo2("libwrite.so");
 	else if (fn == "decide.so")
 		GetInfo = pluginLoader->getDecide()->GetPluginInfo();
 	else if (fn == "delay.so")

@@ -180,7 +180,6 @@
         <itemPath>Signal.h</itemPath>
         <itemPath>Submodel.cpp</itemPath>
         <itemPath>Submodel.h</itemPath>
-        <itemPath>Write.cpp</itemPath>
         <itemPath>Write.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="Elements" projectFiles="true">
@@ -814,8 +813,6 @@
       </item>
       <item path="Variable.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Write.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="Write.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
@@ -1337,8 +1334,6 @@
       <item path="Variable.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Variable.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Write.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Write.h" ex="false" tool="3" flavor2="0">
       </item>

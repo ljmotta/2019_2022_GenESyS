@@ -66,22 +66,6 @@ public:
             PluginLoader::AssignPlugin::AssignmentPlugin* _assignmentPlugin;
             PluginLoader::AssignPlugin::AssignmentPlugin* getAssignment();
     };
-
-    class WritePlugin : public Plugin<Write> {
-        public:
-            WritePlugin(PluginLoader* pluginLoader);
-            virtual ~WritePlugin() = default;
-        public:
-            class WriteElementPlugin : public Plugin<Write> {
-                public:
-                    WriteElementPlugin(PluginLoader* pluginLoader, void* handle);
-                    WriteElement* create(std::string text, bool isExpression = false, bool newline = false);
-                    void destroy(WriteElement* writeElement);
-            };
-            PluginLoader::WritePlugin::WriteElementPlugin* _writeElementPlugin;
-            PluginLoader::WritePlugin::WriteElementPlugin* getWriteElement();
-    };
-
     class SetPlugin : public Plugin<Set> {
         public:
             SetPlugin(PluginLoader* pluginLoader);
@@ -108,11 +92,6 @@ public:
             SeizePlugin(PluginLoader* pluginLoader);
             virtual ~SeizePlugin() = default;
     };
-    class ReleasePlugin : public Plugin<Release>{
-        public:
-            ReleasePlugin(PluginLoader* pluginLoader);
-            virtual ~ReleasePlugin() = default;
-    };
     class VariablePlugin : public Plugin<Variable>{
         public:
             VariablePlugin(PluginLoader* pluginLoader);
@@ -137,7 +116,6 @@ public:
     };
 public:
     PluginLoader::AssignPlugin* _assignPlugin;
-    PluginLoader::WritePlugin* _writePlugin;
     PluginLoader::SetPlugin* _setPlugin;
     PluginLoader::DisposePlugin* _disposePlugin;
     PluginLoader::DelayPlugin* _delayPlugin;
@@ -146,12 +124,10 @@ public:
     PluginLoader::DecidePlugin* _decidePlugin;
     PluginLoader::QueuePlugin* _queuePlugin;
     PluginLoader::SeizePlugin* _seizePlugin;
-    PluginLoader::ReleasePlugin* _releasePlugin;
     PluginLoader::VariablePlugin* _variablePlugin;
 
 public:
     PluginLoader::AssignPlugin* getAssign();
-    PluginLoader::WritePlugin* getWrite();
     PluginLoader::SetPlugin* getSet();
     PluginLoader::DisposePlugin* getDispose();
     PluginLoader::DelayPlugin* getDelay();
@@ -160,7 +136,6 @@ public:
     PluginLoader::DecidePlugin* getDecide();
     PluginLoader::QueuePlugin* getQueue();
     PluginLoader::SeizePlugin* getSeize();
-    PluginLoader::ReleasePlugin* getRelease();
     PluginLoader::VariablePlugin* getVariable();
 
 public:

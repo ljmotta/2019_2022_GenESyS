@@ -49,11 +49,12 @@ public: // virtual
 public: // static
 	static PluginInformation* GetPluginInformation();
 	static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static ModelComponent* CreateInstance(Model* model, std::string name);
 public:
-	List<WriteElement*>* writeElements() const;
+	virtual List<WriteElement*>* writeElements() const;
 	void setFilename(std::string _filename);
 	std::string filename() const;
-	void setWriteToType(WriteToType _writeToType);
+	virtual void setWriteToType(WriteToType _writeToType);
 	Write::WriteToType writeToType() const;
 
 protected: // virtual
@@ -70,8 +71,6 @@ private: // attributes 1:1
 private: // attributes 1:n
 	List<WriteElement*>* _writeElements = new List<WriteElement*>();
 };
-
-typedef WriteElement* create_write_element_t(std::string text, bool isExpression, bool newline);
 
 #endif /* WRITE_H */
 

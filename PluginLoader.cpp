@@ -18,7 +18,6 @@
 PluginLoader::PluginLoader(const char* handleRootPath) {
 	_handleRootPath = handleRootPath;
     _assignPlugin = new PluginLoader::AssignPlugin(this);
-    _writePlugin = new PluginLoader::WritePlugin(this);
     _setPlugin = new PluginLoader::SetPlugin(this);
     _disposePlugin = new PluginLoader::DisposePlugin(this);
     _delayPlugin = new PluginLoader::DelayPlugin(this);
@@ -27,7 +26,6 @@ PluginLoader::PluginLoader(const char* handleRootPath) {
     _decidePlugin = new PluginLoader::DecidePlugin(this);
     _queuePlugin = new PluginLoader::QueuePlugin(this);
     _seizePlugin = new PluginLoader::SeizePlugin(this);
-    _releasePlugin = new PluginLoader::ReleasePlugin(this);
     _variablePlugin = new PluginLoader::VariablePlugin(this);
 
 }
@@ -102,14 +100,6 @@ PluginLoader::AssignPlugin::AssignmentPlugin* PluginLoader::AssignPlugin::getAss
     return _assignmentPlugin;
 }
 
-PluginLoader::WritePlugin* PluginLoader::getWrite() {
-    return _writePlugin;
-}
-
-PluginLoader::WritePlugin::WriteElementPlugin* PluginLoader::WritePlugin::getWriteElement() {
-    return _writeElementPlugin;
-}
-
 PluginLoader::SetPlugin* PluginLoader::getSet() {
     return _setPlugin;
 }
@@ -142,10 +132,6 @@ PluginLoader::SeizePlugin* PluginLoader::getSeize() {
     return _seizePlugin;
 }
 
-PluginLoader::ReleasePlugin* PluginLoader::getRelease() {
-    return _releasePlugin;
-}
-
 PluginLoader::VariablePlugin* PluginLoader::getVariable() {
     return _variablePlugin;
 }
@@ -173,31 +159,6 @@ Assign::Assignment* PluginLoader::AssignPlugin::AssignmentPlugin::create(std::st
 void PluginLoader::AssignPlugin::AssignmentPlugin::destroy(Assign::Assignment* assigment) {
     plugin_t<Assign>::destroy_plugin_t* destroyAssign = (plugin_t<Assign>::destroy_plugin_t*) _pluginLoader->getAddress(PluginLoader::Plugin<Assign>::_handle, "destroyAssignment");
     destroyAssign(assigment);
-}
-
-// WRITE
-
-PluginLoader::WritePlugin::WritePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Write>(pluginLoader) {
-    PluginLoader::WritePlugin::_pluginLoader = pluginLoader;
-    PluginLoader::WritePlugin::_handle = pluginLoader->open("libwrite.so");
-    _writeElementPlugin = new WritePlugin::WriteElementPlugin(pluginLoader, _handle);
-}
-
-// WRITE ELEMENT
-
-PluginLoader::WritePlugin::WriteElementPlugin::WriteElementPlugin(PluginLoader* pluginLoader, void* handle) : PluginLoader::Plugin<Write>(pluginLoader) {
-    _pluginLoader = pluginLoader;
-    _handle = handle;
-};
-
-WriteElement* PluginLoader::WritePlugin::WriteElementPlugin::create(std::string text, bool isExpression, bool newline) {
-    create_write_element_t* createWriteElement = (create_write_element_t*) _pluginLoader->getAddress(PluginLoader::Plugin<Write>::_handle, "createWriteElement");
-    return createWriteElement(text, isExpression, newline);
-}
-
-void PluginLoader::WritePlugin::WriteElementPlugin::destroy(WriteElement* writeElement) {
-    plugin_t<Write>::destroy_plugin_t* destroyWriteElement = (plugin_t<Write>::destroy_plugin_t*) _pluginLoader->getAddress(PluginLoader::Plugin<Write>::_handle, "destroyWriteElement");
-    destroyWriteElement(writeElement);
 }
 
 // SET
@@ -254,13 +215,6 @@ PluginLoader::QueuePlugin::QueuePlugin(PluginLoader* pluginLoader) : PluginLoade
 PluginLoader::SeizePlugin::SeizePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Seize>(pluginLoader) {
     PluginLoader::SeizePlugin::_pluginLoader = pluginLoader;
     PluginLoader::SeizePlugin::_handle = pluginLoader->open("libseize.so");
-}
-
-// RELEASE
-
-PluginLoader::ReleasePlugin::ReleasePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Release>(pluginLoader) {
-    PluginLoader::ReleasePlugin::_pluginLoader = pluginLoader;
-    PluginLoader::ReleasePlugin::_handle = pluginLoader->open("librelease.so");
 }
 
 // VARIABLE
