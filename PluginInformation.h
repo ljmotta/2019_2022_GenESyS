@@ -26,18 +26,21 @@
 
 	// \todo: the following 2 types were diffferent but now on they are the same and should be merged
 	typedef ModelComponent* (*StaticLoaderComponentInstance)(Model*, std::map<std::string, std::string>*);
+	typedef ModelComponent* (*StaticComponentInstance)(Model*, std::string);
 	typedef ModelElement* (*StaticLoaderElementInstance)(Model*, std::map<std::string, std::string>*);
 	class PluginInformation;
 	typedef PluginInformation* (*StaticGetPluginInformation)();
 
 	class PluginInformation {
 	public:
+		PluginInformation(std::string pluginTypename, StaticLoaderComponentInstance componentloader, StaticComponentInstance componentInstance);
 		PluginInformation(std::string pluginTypename, StaticLoaderComponentInstance componentloader);
 		PluginInformation(std::string pluginTypename, StaticLoaderElementInstance elementloader);
 	public:
 		// gets
 		StaticLoaderElementInstance getElementLoader() const;
 		StaticLoaderComponentInstance GetComponentLoader() const;
+		StaticComponentInstance GetComponentInstance() const;
 		bool isGenerateReport() const;
 		bool isComponent() const;
 		bool isSendTransfer() const;
@@ -90,6 +93,7 @@
 		unsigned short _minimumOutputs = 1;
 		unsigned short _maximumOutputs = 1;
 		StaticLoaderComponentInstance _componentloader;
+		StaticComponentInstance _componentInstance;
 		StaticLoaderElementInstance _elementloader;
 	};
 //namespace\\}

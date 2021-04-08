@@ -15,12 +15,21 @@
 
 //using namespace GenesysKernel;
 
+PluginInformation::PluginInformation(std::string pluginTypename, StaticLoaderComponentInstance componentloader, StaticComponentInstance componentInstance) {
+	this->_componentloader = componentloader; //// \todo:
+	this->_elementloader = nullptr; /// \todo:
+	this->_isComponent = true; //// \todo:
+	this->_pluginTypename = pluginTypename;
+	this->_componentInstance = componentInstance;
+}
+
 PluginInformation::PluginInformation(std::string pluginTypename, StaticLoaderComponentInstance componentloader) {
 	this->_componentloader = componentloader; //// \todo:
 	this->_elementloader = nullptr; /// \todo:
 	this->_isComponent = true; //// \todo:
 	this->_pluginTypename = pluginTypename;
 }
+
 
 PluginInformation::PluginInformation(std::string pluginTypename, StaticLoaderElementInstance elementloader) {
 	this->_componentloader = nullptr;
@@ -35,6 +44,10 @@ StaticLoaderElementInstance PluginInformation::getElementLoader() const {
 
 StaticLoaderComponentInstance PluginInformation::GetComponentLoader() const {
 	return _componentloader;
+}
+
+StaticComponentInstance PluginInformation::GetComponentInstance() const {
+	return _componentInstance;
 }
 
 bool PluginInformation::isGenerateReport() const {

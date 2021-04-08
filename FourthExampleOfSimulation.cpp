@@ -124,6 +124,8 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	Release* release3;
 
 	Variable* var1;
+	PluginManager* pluginManager = simulator->getPlugins();
+	
 
 	if (wantToCreateNewModelAndSaveInsteadOfJustLoad) {
 		model = new Model(simulator);
@@ -236,7 +238,11 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		delay1->setDelayExpression("norm(15,1)");
 		delay1->setDelayTimeUnit(Util::TimeUnit::second);
 		// model->insert(delay1);
-		release1 = releasePlugin->create(model);
+
+		StaticComponentInstance findRelease = pluginManager->find("Release")->getPluginInfo()->GetComponentInstance();
+		Release* release1 = (Release*) findRelease(model, "");
+		
+		// ->getPluginInfo()->GetComponentInstance()(model, "");
 		release1->setReleaseRequest(new ResourceItemRequest(machine1));
 		// model->insert(release1);
 		queueSeize2 = queuePlugin->create(model, "Queue_Seize_2");
@@ -251,7 +257,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		delay2->setDelayTimeUnit(Util::TimeUnit::second);
 		// model->insert(delay2);
 		//Release* release2 = new Release(model);
-		release2 = releasePlugin->create(model);
+		Release* release2 = (Release*) findRelease(model, "");
 		release2->setReleaseRequest(new ResourceItemRequest(machine2));
 		// model->insert(release2);
 		queueSeize3 = queuePlugin->create(model, "Queue_Seize_3");
@@ -266,7 +272,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		delay3->setDelayExpression("norm(15,1)");
 		delay3->setDelayTimeUnit(Util::TimeUnit::second);
 		// model->insert(delay3);
-		release3 = releasePlugin->create(model);
+		Release* release3 = (Release*) findRelease(model, "");
 		release3->setReleaseRequest(new ResourceItemRequest(machine3));
 		// model->insert(release3);
 		dispose1 = disposePlugin->create(model);
@@ -281,12 +287,12 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		seize1->getNextComponents()->insert(delay1);
 		delay1->getNextComponents()->insert(release1);
 		release1->getNextComponents()->insert(dispose1);
-		seize2->getNextComponents()->insert(delay2);
-		delay2->getNextComponents()->insert(release2);
-		release2->getNextComponents()->insert(dispose1);
-		seize3->getNextComponents()->insert(delay3);
-		delay3->getNextComponents()->insert(release3);
-		release3->getNextComponents()->insert(dispose1);
+		// seize2->getNextComponents()->insert(delay2);
+		// delay2->getNextComponents()->insert(release2);
+		// release2->getNextComponents()->insert(dispose1);
+		// seize3->getNextComponents()->insert(delay3);
+		// delay3->getNextComponents()->insert(release3);
+		// release3->getNextComponents()->insert(dispose1);
 		//
 		simulator->getModels()->insert(model);
 		model->save("./temp/forthExampleOfSimulation.txt");
@@ -347,9 +353,9 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	seizePlugin->destroy(seize1);
 	seizePlugin->destroy(seize2);
 	seizePlugin->destroy(seize3);
-	releasePlugin->destroy(release1);
-	releasePlugin->destroy(release2);
-	releasePlugin->destroy(release3);
+	// releasePlugin->destroy(release1);
+	// releasePlugin->destroy(release2);
+	// releasePlugin->destroy(release3);
 	variablePlugin->destroy(var1);
 
 	dlclose(assignPlugin->getHandle());

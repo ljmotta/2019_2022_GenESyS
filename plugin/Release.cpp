@@ -166,7 +166,7 @@ bool Release::_check(std::string* errorMessage) {
 //}
 
 PluginInformation* Release::GetPluginInformation() {
-	PluginInformation* info = new PluginInformation(Util::TypeOf<Release>(), &Release::LoadInstance);
+	PluginInformation* info = new PluginInformation(Util::TypeOf<Release>(), &Release::LoadInstance, &Release::CreateInstance);
 	info->insertDynamicLibFileDependence("resource.so");
 	return info;
 }
@@ -180,4 +180,9 @@ ModelComponent* Release::LoadInstance(Model* model, std::map<std::string, std::s
 	}
 	return newComponent;
 
+}
+
+
+ModelComponent* Release::CreateInstance(Model* model, std::string name) {
+	return new Release(model, name);
 }

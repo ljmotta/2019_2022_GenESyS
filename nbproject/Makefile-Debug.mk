@@ -98,7 +98,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/ProbDistribDefaultImpl1.o \
 	${OBJECTDIR}/Queue.o \
 	${OBJECTDIR}/Record.o \
-	${OBJECTDIR}/Release.o \
 	${OBJECTDIR}/RequirementTester.o \
 	${OBJECTDIR}/Resource.o \
 	${OBJECTDIR}/Route.o \
@@ -480,11 +479,6 @@ ${OBJECTDIR}/Record.o: Record.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -include Assign.h -include Set.h -include Queue.h -include Release.h -include Seize.h -include Variable.h -include Decide.h -include Resource.h -include Delay.h -include Dispose.h -include Create.h -include Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Record.o Record.cpp
-
-${OBJECTDIR}/Release.o: Release.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -include Assign.h -include Set.h -include Queue.h -include Release.h -include Seize.h -include Variable.h -include Decide.h -include Resource.h -include Delay.h -include Dispose.h -include Create.h -include Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Release.o Release.cpp
 
 ${OBJECTDIR}/RequirementTester.o: RequirementTester.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

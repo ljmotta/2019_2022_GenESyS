@@ -75,8 +75,6 @@
 		Model* _parentModel;
 	protected:
 		std::map<std::string, ModelElement*>* _childrenElements = new std::map<std::string, ModelElement*>();
-	public:
-		void helloWorld();
 	};
 
 

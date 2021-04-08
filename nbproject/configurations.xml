@@ -171,7 +171,6 @@
         <itemPath>PickUp.h</itemPath>
         <itemPath>Record.cpp</itemPath>
         <itemPath>Record.h</itemPath>
-        <itemPath>Release.cpp</itemPath>
         <itemPath>Release.h</itemPath>
         <itemPath>Route.cpp</itemPath>
         <itemPath>Route.h</itemPath>
@@ -652,8 +651,6 @@
       <item path="Record.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Record.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Release.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Release.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -1178,8 +1175,6 @@
       <item path="Record.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Record.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Release.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Release.h" ex="false" tool="3" flavor2="0">
       </item>

@@ -14,11 +14,10 @@
 #ifndef RELEASE_H
 #define RELEASE_H
 
-#include <string>
-
 #include "ModelComponent.h"
 #include "Resource.h"
 #include "Plugin.h"
+#include <string>
 
 /*!
 Release module
@@ -69,6 +68,7 @@ public:
 public:
 	static PluginInformation* GetPluginInformation();
 	static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static ModelComponent* CreateInstance(Model* model, std::string name = "");
 public: // get & set
 	void setPriority(unsigned short _priority);
 	unsigned short priority() const;
@@ -80,7 +80,7 @@ public: // get & set
 	Resource::ResourceRule rule() const;
 	void setSaveAttribute(std::string _saveAttribute);
 	std::string saveAttribute() const;
-    void setReleaseRequest(ResourceItemRequest* _releaseRequest);
+    virtual void setReleaseRequest(ResourceItemRequest* _releaseRequest);
     ResourceItemRequest* releaseRequest() const;
 	//void setResource(Resource* _resource);
 	//Resource* resource() const;
