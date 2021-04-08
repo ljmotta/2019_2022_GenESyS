@@ -99,6 +99,7 @@ public:
 public:
 	static PluginInformation* GetPluginInformation();
 	static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static ModelComponent* CreateInstance(Model* model, std::string name = "");
 public:
 	virtual List<Assignment*>* assignments() const;
 protected:
@@ -111,8 +112,6 @@ private:
 private:
 	List<Assignment*>* _assignments = new List<Assignment*>();
 };
-
-typedef Assign::Assignment* create_assignment_t(std::string arg1, std::string arg2);
 
 #endif /* ASSIGN_H */
 

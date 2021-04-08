@@ -52,21 +52,6 @@ public:
             virtual StaticGetPluginInformation GetPluginInfo();
     };
 
-    class AssignPlugin : public Plugin<Assign> {
-        public:
-            AssignPlugin(PluginLoader* pluginLoader);
-            virtual ~AssignPlugin() = default;
-        public:
-            class AssignmentPlugin : public Plugin<Assign> {
-                public:
-                    AssignmentPlugin(PluginLoader* pluginLoader, void* handle);
-                    Assign::Assignment* create(std::string arg1, std::string arg2);
-                    void destroy(Assign::Assignment* assignment);
-            };
-            PluginLoader::AssignPlugin::AssignmentPlugin* _assignmentPlugin;
-            PluginLoader::AssignPlugin::AssignmentPlugin* getAssignment();
-    };
-
     class WritePlugin : public Plugin<Write> {
         public:
             WritePlugin(PluginLoader* pluginLoader);
@@ -136,7 +121,6 @@ public:
             virtual ~CreatePlugin() = default;
     };
 public:
-    PluginLoader::AssignPlugin* _assignPlugin;
     PluginLoader::WritePlugin* _writePlugin;
     PluginLoader::SetPlugin* _setPlugin;
     PluginLoader::DisposePlugin* _disposePlugin;
@@ -150,7 +134,6 @@ public:
     PluginLoader::VariablePlugin* _variablePlugin;
 
 public:
-    PluginLoader::AssignPlugin* getAssign();
     PluginLoader::WritePlugin* getWrite();
     PluginLoader::SetPlugin* getSet();
     PluginLoader::DisposePlugin* getDispose();

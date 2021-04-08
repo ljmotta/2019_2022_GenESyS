@@ -1,5 +1,5 @@
 # Genesys simulation model 
-# Last saved on Thu Apr  8 02:28:35 2021
+# Last saved on Thu Apr  8 20:14:56 2021
 # simulator infos
 0   SimulatorInfo   name="GenESyS\_-\_GENeric\_and\_Expansible\_SYstem\_Simulator" version="21.03\_(backtotrack)" 
 
@@ -28,7 +28,7 @@
 9   Resource        capacity=3 costBusyHour=1.000000 costIdleHour=1.000000 costPerUse=1.000000 name=Machine_3 reportStatistics=1 
 
 # model components
-11  Assign          condition0="NR(Machine_1)\_<\_MR(Machine_1)" condition1="NR(Machine_2)\_<\_MR(Machine_2)" conditions=2 name=Assign_2 nextId0=13 nextId1=17 nextId2=21 nextInputNumber0=0 nextInputNumber1=0 nextInputNumber2=0 nextSize=3 reportStatistics=1 
+11  Decide          condition0="NR(Machine_1)\_<\_MR(Machine_1)" condition1="NR(Machine_2)\_<\_MR(Machine_2)" conditions=2 name=Decide_1 nextId0=13 nextId1=17 nextId2=21 nextInputNumber0=0 nextInputNumber1=0 nextInputNumber2=0 nextSize=3 reportStatistics=1 
 
 13  Seize           allocationType=0 name=Seize_1 nextId0=14 nextInputNumber0=0 nextSize=1 priority==0 quantity="1" queueId=12 queueName=Queue_Seize_1 reportStatistics=1 resourceId=7 resourceName=Machine_1 resourceType=2 rule=4 saveAttribute= 
 
@@ -52,7 +52,7 @@
 
 24  Dispose         name=Dispose_1 nextSize=0 reportStatistics=1 
 
-3   Assign          assignments=2 destination0=varNextIndex expression0="varNextIndex+1" name=Assign_1 nextId0=6 nextInputNumber0=0 nextSize=1 reportStatistics=1 
+3   Assign          assignments=2 destination0=varNextIndex expression0="varNextIndex\_+\_1" name=Assign_1 nextId0=6 nextInputNumber0=0 nextSize=1 reportStatistics=1 
 
 6   Write           isExpression0=0 isExpression1=1 isExpression10=1 isExpression11=0 isExpression12=1 isExpression13=0 isExpression14=1 isExpression15=0 isExpression16=1 isExpression17=0 isExpression18=1 isExpression19=0 isExpression2=1 isExpression20=1 isExpression21=0 isExpression22=1 isExpression23=0 isExpression24=1 isExpression3=0 isExpression4=1 isExpression5=0 isExpression6=1 isExpression7=0 isExpression8=1 isExpression9=0 name=Write_1 newline0=0 newline1=1 newline10=0 newline11=0 newline12=0 newline13=0 newline14=1 newline15=0 newline16=1 newline17=0 newline18=1 newline19=0 newline2=1 newline20=1 newline21=0 newline22=1 newline23=0 newline24=1 newline3=0 newline4=0 newline5=0 newline6=0 newline7=0 newline8=1 newline9=0 nextId0=11 nextInputNumber0=0 nextSize=1 reportStatistics=1 text0=Atributo\_index:\_ text1=index text10=STATE(Machine_1) text11=,\_ text12=STATE(Machine_2) text13=,\_ text14=STATE(Machine_3) text15=Quantidade\_de\_máquinas\_ocupadas\_no\_Set:\_ text16=SETSUM(Machine_Set) text17=Quantidade\_de\_entidades\_na\_fila\_3:\_ text18=NQ(Queue_Seize_3) text19=Somatório\_do\_atributo\_'index'\_das\_entidades\_na\_fila\_3:\_ text2=varNextIndex text20=SAQUE(Queue_Seize_3,index) text21=Valor\_do\_atributo\_'index'\_da\_2ª\_entidade\_na\_fila\_3:\_ text22=AQUE(Queue_Seize_3,2,index) text23=Tempo\_médio\_das\_entidades\_na\_fila\_3:\_ text24=TAVG(Queue_Seize_3.TimeInQueue) text3=Quantidade\_ocupada\_das\_máquinas:\_ text4=NR(\_Machine_1\_) text5=,\_ text6=NR(Machine_2) text7=,\_ text8=NR(Machine_3) text9=Estado\_das\_máquinas:\_ writeToType=1 writesSize=25 
 

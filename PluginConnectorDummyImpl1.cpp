@@ -89,7 +89,7 @@
 	if (fn == "attribute.so")
 		GetInfo = &Attribute::GetPluginInformation;
 	else if (fn == "assign.so") {
-		GetInfo = pluginLoader->getAssign()->GetPluginInfo();
+		GetInfo = pluginLoader->GetPluginInfo2("libassign.so");
 	}
 	else if (fn == "counter.so")
 		GetInfo = &Counter::GetPluginInformation;
