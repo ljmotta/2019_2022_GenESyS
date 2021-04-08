@@ -115,7 +115,7 @@
 		GetInfo = pluginLoader->getVariable()->GetPluginInfo();
 		// model components
 	else if (fn == "create.so")
-		GetInfo = pluginLoader->getCreate()->GetPluginInfo();
+		GetInfo = pluginLoader->GetPluginInfo2("libcreate.so");
 	else if (fn == "write.so")
 		GetInfo = pluginLoader->getWrite()->GetPluginInfo();
 	else if (fn == "decide.so")

@@ -60,11 +60,11 @@ int TestEnterLeaveRoute::main(int argc, char** argv) {
 	EntityType* entityType1 = new EntityType(model, "AnyEntityType");
 	elements->insert(entityType1);
 	// create a ModelComponent of type Create, used to insert entities into the model
-	Create* create1 = new Create(model);
-	create1->setEntityType(entityType1);
-	create1->setTimeBetweenCreationsExpression("5.0");
-	create1->setEntitiesPerCreation(1);
-	components->insert(create1);
+	// Create* create1 = new Create(model);
+	// create1->setEntityType(entityType1);
+	// create1->setTimeBetweenCreationsExpression("5.0");
+	// create1->setEntitiesPerCreation(1);
+	// components->insert(create1);
 	// create stations to enter and route to
 	Station* station1 = new Station(model, "Station 1");
 	Station* station2 = new Station(model, "Station 2");
@@ -119,7 +119,7 @@ int TestEnterLeaveRoute::main(int argc, char** argv) {
 	Dispose* dispose1 = new Dispose(model);
 	components->insert(dispose1);
 	// connect model components to create a "workflow"
-	create1->getNextComponents()->insert(route0);
+	//create1->getNextComponents()->insert(route0);
 	//
 	enter1->getNextComponents()->insert(delay1);
 	delay1->getNextComponents()->insert(leave1);
