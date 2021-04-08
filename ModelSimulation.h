@@ -36,7 +36,6 @@
 		void pause();
 		void step(); ///< Executes the processing of a single event, the next one in the future events list.
 		void stop();
-		void restart();
 	public: // gets and sets
 		void setPauseOnEvent(bool _pauseOnEvent);
 		bool isPauseOnEvent() const;
@@ -63,6 +62,9 @@
         bool isShowReportsAfterReplication() const;
         void setShowReportsAfterSimulation(bool showReportsAfterSimulation);
         bool isShowReportsAfterSimulation() const;
+        List<double>* getBreakpointsOnTime() const;
+        List<Entity*>* getBreakpointsOnEntity() const;
+        List<ModelComponent*>* getBreakpointsOnComponent() const;
 		/*
 		 * PRIVATE
 		 */
@@ -75,6 +77,7 @@
 		void _replicationEnded();
 		void _processEvent(Event* event);
 	private:
+		bool _checkBreakpointAt(Event* event);
 		bool _isReplicationEndCondition();
 		void _actualizeSimulationStatistics();
 		void _showSimulationHeader();
@@ -88,7 +91,7 @@
 		bool _pauseOnEvent = false;
 		bool _initializeStatisticsBetweenReplications = true;
 		bool _initializeSystem = true;
-		bool _running = false;
+		bool _isRunning = false;
 		bool _isPaused = false;
 		bool _pauseRequested = false;
 		bool _stopRequested = false;
@@ -96,7 +99,7 @@
 		bool _replicationIsInitiaded = false;
 		bool _showReportsAfterSimulation = true;
 		bool _showReportsAfterReplication = true;
-	private:
+	private: 
 		Entity* _currentEntity;
 		ModelComponent* _currentComponent;
 		unsigned int _currentInputNumber;
@@ -111,6 +114,12 @@
 		ModelInfo* _info;
 		SimulationReporter_if* _simulationReporter;
 		List<ModelElement*>* _statsCountersSimulation = new List<ModelElement*>();
+		List<double>* _breakpointsOnTime = new List<double>();
+		List<ModelComponent*>* _breakpointsOnComponent = new List<ModelComponent*>();
+		List<Entity*>* _breakpointsOnEntity = new List<Entity*>();
+		double _justTriggeredBreakpointsOnTime = 0.0;
+		ModelComponent*  _justTriggeredBreakpointsOnComponent = nullptr;
+		Entity*  _justTriggeredBreakpointsOnEntity = nullptr;
 	};
 //namespace\\}
 #endif /* MODELSIMULATION_H */

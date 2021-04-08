@@ -77,6 +77,11 @@ int FifthExampleOfSimulation::main(int argc, char** argv) {
 	Assign* a1 = new Assign(m);
 	a1->getAssignments()->insert(new Assign::Assignment("Entity.Sequence", std::to_string(seq->getId())));
 
+	m->getSimulation()->getBreakpointsOnComponent()->insert(a1);
+	m->getSimulation()->getBreakpointsOnComponent()->insert(l2);
+	m->getSimulation()->getBreakpointsOnTime()->insert(40.0);
+	m->getSimulation()->getBreakpointsOnTime()->insert(20.0);
+
 	c1->getNextComponents()->insert(a1);
 	a1->getNextComponents()->insert(r0);
 	e1->getNextComponents()->insert(d1);
@@ -87,6 +92,8 @@ int FifthExampleOfSimulation::main(int argc, char** argv) {
 	l2->getNextComponents()->insert(r2);
 	e3->getNextComponents()->insert(dp1);
 	m->getInfos()->setReplicationLength(60);
-	m->getSimulation()->start();
+	do {
+		m->getSimulation()->start();
+	} while (m->getSimulation()->isPaused());
 	return 0;
 }
