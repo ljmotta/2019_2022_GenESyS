@@ -44,7 +44,6 @@ FourthExampleOfSimulation::FourthExampleOfSimulation() {
 
 int FourthExampleOfSimulation::main(int argc, char** argv) {
 	PluginLoader* pluginLoader = new PluginLoader("./plugin/build/");
-	PluginLoader::AssignPlugin* assignPlugin = pluginLoader->getAssign();
 	PluginLoader::SetPlugin* setPlugin = pluginLoader->getSet();
 	PluginLoader::DisposePlugin* disposePlugin = pluginLoader->getDispose();
 	PluginLoader::DelayPlugin* delayPlugin = pluginLoader->getDelay();
@@ -62,9 +61,6 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	bool wantToCreateNewModelAndSaveInsteadOfJustLoad = true; //true;
 	Model* model;
 
-	Assign* assign;
-	Assign::Assignment* assigment1;
-	Assign::Assignment* assigment2;
 
 	Set* machSet;
 
@@ -109,11 +105,11 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		create1->setEntitiesPerCreation(1);
 		// model->insert(create1);
 
-		assign = assignPlugin->create(model);
-		assigment1 = assignPlugin->getAssignment()->create("varNextIndex", "varNextIndex+1");
-		assigment2 = assignPlugin->getAssignment()->create("index", "varNextIndex");
-		assign->assignments()->insert(assigment1);
-		assign->assignments()->insert(assigment2);
+		StaticComponentInstance findAssign = pluginManager->find("Assign")->getPluginInfo()->GetComponentInstance();
+		Assign* assign1 = (Assign*) findAssign(model, "");
+
+		assign1->assignments()->insert(new Assign::Assignment("varNextIndex", "varNextIndex + 1"));
+		assign1->assignments()->insert(new Assign::Assignment("index", "varNextIndex"));
 		// model->insert(assign1);
 		Attribute* attr1 = new Attribute(model, "index");
 		// model->insert(attr1);
@@ -222,8 +218,8 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		dispose1 = disposePlugin->create(model);
 		// model->insert(dispose1);
 		//
-		create1->getNextComponents()->insert(assign);
-		assign->getNextComponents()->insert(write1);
+		create1->getNextComponents()->insert(assign1);
+		assign1->getNextComponents()->insert(write1);
 		write1->getNextComponents()->insert(decide1);
 		decide1->getNextComponents()->insert(seize1);
 		decide1->getNextComponents()->insert(seize2);
@@ -250,10 +246,6 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	this->setDefaultEventHandlers(model->getOnEvents());
 	model->getSimulation()->start();
 
-	assignPlugin->destroy(assign);
-	assignPlugin->getAssignment()->destroy(assigment1);
-	assignPlugin->getAssignment()->destroy(assigment2);
-
   	setPlugin->destroy(machSet);
 	disposePlugin->destroy(dispose1);
 	delayPlugin->destroy(delay1);
@@ -273,7 +265,6 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	seizePlugin->destroy(seize3);
 	variablePlugin->destroy(var1);
 
-	dlclose(assignPlugin->getHandle());
 	dlclose(setPlugin->getHandle());
 	dlclose(resourcePlugin->getHandle());
 	dlclose(decidePlugin->getHandle());

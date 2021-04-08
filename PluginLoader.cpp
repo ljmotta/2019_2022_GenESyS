@@ -17,7 +17,6 @@
 
 PluginLoader::PluginLoader(const char* handleRootPath) {
 	_handleRootPath = handleRootPath;
-    _assignPlugin = new PluginLoader::AssignPlugin(this);
     _setPlugin = new PluginLoader::SetPlugin(this);
     _disposePlugin = new PluginLoader::DisposePlugin(this);
     _delayPlugin = new PluginLoader::DelayPlugin(this);
@@ -92,14 +91,6 @@ StaticGetPluginInformation PluginLoader::GetPluginInfo2(const char* libname) {
 
 // GETTERS
 
-PluginLoader::AssignPlugin* PluginLoader::getAssign() {
-    return _assignPlugin;
-}
-
-PluginLoader::AssignPlugin::AssignmentPlugin* PluginLoader::AssignPlugin::getAssignment() {
-    return _assignmentPlugin;
-}
-
 PluginLoader::SetPlugin* PluginLoader::getSet() {
     return _setPlugin;
 }
@@ -134,31 +125,6 @@ PluginLoader::SeizePlugin* PluginLoader::getSeize() {
 
 PluginLoader::VariablePlugin* PluginLoader::getVariable() {
     return _variablePlugin;
-}
-
-// ASSIGN
-
-PluginLoader::AssignPlugin::AssignPlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Assign>(pluginLoader) {
-    PluginLoader::AssignPlugin::_pluginLoader = pluginLoader;
-    PluginLoader::AssignPlugin::_handle = pluginLoader->open("libassign.so");
-    _assignmentPlugin = new AssignPlugin::AssignmentPlugin(pluginLoader, _handle);
-};
-
-// ASSIGMENT
-
-PluginLoader::AssignPlugin::AssignmentPlugin::AssignmentPlugin(PluginLoader* pluginLoader, void* handle) : PluginLoader::Plugin<Assign>(pluginLoader) {
-    _pluginLoader = pluginLoader;
-    _handle = handle;
-};
-
-Assign::Assignment* PluginLoader::AssignPlugin::AssignmentPlugin::create(std::string arg1, std::string arg2) {
-    create_assignment_t* createAssign = (create_assignment_t*) _pluginLoader->getAddress(PluginLoader::Plugin<Assign>::_handle, "createAssignment");
-    return createAssign(arg1, arg2);
-}
-
-void PluginLoader::AssignPlugin::AssignmentPlugin::destroy(Assign::Assignment* assigment) {
-    plugin_t<Assign>::destroy_plugin_t* destroyAssign = (plugin_t<Assign>::destroy_plugin_t*) _pluginLoader->getAddress(PluginLoader::Plugin<Assign>::_handle, "destroyAssignment");
-    destroyAssign(assigment);
 }
 
 // SET

@@ -18,22 +18,6 @@
 #include "../Attribute.h"
 #include "../Resource.h"
 
-extern "C" Assign* create(Model* model) {
-    return new Assign(model);
-}
-
-extern "C" void destroy(Assign* assign) {
-    delete assign;
-}
-
-extern "C" Assign::Assignment* createAssignment(std::string arg1, std::string arg2) {
-	return new Assign::Assignment(arg1, arg2);
-}
-
-extern "C" void destroyAssignment(Assign::Assignment* assignment) {
-	delete assignment;
-}
-
 extern "C" StaticGetPluginInformation getPluginInformation() {
 	return &Assign::GetPluginInformation;
 }
@@ -51,10 +35,14 @@ List<Assign::Assignment*>* Assign::assignments() const {
 }
 
 PluginInformation* Assign::GetPluginInformation() {
-	PluginInformation* info = new PluginInformation(Util::TypeOf<Assign>(), &Assign::LoadInstance);
+	PluginInformation* info = new PluginInformation(Util::TypeOf<Assign>(), &Assign::LoadInstance, &Assign::CreateInstance);
 	info->insertDynamicLibFileDependence("attribute.so");
 	info->insertDynamicLibFileDependence("variable.so");
 	return info;
+}
+
+ModelComponent* Assign::CreateInstance(Model* model, std::string name) {
+	return new Assign(model, name);
 }
 
 ModelComponent* Assign::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
