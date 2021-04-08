@@ -128,8 +128,9 @@
 		GetInfo = &Dummy::GetPluginInformation;
 	else if (fn == "record.so")
 		GetInfo = &Record::GetPluginInformation;
-	else if (fn == "release.so")
-		GetInfo = pluginLoader->getRelease()->GetPluginInfo();
+	else if (fn == "release.so") {
+		GetInfo = pluginLoader->GetPluginInfo2("librelease.so");
+	}
 	else if (fn == "seize.so")
 		GetInfo = pluginLoader->getSeize()->GetPluginInfo();
 	else if (fn == "route.so")

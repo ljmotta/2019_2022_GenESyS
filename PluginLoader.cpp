@@ -86,6 +86,12 @@ StaticGetPluginInformation PluginLoader::Plugin<T>::GetPluginInfo() {
     return getPluginInformation();
 };
 
+StaticGetPluginInformation PluginLoader::GetPluginInfo2(const char* libname) {
+    void* handle = this->open(libname);
+    get_plugin_information_t* getPluginInformation = (get_plugin_information_t*) this->getAddress(handle, "getPluginInformation");
+    return getPluginInformation();
+};
+
 // GETTERS
 
 PluginLoader::AssignPlugin* PluginLoader::getAssign() {

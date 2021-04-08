@@ -17,14 +17,6 @@
 #include "../Attribute.h"
 #include <assert.h>
 
-extern "C" Release* create(Model* model, std::string name = "") {
-    return new Release(model, name);
-}
-
-extern "C" void destroy(Release* release) {
-    delete release;
-}
-
 extern "C" StaticGetPluginInformation getPluginInformation() {
 	return &Release::GetPluginInformation;
 }

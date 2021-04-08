@@ -54,7 +54,6 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	PluginLoader::DecidePlugin* decidePlugin = pluginLoader->getDecide();
 	PluginLoader::QueuePlugin* queuePlugin = pluginLoader->getQueue();
 	PluginLoader::SeizePlugin* seizePlugin = pluginLoader->getSeize();
-	PluginLoader::ReleasePlugin* releasePlugin = pluginLoader->getRelease();
 	PluginLoader::VariablePlugin* variablePlugin = pluginLoader->getVariable();
 
 	Simulator* simulator = new Simulator();
@@ -118,10 +117,6 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	Seize* seize1;
 	Seize* seize2;
 	Seize* seize3;
-
-	Release* release1;
-	Release* release2;
-	Release* release3;
 
 	Variable* var1;
 	PluginManager* pluginManager = simulator->getPlugins();
@@ -353,9 +348,6 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	seizePlugin->destroy(seize1);
 	seizePlugin->destroy(seize2);
 	seizePlugin->destroy(seize3);
-	// releasePlugin->destroy(release1);
-	// releasePlugin->destroy(release2);
-	// releasePlugin->destroy(release3);
 	variablePlugin->destroy(var1);
 
 	dlclose(assignPlugin->getHandle());
@@ -365,7 +357,6 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	dlclose(decidePlugin->getHandle());
 	dlclose(queuePlugin->getHandle());
 	dlclose(seizePlugin->getHandle());
-	dlclose(releasePlugin->getHandle());
 	dlclose(variablePlugin->getHandle());
  	dlclose(disposePlugin->getHandle());
 	dlclose(delayPlugin->getHandle());

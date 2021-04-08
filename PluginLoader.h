@@ -34,6 +34,8 @@ public:
 public:
     void* open(const char* handleName);
     void* getAddress(void* handle, const char* symbol);
+    virtual StaticGetPluginInformation GetPluginInfo2(const char* libname);
+
 public:
     template <typename T>
     class Plugin {
@@ -171,5 +173,7 @@ struct plugin_t {
     typedef void destroy_plugin_t(void* instance);
     typedef StaticGetPluginInformation get_plugin_information_t();
 };
+
+typedef StaticGetPluginInformation get_plugin_information_t();
 
 #endif /* PLUGINLOADER_H */
