@@ -96,6 +96,7 @@ public:
 public: //static
 	static PluginInformation* GetPluginInformation();
 	static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static ModelElement* CreateInstance(Model* model, std::string name);
 public:
 	double value();
 	void setValue(double value);

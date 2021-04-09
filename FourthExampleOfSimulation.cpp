@@ -37,17 +37,11 @@
 #include "ProbDistribDefaultImpl1.h"
 #include "EntityGroup.h"
 #include "Set.h"
-#include <dlfcn.h>
 
 FourthExampleOfSimulation::FourthExampleOfSimulation() {
 }
 
 int FourthExampleOfSimulation::main(int argc, char** argv) {
-	PluginLoader* pluginLoader = new PluginLoader("./plugin/build/");
-	PluginLoader::SetPlugin* setPlugin = pluginLoader->getSet();
-	PluginLoader::ResourcePlugin* resourcePlugin = pluginLoader->getResource();
-	PluginLoader::VariablePlugin* variablePlugin = pluginLoader->getVariable();
-
 	Simulator* simulator = new Simulator();
 	simulator->getTracer()->setTraceLevel(Util::TraceLevel::everythingMostDetailed); //modelResult); //componentArrival);
 	this->setDefaultTraceHandlers(simulator->getTracer());
@@ -55,14 +49,6 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	bool wantToCreateNewModelAndSaveInsteadOfJustLoad = true; //true;
 	Model* model;
 
-
-	Set* machSet;
-
-	Resource* machine1;
-	Resource* machine2;
-	Resource* machine3;
-
-	Variable* var1;
 	PluginManager* pluginManager = simulator->getPlugins();
 
 	if (wantToCreateNewModelAndSaveInsteadOfJustLoad) {
@@ -90,7 +76,9 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		// model->insert(assign1);
 		Attribute* attr1 = new Attribute(model, "index");
 		// model->insert(attr1);
-		var1 = variablePlugin->create(model, "varNextIndex");
+
+		StaticElementInstance variable = pluginManager->find("Variable")->getPluginInfo()->getElementInstance();
+		Variable* var1 = (Variable*) variable(model, "varNextIndex");
 		// model->insert(var1);
 		StaticComponentInstance write = pluginManager->find("Write")->getPluginInfo()->GetComponentInstance();
 		Write* write1 = (Write*) write(model, "");
@@ -124,17 +112,19 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 
 		// model->insert(write1);
 		//
-		machine1 = resourcePlugin->create(model, "Machine_1");
+		StaticElementInstance resource = pluginManager->find("Resource")->getPluginInfo()->getElementInstance();
+		Resource* machine1 = (Resource*) resource(model, "Machine_1");
 		machine1->setCapacity(1);
 		// model->insert(machine1);
-		machine2 = resourcePlugin->create(model, "Machine_2");
+		Resource* machine2 = (Resource*) resource(model, "Machine_2");
 		machine2->setCapacity(2);
 		// model->insert(machine2);
-		machine3 = resourcePlugin->create(model, "Machine_3");
+		Resource* machine3 = (Resource*) resource(model, "Machine_3");
 		machine3->setCapacity(3);
 		// model->insert(machine3);
 
-		machSet = setPlugin->create(model, "Machine_Set");
+		StaticElementInstance set = pluginManager->find("Set")->getPluginInfo()->getElementInstance();
+		Set* machSet = (Set*) set(model, "Machine_Set");
 		machSet->setSetOfType(Util::TypeOf<Resource>());
 		machSet->getElementSet()->insert(machine1);
 		machSet->getElementSet()->insert(machine2);
@@ -236,16 +226,5 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	// std::cout << "abc" << std::endl;
 	this->setDefaultEventHandlers(model->getOnEvents());
 	model->getSimulation()->start();
-
-  	setPlugin->destroy(machSet);
-
-	resourcePlugin->destroy(machine1);
-	resourcePlugin->destroy(machine2);
-	resourcePlugin->destroy(machine3);
-	variablePlugin->destroy(var1);
-
-	dlclose(setPlugin->getHandle());
-	dlclose(resourcePlugin->getHandle());
-	dlclose(variablePlugin->getHandle());
 	return 0;
 }

@@ -135,7 +135,7 @@ void Resource::_notifyReleaseEventHandlers() {
 }
 
 PluginInformation* Resource::GetPluginInformation() {
-	PluginInformation* info = new PluginInformation(Util::TypeOf<Resource>(), &Resource::LoadInstance);
+	PluginInformation* info = new PluginInformation(Util::TypeOf<Resource>(), &Resource::LoadInstance, &Resource::CreateInstance);
 	return info;
 }
 
@@ -146,6 +146,11 @@ ModelElement* Resource::LoadInstance(Model* model, std::map<std::string, std::st
 	} catch (const std::exception& e) {
 
 	}
+	return newElement;
+}
+
+ModelElement* Resource::CreateInstance(Model* model, std::string name) {
+	Resource* newElement = new Resource(model, name);
 	return newElement;
 }
 

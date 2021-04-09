@@ -13,14 +13,6 @@
 
 #include "../Set.h"
 
-extern "C" Set* create(Model* model, std::string name = "") {
-    return new Set(model, name);
-}
-
-extern "C" void destroy(Set* set) {
-    delete set;
-}
-
 extern "C" StaticGetPluginInformation getPluginInformation() {
 	return &Set::GetPluginInformation;
 }
@@ -57,6 +49,11 @@ ModelElement* Set::LoadInstance(Model* model, std::map<std::string, std::string>
 	} catch (const std::exception& e) {
 
 	}
+	return newElement;
+}
+
+ModelElement* Set::CreateInstance(Model* model, std::string name) {
+	Set* newElement = new Set(model, name);
 	return newElement;
 }
 

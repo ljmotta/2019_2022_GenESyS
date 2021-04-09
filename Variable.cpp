@@ -23,7 +23,7 @@ std::string Variable::show() {
 }
 
 PluginInformation* Variable::GetPluginInformation() {
-	PluginInformation* info = new PluginInformation(Util::TypeOf<Variable>(), &Variable::LoadInstance);
+	PluginInformation* info = new PluginInformation(Util::TypeOf<Variable>(), &Variable::LoadInstance, &Variable::CreateInstance);
 	return info;
 }
 
@@ -92,6 +92,11 @@ ModelElement* Variable::LoadInstance(Model* model, std::map<std::string, std::st
 	} catch (const std::exception& e) {
 
 	}
+	return newElement;
+}
+
+ModelElement* Variable::CreateInstance(Model* model, std::string name) {
+	Variable* newElement = new Variable(model, name);
 	return newElement;
 }
 

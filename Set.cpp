@@ -34,7 +34,7 @@ List<ModelElement*>* Set::getElementSet() const {
 }
 
 PluginInformation* Set::GetPluginInformation() {
-	PluginInformation* info = new PluginInformation(Util::TypeOf<Set>(), &Set::LoadInstance);
+	PluginInformation* info = new PluginInformation(Util::TypeOf<Set>(), &Set::LoadInstance, &Set::CreateInstance);
 	return info;
 }
 
@@ -47,6 +47,12 @@ ModelElement* Set::LoadInstance(Model* model, std::map<std::string, std::string>
 	}
 	return newElement;
 }
+
+ModelElement* Set::CreateInstance(Model* model, std::string name) {
+	Set* newElement = new Set(model, name);
+	return newElement;
+}
+
 
 bool Set::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelElement::_loadInstance(fields);

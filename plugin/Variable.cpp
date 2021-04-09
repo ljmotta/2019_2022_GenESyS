@@ -14,14 +14,6 @@
 #include "../Variable.h"
 #include "../Plugin.h"
 
-extern "C" Variable* create(Model* model, std::string name = "") {
-    return new Variable(model, name);
-}
-
-extern "C" void destroy(Variable* variable) {
-    delete variable;
-}
-
 extern "C" StaticGetPluginInformation getPluginInformation() {
 	return &Variable::GetPluginInformation;
 }
@@ -35,7 +27,7 @@ std::string Variable::show() {
 }
 
 PluginInformation* Variable::GetPluginInformation() {
-	PluginInformation* info = new PluginInformation(Util::TypeOf<Variable>(), &Variable::LoadInstance);
+	PluginInformation* info = new PluginInformation(Util::TypeOf<Variable>(), &Variable::LoadInstance, &Variable::CreateInstance);
 	return info;
 }
 
@@ -106,6 +98,12 @@ ModelElement* Variable::LoadInstance(Model* model, std::map<std::string, std::st
 	}
 	return newElement;
 }
+
+ModelElement* Variable::CreateInstance(Model* model, std::string name) {
+	Variable* newElement = new Variable(model, name);
+	return newElement;
+}
+
 
 bool Variable::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelElement::_loadInstance(fields);

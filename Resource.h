@@ -136,6 +136,7 @@ public:
 public:
 	static PluginInformation* GetPluginInformation();
 	static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static ModelElement* CreateInstance(Model* model, std::string name);
 public:
 	void seize(unsigned int quantity, double tnow);
 	void release(unsigned int quantity, double tnow);

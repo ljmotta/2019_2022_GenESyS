@@ -58,6 +58,7 @@ public:
 	virtual ~Set() = default;
 public: // static
 	static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static ModelElement* CreateInstance(Model* model, std::string name);
 	static PluginInformation* GetPluginInformation();
 public:
 	virtual std::string show();
