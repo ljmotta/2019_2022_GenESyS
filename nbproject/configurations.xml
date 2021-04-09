@@ -202,7 +202,6 @@
         <itemPath>Station.h</itemPath>
         <itemPath>Storage.cpp</itemPath>
         <itemPath>Storage.h</itemPath>
-        <itemPath>Variable.cpp</itemPath>
         <itemPath>Variable.h</itemPath>
       </logicalFolder>
     </logicalFolder>
@@ -780,8 +779,6 @@
       </item>
       <item path="Util.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Variable.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="Variable.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Write.h" ex="false" tool="3" flavor2="0">
@@ -1291,8 +1288,6 @@
       <item path="Util.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Util.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Variable.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Variable.h" ex="false" tool="3" flavor2="0">
       </item>

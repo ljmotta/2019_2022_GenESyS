@@ -138,30 +138,30 @@ public:
 	static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 	static ModelElement* CreateInstance(Model* model, std::string name);
 public:
-	void seize(unsigned int quantity, double tnow);
-	void release(unsigned int quantity, double tnow);
-	void initBetweenReplications();
+	virtual void seize(unsigned int quantity, double tnow);
+	virtual void release(unsigned int quantity, double tnow);
+	virtual void initBetweenReplications();
 public: // g&s
-	void setResourceState(ResourceState _resourceState);
-	Resource::ResourceState getResourceState() const;
-	void setCapacity(unsigned int _capacity);
-	unsigned int getCapacity() const;
-	void setCostBusyHour(double _costBusyHour);
-	double getCostBusyHour() const;
-	void setCostIdleHour(double _costIdleHour);
-	double getCostIdleHour() const;
-	void setCostPerUse(double _costPerUse);
-	double getCostPerUse() const;
+	virtual void setResourceState(ResourceState _resourceState);
+	virtual Resource::ResourceState getResourceState() const;
+	virtual void setCapacity(unsigned int _capacity);
+	virtual unsigned int getCapacity() const;
+	virtual void setCostBusyHour(double _costBusyHour);
+	virtual double getCostBusyHour() const;
+	virtual void setCostIdleHour(double _costIdleHour);
+	virtual double getCostIdleHour() const;
+	virtual void setCostPerUse(double _costPerUse);
+	virtual double getCostPerUse() const;
 public: // gets
-	unsigned int getNumberBusy() const;
+	virtual unsigned int getNumberBusy() const;
 public:
-	void addReleaseResourceEventHandler(ResourceEventHandler eventHandler);
-	double getLastTimeSeized() const;
+	virtual void addReleaseResourceEventHandler(ResourceEventHandler eventHandler);
+	virtual double getLastTimeSeized() const;
 protected:
-	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
-	virtual std::map<std::string, std::string>* _saveInstance();
-	virtual bool _check(std::string* errorMessage);
-	virtual void _createInternalElements();
+	bool _loadInstance(std::map<std::string, std::string>* fields);
+	std::map<std::string, std::string>* _saveInstance();
+	bool _check(std::string* errorMessage);
+	void _createInternalElements();
 
 private:
 	void _notifyReleaseEventHandlers(); ///< Notify observer classes that some of the resource capacity has been released. It is useful for allocation components (such as Seize) to know when an entity waiting into a queue can try to seize the resource again

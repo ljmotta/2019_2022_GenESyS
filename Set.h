@@ -63,9 +63,9 @@ public: // static
 public:
 	virtual std::string show();
 public:
-	void setSetOfType(std::string _setOfType);
-	std::string getSetOfType() const;
-	List<ModelElement*>* getElementSet() const;
+	virtual void setSetOfType(std::string _setOfType);
+	virtual std::string getSetOfType() const;
+	virtual List<ModelElement*>* getElementSet() const;
 
 protected: // must be overriden by derived classes
 	virtual bool _loadInstance(std::map<std::string, std::string>* fields);

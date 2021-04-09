@@ -126,7 +126,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/ToolManager.o \
 	${OBJECTDIR}/TraceManager.o \
 	${OBJECTDIR}/Util.o \
-	${OBJECTDIR}/Variable.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/parserBisonFlex/Genesys++-driver.o \
 	${OBJECTDIR}/parserBisonFlex/Genesys++-scanner.o \
@@ -613,11 +612,6 @@ ${OBJECTDIR}/Util.o: Util.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Util.o Util.cpp
-
-${OBJECTDIR}/Variable.o: Variable.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Variable.o Variable.cpp
 
 ${OBJECTDIR}/main.o: main.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

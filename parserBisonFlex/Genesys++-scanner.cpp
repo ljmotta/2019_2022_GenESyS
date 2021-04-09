@@ -4810,12 +4810,12 @@ YY_RULE_SETUP
         }
 
         // check VARIABLE
-        element = driver.getModel()->getElements()->getElement(Util::TypeOf<Variable>(), std::string(yytext));
+        element = driver.getModel()->getElements()->getElement("Variable", std::string(yytext));
         if (element != nullptr) { // it is a variable
             Variable* var = static_cast<Variable*>(element);
             //double variableID = var->getId();// ->getValue(); // var->getId()
 	    //std::cout << "FOUND VARIABLE " << var->getName() <<" ID " << var->getId() << std::endl;
-            return yy::genesyspp_parser::make_VARI(obj_t(0, Util::TypeOf<Variable>(), var->getId()),loc);
+            return yy::genesyspp_parser::make_VARI(obj_t(0, "Variable", var->getId()),loc);
         }
 
         // Should be definied by plugin FORMULA

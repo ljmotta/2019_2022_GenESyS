@@ -98,15 +98,15 @@ public: //static
 	static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 	static ModelElement* CreateInstance(Model* model, std::string name);
 public:
-	double value();
-	void setValue(double value);
-	double value(std::string index);
-	void setValue(std::string index, double value);
-	double initialValue();
-	void setInitialValue(double value);
-	double initialValue(std::string index);
-	void setInitialValue(std::string index, double value);
-	List<unsigned int>* dimensionSizes() const;
+	virtual double value();
+	virtual void setValue(double value);
+	virtual double value(std::string index);
+	virtual void setValue(std::string index, double value);
+	virtual double initialValue();
+	virtual void setInitialValue(double value);
+	virtual double initialValue(std::string index);
+	virtual void setInitialValue(std::string index, double value);
+	virtual List<unsigned int>* dimensionSizes() const;
 
 protected:
 	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
