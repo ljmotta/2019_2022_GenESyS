@@ -15,12 +15,12 @@
 
 //using namespace GenesysKernel;
 
-PluginInformation::PluginInformation(std::string pluginTypename, StaticLoaderComponentInstance componentloader, StaticComponentInstance componentInstance) {
+PluginInformation::PluginInformation(std::string pluginTypename, StaticLoaderComponentInstance componentloader, StaticComponentConstructor componentConstructor) {
 	this->_componentloader = componentloader; //// \todo:
 	this->_elementloader = nullptr; /// \todo:
 	this->_isComponent = true; //// \todo:
 	this->_pluginTypename = pluginTypename;
-	this->_componentInstance = componentInstance;
+	this->_componentConstructor = componentConstructor;
 }
 
 PluginInformation::PluginInformation(std::string pluginTypename, StaticLoaderComponentInstance componentloader) {
@@ -31,12 +31,12 @@ PluginInformation::PluginInformation(std::string pluginTypename, StaticLoaderCom
 }
 
 
-PluginInformation::PluginInformation(std::string pluginTypename, StaticLoaderElementInstance elementloader, StaticElementInstance elementInstance) {
+PluginInformation::PluginInformation(std::string pluginTypename, StaticLoaderElementInstance elementloader, StaticElementConstructor elementConstructor) {
 	this->_componentloader = nullptr;
 	this->_elementloader = elementloader;
 	this->_isComponent = false;
 	this->_pluginTypename = pluginTypename;
-	this->_elementInstance = elementInstance;
+	this->_elementConstructor = elementConstructor;
 }
 
 PluginInformation::PluginInformation(std::string pluginTypename, StaticLoaderElementInstance elementloader) {
@@ -50,16 +50,16 @@ StaticLoaderElementInstance PluginInformation::getElementLoader() const {
 	return _elementloader;
 }
 
-StaticElementInstance PluginInformation::getElementInstance() const {
-	return _elementInstance;
+StaticElementConstructor PluginInformation::getElementConstructor() const {
+	return _elementConstructor;
 }
 
 StaticLoaderComponentInstance PluginInformation::GetComponentLoader() const {
 	return _componentloader;
 }
 
-StaticComponentInstance PluginInformation::GetComponentInstance() const {
-	return _componentInstance;
+StaticComponentConstructor PluginInformation::GetComponentConstructor() const {
+	return _componentConstructor;
 }
 
 bool PluginInformation::isGenerateReport() const {

@@ -248,8 +248,7 @@ ModelComponent* Seize::LoadInstance(Model* model, std::map<std::string, std::str
 }
 
 ModelComponent* Seize::CreateInstance(Model* model, std::string name) {
-	Seize* newComponent = new Seize(model, name);
-	return newComponent;
+	return new Seize(model, name);;
 
 }
 

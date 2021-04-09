@@ -154,8 +154,7 @@ ModelElement* Resource::LoadInstance(Model* model, std::map<std::string, std::st
 }
 
 ModelElement* Resource::CreateInstance(Model* model, std::string name) {
-	Resource* newElement = new Resource(model, name);
-	return newElement;
+	return new Resource(model, name);;
 }
 
 bool Resource::_loadInstance(std::map<std::string, std::string>* fields) {

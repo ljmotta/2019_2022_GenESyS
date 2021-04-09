@@ -112,8 +112,7 @@ ModelElement* Queue::LoadInstance(Model* model, std::map<std::string, std::strin
 }
 
 ModelElement* Queue::CreateInstance(Model* model, std::string name) {
-	Queue* newElement = new Queue(model, name);
-	return newElement;
+	return new Queue(model, name);;
 }
 
 bool Queue::_loadInstance(std::map<std::string, std::string>* fields) {

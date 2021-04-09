@@ -53,8 +53,7 @@ ModelElement* Set::LoadInstance(Model* model, std::map<std::string, std::string>
 }
 
 ModelElement* Set::CreateInstance(Model* model, std::string name) {
-	Set* newElement = new Set(model, name);
-	return newElement;
+	return new Set(model, name);;
 }
 
 bool Set::_loadInstance(std::map<std::string, std::string>* fields) {

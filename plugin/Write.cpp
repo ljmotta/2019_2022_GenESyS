@@ -38,8 +38,7 @@ ModelComponent* Write::LoadInstance(Model* model, std::map<std::string, std::str
 }
 
 ModelComponent* Write::CreateInstance(Model* model, std::string name) {
-	Write* newComponent = new Write(model, name);
-	return newComponent;
+	return new Write(model, name);;
 }
 
 List<WriteElement*>* Write::writeElements() const {

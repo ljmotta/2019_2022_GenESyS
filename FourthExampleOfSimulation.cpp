@@ -45,11 +45,24 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	Simulator* simulator = new Simulator();
 	simulator->getTracer()->setTraceLevel(Util::TraceLevel::everythingMostDetailed); //modelResult); //componentArrival);
 	this->setDefaultTraceHandlers(simulator->getTracer());
-	this->insertFakePluginsByHand(simulator);
 	bool wantToCreateNewModelAndSaveInsteadOfJustLoad = true; //true;
 	Model* model;
 
 	PluginManager* pluginManager = simulator->getPlugins();
+	
+	StaticComponentConstructor create = pluginManager->insert("create.so")->getPluginInfo()->GetComponentConstructor();
+	StaticComponentConstructor assign = pluginManager->insert("assign.so")->getPluginInfo()->GetComponentConstructor();
+	StaticComponentConstructor write = pluginManager->insert("write.so")->getPluginInfo()->GetComponentConstructor();
+	StaticComponentConstructor decide = pluginManager->insert("decide.so")->getPluginInfo()->GetComponentConstructor();
+	StaticComponentConstructor seize = pluginManager->insert("seize.so")->getPluginInfo()->GetComponentConstructor();
+	StaticComponentConstructor delay = pluginManager->insert("delay.so")->getPluginInfo()->GetComponentConstructor();
+	StaticComponentConstructor release = pluginManager->insert("release.so")->getPluginInfo()->GetComponentConstructor();
+	StaticComponentConstructor dispose = pluginManager->insert("dispose.so")->getPluginInfo()->GetComponentConstructor();
+
+	StaticElementConstructor queue = pluginManager->insert("queue.so")->getPluginInfo()->getElementConstructor();
+	StaticElementConstructor resource = pluginManager->insert("resource.so")->getPluginInfo()->getElementConstructor();
+	StaticElementConstructor set = pluginManager->insert("set.so")->getPluginInfo()->getElementConstructor();
+	StaticElementConstructor variable = pluginManager->insert("variable.so")->getPluginInfo()->getElementConstructor();
 
 	if (wantToCreateNewModelAndSaveInsteadOfJustLoad) {
 		model = new Model(simulator);
@@ -59,8 +72,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		infos->setReplicationLength(100);
 		EntityType* part = new EntityType(model, "Part");
 		// model->insert(part);
-		StaticComponentInstance findCreate = pluginManager->find("Create")->getPluginInfo()->GetComponentInstance();
-		Create* create1 = (Create*) findCreate(model, "");
+		Create* create1 = (Create*) create(model, "");
 
 		create1->setEntityType(part);
 		create1->setTimeBetweenCreationsExpression("norm(1.5,0.5)");
@@ -68,8 +80,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		create1->setEntitiesPerCreation(1);
 		// model->insert(create1);
 
-		StaticComponentInstance findAssign = pluginManager->find("Assign")->getPluginInfo()->GetComponentInstance();
-		Assign* assign1 = (Assign*) findAssign(model, "");
+		Assign* assign1 = (Assign*) assign(model, "");
 
 		assign1->assignments()->insert(new Assign::Assignment("varNextIndex", "varNextIndex + 1"));
 		assign1->assignments()->insert(new Assign::Assignment("index", "varNextIndex"));
@@ -77,10 +88,8 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		Attribute* attr1 = new Attribute(model, "index");
 		// model->insert(attr1);
 
-		StaticElementInstance variable = pluginManager->find("Variable")->getPluginInfo()->getElementInstance();
 		Variable* var1 = (Variable*) variable(model, "varNextIndex");
 		// model->insert(var1);
-		StaticComponentInstance write = pluginManager->find("Write")->getPluginInfo()->GetComponentInstance();
 		Write* write1 = (Write*) write(model, "");
 		write1->setWriteToType(Write::WriteToType::SCREEN);
 		write1->writeElements()->insert(new WriteElement("Atributo index: "));
@@ -112,7 +121,6 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 
 		// model->insert(write1);
 		//
-		StaticElementInstance resource = pluginManager->find("Resource")->getPluginInfo()->getElementInstance();
 		Resource* machine1 = (Resource*) resource(model, "Machine_1");
 		machine1->setCapacity(1);
 		// model->insert(machine1);
@@ -123,43 +131,33 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		machine3->setCapacity(3);
 		// model->insert(machine3);
 
-		StaticElementInstance set = pluginManager->find("Set")->getPluginInfo()->getElementInstance();
 		Set* machSet = (Set*) set(model, "Machine_Set");
 		machSet->setSetOfType(Util::TypeOf<Resource>());
 		machSet->getElementSet()->insert(machine1);
 		machSet->getElementSet()->insert(machine2);
 		machSet->getElementSet()->insert(machine3);
 		// model->insert(machSet);
-		StaticComponentInstance findDecide = pluginManager->find("Decide")->getPluginInfo()->GetComponentInstance();
-		Decide* decide1 = (Decide*) findDecide(model, "");
+		Decide* decide1 = (Decide*) decide(model, "");
 		decide1->getConditions()->insert("NR(Machine_1) < MR(Machine_1)");
 		decide1->getConditions()->insert("NR(Machine_2) < MR(Machine_2)");
 		// model->insert(decide1);
-
-		auto findQueue = pluginManager->find("Queue");
-		auto queueInfo = findQueue->getPluginInfo();
-		auto queue = queueInfo->getElementInstance();
-
 
 		Queue* queueSeize1 = (Queue*) queue(model, "Queue_Seize_1");
 		queueSeize1->setOrderRule(Queue::OrderRule::FIFO);
 		// model->insert(queueSeize1);
 
-		StaticComponentInstance seize = pluginManager->find("Seize")->getPluginInfo()->GetComponentInstance();
 		Seize* seize1 = (Seize*) seize(model, "");
 		seize1->setSeizeRequest(new ResourceItemRequest(machine1));
 		seize1->setQueue(queueSeize1);
 		// model->insert(seize1);
-		StaticComponentInstance findDelay = pluginManager->find("Delay")->getPluginInfo()->GetComponentInstance();
-		Delay* delay1 = (Delay*) findDelay(model, "");
+		Delay* delay1 = (Delay*) delay(model, "");
 		delay1->setDelayExpression("norm(15,1)");
 		delay1->setDelayTimeUnit(Util::TimeUnit::second);
 		// model->insert(delay1);
 
-		StaticComponentInstance findRelease = pluginManager->find("Release")->getPluginInfo()->GetComponentInstance();
-		Release* release1 = (Release*) findRelease(model, "");
+		Release* release1 = (Release*) release(model, "");
 
-		// ->getPluginInfo()->GetComponentInstance()(model, "");
+		// ->getPluginInfo()->GetComponentConstructor()(model, "");
 		release1->setReleaseRequest(new ResourceItemRequest(machine1));
 		// model->insert(release1);
 
@@ -170,12 +168,12 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		seize2->setSeizeRequest(new ResourceItemRequest(machine2));
 		seize2->setQueue(queueSeize2);
 		// model->insert(seize2);
-		Delay* delay2 = (Delay*) findDelay(model, "");
+		Delay* delay2 = (Delay*) delay(model, "");
 		delay2->setDelayExpression("norm(15,1)");
 		delay2->setDelayTimeUnit(Util::TimeUnit::second);
 		// model->insert(delay2);
 		//Release* release2 = new Release(model);
-		Release* release2 = (Release*) findRelease(model, "");
+		Release* release2 = (Release*) release(model, "");
 		release2->setReleaseRequest(new ResourceItemRequest(machine2));
 		// model->insert(release2);
 
@@ -188,15 +186,14 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		seize3->setSeizeRequest(new ResourceItemRequest(machine3));
 		seize3->setQueue(queueSeize3);
 		// model->insert(seize3);
-		Delay* delay3 = (Delay*) findDelay(model, "");
+		Delay* delay3 = (Delay*) delay(model, "");
 		delay3->setDelayExpression("norm(15,1)");
 		delay3->setDelayTimeUnit(Util::TimeUnit::second);
 		// model->insert(delay3);
-		Release* release3 = (Release*) findRelease(model, "");
+		Release* release3 = (Release*) release(model, "");
 		release3->setReleaseRequest(new ResourceItemRequest(machine3));
 		// model->insert(release3);
-		StaticComponentInstance findDispose = pluginManager->find("Dispose")->getPluginInfo()->GetComponentInstance();
-		Dispose* dispose1 = (Dispose*) findDispose(model, "");
+		Dispose* dispose1 = (Dispose*) dispose(model, "");
 		// model->insert(dispose1);
 		//
 		create1->getNextComponents()->insert(assign1);

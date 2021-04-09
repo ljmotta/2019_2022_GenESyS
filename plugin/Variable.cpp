@@ -100,8 +100,7 @@ ModelElement* Variable::LoadInstance(Model* model, std::map<std::string, std::st
 }
 
 ModelElement* Variable::CreateInstance(Model* model, std::string name) {
-	Variable* newElement = new Variable(model, name);
-	return newElement;
+	return new Variable(model, name);;
 }
 
 
