@@ -28,6 +28,7 @@
 	typedef ModelComponent* (*StaticLoaderComponentInstance)(Model*, std::map<std::string, std::string>*);
 	typedef ModelComponent* (*StaticComponentInstance)(Model*, std::string);
 	typedef ModelElement* (*StaticLoaderElementInstance)(Model*, std::map<std::string, std::string>*);
+	typedef ModelElement* (*StaticElementInstance)(Model*, std::string);
 	class PluginInformation;
 	typedef PluginInformation* (*StaticGetPluginInformation)();
 
@@ -35,10 +36,12 @@
 	public:
 		PluginInformation(std::string pluginTypename, StaticLoaderComponentInstance componentloader, StaticComponentInstance componentInstance);
 		PluginInformation(std::string pluginTypename, StaticLoaderComponentInstance componentloader);
+		PluginInformation(std::string pluginTypename, StaticLoaderElementInstance elementloader, StaticElementInstance elementInstance);
 		PluginInformation(std::string pluginTypename, StaticLoaderElementInstance elementloader);
 	public:
 		// gets
 		StaticLoaderElementInstance getElementLoader() const;
+		StaticElementInstance getElementInstance() const;
 		StaticLoaderComponentInstance GetComponentLoader() const;
 		StaticComponentInstance GetComponentInstance() const;
 		bool isGenerateReport() const;
@@ -95,6 +98,7 @@
 		StaticLoaderComponentInstance _componentloader;
 		StaticComponentInstance _componentInstance;
 		StaticLoaderElementInstance _elementloader;
+		StaticElementInstance _elementInstance;
 	};
 //namespace\\}
 

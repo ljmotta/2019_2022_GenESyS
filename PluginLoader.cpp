@@ -19,7 +19,6 @@ PluginLoader::PluginLoader(const char* handleRootPath) {
 	_handleRootPath = handleRootPath;
     _setPlugin = new PluginLoader::SetPlugin(this);
     _resourcePlugin = new PluginLoader::ResourcePlugin(this);
-    _queuePlugin = new PluginLoader::QueuePlugin(this);
     _variablePlugin = new PluginLoader::VariablePlugin(this);
 
 }
@@ -94,10 +93,6 @@ PluginLoader::ResourcePlugin* PluginLoader::getResource() {
     return _resourcePlugin;
 }
 
-PluginLoader::QueuePlugin* PluginLoader::getQueue() {
-    return _queuePlugin;
-}
-
 PluginLoader::VariablePlugin* PluginLoader::getVariable() {
     return _variablePlugin;
 }
@@ -114,13 +109,6 @@ PluginLoader::SetPlugin::SetPlugin(PluginLoader* pluginLoader) : PluginLoader::P
 PluginLoader::ResourcePlugin::ResourcePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Resource>(pluginLoader) {
     PluginLoader::ResourcePlugin::_pluginLoader = pluginLoader;
     PluginLoader::ResourcePlugin::_handle = pluginLoader->open("libresource.so");
-}
-
-// QUEUE
-
-PluginLoader::QueuePlugin::QueuePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Queue>(pluginLoader) {
-    PluginLoader::QueuePlugin::_pluginLoader = pluginLoader;
-    PluginLoader::QueuePlugin::_handle = pluginLoader->open("libqueue.so");
 }
 
 // VARIABLE

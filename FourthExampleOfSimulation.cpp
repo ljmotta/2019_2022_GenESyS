@@ -46,7 +46,6 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	PluginLoader* pluginLoader = new PluginLoader("./plugin/build/");
 	PluginLoader::SetPlugin* setPlugin = pluginLoader->getSet();
 	PluginLoader::ResourcePlugin* resourcePlugin = pluginLoader->getResource();
-	PluginLoader::QueuePlugin* queuePlugin = pluginLoader->getQueue();
 	PluginLoader::VariablePlugin* variablePlugin = pluginLoader->getVariable();
 
 	Simulator* simulator = new Simulator();
@@ -63,13 +62,8 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	Resource* machine2;
 	Resource* machine3;
 
-	Queue* queueSeize1;
-	Queue* queueSeize2;
-	Queue* queueSeize3;
-
 	Variable* var1;
 	PluginManager* pluginManager = simulator->getPlugins();
-
 
 	if (wantToCreateNewModelAndSaveInsteadOfJustLoad) {
 		model = new Model(simulator);
@@ -151,9 +145,16 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		decide1->getConditions()->insert("NR(Machine_1) < MR(Machine_1)");
 		decide1->getConditions()->insert("NR(Machine_2) < MR(Machine_2)");
 		// model->insert(decide1);
-		queueSeize1 = queuePlugin->create(model, "Queue_Seize_1");
+
+		auto findQueue = pluginManager->find("Queue");
+		auto queueInfo = findQueue->getPluginInfo();
+		auto queue = queueInfo->getElementInstance();
+
+
+		Queue* queueSeize1 = (Queue*) queue(model, "Queue_Seize_1");
 		queueSeize1->setOrderRule(Queue::OrderRule::FIFO);
 		// model->insert(queueSeize1);
+
 		StaticComponentInstance seize = pluginManager->find("Seize")->getPluginInfo()->GetComponentInstance();
 		Seize* seize1 = (Seize*) seize(model, "");
 		seize1->setSeizeRequest(new ResourceItemRequest(machine1));
@@ -171,7 +172,8 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		// ->getPluginInfo()->GetComponentInstance()(model, "");
 		release1->setReleaseRequest(new ResourceItemRequest(machine1));
 		// model->insert(release1);
-		queueSeize2 = queuePlugin->create(model, "Queue_Seize_2");
+
+		Queue* queueSeize2 = (Queue*) queue(model, "Queue_Seize_2");
 		queueSeize2->setOrderRule(Queue::OrderRule::FIFO);
 		// model->insert(queueSeize2);
 		Seize* seize2 = (Seize*) seize(model, "");
@@ -186,7 +188,9 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		Release* release2 = (Release*) findRelease(model, "");
 		release2->setReleaseRequest(new ResourceItemRequest(machine2));
 		// model->insert(release2);
-		queueSeize3 = queuePlugin->create(model, "Queue_Seize_3");
+
+		
+		Queue* queueSeize3 = (Queue*) queue(model, "Queue_Seize_3");
 		queueSeize3->setOrderRule(Queue::OrderRule::FIFO);
 		// model->insert(queueSeize3);
 
@@ -214,12 +218,12 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		seize1->getNextComponents()->insert(delay1);
 		delay1->getNextComponents()->insert(release1);
 		release1->getNextComponents()->insert(dispose1);
-		// seize2->getNextComponents()->insert(delay2);
-		// delay2->getNextComponents()->insert(release2);
-		// release2->getNextComponents()->insert(dispose1);
-		// seize3->getNextComponents()->insert(delay3);
-		// delay3->getNextComponents()->insert(release3);
-		// release3->getNextComponents()->insert(dispose1);
+		seize2->getNextComponents()->insert(delay2);
+		delay2->getNextComponents()->insert(release2);
+		release2->getNextComponents()->insert(dispose1);
+		seize3->getNextComponents()->insert(delay3);
+		delay3->getNextComponents()->insert(release3);
+		release3->getNextComponents()->insert(dispose1);
 		//
 		simulator->getModels()->insert(model);
 		model->save("./temp/forthExampleOfSimulation.txt");
@@ -238,14 +242,10 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	resourcePlugin->destroy(machine1);
 	resourcePlugin->destroy(machine2);
 	resourcePlugin->destroy(machine3);
-	queuePlugin->destroy(queueSeize1);
-	queuePlugin->destroy(queueSeize2);
-	queuePlugin->destroy(queueSeize3);
 	variablePlugin->destroy(var1);
 
 	dlclose(setPlugin->getHandle());
 	dlclose(resourcePlugin->getHandle());
-	dlclose(queuePlugin->getHandle());
 	dlclose(variablePlugin->getHandle());
 	return 0;
 }

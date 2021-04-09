@@ -93,7 +93,7 @@ double Queue::getAttributeFromWaitingRank(unsigned int rank, Util::identificatio
 }
 
 PluginInformation* Queue::GetPluginInformation() {
-	PluginInformation* info = new PluginInformation(Util::TypeOf<Queue>(), &Queue::LoadInstance);
+	PluginInformation* info = new PluginInformation(Util::TypeOf<Queue>(), &Queue::LoadInstance, &Queue::CreateInstance);
 	return info;
 }
 
@@ -104,6 +104,11 @@ ModelElement* Queue::LoadInstance(Model* model, std::map<std::string, std::strin
 	} catch (const std::exception& e) {
 
 	}
+	return newElement;
+}
+
+ModelElement* Queue::CreateInstance(Model* model, std::string name) {
+	Queue* newElement = new Queue(model, name);
 	return newElement;
 }
 

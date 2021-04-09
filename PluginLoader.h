@@ -57,17 +57,10 @@ public:
             SetPlugin(PluginLoader* pluginLoader);
             virtual ~SetPlugin() = default;
     };
-
     class ResourcePlugin : public Plugin<Resource>{
         public:
             ResourcePlugin(PluginLoader* pluginLoader);
             virtual ~ResourcePlugin() = default;
-    };
-
-    class QueuePlugin : public Plugin<Queue>{
-        public:
-            QueuePlugin(PluginLoader* pluginLoader);
-            virtual ~QueuePlugin() = default;
     };
     class VariablePlugin : public Plugin<Variable>{
         public:
@@ -78,13 +71,11 @@ public:
 public:
     PluginLoader::SetPlugin* _setPlugin;
     PluginLoader::ResourcePlugin* _resourcePlugin;
-    PluginLoader::QueuePlugin* _queuePlugin;
     PluginLoader::VariablePlugin* _variablePlugin;
 
 public:
     PluginLoader::SetPlugin* getSet();
     PluginLoader::ResourcePlugin* getResource();
-    PluginLoader::QueuePlugin* getQueue();
     PluginLoader::VariablePlugin* getVariable();
 
 public:

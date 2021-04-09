@@ -132,31 +132,31 @@ public:
 	static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 	static ModelComponent* CreateInstance(Model* model, std::string name);
 public: // get & set
-	void setLastMemberSeized(unsigned int _lastMemberSeized);
-	unsigned int getLastMemberSeized() const;
-	void setSaveAttribute(std::string _saveAttribute);
-	std::string getSaveAttribute() const;
-	void setRule(Resource::ResourceRule _rule);
-	Resource::ResourceRule getRule() const;
+	virtual void setLastMemberSeized(unsigned int _lastMemberSeized);
+	virtual unsigned int getLastMemberSeized() const;
+	virtual void setSaveAttribute(std::string _saveAttribute);
+	virtual std::string getSaveAttribute() const;
+	virtual void setRule(Resource::ResourceRule _rule);
+	virtual Resource::ResourceRule getRule() const;
 	//void setQuantity(std::string _quantity);
 	//std::string getQuantity() const;
-	void setResourceType(Resource::ResourceType _resourceType);
-	Resource::ResourceType getResourceType() const;
-	void setPriority(unsigned short _priority);
-	unsigned short getPriority() const;
-	void setAllocationType(unsigned int _allocationType);
-	unsigned int getAllocationType() const;
+	virtual void setResourceType(Resource::ResourceType _resourceType);
+	virtual Resource::ResourceType getResourceType() const;
+	virtual void setPriority(unsigned short _priority);
+	virtual unsigned short getPriority() const;
+	virtual void setAllocationType(unsigned int _allocationType);
+	virtual unsigned int getAllocationType() const;
 	// indirect access to Queue* and Resource*
 	//void setResourceName(std::string _resourceName) throw ();
 	//std::string getResourceName() const;
-	void setQueueName(std::string queueName) throw ();
-	std::string getQueueName() const;
+	virtual void setQueueName(std::string queueName) throw ();
+	virtual std::string getQueueName() const;
 	//void setResource(Resource* resource);
 	//Resource* getResource() const;
 	virtual void setQueue(Queue* queue);
-	Queue* getQueue() const;
+	virtual Queue* getQueue() const;
     virtual void setSeizeRequest(ResourceItemRequest* _seizeRequest);
-    ResourceItemRequest* seizeRequest() const;
+    virtual ResourceItemRequest* seizeRequest() const;
 protected:
 	virtual void _execute(Entity* entity);
 	virtual bool _loadInstance(std::map<std::string, std::string>* fields);

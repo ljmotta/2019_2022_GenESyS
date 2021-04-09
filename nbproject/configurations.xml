@@ -337,20 +337,6 @@
       <compileType>
         <ccTool>
           <standard>8</standard>
-          <incFile>
-            <pElem>Assign.h</pElem>
-            <pElem>Set.h</pElem>
-            <pElem>Queue.h</pElem>
-            <pElem>Release.h</pElem>
-            <pElem>Seize.h</pElem>
-            <pElem>Variable.h</pElem>
-            <pElem>Decide.h</pElem>
-            <pElem>Resource.h</pElem>
-            <pElem>Delay.h</pElem>
-            <pElem>Dispose.h</pElem>
-            <pElem>Create.h</pElem>
-            <pElem>Write.h</pElem>
-          </incFile>
           <commandLine>-fpermissive -Wl,--export-dynamic -L../plugin/build/ -Wl,-rpath=./plugin/build/ -Wl,--no-as-needed -ldl</commandLine>
         </ccTool>
         <asmTool>

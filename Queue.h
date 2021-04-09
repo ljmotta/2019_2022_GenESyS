@@ -103,21 +103,22 @@ public:
 public:
 	static PluginInformation* GetPluginInformation();
 	static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static ModelElement* CreateInstance(Model* model, std::string name);
 public:
-	void insertElement(Waiting* element);
-	void removeElement(Waiting* element);
-	unsigned int size();
-	Waiting* first();
-	Waiting* getAtRank(unsigned int rank);
-	void setAttributeName(std::string _attributeName);
-	std::string getAttributeName() const;
-	void setOrderRule(OrderRule _orderRule);
-	Queue::OrderRule getOrderRule() const;
+	virtual void insertElement(Waiting* element);
+	virtual void removeElement(Waiting* element);
+	virtual unsigned int size();
+	virtual Waiting* first();
+	virtual Waiting* getAtRank(unsigned int rank);
+	virtual void setAttributeName(std::string _attributeName);
+	virtual std::string getAttributeName() const;
+	virtual void setOrderRule(OrderRule _orderRule);
+	virtual Queue::OrderRule getOrderRule() const;
 public: // to implement SIMAN functions
-	double sumAttributesFromWaiting(Util::identification attributeID); // use to implement SIMAN SAQUE function
-	double getAttributeFromWaitingRank(unsigned int rank, Util::identification attributeID);
+	virtual double sumAttributesFromWaiting(Util::identification attributeID); // use to implement SIMAN SAQUE function
+	virtual double getAttributeFromWaitingRank(unsigned int rank, Util::identification attributeID);
 public:
-	void initBetweenReplications();
+	virtual void initBetweenReplications();
 protected:
 	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
 	virtual std::map<std::string, std::string>* _saveInstance();
