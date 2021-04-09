@@ -148,11 +148,6 @@
     </logicalFolder>
     <logicalFolder name="f3" displayName="Plugins" projectFiles="true">
       <logicalFolder name="f2" displayName="Components" projectFiles="true">
-        <itemPath>Assign.h</itemPath>
-        <itemPath>Create.h</itemPath>
-        <itemPath>Decide.h</itemPath>
-        <itemPath>Delay.h</itemPath>
-        <itemPath>Dispose.h</itemPath>
         <itemPath>Dummy.cpp</itemPath>
         <itemPath>Dummy.h</itemPath>
         <itemPath>Enter.cpp</itemPath>
@@ -167,15 +162,12 @@
         <itemPath>PickUp.h</itemPath>
         <itemPath>Record.cpp</itemPath>
         <itemPath>Record.h</itemPath>
-        <itemPath>Release.h</itemPath>
         <itemPath>Route.cpp</itemPath>
         <itemPath>Route.h</itemPath>
-        <itemPath>Seize.h</itemPath>
         <itemPath>Signal.cpp</itemPath>
         <itemPath>Signal.h</itemPath>
         <itemPath>Submodel.cpp</itemPath>
         <itemPath>Submodel.h</itemPath>
-        <itemPath>Write.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="Elements" projectFiles="true">
         <itemPath>EntityGroup.cpp</itemPath>
@@ -202,7 +194,6 @@
         <itemPath>Station.h</itemPath>
         <itemPath>Storage.cpp</itemPath>
         <itemPath>Storage.h</itemPath>
-        <itemPath>Variable.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="f4" displayName="Statistics" projectFiles="true">
@@ -344,8 +335,6 @@
       </compileType>
       <item path="AnalysisOfVariance_if.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Assign.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="Attribute.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Attribute.h" ex="false" tool="3" flavor2="0">
@@ -378,15 +367,7 @@
       </item>
       <item path="Counter.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Create.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Decide.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="DefineGetterSetter.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Delay.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Dispose.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Dummy.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -623,8 +604,6 @@
       </item>
       <item path="Record.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Release.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="RequirementTester.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="RequirementTester.h" ex="false" tool="3" flavor2="0">
@@ -656,8 +635,6 @@
       <item path="SecondExampleOfSimulation.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="SecondExampleOfSimulation.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Seize.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Sequence.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -778,10 +755,6 @@
       <item path="Util.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Util.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Variable.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Write.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -854,8 +827,6 @@
       </compileType>
       <item path="AnalysisOfVariance_if.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Assign.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="Attribute.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Attribute.h" ex="false" tool="3" flavor2="0">
@@ -888,15 +859,7 @@
       </item>
       <item path="Counter.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Create.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Decide.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="DefineGetterSetter.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Delay.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Dispose.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Dummy.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -1133,8 +1096,6 @@
       </item>
       <item path="Record.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Release.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="RequirementTester.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="RequirementTester.h" ex="false" tool="3" flavor2="0">
@@ -1166,8 +1127,6 @@
       <item path="SecondExampleOfSimulation.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="SecondExampleOfSimulation.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Seize.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Sequence.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -1288,10 +1247,6 @@
       <item path="Util.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Util.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Variable.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Write.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
