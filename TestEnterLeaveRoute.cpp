@@ -106,32 +106,32 @@ int TestEnterLeaveRoute::main(int argc, char** argv) {
 	route2->setRouteTimeExpression("0.5");
 	components->insert(route2);
 	// create delay components
-	Delay* delay1 = new Delay(model);
-	delay1->setDelayExpression("1.0");
-	components->insert(delay1);
-	Delay* delay2 = new Delay(model);
-	delay2->setDelayExpression("1.0");
-	components->insert(delay2);
-	Delay* delay3 = new Delay(model);
-	delay3->setDelayExpression("1.0");
-	components->insert(delay3);
+	// Delay* delay1 = new Delay(model);
+	// delay1->setDelayExpression("1.0");
+	// components->insert(delay1);
+	// Delay* delay2 = new Delay(model);
+	// delay2->setDelayExpression("1.0");
+	// components->insert(delay2);
+	// Delay* delay3 = new Delay(model);
+	// delay3->setDelayExpression("1.0");
+	//components->insert(delay3);
 	// create a (Sink)ModelComponent of type Dispose, used to remove entities from the model
-	Dispose* dispose1 = new Dispose(model);
-	components->insert(dispose1);
+	// Dispose* dispose1 = new Dispose(model);
+	// components->insert(dispose1);
 	// connect model components to create a "workflow"
 	//create1->getNextComponents()->insert(route0);
 	//
-	enter1->getNextComponents()->insert(delay1);
-	delay1->getNextComponents()->insert(leave1);
+	//enter1->getNextComponents()->insert(delay1);
+	//delay1->getNextComponents()->insert(leave1);
 	leave1->getNextComponents()->insert(route1);
 	//
-	enter2->getNextComponents()->insert(delay2);
-	delay2->getNextComponents()->insert(leave2);
+	//enter2->getNextComponents()->insert(delay2);
+	//delay2->getNextComponents()->insert(leave2);
 	leave2->getNextComponents()->insert(route2);
 	//
-	enter3->getNextComponents()->insert(delay3);
-	delay3->getNextComponents()->insert(leave3);
-	leave3->getNextComponents()->insert(dispose1);
+	//enter3->getNextComponents()->insert(delay3);
+	//delay3->getNextComponents()->insert(leave3);
+	// leave3->getNextComponents()->insert(dispose1);
 	// insert the model into the simulator
 	simulator->getModels()->insert(model);
 	// check the model

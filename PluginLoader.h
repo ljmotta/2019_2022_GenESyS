@@ -78,22 +78,9 @@ public:
             VariablePlugin(PluginLoader* pluginLoader);
             virtual ~VariablePlugin() = default;
     };
-    class DisposePlugin : public Plugin<Dispose> {
-        public:
-            DisposePlugin(PluginLoader* pluginLoader);
-            virtual ~DisposePlugin() = default;
-    };
 
-    class DelayPlugin : public Plugin<Delay> {
-        public:
-            DelayPlugin(PluginLoader* pluginLoader);
-            virtual ~DelayPlugin() = default;
-    };
-    
 public:
     PluginLoader::SetPlugin* _setPlugin;
-    PluginLoader::DisposePlugin* _disposePlugin;
-    PluginLoader::DelayPlugin* _delayPlugin;
     PluginLoader::ResourcePlugin* _resourcePlugin;
     PluginLoader::DecidePlugin* _decidePlugin;
     PluginLoader::QueuePlugin* _queuePlugin;
@@ -101,8 +88,6 @@ public:
 
 public:
     PluginLoader::SetPlugin* getSet();
-    PluginLoader::DisposePlugin* getDispose();
-    PluginLoader::DelayPlugin* getDelay();
     PluginLoader::ResourcePlugin* getResource();
     PluginLoader::DecidePlugin* getDecide();
     PluginLoader::QueuePlugin* getQueue();

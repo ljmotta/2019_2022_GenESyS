@@ -43,17 +43,18 @@ public:
 	Delay(Model* model, std::string name = "");
 	virtual ~Delay() = default;
 public:
-	void setDelayExpression(std::string _delayExpression);
+	virtual void setDelayExpression(std::string _delayExpression);
 	std::string delayExpression() const;
 	void setDelay(double delay);
 	double delay() const;
-	void setDelayTimeUnit(Util::TimeUnit _delayTimeUnit);
+	virtual void setDelayTimeUnit(Util::TimeUnit _delayTimeUnit);
 	Util::TimeUnit delayTimeUnit() const;
 public:
 	virtual std::string show();
 public:
 	static PluginInformation* GetPluginInformation();
 	static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static ModelComponent* CreateInstance(Model* model, std::string name = "");
 protected:
 	virtual void _execute(Entity* entity);
 	virtual void _initBetweenReplications();

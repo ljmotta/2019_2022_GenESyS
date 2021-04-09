@@ -121,9 +121,9 @@
 	else if (fn == "decide.so")
 		GetInfo = pluginLoader->getDecide()->GetPluginInfo();
 	else if (fn == "delay.so")
-		GetInfo = pluginLoader->getDelay()->GetPluginInfo();
+		GetInfo = pluginLoader->GetPluginInfo2("libdelay.so");
 	else if (fn == "dispose.so")
-		GetInfo = pluginLoader->getDispose()->GetPluginInfo();
+		GetInfo = pluginLoader->GetPluginInfo2("libdispose.so");
 	else if (fn == "dummy.so")
 		GetInfo = &Dummy::GetPluginInformation;
 	else if (fn == "record.so")

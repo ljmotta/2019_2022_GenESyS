@@ -14,15 +14,6 @@
 #include "../Dispose.h"
 #include "../Model.h"
 
-
-extern "C" Dispose* create(Model* model, std::string name = "") {
-    return new Dispose(model, name);
-}
-
-extern "C" void destroy(Dispose* dispose) {
-    delete dispose;
-}
-
 extern "C" StaticGetPluginInformation getPluginInformation() {
 	return &Dispose::GetPluginInformation;
 }
@@ -86,9 +77,14 @@ void Dispose::_createInternalElements() {
 }
 
 PluginInformation* Dispose::GetPluginInformation() {
-	PluginInformation* info = new PluginInformation(Util::TypeOf<Dispose>(), &Dispose::LoadInstance);
+	PluginInformation* info = new PluginInformation(Util::TypeOf<Dispose>(), &Dispose::LoadInstance, &Dispose::CreateInstance);
 	info->setSink(true);
 	return info;
+}
+
+
+ModelComponent* Dispose::CreateInstance(Model* model, std::string name) {
+	return new Dispose(model, name);
 }
 
 ModelComponent* Dispose::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {

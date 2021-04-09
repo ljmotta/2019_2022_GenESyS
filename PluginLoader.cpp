@@ -18,8 +18,6 @@
 PluginLoader::PluginLoader(const char* handleRootPath) {
 	_handleRootPath = handleRootPath;
     _setPlugin = new PluginLoader::SetPlugin(this);
-    _disposePlugin = new PluginLoader::DisposePlugin(this);
-    _delayPlugin = new PluginLoader::DelayPlugin(this);
     _resourcePlugin = new PluginLoader::ResourcePlugin(this);
     _decidePlugin = new PluginLoader::DecidePlugin(this);
     _queuePlugin = new PluginLoader::QueuePlugin(this);
@@ -93,14 +91,6 @@ PluginLoader::SetPlugin* PluginLoader::getSet() {
     return _setPlugin;
 }
 
-PluginLoader::DisposePlugin* PluginLoader::getDispose() {
-    return _disposePlugin;
-}
-
-PluginLoader::DelayPlugin* PluginLoader::getDelay() {
-    return _delayPlugin;
-}
-
 PluginLoader::ResourcePlugin* PluginLoader::getResource() {
     return _resourcePlugin;
 }
@@ -122,20 +112,6 @@ PluginLoader::VariablePlugin* PluginLoader::getVariable() {
 PluginLoader::SetPlugin::SetPlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Set>(pluginLoader) {
     PluginLoader::SetPlugin::_pluginLoader = pluginLoader;
     PluginLoader::SetPlugin::_handle = pluginLoader->open("libset.so");
-}
-
-// Dipose
-
-PluginLoader::DisposePlugin::DisposePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Dispose>(pluginLoader) {
-    PluginLoader::DisposePlugin::_pluginLoader = pluginLoader;
-    PluginLoader::DisposePlugin::_handle = pluginLoader->open("libdispose.so");
-}
-
-// Delay
-
-PluginLoader::DelayPlugin::DelayPlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Delay>(pluginLoader) {
-    PluginLoader::DelayPlugin::_pluginLoader = pluginLoader;
-    PluginLoader::DelayPlugin::_handle = pluginLoader->open("libdelay.so");
 }
 
 // RESOURCE PLUGIN

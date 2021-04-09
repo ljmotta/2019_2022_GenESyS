@@ -45,8 +45,6 @@ FourthExampleOfSimulation::FourthExampleOfSimulation() {
 int FourthExampleOfSimulation::main(int argc, char** argv) {
 	PluginLoader* pluginLoader = new PluginLoader("./plugin/build/");
 	PluginLoader::SetPlugin* setPlugin = pluginLoader->getSet();
-	PluginLoader::DisposePlugin* disposePlugin = pluginLoader->getDispose();
-	PluginLoader::DelayPlugin* delayPlugin = pluginLoader->getDelay();
 	PluginLoader::ResourcePlugin* resourcePlugin = pluginLoader->getResource();
 	PluginLoader::DecidePlugin* decidePlugin = pluginLoader->getDecide();
 	PluginLoader::QueuePlugin* queuePlugin = pluginLoader->getQueue();
@@ -61,12 +59,6 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 
 
 	Set* machSet;
-
-	Dispose* dispose1;
-
-	Delay* delay1;
-	Delay* delay2;
-	Delay* delay3;
 
 	Resource* machine1;
 	Resource* machine2;
@@ -169,7 +161,8 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		seize1->setSeizeRequest(new ResourceItemRequest(machine1));
 		seize1->setQueue(queueSeize1);
 		// model->insert(seize1);
-		delay1 = delayPlugin->create(model);
+		StaticComponentInstance findDelay = pluginManager->find("Delay")->getPluginInfo()->GetComponentInstance();
+		Delay* delay1 = (Delay*) findDelay(model, "");
 		delay1->setDelayExpression("norm(15,1)");
 		delay1->setDelayTimeUnit(Util::TimeUnit::second);
 		// model->insert(delay1);
@@ -187,7 +180,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		seize2->setSeizeRequest(new ResourceItemRequest(machine2));
 		seize2->setQueue(queueSeize2);
 		// model->insert(seize2);
-		delay2 = delayPlugin->create(model);
+		Delay* delay2 = (Delay*) findDelay(model, "");
 		delay2->setDelayExpression("norm(15,1)");
 		delay2->setDelayTimeUnit(Util::TimeUnit::second);
 		// model->insert(delay2);
@@ -203,14 +196,15 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		seize3->setSeizeRequest(new ResourceItemRequest(machine3));
 		seize3->setQueue(queueSeize3);
 		// model->insert(seize3);
-		delay3 = delayPlugin->create(model);
+		Delay* delay3 = (Delay*) findDelay(model, "");
 		delay3->setDelayExpression("norm(15,1)");
 		delay3->setDelayTimeUnit(Util::TimeUnit::second);
 		// model->insert(delay3);
 		Release* release3 = (Release*) findRelease(model, "");
 		release3->setReleaseRequest(new ResourceItemRequest(machine3));
 		// model->insert(release3);
-		dispose1 = disposePlugin->create(model);
+		StaticComponentInstance findDispose = pluginManager->find("Dispose")->getPluginInfo()->GetComponentInstance();
+		Dispose* dispose1 = (Dispose*) findDispose(model, "");
 		// model->insert(dispose1);
 		//
 		create1->getNextComponents()->insert(assign1);
@@ -242,10 +236,6 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	model->getSimulation()->start();
 
   	setPlugin->destroy(machSet);
-	disposePlugin->destroy(dispose1);
-	delayPlugin->destroy(delay1);
-	delayPlugin->destroy(delay2);
-	delayPlugin->destroy(delay3);
 
 	resourcePlugin->destroy(machine1);
 	resourcePlugin->destroy(machine2);
@@ -261,7 +251,5 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	dlclose(decidePlugin->getHandle());
 	dlclose(queuePlugin->getHandle());
 	dlclose(variablePlugin->getHandle());
- 	dlclose(disposePlugin->getHandle());
-	dlclose(delayPlugin->getHandle());
 	return 0;
 }

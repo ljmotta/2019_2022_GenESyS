@@ -15,14 +15,6 @@
 #include "../Model.h"
 #include "../Attribute.h"
 
-extern "C" Delay* create(Model* model, std::string name = "") {
-    return new Delay(model, name);
-}
-
-extern "C" void destroy(Delay* delay) {
-    delete delay;
-}
-
 extern "C" StaticGetPluginInformation getPluginInformation() {
 	return &Delay::GetPluginInformation;
 }
@@ -148,6 +140,11 @@ void Delay::_createInternalElements() {
 }
 
 PluginInformation* Delay::GetPluginInformation() {
-	PluginInformation* info = new PluginInformation(Util::TypeOf<Delay>(), &Delay::LoadInstance);
+	PluginInformation* info = new PluginInformation(Util::TypeOf<Delay>(), &Delay::LoadInstance, &Delay::CreateInstance);
 	return info;
 }
+
+ModelComponent* Delay::CreateInstance(Model* model, std::string name) {
+	return new Delay(model, name);
+}
+
