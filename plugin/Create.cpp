@@ -11,12 +11,12 @@
  * Created on 21 de Junho de 2018, 20:12
  */
 
-#include "../Create.h"
+#include "plugin/Create.h"
 #include "../Model.h"
 #include "../EntityType.h"
 #include "../ElementManager.h"
 #include "../Attribute.h"
-#include "../Assign.h"
+#include "Assign.h"
 
 extern "C" StaticGetPluginInformation getPluginInformation() {
 	return &Create::GetPluginInformation;

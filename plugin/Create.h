@@ -16,10 +16,10 @@
 
 #include <string>
 #include <limits>
-#include "SourceModelComponent.h"
-#include "EntityType.h"
-#include "Counter.h"
-#include "Plugin.h"
+#include "../SourceModelComponent.h"
+#include "../EntityType.h"
+#include "../Counter.h"
+#include "../Plugin.h"
 
 /*!
  * Create is the most basic component to include the first entities into the model, and therefore is a source component (derived from SourceModelComponent)
