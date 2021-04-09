@@ -149,7 +149,6 @@
     <logicalFolder name="f3" displayName="Plugins" projectFiles="true">
       <logicalFolder name="f2" displayName="Components" projectFiles="true">
         <itemPath>Assign.h</itemPath>
-        <itemPath>Create.cpp</itemPath>
         <itemPath>Create.h</itemPath>
         <itemPath>Decide.cpp</itemPath>
         <itemPath>Decide.h</itemPath>
@@ -396,8 +395,6 @@
       <item path="Counter.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Counter.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Create.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Create.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -916,8 +913,6 @@
       <item path="Counter.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Counter.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Create.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Create.h" ex="false" tool="3" flavor2="0">
       </item>

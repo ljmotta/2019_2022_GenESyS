@@ -89,17 +89,11 @@ public:
             DelayPlugin(PluginLoader* pluginLoader);
             virtual ~DelayPlugin() = default;
     };
-
-    class CreatePlugin : public Plugin<Create> {
-        public:
-            CreatePlugin(PluginLoader* pluginLoader);
-            virtual ~CreatePlugin() = default;
-    };
+    
 public:
     PluginLoader::SetPlugin* _setPlugin;
     PluginLoader::DisposePlugin* _disposePlugin;
     PluginLoader::DelayPlugin* _delayPlugin;
-    PluginLoader::CreatePlugin* _createPlugin;
     PluginLoader::ResourcePlugin* _resourcePlugin;
     PluginLoader::DecidePlugin* _decidePlugin;
     PluginLoader::QueuePlugin* _queuePlugin;
@@ -109,7 +103,6 @@ public:
     PluginLoader::SetPlugin* getSet();
     PluginLoader::DisposePlugin* getDispose();
     PluginLoader::DelayPlugin* getDelay();
-    PluginLoader::CreatePlugin* getCreate();
     PluginLoader::ResourcePlugin* getResource();
     PluginLoader::DecidePlugin* getDecide();
     PluginLoader::QueuePlugin* getQueue();

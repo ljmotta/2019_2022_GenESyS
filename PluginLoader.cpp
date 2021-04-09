@@ -20,7 +20,6 @@ PluginLoader::PluginLoader(const char* handleRootPath) {
     _setPlugin = new PluginLoader::SetPlugin(this);
     _disposePlugin = new PluginLoader::DisposePlugin(this);
     _delayPlugin = new PluginLoader::DelayPlugin(this);
-    _createPlugin = new PluginLoader::CreatePlugin(this);
     _resourcePlugin = new PluginLoader::ResourcePlugin(this);
     _decidePlugin = new PluginLoader::DecidePlugin(this);
     _queuePlugin = new PluginLoader::QueuePlugin(this);
@@ -102,10 +101,6 @@ PluginLoader::DelayPlugin* PluginLoader::getDelay() {
     return _delayPlugin;
 }
 
-PluginLoader::CreatePlugin* PluginLoader::getCreate() {
-    return _createPlugin;
-}
-
 PluginLoader::ResourcePlugin* PluginLoader::getResource() {
     return _resourcePlugin;
 }
@@ -141,13 +136,6 @@ PluginLoader::DisposePlugin::DisposePlugin(PluginLoader* pluginLoader) : PluginL
 PluginLoader::DelayPlugin::DelayPlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Delay>(pluginLoader) {
     PluginLoader::DelayPlugin::_pluginLoader = pluginLoader;
     PluginLoader::DelayPlugin::_handle = pluginLoader->open("libdelay.so");
-}
-
-// CREATE
-
-PluginLoader::CreatePlugin::CreatePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Create>(pluginLoader) {
-    PluginLoader::CreatePlugin::_pluginLoader = pluginLoader;
-    PluginLoader::CreatePlugin::_handle = pluginLoader->open("libcreate.so");
 }
 
 // RESOURCE PLUGIN

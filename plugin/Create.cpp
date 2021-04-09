@@ -18,14 +18,6 @@
 #include "../Attribute.h"
 #include "../Assign.h"
 
-extern "C" Create* create(Model* model, std::string name = "") {
-    return new Create(model, name);
-}
-
-extern "C" void destroy(Create* create) {
-    delete create;
-}
-
 extern "C" StaticGetPluginInformation getPluginInformation() {
 	return &Create::GetPluginInformation;
 }
@@ -77,12 +69,16 @@ void Create::_execute(Entity* entity) {
 }
 
 PluginInformation* Create::GetPluginInformation() {
-	PluginInformation* info = new PluginInformation(Util::TypeOf<Create>(), &Create::LoadInstance);
+	PluginInformation* info = new PluginInformation(Util::TypeOf<Create>(), &Create::LoadInstance, &Create::CreateInstance);
 	info->setSource(true);
 	info->insertDynamicLibFileDependence("attribute.so");
 	info->insertDynamicLibFileDependence("entitytype.so");
 	info->insertDynamicLibFileDependence("statisticscollector.so");
 	return info;
+}
+
+ModelComponent* Create::CreateInstance(Model* model, std::string name) {
+	return new Create(model, name);
 }
 
 ModelComponent* Create::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {

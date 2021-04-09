@@ -42,7 +42,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/ComponentManager.o \
 	${OBJECTDIR}/ConnectionManager.o \
 	${OBJECTDIR}/Counter.o \
-	${OBJECTDIR}/Create.o \
 	${OBJECTDIR}/Decide.o \
 	${OBJECTDIR}/Delay.o \
 	${OBJECTDIR}/Dispose.o \
@@ -197,11 +196,6 @@ ${OBJECTDIR}/Counter.o: Counter.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Counter.o Counter.cpp
-
-${OBJECTDIR}/Create.o: Create.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Create.o Create.cpp
 
 ${OBJECTDIR}/Decide.o: Decide.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
