@@ -15,8 +15,8 @@
 #define DELAY_H
 
 #include <string>
-#include "ModelComponent.h"
-#include "Plugin.h"
+#include "../ModelComponent.h"
+#include "../Plugin.h"
 
 /*!
 Delay module
