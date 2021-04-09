@@ -53,10 +53,8 @@
 //
 // include to Plugin header files should be specified by plugins themselves
 //
-#include "../plugin/Variable.h"
 #include "../Attribute.h"
 #include "../Queue.h"
-#include "../plugin/Formula.h"
 #include "../Resource.h"
 #include "../Set.h"
 class genesyspp_driver;
