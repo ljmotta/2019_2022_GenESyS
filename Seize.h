@@ -130,6 +130,7 @@ public:
 public:
 	static PluginInformation* GetPluginInformation();
 	static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static ModelComponent* CreateInstance(Model* model, std::string name);
 public: // get & set
 	void setLastMemberSeized(unsigned int _lastMemberSeized);
 	unsigned int getLastMemberSeized() const;
@@ -152,9 +153,9 @@ public: // get & set
 	std::string getQueueName() const;
 	//void setResource(Resource* resource);
 	//Resource* getResource() const;
-	void setQueue(Queue* queue);
+	virtual void setQueue(Queue* queue);
 	Queue* getQueue() const;
-    void setSeizeRequest(ResourceItemRequest* _seizeRequest);
+    virtual void setSeizeRequest(ResourceItemRequest* _seizeRequest);
     ResourceItemRequest* seizeRequest() const;
 protected:
 	virtual void _execute(Entity* entity);

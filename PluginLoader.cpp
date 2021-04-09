@@ -24,7 +24,6 @@ PluginLoader::PluginLoader(const char* handleRootPath) {
     _resourcePlugin = new PluginLoader::ResourcePlugin(this);
     _decidePlugin = new PluginLoader::DecidePlugin(this);
     _queuePlugin = new PluginLoader::QueuePlugin(this);
-    _seizePlugin = new PluginLoader::SeizePlugin(this);
     _variablePlugin = new PluginLoader::VariablePlugin(this);
 
 }
@@ -119,10 +118,6 @@ PluginLoader::QueuePlugin* PluginLoader::getQueue() {
     return _queuePlugin;
 }
 
-PluginLoader::SeizePlugin* PluginLoader::getSeize() {
-    return _seizePlugin;
-}
-
 PluginLoader::VariablePlugin* PluginLoader::getVariable() {
     return _variablePlugin;
 }
@@ -174,13 +169,6 @@ PluginLoader::DecidePlugin::DecidePlugin(PluginLoader* pluginLoader) : PluginLoa
 PluginLoader::QueuePlugin::QueuePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Queue>(pluginLoader) {
     PluginLoader::QueuePlugin::_pluginLoader = pluginLoader;
     PluginLoader::QueuePlugin::_handle = pluginLoader->open("libqueue.so");
-}
-
-// SEIZE
-
-PluginLoader::SeizePlugin::SeizePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Seize>(pluginLoader) {
-    PluginLoader::SeizePlugin::_pluginLoader = pluginLoader;
-    PluginLoader::SeizePlugin::_handle = pluginLoader->open("libseize.so");
 }
 
 // VARIABLE

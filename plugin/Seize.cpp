@@ -15,14 +15,6 @@
 #include "../Resource.h"
 #include "../Attribute.h"
 
-extern "C" Seize* create(Model* model, std::string name = "") {
-    return new Seize(model, name);
-}
-
-extern "C" void destroy(Seize* seize) {
-    delete seize;
-}
-
 extern "C" StaticGetPluginInformation getPluginInformation() {
 	return &Seize::GetPluginInformation;
 }
@@ -238,7 +230,7 @@ bool Seize::_check(std::string* errorMessage) {
 }
 
 PluginInformation* Seize::GetPluginInformation() {
-	PluginInformation* info = new PluginInformation(Util::TypeOf<Seize>(), &Seize::LoadInstance);
+	PluginInformation* info = new PluginInformation(Util::TypeOf<Seize>(), &Seize::LoadInstance, &Seize::CreateInstance);
 	info->insertDynamicLibFileDependence("queue.so");
 	info->insertDynamicLibFileDependence("resource.so");
 	return info;
@@ -254,4 +246,11 @@ ModelComponent* Seize::LoadInstance(Model* model, std::map<std::string, std::str
 	return newComponent;
 
 }
+
+ModelComponent* Seize::CreateInstance(Model* model, std::string name) {
+	Seize* newComponent = new Seize(model, name);
+	return newComponent;
+
+}
+
 

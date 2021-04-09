@@ -105,7 +105,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/SamplerDefaultImpl1.o \
 	${OBJECTDIR}/Schedule.o \
 	${OBJECTDIR}/SecondExampleOfSimulation.o \
-	${OBJECTDIR}/Seize.o \
 	${OBJECTDIR}/Sequence.o \
 	${OBJECTDIR}/Set.o \
 	${OBJECTDIR}/Signal.o \
@@ -513,11 +512,6 @@ ${OBJECTDIR}/SecondExampleOfSimulation.o: SecondExampleOfSimulation.cpp nbprojec
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SecondExampleOfSimulation.o SecondExampleOfSimulation.cpp
-
-${OBJECTDIR}/Seize.o: Seize.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Seize.o Seize.cpp
 
 ${OBJECTDIR}/Sequence.o: Sequence.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

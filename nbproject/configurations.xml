@@ -174,7 +174,6 @@
         <itemPath>Release.h</itemPath>
         <itemPath>Route.cpp</itemPath>
         <itemPath>Route.h</itemPath>
-        <itemPath>Seize.cpp</itemPath>
         <itemPath>Seize.h</itemPath>
         <itemPath>Signal.cpp</itemPath>
         <itemPath>Signal.h</itemPath>
@@ -684,8 +683,6 @@
       <item path="SecondExampleOfSimulation.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="SecondExampleOfSimulation.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Seize.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Seize.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -1206,8 +1203,6 @@
       <item path="SecondExampleOfSimulation.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="SecondExampleOfSimulation.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Seize.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Seize.h" ex="false" tool="3" flavor2="0">
       </item>

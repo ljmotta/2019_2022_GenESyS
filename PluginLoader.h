@@ -73,11 +73,6 @@ public:
             QueuePlugin(PluginLoader* pluginLoader);
             virtual ~QueuePlugin() = default;
     };
-    class SeizePlugin : public Plugin<Seize>{
-        public:
-            SeizePlugin(PluginLoader* pluginLoader);
-            virtual ~SeizePlugin() = default;
-    };
     class VariablePlugin : public Plugin<Variable>{
         public:
             VariablePlugin(PluginLoader* pluginLoader);
@@ -108,7 +103,6 @@ public:
     PluginLoader::ResourcePlugin* _resourcePlugin;
     PluginLoader::DecidePlugin* _decidePlugin;
     PluginLoader::QueuePlugin* _queuePlugin;
-    PluginLoader::SeizePlugin* _seizePlugin;
     PluginLoader::VariablePlugin* _variablePlugin;
 
 public:
@@ -119,7 +113,6 @@ public:
     PluginLoader::ResourcePlugin* getResource();
     PluginLoader::DecidePlugin* getDecide();
     PluginLoader::QueuePlugin* getQueue();
-    PluginLoader::SeizePlugin* getSeize();
     PluginLoader::VariablePlugin* getVariable();
 
 public:
