@@ -4,23 +4,15 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   Decide.cpp
  * Author: rafael.luiz.cancian
- * 
+ *
  * Created on 9 de Agosto de 2018, 20:39
  */
 
 #include "../Decide.h"
 #include "../Model.h"
-
-extern "C" Decide* create(Model* model, std::string name = "") {
-    return new Decide(model, name);
-}
-
-extern "C" void destroy(Decide* decide) {
-    delete decide;
-}
 
 extern "C" StaticGetPluginInformation getPluginInformation() {
 	return &Decide::GetPluginInformation;
@@ -88,8 +80,12 @@ bool Decide::_check(std::string* errorMessage) {
 }
 
 PluginInformation* Decide::GetPluginInformation() {
-	PluginInformation* info = new PluginInformation(Util::TypeOf<Decide>(), &Decide::LoadInstance);
+	PluginInformation* info = new PluginInformation(Util::TypeOf<Decide>(), &Decide::LoadInstance, &Decide::CreateInstance);
 	return info;
+}
+
+ModelComponent* Decide::CreateInstance(Model* model, std::string name) {
+	return new Decide(model, name);
 }
 
 ModelComponent* Decide::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {

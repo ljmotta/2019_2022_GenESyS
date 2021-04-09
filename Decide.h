@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   Decide.h
  * Author: rafael.luiz.cancian
  *
@@ -75,13 +75,14 @@ public:
 	Decide(Model* model, std::string name = "");
 	virtual ~Decide() = default;
 public:
-	List<std::string>* getConditions() const;
+	virtual List<std::string>* getConditions() const;
 
 public:
 	virtual std::string show();
 public:
 	static PluginInformation* GetPluginInformation();
 	static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static ModelComponent* CreateInstance(Model* model, std::string name = "");
 protected:
 	virtual void _execute(Entity* entity);
 	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
@@ -95,4 +96,3 @@ private:
 };
 
 #endif /* DECIDE_H */
-

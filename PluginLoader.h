@@ -63,11 +63,7 @@ public:
             ResourcePlugin(PluginLoader* pluginLoader);
             virtual ~ResourcePlugin() = default;
     };
-    class DecidePlugin : public Plugin<Decide>{
-        public:
-            DecidePlugin(PluginLoader* pluginLoader);
-            virtual ~DecidePlugin() = default;
-    };
+
     class QueuePlugin : public Plugin<Queue>{
         public:
             QueuePlugin(PluginLoader* pluginLoader);
@@ -82,14 +78,12 @@ public:
 public:
     PluginLoader::SetPlugin* _setPlugin;
     PluginLoader::ResourcePlugin* _resourcePlugin;
-    PluginLoader::DecidePlugin* _decidePlugin;
     PluginLoader::QueuePlugin* _queuePlugin;
     PluginLoader::VariablePlugin* _variablePlugin;
 
 public:
     PluginLoader::SetPlugin* getSet();
     PluginLoader::ResourcePlugin* getResource();
-    PluginLoader::DecidePlugin* getDecide();
     PluginLoader::QueuePlugin* getQueue();
     PluginLoader::VariablePlugin* getVariable();
 
