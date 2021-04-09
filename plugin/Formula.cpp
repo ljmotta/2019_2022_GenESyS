@@ -11,7 +11,7 @@
  * Created on 20 de Junho de 2019, 00:56
  */
 
-#include "../Formula.h"
+#include "Formula.h"
 #include <iostream>
 #include "../ElementManager.h"
 #include "../Model.h"
