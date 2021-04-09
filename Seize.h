@@ -150,8 +150,7 @@ public: // get & set
 	//Resource* getResource() const;
 	void setQueue(Queue* queue);
 	Queue* getQueue() const;
-    void setSeizeRequest(ResourceItemRequest* _seizeRequest);
-    ResourceItemRequest* seizeRequest() const;
+    List<ResourceItemRequest*>* getSeizeRequest() const;
 protected:
 	virtual void _execute(Entity* entity);
 	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
@@ -165,7 +164,7 @@ private:
 	unsigned int _allocationType = 0; // uint ? enum?
 	unsigned short _priority = 0;
 	Queue* _queue; // usually has a queue, but not always (it could be a hold) 
-	ResourceItemRequest* _seizeRequest; // todo: should be a list
+	List<ResourceItemRequest*>* _seizeRequest = new List<ResourceItemRequest*>();
 	//std::string _quantityExpression = "1";
 	//Resource* _resource; // usually has a resource, but not always (it could be a set)
 	//std::string _resourceName = "Resource 1";  // trying to access resource and queue indirectly

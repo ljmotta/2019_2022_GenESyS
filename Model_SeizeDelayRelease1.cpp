@@ -68,7 +68,7 @@ int Model_SeizeDelayRelease1::main(int argc, char** argv) {
 	Seize* seize1 = new Seize(model);
 	//seize1->setResource(machine1);
 	//seize1->setQuantity("1");
-	seize1->setSeizeRequest(new ResourceItemRequest(machine1, "1"));
+	seize1->getSeizeRequest()->insert(new ResourceItemRequest(machine1, "1"));
 	seize1->setQueue(queueSeize1);
 	//
 	Delay* delay1 = new Delay(model);

@@ -1,5 +1,5 @@
 # Genesys simulation model 
-# Last saved on Fri Apr  9 17:31:28 2021
+# Last saved on Fri Apr  9 18:05:58 2021
 # simulator infos
 0   SimulatorInfo   name="GenESyS\_-\_GENeric\_and\_Expansible\_SYstem\_Simulator" version="210408\_(backtotrack)" versionNumber=210408 
 
@@ -16,7 +16,7 @@
 # model components
 2   Create          entitiesPerCreation=1 entityTypename=Customer firstCreation=0.000000 maxCreations="4294967295" name=Create_1 nextId0=5 nextInputNumber0=0 nextSize=1 reportStatistics=1 timeBetweenCreations="expo(20)" timeBetweenCreationsTimeUnit=5 
 
-5   Seize           allocationType=0 name=Seize_1 nextId0=6 nextInputNumber0=0 nextSize=1 priority==0 quantity=1 queueId=4 queueName=Seize_1.Queue reportStatistics=1 resourceId=3 resourceItemRequest={index=0\_quantityExpression=1\_resourceId=3\_resourceName=Machine_1\_saveAttribute=\_selectionRule=4} resourceName=Machine_1 rule=4 saveAttribute= 
+5   Seize           allocationType=0 name=Seize_1 nextId0=6 nextInputNumber0=0 nextSize=1 priority==0 quantity0=1 queueId=4 queueName=Seize_1.Queue reportStatistics=1 resourceId0=3 resourceItemRequest0={index=0\_quantityExpression=1\_resourceId=3\_resourceName=Machine_1\_saveAttribute=\_selectionRule=4} resourceName0=Machine_1 saveAttribute0= seizeResquestSize=1 selectionRule0=4 
 
 6   Delay           delayExpression="unif(15,30)" delayExpressionTimeUnit=5 name=Delay_1 nextId0=7 nextInputNumber0=0 nextSize=1 reportStatistics=1 
 

@@ -121,7 +121,7 @@ int Model_AssignWrite3Seizes::main(int argc, char** argv) {
 	queueSeize1->setOrderRule(Queue::OrderRule::FIFO);
 	// model->insert(queueSeize1);
 	Seize* seize1 = new Seize(model);
-	seize1->setSeizeRequest(new ResourceItemRequest(machine1));
+	seize1->getSeizeRequest()->insert(new ResourceItemRequest(machine1));
 	seize1->setQueue(queueSeize1);
 	// model->insert(seize1);
 	Delay* delay1 = new Delay(model);
@@ -135,7 +135,7 @@ int Model_AssignWrite3Seizes::main(int argc, char** argv) {
 	queueSeize2->setOrderRule(Queue::OrderRule::FIFO);
 	// model->insert(queueSeize2);
 	Seize* seize2 = new Seize(model);
-	seize2->setSeizeRequest(new ResourceItemRequest(machine2));
+	seize2->getSeizeRequest()->insert(new ResourceItemRequest(machine2));
 	seize2->setQueue(queueSeize2);
 	// model->insert(seize2);
 	Delay* delay2 = new Delay(model);
@@ -149,7 +149,7 @@ int Model_AssignWrite3Seizes::main(int argc, char** argv) {
 	queueSeize3->setOrderRule(Queue::OrderRule::FIFO);
 	// model->insert(queueSeize3);
 	Seize* seize3 = new Seize(model);
-	seize3->setSeizeRequest(new ResourceItemRequest(machine3));
+	seize3->getSeizeRequest()->insert(new ResourceItemRequest(machine3));
 	seize3->setQueue(queueSeize3);
 	// model->insert(seize3);
 	Delay* delay3 = new Delay(model);

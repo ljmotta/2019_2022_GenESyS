@@ -85,6 +85,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Model_CreateDelayDispose.o \
 	${OBJECTDIR}/Model_CreateDelayDispose2.o \
 	${OBJECTDIR}/Model_SeizeDelayRelease1.o \
+	${OBJECTDIR}/Model_SeizeDelayReleaseMany.o \
 	${OBJECTDIR}/Model_StatationRouteSequence.o \
 	${OBJECTDIR}/OLD_ODEelement.o \
 	${OBJECTDIR}/OnEventManager.o \
@@ -415,6 +416,11 @@ ${OBJECTDIR}/Model_SeizeDelayRelease1.o: Model_SeizeDelayRelease1.cpp nbproject/
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Model_SeizeDelayRelease1.o Model_SeizeDelayRelease1.cpp
+
+${OBJECTDIR}/Model_SeizeDelayReleaseMany.o: Model_SeizeDelayReleaseMany.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Model_SeizeDelayReleaseMany.o Model_SeizeDelayReleaseMany.cpp
 
 ${OBJECTDIR}/Model_StatationRouteSequence.o: Model_StatationRouteSequence.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
