@@ -1,22 +1,18 @@
 # Genesys simulation model 
-# Last saved on Thu Nov 14 12:38:29 2019
+# Last saved on Fri Apr  9 02:48:24 2021
 # simulator infos
-name=ReGenESyS - REborn GENeric and Expansible SYstem Simulator; typename=SimulatorInfo; version=19.10 (Halloween19); 
+0   SimulatorInfo   name="GenESyS\_-\_GENeric\_and\_Expansible\_SYstem\_Simulator" version="21.03\_(backtotrack)" 
 
 # model infos
-analystName=Your name; description=This simulation model tests one of the most basic models possible.; name=Model 1; numberOfReplications=3; projectTitle=The title of the project; replicationLength=30.000000; replicationLengthTimeUnit=6; terminatingCondition=; typename=ModelInfo; version=1.0; warmUpTime=0.000000; warmUpTimeTimeUnit=5; 
+0   ModelInfo       analystName="Your\_name" description="This\_simulation\_model\_tests\_one\_of\_the\_most\_basic\_models\_possible." name="Model\_1" numberOfReplications=3 projectTitle="The\_title\_of\_the\_project" replicationLength=30.000000 replicationLengthTimeUnit=6 terminatingCondition="" version="1.0" warmUpTime=0.000000 warmUpTimeTimeUnit=5 
 
 # model elements
-id=10; name=Entity.WaitTime; typename=Attribute; 
-
-id=1; initialNVACost=0.000000; initialOtherCost=0.000000; initialPicture=report; initialVACost=0.000000; initialWaitingCost=0.000000; name=Type_of_Representative_Entity; typename=EntityType; 
-
-id=9; name=Entity.ArrivalTime; typename=Attribute; 
+1   EntityType      initialNVACost=0.000000 initialOtherCost=0.000000 initialPicture=report initialVACost=0.000000 initialWaitingCost=0.000000 name=Type_of_Representative_Entity reportStatistics=1 
 
 # model components
-delayExpression=NORM(1,0.2); delayExpressionTimeUnit=6; id=4; name=Delay_1; nextId0=5; nextInputNumber0=0; nextSize=1; typename=Delay; 
+2   Create          entitiesPerCreation=1 entityTypename=Type_of_Representative_Entity firstCreation=0.000000 maxCreations="4294967295" name=Create_1 nextId0=3 nextInputNumber0=0 nextSize=1 reportStatistics=1 timeBetweenCreations="Expo(2)" timeBetweenCreationsTimeUnit=6 
 
-entitiesPerCreation=1; entityTypename=Type_of_Representative_Entity; firstCreation=0.000000; id=2; maxCreations=4294967295; name=Create_1; nextId0=4; nextInputNumber0=0; nextSize=1; timeBetweenCreations=Expo(2); timeBetweenCreationsTimeUnit=6; typename=Create; 
+3   Delay           delayExpression="NORM(1,0.2)" delayExpressionTimeUnit=6 name=Delay_1 nextId0=4 nextInputNumber0=0 nextSize=1 reportStatistics=1 
 
-id=5; name=Dispose_1; nextSize=0; typename=Dispose; 
+4   Dispose         name=Dispose_1 nextSize=0 reportStatistics=1 
 

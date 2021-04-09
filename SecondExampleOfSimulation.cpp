@@ -41,7 +41,13 @@ int SecondExampleOfSimulation::main(int argc, char** argv) {
 	// Handle traces and simulation events to output them
 	this->setDefaultTraceHandlers(simulator->getTracer());
 	// insert "fake plugins" since plugins based on dynamic loaded library are not implemented yet
-	this->insertFakePluginsByHand(simulator);
+	PluginManager* pluginManager = simulator->getPlugins();
+	pluginManager->insert("entitytype.so");
+
+	StaticComponentConstructor create = pluginManager->insert("create.so")->getPluginInfo()->GetComponentConstructor();
+	StaticComponentConstructor delay = pluginManager->insert("delay.so")->getPluginInfo()->GetComponentConstructor();
+	StaticComponentConstructor dispose = pluginManager->insert("dispose.so")->getPluginInfo()->GetComponentConstructor();
+	
 	bool wantToCreateNewModelAndSaveInsteadOfJustLoad = true;
 	Model* model;
 	if (wantToCreateNewModelAndSaveInsteadOfJustLoad) {
@@ -60,19 +66,20 @@ int SecondExampleOfSimulation::main(int argc, char** argv) {
 		EntityType* entityType1 = new EntityType(model, "Type_of_Representative_Entity");
 		// model->insert(entityType1);
 		// create a ModelComponent of type Create, used to insert entities into the model
-		Create* create1 = new Create(model);
+		Create* create1 = (Create*) create(model, "");
 		create1->setEntityType(entityType1);
 		create1->setTimeBetweenCreationsExpression("Expo(2)");
 		create1->setTimeUnit(Util::TimeUnit::minute);
 		create1->setEntitiesPerCreation(1);
+		
 		// model->insert(create1);
 		// create a ModelComponent of type Delay, used to represent a time delay
-		Delay* delay1 = new Delay(model);
+		Delay* delay1 = (Delay*) delay(model, "");
 		delay1->setDelayExpression("NORM(1,0.2)");
 		delay1->setDelayTimeUnit(Util::TimeUnit::minute);
 		// model->insert(delay1);
 		// create a (Sink)ModelComponent of type Dispose, used to remove entities from the model
-		Dispose* dispose1 = new Dispose(model);
+		Dispose* dispose1 = (Dispose*) dispose(model, "");
 		// model->insert(dispose1);
 		// connect model components to create a "workflow"
 		create1->getNextComponents()->insert(delay1);
