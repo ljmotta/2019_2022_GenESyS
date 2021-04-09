@@ -24,7 +24,7 @@
 #include "Release.h"
 #include "plugin/Assign.h"
 #include "Record.h"
-#include "Decide.h"
+#include "plugin/Decide.h"
 #include "Write.h"
 #include "Resource.h"
 #include "PluginLoader.h"

@@ -17,7 +17,7 @@
 #include "Release.h"
 #include "plugin/Assign.h"
 #include "Record.h"
-#include "Decide.h"
+#include "plugin/Decide.h"
 #include "Dummy.h"
 
 // Model elements

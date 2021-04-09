@@ -14,7 +14,7 @@
 #ifndef DECIDE_H
 #define DECIDE_H
 
-#include "ModelComponent.h"
+#include "../ModelComponent.h"
 
 /*!
  Decide module

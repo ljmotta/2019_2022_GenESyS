@@ -11,7 +11,7 @@
  * Created on 9 de Agosto de 2018, 20:39
  */
 
-#include "../Decide.h"
+#include "plugin/Decide.h"
 #include "../Model.h"
 
 extern "C" StaticGetPluginInformation getPluginInformation() {
