@@ -76,6 +76,7 @@ void ModelSimulation::start() {
 		Util::IncIndent();
 		_initReplication();
 	} else { // continue after a pause
+		_model->getTracer()->trace("Replication resumed", Util::TraceLevel::modelSimulationEvent);
 		_model->getOnEvents()->NotifySimulationPausedStartHandlers(new SimulationEvent(0, nullptr));
 	}
 	_isRunning = true;
@@ -188,7 +189,7 @@ void ModelSimulation::_showSimulationHeader() {
 	TraceManager* tm = _model->getTracer();
 	tm->traceReport("\n-----------------------------------------------------");
 	// simulator infos
-	tm->traceReport(_model->getParentSimulator()->name());
+	tm->traceReport(_model->getParentSimulator()->getName());
 	tm->traceReport(_model->getParentSimulator()->getLicenceManager()->showLicence());
 	tm->traceReport(_model->getParentSimulator()->getLicenceManager()->showLimits());
 	// model infos
@@ -396,15 +397,15 @@ bool ModelSimulation::_checkBreakpointAt(Event* event) {
 
 void ModelSimulation::_processEvent(Event* event) {
 	//	_model->tracer()->traceSimulation(Util::TraceLevel::modelSimulationEvent, event->time(), event->entity(), event->component(), "");
-	_model->getTracer()->trace(Util::TraceLevel::modelSimulationEvent, "Processing event=(" + event->show() + ")");
-	_model->getTracer()->trace(Util::TraceLevel::modelSimulationInternal, "Current Entity: " + event->getEntity()->show());
+	_model->getTracer()->trace(Util::TraceLevel::modelSimulationEvent, "Event: " + event->show() + "");
+	Util::IncIndent();
+	_model->getTracer()->trace(Util::TraceLevel::modelSimulationInternal, "Entity: " + event->getEntity()->show());
 	this->_currentEntity = event->getEntity();
 	this->_currentComponent = event->getComponent();
 	this->_currentInputNumber = event->getComponentInputNumber();
 	assert(_simulatedTime <= event->getTime());
 	_simulatedTime = event->getTime();
 	_model->getOnEvents()->NotifyProcessEventHandlers(new SimulationEvent(_currentReplicationNumber, event));
-	Util::IncIndent();
 	try {
 		//event->getComponent()->Execute(event->getEntity(), event->getComponent()); // Execute is static
 		ModelComponent::Execute(event->getEntity(), event->getComponent(), event->getComponentInputNumber());

@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   SourceModelCOmponent.cpp
  * Author: rafael.luiz.cancian
- * 
+ *
  * Created on 21 de Junho de 2018, 19:50
  */
 
@@ -60,7 +60,7 @@ std::map<std::string, std::string>* SourceModelComponent::_saveInstance() {
 bool SourceModelComponent::_check(std::string* errorMessage) {
 	/* include attributes needed */
 	ElementManager* elements = _parentModel->getElements();
-	std::vector<std::string> neededNames = {"Entity.ArrivalTime"}; 
+	std::vector<std::string> neededNames = {"Entity.ArrivalTime"};
 	std::string neededName;
 	for (unsigned int i = 0; i < neededNames.size(); i++) {
 		neededName = neededNames[i];
@@ -139,4 +139,3 @@ void SourceModelComponent::setEntitiesPerCreation(unsigned int _entitiesPerCreat
 unsigned int SourceModelComponent::getEntitiesPerCreation() const {
 	return _entitiesPerCreation;
 }
-

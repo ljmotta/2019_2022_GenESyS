@@ -30,8 +30,9 @@ ModelPersistenceDefaultImpl1::ModelPersistenceDefaultImpl1(Model* model) {
 std::map<std::string, std::string>* ModelPersistenceDefaultImpl1::_getSimulatorInfoFieldsToSave() {
 	std::map<std::string, std::string>* fields = new std::map<std::string, std::string>();
 	fields->emplace("typename", "SimulatorInfo");
-	fields->emplace("name", "\"" + _model->getParentSimulator()->name() + "\"");
-	fields->emplace("version", "\"" + _model->getParentSimulator()->version() + "\"");
+	fields->emplace("name", "\"" + _model->getParentSimulator()->getName() + "\"");
+	fields->emplace("versionNumber", std::to_string(_model->getParentSimulator()->getVersionNumber()));
+	fields->emplace("version", "\"" + _model->getParentSimulator()->getVersion() + "\"");
 	return fields;
 }
 

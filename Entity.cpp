@@ -63,17 +63,19 @@ std::string Entity::show() {
 		if (map->size() == 0) { // scalar
 			message += "NaN;"; //std::to_string(map->begin()->second) + ";";
 		} else if (map->size() == 1) { // scalar
-			message += std::to_string(map->begin()->second) + ";";
+			message += std::to_string(map->begin()->second) + ",";
 		} else {
 			// array or matrix
 			message += "[";
 			for (std::map<std::string, double>::iterator valIt = map->begin(); valIt != map->end(); valIt++) {
 				message += (*valIt).first + "=>" + std::to_string((*valIt).second) + ",";
 			}
+			message = message.substr(0, message.length() - 1);
 			message += "];";
 		}
 		_attributeValues->next();
 	}
+	message = message.substr(0, message.length() - 1);
 	message += "]";
 	return message;
 }

@@ -5,23 +5,23 @@
  */
 
 /* 
- * File:   FifthExampleOfSimulation.h
+ * File:   FirstExampleOfSimulation.h
  * Author: rlcancian
  *
- * Created on 12 de março de 2021, 15:39
+ * Created on 3 de Setembro de 2019, 18:34
  */
 
-#ifndef FIFTHEXAMPLEOFSIMULATION_H
-#define FIFTHEXAMPLEOFSIMULATION_H
+#ifndef FIRSTEXAMPLEOFSIMULATION_H
+#define FIRSTEXAMPLEOFSIMULATION_H
 
 #include "BaseConsoleGenesysApplication.h"
 
-class FifthExampleOfSimulation : public BaseConsoleGenesysApplication {
+class Model_CreateDelayDispose : public BaseConsoleGenesysApplication {
 public:
-	FifthExampleOfSimulation();
+	Model_CreateDelayDispose();
 public:
 	virtual int main(int argc, char** argv);
 };
 
-#endif /* FIFTHEXAMPLEOFSIMULATION_H */
+#endif /* FIRSTEXAMPLEOFSIMULATION_H */
 

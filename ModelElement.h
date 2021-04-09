@@ -21,6 +21,7 @@
 #include "Util.h"
 
 #include "ParserChangesInformation.h"
+#include "PersistentObject_base.h"
 
 //namespace GenesysKernel {
 	class Model;
@@ -29,7 +30,7 @@
 	 * This class is the basis for any element of the model (such as Queue, Resource, Variable, etc.) and also for any component of the model. 
 	 * It has the infrastructure to read and write on file and to verify symbols.
 	 */
-	class ModelElement {
+	class ModelElement: PersistentObject_base {
 	public:
 		ModelElement(Model* model, std::string elementTypename, std::string name = "", bool insertIntoModel = true);
 		//ModelElement(Model* model, std::string elementTypename, std::string name = "", bool insertIntoModel = true);

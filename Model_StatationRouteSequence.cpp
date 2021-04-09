@@ -11,7 +11,7 @@
  * Created on 12 de março de 2021, 15:39
  */
 
-#include "FifthExampleOfSimulation.h"
+#include "Model_StatationRouteSequence.h"
 #include "BaseConsoleGenesysApplication.h"
 #include "Simulator.h"
 #include "Create.h"
@@ -25,15 +25,18 @@
 #include "Sequence.h"
 #include "Assign.h"
 
-FifthExampleOfSimulation::FifthExampleOfSimulation() {
+Model_StatationRouteSequence::Model_StatationRouteSequence() {
 }
 
-int FifthExampleOfSimulation::main(int argc, char** argv) {
-	Simulator* sim = new Simulator();
-	this->insertFakePluginsByHand(sim);
-	this->setDefaultTraceHandlers(sim->getTracer());
-	sim->getTracer()->setTraceLevel(Util::TraceLevel::componentArrival);
-	Model* m = sim->getModels()->newModel();
+int Model_StatationRouteSequence::main(int argc, char** argv) {
+	Simulator* genesys = new Simulator();
+	this->insertFakePluginsByHand(genesys);
+	this->setDefaultTraceHandlers(genesys->getTracer());
+	genesys->getTracer()->setTraceLevel(Util::TraceLevel::modelSimulationEvent);
+
+	Model* m = genesys->getModels()->newModel();
+	m->getInfos()->setReplicationLength(60);
+
 	Create* c1 = new Create(m);
 	c1->setEntityType(new EntityType(m));
 	c1->setTimeBetweenCreationsExpression("10");
@@ -77,11 +80,6 @@ int FifthExampleOfSimulation::main(int argc, char** argv) {
 	Assign* a1 = new Assign(m);
 	a1->getAssignments()->insert(new Assign::Assignment("Entity.Sequence", std::to_string(seq->getId())));
 
-	m->getSimulation()->getBreakpointsOnComponent()->insert(a1);
-	m->getSimulation()->getBreakpointsOnComponent()->insert(l2);
-	m->getSimulation()->getBreakpointsOnTime()->insert(40.0);
-	m->getSimulation()->getBreakpointsOnTime()->insert(20.0);
-
 	c1->getNextComponents()->insert(a1);
 	a1->getNextComponents()->insert(r0);
 	e1->getNextComponents()->insert(d1);
@@ -91,9 +89,18 @@ int FifthExampleOfSimulation::main(int argc, char** argv) {
 	d2->getNextComponents()->insert(l2);
 	l2->getNextComponents()->insert(r2);
 	e3->getNextComponents()->insert(dp1);
-	m->getInfos()->setReplicationLength(60);
+
+
+	ModelSimulation* sim = m->getSimulation();
+	sim->getBreakpointsOnComponent()->insert(a1);
+	sim->getBreakpointsOnComponent()->insert(l2);
+	sim->getBreakpointsOnTime()->insert(40.0);
+	sim->getBreakpointsOnTime()->insert(20.0);
+
+	m->save("./models/Model_StatationRouteSequence.txt");
+
 	do {
-		m->getSimulation()->start();
-	} while (m->getSimulation()->isPaused());
+		sim->start();
+	} while (sim->isPaused());
 	return 0;
 }

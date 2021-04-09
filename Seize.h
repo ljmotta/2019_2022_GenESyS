@@ -133,10 +133,6 @@ public:
 public: // get & set
 	void setLastMemberSeized(unsigned int _lastMemberSeized);
 	unsigned int getLastMemberSeized() const;
-	void setSaveAttribute(std::string _saveAttribute);
-	std::string getSaveAttribute() const;
-	void setRule(Resource::ResourceRule _rule);
-	Resource::ResourceRule getRule() const;
 	//void setQuantity(std::string _quantity);
 	//std::string getQuantity() const;
 	void setResourceType(Resource::ResourceType _resourceType);
@@ -168,9 +164,6 @@ private:
 private:
 	unsigned int _allocationType = 0; // uint ? enum?
 	unsigned short _priority = 0;
-	Resource::ResourceType _resourceType = Resource::ResourceType::RESOURCE;
-	Resource::ResourceRule _rule = Resource::ResourceRule::SMALLESTBUSY;
-	std::string _saveAttribute = "";
 	Queue* _queue; // usually has a queue, but not always (it could be a hold) 
 	ResourceItemRequest* _seizeRequest; // todo: should be a list
 	//std::string _quantityExpression = "1";

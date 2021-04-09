@@ -20,35 +20,7 @@
 #include "Counter.h"
 #include "Plugin.h"
 
-class Resource;
-
-class ResourceItemRequest {
-public:
-
-	ResourceItemRequest(Resource* resource, std::string quantityExpression = "1") {
-		_resource = resource;
-		_quantityExpression = quantityExpression;
-	}
-
-	std::string quantityExpression() const {
-		return _quantityExpression;
-	}
-
-	Resource* resource() const {
-		return _resource;
-	}
-
-    void setQuantityExpression(std::string _quantityExpression) {
-    	this->_quantityExpression = _quantityExpression;
-    }
-
-    void setResource(Resource* _resource) {
-    	this->_resource = _resource;
-    }
-private:
-	Resource* _resource;
-	std::string _quantityExpression;
-};
+class ResourceItemRequest;
 
 /*!
 Resource module
@@ -187,6 +159,105 @@ private: // inner children elements
 	StatisticsCollector* _cstatTimeSeized = nullptr;
 	Counter* _numSeizes;
 	Counter* _numReleases;
+};
+
+#include "PersistentObject_base.h"
+
+class ResourceItemRequest : PersistentObject_base {
+public:
+
+	enum class SelectionRule : int {
+		CYCLICAL = 1, RANDOM = 2, SPECIFIC_MEMBER = 3, LARGEST_REMAINING_CAPACITY = 4, SMALLEST_NUMBER_BUSY = 5
+	};
+
+	ResourceItemRequest(Resource* resource, std::string quantityExpression = "1", SelectionRule selectionRule = SelectionRule::LARGEST_REMAINING_CAPACITY, std::string saveAttribute = "", unsigned int index = 0) {
+		_resource = resource;
+		_quantityExpression = quantityExpression;
+		_selectionRule = selectionRule;
+		_saveAttribute = saveAttribute;
+		_index = index;
+	}
+
+	virtual bool _loadInstance(std::map<std::string, std::string>* fields) {
+		bool res = true;
+		try {
+			_resourceName = ((*(fields->find("resourceName"))).second);
+			//Resource* resource = dynamic_cast<Resource*> (_parentModel->getElements()->getElement(Util::TypeOf<Resource>(), resourceName));
+			_quantityExpression = ((*(fields->find("quantity"))).second);
+			_selectionRule = static_cast<ResourceItemRequest::SelectionRule> (std::stoi((*(fields->find("rule"))).second));
+			_saveAttribute = ((*(fields->find("saveAttribute"))).second);
+			_index = std::stoi((*(fields->find("index"))).second);
+		} catch (const std::exception& e) {
+			res = false;
+		}
+		return res;
+	}
+
+	virtual std::map<std::string, std::string>* _saveInstance() {
+		std::map<std::string, std::string>* fields = new std::map<std::string, std::string>();
+		fields->emplace("resourceId", std::to_string(_resource->getId()));
+		fields->emplace("resourceName", _resource->getName());
+		fields->emplace("quantityExpression", _quantityExpression);
+		fields->emplace("selectionRule", std::to_string(static_cast<int> (_selectionRule)));
+		fields->emplace("saveAttribute", _saveAttribute);
+		fields->emplace("index", std::to_string(_index));
+		return fields;
+	}
+
+	std::string show() {
+		return "resource=\"" + _resource->getName() + "\", quantityExpression=\"" + _quantityExpression + "\", selectionRule=" + std::to_string(static_cast<int> (_selectionRule)) + ", _saveAttribute=\"" + _saveAttribute + "\", index=" + std::to_string(_index);
+	}
+
+	std::string getQuantityExpression() const {
+		return _quantityExpression;
+	}
+
+	Resource* getResource() const {
+		return _resource;
+	}
+
+	void setQuantityExpression(std::string _quantityExpression) {
+		this->_quantityExpression = _quantityExpression;
+	}
+
+	void setResource(Resource* _resource) {
+		this->_resource = _resource;
+	}
+
+	void setIndex(unsigned int _index) {
+		this->_index = _index;
+	}
+
+	unsigned int getIndex() const {
+		return _index;
+	}
+
+	void setSaveAttribute(std::string _saveAttribute) {
+		this->_saveAttribute = _saveAttribute;
+	}
+
+	std::string getSaveAttribute() const {
+		return _saveAttribute;
+	}
+
+	void setSelectionRule(SelectionRule _selectionRule) {
+		this->_selectionRule = _selectionRule;
+	}
+
+	SelectionRule getSelectionRule() const {
+		return _selectionRule;
+	}
+
+    std::string getResourceName() const {
+    	return _resourceName;
+    }
+private:
+	Resource* _resource;
+	std::string _resourceName;
+	std::string _quantityExpression;
+	SelectionRule _selectionRule;
+	std::string _saveAttribute;
+	unsigned int _index;
 };
 
 #endif /* RESOURCE_H */

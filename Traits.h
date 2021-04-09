@@ -63,13 +63,13 @@
 // genesys applications
 #include "FullSimulationOfComplexModel.h"
 //#include "BuildSimulationModel03.h"
-#include "FirstExampleOfSimulation.h"
-#include "SecondExampleOfSimulation.h"
-#include "FourthExampleOfSimulation.h"
+#include "Model_CreateDelayDispose.h"
+#include "Model_CreteDelayDispose2.h"
+#include "Model_AssignWrite3Seizes.h"
 #include "GenesysGUI.h"
 #include "GenesysConsole.h"
-#include "ThirdExampleOfSimultion.h"
-#include "FifthExampleOfSimulation.h"
+#include "Model_SeizeDelayRelease1.h"
+#include "Model_StatationRouteSequence.h"
 #include "TestEnterLeaveRoute.h"
 #include "TestFunctions.h"
 #include "TestSimulationControlAndSimulationResponse.h"
@@ -90,20 +90,8 @@ struct Traits {
  */
 
 template <> struct Traits<GenesysApplication_if> {
-	// tests
-	//typedef TestLSODE Application;
-	//typedef TestMarkovChain Application;
-	//typedef TestSimulationControlAndSimulationResponse Application;
-	//typedef TestMatricesOfAttributesAndVariables Application;
-	// examples
-	//typedef FirstExampleOfSimulation Application;
-	//typedef SecondExampleOfSimulation Application;
-	//typedef ThirdExampleOfSimulation Application;
-	//typedef FourthExampleOfSimulation Application;
-	typedef FifthExampleOfSimulation Application;
-	//typedef FullSimulationOfComplexModel Application;
-	// full aplications
-	//typedef GenesysGUI Application;
+	//typedef Model_CreateDelayDispose Application;
+	typedef Model_SeizeDelayRelease1 Application;
 };
 
 /*

@@ -23,8 +23,8 @@ Release::Release(Model* model, std::string name) : ModelComponent(model, Util::T
 std::string Release::show() {
 	return ModelComponent::show() +
 			",resourceType=" + std::to_string(static_cast<int> (this->_resourceType)) +
-			",resource=\"" + this->_releaseRequest->resource()->getName() + "\"" +
-			",quantity=" + this->_releaseRequest->quantityExpression();
+			",resource=\"" + this->_releaseRequest->getResource()->getName() + "\"" +
+			",quantity=" + this->_releaseRequest->getQuantityExpression();
 }
 
 void Release::setPriority(unsigned short _priority) {
@@ -88,17 +88,17 @@ void Release::_execute(Entity* entity) {
 	if (this->_resourceType == Resource::ResourceType::SET) {
 		/*  \todo: +: not implemented yet */
 	} else {
-		resource = this->_releaseRequest->resource();
+		resource = this->_releaseRequest->getResource();
 	}
-	unsigned int quantity = _parentModel->parseExpression(this->_releaseRequest->quantityExpression());
-	assert(_releaseRequest->resource()->getNumberBusy() >= quantity);
-	_parentModel->getTracer()->traceSimulation(_parentModel->getSimulation()->getSimulatedTime(), entity, this, "Entity frees " + std::to_string(quantity) + " units of resource \"" + resource->getName() + "\" seized on time " + std::to_string(_releaseRequest->resource()->getLastTimeSeized()));
-	_releaseRequest->resource()->release(quantity, _parentModel->getSimulation()->getSimulatedTime()); //{releases and sets the 'LastTimeSeized'property}
+	unsigned int quantity = _parentModel->parseExpression(this->_releaseRequest->getQuantityExpression());
+	assert(_releaseRequest->getResource()->getNumberBusy() >= quantity);
+	_parentModel->getTracer()->traceSimulation(_parentModel->getSimulation()->getSimulatedTime(), entity, this, "Entity frees " + std::to_string(quantity) + " units of resource \"" + resource->getName() + "\" seized on time " + std::to_string(_releaseRequest->getResource()->getLastTimeSeized()));
+	_releaseRequest->getResource()->release(quantity, _parentModel->getSimulation()->getSimulatedTime()); //{releases and sets the 'LastTimeSeized'property}
 	_parentModel->sendEntityToComponent(entity, this->getNextComponents()->getFrontConnection(), 0.0);
 }
 
 void Release::_initBetweenReplications() {
-	this->_releaseRequest->resource()->initBetweenReplications();
+	this->_releaseRequest->getResource()->initBetweenReplications();
 }
 
 bool Release::_loadInstance(std::map<std::string, std::string>* fields) {
@@ -122,10 +122,10 @@ bool Release::_loadInstance(std::map<std::string, std::string>* fields) {
 std::map<std::string, std::string>* Release::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance(); //Util::TypeOf<Release>());
 	fields->emplace("priority", std::to_string(this->_priority));
-	fields->emplace("quantity", "\"" + this->_releaseRequest->quantityExpression() + "\"");
+	fields->emplace("quantity", "\"" + this->_releaseRequest->getQuantityExpression() + "\"");
 	fields->emplace("resourceType", std::to_string(static_cast<int> (this->_resourceType)));
-	fields->emplace("resourceId", std::to_string(this->_releaseRequest->resource()->getId()));
-	fields->emplace("resourceName", (this->_releaseRequest->resource()->getName()));
+	fields->emplace("resourceId", std::to_string(this->_releaseRequest->getResource()->getId()));
+	fields->emplace("resourceName", (this->_releaseRequest->getResource()->getName()));
 	fields->emplace("rule", std::to_string(static_cast<int> (this->_rule)));
 	fields->emplace("saveAttribute", this->_saveAttribute);
 	return fields;
@@ -134,8 +134,8 @@ std::map<std::string, std::string>* Release::_saveInstance() {
 
 bool Release::_check(std::string* errorMessage) {
 	bool resultAll = true;
-	resultAll &= _parentModel->checkExpression(_releaseRequest->quantityExpression(), "quantity", errorMessage);
-	resultAll &= _parentModel->getElements()->check(Util::TypeOf<Resource>(), _releaseRequest->resource(), "resource", errorMessage);
+	resultAll &= _parentModel->checkExpression(_releaseRequest->getQuantityExpression(), "quantity", errorMessage);
+	resultAll &= _parentModel->getElements()->check(Util::TypeOf<Resource>(), _releaseRequest->getResource(), "resource", errorMessage);
 	resultAll &= _parentModel->getElements()->check(Util::TypeOf<Attribute>(), _saveAttribute, "SaveAttribute", false, errorMessage);
 	return resultAll;
 }
