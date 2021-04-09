@@ -95,8 +95,8 @@ template <> struct Traits<GenesysApplication_if> {
 	// typedef TestSimulationControlAndSimulationResponse Application;
 	//typedef TestMatricesOfAttributesAndVariables Application;
 	// examples
-	//typedef FirstExampleOfSimulation Application;
-	typedef SecondExampleOfSimulation Application;
+	// typedef FirstExampleOfSimulation Application;
+	// typedef SecondExampleOfSimulation Application;
 	// typedef ThirdExampleOfSimulation Application;
 	// typedef FourthExampleOfSimulation Application;
 	//typedef FullSimulationOfComplexModel Application;
