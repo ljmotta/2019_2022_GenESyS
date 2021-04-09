@@ -14,7 +14,7 @@
 #include "TestMatricesOfAttributesAndVariables.h"
 #include "Simulator.h"
 #include "SourceModelComponent.h"
-#include "Assign.h"
+#include "plugin/Assign.h"
 #include "Attribute.h"
 #include "Variable.h"
 #include "Create.h"

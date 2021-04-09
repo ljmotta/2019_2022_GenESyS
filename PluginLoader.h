@@ -13,19 +13,7 @@
 
 #ifndef PLUGINLOADER_H
 #define PLUGINLOADER_H
-#include "Assign.h"
-#include "Write.h"
-#include "Resource.h"
 #include "Model.h"
-#include "Set.h"
-#include "Dispose.h"
-#include "Delay.h"
-#include "Create.h"
-#include "Decide.h"
-#include "Queue.h"
-#include "Seize.h"
-#include "Release.h"
-#include "Variable.h"
 
 class PluginLoader {
 public:

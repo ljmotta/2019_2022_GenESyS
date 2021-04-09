@@ -13,7 +13,7 @@
 
 #include "GenesysConsole.h"
 #include "Simulator.h"
-#include "Assign.h"
+#include "plugin/Assign.h"
 #include <regex>
 #include <fstream>
 #include <assert.h>

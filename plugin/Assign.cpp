@@ -12,7 +12,7 @@
  */
 
 #include <string>
-#include "../Assign.h"
+#include "plugin/Assign.h"
 #include "../Model.h"
 #include "../Variable.h"
 #include "../Attribute.h"
