@@ -11,7 +11,7 @@
  * Created on 21 de Agosto de 2018, 16:17
  */
 
-#include "plugin/Release.h"
+#include "Release.h"
 #include "../Model.h"
 #include "../Resource.h"
 #include "../Attribute.h"

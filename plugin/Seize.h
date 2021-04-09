@@ -15,11 +15,11 @@
 #define SEIZE_H
 
 #include <string>
-#include "ModelComponent.h"
-#include "Model.h"
-#include "Resource.h"
-#include "Queue.h"
-#include "Plugin.h"
+#include "../ModelComponent.h"
+#include "../Model.h"
+#include "../Resource.h"
+#include "../Queue.h"
+#include "../Plugin.h"
 
 class WaitingResource : public Waiting {
 public:

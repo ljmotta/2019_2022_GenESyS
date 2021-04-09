@@ -11,7 +11,7 @@
  * Created on 21 de Junho de 2018, 20:13
  */
 
-#include "plugin/Dispose.h"
+#include "Dispose.h"
 #include "../Model.h"
 
 extern "C" StaticGetPluginInformation getPluginInformation() {

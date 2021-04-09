@@ -17,7 +17,7 @@
 #include "plugin/Create.h"
 #include "plugin/Delay.h"
 #include "plugin/Dispose.h"
-#include "Seize.h"
+#include "plugin/Seize.h"
 #include "plugin/Release.h"
 #include "plugin/Assign.h"
 #include "Record.h"
@@ -26,7 +26,7 @@
 #include "Route.h"
 #include "Enter.h"
 #include "Leave.h"
-#include "Write.h"
+#include "plugin/Write.h"
 // #include "LSODE.h"
 // #include "MarkovChain.h"
 
@@ -57,7 +57,7 @@
 // Model elements
 #include "EntityType.h"
 #include "Attribute.h"
-#include "Variable.h"
+#include "plugin/Variable.h"
 #include "ProbDistribDefaultImpl1.h"
 #include "EntityGroup.h"
 #include "Station.h"

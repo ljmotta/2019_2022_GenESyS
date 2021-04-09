@@ -20,7 +20,7 @@
 
 // Model Components
 #include "plugin/Create.h"
-#include "Seize.h"
+#include "plugin/Seize.h"
 #include "plugin/Delay.h"
 #include "plugin/Release.h"
 #include "plugin/Dispose.h"

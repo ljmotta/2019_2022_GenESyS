@@ -11,7 +11,7 @@
  * Created on 21 de Agosto de 2018, 16:17
  */
 
-#include "../Seize.h"
+#include "Seize.h"
 #include "../Resource.h"
 #include "../Attribute.h"
 

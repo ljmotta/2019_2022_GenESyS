@@ -14,7 +14,7 @@
 #include "MarkovChain.h"
 
 #include "Model.h"
-#include "Variable.h"
+#include "plugin/Variable.h"
 #include "ProbDistribDefaultImpl1.h"
 #include "Simulator.h"
 #include "Traits.h"

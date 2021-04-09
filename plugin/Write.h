@@ -14,7 +14,7 @@
 #ifndef WRITE_H
 #define WRITE_H
 
-#include "ModelComponent.h"
+#include "../ModelComponent.h"
 
 class WriteElement {
 public:

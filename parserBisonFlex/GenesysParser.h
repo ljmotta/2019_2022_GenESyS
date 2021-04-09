@@ -53,7 +53,7 @@
 //
 // include to Plugin header files should be specified by plugins themselves
 //
-#include "../Variable.h"
+#include "../plugin/Variable.h"
 #include "../Attribute.h"
 #include "../Queue.h"
 #include "../Formula.h"

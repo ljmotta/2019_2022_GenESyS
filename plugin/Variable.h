@@ -14,9 +14,9 @@
 #ifndef VARIABLE_H
 #define VARIABLE_H
 
-#include "ModelElement.h"
-#include "ElementManager.h"
-#include "Plugin.h"
+#include "../ModelElement.h"
+#include "../ElementManager.h"
+#include "../Plugin.h"
 
 /*!
 Variable module

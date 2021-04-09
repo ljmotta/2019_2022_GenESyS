@@ -11,7 +11,7 @@
  * Created on 21 de Junho de 2018, 19:49
  */
 
-#include "plugin/Delay.h"
+#include "Delay.h"
 #include "../Model.h"
 #include "../Attribute.h"
 

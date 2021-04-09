@@ -16,13 +16,13 @@
 #include "SourceModelComponent.h"
 #include "plugin/Assign.h"
 #include "Attribute.h"
-#include "Variable.h"
+#include "plugin/Variable.h"
 #include "plugin/Create.h"
 #include "plugin/Delay.h"
 #include "plugin/Dispose.h"
 // #include "Separate.h"
 #include "Formula.h"
-#include "Write.h"
+#include "plugin/Write.h"
 
 TestMatricesOfAttributesAndVariables::TestMatricesOfAttributesAndVariables() {
 }

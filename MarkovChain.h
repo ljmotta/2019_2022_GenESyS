@@ -15,7 +15,7 @@
 #define MARKOVCHAIN_H
 
 #include "ModelComponent.h"
-#include "Variable.h"
+#include "plugin/Variable.h"
 #include "Sampler_if.h"
 
 class MarkovChain : public ModelComponent {

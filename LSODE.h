@@ -16,7 +16,7 @@
 
 #include "ModelComponent.h"
 #include "Formula.h"
-#include "Variable.h"
+#include "plugin/Variable.h"
 
 /*!
  This component ...

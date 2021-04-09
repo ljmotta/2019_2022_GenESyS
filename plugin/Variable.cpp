@@ -11,7 +11,7 @@
  * Created on 4 de Setembro de 2018, 18:28
  */
 
-#include "../Variable.h"
+#include "Variable.h"
 #include "../Plugin.h"
 
 extern "C" StaticGetPluginInformation getPluginInformation() {

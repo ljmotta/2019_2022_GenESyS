@@ -12,9 +12,9 @@
  */
 
 #include <string>
-#include "plugin/Assign.h"
+#include "Assign.h"
 #include "../Model.h"
-#include "../Variable.h"
+#include "Variable.h"
 #include "../Attribute.h"
 #include "../Resource.h"
 

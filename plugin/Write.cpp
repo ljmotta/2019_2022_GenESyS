@@ -11,7 +11,7 @@
  * Created on 11 de Setembro de 2019, 13:06
  */
 
-#include "../Write.h"
+#include "Write.h"
 #include "../Model.h"
 
 #include <fstream>

@@ -13,7 +13,7 @@
 #include "plugin/Create.h"
 #include "plugin/Delay.h"
 #include "plugin/Dispose.h"
-#include "Seize.h"
+#include "plugin/Seize.h"
 #include "plugin/Release.h"
 #include "plugin/Assign.h"
 #include "Record.h"
@@ -23,7 +23,7 @@
 // Model elements
 #include "EntityType.h"
 #include "Attribute.h"
-#include "Variable.h"
+#include "plugin/Variable.h"
 #include "ProbDistribDefaultImpl1.h"
 #include "EntityGroup.h"
 #include "Formula.h"
