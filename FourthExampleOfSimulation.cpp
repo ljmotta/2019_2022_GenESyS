@@ -21,7 +21,7 @@
 #include "plugin/Delay.h"
 #include "plugin/Dispose.h"
 #include "Seize.h"
-#include "Release.h"
+#include "plugin/Release.h"
 #include "plugin/Assign.h"
 #include "Record.h"
 #include "plugin/Decide.h"

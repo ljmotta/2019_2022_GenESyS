@@ -14,9 +14,9 @@
 #ifndef RELEASE_H
 #define RELEASE_H
 
-#include "ModelComponent.h"
-#include "Resource.h"
-#include "Plugin.h"
+#include "../ModelComponent.h"
+#include "../Resource.h"
+#include "../Plugin.h"
 #include <string>
 
 /*!
