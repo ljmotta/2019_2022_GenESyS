@@ -150,7 +150,6 @@
       <logicalFolder name="f2" displayName="Components" projectFiles="true">
         <itemPath>Assign.h</itemPath>
         <itemPath>Create.h</itemPath>
-        <itemPath>Decide.cpp</itemPath>
         <itemPath>Decide.h</itemPath>
         <itemPath>Delay.h</itemPath>
         <itemPath>Dispose.h</itemPath>
@@ -397,8 +396,6 @@
       <item path="Counter.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Create.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Decide.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Decide.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -915,8 +912,6 @@
       <item path="Counter.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Create.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Decide.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Decide.h" ex="false" tool="3" flavor2="0">
       </item>

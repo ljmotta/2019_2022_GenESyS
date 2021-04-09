@@ -47,7 +47,6 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	PluginLoader::WritePlugin* writePlugin = pluginLoader->getWrite();
 	PluginLoader::SetPlugin* setPlugin = pluginLoader->getSet();
 	PluginLoader::ResourcePlugin* resourcePlugin = pluginLoader->getResource();
-	PluginLoader::DecidePlugin* decidePlugin = pluginLoader->getDecide();
 	PluginLoader::QueuePlugin* queuePlugin = pluginLoader->getQueue();
 	PluginLoader::SeizePlugin* seizePlugin = pluginLoader->getSeize();
 	PluginLoader::VariablePlugin* variablePlugin = pluginLoader->getVariable();
@@ -93,8 +92,6 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	Resource* machine2;
 	Resource* machine3;
 
-	Decide* decide1;
-
 	Queue* queueSeize1;
 	Queue* queueSeize2;
 	Queue* queueSeize3;
@@ -105,7 +102,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 
 	Variable* var1;
 	PluginManager* pluginManager = simulator->getPlugins();
-	
+
 
 	if (wantToCreateNewModelAndSaveInsteadOfJustLoad) {
 		model = new Model(simulator);
@@ -205,7 +202,8 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		machSet->getElementSet()->insert(machine2);
 		machSet->getElementSet()->insert(machine3);
 		// model->insert(machSet);
-		decide1 = decidePlugin->create(model);
+		StaticComponentInstance findDecide = pluginManager->find("Decide")->getPluginInfo()->GetComponentInstance();
+		Decide* decide1 = (Decide*) findDecide(model, "");
 		decide1->getConditions()->insert("NR(Machine_1) < MR(Machine_1)");
 		decide1->getConditions()->insert("NR(Machine_2) < MR(Machine_2)");
 		// model->insert(decide1);
@@ -224,7 +222,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 
 		StaticComponentInstance findRelease = pluginManager->find("Release")->getPluginInfo()->GetComponentInstance();
 		Release* release1 = (Release*) findRelease(model, "");
-		
+
 		// ->getPluginInfo()->GetComponentInstance()(model, "");
 		release1->setReleaseRequest(new ResourceItemRequest(machine1));
 		// model->insert(release1);
@@ -322,7 +320,6 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	resourcePlugin->destroy(machine1);
 	resourcePlugin->destroy(machine2);
 	resourcePlugin->destroy(machine3);
-	decidePlugin->destroy(decide1);
 	queuePlugin->destroy(queueSeize1);
 	queuePlugin->destroy(queueSeize2);
 	queuePlugin->destroy(queueSeize3);
@@ -334,7 +331,6 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	dlclose(writePlugin->getHandle());
 	dlclose(setPlugin->getHandle());
 	dlclose(resourcePlugin->getHandle());
-	dlclose(decidePlugin->getHandle());
 	dlclose(queuePlugin->getHandle());
 	dlclose(seizePlugin->getHandle());
 	dlclose(variablePlugin->getHandle());

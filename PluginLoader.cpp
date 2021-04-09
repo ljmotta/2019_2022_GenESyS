@@ -20,7 +20,6 @@ PluginLoader::PluginLoader(const char* handleRootPath) {
     _writePlugin = new PluginLoader::WritePlugin(this);
     _setPlugin = new PluginLoader::SetPlugin(this);
     _resourcePlugin = new PluginLoader::ResourcePlugin(this);
-    _decidePlugin = new PluginLoader::DecidePlugin(this);
     _queuePlugin = new PluginLoader::QueuePlugin(this);
     _seizePlugin = new PluginLoader::SeizePlugin(this);
     _releasePlugin = new PluginLoader::ReleasePlugin(this);
@@ -106,10 +105,6 @@ PluginLoader::ResourcePlugin* PluginLoader::getResource() {
     return _resourcePlugin;
 }
 
-PluginLoader::DecidePlugin* PluginLoader::getDecide() {
-    return _decidePlugin;
-}
-
 PluginLoader::QueuePlugin* PluginLoader::getQueue() {
     return _queuePlugin;
 }
@@ -163,13 +158,6 @@ PluginLoader::SetPlugin::SetPlugin(PluginLoader* pluginLoader) : PluginLoader::P
 PluginLoader::ResourcePlugin::ResourcePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Resource>(pluginLoader) {
     PluginLoader::ResourcePlugin::_pluginLoader = pluginLoader;
     PluginLoader::ResourcePlugin::_handle = pluginLoader->open("libresource.so");
-}
-
-// DECIDE
-
-PluginLoader::DecidePlugin::DecidePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Decide>(pluginLoader) {
-    PluginLoader::DecidePlugin::_pluginLoader = pluginLoader;
-    PluginLoader::DecidePlugin::_handle = pluginLoader->open("libdecide.so");
 }
 
 // QUEUE
