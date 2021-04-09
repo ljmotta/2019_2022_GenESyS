@@ -4137,7 +4137,7 @@ char *yytext;
 # include "../List.h"
 # include "../plugin/Variable.h"
 # include "../Queue.h"
-# include "../Formula.h"
+# include "../plugin/Formula.h"
 # include "../Resource.h"
 # include "../StatisticsCollector.h"
 # include "../Set.h"
@@ -4820,12 +4820,12 @@ YY_RULE_SETUP
 
         // Should be definied by plugin FORMULA
         // check FORMULA
-        element = driver.getModel()->getElements()->getElement(Util::TypeOf<Formula>(), std::string(yytext));
+        element = driver.getModel()->getElements()->getElement("Formula", std::string(yytext));
         if (element != nullptr) { // it is a FORMULA
             Formula* form = static_cast<Formula*>(element);
             //double formulaValue = form->getValue(); // return only formula ID
 	    //std::cout << "FOUND FORMULA " << form->getName() <<" ID " << form->getId() << std::endl;
-            return yy::genesyspp_parser::make_FORM(obj_t(0, Util::TypeOf<Formula>(), form->getId()),loc);
+            return yy::genesyspp_parser::make_FORM(obj_t(0, "Formula", form->getId()),loc);
         }
 
         // Should be definied by plugin QUEUE

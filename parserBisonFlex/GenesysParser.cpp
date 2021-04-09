@@ -1551,7 +1551,7 @@ namespace yy {
   case 86:
 #line 404 "bisonparser.yy"
                             { 
-		    yylhs.value.as < obj_t > ().valor = ((Formula*)(driver.getModel()->getElements()->getElement(Util::TypeOf<Formula>(), yystack_[0].value.as < obj_t > ().id)))->value();}
+		    yylhs.value.as < obj_t > ().valor = ((Formula*)(driver.getModel()->getElements()->getElement("Formula", yystack_[0].value.as < obj_t > ().id)))->value();}
 #line 1556 "../GenesysParser.cpp"
     break;
 
@@ -1559,7 +1559,7 @@ namespace yy {
 #line 406 "bisonparser.yy"
                                                {
 		    std::string index = std::to_string(static_cast<unsigned int>(yystack_[1].value.as < obj_t > ().valor));
-		    yylhs.value.as < obj_t > ().valor = ((Formula*)(driver.getModel()->getElements()->getElement(Util::TypeOf<Formula>(), yystack_[3].value.as < obj_t > ().id)))->value(index);}
+		    yylhs.value.as < obj_t > ().valor = ((Formula*)(driver.getModel()->getElements()->getElement("Formula", yystack_[3].value.as < obj_t > ().id)))->value(index);}
 #line 1564 "../GenesysParser.cpp"
     break;
 
@@ -1567,7 +1567,7 @@ namespace yy {
 #line 409 "bisonparser.yy"
                                                              {
 		    std::string index = std::to_string(static_cast<unsigned int>(yystack_[3].value.as < obj_t > ().valor)) +","+std::to_string(static_cast<unsigned int>(yystack_[1].value.as < obj_t > ().valor));
-		    yylhs.value.as < obj_t > ().valor = ((Formula*)(driver.getModel()->getElements()->getElement(Util::TypeOf<Formula>(), yystack_[5].value.as < obj_t > ().id)))->value(index);}
+		    yylhs.value.as < obj_t > ().valor = ((Formula*)(driver.getModel()->getElements()->getElement("Formula", yystack_[5].value.as < obj_t > ().id)))->value(index);}
 #line 1572 "../GenesysParser.cpp"
     break;
 
@@ -1575,7 +1575,7 @@ namespace yy {
 #line 412 "bisonparser.yy"
                                                                            {
 		    std::string index = std::to_string(static_cast<unsigned int>(yystack_[5].value.as < obj_t > ().valor)) +","+std::to_string(static_cast<unsigned int>(yystack_[3].value.as < obj_t > ().valor))+","+std::to_string(static_cast<unsigned int>(yystack_[1].value.as < obj_t > ().valor));
-		    yylhs.value.as < obj_t > ().valor = ((Formula*)(driver.getModel()->getElements()->getElement(Util::TypeOf<Formula>(), yystack_[7].value.as < obj_t > ().id)))->value(index);}
+		    yylhs.value.as < obj_t > ().valor = ((Formula*)(driver.getModel()->getElements()->getElement("Formula", yystack_[7].value.as < obj_t > ().id)))->value(index);}
 #line 1580 "../GenesysParser.cpp"
     break;
 

@@ -176,8 +176,6 @@
         <itemPath>Failure.h</itemPath>
         <itemPath>File.cpp</itemPath>
         <itemPath>File.h</itemPath>
-        <itemPath>Formula.cpp</itemPath>
-        <itemPath>Formula.h</itemPath>
         <itemPath>OLD_ODEelement.cpp</itemPath>
         <itemPath>OLD_ODEelement.h</itemPath>
         <itemPath>Queue.cpp</itemPath>
@@ -441,10 +439,6 @@
       <item path="FitterDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Fitter_if.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Formula.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Formula.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="FourthExampleOfSimulation.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -933,10 +927,6 @@
       <item path="FitterDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Fitter_if.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Formula.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Formula.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="FourthExampleOfSimulation.cpp" ex="false" tool="1" flavor2="0">
       </item>

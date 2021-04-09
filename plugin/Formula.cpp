@@ -11,19 +11,23 @@
  * Created on 20 de Junho de 2019, 00:56
  */
 
-#include "Formula.h"
+#include "../Formula.h"
 #include <iostream>
-#include "ElementManager.h"
-#include "Model.h"
-#include "Traits.h"
+#include "../ElementManager.h"
+#include "../Model.h"
+#include "../Traits.h"
 
-Formula::Formula(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Formula>(), name) {
+extern "C" StaticGetPluginInformation getPluginInformation() {
+	return &Formula::GetPluginInformation;
+}
+
+Formula::Formula(Model* model, std::string name) : ModelElement(model, "Formula", name) {
 	//_myPrivateParser = new Traits<Parser_if>::Implementation(_parentModel);
 }
 
 std::string Formula::show() {
 	std::string expressions = "";
-	unsigned int i = 0;
+	//unsigned int i = 0;
 	// for (std::list<std::string>::iterator it = _formulaExpressions->list()->begin(); it != _formulaExpressions->list()->end(); it++) {
 	//expressions += "expression[" + std::to_string(i++) + "]=\"" + (*it) + "\"; ";
 	//}
@@ -76,8 +80,12 @@ double Formula::value() {
 }
 
 PluginInformation* Formula::GetPluginInformation() {
-	PluginInformation* info = new PluginInformation(Util::TypeOf<Formula>(), &Formula::LoadInstance);
+	PluginInformation* info = new PluginInformation("Formula", &Formula::LoadInstance, &Formula::CreateInstance);
 	return info;
+}
+
+ModelElement* Formula::CreateInstance(Model* model, std::string name) {
+	return new Formula(model, name);
 }
 
 ModelElement* Formula::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {

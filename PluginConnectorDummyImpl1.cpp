@@ -61,7 +61,7 @@
 #include "ProbDistribDefaultImpl1.h"
 #include "EntityGroup.h"
 #include "Station.h"
-#include "Formula.h"
+#include "plugin/Formula.h"
 #include "Set.h"
 #// include "OLD_ODEelement.h"
 
@@ -98,7 +98,7 @@
 	else if (fn == "entitytype.so")
 		GetInfo = &EntityType::GetPluginInformation;
 	else if (fn == "formula.so")
-		GetInfo = &Formula::GetPluginInformation;
+		GetInfo = pluginLoader->GetPluginInfo("libformula.so");
 		//	else if (fn == "ode.so")
 		//		GetInfo = &OLD_ODEelement::GetPluginInformation;
 	else if (fn == "queue.so")

@@ -52,10 +52,10 @@ public: // static
 	static ModelComponent* CreateInstance(Model* model, std::string name);
 public:
 	virtual List<WriteElement*>* writeElements() const;
-	void setFilename(std::string _filename);
-	std::string filename() const;
+	virtual void setFilename(std::string _filename);
+	virtual std::string filename() const;
 	virtual void setWriteToType(WriteToType _writeToType);
-	Write::WriteToType writeToType() const;
+	virtual Write::WriteToType writeToType() const;
 
 protected: // virtual
 	virtual void _execute(Entity* entity);

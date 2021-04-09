@@ -58,7 +58,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/File.o \
 	${OBJECTDIR}/FirstExampleOfSimulation.o \
 	${OBJECTDIR}/FitterDefaultImpl1.o \
-	${OBJECTDIR}/Formula.o \
 	${OBJECTDIR}/FourthExampleOfSimulation.o \
 	${OBJECTDIR}/FullSimulationOfComplexModel.o \
 	${OBJECTDIR}/GenesysConsole.o \
@@ -272,11 +271,6 @@ ${OBJECTDIR}/FitterDefaultImpl1.o: FitterDefaultImpl1.cpp nbproject/Makefile-${C
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FitterDefaultImpl1.o FitterDefaultImpl1.cpp
-
-${OBJECTDIR}/Formula.o: Formula.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Formula.o Formula.cpp
 
 ${OBJECTDIR}/FourthExampleOfSimulation.o: FourthExampleOfSimulation.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

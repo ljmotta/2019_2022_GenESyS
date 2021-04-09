@@ -42,7 +42,6 @@ int FirstExampleOfSimulation::main(int argc, char** argv) {
 	bool wantToCreateNewModelAndSaveInsteadOfJustLoad = true;
 
 	PluginManager* pluginManager = simulator->getPlugins();
-	pluginManager->insert("entitytype.so");
 
 	StaticComponentConstructor create = pluginManager->insert("create.so")->getPluginInfo()->GetComponentConstructor();
 	StaticComponentConstructor delay = pluginManager->insert("delay.so")->getPluginInfo()->GetComponentConstructor();

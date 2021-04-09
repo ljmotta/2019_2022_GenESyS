@@ -14,10 +14,10 @@
 #ifndef FORMULA_H
 #define FORMULA_H
 
-#include "ModelElement.h"
-#include "ElementManager.h"
-#include "Plugin.h"
-#include "Parser_if.h"
+#include "../ModelElement.h"
+#include "../ElementManager.h"
+#include "../Plugin.h"
+#include "../Parser_if.h"
 
 class Formula : public ModelElement {
 public:
@@ -26,16 +26,17 @@ public:
 public: // virtual
 	virtual std::string show();
 public:
-	unsigned int size();
-	void setExpression(std::string index, std::string formulaExpression);
-	void setExpression(std::string formulaExpression);
-	std::string expression(std::string index);
-	std::string expression();
-	double value();
-	double value(std::string index);
+	virtual unsigned int size();
+	virtual void setExpression(std::string index, std::string formulaExpression);
+	virtual void setExpression(std::string formulaExpression);
+	virtual std::string expression(std::string index);
+	virtual std::string expression();
+	virtual double value();
+	virtual double value(std::string index);
 public: // statics
 	static PluginInformation* GetPluginInformation();
 	static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static ModelElement* CreateInstance(Model* model, std::string name);
 protected: // must be overriden by derived classes
 	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
 	virtual std::map<std::string, std::string>* _saveInstance();

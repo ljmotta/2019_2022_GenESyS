@@ -11,6 +11,7 @@ SHARED_OBJ_FILES := libassign.so \
 	libresource.so \
 	libdelay.so \
 	libdispose.so \
+	libformula.so \
 	libcreate.so
 
 .PHONY: all
@@ -67,6 +68,10 @@ libdispose.so: Dispose.cpp
 libcreate.so: Create.cpp
 	${CC} -fPIC -c Create.cpp -o build/Create.o
 	${CC} -shared -Wl,-soname,libcreate.so -o build/libcreate.so build/Create.o
+
+libformula.so: Formula.cpp
+	${CC} -fPIC -c Formula.cpp -o build/Formula.o
+	${CC} -shared -Wl,-soname,libformula.so -o build/libformula.so build/Formula.o
 
 clean:
 	$(RM) -r $(BUILD)
