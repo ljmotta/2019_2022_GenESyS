@@ -21,7 +21,7 @@
 // Model Components
 #include "plugin/Create.h"
 #include "plugin/Delay.h"
-#include "Dispose.h"
+#include "plugin/Dispose.h"
 
 // Model model
 #include "EntityType.h"

@@ -23,7 +23,7 @@
 #include "Seize.h"
 #include "plugin/Delay.h"
 #include "Release.h"
-#include "Dispose.h"
+#include "plugin/Dispose.h"
 
 // Model elements
 #include "EntityType.h"

@@ -14,9 +14,9 @@
 #ifndef DISPOSE_H
 #define DISPOSE_H
 
-#include "SinkModelComponent.h"
-#include "Counter.h"
-#include "Plugin.h"
+#include "../SinkModelComponent.h"
+#include "../Counter.h"
+#include "../Plugin.h"
 
 /*!
 Dispose module

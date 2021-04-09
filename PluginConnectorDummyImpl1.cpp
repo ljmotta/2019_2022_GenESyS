@@ -16,7 +16,7 @@
 // Model Components
 #include "plugin/Create.h"
 #include "plugin/Delay.h"
-#include "Dispose.h"
+#include "plugin/Dispose.h"
 #include "Seize.h"
 #include "Release.h"
 #include "plugin/Assign.h"
