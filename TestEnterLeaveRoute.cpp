@@ -116,8 +116,8 @@ int TestEnterLeaveRoute::main(int argc, char** argv) {
 	// delay3->setDelayExpression("1.0");
 	//components->insert(delay3);
 	// create a (Sink)ModelComponent of type Dispose, used to remove entities from the model
-	Dispose* dispose1 = new Dispose(model);
-	components->insert(dispose1);
+	// Dispose* dispose1 = new Dispose(model);
+	// components->insert(dispose1);
 	// connect model components to create a "workflow"
 	//create1->getNextComponents()->insert(route0);
 	//
@@ -131,7 +131,7 @@ int TestEnterLeaveRoute::main(int argc, char** argv) {
 	//
 	//enter3->getNextComponents()->insert(delay3);
 	//delay3->getNextComponents()->insert(leave3);
-	leave3->getNextComponents()->insert(dispose1);
+	// leave3->getNextComponents()->insert(dispose1);
 	// insert the model into the simulator
 	simulator->getModels()->insert(model);
 	// check the model

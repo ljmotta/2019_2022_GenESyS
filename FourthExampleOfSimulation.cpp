@@ -46,7 +46,6 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	PluginLoader* pluginLoader = new PluginLoader("./plugin/build/");
 	PluginLoader::WritePlugin* writePlugin = pluginLoader->getWrite();
 	PluginLoader::SetPlugin* setPlugin = pluginLoader->getSet();
-	PluginLoader::DisposePlugin* disposePlugin = pluginLoader->getDispose();
 	PluginLoader::ResourcePlugin* resourcePlugin = pluginLoader->getResource();
 	PluginLoader::DecidePlugin* decidePlugin = pluginLoader->getDecide();
 	PluginLoader::QueuePlugin* queuePlugin = pluginLoader->getQueue();
@@ -89,12 +88,6 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	WriteElement* writeElement25;
 
 	Set* machSet;
-
-	Dispose* dispose1;
-
-	Delay* delay1;
-	Delay* delay2;
-	Delay* delay3;
 
 	Resource* machine1;
 	Resource* machine2;
@@ -265,7 +258,8 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		Release* release3 = (Release*) findRelease(model, "");
 		release3->setReleaseRequest(new ResourceItemRequest(machine3));
 		// model->insert(release3);
-		dispose1 = disposePlugin->create(model);
+		StaticComponentInstance findDispose = pluginManager->find("Dispose")->getPluginInfo()->GetComponentInstance();
+		Dispose* dispose1 = (Dispose*) findDispose(model, "");
 		// model->insert(dispose1);
 		//
 		create1->getNextComponents()->insert(assign1);
@@ -324,7 +318,6 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	writePlugin->getWriteElement()->destroy(writeElement25);
 
   	setPlugin->destroy(machSet);
-	disposePlugin->destroy(dispose1);
 
 	resourcePlugin->destroy(machine1);
 	resourcePlugin->destroy(machine2);
@@ -345,6 +338,5 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	dlclose(queuePlugin->getHandle());
 	dlclose(seizePlugin->getHandle());
 	dlclose(variablePlugin->getHandle());
- 	dlclose(disposePlugin->getHandle());
 	return 0;
 }

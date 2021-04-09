@@ -43,7 +43,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/ConnectionManager.o \
 	${OBJECTDIR}/Counter.o \
 	${OBJECTDIR}/Decide.o \
-	${OBJECTDIR}/Dispose.o \
 	${OBJECTDIR}/Dummy.o \
 	${OBJECTDIR}/ElementManager.o \
 	${OBJECTDIR}/Enter.o \
@@ -202,11 +201,6 @@ ${OBJECTDIR}/Decide.o: Decide.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -include Assign.h -include Set.h -include Queue.h -include Release.h -include Seize.h -include Variable.h -include Decide.h -include Resource.h -include Delay.h -include Dispose.h -include Create.h -include Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Decide.o Decide.cpp
-
-${OBJECTDIR}/Dispose.o: Dispose.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -include Assign.h -include Set.h -include Queue.h -include Release.h -include Seize.h -include Variable.h -include Decide.h -include Resource.h -include Delay.h -include Dispose.h -include Create.h -include Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Dispose.o Dispose.cpp
 
 ${OBJECTDIR}/Dummy.o: Dummy.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

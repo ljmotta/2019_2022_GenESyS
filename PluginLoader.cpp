@@ -19,7 +19,6 @@ PluginLoader::PluginLoader(const char* handleRootPath) {
 	_handleRootPath = handleRootPath;
     _writePlugin = new PluginLoader::WritePlugin(this);
     _setPlugin = new PluginLoader::SetPlugin(this);
-    _disposePlugin = new PluginLoader::DisposePlugin(this);
     _resourcePlugin = new PluginLoader::ResourcePlugin(this);
     _decidePlugin = new PluginLoader::DecidePlugin(this);
     _queuePlugin = new PluginLoader::QueuePlugin(this);
@@ -103,10 +102,6 @@ PluginLoader::SetPlugin* PluginLoader::getSet() {
     return _setPlugin;
 }
 
-PluginLoader::DisposePlugin* PluginLoader::getDispose() {
-    return _disposePlugin;
-}
-
 PluginLoader::ResourcePlugin* PluginLoader::getResource() {
     return _resourcePlugin;
 }
@@ -161,13 +156,6 @@ void PluginLoader::WritePlugin::WriteElementPlugin::destroy(WriteElement* writeE
 PluginLoader::SetPlugin::SetPlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Set>(pluginLoader) {
     PluginLoader::SetPlugin::_pluginLoader = pluginLoader;
     PluginLoader::SetPlugin::_handle = pluginLoader->open("libset.so");
-}
-
-// Dipose
-
-PluginLoader::DisposePlugin::DisposePlugin(PluginLoader* pluginLoader) : PluginLoader::Plugin<Dispose>(pluginLoader) {
-    PluginLoader::DisposePlugin::_pluginLoader = pluginLoader;
-    PluginLoader::DisposePlugin::_handle = pluginLoader->open("libdispose.so");
 }
 
 // RESOURCE PLUGIN

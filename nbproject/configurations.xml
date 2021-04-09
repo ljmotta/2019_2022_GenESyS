@@ -153,7 +153,6 @@
         <itemPath>Decide.cpp</itemPath>
         <itemPath>Decide.h</itemPath>
         <itemPath>Delay.h</itemPath>
-        <itemPath>Dispose.cpp</itemPath>
         <itemPath>Dispose.h</itemPath>
         <itemPath>Dummy.cpp</itemPath>
         <itemPath>Dummy.h</itemPath>
@@ -406,8 +405,6 @@
       <item path="DefineGetterSetter.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Delay.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Dispose.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Dispose.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -926,8 +923,6 @@
       <item path="DefineGetterSetter.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Delay.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Dispose.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Dispose.h" ex="false" tool="3" flavor2="0">
       </item>

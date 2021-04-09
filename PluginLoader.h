@@ -103,16 +103,10 @@ public:
             VariablePlugin(PluginLoader* pluginLoader);
             virtual ~VariablePlugin() = default;
     };
-    class DisposePlugin : public Plugin<Dispose> {
-        public:
-            DisposePlugin(PluginLoader* pluginLoader);
-            virtual ~DisposePlugin() = default;
-    };
 
 public:
     PluginLoader::WritePlugin* _writePlugin;
     PluginLoader::SetPlugin* _setPlugin;
-    PluginLoader::DisposePlugin* _disposePlugin;
     PluginLoader::ResourcePlugin* _resourcePlugin;
     PluginLoader::DecidePlugin* _decidePlugin;
     PluginLoader::QueuePlugin* _queuePlugin;
@@ -123,7 +117,6 @@ public:
 public:
     PluginLoader::WritePlugin* getWrite();
     PluginLoader::SetPlugin* getSet();
-    PluginLoader::DisposePlugin* getDispose();
     PluginLoader::ResourcePlugin* getResource();
     PluginLoader::DecidePlugin* getDecide();
     PluginLoader::QueuePlugin* getQueue();
