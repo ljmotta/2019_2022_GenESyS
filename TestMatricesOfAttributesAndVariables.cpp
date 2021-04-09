@@ -14,15 +14,8 @@
 #include "TestMatricesOfAttributesAndVariables.h"
 #include "Simulator.h"
 #include "SourceModelComponent.h"
-#include "plugin/Assign.h"
 #include "Attribute.h"
-#include "plugin/Variable.h"
-#include "plugin/Create.h"
-#include "plugin/Delay.h"
-#include "plugin/Dispose.h"
 // #include "Separate.h"
-#include "plugin/Formula.h"
-#include "plugin/Write.h"
 
 TestMatricesOfAttributesAndVariables::TestMatricesOfAttributesAndVariables() {
 }
@@ -100,8 +93,8 @@ int TestMatricesOfAttributesAndVariables::main(int argc, char** argv) {
 	w1->writeElements()->insert(new WriteElement("N[3]", true, true));
 	// w1->writeElements()->insert(new WriteElement("temp[6]",true, true));
 	// w1->writeElements()->insert(new WriteElement("tnow",true, true));
-	// as1->assignments()->insert(new Assign::Assignment("temp[1]", "k[1]*N[1]*N[2]"));
-	// as1->assignments()->insert(new Assign::Assignment("temp[2]", "k[2]*N[3]"));
+	as1->assignments()->insert(new Assign::Assignment("temp[1]", "k[1]*N[1]*N[2]"));
+	as1->assignments()->insert(new Assign::Assignment("temp[2]", "k[2]*N[3]"));
 	// as1->assignments()->insert(new Assign::Assignment("temp[3]", "temp[1]+temp[2]"));
 	// as1->assignments()->insert(new Assign::Assignment("temp[4]", "if (temp[3]>0) temp[1]/temp[3] else 0"));
 	// as1->assignments()->insert(new Assign::Assignment("temp[5]", "if (temp[3]>0) (if (rnd<temp[4]) 1 else 2) else 0"));

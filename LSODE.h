@@ -15,8 +15,6 @@
 #define LSODE_H
 
 #include "ModelComponent.h"
-#include "plugin/Formula.h"
-#include "plugin/Variable.h"
 
 /*!
  This component ...
