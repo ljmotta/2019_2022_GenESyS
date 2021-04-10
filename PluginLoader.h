@@ -25,16 +25,6 @@ public:
     virtual StaticGetPluginInformation GetPluginInfo(const char* libname);
 
 public:
-    class Plugin {
-        public:
-            Plugin(PluginLoader* pluginLoader);
-            virtual ~Plugin() = default;
-        public:
-            void* _handle;
-            PluginLoader* _pluginLoader;
-    };
-
-public:
     const char*_handleRootPath = "";
 };
 
