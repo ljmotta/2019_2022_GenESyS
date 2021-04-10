@@ -4828,9 +4828,9 @@ YY_RULE_SETUP
 
         // Should be definied by plugin QUEUE
         // check QUEUE
-        element = driver.getModel()->getElements()->getElement("Queue", std::string(yytext));
+        element = driver.getModel()->getElements()->getElement(Util::TypeOf<Queue>(), std::string(yytext));
         if (element != nullptr) { 
-            return yy::genesyspp_parser::make_QUEUE(obj_t(0, "Queue", element->getId()),loc);
+            return yy::genesyspp_parser::make_QUEUE(obj_t(0, Util::TypeOf<Queue>(), element->getId()),loc);
         }
 
 	// Should be definied by plugin RESOURCE

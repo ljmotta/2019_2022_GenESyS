@@ -1587,7 +1587,7 @@ namespace yy {
 
   case 91:
 #line 423 "bisonparser.yy"
-                                            { yylhs.value.as < obj_t > ().valor = ((Queue*)(driver.getModel()->getElements()->getElement("Queue", yystack_[1].value.as < obj_t > ().id)))->size();}
+                                            { yylhs.value.as < obj_t > ().valor = ((Queue*)(driver.getModel()->getElements()->getElement(Util::TypeOf<Queue>(), yystack_[1].value.as < obj_t > ().id)))->size();}
 #line 1592 "../GenesysParser.cpp"
     break;
 
@@ -1600,9 +1600,9 @@ namespace yy {
   case 93:
 #line 425 "bisonparser.yy"
                                             { 
-		    if (((Queue*)(driver.getModel()->getElements()->getElement("Queue", yystack_[1].value.as < obj_t > ().id)))->size() > 0){
+		    if (((Queue*)(driver.getModel()->getElements()->getElement(Util::TypeOf<Queue>(), yystack_[1].value.as < obj_t > ().id)))->size() > 0){
 			//id da 1a entidade da fila, talvez pegar nome
-			yylhs.value.as < obj_t > ().valor = ((Queue*)(driver.getModel()->getElements()->getElement("Queue", yystack_[1].value.as < obj_t > ().id)))->first()->getEntity()->getId();
+			yylhs.value.as < obj_t > ().valor = ((Queue*)(driver.getModel()->getElements()->getElement(Util::TypeOf<Queue>(), yystack_[1].value.as < obj_t > ().id)))->first()->getEntity()->getId();
 		    }else{
 			yylhs.value.as < obj_t > ().valor = 0;
 		    }
@@ -1615,7 +1615,7 @@ namespace yy {
                                                {   
 		     Util::identification queueID = yystack_[3].value.as < obj_t > ().id;
 		     Util::identification attrID = yystack_[1].value.as < obj_t > ().id;
-		     double sum = ((Queue*)(driver.getModel()->getElements()->getElement("Queue", yystack_[3].value.as < obj_t > ().id)))->sumAttributesFromWaiting(attrID);
+		     double sum = ((Queue*)(driver.getModel()->getElements()->getElement(Util::TypeOf<Queue>(), yystack_[3].value.as < obj_t > ().id)))->sumAttributesFromWaiting(attrID);
 		      yylhs.value.as < obj_t > ().valor = sum;
 		}
 #line 1622 "../GenesysParser.cpp"
@@ -1626,7 +1626,7 @@ namespace yy {
                                                      {
 		     Util::identification queueID = yystack_[5].value.as < obj_t > ().id;
 		     Util::identification attrID = yystack_[1].value.as < obj_t > ().id;
-		     double value = ((Queue*)(driver.getModel()->getElements()->getElement("Queue", yystack_[5].value.as < obj_t > ().id)))->getAttributeFromWaitingRank(yystack_[3].value.as < obj_t > ().valor-1, attrID); // rank starts on 0 in genesys
+		     double value = ((Queue*)(driver.getModel()->getElements()->getElement(Util::TypeOf<Queue>(), yystack_[5].value.as < obj_t > ().id)))->getAttributeFromWaitingRank(yystack_[3].value.as < obj_t > ().valor-1, attrID); // rank starts on 0 in genesys
 		      yylhs.value.as < obj_t > ().valor = value;
 		}
 #line 1633 "../GenesysParser.cpp"
