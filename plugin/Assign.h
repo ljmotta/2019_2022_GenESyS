@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   Assign.h
  * Author: rafael.luiz.cancian
  *
@@ -101,7 +101,7 @@ public:
 	static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 	static ModelComponent* CreateInstance(Model* model, std::string name = "");
 public:
-	virtual List<Assignment*>* assignments() const;
+	virtual List<Assignment*>* getAssignments() const;
 protected:
 	virtual void _execute(Entity* entity);
 	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
@@ -114,4 +114,3 @@ private:
 };
 
 #endif /* ASSIGN_H */
-

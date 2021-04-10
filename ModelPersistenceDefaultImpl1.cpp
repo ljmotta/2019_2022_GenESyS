@@ -47,6 +47,7 @@ bool ModelPersistenceDefaultImpl1::save(std::string filename) {
 		// save model own infos
 		fields = _model->getInfos()->saveInstance();
 		modelInfosToSave = _adjustFieldsToSave(fields);
+		// \todo save modelSimulation fields (breakpoints)
 		// save infras
 		modelElementsToSave = new std::list<std::string>();
 		std::list<std::string>* elementTypenames = _model->getElements()->getElementClassnames();

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   Traits.h
  * Author: rafael.luiz.cancian
  *
@@ -69,6 +69,7 @@
 #include "GenesysGUI.h"
 #include "GenesysConsole.h"
 #include "ThirdExampleOfSimultion.h"
+#include "FifthExampleOfSimulation.h"
 #include "TestEnterLeaveRoute.h"
 #include "TestFunctions.h"
 #include "TestSimulationControlAndSimulationResponse.h"
@@ -92,14 +93,15 @@ template <> struct Traits<GenesysApplication_if> {
 	// tests
 	//typedef TestLSODE Application;
 	//typedef TestMarkovChain Application;
-	// typedef TestSimulationControlAndSimulationResponse Application;
-	//typedef TestMatricesOfAttributesAndVariables Application;
+	//typedef TestSimulationControlAndSimulationResponse Application;
+	// typedef TestMatricesOfAttributesAndVariables Application;
 	// examples
-	// typedef FirstExampleOfSimulation Application;
-	// typedef SecondExampleOfSimulation Application;
+	//typedef FirstExampleOfSimulation Application;
+	//typedef SecondExampleOfSimulation Application;
 	// typedef ThirdExampleOfSimulation Application;
 	typedef FourthExampleOfSimulation Application;
-	//typedef FullSimulationOfComplexModel Application;
+	// typedef FifthExampleOfSimulation Application;
+	// typedef FullSimulationOfComplexModel Application;
 	// full aplications
 	//typedef GenesysGUI Application;
 };
@@ -199,4 +201,3 @@ template <> struct Traits<ExperimentManager_if> {
 };
 
 #endif /* TRAITS_H */
-

@@ -30,7 +30,7 @@ std::string Assign::show() {
 			"";
 }
 
-List<Assign::Assignment*>* Assign::assignments() const {
+List<Assign::Assignment*>* Assign::getAssignments() const {
 	return _assignments;
 }
 

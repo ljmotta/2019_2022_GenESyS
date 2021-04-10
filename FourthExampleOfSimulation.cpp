@@ -20,6 +20,7 @@
 #include "Record.h"
 #include "Resource.h"
 #include "PluginLoader.h"
+#include "Set.h"
 
 // Model elements
 #include "ElementManager.h"
@@ -27,7 +28,6 @@
 #include "Attribute.h"
 #include "ProbDistribDefaultImpl1.h"
 #include "EntityGroup.h"
-#include "Set.h"
 
 FourthExampleOfSimulation::FourthExampleOfSimulation() {
 }
@@ -40,7 +40,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	Model* model;
 
 	PluginManager* pluginManager = simulator->getPlugins();
-	
+
 	StaticComponentConstructor create = pluginManager->insert("create.so")->getPluginInfo()->GetComponentConstructor();
 	StaticComponentConstructor assign = pluginManager->insert("assign.so")->getPluginInfo()->GetComponentConstructor();
 	StaticComponentConstructor write = pluginManager->insert("write.so")->getPluginInfo()->GetComponentConstructor();
@@ -73,8 +73,8 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 
 		Assign* assign1 = (Assign*) assign(model, "");
 
-		assign1->assignments()->insert(new Assign::Assignment("varNextIndex", "varNextIndex + 1"));
-		assign1->assignments()->insert(new Assign::Assignment("index", "varNextIndex"));
+		assign1->getAssignments()->insert(new Assign::Assignment("varNextIndex", "varNextIndex + 1"));
+		assign1->getAssignments()->insert(new Assign::Assignment("index", "varNextIndex"));
 		// model->insert(assign1);
 		Attribute* attr1 = new Attribute(model, "index");
 		// model->insert(attr1);
@@ -168,7 +168,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		release2->setReleaseRequest(new ResourceItemRequest(machine2));
 		// model->insert(release2);
 
-		
+
 		Queue* queueSeize3 = (Queue*) queue(model, "Queue_Seize_3");
 		queueSeize3->setOrderRule(Queue::OrderRule::FIFO);
 		// model->insert(queueSeize3);

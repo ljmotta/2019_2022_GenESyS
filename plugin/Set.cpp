@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   Set.cpp
  * Author: rlcancian
- * 
+ *
  * Created on 03 de Junho de 2019, 15:11
  */
 
@@ -87,4 +87,3 @@ ParserChangesInformation* Set::_getParserChangesInformation() {
 	//changes->getTokensToAdd()->insert(...);
 	return changes;
 }
-

@@ -178,12 +178,12 @@ L      [A-Za-z0-9_.]+
 T
 
 {L}   {
-        ModelElement* element; 
+        ModelElement* element;
 
 		//std::cout << "Verificando o que é o Literal \""+std::string(yytext)+"\"\n";
         // check if it is an ATTRIBUTE (and return the attribute ID (and not the value!)
         element = driver.getModel()->getElements()->getElement(Util::TypeOf<Attribute>(), std::string(yytext));
-        if (element != nullptr) { 
+        if (element != nullptr) {
             return yy::genesyspp_parser::make_ATRIB(obj_t(0, Util::TypeOf<Attribute>(), element->getId()),loc);
         }
 
@@ -209,32 +209,32 @@ T
         // Should be definied by plugin QUEUE
         // check QUEUE
         element = driver.getModel()->getElements()->getElement(Util::TypeOf<Queue>(), std::string(yytext));
-        if (element != nullptr) { 
+        if (element != nullptr) {
             return yy::genesyspp_parser::make_QUEUE(obj_t(0, Util::TypeOf<Queue>(), element->getId()),loc);
         }
 
 	// Should be definied by plugin RESOURCE
         // check RESOURCE
         element = driver.getModel()->getElements()->getElement(Util::TypeOf<Resource>(), std::string(yytext));
-        if (element != nullptr) { 
+        if (element != nullptr) {
             return yy::genesyspp_parser::make_RESOURCE(obj_t(0, Util::TypeOf<Resource>(), element->getId()),loc);
         }
 
         // Should be definied by plugin SET
         //check SET
         element = driver.getModel()->getElements()->getElement(Util::TypeOf<Set>(), std::string(yytext));
-        if (element != nullptr) { 
+        if (element != nullptr) {
             return yy::genesyspp_parser::make_SET(obj_t(0, Util::TypeOf<Set>(), element->getId()),loc);
         }
 
         // Should be definied by plugin STATISTICSCOLLECTOR
         //check CSTAT
         element = driver.getModel()->getElements()->getElement(Util::TypeOf<StatisticsCollector>(), std::string(yytext));
-        if (element != nullptr) { 
+        if (element != nullptr) {
             return yy::genesyspp_parser::make_CSTAT(obj_t(0, Util::TypeOf<StatisticsCollector>(), element->getId()),loc);
         }
 
-	// If no one before has identified this literal, then it is an ILLEGAL (not found) literal 
+	// If no one before has identified this literal, then it is an ILLEGAL (not found) literal
         //Case not found retturns a illegal token
         return yy::genesyspp_parser::make_ILLEGAL(obj_t(0, std::string("Illegal")), loc);
       }
@@ -262,7 +262,7 @@ genesyspp_driver::scan_begin_file ()
 void genesyspp_driver::scan_begin_str ()
 {
   //yy_flex_debug = trace_scanning;
-  if(!str_to_parse.empty()){    
+  if(!str_to_parse.empty()){
     yy_scan_string (str_to_parse.c_str()); //maybe throw exception on else
   }else{
     std::string str("0");

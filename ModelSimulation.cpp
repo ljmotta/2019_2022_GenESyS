@@ -64,21 +64,21 @@ void ModelSimulation::_traceReplicationEnded() {
  * Checks the model and if ok then initialize the simulation, execute repeatedly each replication and then show simulation statistics
  */
 void ModelSimulation::start() {
-	if (!_model->check()) {
-		_model->getTracer()->trace(Util::TraceLevel::errorFatal, "Model check failed. Cannot start simulation.");
-		return;
-	}
-	Util::SetIndent(0); //force indentation
-	if (!_isPaused) {
+	if (!_isPaused) { // begin of a new simulation
+		Util::SetIndent(0); //force indentation
+		if (!_model->check()) {
+			_model->getTracer()->trace(Util::TraceLevel::errorFatal, "Model check failed. Cannot start simulation.");
+			return;
+		}
 		_initSimulation();
 		_model->getOnEvents()->NotifySimulationStartHandlers(new SimulationEvent(0, nullptr));
 		_currentReplicationNumber = 1;
 		Util::IncIndent();
 		_initReplication();
-	} else {
+	} else { // continue after a pause
 		_model->getOnEvents()->NotifySimulationPausedStartHandlers(new SimulationEvent(0, nullptr));
 	}
-	_running = true;
+	_isRunning = true;
 	_isPaused = false;
 	//std::chrono::time_point<std::chrono::_V2::system_clock, std::chrono::duration<long int, std::ratio < 1, 1000000000 >> > replicationStartTime = std::chrono::high_resolution_clock::now();
 	do {
@@ -89,8 +89,8 @@ void ModelSimulation::start() {
 		while (!_isReplicationEndCondition() && !_pauseRequested) {
 			_stepSimulation();
 		}
-		Util::SetIndent(1); // force
 		if (!_pauseRequested) {
+			Util::SetIndent(1); // force
 			_replicationEnded();
 			_currentReplicationNumber++;
 			if (_currentReplicationNumber <= _info->getNumberOfReplications()) {
@@ -99,7 +99,8 @@ void ModelSimulation::start() {
 		}
 	} while (_currentReplicationNumber <= _info->getNumberOfReplications() && !_pauseRequested);
 	if (!_pauseRequested) {
-		_simulationReporter->showSimulationStatistics(); //_cStatsSimulation);
+		if (this->_showReportsAfterSimulation)
+			_simulationReporter->showSimulationStatistics(); //_cStatsSimulation);
 		Util::DecIndent();
 
 		_model->getTracer()->trace(Util::TraceLevel::modelSimulationEvent, "Simulation of model \"" + _info->getName() + "\" has finished.\n");
@@ -108,13 +109,14 @@ void ModelSimulation::start() {
 		_pauseRequested = false;
 		_isPaused = true;
 	}
-	_running = false;
+	_isRunning = false;
 }
 
 void ModelSimulation::_replicationEnded() {
 	_traceReplicationEnded();
 	_model->getOnEvents()->NotifyReplicationEndHandlers(new SimulationEvent(_currentReplicationNumber, nullptr));
-	_simulationReporter->showReplicationStatistics();
+	if (this->_showReportsAfterReplication)
+		_simulationReporter->showReplicationStatistics();
 	//_simulationReporter->showSimulationResponses();
 	_actualizeSimulationStatistics();
 }
@@ -246,6 +248,7 @@ void ModelSimulation::_initSimulation() {
 		StatisticsCollector* newCStatSimul = new StatisticsCollector(_model, _cte_stCountSimulNamePrefix + counter->getName(), counter->getParent(), false);
 		this->_statsCountersSimulation->insert(newCStatSimul);
 	}
+	this->_simulationIsInitiated = true; // \todo Check the uses of _simulationIsInitiated and when it should be set to false
 }
 
 void ModelSimulation::_initReplication() {
@@ -304,6 +307,7 @@ void ModelSimulation::_initReplication() {
 	if (this->_initializeStatisticsBetweenReplications) {
 		_initStatistics();
 	}
+	this->_replicationIsInitiaded = true; // \todo Check the uses of _replicationIsInitiaded and when it should be set to false
 }
 
 void ModelSimulation::_initStatistics() {
@@ -319,7 +323,6 @@ void ModelSimulation::_initStatistics() {
 		counter = (Counter*) (*it);
 		counter->clear();
 	}
-
 }
 
 void ModelSimulation::_checkWarmUpTime(Event* nextEvent) {
@@ -338,12 +341,57 @@ void ModelSimulation::_stepSimulation() {
 	if (_model->getInfos()->getWarmUpPeriod() > 0.0)
 		_checkWarmUpTime(nextEvent);
 	if (nextEvent->getTime() <= _info->getReplicationLength()) {
-		_model->getFutureEvents()->pop_front();
-		_model->getOnEvents()->NotifyReplicationStepHandlers(new SimulationEvent(_currentReplicationNumber, nullptr));
-		_processEvent(nextEvent);
+		if (_checkBreakpointAt(nextEvent)) {
+			this->_pauseRequested = true;
+		} else {
+			_model->getFutureEvents()->pop_front();
+			_model->getOnEvents()->NotifyReplicationStepHandlers(new SimulationEvent(_currentReplicationNumber, nullptr));
+			_processEvent(nextEvent);
+		}
 	} else {
 		this->_simulatedTime = _model->getInfos()->getReplicationLength(); ////nextEvent->getTime(); // just to advance time to beyond simulatedTime
 	}
+}
+
+bool ModelSimulation::_checkBreakpointAt(Event* event) {
+	bool res = false;
+	SimulationEvent* se = new SimulationEvent(_currentReplicationNumber, event);
+	if (_breakpointsOnComponent->find(event->getComponent()) != _breakpointsOnComponent->list()->end()) {
+		if (_justTriggeredBreakpointsOnComponent == event->getComponent()) {
+			_justTriggeredBreakpointsOnComponent = nullptr;
+		} else {
+			_justTriggeredBreakpointsOnComponent = event->getComponent();
+			_model->getOnEvents()->NotifyBreakpointHandlers(se);
+			_model->getTracer()->trace("Breakpoint found at component '" + event->getComponent()->getName() + "'. Replication is paused.", Util::TraceLevel::modelSimulationEvent);
+
+			res = true;
+		}
+	}
+	if (_breakpointsOnEntity->find(event->getEntity()) != _breakpointsOnEntity->list()->end()) {
+		if (_justTriggeredBreakpointsOnEntity == event->getEntity()) {
+			_justTriggeredBreakpointsOnEntity = nullptr;
+		} else {
+			_justTriggeredBreakpointsOnEntity = event->getEntity();
+			_model->getOnEvents()->NotifyBreakpointHandlers(se);
+			_model->getTracer()->trace("Breakpoint found at entity '" + event->getEntity()->getName() + "'. Replication is paused.", Util::TraceLevel::modelSimulationEvent);
+			res = true;
+		}
+	}
+	double time;
+	for (std::list<double>::iterator it = _breakpointsOnTime->list()->begin(); it != _breakpointsOnTime->list()->end(); it++) {
+		time = (*it);
+		if (_simulatedTime < time && event->getTime() >= time) {
+			if (_justTriggeredBreakpointsOnTime == time) { // just trrigered this breakpoint
+				_justTriggeredBreakpointsOnTime = 0.0;
+			} else {
+				_justTriggeredBreakpointsOnTime = time;
+				_model->getOnEvents()->NotifyBreakpointHandlers(se);
+				_model->getTracer()->trace("Breakpoint found at time '" + std::to_string(event->getTime()) + "'. Replication is paused.", Util::TraceLevel::modelSimulationEvent);
+				return true;
+			}
+		}
+	}
+	return res;
 }
 
 void ModelSimulation::_processEvent(Event* event) {
@@ -379,13 +427,13 @@ void ModelSimulation::step() {
 			}
 		}
 	}
-
 }
 
 void ModelSimulation::stop() {
-}
-
-void ModelSimulation::restart() {
+	this->_isPaused = false;
+	this->_isRunning = false;
+	this->_replicationIsInitiaded = false;
+	this->_simulationIsInitiated = false;
 }
 
 void ModelSimulation::setPauseOnEvent(bool _pauseOnEvent) {
@@ -433,7 +481,7 @@ double ModelSimulation::getSimulatedTime() const {
 }
 
 bool ModelSimulation::isRunning() const {
-	return _running;
+	return _isRunning;
 }
 
 unsigned int ModelSimulation::getCurrentReplicationNumber() const {
@@ -458,6 +506,34 @@ SimulationReporter_if* ModelSimulation::getReporter() const {
 
 unsigned int ModelSimulation::getCurrentInputNumber() const {
 	return _currentInputNumber;
+}
+
+void ModelSimulation::setShowReportsAfterReplication(bool showReportsAfterReplication) {
+	this->_showReportsAfterReplication = showReportsAfterReplication;
+}
+
+bool ModelSimulation::isShowReportsAfterReplication() const {
+	return _showReportsAfterReplication;
+}
+
+void ModelSimulation::setShowReportsAfterSimulation(bool showReportsAfterSimulation) {
+	this->_showReportsAfterSimulation = showReportsAfterSimulation;
+}
+
+bool ModelSimulation::isShowReportsAfterSimulation() const {
+	return _showReportsAfterSimulation;
+}
+
+List<double>* ModelSimulation::getBreakpointsOnTime() const {
+	return _breakpointsOnTime;
+}
+
+List<Entity*>* ModelSimulation::getBreakpointsOnEntity() const {
+	return _breakpointsOnEntity;
+}
+
+List<ModelComponent*>* ModelSimulation::getBreakpointsOnComponent() const {
+	return _breakpointsOnComponent;
 }
 
 bool ModelSimulation::isPaused() const {

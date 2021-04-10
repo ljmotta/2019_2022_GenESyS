@@ -25,7 +25,7 @@ FullSimulationOfComplexModel::FullSimulationOfComplexModel() {
 }
 
 /**
- * This is the main function of the application. 
+ * This is the main function of the application.
  * It instanciates the simulator, builds a simulation model and then simulate that model.
  */
 int FullSimulationOfComplexModel::main(int argc, char** argv) {
