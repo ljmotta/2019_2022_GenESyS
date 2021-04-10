@@ -14,7 +14,7 @@
 #include "PluginConnectorDummyImpl1.h"
 
 // Model Components
-#include "Record.h"
+#include "plugin/Record.h"
 #include "Dummy.h"
 #include "Route.h"
 #include "Enter.h"
@@ -117,7 +117,7 @@
 	else if (fn == "dummy.so")
 		GetInfo = &Dummy::GetPluginInformation;
 	else if (fn == "record.so")
-		GetInfo = &Record::GetPluginInformation;
+		GetInfo = pluginLoader->GetPluginInfo("librecord.so");
 	else if (fn == "release.so") {
 		GetInfo = pluginLoader->GetPluginInfo("librelease.so");
 	}

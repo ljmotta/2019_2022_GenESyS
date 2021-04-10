@@ -17,7 +17,7 @@
 #include "Simulator.h"
 
 // Model Components
-#include "Record.h"
+// #include "plugin/Record.h"
 #include "Resource.h"
 #include "PluginLoader.h"
 
@@ -40,7 +40,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 	Model* model;
 
 	PluginManager* pluginManager = simulator->getPlugins();
-	
+
 	StaticComponentConstructor create = pluginManager->insert("create.so")->getPluginInfo()->GetComponentConstructor();
 	StaticComponentConstructor assign = pluginManager->insert("assign.so")->getPluginInfo()->GetComponentConstructor();
 	StaticComponentConstructor write = pluginManager->insert("write.so")->getPluginInfo()->GetComponentConstructor();
@@ -168,7 +168,7 @@ int FourthExampleOfSimulation::main(int argc, char** argv) {
 		release2->setReleaseRequest(new ResourceItemRequest(machine2));
 		// model->insert(release2);
 
-		
+
 		Queue* queueSeize3 = (Queue*) queue(model, "Queue_Seize_3");
 		queueSeize3->setOrderRule(Queue::OrderRule::FIFO);
 		// model->insert(queueSeize3);

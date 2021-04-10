@@ -4,18 +4,22 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   Record.cpp
  * Author: rafael.luiz.cancian
- * 
+ *
  * Created on 9 de Agosto de 2018, 13:52
  */
 
 #include "Record.h"
-#include "Model.h"
+#include "../Model.h"
 #include <fstream>
 #include <cstdio>
 #include <iostream>
+
+extern "C" StaticGetPluginInformation getPluginInformation() {
+	return &Record::GetPluginInformation;
+}
 
 Record::Record(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Record>(), name) {
 	_cstatExpression = new StatisticsCollector(_parentModel, _expressionName, this);
@@ -102,8 +106,12 @@ bool Record::_check(std::string* errorMessage) {
 }
 
 PluginInformation* Record::GetPluginInformation() {
-	PluginInformation* info = new PluginInformation(Util::TypeOf<Record>(), &Record::LoadInstance);
+	PluginInformation* info = new PluginInformation(Util::TypeOf<Record>(), &Record::LoadInstance, &Record::CreateInstance);
 	return info;
+}
+
+ModelComponent* Record::CreateInstance(Model* model, std::string name) {
+	return new Record(model, name);
 }
 
 ModelComponent* Record::LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
@@ -116,4 +124,3 @@ ModelComponent* Record::LoadInstance(Model* model, std::map<std::string, std::st
 	return newComponent;
 
 }
-

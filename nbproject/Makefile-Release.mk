@@ -92,7 +92,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/ProbDistribBoostImpl.o \
 	${OBJECTDIR}/ProbDistribDefaultImpl1.o \
 	${OBJECTDIR}/Queue.o \
-	${OBJECTDIR}/Record.o \
 	${OBJECTDIR}/RequirementTester.o \
 	${OBJECTDIR}/Resource.o \
 	${OBJECTDIR}/Route.o \
@@ -442,10 +441,6 @@ ${OBJECTDIR}/Queue.o: Queue.cpp nbproject/Makefile-${CND_CONF}.mk
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Queue.o Queue.cpp
 
-${OBJECTDIR}/Record.o: Record.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Record.o Record.cpp
 
 ${OBJECTDIR}/RequirementTester.o: RequirementTester.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

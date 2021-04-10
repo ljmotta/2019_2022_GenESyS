@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   Record.h
  * Author: rafael.luiz.cancian
  *
@@ -14,7 +14,7 @@
 #ifndef RECORD_H
 #define RECORD_H
 
-#include "ModelComponent.h"
+#include "../ModelComponent.h"
 #include <string>
 
 /*!
@@ -76,6 +76,7 @@ public:
 public:
 	static PluginInformation* GetPluginInformation();
 	static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static ModelComponent* CreateInstance(Model* model, std::string name = "");
 protected:
 	virtual void _execute(Entity* entity);
 	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
@@ -86,10 +87,9 @@ private:
 	std::string _expression = "";
 	std::string _expressionName = "";
 	std::string _filename = "";
-private: 
+private:
 	// not a child element
 	StatisticsCollector* _cstatExpression; /* \todo: Cretae an internal class to agregate ExpressionStatisticsColelctor, and change Record to got a list of it, so Record cn record a set of expressions into a set of files */
 };
 
 #endif /* RECORD_H */
-
