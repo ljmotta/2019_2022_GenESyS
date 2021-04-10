@@ -12,7 +12,6 @@
  */
 
 #include "ExperimentDesignDummyImpl.h"
-#include "plugin/Assign.h"
 
 ExperimentDesignDummyImpl::ExperimentDesignDummyImpl() {
 }

@@ -15,7 +15,6 @@
 #include "Model.h"
 #include "SourceModelComponent.h"
 #include "SinkModelComponent.h"
-//#include "plugin/Assign.h"
 #include <assert.h>
 
 //using namespace GenesysKernel;

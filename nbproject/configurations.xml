@@ -176,8 +176,6 @@
         <itemPath>Failure.h</itemPath>
         <itemPath>File.cpp</itemPath>
         <itemPath>File.h</itemPath>
-        <itemPath>Formula.cpp</itemPath>
-        <itemPath>Formula.h</itemPath>
         <itemPath>OLD_ODEelement.cpp</itemPath>
         <itemPath>OLD_ODEelement.h</itemPath>
         <itemPath>Queue.cpp</itemPath>
@@ -327,6 +325,18 @@
       <compileType>
         <ccTool>
           <standard>8</standard>
+          <incFile>
+            <pElem>plugin/Assign.h</pElem>
+            <pElem>plugin/Create.h</pElem>
+            <pElem>plugin/Decide.h</pElem>
+            <pElem>plugin/Delay.h</pElem>
+            <pElem>plugin/Dispose.h</pElem>
+            <pElem>plugin/Formula.h</pElem>
+            <pElem>plugin/Release.h</pElem>
+            <pElem>plugin/Seize.h</pElem>
+            <pElem>plugin/Variable.h</pElem>
+            <pElem>plugin/Write.h</pElem>
+          </incFile>
           <commandLine>-fpermissive -Wl,--export-dynamic -L../plugin/build/ -Wl,-rpath=./plugin/build/ -Wl,--no-as-needed -ldl</commandLine>
         </ccTool>
         <asmTool>
@@ -441,10 +451,6 @@
       <item path="FitterDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Fitter_if.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Formula.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Formula.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="FourthExampleOfSimulation.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -933,10 +939,6 @@
       <item path="FitterDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Fitter_if.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Formula.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Formula.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="FourthExampleOfSimulation.cpp" ex="false" tool="1" flavor2="0">
       </item>

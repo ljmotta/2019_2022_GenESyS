@@ -14,15 +14,8 @@
 #include "TestMatricesOfAttributesAndVariables.h"
 #include "Simulator.h"
 #include "SourceModelComponent.h"
-#include "plugin/Assign.h"
 #include "Attribute.h"
-#include "plugin/Variable.h"
-#include "plugin/Create.h"
-#include "plugin/Delay.h"
-#include "plugin/Dispose.h"
 // #include "Separate.h"
-#include "Formula.h"
-#include "plugin/Write.h"
 
 TestMatricesOfAttributesAndVariables::TestMatricesOfAttributesAndVariables() {
 }
@@ -34,68 +27,85 @@ TestMatricesOfAttributesAndVariables::~TestMatricesOfAttributesAndVariables() {
 }
 
 int TestMatricesOfAttributesAndVariables::main(int argc, char** argv) {
-	// Simulator* sim = new Simulator();
-	// setDefaultTraceHandlers(sim->getTracer());
-	// sim->getTracer()->setTraceLevel(Util::TraceLevel::modelSimulationInternal);
-	// insertFakePluginsByHand(sim);
-	// Model* m = new Model(sim);
-	// sim->getModels()->insert(m);
-	// m->getInfos()->setProjectTitle("Stochastic Simulation of Chemical Reactions");
-	// m->getInfos()->setReplicationLength(500);
-	// Create* cr1 = new Create(m);
-	// Write* w1 = new Write(m);
-	// Assign* as1 = new Assign(m, "Define próxima reação a ocorrer");
-	// Delay* de1 = new Delay(m, "Aguarda tempo em que a reação ocorre");
-	// Dispose* di1 = new Dispose(m);
-	// cr1->getNextComponents()->insert(w1);
-	// w1->getNextComponents()->insert(as1);
-	// as1->getNextComponents()->insert(de1);
-	// de1->getNextComponents()->insert(w1);
-	// de1->getNextComponents()->insert(di1); // trick to be connected
-	// cr1->setEntityType(new EntityType(m));
-	// cr1->setMaxCreations("1");
-	// Variable* s = new Variable(m, "s");
-	// Variable* k = new Variable(m, "k");
-	// Variable* N = new Variable(m, "N");
-	// new Variable(m, "temp");
-	// Formula* prop = new Formula(m, "prop");
-	// s->setInitialValue("1,1", -1);
-	// s->setInitialValue("1,2", -1);
-	// s->setInitialValue("1,3", 1);
-	// s->setInitialValue("2,1", 1);
-	// s->setInitialValue("2,2", 1);
-	// s->setInitialValue("2,3", -1);
-	// k->setInitialValue("1", 0.1);
-	// k->setInitialValue("2", 0.2);
-	// N->setInitialValue("1", 100);
-	// N->setInitialValue("2", 100);
-	// N->setInitialValue("3", 0);
-	// prop->setExpression("1", "k[1]*N[1]*N[2]");
-	// prop->setExpression("2", "k[2]*N[3]");
-	// w1->setWriteToType(Write::WriteToType::FILE);
-	// w1->setFilename("./temp/molecules.txt");
-	// w1->writeElements()->insert(new WriteElement("tnow", true));
-	// w1->writeElements()->insert(new WriteElement(" "));
-	// w1->writeElements()->insert(new WriteElement("N[1]", true));
-	// w1->writeElements()->insert(new WriteElement(" "));
-	// w1->writeElements()->insert(new WriteElement("N[2]", true));
-	// w1->writeElements()->insert(new WriteElement(" "));
-	// w1->writeElements()->insert(new WriteElement("N[3]", true, true));
-	// //w1->writeElements()->insert(new WriteElement("temp[6]",true, true));
-	// //w1->writeElements()->insert(new WriteElement("tnow",true, true));
-	// as1->assignments()->insert(new Assign::Assignment("temp[1]", "k[1]*N[1]*N[2]"));
-	// as1->assignments()->insert(new Assign::Assignment("temp[2]", "k[2]*N[3]"));
+	Simulator* sim = new Simulator();
+	setDefaultTraceHandlers(sim->getTracer());
+	sim->getTracer()->setTraceLevel(Util::TraceLevel::modelSimulationInternal);
+
+	PluginManager* pluginManager = sim->getPlugins();
+
+	StaticComponentConstructor assign = pluginManager->insert("assign.so")->getPluginInfo()->GetComponentConstructor();
+	StaticComponentConstructor create = pluginManager->insert("create.so")->getPluginInfo()->GetComponentConstructor();
+	StaticComponentConstructor delay = pluginManager->insert("delay.so")->getPluginInfo()->GetComponentConstructor();
+	StaticComponentConstructor dispose = pluginManager->insert("dispose.so")->getPluginInfo()->GetComponentConstructor();
+	StaticComponentConstructor write = pluginManager->insert("write.so")->getPluginInfo()->GetComponentConstructor();
+
+	StaticElementConstructor variable = pluginManager->insert("variable.so")->getPluginInfo()->getElementConstructor();
+	StaticElementConstructor formula2 = pluginManager->insert("formula.so")->getPluginInfo()->getElementConstructor();
+
+	auto insertPlugin = pluginManager->insert("formula.so");
+	auto getPlugin = insertPlugin->getPluginInfo();
+	auto formula = getPlugin->getElementConstructor();
+
+
+	Model* m = new Model(sim);
+	sim->getModels()->insert(m);
+	m->getInfos()->setProjectTitle("Stochastic Simulation of Chemical Reactions");
+	m->getInfos()->setReplicationLength(500);
+	Create* cr1 = (Create*) create(m, "");
+	Write* w1 = (Write*) write(m, "");
+	Assign* as1 = (Assign*) assign(m, "Define próxima reação a ocorrer");
+	Delay* de1 = (Delay*) delay(m, "Aguarda tempo em que a reação ocorre");
+	Dispose* di1 = (Dispose*) dispose(m, "");
+	cr1->getNextComponents()->insert(w1);
+	w1->getNextComponents()->insert(as1);
+	as1->getNextComponents()->insert(de1);
+	de1->getNextComponents()->insert(w1);
+	de1->getNextComponents()->insert(di1); // trick to be connected
+	cr1->setEntityType(new EntityType(m));
+	cr1->setMaxCreations("1");
+	Variable* s = (Variable*) variable(m, "s");
+	Variable* k = (Variable*) variable(m, "k");
+	Variable* N = (Variable*) variable(m, "N");
+	(Variable*) variable(m, "Temp");
+
+	Formula* prop = (Formula*) formula(m, "prop");
+	s->setInitialValue("1,1", -1);
+	s->setInitialValue("1,2", -1);
+	s->setInitialValue("1,3", 1);
+	s->setInitialValue("2,1", 1);
+	s->setInitialValue("2,2", 1);
+	s->setInitialValue("2,3", -1);
+	k->setInitialValue("1", 0.1);
+	k->setInitialValue("2", 0.2);
+	N->setInitialValue("1", 100);
+	N->setInitialValue("2", 100);
+	N->setInitialValue("3", 0);
+	prop->setExpression("1", "k[1]*N[1]*N[2]");
+	prop->setExpression("2", "k[2]*N[3]");
+	w1->setWriteToType(Write::WriteToType::FILE);
+	w1->setFilename("./temp/molecules.txt");
+	w1->writeElements()->insert(new WriteElement("tnow", true));
+	w1->writeElements()->insert(new WriteElement(" "));
+	w1->writeElements()->insert(new WriteElement("N[1]", true));
+	w1->writeElements()->insert(new WriteElement(" "));
+	w1->writeElements()->insert(new WriteElement("N[2]", true));
+	w1->writeElements()->insert(new WriteElement(" "));
+	w1->writeElements()->insert(new WriteElement("N[3]", true, true));
+	// w1->writeElements()->insert(new WriteElement("temp[6]",true, true));
+	// w1->writeElements()->insert(new WriteElement("tnow",true, true));
+	as1->assignments()->insert(new Assign::Assignment("temp[1]", "k[1]*N[1]*N[2]"));
+	as1->assignments()->insert(new Assign::Assignment("temp[2]", "k[2]*N[3]"));
 	// as1->assignments()->insert(new Assign::Assignment("temp[3]", "temp[1]+temp[2]"));
 	// as1->assignments()->insert(new Assign::Assignment("temp[4]", "if (temp[3]>0) temp[1]/temp[3] else 0"));
 	// as1->assignments()->insert(new Assign::Assignment("temp[5]", "if (temp[3]>0) (if (rnd<temp[4]) 1 else 2) else 0"));
 	// as1->assignments()->insert(new Assign::Assignment("N[1]", "N[1]+s[temp[5],1]"));
 	// as1->assignments()->insert(new Assign::Assignment("N[2]", "N[2]+s[temp[5],2]"));
 	// as1->assignments()->insert(new Assign::Assignment("N[3]", "N[3]+s[temp[5],3]"));
-	// as1->assignments()->insert(new Assign::Assignment("temp[6]", "1-exp(-temp[3])"));
+	// //as1->assignments()->insert(new Assign::Assignment("temp[6]", "1-exp(-temp[3])"));
 	// as1->assignments()->insert(new Assign::Assignment("temp[7]", "expo(temp[6])"));
-	// de1->setDelayExpression("temp[7]");
-	// m->getInfos()->setTerminatingCondition("(N[1]+N[2]+N[3])==0");
-	// m->getSimulation()->start();
+	//de1->setDelayExpression("temp[7]");
+	m->getInfos()->setTerminatingCondition("(N[1]+N[2]+N[3])==0");
+	m->getSimulation()->start();
 	return 0;
 
 	/*
