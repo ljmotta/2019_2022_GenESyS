@@ -48,9 +48,11 @@ int Model_CreateDelayDispose2::main(int argc, char** argv) {
 	infos->setAnalystName("Your name");
 	infos->setProjectTitle("The title of the project");
 	infos->setDescription("This simulation model tests one of the most basic models possible.");
-	infos->setReplicationLength(30);
-	infos->setReplicationLengthTimeUnit(Util::TimeUnit::minute); // each replication will last 30 minutes (simulated time)
-	infos->setNumberOfReplications(3); // replicates the simulation 3 times
+
+	ModelSimulation* sim = model->getSimulation();
+	sim->setReplicationLength(30);
+	sim->setReplicationLengthTimeUnit(Util::TimeUnit::minute); // each replication will last 30 minutes (simulated time)
+	sim->setNumberOfReplications(3); // replicates the simulation 3 times
 	// create a (Source)ModelElement of type EntityType, used by a ModelComponent that follows
 	EntityType* entityType1 = new EntityType(model, "Type_of_Representative_Entity");
 	// create a ModelComponent of type Create, used to insert entities into the model
@@ -71,7 +73,7 @@ int Model_CreateDelayDispose2::main(int argc, char** argv) {
 	// save the model into a text file
 	model->save("./models/Model_CreateDelayDispose2.txt");
 	// execute the simulation
-	model->getSimulation()->start();
+	sim->start();
 
 	return 0;
 };

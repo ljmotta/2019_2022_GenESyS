@@ -19,6 +19,7 @@
 #include "ModelComponent.h"
 #include "Resource.h"
 #include "Plugin.h"
+#include "SeizableItemRequest.h"
 
 /*!
 Release module
@@ -66,27 +67,14 @@ public:
 	virtual ~Release() = default;
 public:
 	virtual std::string show();
-public:
+public: //static
 	static PluginInformation* GetPluginInformation();
 	static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 public: // get & set
 	void setPriority(unsigned short _priority);
 	unsigned short priority() const;
-	void setResourceType(Resource::ResourceType _resourceType);
-	Resource::ResourceType resourceType() const;
-	//void setQuantity(std::string _quantity);
-	//std::string quantity() const;
-	void setRule(Resource::ResourceRule _rule);
-	Resource::ResourceRule rule() const;
-	void setSaveAttribute(std::string _saveAttribute);
-	std::string saveAttribute() const;
-    void setReleaseRequest(ResourceItemRequest* _releaseRequest);
-    ResourceItemRequest* releaseRequest() const;
-	//void setResource(Resource* _resource);
-	//Resource* resource() const;
-	// indirect access to and Resource*
-	//void setResourceName(std::string resourceName) throw ();
-	//std::string resourceName() const;
+public: // gets
+    List<SeizableItemRequest*>* getReleaseRequests() const;
 
 protected:
 	virtual void _execute(Entity* entity);
@@ -97,12 +85,7 @@ protected:
 private:
 	//	unsigned int _allocationType = 0; // uint ? enum?
 	unsigned short _priority = 0;
-	Resource::ResourceType _resourceType = Resource::ResourceType::RESOURCE;
-	Resource::ResourceRule _rule = Resource::ResourceRule::SMALLESTBUSY;
-	std::string _saveAttribute = "";
-	ResourceItemRequest* _releaseRequest;
-	//std::string _quantityExpression = "1";
-	//Resource* _resource;
+	List<SeizableItemRequest*>* _releaseRequests = new List<SeizableItemRequest*>();
 };
 
 #endif /* RELEASE_H */

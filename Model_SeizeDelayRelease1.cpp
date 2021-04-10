@@ -45,10 +45,10 @@ int Model_SeizeDelayRelease1::main(int argc, char** argv) {
 	Model* model = genesys->getModels()->newModel();
 	// build the simulation model
 	// set model infos
-	ModelInfo* infos = model->getInfos();
-	infos->setReplicationLength(3600);
-	infos->setReplicationLengthTimeUnit(Util::TimeUnit::second);
-	infos->setNumberOfReplications(30);
+	ModelSimulation* sim = model->getSimulation();
+	sim->setReplicationLength(3600);
+	sim->setReplicationLengthTimeUnit(Util::TimeUnit::second);
+	sim->setNumberOfReplications(30);
 	//
 	EntityType* customer = new EntityType(model, "Customer");
 	//
@@ -68,7 +68,7 @@ int Model_SeizeDelayRelease1::main(int argc, char** argv) {
 	Seize* seize1 = new Seize(model);
 	//seize1->setResource(machine1);
 	//seize1->setQuantity("1");
-	seize1->getSeizeRequest()->insert(new ResourceItemRequest(machine1, "1"));
+	seize1->getSeizeRequests()->insert(new SeizableItemRequest(machine1, "1"));
 	seize1->setQueue(queueSeize1);
 	//
 	Delay* delay1 = new Delay(model);
@@ -78,7 +78,7 @@ int Model_SeizeDelayRelease1::main(int argc, char** argv) {
 	Release* release1 = new Release(model);
 	//release1->setResource(machine1);
 	//release1->setQuantity("1");
-	release1->setReleaseRequest(new ResourceItemRequest(machine1, "1"));
+	release1->getReleaseRequests()->insert(new SeizableItemRequest(machine1, "1"));
 	//
 	Dispose* dispose1 = new Dispose(model);
 	// connect model components to create a "workflow"
@@ -89,7 +89,7 @@ int Model_SeizeDelayRelease1::main(int argc, char** argv) {
 	// save the model into a text file
 	model->save("./models/Model_SeizeDelayRelease1.txt");
 	// execute the simulation
-	genesys->getModels()->current()->getSimulation()->start();
+	sim->start();
 
 	return 0;
 };

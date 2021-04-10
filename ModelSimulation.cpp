@@ -28,19 +28,26 @@
 
 ModelSimulation::ModelSimulation(Model* model) {
 	_model = model;
-	_info = model->getInfos(); // why??
+	_info = model->getInfos();
 	_statsCountersSimulation->setSortFunc([](const ModelElement* a, const ModelElement * b) {
 		return a->getId() < b->getId();
 	});
 	_simulationReporter = new Traits<SimulationReporter_if>::Implementation(this, model, this->_statsCountersSimulation);
 }
 
+std::string ModelSimulation::show() {
+	return "numberOfReplications=" + std::to_string(_numberOfReplications) +
+			",replicationLength=" + std::to_string(_replicationLength) + " " + Util::StrTimeUnit(this->_replicationLengthTimeUnit) +
+			",terminatingCondition=\"" + this->_terminatingCondition + "\"" +
+			",warmupTime=" + std::to_string(this->_warmUpPeriod) + " " + Util::StrTimeUnit(this->_warmUpPeriodTimeUnit);
+}
+
 bool ModelSimulation::_isReplicationEndCondition() {
 	bool finish = _model->getFutureEvents()->size() == 0;
-	finish |= _model->parseExpression(_info->getTerminatingCondition()) != 0.0;
+	finish |= _model->parseExpression(_terminatingCondition) != 0.0;
 	if (_model->getFutureEvents()->size() > 0 && !finish) {
 		// replication length has not been achieve (sor far), but next event will happen after that, so it's just fine to set tnow as the replicationLength
-		finish |= _model->getFutureEvents()->front()->getTime() > _info->getReplicationLength();
+		finish |= _model->getFutureEvents()->front()->getTime() > _replicationLength;
 	}
 	return finish;
 }
@@ -51,12 +58,12 @@ void ModelSimulation::_traceReplicationEnded() {
 		causeTerminated = "event queue is empty";
 	} else if (_stopRequested) {
 		causeTerminated = "user requested to stop";
-	} else if (_model->getFutureEvents()->front()->getTime() > _info->getReplicationLength()) {
-		causeTerminated = "replication length " + std::to_string(_info->getReplicationLength()) + " was achieved";
-	} else if (_model->parseExpression(_info->getTerminatingCondition())) {
+	} else if (_model->getFutureEvents()->front()->getTime() > _replicationLength) {
+		causeTerminated = "replication length " + std::to_string(_replicationLength) + " was achieved";
+	} else if (_model->parseExpression(_terminatingCondition)) {
 		causeTerminated = "termination condition was achieved";
 	} else causeTerminated = "unknown";
-	std::string message = "Replication " + std::to_string(_currentReplicationNumber) + " of " + std::to_string(_info->getNumberOfReplications()) + " has finished with last event at time " + std::to_string(_simulatedTime) + " because " + causeTerminated;
+	std::string message = "Replication " + std::to_string(_currentReplicationNumber) + " of " + std::to_string(_numberOfReplications) + " has finished with last event at time " + std::to_string(_simulatedTime) + " because " + causeTerminated;
 	_model->getTracer()->trace(Util::TraceLevel::modelSimulationEvent, message);
 }
 
@@ -94,11 +101,11 @@ void ModelSimulation::start() {
 			Util::SetIndent(1); // force
 			_replicationEnded();
 			_currentReplicationNumber++;
-			if (_currentReplicationNumber <= _info->getNumberOfReplications()) {
+			if (_currentReplicationNumber <= _numberOfReplications) {
 				_initReplication();
 			}
 		}
-	} while (_currentReplicationNumber <= _info->getNumberOfReplications() && !_pauseRequested);
+	} while (_currentReplicationNumber <= _numberOfReplications && !_pauseRequested);
 	if (!_pauseRequested) {
 		if (this->_showReportsAfterSimulation)
 			_simulationReporter->showSimulationStatistics(); //_cStatsSimulation);
@@ -195,8 +202,8 @@ void ModelSimulation::_showSimulationHeader() {
 	// model infos
 	tm->traceReport("Analyst Name: " + _info->getAnalystName());
 	tm->traceReport("Project Title: " + _info->getProjectTitle());
-	tm->traceReport("Number of Replications: " + std::to_string(_info->getNumberOfReplications()));
-	tm->traceReport("Replication Length: " + std::to_string(_info->getReplicationLength()) + " " + Util::StrTimeUnit(_info->getReplicationLengthTimeUnit()));
+	tm->traceReport("Number of Replications: " + std::to_string(_numberOfReplications));
+	tm->traceReport("Replication Length: " + std::to_string(_replicationLength) + " " + Util::StrTimeUnit(_replicationLengthTimeUnit));
 	//tm->traceReport(Util::TraceLevel::simulation, "");
 	// model controls and responses
 	std::string controls;
@@ -255,7 +262,7 @@ void ModelSimulation::_initSimulation() {
 void ModelSimulation::_initReplication() {
 	TraceManager* tm = _model->getTracer();
 	tm->trace(Util::TraceLevel::modelSimulationEvent, "");
-	tm->trace(Util::TraceLevel::modelSimulationEvent, "Replication " + std::to_string(_currentReplicationNumber) + " of " + std::to_string(_info->getNumberOfReplications()) + " is starting.");
+	tm->trace(Util::TraceLevel::modelSimulationEvent, "Replication " + std::to_string(_currentReplicationNumber) + " of " + std::to_string(_numberOfReplications) + " is starting.");
 
 	_model->getFutureEvents()->clear();
 	_simulatedTime = 0.0;
@@ -327,8 +334,8 @@ void ModelSimulation::_initStatistics() {
 }
 
 void ModelSimulation::_checkWarmUpTime(Event* nextEvent) {
-	double warmupTime = Util::TimeUnitConvert(_model->getInfos()->getWarmUpPeriodTimeUnit(), _model->getInfos()->getReplicationLengthTimeUnit());
-	warmupTime *= _model->getInfos()->getWarmUpPeriod();
+	double warmupTime = Util::TimeUnitConvert(this->_warmUpPeriodTimeUnit, this->_replicationLengthTimeUnit);
+	warmupTime *= _warmUpPeriod;
 	if (warmupTime > 0.0 && _model->getSimulation()->getSimulatedTime() <= warmupTime && nextEvent->getTime() > warmupTime) {// warmuTime. Time to initStats
 		_model->getTracer()->trace(Util::TraceLevel::modelInternal, "Warmup time reached. Statistics are being reseted.");
 		_initStatistics();
@@ -339,9 +346,9 @@ void ModelSimulation::_stepSimulation() {
 	// process one single event
 	Event* nextEvent;
 	nextEvent = _model->getFutureEvents()->front();
-	if (_model->getInfos()->getWarmUpPeriod() > 0.0)
+	if (_warmUpPeriod > 0.0)
 		_checkWarmUpTime(nextEvent);
-	if (nextEvent->getTime() <= _info->getReplicationLength()) {
+	if (nextEvent->getTime() <= _replicationLength) {
 		if (_checkBreakpointAt(nextEvent)) {
 			this->_pauseRequested = true;
 		} else {
@@ -350,7 +357,7 @@ void ModelSimulation::_stepSimulation() {
 			_processEvent(nextEvent);
 		}
 	} else {
-		this->_simulatedTime = _model->getInfos()->getReplicationLength(); ////nextEvent->getTime(); // just to advance time to beyond simulatedTime
+		this->_simulatedTime = _replicationLength; ////nextEvent->getTime(); // just to advance time to beyond simulatedTime
 	}
 }
 
@@ -539,4 +546,83 @@ List<ModelComponent*>* ModelSimulation::getBreakpointsOnComponent() const {
 
 bool ModelSimulation::isPaused() const {
 	return _isPaused;
+}
+
+void ModelSimulation::setNumberOfReplications(unsigned int _numberOfReplications) {
+	this->_numberOfReplications = _numberOfReplications;
+	_hasChanged = true;
+}
+
+unsigned int ModelSimulation::getNumberOfReplications() const {
+	return _numberOfReplications;
+}
+
+void ModelSimulation::setReplicationLength(double _replicationLength) {
+	this->_replicationLength = _replicationLength;
+	_hasChanged = true;
+}
+
+double ModelSimulation::getReplicationLength() const {
+	return _replicationLength;
+}
+
+void ModelSimulation::setReplicationLengthTimeUnit(Util::TimeUnit _replicationLengthTimeUnit) {
+	this->_replicationLengthTimeUnit = _replicationLengthTimeUnit;
+	_hasChanged = true;
+}
+
+Util::TimeUnit ModelSimulation::getReplicationLengthTimeUnit() const {
+	return _replicationLengthTimeUnit;
+}
+
+void ModelSimulation::setWarmUpPeriod(double _warmUpPeriod) {
+	this->_warmUpPeriod = _warmUpPeriod;
+	_hasChanged = true;
+}
+
+double ModelSimulation::getWarmUpPeriod() const {
+	return _warmUpPeriod;
+}
+
+void ModelSimulation::setWarmUpPeriodTimeUnit(Util::TimeUnit _warmUpPeriodTimeUnit) {
+	this->_warmUpPeriodTimeUnit = _warmUpPeriodTimeUnit;
+	_hasChanged = true;
+}
+
+Util::TimeUnit ModelSimulation::getWarmUpPeriodTimeUnit() const {
+	return _warmUpPeriodTimeUnit;
+}
+
+void ModelSimulation::setTerminatingCondition(std::string _terminatingCondition) {
+	this->_terminatingCondition = _terminatingCondition;
+	_hasChanged = true;
+}
+
+std::string ModelSimulation::getTerminatingCondition() const {
+	return _terminatingCondition;
+}
+
+void ModelSimulation::loadInstance(std::map<std::string, std::string>* fields) {
+	this->_numberOfReplications = std::stoi((*fields->find("numberOfReplications")).second);
+	this->_replicationLength = std::stod((*fields->find("replicationLength")).second);
+	this->_replicationLengthTimeUnit = static_cast<Util::TimeUnit> (std::stoi((*fields->find("replicationLengthTimeUnit")).second));
+	this->_terminatingCondition = (*fields->find("terminatingCondition")).second;
+	this->_warmUpPeriod = std::stod((*fields->find("warmUpTime")).second);
+	this->_warmUpPeriodTimeUnit = static_cast<Util::TimeUnit> (std::stoi((*(fields->find("warmUpTimeTimeUnit"))).second));
+	_hasChanged = false;
+}
+
+// \todo:!: implement check method (to check things like terminating condition)
+
+std::map<std::string, std::string>* ModelSimulation::saveInstance() {
+	std::map<std::string, std::string>* fields = new std::map<std::string, std::string>();
+	fields->emplace("typename", "ModelSimulation");
+	fields->emplace("numberOfReplications", std::to_string(getNumberOfReplications()));
+	fields->emplace("replicationLength", std::to_string(getReplicationLength()));
+	fields->emplace("replicationLengthTimeUnit", std::to_string(static_cast<int> (getReplicationLengthTimeUnit())));
+	fields->emplace("terminatingCondition", "\"" + getTerminatingCondition() + "\"");
+	fields->emplace("warmUpTime", std::to_string(getWarmUpPeriod()));
+	fields->emplace("warmUpTimeTimeUnit", std::to_string(static_cast<int> (getWarmUpPeriodTimeUnit())));
+	_hasChanged = false;
+	return fields;
 }

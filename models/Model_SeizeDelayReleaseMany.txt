@@ -1,10 +1,10 @@
 # Genesys simulation model 
-# Last saved on Fri Apr  9 18:27:44 2021
+# Last saved on Sat Apr 10 11:22:09 2021
 # simulator infos
 0   SimulatorInfo   name="GenESyS\_-\_GENeric\_and\_Expansible\_SYstem\_Simulator" version="210408\_(backtotrack)" versionNumber=210408 
 
 # model infos
-0   ModelInfo       analystName="" description="" name="Model\_1" numberOfReplications=1 projectTitle="" replicationLength=20.000000 replicationLengthTimeUnit=5 terminatingCondition="" version="1.0" warmUpTime=0.000000 warmUpTimeTimeUnit=5 
+0   ModelSimulation numberOfReplications=1 replicationLength=60.000000 replicationLengthTimeUnit=5 terminatingCondition="" warmUpTime=0.000000 warmUpTimeTimeUnit=5 
 
 # model elements
 1   EntityType      initialNVACost=0.000000 initialOtherCost=0.000000 initialPicture=report initialVACost=0.000000 initialWaitingCost=0.000000 name=EntityType_1 reportStatistics=1 
@@ -20,13 +20,13 @@
 7   Queue           attributeName= name=Queue_1 orderRule=1 reportStatistics=1 
 
 # model components
-10  Release         name=Release_1 nextId0=11 nextInputNumber0=0 nextSize=1 priority=0 quantity="1" reportStatistics=1 resourceId=3 resourceName=Resource_1 resourceType=2 rule=4 saveAttribute= 
+10  Release         name=Release_1 nextId0=11 nextInputNumber0=0 nextSize=1 priority=0 quantity0=1 quantity1=1 quantity2=1 quantity3=1 releaseResquestSize=4 reportStatistics=1 resourceId0=3 resourceId1=4 resourceId2=5 resourceId3=6 resourceName0=Resource_1 resourceName1=Resource_2 resourceName2=Resource_3 resourceName3=Resource_4 resourceType0=1 resourceType1=1 resourceType2=1 resourceType3=1 saveAttribute0= saveAttribute1= saveAttribute2= saveAttribute3= selectionRule0=4 selectionRule1=4 selectionRule2=4 selectionRule3=4 
 
 11  Dispose         name=Dispose_1 nextSize=0 reportStatistics=1 
 
-2   Create          entitiesPerCreation=1 entityTypename=EntityType_1 firstCreation=0.000000 maxCreations="4294967295" name=Create_1 nextId0=8 nextInputNumber0=0 nextSize=1 reportStatistics=1 timeBetweenCreations="EXPO(1)" timeBetweenCreationsTimeUnit=5 
+2   Create          entitiesPerCreation=1 entityTypename=EntityType_1 firstCreation=0.000000 maxCreations="4294967295" name=Create_1 nextId0=8 nextInputNumber0=0 nextSize=1 reportStatistics=1 timeBetweenCreations="unif(1,2)" timeBetweenCreationsTimeUnit=5 
 
-8   Seize           allocationType=0 name=Seize_1 nextId0=9 nextInputNumber0=0 nextSize=1 priority==0 quantity0=1 quantity1=1 quantity2=1 quantity3=1 queueId=7 queueName=Queue_1 reportStatistics=1 resourceId0=3 resourceId1=4 resourceId2=5 resourceId3=6 resourceItemRequest0={index=0\_quantityExpression=1\_resourceId=3\_resourceName=Resource_1\_saveAttribute=\_selectionRule=4} resourceItemRequest1={index=0\_quantityExpression=1\_resourceId=4\_resourceName=Resource_2\_saveAttribute=\_selectionRule=4} resourceItemRequest2={index=0\_quantityExpression=1\_resourceId=5\_resourceName=Resource_3\_saveAttribute=\_selectionRule=4} resourceItemRequest3={index=0\_quantityExpression=1\_resourceId=6\_resourceName=Resource_4\_saveAttribute=\_selectionRule=4} resourceName0=Resource_1 resourceName1=Resource_2 resourceName2=Resource_3 resourceName3=Resource_4 saveAttribute0= saveAttribute1= saveAttribute2= saveAttribute3= seizeResquestSize=4 selectionRule0=4 selectionRule1=4 selectionRule2=4 selectionRule3=4 
+8   Seize           allocationType=0 name=Seize_1 nextId0=9 nextInputNumber0=0 nextSize=1 priority==0 quantity0=1 quantity1=1 quantity2=1 quantity3=1 queueId=7 queueName=Queue_1 reportStatistics=1 resourceId0=3 resourceId1=4 resourceId2=5 resourceId3=6 resourceName0=Resource_1 resourceName1=Resource_2 resourceName2=Resource_3 resourceName3=Resource_4 resourceType0=1 resourceType1=1 resourceType2=1 resourceType3=1 saveAttribute0= saveAttribute1= saveAttribute2= saveAttribute3= seizeResquestSize=4 selectionRule0=4 selectionRule1=4 selectionRule2=4 selectionRule3=4 
 
-9   Delay           delayExpression="1.0" delayExpressionTimeUnit=5 name=Delay_1 nextId0=10 nextInputNumber0=0 nextSize=1 reportStatistics=1 
+9   Delay           delayExpression="unif(1,2)" delayExpressionTimeUnit=5 name=Delay_1 nextId0=10 nextInputNumber0=0 nextSize=1 reportStatistics=1 
 

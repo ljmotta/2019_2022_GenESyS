@@ -21,10 +21,15 @@ Release::Release(Model* model, std::string name) : ModelComponent(model, Util::T
 }
 
 std::string Release::show() {
-	return ModelComponent::show() +
-			",resourceType=" + std::to_string(static_cast<int> (this->_resourceType)) +
-			",resource=\"" + this->_releaseRequest->getResource()->getName() + "\"" +
-			",quantity=" + this->_releaseRequest->getQuantityExpression();
+	std::string txt = ModelComponent::show() +
+			"priority=" + std::to_string(_priority) +
+			"releaseRequests={";
+	unsigned short i = 0;
+	for (std::list<SeizableItemRequest*>::iterator it = _releaseRequests->list()->begin(); it != _releaseRequests->list()->end(); it++, i++) {
+		txt += "request" + std::to_string(i) + "=[" + _releaseRequests->show() + "],";
+	}
+	txt = txt.substr(0, txt.length() - 1) + "}";
+	return txt;
 }
 
 void Release::setPriority(unsigned short _priority) {
@@ -35,44 +40,8 @@ unsigned short Release::priority() const {
 	return _priority;
 }
 
-void Release::setResourceType(Resource::ResourceType _resourceType) {
-	this->_resourceType = _resourceType;
-}
-
-Resource::ResourceType Release::resourceType() const {
-	return _resourceType;
-}
-
-//void Release::setQuantity(std::string _quantity) {
-//	this->_quantityExpression = _quantity;
-//}
-
-//std::string Release::quantity() const {
-//	return _quantityExpression;
-//}
-
-void Release::setRule(Resource::ResourceRule _rule) {
-	this->_rule = _rule;
-}
-
-Resource::ResourceRule Release::rule() const {
-	return _rule;
-}
-
-void Release::setSaveAttribute(std::string _saveAttribute) {
-	this->_saveAttribute = _saveAttribute;
-}
-
-std::string Release::saveAttribute() const {
-	return _saveAttribute;
-}
-
-void Release::setReleaseRequest(ResourceItemRequest* _releaseRequest) {
-	this->_releaseRequest = _releaseRequest;
-}
-
-ResourceItemRequest* Release::releaseRequest() const {
-	return _releaseRequest;
+List<SeizableItemRequest*>* Release::getReleaseRequests() const {
+	return _releaseRequests;
 }
 
 //void Release::setResource(Resource* _resource) {
@@ -84,37 +53,41 @@ ResourceItemRequest* Release::releaseRequest() const {
 //}
 
 void Release::_execute(Entity* entity) {
-	Resource* resource = nullptr;
-	if (this->_resourceType == Resource::ResourceType::SET) {
-		/*  \todo: +: not implemented yet */
-	} else {
-		resource = this->_releaseRequest->getResource();
+	for (std::list<SeizableItemRequest*>::iterator it = _releaseRequests->list()->begin(); it != _releaseRequests->list()->end(); it++) {
+		Resource* resource = (*it)->getResource();
+		unsigned int quantity = _parentModel->parseExpression((*it)->getQuantityExpression());
+		assert((*it)->getResource()->getNumberBusy() >= quantity);
+		_parentModel->getTracer()->traceSimulation(_parentModel->getSimulation()->getSimulatedTime(), entity, this, "Entity frees " + std::to_string(quantity) + " units of resource \"" + resource->getName() + "\" seized on time " + std::to_string((*it)->getResource()->getLastTimeSeized()));
+		(*it)->getResource()->release(quantity, _parentModel->getSimulation()->getSimulatedTime()); //{releases and sets the 'LastTimeSeized'property}
 	}
-	unsigned int quantity = _parentModel->parseExpression(this->_releaseRequest->getQuantityExpression());
-	assert(_releaseRequest->getResource()->getNumberBusy() >= quantity);
-	_parentModel->getTracer()->traceSimulation(_parentModel->getSimulation()->getSimulatedTime(), entity, this, "Entity frees " + std::to_string(quantity) + " units of resource \"" + resource->getName() + "\" seized on time " + std::to_string(_releaseRequest->getResource()->getLastTimeSeized()));
-	_releaseRequest->getResource()->release(quantity, _parentModel->getSimulation()->getSimulatedTime()); //{releases and sets the 'LastTimeSeized'property}
 	_parentModel->sendEntityToComponent(entity, this->getNextComponents()->getFrontConnection(), 0.0);
 }
 
 void Release::_initBetweenReplications() {
-	this->_releaseRequest->getResource()->initBetweenReplications();
+	for (std::list<SeizableItemRequest*>::iterator it = _releaseRequests->list()->begin(); it != _releaseRequests->list()->end(); it++) {
+		(*it)->getResource()->initBetweenReplications();
+	}
 }
 
 bool Release::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelComponent::_loadInstance(fields);
 	if (res) {
 		this->_priority = std::stoi((*(fields->find("priority"))).second);
-		this->_resourceType = static_cast<Resource::ResourceType> (std::stoi((*(fields->find("resourceType"))).second));
-		this->_rule = static_cast<Resource::ResourceRule> (std::stoi((*(fields->find("rule"))).second));
-		this->_saveAttribute = ((*(fields->find("saveAttribute"))).second);
 		//Util::identitifcation resourceId = std::stoi((*(fields->find("resourceId"))).second);
 		//Resource* res = dynamic_cast<Resource*> (_model->elements()->element(Util::TypeOf<Resource>(), resourceId));
-		std::string resourceName = ((*(fields->find("resourceName"))).second);
-		Resource* res = dynamic_cast<Resource*> (_parentModel->getElements()->getElement(Util::TypeOf<Resource>(), resourceName));
-		this->_releaseRequest = new ResourceItemRequest(res, (*(fields->find("quantity"))).second);
-		//this->_releaseRequest->setQuantityExpression(());
-		//this->_releaseRequest->setResource(res);
+
+		unsigned short numRequests = std::stoi((*(fields->find("releaseResquestSize"))).second);
+		for (unsigned short i = 0; i < numRequests; i++) {
+			//std::string resRequest = ((*(fields->find("resourceItemRequest"))).second);
+			SeizableItemRequest::ResourceType resourceType = static_cast<SeizableItemRequest::ResourceType> (std::stoi((*(fields->find("resourceType" + std::to_string(i)))).second));
+			std::string resourceName = ((*(fields->find("resourceName" + std::to_string(i)))).second);
+			Resource* resource = dynamic_cast<Resource*> (_parentModel->getElements()->getElement(Util::TypeOf<Resource>(), resourceName));
+			std::string quantityExpression = ((*(fields->find("quantity" + std::to_string(i)))).second);
+			SeizableItemRequest::SelectionRule rule = static_cast<SeizableItemRequest::SelectionRule> (std::stoi((*(fields->find("selectionRule" + std::to_string(i)))).second));
+			std::string saveAttribute = ((*(fields->find("saveAttribute" + std::to_string(i)))).second);
+			unsigned int index = std::stoi((*(fields->find("index" + std::to_string(i)))).second);
+			this->_releaseRequests->insert(new SeizableItemRequest(resource, quantityExpression, resourceType, rule, saveAttribute, index));
+		}
 	}
 	return res;
 }
@@ -122,21 +95,28 @@ bool Release::_loadInstance(std::map<std::string, std::string>* fields) {
 std::map<std::string, std::string>* Release::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance(); //Util::TypeOf<Release>());
 	fields->emplace("priority", std::to_string(this->_priority));
-	fields->emplace("quantity", "\"" + this->_releaseRequest->getQuantityExpression() + "\"");
-	fields->emplace("resourceType", std::to_string(static_cast<int> (this->_resourceType)));
-	fields->emplace("resourceId", std::to_string(this->_releaseRequest->getResource()->getId()));
-	fields->emplace("resourceName", (this->_releaseRequest->getResource()->getName()));
-	fields->emplace("rule", std::to_string(static_cast<int> (this->_rule)));
-	fields->emplace("saveAttribute", this->_saveAttribute);
+	fields->emplace("releaseResquestSize", std::to_string(_releaseRequests->size()));
+	unsigned short i = 0;
+	for (std::list<SeizableItemRequest*>::iterator it = _releaseRequests->list()->begin(); it != _releaseRequests->list()->end(); it++, i++) {
+		fields->emplace("resourceType" + std::to_string(i), std::to_string(static_cast<int> ((*it)->getResourceType())));
+		//fields->emplace("resourceItemRequest" + std::to_string(i), "{" + map2str((*it)->_saveInstance()) + "}");
+		fields->emplace("resourceId" + std::to_string(i), std::to_string((*it)->getResource()->getId()));
+		fields->emplace("resourceName" + std::to_string(i), ((*it)->getResource()->getName()));
+		fields->emplace("quantity" + std::to_string(i), (*it)->getQuantityExpression());
+		fields->emplace("selectionRule" + std::to_string(i), std::to_string(static_cast<int> ((*it)->getSelectionRule())));
+		fields->emplace("saveAttribute" + std::to_string(i), (*it)->getSaveAttribute());
+	}
 	return fields;
-
 }
 
 bool Release::_check(std::string* errorMessage) {
 	bool resultAll = true;
-	resultAll &= _parentModel->checkExpression(_releaseRequest->getQuantityExpression(), "quantity", errorMessage);
-	resultAll &= _parentModel->getElements()->check(Util::TypeOf<Resource>(), _releaseRequest->getResource(), "resource", errorMessage);
-	resultAll &= _parentModel->getElements()->check(Util::TypeOf<Attribute>(), _saveAttribute, "SaveAttribute", false, errorMessage);
+
+	for (std::list<SeizableItemRequest*>::iterator it = _releaseRequests->list()->begin(); it != _releaseRequests->list()->end(); it++) {
+		resultAll &= _parentModel->checkExpression((*it)->getQuantityExpression(), "quantity", errorMessage);
+		resultAll &= _parentModel->getElements()->check(Util::TypeOf<Resource>(), (*it)->getResource(), "Resource", errorMessage);
+		resultAll &= _parentModel->getElements()->check(Util::TypeOf<Attribute>(), (*it)->getSaveAttribute(), "SaveAttribute", false, errorMessage);
+	}
 	return resultAll;
 }
 

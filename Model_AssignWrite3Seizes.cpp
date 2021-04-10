@@ -49,9 +49,9 @@ int Model_AssignWrite3Seizes::main(int argc, char** argv) {
 	this->setDefaultEventHandlers(model->getOnEvents());
 
 	// build the simulation model
-	ModelInfo* infos = model->getInfos();
-	infos->setNumberOfReplications(5);
-	infos->setReplicationLength(100);
+	ModelSimulation* sim = model->getSimulation();
+	sim->setNumberOfReplications(5);
+	sim->setReplicationLength(100);
 	EntityType* part = new EntityType(model, "Part");
 	// model->insert(part);
 	Create* create1 = new Create(model);
@@ -121,7 +121,7 @@ int Model_AssignWrite3Seizes::main(int argc, char** argv) {
 	queueSeize1->setOrderRule(Queue::OrderRule::FIFO);
 	// model->insert(queueSeize1);
 	Seize* seize1 = new Seize(model);
-	seize1->getSeizeRequest()->insert(new ResourceItemRequest(machine1));
+	seize1->getSeizeRequests()->insert(new SeizableItemRequest(machine1));
 	seize1->setQueue(queueSeize1);
 	// model->insert(seize1);
 	Delay* delay1 = new Delay(model);
@@ -129,13 +129,13 @@ int Model_AssignWrite3Seizes::main(int argc, char** argv) {
 	delay1->setDelayTimeUnit(Util::TimeUnit::second);
 	// model->insert(delay1);
 	Release* release1 = new Release(model);
-	release1->setReleaseRequest(new ResourceItemRequest(machine1));
+	release1->getReleaseRequests()->insert(new SeizableItemRequest(machine1));
 	// model->insert(release1);
 	Queue* queueSeize2 = new Queue(model, "Queue_Seize_2");
 	queueSeize2->setOrderRule(Queue::OrderRule::FIFO);
 	// model->insert(queueSeize2);
 	Seize* seize2 = new Seize(model);
-	seize2->getSeizeRequest()->insert(new ResourceItemRequest(machine2));
+	seize2->getSeizeRequests()->insert(new SeizableItemRequest(machine2));
 	seize2->setQueue(queueSeize2);
 	// model->insert(seize2);
 	Delay* delay2 = new Delay(model);
@@ -143,13 +143,13 @@ int Model_AssignWrite3Seizes::main(int argc, char** argv) {
 	delay2->setDelayTimeUnit(Util::TimeUnit::second);
 	// model->insert(delay2);
 	Release* release2 = new Release(model);
-	release2->setReleaseRequest(new ResourceItemRequest(machine2));
+	release2->getReleaseRequests()->insert(new SeizableItemRequest(machine2));
 	// model->insert(release2);
 	Queue* queueSeize3 = new Queue(model, "Queue_Seize_3");
 	queueSeize3->setOrderRule(Queue::OrderRule::FIFO);
 	// model->insert(queueSeize3);
 	Seize* seize3 = new Seize(model);
-	seize3->getSeizeRequest()->insert(new ResourceItemRequest(machine3));
+	seize3->getSeizeRequests()->insert(new SeizableItemRequest(machine3));
 	seize3->setQueue(queueSeize3);
 	// model->insert(seize3);
 	Delay* delay3 = new Delay(model);
@@ -157,7 +157,7 @@ int Model_AssignWrite3Seizes::main(int argc, char** argv) {
 	delay3->setDelayTimeUnit(Util::TimeUnit::second);
 	// model->insert(delay3);
 	Release* release3 = new Release(model);
-	release3->setReleaseRequest(new ResourceItemRequest(machine3));
+	release3->getReleaseRequests()->insert(new SeizableItemRequest(machine3));
 	// model->insert(release3);
 	Dispose* dispose1 = new Dispose(model);
 	// model->insert(dispose1);
@@ -179,7 +179,7 @@ int Model_AssignWrite3Seizes::main(int argc, char** argv) {
 	release3->getNextComponents()->insert(dispose1);
 	//
 	model->save("./temp/forthExampleOfSimulation.txt");
-	model->getSimulation()->start();
+	sim->start();
 	return 0;
 }
 

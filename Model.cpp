@@ -53,17 +53,17 @@ Model::Model(Simulator* simulator) {
 	_responses = new List<SimulationResponse*>();
 	_controls = new List<SimulationControl*>();
 	// insert controls
-	_controls->insert(new SimulationControl("ModelInfo", "NumberOfReplications",
-			DefineGetterMember<ModelInfo>(this->_modelInfo, &ModelInfo::getNumberOfReplications),
-			DefineSetterMember<ModelInfo>(this->_modelInfo, &ModelInfo::setNumberOfReplications))
+	_controls->insert(new SimulationControl("ModelSimulation", "NumberOfReplications",
+			DefineGetterMember<ModelSimulation>(this->_simulation, &ModelSimulation::getNumberOfReplications),
+			DefineSetterMember<ModelSimulation>(this->_simulation, &ModelSimulation::setNumberOfReplications))
 			);
-	_controls->insert(new SimulationControl("ModelInfo", "ReplicationLength",
-			DefineGetterMember<ModelInfo>(this->_modelInfo, &ModelInfo::getReplicationLength),
-			DefineSetterMember<ModelInfo>(this->_modelInfo, &ModelInfo::setReplicationLength))
+	_controls->insert(new SimulationControl("ModelSimulation", "ReplicationLength",
+			DefineGetterMember<ModelSimulation>(this->_simulation, &ModelSimulation::getReplicationLength),
+			DefineSetterMember<ModelSimulation>(this->_simulation, &ModelSimulation::setReplicationLength))
 			);
-	_controls->insert(new SimulationControl("ModelInfo", "WarmupPeriod",
-			DefineGetterMember<ModelInfo>(this->_modelInfo, &ModelInfo::getWarmUpPeriod),
-			DefineSetterMember<ModelInfo>(this->_modelInfo, &ModelInfo::setWarmUpPeriod))
+	_controls->insert(new SimulationControl("ModelSimulation", "WarmupPeriod",
+			DefineGetterMember<ModelSimulation>(this->_simulation, &ModelSimulation::getWarmUpPeriod),
+			DefineSetterMember<ModelSimulation>(this->_simulation, &ModelSimulation::setWarmUpPeriod))
 			);
 }
 

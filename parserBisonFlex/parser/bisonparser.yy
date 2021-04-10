@@ -261,7 +261,7 @@ funcao      : funcaoArit                       { $$.valor = $1.valor; }
             ;
 
 funcaoKernel : fTNOW      { $$.valor = driver.getModel()->getSimulation()->getSimulatedTime();}
-             | fTFIN      { $$.valor = driver.getModel()->getInfos()->getReplicationLength();}
+             | fTFIN      { $$.valor = driver.getModel()->getSimulation()->getReplicationLength();}
              ;
 
 funcaoTrig  : fSIN   "(" expressao ")"         { $$.valor = sin($3.valor); }

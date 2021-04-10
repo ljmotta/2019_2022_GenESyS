@@ -48,7 +48,10 @@ bool ModelPersistenceDefaultImpl1::save(std::string filename) {
 		// save model own infos
 		fields = _model->getInfos()->saveInstance();
 		modelInfosToSave = _adjustFieldsToSave(fields);
+		// save model own infos
 		// \todo save modelSimulation fields (breakpoints)
+		fields = _model->getSimulation()->saveInstance();
+		modelInfosToSave = _adjustFieldsToSave(fields);
 		// save infras
 		modelElementsToSave = new std::list<std::string>();
 		std::list<std::string>* elementTypenames = _model->getElements()->getElementClassnames();
@@ -165,6 +168,8 @@ bool ModelPersistenceDefaultImpl1::_loadFields(std::string line) {
 				this->_loadSimulatorInfoFields(fields);
 			} else if (thistypename == "ModelInfo") {
 				_model->getInfos()->loadInstance(fields);
+			} else if (thistypename == "ModelSimulation") {
+				_model->getSimulation()->loadInstance(fields);
 			} else {
 				// this should be a ModelComponent or ModelElement.
 				//std::string thistypename = (*fields->find("typename")).second;
@@ -198,6 +203,11 @@ bool ModelPersistenceDefaultImpl1::_loadFields(std::string line) {
 }
 
 void ModelPersistenceDefaultImpl1::_loadSimulatorInfoFields(std::map<std::string, std::string>* fields) {
+	unsigned int savedVersionNumber = std::stoi((*fields->find("analystName")).second);
+	unsigned int simulatorVersionNumber = _model->getParentSimulator()->getVersionNumber();
+	if (savedVersionNumber != simulatorVersionNumber) {
+		_model->getTracer()->trace("The version of the saved model differs from the simulator. Loading may not be possible", Util::TraceLevel::errorRecover);
+	}
 }
 
 bool ModelPersistenceDefaultImpl1::load(std::string filename) {

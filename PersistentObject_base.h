@@ -14,6 +14,8 @@
 #ifndef PERSISTENTOBJECT_BASE_H
 #define PERSISTENTOBJECT_BASE_H
 
+#include <map>
+
 class PersistentObject_base {
 public:
 	PersistentObject_base() {

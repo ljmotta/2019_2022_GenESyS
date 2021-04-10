@@ -41,10 +41,11 @@ int Model_SeizeDelayReleaseMany::main(int argc, char** argv) {
 	genesys->getTracer()->setTraceLevel(Util::TraceLevel::everythingMostDetailed);
 	this->insertFakePluginsByHand(genesys);
 	Model* m = genesys->getModels()->newModel();
-	m->getInfos()->setReplicationLength(20);
+	m->getSimulation()->setReplicationLength(60);
 	EntityType* customer = new EntityType(m);
 	Create* create1 = new Create(m);
 	create1->setEntityType(customer);
+	create1->setTimeBetweenCreationsExpression("unif(1,2)");
 	Resource* machine1 = new Resource(m);
 	Resource* machine2 = new Resource(m);
 	Resource* machine3 = new Resource(m);
@@ -52,14 +53,18 @@ int Model_SeizeDelayReleaseMany::main(int argc, char** argv) {
 	Queue* queueSeize1 = new Queue(m);
 	queueSeize1->setOrderRule(Queue::OrderRule::FIFO);
 	Seize* seize1 = new Seize(m);
-	seize1->getSeizeRequest()->insert(new ResourceItemRequest(machine1));
-	seize1->getSeizeRequest()->insert(new ResourceItemRequest(machine2));
-	seize1->getSeizeRequest()->insert(new ResourceItemRequest(machine3));
-	seize1->getSeizeRequest()->insert(new ResourceItemRequest(machine4));
+	seize1->getSeizeRequests()->insert(new SeizableItemRequest(machine1));
+	seize1->getSeizeRequests()->insert(new SeizableItemRequest(machine2));
+	seize1->getSeizeRequests()->insert(new SeizableItemRequest(machine3));
+	seize1->getSeizeRequests()->insert(new SeizableItemRequest(machine4));
 	seize1->setQueue(queueSeize1);
 	Delay* delay1 = new Delay(m);
+	delay1->setDelayExpression("unif(1,2)");
 	Release* release1 = new Release(m);
-	release1->setReleaseRequest(new ResourceItemRequest(machine1));
+	release1->getReleaseRequests()->insert(new SeizableItemRequest(machine1));
+	release1->getReleaseRequests()->insert(new SeizableItemRequest(machine2));
+	release1->getReleaseRequests()->insert(new SeizableItemRequest(machine3));
+	release1->getReleaseRequests()->insert(new SeizableItemRequest(machine4));
 	Dispose* dispose1 = new Dispose(m);
 	// connect model components to create a "workflow"
 	create1->getNextComponents()->insert(seize1);

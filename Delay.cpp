@@ -70,7 +70,7 @@ Util::TimeUnit Delay::delayTimeUnit() const {
 }
 
 void Delay::_execute(Entity* entity) {
-	double waitTime = _parentModel->parseExpression(_delayExpression) * Util::TimeUnitConvert(_delayTimeUnit, _parentModel->getInfos()->getReplicationLengthTimeUnit());
+	double waitTime = _parentModel->parseExpression(_delayExpression) * Util::TimeUnitConvert(_delayTimeUnit, _parentModel->getSimulation()->getReplicationLengthTimeUnit());
 	if (_reportStatistics) {
 		_cstatWaitTime->getStatistics()->getCollector()->addValue(waitTime);
 		if (entity->getEntityType()->isReportStatistics())

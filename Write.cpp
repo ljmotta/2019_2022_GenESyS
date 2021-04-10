@@ -85,7 +85,7 @@ void Write::_initBetweenReplications() {
 	try {
 		std::ofstream savefile;
 		savefile.open(_filename, std::ofstream::app);
-		savefile << "# Replication number " << _parentModel->getSimulation()->getCurrentReplicationNumber() << "/" << _parentModel->getInfos()->getNumberOfReplications() << std::endl;
+		savefile << "# Replication number " << _parentModel->getSimulation()->getCurrentReplicationNumber() << "/" << _parentModel->getSimulation()->getNumberOfReplications() << std::endl;
 		savefile.close();
 	} catch (...) {
 

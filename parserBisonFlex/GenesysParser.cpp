@@ -1248,7 +1248,7 @@ namespace yy {
 
   case 48:
 #line 264 "bisonparser.yy"
-                          { yylhs.value.as < obj_t > ().valor = driver.getModel()->getInfos()->getReplicationLength();}
+                          { yylhs.value.as < obj_t > ().valor = driver.getModel()->getSimulation()->getReplicationLength();}
 #line 1253 "../GenesysParser.cpp"
     break;
 

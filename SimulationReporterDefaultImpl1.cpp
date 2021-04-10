@@ -39,7 +39,7 @@ void SimulationReporterDefaultImpl1::showSimulationControls() {
 
 void SimulationReporterDefaultImpl1::showReplicationStatistics() {
 	_model->getTracer()->traceReport("");
-	_model->getTracer()->traceReport("Begin of Report for replication " + std::to_string(_simulation->getCurrentReplicationNumber()) + " of " + std::to_string(_model->getInfos()->getNumberOfReplications()));
+	_model->getTracer()->traceReport("Begin of Report for replication " + std::to_string(_simulation->getCurrentReplicationNumber()) + " of " + std::to_string(_model->getSimulation()->getNumberOfReplications()));
 	/* \todo: StatisticsCollector and Counter should NOT be special classes. It should iterate classes looking for classes that can generate reports.
 	 StatisticsCollector and Counter should ovveride an inherited attribute from ModelElement to specify they generate report information
 	 look for _generateReportInformation = true;  using bool generateReportInformation() const;
@@ -143,7 +143,7 @@ void SimulationReporterDefaultImpl1::showReplicationStatistics() {
 	}
 	//this->showSimulationResponses();
 	Util::DecIndent();
-	_model->getTracer()->traceReport("End of Report for replication " + std::to_string(_simulation->getCurrentReplicationNumber()) + " of " + std::to_string(_model->getInfos()->getNumberOfReplications()));
+	_model->getTracer()->traceReport("End of Report for replication " + std::to_string(_simulation->getCurrentReplicationNumber()) + " of " + std::to_string(_model->getSimulation()->getNumberOfReplications()));
 	_model->getTracer()->traceReport("------------------------------");
 }
 
@@ -161,7 +161,7 @@ void SimulationReporterDefaultImpl1::showSimulationResponses() {
 
 void SimulationReporterDefaultImpl1::showSimulationStatistics() {//List<StatisticsCollector*>* cstatsSimulation) {
 	_model->getTracer()->traceReport("");
-	_model->getTracer()->traceReport("Begin of Report for Simulation (based on " + std::to_string(_model->getInfos()->getNumberOfReplications()) + " replications)");
+	_model->getTracer()->traceReport("Begin of Report for Simulation (based on " + std::to_string(_model->getSimulation()->getNumberOfReplications()) + " replications)");
 	const std::string UtilTypeOfStatisticsCollector = Util::TypeOf<StatisticsCollector>();
 	const std::string UtilTypeOfCounter = Util::TypeOf<Counter>();
 	// runs over all elements and list the statistics for each one, and then the statistics with no parent

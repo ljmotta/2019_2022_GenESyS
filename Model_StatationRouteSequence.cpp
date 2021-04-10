@@ -35,7 +35,7 @@ int Model_StatationRouteSequence::main(int argc, char** argv) {
 	genesys->getTracer()->setTraceLevel(Util::TraceLevel::modelSimulationEvent);
 
 	Model* m = genesys->getModels()->newModel();
-	m->getInfos()->setReplicationLength(60);
+	m->getSimulation()->setReplicationLength(60);
 
 	Create* c1 = new Create(m);
 	c1->setEntityType(new EntityType(m));

@@ -20,26 +20,16 @@ Seize::Seize(Model* model, std::string name) : ModelComponent(model, Util::TypeO
 }
 
 std::string Seize::show() {
-	return ModelComponent::show() +
+	std::string txt = ModelComponent::show() +
 			"priority=" + std::to_string(_priority) +
-			", seizeRequest=[" + _seizeRequest->show() + "]";
+			"seizeRequests={";
+	unsigned short i = 0;
+	for (std::list<SeizableItemRequest*>::iterator it = _seizeRequests->list()->begin(); it != _seizeRequests->list()->end(); it++, i++) {
+		txt += "request" + std::to_string(i) + "=[" + _seizeRequests->show() + "],";
+	}
+	txt = txt.substr(0, txt.length() - 1) + "}";
+	return txt;
 }
-
-void Seize::setLastMemberSeized(unsigned int _lastMemberSeized) {
-	this->_lastMemberSeized = _lastMemberSeized;
-}
-
-unsigned int Seize::getLastMemberSeized() const {
-	return _lastMemberSeized;
-}
-
-//void Seize::setQuantity(std::string _quantity) {
-//	this->_quantityExpression = _quantity;
-//}
-
-//std::string Seize::getQuantity() const {
-//	return _quantityExpression;
-//}
 
 void Seize::setPriority(unsigned short _priority) {
 	this->_priority = _priority;
@@ -70,7 +60,7 @@ void Seize::_handlerForResourceEvent(Resource* resource) {
 	Waiting* first = _queue->first();
 	if (first != nullptr) { // there are entities waiting in the queue
 		// find quantity requested for such resource
-		for (std::list<ResourceItemRequest*>::iterator it = _seizeRequest->list()->begin(); it != _seizeRequest->list()->end(); it++) {
+		for (std::list<SeizableItemRequest*>::iterator it = _seizeRequests->list()->begin(); it != _seizeRequests->list()->end(); it++) {
 			if ((*it)->getResource() == resource) {
 				unsigned int quantity = _parentModel->parseExpression((*it)->getQuantityExpression());
 				if ((resource->getCapacity() - resource->getNumberBusy()) >= quantity) { //enought quantity to seize
@@ -119,12 +109,12 @@ Queue* Seize::getQueue() const {
 	return _queue;
 }
 
-List<ResourceItemRequest*>* Seize::getSeizeRequest() const {
-	return _seizeRequest;
+List<SeizableItemRequest*>* Seize::getSeizeRequests() const {
+	return _seizeRequests;
 }
 
 void Seize::_execute(Entity* entity) {
-	for (std::list<ResourceItemRequest*>::iterator it = _seizeRequest->list()->begin(); it != _seizeRequest->list()->end(); it++) {
+	for (std::list<SeizableItemRequest*>::iterator it = _seizeRequests->list()->begin(); it != _seizeRequests->list()->end(); it++) {
 		Resource* resource = (*it)->getResource();
 		unsigned int quantity = _parentModel->parseExpression((*it)->getQuantityExpression());
 		if (resource->getCapacity() - resource->getNumberBusy() < quantity) { // not enought free quantity to allocate. Entity goes to the queue
@@ -133,17 +123,17 @@ void Seize::_execute(Entity* entity) {
 			_parentModel->getTracer()->traceSimulation(_parentModel->getSimulation()->getSimulatedTime(), entity, this, "Entity starts to wait for resource in queue \"" + _queue->getName() + "\" with " + std::to_string(_queue->size()) + " elements");
 			return;
 		} else { // alocate the resource
-			_parentModel->getTracer()->traceSimulation(_parentModel->getSimulation()->getSimulatedTime(), entity, this, "Entity seizes " + std::to_string(quantity) + " elements of resource \"" + resource->getName() + "\" (capacity:" + std::to_string(resource->getCapacity()) + ", numberbusy:" + std::to_string(resource->getNumberBusy()) + ")");
 			resource->seize(quantity, _parentModel->getSimulation()->getSimulatedTime());
+			_parentModel->getTracer()->traceSimulation(_parentModel->getSimulation()->getSimulatedTime(), entity, this, "Entity seizes " + std::to_string(quantity) + " elements of resource \"" + resource->getName() + "\" (capacity:" + std::to_string(resource->getCapacity()) + ", numberbusy:" + std::to_string(resource->getNumberBusy()) + ")");
 		}
 	}
 	_parentModel->sendEntityToComponent(entity, this->getNextComponents()->getFrontConnection(), 0.0);
 }
 
 void Seize::_initBetweenReplications() {
-	this->_lastMemberSeized = 0;
 	this->_queue->initBetweenReplications();
-	for (std::list<ResourceItemRequest*>::iterator it = _seizeRequest->list()->begin(); it != _seizeRequest->list()->end(); it++) {
+	for (std::list<SeizableItemRequest*>::iterator it = _seizeRequests->list()->begin(); it != _seizeRequests->list()->end(); it++) {
+		(*it)->setLastMemberSeized(0);
 		(*it)->getResource()->initBetweenReplications();
 	}
 }
@@ -165,13 +155,14 @@ bool Seize::_loadInstance(std::map<std::string, std::string>* fields) {
 		unsigned short numRequests = std::stoi((*(fields->find("seizeResquestSize"))).second);
 		for (unsigned short i = 0; i < numRequests; i++) {
 			//std::string resRequest = ((*(fields->find("resourceItemRequest"))).second);
+			SeizableItemRequest::ResourceType resourceType = static_cast<SeizableItemRequest::ResourceType> (std::stoi((*(fields->find("resourceType" + std::to_string(i)))).second));
 			std::string resourceName = ((*(fields->find("resourceName" + std::to_string(i)))).second);
 			Resource* resource = dynamic_cast<Resource*> (_parentModel->getElements()->getElement(Util::TypeOf<Resource>(), resourceName));
 			std::string quantityExpression = ((*(fields->find("quantity" + std::to_string(i)))).second);
-			ResourceItemRequest::SelectionRule rule = static_cast<ResourceItemRequest::SelectionRule> (std::stoi((*(fields->find("selectionRule" + std::to_string(i)))).second));
+			SeizableItemRequest::SelectionRule rule = static_cast<SeizableItemRequest::SelectionRule> (std::stoi((*(fields->find("selectionRule" + std::to_string(i)))).second));
 			std::string saveAttribute = ((*(fields->find("saveAttribute" + std::to_string(i)))).second);
 			unsigned int index = std::stoi((*(fields->find("index" + std::to_string(i)))).second);
-			this->_seizeRequest->insert(new ResourceItemRequest(resource, quantityExpression, rule, saveAttribute, index));
+			this->_seizeRequests->insert(new SeizableItemRequest(resource, quantityExpression, resourceType, rule, saveAttribute, index));
 			resource->addReleaseResourceEventHandler(Resource::SetResourceEventHandler<Seize>(&Seize::_handlerForResourceEvent, this));
 		}
 
@@ -187,23 +178,23 @@ std::map<std::string, std::string>* Seize::_saveInstance() {
 	fields->emplace("queueName", (this->_queue->getName()));
 	// \todo: put together as ResurceItemRequest ans it should be a list of them
 	//
-	fields->emplace("seizeResquestSize", std::to_string(_seizeRequest->size()));
+	fields->emplace("seizeResquestSize", std::to_string(_seizeRequests->size()));
 	unsigned short i = 0;
-	for (std::list<ResourceItemRequest*>::iterator it = _seizeRequest->list()->begin(); it != _seizeRequest->list()->end(); it++) {
-		fields->emplace("resourceItemRequest" + std::to_string(i), "{" + map2str((*it)->_saveInstance()) + "}");
+	for (std::list<SeizableItemRequest*>::iterator it = _seizeRequests->list()->begin(); it != _seizeRequests->list()->end(); it++, i++) {
+		//fields->emplace("resourceItemRequest" + std::to_string(i), "{" + map2str((*it)->_saveInstance()) + "}");
+		fields->emplace("resourceType" + std::to_string(i), std::to_string(static_cast<int> ((*it)->getResourceType())));
 		fields->emplace("resourceId" + std::to_string(i), std::to_string((*it)->getResource()->getId()));
 		fields->emplace("resourceName" + std::to_string(i), ((*it)->getResource()->getName()));
 		fields->emplace("quantity" + std::to_string(i), (*it)->getQuantityExpression());
 		fields->emplace("selectionRule" + std::to_string(i), std::to_string(static_cast<int> ((*it)->getSelectionRule())));
 		fields->emplace("saveAttribute" + std::to_string(i), (*it)->getSaveAttribute());
-		i++;
 	}
 	return fields;
 }
 
 bool Seize::_check(std::string* errorMessage) {
 	bool resultAll = true;
-	for (std::list<ResourceItemRequest*>::iterator it = _seizeRequest->list()->begin(); it != _seizeRequest->list()->end(); it++) {
+	for (std::list<SeizableItemRequest*>::iterator it = _seizeRequests->list()->begin(); it != _seizeRequests->list()->end(); it++) {
 		resultAll &= _parentModel->checkExpression((*it)->getQuantityExpression(), "quantity", errorMessage);
 		resultAll &= _parentModel->getElements()->check(Util::TypeOf<Resource>(), (*it)->getResource(), "Resource", errorMessage);
 	}

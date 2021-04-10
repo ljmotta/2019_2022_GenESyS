@@ -108,6 +108,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/SamplerBoostImpl.o \
 	${OBJECTDIR}/SamplerDefaultImpl1.o \
 	${OBJECTDIR}/Schedule.o \
+	${OBJECTDIR}/SeizableItemRequest.o \
 	${OBJECTDIR}/Seize.o \
 	${OBJECTDIR}/Sequence.o \
 	${OBJECTDIR}/Set.o \
@@ -531,6 +532,11 @@ ${OBJECTDIR}/Schedule.o: Schedule.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Schedule.o Schedule.cpp
+
+${OBJECTDIR}/SeizableItemRequest.o: SeizableItemRequest.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SeizableItemRequest.o SeizableItemRequest.cpp
 
 ${OBJECTDIR}/Seize.o: Seize.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
