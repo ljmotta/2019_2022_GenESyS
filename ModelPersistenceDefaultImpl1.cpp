@@ -39,19 +39,19 @@ std::map<std::string, std::string>* ModelPersistenceDefaultImpl1::_getSimulatorI
 bool ModelPersistenceDefaultImpl1::save(std::string filename) {
 	_model->getTracer()->trace(Util::TraceLevel::toolInternal, "Saving file \"" + filename + "\"");
 	Util::IncIndent();
-	std::list<std::string> *simulInfosToSave, *modelInfosToSave, *modelElementsToSave, *modelComponentsToSave;
+	std::list<std::string> *simulatorInfosToSave, *simulationInfosToSave, *modelInfosToSave, *modelElementsToSave, *modelComponentsToSave;
 	{
 		//bool res = true;
 		std::map<std::string, std::string>* fields;
 		fields = _getSimulatorInfoFieldsToSave();
-		simulInfosToSave = _adjustFieldsToSave(fields);
+		simulatorInfosToSave = _adjustFieldsToSave(fields);
 		// save model own infos
 		fields = _model->getInfos()->saveInstance();
 		modelInfosToSave = _adjustFieldsToSave(fields);
 		// save model own infos
 		// \todo save modelSimulation fields (breakpoints)
 		fields = _model->getSimulation()->saveInstance();
-		modelInfosToSave = _adjustFieldsToSave(fields);
+		simulationInfosToSave = _adjustFieldsToSave(fields);
 		// save infras
 		modelElementsToSave = new std::list<std::string>();
 		std::list<std::string>* elementTypenames = _model->getElements()->getElementClassnames();
@@ -99,11 +99,15 @@ bool ModelPersistenceDefaultImpl1::save(std::string filename) {
 			char* dt = ctime(&now);
 			savefile << "# Last saved on " << dt;
 			savefile << "# simulator infos" << std::endl;
-			_saveContent(simulInfosToSave, &savefile);
+			_saveContent(simulatorInfosToSave, &savefile);
 			savefile << "# model infos" << std::endl;
 			_saveContent(modelInfosToSave, &savefile);
+			savefile << "# simulation infos / experimental design" << std::endl;
+			_saveContent(simulationInfosToSave, &savefile);
+			savefile << "#" << std::endl;
 			savefile << "# model elements" << std::endl;
 			_saveContent(modelElementsToSave, &savefile);
+			savefile << "#" << std::endl;
 			savefile << "# model components" << std::endl;
 			_saveContent(modelComponentsToSave, &savefile);
 			savefile.close();
@@ -152,6 +156,8 @@ bool ModelPersistenceDefaultImpl1::_loadFields(std::string line) {
 						fields->emplace("id", veckeyval[0]);
 					} else if (i == 1) {
 						fields->emplace("typename", veckeyval[0]);
+					} else if (i == 2) {
+						fields->emplace("name", veckeyval[0]);
 					} else {
 						fields->emplace(veckeyval[0], "");
 					}
@@ -315,7 +321,7 @@ std::string ModelPersistenceDefaultImpl1::_convertLineseparatorToLineseparatorRe
 
 std::list<std::string>* ModelPersistenceDefaultImpl1::_adjustFieldsToSave(std::map<std::string, std::string>* fields) {
 	std::list<std::string>* newList = new std::list<std::string>();
-	std::string newStr, strV2003, idV2003, typenameV2003; //, strV210329;
+	std::string newStr, strV2003, idV2003, typenameV2003, nameV2003; //, strV210329;
 	idV2003 = "0";
 	std::string attrValue;
 	for (std::map<std::string, std::string>::iterator it = fields->begin(); it != fields->end(); it++) {
@@ -324,6 +330,8 @@ std::list<std::string>* ModelPersistenceDefaultImpl1::_adjustFieldsToSave(std::m
 			idV2003 = (*it).second;
 		else if ((*it).first == "typename")
 			typenameV2003 = (*it).second;
+		else if ((*it).first == "name")
+			nameV2003 = _convertLineseparatorToLineseparatorReplacement((*it).second); //(*it).second;
 		else {
 			// version V210329: (*it).second should NEVER contain _linefieldseparator. So, replace it by _linefieldseparatorReplacement
 			attrValue = _convertLineseparatorToLineseparatorReplacement((*it).second);
@@ -332,9 +340,9 @@ std::list<std::string>* ModelPersistenceDefaultImpl1::_adjustFieldsToSave(std::m
 	}
 	while (idV2003.length() < 3)
 		idV2003 += _fieldseparator;
-	while (typenameV2003.length() < 15)
-		typenameV2003 += _fieldseparator;
-	strV2003 = idV2003 + _fieldseparator + typenameV2003 + _fieldseparator + strV2003;
+	//while (typenameV2003.length() < 15)
+	//	typenameV2003 += _fieldseparator;
+	strV2003 = idV2003 + _fieldseparator + typenameV2003 + _fieldseparator + nameV2003 + _fieldseparator + strV2003;
 	_model->getTracer()->trace(Util::TraceLevel::toolDetailed, strV2003); //newStr
 	newList->push_back(strV2003); //newStr
 	return newList;

@@ -151,20 +151,21 @@ ModelElement* Resource::LoadInstance(Model* model, std::map<std::string, std::st
 bool Resource::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelElement::_loadInstance(fields);
 	if (res) {
-		this->_capacity = std::stoi((*(fields->find("capacity"))).second);
-		this->_costBusyHour = std::stod((*(fields->find("costBusyHour"))).second);
-		this->_costIdleHour = std::stod((*(fields->find("costIdleHour"))).second);
-		this->_costPerUse = std::stod((*(fields->find("costPerUse"))).second);
+		//this->_capacity = (fields->find("capacity") != fields->end() ? std::stoi((*(fields->find("capacity"))).second) : 1);
+		this->_capacity = std::stoi(loadField(fields, "capacity", "1"));
+		this->_costBusyHour = std::stod(loadField(fields, "costBusyHour", "1.0")); //(*(fields->find("costBusyHour"))).second);
+		this->_costIdleHour = std::stod(loadField(fields, "costIdleHour", "1.0")); //(*(fields->find("costIdleHour"))).second);
+		this->_costPerUse = std::stod(loadField(fields, "costPerUse", "1.0")); //(*(fields->find("costPerUse"))).second);
 	}
 	return res;
 }
 
 std::map<std::string, std::string>* Resource::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelElement::_saveInstance(); //Util::TypeOf<Resource>());
-	fields->emplace("capacity", std::to_string(this->_capacity));
-	fields->emplace("costBusyHour", std::to_string(this->_costBusyHour));
-	fields->emplace("costIdleHour", std::to_string(this->_costIdleHour));
-	fields->emplace("costPerUse", std::to_string(this->_costPerUse));
+	if (_capacity != 1) fields->emplace("capacity", std::to_string(this->_capacity));
+	if (_costBusyHour != 1.0) fields->emplace("costBusyHour", std::to_string(this->_costBusyHour));
+	if (_costIdleHour != 1.0) fields->emplace("costIdleHour", std::to_string(this->_costIdleHour));
+	if (_costPerUse != 1.0) fields->emplace("costPerUse", std::to_string(this->_costPerUse));
 	return fields;
 }
 

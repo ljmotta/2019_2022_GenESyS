@@ -116,22 +116,22 @@ ModelElement* EntityType::LoadInstance(Model* model, std::map<std::string, std::
 bool EntityType::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelElement::_loadInstance(fields);
 	if (res) {
-		this->_initialNVACost = std::stod((*(fields->find("initialNVACost"))).second);
-		this->_initialOtherCost = std::stod((*(fields->find("initialOtherCost"))).second);
-		this->_initialPicture = ((*(fields->find("initialPicture"))).second);
-		this->_initialVACost = std::stod((*(fields->find("initialVACost"))).second);
-		this->_initialWaitingCost = std::stod((*(fields->find("initialWaitingCost"))).second);
+		this->_initialNVACost = std::stod(loadField(fields, "initialNVACost", "0.0"));
+		this->_initialOtherCost = std::stod(loadField(fields, "initialOtherCost", "0.0"));
+		this->_initialPicture = (loadField(fields, "initialPicture", "0.0"));
+		this->_initialVACost = std::stod(loadField(fields, "initialVACost", "0.0"));
+		this->_initialWaitingCost = std::stod(loadField(fields, "initialWaitingCost", "0.0"));
 	}
 	return res;
 }
 
 std::map<std::string, std::string>* EntityType::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelElement::_saveInstance(); //Util::TypeOf<EntityType>());
-	fields->emplace("initialNVACost", std::to_string(this->_initialNVACost));
-	fields->emplace("initialOtherCost", std::to_string(this->_initialOtherCost));
-	fields->emplace("initialPicture", this->_initialPicture);
-	fields->emplace("initialVACost", std::to_string(this->_initialVACost));
-	fields->emplace("initialWaitingCost", std::to_string(this->_initialWaitingCost));
+	if (_initialNVACost != 0.0) fields->emplace("initialNVACost", std::to_string(this->_initialNVACost));
+	if (_initialOtherCost != 0.0) fields->emplace("initialOtherCost", std::to_string(this->_initialOtherCost));
+	if (_initialPicture != "report") fields->emplace("initialPicture", this->_initialPicture);
+	if (_initialVACost != 0.0) fields->emplace("initialVACost", std::to_string(this->_initialVACost));
+	if (_initialWaitingCost != 0.0)fields->emplace("initialWaitingCost", std::to_string(this->_initialWaitingCost));
 	return fields;
 }
 

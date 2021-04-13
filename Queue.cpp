@@ -111,8 +111,8 @@ bool Queue::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelElement::_loadInstance(fields);
 	if (res) {
 		try {
-			this->_attributeName = (*fields->find("attributeName")).second;
-			this->_orderRule = static_cast<OrderRule> (std::stoi((*fields->find("orderRule")).second));
+			this->_attributeName = loadField(fields, "attributeName", "");
+			this->_orderRule = static_cast<OrderRule> (std::stoi(loadField(fields, "orderRule", std::to_string(static_cast<int> (OrderRule::FIFO)))));
 		} catch (...) {
 		}
 	}
@@ -121,8 +121,8 @@ bool Queue::_loadInstance(std::map<std::string, std::string>* fields) {
 
 std::map<std::string, std::string>* Queue::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelElement::_saveInstance(); //Util::TypeOf<Queue>());
-	fields->emplace("orderRule", std::to_string(static_cast<int> (this->_orderRule)));
-	fields->emplace("attributeName", this->_attributeName);
+	if (_orderRule != OrderRule::FIFO) fields->emplace("orderRule", std::to_string(static_cast<int> (this->_orderRule)));
+	if (_attributeName != "") fields->emplace("attributeName", "\"" + this->_attributeName + "\"");
 	return fields;
 }
 

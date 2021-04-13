@@ -62,7 +62,7 @@ void Leave::_initBetweenReplications() {
 
 std::map<std::string, std::string>* Leave::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
-	fields->emplace("stationName", (this->_station->getName()));
+	fields->emplace("stationName", "\"" + (this->_station->getName()) + "\"");
 	return fields;
 }
 

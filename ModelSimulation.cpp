@@ -603,11 +603,11 @@ std::string ModelSimulation::getTerminatingCondition() const {
 }
 
 void ModelSimulation::loadInstance(std::map<std::string, std::string>* fields) {
-	this->_numberOfReplications = std::stoi((*fields->find("numberOfReplications")).second);
-	this->_replicationLength = std::stod((*fields->find("replicationLength")).second);
+	this->_numberOfReplications = std::stoi(loadField(fields, "numberOfReplications", "1"));
+	this->_replicationLength = std::stod(loadField(fields, "replicationLength", "3600.0"));
 	this->_replicationLengthTimeUnit = static_cast<Util::TimeUnit> (std::stoi((*fields->find("replicationLengthTimeUnit")).second));
-	this->_terminatingCondition = (*fields->find("terminatingCondition")).second;
-	this->_warmUpPeriod = std::stod((*fields->find("warmUpTime")).second);
+	this->_terminatingCondition = loadField(fields, "terminatingCondition", "");
+	this->_warmUpPeriod = std::stod(loadField(fields, "warmUpTime", "0.0"));
 	this->_warmUpPeriodTimeUnit = static_cast<Util::TimeUnit> (std::stoi((*(fields->find("warmUpTimeTimeUnit"))).second));
 	_hasChanged = false;
 }
@@ -617,11 +617,11 @@ void ModelSimulation::loadInstance(std::map<std::string, std::string>* fields) {
 std::map<std::string, std::string>* ModelSimulation::saveInstance() {
 	std::map<std::string, std::string>* fields = new std::map<std::string, std::string>();
 	fields->emplace("typename", "ModelSimulation");
-	fields->emplace("numberOfReplications", std::to_string(getNumberOfReplications()));
-	fields->emplace("replicationLength", std::to_string(getReplicationLength()));
+	if (_numberOfReplications != 1) fields->emplace("numberOfReplications", std::to_string(_numberOfReplications));
+	if (this->_replicationLength != 3600) fields->emplace("replicationLength", std::to_string(_replicationLength));
 	fields->emplace("replicationLengthTimeUnit", std::to_string(static_cast<int> (getReplicationLengthTimeUnit())));
-	fields->emplace("terminatingCondition", "\"" + getTerminatingCondition() + "\"");
-	fields->emplace("warmUpTime", std::to_string(getWarmUpPeriod()));
+	if (this->_terminatingCondition != "") fields->emplace("terminatingCondition", "\"" + _terminatingCondition + "\"");
+	if (this->_warmUpPeriod) fields->emplace("warmUpTime", std::to_string(_warmUpPeriod));
 	fields->emplace("warmUpTimeTimeUnit", std::to_string(static_cast<int> (getWarmUpPeriodTimeUnit())));
 	_hasChanged = false;
 	return fields;

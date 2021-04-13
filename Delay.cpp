@@ -87,7 +87,7 @@ bool Delay::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelComponent::_loadInstance(fields);
 	if (res) {
 		this->_delayExpression = (*fields->find("delayExpression")).second;
-		this->_delayTimeUnit = static_cast<Util::TimeUnit> (std::stoi((*fields->find("delayExpressionTimeUnit")).second));
+		this->_delayTimeUnit = static_cast<Util::TimeUnit> (std::stoi(loadField(fields, "delayExpressionTimeUnit", std::to_string(static_cast<int> (Util::TimeUnit::second)))));
 	}
 	return res;
 }
@@ -98,7 +98,7 @@ void Delay::_initBetweenReplications() {
 std::map<std::string, std::string>* Delay::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance(); //Util::TypeOf<Delay>());
 	fields->emplace("delayExpression", "\"" + this->_delayExpression + "\"");
-	fields->emplace("delayExpressionTimeUnit", std::to_string(static_cast<int> (this->_delayTimeUnit)));
+	if (_delayTimeUnit != Util::TimeUnit::second) fields->emplace("delayExpressionTimeUnit", std::to_string(static_cast<int> (this->_delayTimeUnit)));
 	return fields;
 }
 

@@ -289,6 +289,8 @@
         <itemPath>Model_SeizeDelayReleaseMany.h</itemPath>
         <itemPath>Model_StatationRouteSequence.cpp</itemPath>
         <itemPath>Model_StatationRouteSequence.h</itemPath>
+        <itemPath>Modelo_SistemaOperacional02.cpp</itemPath>
+        <itemPath>Modelo_SistemaOperacional02.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="SimpleTests" projectFiles="true">
         <logicalFolder name="f2"
@@ -592,6 +594,10 @@
       <item path="Model_StatationRouteSequence.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Model_StatationRouteSequence.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Modelo_SistemaOperacional02.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Modelo_SistemaOperacional02.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="OLD_ODEelement.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -1126,6 +1132,10 @@
       <item path="Model_StatationRouteSequence.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Model_StatationRouteSequence.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Modelo_SistemaOperacional02.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Modelo_SistemaOperacional02.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="OLD_ODEelement.cpp" ex="false" tool="1" flavor2="0">
       </item>

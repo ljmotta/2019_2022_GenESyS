@@ -112,9 +112,9 @@ void Route::_execute(Entity* entity) {
 bool Route::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelComponent::_loadInstance(fields);
 	if (res) {
-		this->_routeTimeExpression = (*fields->find("routeTimeExpression")).second;
+		this->_routeTimeExpression = loadField(fields, "routeTimeExpression", "0.0");
 		this->_routeTimeTimeUnit = static_cast<Util::TimeUnit> (std::stoi((*fields->find("routeTimeTimeUnit")).second));
-		this->_routeDestinationType = static_cast<Route::DestinationType> (std::stoi((*fields->find("routeDestinationType")).second));
+		this->_routeDestinationType = static_cast<Route::DestinationType> (std::stoi(loadField(fields, "routeDestinationType", std::to_string(static_cast<int> (DestinationType::Station)))));
 		std::string stationName = ((*(fields->find("stationName"))).second);
 		Station* station = dynamic_cast<Station*> (_parentModel->getElements()->getElement(Util::TypeOf<Station>(), stationName));
 		this->_station = station;
@@ -129,10 +129,10 @@ void Route::_initBetweenReplications() {
 std::map<std::string, std::string>* Route::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
 	fields->emplace("stationId", std::to_string(this->_station->getId()));
-	fields->emplace("stationName", (this->_station->getName()));
-	fields->emplace("routeTimeExpression", "\"" + this->_routeTimeExpression + "\"");
-	fields->emplace("routeTimeTimeUnit", std::to_string(static_cast<int> (this->_routeTimeTimeUnit)));
-	fields->emplace("routeDestinationType", std::to_string(static_cast<int> (this->_routeDestinationType)));
+	fields->emplace("stationName", "\"" + (this->_station->getName()) + "\"");
+	if (_routeTimeExpression != "0.0") fields->emplace("routeTimeExpression", "\"" + this->_routeTimeExpression + "\"");
+	if (_routeTimeTimeUnit != Util::TimeUnit::second) fields->emplace("routeTimeTimeUnit", std::to_string(static_cast<int> (this->_routeTimeTimeUnit)));
+	if (_routeDestinationType != DestinationType::Station) fields->emplace("routeDestinationType", std::to_string(static_cast<int> (this->_routeDestinationType)));
 	return fields;
 }
 

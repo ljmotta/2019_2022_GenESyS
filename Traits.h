@@ -71,6 +71,7 @@
 #include "Model_SeizeDelayRelease1.h"
 #include "Model_SeizeDelayReleaseMany.h"
 #include "Model_StatationRouteSequence.h"
+#include "Modelo_SistemaOperacional02.h"
 #include "TestEnterLeaveRoute.h"
 #include "TestFunctions.h"
 #include "TestSimulationControlAndSimulationResponse.h"
@@ -93,7 +94,8 @@ struct Traits {
 template <> struct Traits<GenesysApplication_if> {
 	//typedef Model_CreateDelayDispose Application;
 	//typedef Model_SeizeDelayRelease1 Application;
-	typedef Model_SeizeDelayReleaseMany Application;
+	//typedef Model_SeizeDelayReleaseMany Application;
+	typedef Modelo_SistemaOperacional02 Application;
 };
 
 /*

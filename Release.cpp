@@ -72,20 +72,20 @@ void Release::_initBetweenReplications() {
 bool Release::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelComponent::_loadInstance(fields);
 	if (res) {
-		this->_priority = std::stoi((*(fields->find("priority"))).second);
+		this->_priority = std::stoi(loadField(fields, "priority", "0"));
 		//Util::identitifcation resourceId = std::stoi((*(fields->find("resourceId"))).second);
 		//Resource* res = dynamic_cast<Resource*> (_model->elements()->element(Util::TypeOf<Resource>(), resourceId));
 
 		unsigned short numRequests = std::stoi((*(fields->find("releaseResquestSize"))).second);
 		for (unsigned short i = 0; i < numRequests; i++) {
 			//std::string resRequest = ((*(fields->find("resourceItemRequest"))).second);
-			SeizableItemRequest::ResourceType resourceType = static_cast<SeizableItemRequest::ResourceType> (std::stoi((*(fields->find("resourceType" + std::to_string(i)))).second));
+			SeizableItemRequest::ResourceType resourceType = static_cast<SeizableItemRequest::ResourceType> (std::stoi(loadField(fields, "resourceType" + std::to_string(i), std::to_string(static_cast<int> (SeizableItemRequest::ResourceType::RESOURCE)))));
 			std::string resourceName = ((*(fields->find("resourceName" + std::to_string(i)))).second);
 			Resource* resource = dynamic_cast<Resource*> (_parentModel->getElements()->getElement(Util::TypeOf<Resource>(), resourceName));
-			std::string quantityExpression = ((*(fields->find("quantity" + std::to_string(i)))).second);
-			SeizableItemRequest::SelectionRule rule = static_cast<SeizableItemRequest::SelectionRule> (std::stoi((*(fields->find("selectionRule" + std::to_string(i)))).second));
-			std::string saveAttribute = ((*(fields->find("saveAttribute" + std::to_string(i)))).second);
-			unsigned int index = std::stoi((*(fields->find("index" + std::to_string(i)))).second);
+			std::string quantityExpression = loadField(fields, "quantity" + std::to_string(i), "1");
+			SeizableItemRequest::SelectionRule rule = static_cast<SeizableItemRequest::SelectionRule> (std::stoi(loadField(fields, "selectionRule" + std::to_string(i), std::to_string(static_cast<int> (SeizableItemRequest::SelectionRule::LARGESTREMAININGCAPACITY)))));
+			std::string saveAttribute = loadField(fields, "saveAttribute" + std::to_string(i), "");
+			unsigned int index = std::stoi(loadField(fields, "index" + std::to_string(i), "0"));
 			this->_releaseRequests->insert(new SeizableItemRequest(resource, quantityExpression, resourceType, rule, saveAttribute, index));
 		}
 	}
@@ -94,17 +94,18 @@ bool Release::_loadInstance(std::map<std::string, std::string>* fields) {
 
 std::map<std::string, std::string>* Release::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance(); //Util::TypeOf<Release>());
-	fields->emplace("priority", std::to_string(this->_priority));
+	if (_priority != 0) fields->emplace("priority", std::to_string(this->_priority));
 	fields->emplace("releaseResquestSize", std::to_string(_releaseRequests->size()));
 	unsigned short i = 0;
 	for (std::list<SeizableItemRequest*>::iterator it = _releaseRequests->list()->begin(); it != _releaseRequests->list()->end(); it++, i++) {
-		fields->emplace("resourceType" + std::to_string(i), std::to_string(static_cast<int> ((*it)->getResourceType())));
+		if ((*it)->getResourceType() != SeizableItemRequest::ResourceType::RESOURCE) fields->emplace("resourceType" + std::to_string(i), std::to_string(static_cast<int> ((*it)->getResourceType())));
 		//fields->emplace("resourceItemRequest" + std::to_string(i), "{" + map2str((*it)->_saveInstance()) + "}");
 		fields->emplace("resourceId" + std::to_string(i), std::to_string((*it)->getResource()->getId()));
 		fields->emplace("resourceName" + std::to_string(i), ((*it)->getResource()->getName()));
-		fields->emplace("quantity" + std::to_string(i), (*it)->getQuantityExpression());
-		fields->emplace("selectionRule" + std::to_string(i), std::to_string(static_cast<int> ((*it)->getSelectionRule())));
-		fields->emplace("saveAttribute" + std::to_string(i), (*it)->getSaveAttribute());
+		if ((*it)->getQuantityExpression() != "1") fields->emplace("quantity" + std::to_string(i), (*it)->getQuantityExpression());
+		if ((*it)->getSelectionRule() != SeizableItemRequest::SelectionRule::LARGESTREMAININGCAPACITY) fields->emplace("selectionRule" + std::to_string(i), std::to_string(static_cast<int> ((*it)->getSelectionRule())));
+		if ((*it)->getSaveAttribute() != "") fields->emplace("saveAttribute" + std::to_string(i), (*it)->getSaveAttribute());
+		if ((*it)->getIndex() != 0) fields->emplace("index" + std::to_string(i), std::to_string((*it)->getIndex()));
 	}
 	return fields;
 }

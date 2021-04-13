@@ -81,13 +81,10 @@ bool ModelElement::_loadInstance(std::map<std::string, std::string>* fields) {
 	it = fields->find("id");
 	it != fields->end() ? this->_id = std::stoi((*it).second) : res = false;
 	it = fields->find("name");
-	if (it != fields->end()) {
-		this->_name = (*it).second;
-	} else
-		res = false;
+	it != fields->end() ? this->_name = (*it).second : this->_name = "";
 	//it != fields->end() ? this->_name = (*it).second : res = false;
 	it = fields->find("reportStatistics");
-	it != fields->end() ? this->_reportStatistics = std::stoi((*it).second) : res = false;
+	it != fields->end() ? this->_reportStatistics = std::stoi((*it).second) : this->_reportStatistics = Traits<ModelElement>::reportStatistics;
 	return res;
 }
 
@@ -95,8 +92,8 @@ std::map<std::string, std::string>* ModelElement::_saveInstance() {
 	std::map<std::string, std::string>* fields = new std::map<std::string, std::string>();
 	fields->emplace("typename", this->_typename);
 	fields->emplace("id", std::to_string(this->_id));
-	fields->emplace("name", this->_name);
-	fields->emplace("reportStatistics", std::to_string(this->_reportStatistics));
+	fields->emplace("name", "\"" + this->_name + "\"");
+	if (this->_reportStatistics != Traits<ModelElement>::reportStatistics) fields->emplace("reportStatistics", std::to_string(this->_reportStatistics));
 	return fields;
 }
 

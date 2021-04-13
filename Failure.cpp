@@ -51,7 +51,7 @@ bool Failure::_loadInstance(std::map<std::string, std::string>* fields) {
 std::map<std::string, std::string>* Failure::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelElement::_saveInstance(); //Util::TypeOf<Failure>());
 	//fields->emplace("orderRule", std::to_string(static_cast<int> (this->_orderRule)));
-	//fields->emplace("attributeName", this->_attributeName);
+	//fields->emplace("attributeName", "\""+this->_attributeName+"\"");
 	return fields;
 }
 

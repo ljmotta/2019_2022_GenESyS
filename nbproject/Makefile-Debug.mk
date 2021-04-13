@@ -87,6 +87,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Model_SeizeDelayRelease1.o \
 	${OBJECTDIR}/Model_SeizeDelayReleaseMany.o \
 	${OBJECTDIR}/Model_StatationRouteSequence.o \
+	${OBJECTDIR}/Modelo_SistemaOperacional02.o \
 	${OBJECTDIR}/OLD_ODEelement.o \
 	${OBJECTDIR}/OnEventManager.o \
 	${OBJECTDIR}/ParserChangesInformation.o \
@@ -427,6 +428,11 @@ ${OBJECTDIR}/Model_StatationRouteSequence.o: Model_StatationRouteSequence.cpp nb
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Model_StatationRouteSequence.o Model_StatationRouteSequence.cpp
+
+${OBJECTDIR}/Modelo_SistemaOperacional02.o: Modelo_SistemaOperacional02.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Modelo_SistemaOperacional02.o Modelo_SistemaOperacional02.cpp
 
 ${OBJECTDIR}/OLD_ODEelement.o: OLD_ODEelement.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

@@ -28,9 +28,9 @@
 static inline std::string map2str(std::map<std::string, std::string>* mapss) {
 	std::string res = "";
 	for (std::map<std::string, std::string>::iterator it = mapss->begin(); it != mapss->end(); it++) {
-		res += (*it).first + "=" + (*it).second+" ";
+		res += (*it).first + "=" + (*it).second + " ";
 	}
-	res = res.substr(0, res.length()-1);
+	res = res.substr(0, res.length() - 1);
 	return res;
 }
 
@@ -71,6 +71,10 @@ static inline std::string getFileName(const std::string& s) {
 		return (s.substr(i + 1, s.length() - i));
 	}
 	return s;
+}
+
+static inline std::string loadField(std::map<std::string, std::string>* fields, std::string fieldName, std::string defaultValue) {
+	return fields->find(fieldName) != fields->end() ? ((*(fields->find(fieldName))).second) : defaultValue;
 }
 
 class Util {
