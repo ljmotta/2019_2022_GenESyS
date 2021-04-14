@@ -222,6 +222,9 @@ void Model::_showSimulationResponses() const {
 void Model::clear() {
 	this->_componentManager->clear();
 	this->_elementManager->clear();
+	this->_futureEvents->clear();
+	//this->_simulation->clear();  // \todo clear method
+	//this->_modelInfo->clear(); // \todo clear method
 	//Util::ResetAllIds(); // \todo: To implement
 }
 

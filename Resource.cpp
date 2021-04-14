@@ -152,10 +152,10 @@ bool Resource::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelElement::_loadInstance(fields);
 	if (res) {
 		//this->_capacity = (fields->find("capacity") != fields->end() ? std::stoi((*(fields->find("capacity"))).second) : 1);
-		this->_capacity = std::stoi(loadField(fields, "capacity", "1"));
-		this->_costBusyHour = std::stod(loadField(fields, "costBusyHour", "1.0")); //(*(fields->find("costBusyHour"))).second);
-		this->_costIdleHour = std::stod(loadField(fields, "costIdleHour", "1.0")); //(*(fields->find("costIdleHour"))).second);
-		this->_costPerUse = std::stod(loadField(fields, "costPerUse", "1.0")); //(*(fields->find("costPerUse"))).second);
+		this->_capacity = std::stoi(LoadField(fields, "capacity", "1"));
+		this->_costBusyHour = std::stod(LoadField(fields, "costBusyHour", "1.0")); //(*(fields->find("costBusyHour"))).second);
+		this->_costIdleHour = std::stod(LoadField(fields, "costIdleHour", "1.0")); //(*(fields->find("costIdleHour"))).second);
+		this->_costPerUse = std::stod(LoadField(fields, "costPerUse", "1.0")); //(*(fields->find("costPerUse"))).second);
 	}
 	return res;
 }

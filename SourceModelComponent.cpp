@@ -30,12 +30,12 @@ std::string SourceModelComponent::show() {
 bool SourceModelComponent::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelComponent::_loadInstance(fields);
 	if (res) {
-		this->_entitiesPerCreation = std::stoi(loadField(fields, "entitiesPerCreation", "1"));
-		this->_firstCreation = std::stod(loadField(fields, "firstCreation", "0.0"));
-		this->_timeBetweenCreationsExpression = (*fields->find("timeBetweenCreations")).second;
-		this->_timeBetweenCreationsTimeUnit = static_cast<Util::TimeUnit> (std::stoi(loadField(fields, "timeBetweenCreationsTimeUnit", std::to_string(static_cast<int> (Util::TimeUnit::second)))));
-		this->_maxCreationsExpression = loadField(fields, "maxCreations", std::to_string(std::numeric_limits<unsigned int>::max()));
-		std::string entityTypename = (*fields->find("entityTypename")).second;
+		this->_entitiesPerCreation = std::stoi(LoadField(fields, "entitiesPerCreation", DEFAULT.entitiesPerCreation));
+		this->_firstCreation = std::stod(LoadField(fields, "firstCreation", DEFAULT.firstCreation));
+		this->_timeBetweenCreationsExpression = LoadField(fields, "timeBetweenCreations", DEFAULT.timeBetweenCreationsExpression);
+		this->_timeBetweenCreationsTimeUnit = static_cast<Util::TimeUnit> (std::stoi(LoadField(fields, "timeBetweenCreationsTimeUnit", DEFAULT.timeBetweenCreationsTimeUnit)));
+		this->_maxCreationsExpression = LoadField(fields, "maxCreations", DEFAULT.maxCreationsExpression);
+		std::string entityTypename = LoadField(fields, "entityTypename", "");
 		this->_entityType = dynamic_cast<EntityType*> (_parentModel->getElements()->getElement(Util::TypeOf<EntityType>(), entityTypename));
 	}
 	return res;
@@ -47,12 +47,18 @@ void SourceModelComponent::_initBetweenReplications() {
 
 std::map<std::string, std::string>* SourceModelComponent::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
-	if (_entitiesPerCreation != 1) fields->emplace("entitiesPerCreation", std::to_string(this->_entitiesPerCreation));
-	if (_firstCreation != 0.0) fields->emplace("firstCreation", std::to_string(this->_firstCreation));
-	fields->emplace("timeBetweenCreations", "\"" + this->_timeBetweenCreationsExpression + "\"");
-	if (_timeBetweenCreationsTimeUnit != Util::TimeUnit::second) fields->emplace("timeBetweenCreationsTimeUnit", std::to_string(static_cast<int> (this->_timeBetweenCreationsTimeUnit)));
-	if (_maxCreationsExpression != std::to_string(std::numeric_limits<unsigned int>::max())) fields->emplace("maxCreations", "\"" + this->_maxCreationsExpression + "\"");
-	fields->emplace("entityTypename", (this->_entityType->getName())); // save the name
+	SaveField(fields, _entitiesPerCreation, DEFAULT.entitiesPerCreation, "entitiesPerCreation");
+	//if (_entitiesPerCreation != DEFAULT.entitiesPerCreation) fields->emplace("entitiesPerCreation", std::to_string(this->_entitiesPerCreation));
+	SaveField(fields, _firstCreation, DEFAULT.firstCreation, "firstCreation");
+	//if (_firstCreation != DEFAULT.firstCreation) fields->emplace("firstCreation", std::to_string(this->_firstCreation));
+	SaveField(fields, _timeBetweenCreationsExpression, DEFAULT.timeBetweenCreationsExpression, "timeBetweenCreations");
+	//if (_timeBetweenCreationsExpression != DEFAULT.timeBetweenCreationsExpression) fields->emplace("timeBetweenCreations", "\"" + this->_timeBetweenCreationsExpression + "\"");
+	SaveField(fields, _timeBetweenCreationsTimeUnit, DEFAULT.timeBetweenCreationsTimeUnit, "timeBetweenCreationsTimeUnit");
+	//if (_timeBetweenCreationsTimeUnit != DEFAULT.timeBetweenCreationsTimeUnit) fields->emplace("timeBetweenCreationsTimeUnit", std::to_string(static_cast<int> (this->_timeBetweenCreationsTimeUnit)));
+	SaveField(fields, _maxCreationsExpression, DEFAULT.maxCreationsExpression, "maxCreations");
+	//if (_maxCreationsExpression != DEFAULT.maxCreationsExpression) fields->emplace("maxCreations", "\"" + this->_maxCreationsExpression + "\"");
+	SaveField(fields, _entityType->getName(), "", "entityTypename");
+	//fields->emplace("entityTypename", (this->_entityType->getName())); // save the name
 	//fields->emplace("collectStatistics" , std::to_string(this->_collectStatistics));
 	return fields;
 }

@@ -87,7 +87,7 @@ bool Delay::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelComponent::_loadInstance(fields);
 	if (res) {
 		this->_delayExpression = (*fields->find("delayExpression")).second;
-		this->_delayTimeUnit = static_cast<Util::TimeUnit> (std::stoi(loadField(fields, "delayExpressionTimeUnit", std::to_string(static_cast<int> (Util::TimeUnit::second)))));
+		this->_delayTimeUnit = static_cast<Util::TimeUnit> (std::stoi(LoadField(fields, "delayExpressionTimeUnit", std::to_string(static_cast<int> (Util::TimeUnit::second)))));
 	}
 	return res;
 }

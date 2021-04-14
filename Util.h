@@ -73,10 +73,6 @@ static inline std::string getFileName(const std::string& s) {
 	return s;
 }
 
-static inline std::string loadField(std::map<std::string, std::string>* fields, std::string fieldName, std::string defaultValue) {
-	return fields->find(fieldName) != fields->end() ? ((*(fields->find(fieldName))).second) : defaultValue;
-}
-
 class Util {
 public:
 	typedef unsigned long identification;
@@ -191,6 +187,57 @@ private:
 	Util();
 	virtual ~Util() = default;
 };
+
+
+// \todo Implement it using templates (check impact on calling syntax)
+
+static inline std::string LoadField(std::map<std::string, std::string>* fields, std::string fieldName, std::string defaultValue) {
+	return fields->find(fieldName) != fields->end() ? ((*(fields->find(fieldName))).second) : defaultValue;
+}
+
+static inline std::string LoadField(std::map<std::string, std::string>* fields, std::string fieldName, double defaultValue) {
+	return fields->find(fieldName) != fields->end() ? ((*(fields->find(fieldName))).second) : std::to_string(defaultValue);
+}
+
+static inline std::string LoadField(std::map<std::string, std::string>* fields, std::string fieldName, unsigned int defaultValue) {
+	return fields->find(fieldName) != fields->end() ? ((*(fields->find(fieldName))).second) : std::to_string(defaultValue);
+}
+
+static inline std::string LoadField(std::map<std::string, std::string>* fields, std::string fieldName, int defaultValue) {
+	return fields->find(fieldName) != fields->end() ? ((*(fields->find(fieldName))).second) : std::to_string(defaultValue);
+}
+
+static inline std::string LoadField(std::map<std::string, std::string>* fields, std::string fieldName, Util::TimeUnit defaultValue) {
+	return fields->find(fieldName) != fields->end() ? ((*(fields->find(fieldName))).second) : std::to_string(static_cast<int> (defaultValue));
+}
+
+// \todo Implement it using templates (check impact on calling syntax)
+
+static inline void SaveField(std::map<std::string, std::string>* fields, std::string fieldValue, const std::string fieldDefaultValue, std::string fieldName) {
+	if (fieldValue != fieldDefaultValue)
+		fields->emplace(fieldName, fieldValue);
+}
+
+static inline void SaveField(std::map<std::string, std::string>* fields, double fieldValue, const double fieldDefaultValue, std::string fieldName) {
+	if (fieldValue != fieldDefaultValue)
+		fields->emplace(fieldName, std::to_string(fieldValue));
+}
+
+static inline void SaveField(std::map<std::string, std::string>* fields, unsigned int fieldValue, const unsigned int fieldDefaultValue, std::string fieldName) {
+	if (fieldValue != fieldDefaultValue)
+		fields->emplace(fieldName, std::to_string(fieldValue));
+}
+
+static inline void SaveField(std::map<std::string, std::string>* fields, int fieldValue, const int fieldDefaultValue, std::string fieldName) {
+	if (fieldValue != fieldDefaultValue)
+		fields->emplace(fieldName, std::to_string(fieldValue));
+}
+
+static inline void SaveField(std::map<std::string, std::string>* fields, Util::TimeUnit fieldValue, const Util::TimeUnit fieldDefaultValue, std::string fieldName) {
+	if (fieldValue != fieldDefaultValue)
+		fields->emplace(fieldName, std::to_string(static_cast<int>(fieldValue)));
+}
+
 //namespace\\}
 #endif /* UTIL_H */
 

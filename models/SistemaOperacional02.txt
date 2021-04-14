@@ -1,5 +1,5 @@
 # Genesys simulation model 
-# Last saved on Tue Apr 13 01:53:57 2021
+# Last saved on Wed Apr 14 16:33:02 2021
 # simulator infos
 0   SimulatorInfo "GenESyS\_-\_GENeric\_and\_Expansible\_SYstem\_Simulator" version="210408\_(backtotrack)" versionNumber=210408 
 
@@ -47,7 +47,7 @@
 
 19  Delay "Processo\_executa\_na\_CPU" delayExpression="fatiaTempo" delayExpressionTimeUnit=4 nextId0=20 nextInputNumber0=0 nextSize=1 
 
-2   Create "Processo\_é\_criado\_no\_computador" entityTypename=processo nextId0=3 nextInputNumber0=0 nextSize=1 timeBetweenCreations="expo(10)" timeBetweenCreationsTimeUnit=4 
+2   Create "Processo\_é\_criado\_no\_computador" entityTypename=processo nextId0=3 nextInputNumber0=0 nextSize=1 timeBetweenCreations=expo(10) timeBetweenCreationsTimeUnit=4 
 
 20  Release "Processo\_libera\_CPU" nextId0=21 nextInputNumber0=0 nextSize=1 releaseResquestSize=1 resourceId0=12 resourceName0=CPU 
 

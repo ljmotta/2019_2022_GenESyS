@@ -603,11 +603,11 @@ std::string ModelSimulation::getTerminatingCondition() const {
 }
 
 void ModelSimulation::loadInstance(std::map<std::string, std::string>* fields) {
-	this->_numberOfReplications = std::stoi(loadField(fields, "numberOfReplications", "1"));
-	this->_replicationLength = std::stod(loadField(fields, "replicationLength", "3600.0"));
+	this->_numberOfReplications = std::stoi(LoadField(fields, "numberOfReplications", "1"));
+	this->_replicationLength = std::stod(LoadField(fields, "replicationLength", "3600.0"));
 	this->_replicationLengthTimeUnit = static_cast<Util::TimeUnit> (std::stoi((*fields->find("replicationLengthTimeUnit")).second));
-	this->_terminatingCondition = loadField(fields, "terminatingCondition", "");
-	this->_warmUpPeriod = std::stod(loadField(fields, "warmUpTime", "0.0"));
+	this->_terminatingCondition = LoadField(fields, "terminatingCondition", "");
+	this->_warmUpPeriod = std::stod(LoadField(fields, "warmUpTime", "0.0"));
 	this->_warmUpPeriodTimeUnit = static_cast<Util::TimeUnit> (std::stoi((*(fields->find("warmUpTimeTimeUnit"))).second));
 	_hasChanged = false;
 }

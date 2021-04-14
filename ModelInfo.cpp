@@ -73,11 +73,11 @@ std::string ModelInfo::getVersion() const {
 }
 
 void ModelInfo::loadInstance(std::map<std::string, std::string>* fields) {
-	this->_analystName = loadField(fields, "analystName", "");
-	this->_description = loadField(fields, "description", "");
-	this->_name = loadField(fields, "name", "");
-	this->_projectTitle = loadField(fields, "projectTitle", "");
-	this->_version = loadField(fields, "version", "1.0");
+	this->_analystName = LoadField(fields, "analystName", "");
+	this->_description = LoadField(fields, "description", "");
+	this->_name = LoadField(fields, "name", "");
+	this->_projectTitle = LoadField(fields, "projectTitle", "");
+	this->_version = LoadField(fields, "version", "1.0");
 	_hasChanged = false;
 }
 

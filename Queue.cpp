@@ -111,8 +111,8 @@ bool Queue::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelElement::_loadInstance(fields);
 	if (res) {
 		try {
-			this->_attributeName = loadField(fields, "attributeName", "");
-			this->_orderRule = static_cast<OrderRule> (std::stoi(loadField(fields, "orderRule", std::to_string(static_cast<int> (OrderRule::FIFO)))));
+			this->_attributeName = LoadField(fields, "attributeName", "");
+			this->_orderRule = static_cast<OrderRule> (std::stoi(LoadField(fields, "orderRule", std::to_string(static_cast<int> (OrderRule::FIFO)))));
 		} catch (...) {
 		}
 	}

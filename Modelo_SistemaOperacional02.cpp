@@ -40,9 +40,9 @@ int Modelo_SistemaOperacional02::main(int argc, char** argv) {
 	genesys->getTracer()->setTraceLevel(Util::TraceLevel::everythingMostDetailed);
 
 	Model* m = genesys->getModels()->newModel();
-	m->load("./models/SistemaOperacional02.txt");
-	m->getSimulation()->start();
-	return;
+	//m->load("./models/SistemaOperacional02.txt");
+	//m->getSimulation()->start();
+	//return;
 	EntityType* et = new EntityType(m, "processo");
 	Create* c1 = new Create(m, "Processo é criado no computador");
 	c1->setEntityType(et);

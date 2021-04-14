@@ -116,11 +116,11 @@ ModelElement* EntityType::LoadInstance(Model* model, std::map<std::string, std::
 bool EntityType::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelElement::_loadInstance(fields);
 	if (res) {
-		this->_initialNVACost = std::stod(loadField(fields, "initialNVACost", "0.0"));
-		this->_initialOtherCost = std::stod(loadField(fields, "initialOtherCost", "0.0"));
-		this->_initialPicture = (loadField(fields, "initialPicture", "0.0"));
-		this->_initialVACost = std::stod(loadField(fields, "initialVACost", "0.0"));
-		this->_initialWaitingCost = std::stod(loadField(fields, "initialWaitingCost", "0.0"));
+		this->_initialNVACost = std::stod(LoadField(fields, "initialNVACost", "0.0"));
+		this->_initialOtherCost = std::stod(LoadField(fields, "initialOtherCost", "0.0"));
+		this->_initialPicture = (LoadField(fields, "initialPicture", "0.0"));
+		this->_initialVACost = std::stod(LoadField(fields, "initialVACost", "0.0"));
+		this->_initialWaitingCost = std::stod(LoadField(fields, "initialWaitingCost", "0.0"));
 	}
 	return res;
 }

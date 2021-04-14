@@ -112,9 +112,9 @@ void Route::_execute(Entity* entity) {
 bool Route::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelComponent::_loadInstance(fields);
 	if (res) {
-		this->_routeTimeExpression = loadField(fields, "routeTimeExpression", "0.0");
+		this->_routeTimeExpression = LoadField(fields, "routeTimeExpression", "0.0");
 		this->_routeTimeTimeUnit = static_cast<Util::TimeUnit> (std::stoi((*fields->find("routeTimeTimeUnit")).second));
-		this->_routeDestinationType = static_cast<Route::DestinationType> (std::stoi(loadField(fields, "routeDestinationType", std::to_string(static_cast<int> (DestinationType::Station)))));
+		this->_routeDestinationType = static_cast<Route::DestinationType> (std::stoi(LoadField(fields, "routeDestinationType", std::to_string(static_cast<int> (DestinationType::Station)))));
 		std::string stationName = ((*(fields->find("stationName"))).second);
 		Station* station = dynamic_cast<Station*> (_parentModel->getElements()->getElement(Util::TypeOf<Station>(), stationName));
 		this->_station = station;
