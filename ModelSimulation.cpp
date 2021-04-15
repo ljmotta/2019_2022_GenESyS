@@ -603,12 +603,12 @@ std::string ModelSimulation::getTerminatingCondition() const {
 }
 
 void ModelSimulation::loadInstance(std::map<std::string, std::string>* fields) {
-	this->_numberOfReplications = std::stoi(LoadField(fields, "numberOfReplications", "1"));
-	this->_replicationLength = std::stod(LoadField(fields, "replicationLength", "3600.0"));
-	this->_replicationLengthTimeUnit = static_cast<Util::TimeUnit> (std::stoi((*fields->find("replicationLengthTimeUnit")).second));
-	this->_terminatingCondition = LoadField(fields, "terminatingCondition", "");
-	this->_warmUpPeriod = std::stod(LoadField(fields, "warmUpTime", "0.0"));
-	this->_warmUpPeriodTimeUnit = static_cast<Util::TimeUnit> (std::stoi((*(fields->find("warmUpTimeTimeUnit"))).second));
+	this->_numberOfReplications = std::stoi(LoadField(fields, "numberOfReplications", DEFAULT.numberOfReplications));
+	this->_replicationLength = std::stod(LoadField(fields, "replicationLength", DEFAULT.replicationLength));
+	this->_replicationLengthTimeUnit = static_cast<Util::TimeUnit> (std::stoi(LoadField(fields, "replicationLengthTimeUnit", DEFAULT.replicationLengthTimeUnit)));
+	this->_terminatingCondition = LoadField(fields, "terminatingCondition", DEFAULT.terminatingCondition);
+	this->_warmUpPeriod = std::stod(LoadField(fields, "warmUpTime", DEFAULT.warmUpPeriod));
+	this->_warmUpPeriodTimeUnit = static_cast<Util::TimeUnit> (std::stoi(LoadField(fields, "warmUpTimeTimeUnit", DEFAULT.warmUpPeriodTimeUnit)));
 	_hasChanged = false;
 }
 
@@ -616,13 +616,13 @@ void ModelSimulation::loadInstance(std::map<std::string, std::string>* fields) {
 
 std::map<std::string, std::string>* ModelSimulation::saveInstance() {
 	std::map<std::string, std::string>* fields = new std::map<std::string, std::string>();
-	fields->emplace("typename", "ModelSimulation");
-	if (_numberOfReplications != 1) fields->emplace("numberOfReplications", std::to_string(_numberOfReplications));
-	if (this->_replicationLength != 3600) fields->emplace("replicationLength", std::to_string(_replicationLength));
-	fields->emplace("replicationLengthTimeUnit", std::to_string(static_cast<int> (getReplicationLengthTimeUnit())));
-	if (this->_terminatingCondition != "") fields->emplace("terminatingCondition", "\"" + _terminatingCondition + "\"");
-	if (this->_warmUpPeriod) fields->emplace("warmUpTime", std::to_string(_warmUpPeriod));
-	fields->emplace("warmUpTimeTimeUnit", std::to_string(static_cast<int> (getWarmUpPeriodTimeUnit())));
+	SaveField(fields, "typename", "ModelSimulation");
+	SaveField(fields, "numberOfReplications", _numberOfReplications, DEFAULT.numberOfReplications);
+	SaveField(fields, "replicationLength", _replicationLength, DEFAULT.replicationLength);
+	SaveField(fields, "replicationLengthTimeUnit", _replicationLengthTimeUnit, DEFAULT.replicationLengthTimeUnit);
+	SaveField(fields, "terminatingCondition", _terminatingCondition, DEFAULT.terminatingCondition);
+	SaveField(fields, "warmUpTime", _warmUpPeriod, DEFAULT.warmUpPeriod);
+	SaveField(fields, "warmUpTimeTimeUnit", _warmUpPeriodTimeUnit, DEFAULT.warmUpPeriodTimeUnit);
 	_hasChanged = false;
 	return fields;
 }

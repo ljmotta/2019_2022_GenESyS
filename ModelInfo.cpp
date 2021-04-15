@@ -73,11 +73,11 @@ std::string ModelInfo::getVersion() const {
 }
 
 void ModelInfo::loadInstance(std::map<std::string, std::string>* fields) {
-	this->_analystName = LoadField(fields, "analystName", "");
-	this->_description = LoadField(fields, "description", "");
-	this->_name = LoadField(fields, "name", "");
-	this->_projectTitle = LoadField(fields, "projectTitle", "");
-	this->_version = LoadField(fields, "version", "1.0");
+	this->_analystName = LoadField(fields, "analystName");
+	this->_description = LoadField(fields, "description");
+	this->_name = LoadField(fields, "name");
+	this->_projectTitle = LoadField(fields, "projectTitle");
+	this->_version = LoadField(fields, "version");
 	_hasChanged = false;
 }
 
@@ -85,12 +85,12 @@ void ModelInfo::loadInstance(std::map<std::string, std::string>* fields) {
 
 std::map<std::string, std::string>* ModelInfo::saveInstance() {
 	std::map<std::string, std::string>* fields = new std::map<std::string, std::string>();
-	fields->emplace("typename", "ModelInfo");
-	if (_analystName != "") fields->emplace("analystName", "\"" + _analystName + "\"");
-	if (_description != "") fields->emplace("description", "\"" + _description + "\"");
-	fields->emplace("name", "\"" + getName() + "\"");
-	if (_projectTitle != "") fields->emplace("projectTitle", "\"" + _projectTitle + "\"");
-	if (_version != "1.0") fields->emplace("version", "\"" + _version + "\"");
+	SaveField(fields, "typename", "ModelInfo");
+	SaveField(fields, "analystName", _analystName);
+	SaveField(fields, "description", _description);
+	SaveField(fields, "name", this->getName());
+	SaveField(fields, "projectTitle", _projectTitle);
+	SaveField(fields, "version", _version, "1.0");
 	_hasChanged = false;
 	return fields;
 }

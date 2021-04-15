@@ -29,10 +29,10 @@ ModelPersistenceDefaultImpl1::ModelPersistenceDefaultImpl1(Model* model) {
 
 std::map<std::string, std::string>* ModelPersistenceDefaultImpl1::_getSimulatorInfoFieldsToSave() {
 	std::map<std::string, std::string>* fields = new std::map<std::string, std::string>();
-	fields->emplace("typename", "SimulatorInfo");
-	fields->emplace("name", "\"" + _model->getParentSimulator()->getName() + "\"");
-	fields->emplace("versionNumber", std::to_string(_model->getParentSimulator()->getVersionNumber()));
-	fields->emplace("version", "\"" + _model->getParentSimulator()->getVersion() + "\"");
+	SaveField(fields, "typename", "SimulatorInfo");
+	SaveField(fields, "name", _model->getParentSimulator()->getName());
+	SaveField(fields, "versionNumber", std::to_string(_model->getParentSimulator()->getVersionNumber()));
+	SaveField(fields, "version", _model->getParentSimulator()->getVersion());
 	return fields;
 }
 
@@ -121,7 +121,7 @@ bool ModelPersistenceDefaultImpl1::save(std::string filename) {
 
 void ModelPersistenceDefaultImpl1::_saveContent(std::list<std::string>* content, std::ofstream* file) {
 	for (std::list<std::string>::iterator it = content->begin(); it != content->end(); it++) {
-		*file << (*it) << std::endl << std::endl;
+		*file << (*it) << std::endl; // << std::endl;
 	}
 }
 
@@ -138,14 +138,14 @@ bool ModelPersistenceDefaultImpl1::_loadFields(std::string line) {
 		regex = {R"([=]+)"};
 		std::vector<std::string> veckeyval; //{it,{}};
 		unsigned int i = 0;
-		for (std::list<std::string>::iterator it = lstfields.begin(); it != lstfields.end(); it++) {
+		for (std::list<std::string>::iterator it = lstfields.begin(); it != lstfields.end(); it++, i++) {
 			//std::cout << (*it) << std::endl;
 			tit = {(*it).begin(), (*it).end(), regex, -1};
 			veckeyval = {tit,{}};
-			trim((veckeyval[0]));
+			veckeyval[0] = trim((veckeyval[0]));
 			if (veckeyval[0] != "") { // it should always be, rigth? \todo case for assert?
 				if (veckeyval.size() > 1) {
-					trim((veckeyval[1]));
+					veckeyval[1] = trim((veckeyval[1]));
 					if (veckeyval[1].substr(0, 1) == "\"" && veckeyval[1].substr(veckeyval[1].length() - 1, 1) == "\"") { // remove ""
 						veckeyval[1] = veckeyval[1].substr(1, veckeyval[1].length() - 2);
 					}
@@ -157,13 +157,16 @@ bool ModelPersistenceDefaultImpl1::_loadFields(std::string line) {
 					} else if (i == 1) {
 						fields->emplace("typename", veckeyval[0]);
 					} else if (i == 2) {
+						if (veckeyval[0].substr(0, 1) == "\"" && veckeyval[0].substr(veckeyval[0].length() - 1, 1) == "\"") { // remove ""
+							veckeyval[0] = veckeyval[0].substr(1, veckeyval[0].length() - 2);
+						}
+						veckeyval[0] = this->_convertLineseparatorReplacementBacktoLineseparator(veckeyval[0]);
 						fields->emplace("name", veckeyval[0]);
 					} else {
 						fields->emplace(veckeyval[0], "");
 					}
 				}
 			}
-			i++;
 		}
 		// now the map<str,str> is ready. Look for the right class to load it
 		Util::IncIndent();
@@ -188,7 +191,6 @@ bool ModelPersistenceDefaultImpl1::_loadFields(std::string line) {
 						// save fields for components, in order to allow to connect components after all of them have been loaded
 						if (res && plugin->getPluginInfo()->isComponent()) {
 							_componentFields->insert(_componentFields->end(), fields);
-							//_model->getTraceManager()->trace(Util::TraceLevel::errors, "Inserindo fields do componente "+plugin->getPluginInfo()->getPluginTypename());
 						}
 					} else {
 						_model->getTracer()->trace(Util::TraceLevel::errorFatal, "Error loading file: Could not identity typename \"" + thistypename + "\"");
@@ -209,7 +211,7 @@ bool ModelPersistenceDefaultImpl1::_loadFields(std::string line) {
 }
 
 void ModelPersistenceDefaultImpl1::_loadSimulatorInfoFields(std::map<std::string, std::string>* fields) {
-	unsigned int savedVersionNumber = std::stoi((*fields->find("analystName")).second);
+	unsigned int savedVersionNumber = std::stoi(LoadField(fields, "versionNumber", 0));
 	unsigned int simulatorVersionNumber = _model->getParentSimulator()->getVersionNumber();
 	if (savedVersionNumber != simulatorVersionNumber) {
 		_model->getTracer()->trace("The version of the saved model differs from the simulator. Loading may not be possible", Util::TraceLevel::errorRecover);
@@ -217,9 +219,6 @@ void ModelPersistenceDefaultImpl1::_loadSimulatorInfoFields(std::map<std::string
 }
 
 bool ModelPersistenceDefaultImpl1::load(std::string filename) {
-	//std::list<Plugin*> plugins = this->_model->getParent()->getPlugins();
-	//plugins->front()->
-	//return false;
 	bool res = true;
 	_model->getTracer()->trace(Util::TraceLevel::toolInternal, "Loading file \"" + filename + "\"");
 	Util::IncIndent();
@@ -230,7 +229,7 @@ bool ModelPersistenceDefaultImpl1::load(std::string filename) {
 		try {
 			modelFile.open(filename);
 			while (getline(modelFile, inputLine) && res) {
-				//trim(&inputLine);
+				inputLine = trim(inputLine);
 				if (inputLine.substr(0, 1) != "#" && !inputLine.empty()) {
 					//Util::IncIndent();
 					res &= _loadFields(inputLine);
@@ -267,7 +266,7 @@ bool ModelPersistenceDefaultImpl1::load(std::string filename) {
 
 				// find the next components connected with this one
 				unsigned short nextSize = 1;
-				if (*fields->find("nextSize") != *fields->end()) { // found nextSize
+				if (fields->find("nextSize") != fields->end()) { // found nextSize
 					nextSize = std::stoi((*fields->find("nextSize")).second);
 				}
 				for (unsigned short i = 0; i < nextSize; i++) {
@@ -280,7 +279,7 @@ bool ModelPersistenceDefaultImpl1::load(std::string filename) {
 						if ((*itcomp)->getId() == nextId) { // connect the components
 							nextComponent = (*itcomp);
 							thisComponent->getNextComponents()->insert(nextComponent, nextInputNumber);
-							_model->getTracer()->trace(Util::TraceLevel::toolDetailed, thisComponent->getName() + "<" + std::to_string(i) + ">" + " -> " + nextComponent->getName() + "<" + std::to_string(nextInputNumber) + ">");
+							_model->getTracer()->trace(Util::TraceLevel::toolDetailed, thisComponent->getName() + "<" + std::to_string(i) + ">" + " --> " + nextComponent->getName() + "<" + std::to_string(nextInputNumber) + ">");
 							break;
 						}
 					}
@@ -328,9 +327,12 @@ std::list<std::string>* ModelPersistenceDefaultImpl1::_adjustFieldsToSave(std::m
 		//newStr += (*it).first + "=" + (*it).second + this->_linefieldseparator;
 		if ((*it).first == "id")
 			idV2003 = (*it).second;
-		else if ((*it).first == "typename")
-			typenameV2003 = (*it).second;
-		else if ((*it).first == "name")
+		else if ((*it).first == "typename") {
+			if ((*it).second.substr(0, 1) == "\"" && (*it).second.substr((*it).second.length() - 1, 1) == "\"")
+				typenameV2003 = (*it).second.substr(1, (*it).second.length() - 2);
+			else
+				typenameV2003 = (*it).second;
+		} else if ((*it).first == "name")
 			nameV2003 = _convertLineseparatorToLineseparatorReplacement((*it).second); //(*it).second;
 		else {
 			// version V210329: (*it).second should NEVER contain _linefieldseparator. So, replace it by _linefieldseparatorReplacement
@@ -340,9 +342,9 @@ std::list<std::string>* ModelPersistenceDefaultImpl1::_adjustFieldsToSave(std::m
 	}
 	while (idV2003.length() < 3)
 		idV2003 += _fieldseparator;
-	//while (typenameV2003.length() < 15)
-	//	typenameV2003 += _fieldseparator;
-	strV2003 = idV2003 + _fieldseparator + typenameV2003 + _fieldseparator + nameV2003 + _fieldseparator + strV2003;
+	while (typenameV2003.length() < 10)
+		typenameV2003 += _fieldseparator;
+	strV2003 = "  " + idV2003 + _fieldseparator + typenameV2003 + _fieldseparator + nameV2003 + _fieldseparator + strV2003;
 	_model->getTracer()->trace(Util::TraceLevel::toolDetailed, strV2003); //newStr
 	newList->push_back(strV2003); //newStr
 	return newList;

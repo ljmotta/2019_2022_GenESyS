@@ -24,7 +24,7 @@ Delay::Delay(Model* model, std::string name) : ModelComponent(model, Util::TypeO
 	//GetterMember getter2 = DefineGetterMember<Delay>(this, &Delay::delayTimeUnit);
 	//SetterMember setter2 = DefineSetterMember<Delay>(this, &Delay::setDelayTimeUnit);
 	//model->controls()->insert(new SimulationControl(Util::TypeOf<Delay>(), _name + ".DelayTimeUnit", getter2, setter2));
-	
+
 
 }
 
@@ -35,7 +35,6 @@ void Delay::setDelay(double delay) {
 double Delay::delay() const {
 	return _parentModel->parseExpression(_delayExpression);
 }
-
 
 std::string Delay::show() {
 	return ModelComponent::show() +
@@ -86,8 +85,8 @@ void Delay::_execute(Entity* entity) {
 bool Delay::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelComponent::_loadInstance(fields);
 	if (res) {
-		this->_delayExpression = (*fields->find("delayExpression")).second;
-		this->_delayTimeUnit = static_cast<Util::TimeUnit> (std::stoi(LoadField(fields, "delayExpressionTimeUnit", std::to_string(static_cast<int> (Util::TimeUnit::second)))));
+		this->_delayExpression = LoadField(fields, "delayExpression", DEFAULT.delayExpression);
+		this->_delayTimeUnit = static_cast<Util::TimeUnit> (std::stoi(LoadField(fields, "delayExpressionTimeUnit", DEFAULT.delayTimeUnit)));
 	}
 	return res;
 }
@@ -97,8 +96,8 @@ void Delay::_initBetweenReplications() {
 
 std::map<std::string, std::string>* Delay::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance(); //Util::TypeOf<Delay>());
-	fields->emplace("delayExpression", "\"" + this->_delayExpression + "\"");
-	if (_delayTimeUnit != Util::TimeUnit::second) fields->emplace("delayExpressionTimeUnit", std::to_string(static_cast<int> (this->_delayTimeUnit)));
+	SaveField(fields, "delayExpression", this->_delayExpression, DEFAULT.delayExpression);
+	SaveField(fields, "delayExpressionTimeUnit", _delayTimeUnit, DEFAULT.delayTimeUnit);
 	return fields;
 }
 

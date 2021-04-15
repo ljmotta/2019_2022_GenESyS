@@ -141,29 +141,16 @@ void Seize::_initBetweenReplications() {
 bool Seize::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelComponent::_loadInstance(fields);
 	if (res) {
-		this->_allocationType = std::stoi(LoadField(fields, "allocationType", "0"));
-		this->_priority = std::stoi(LoadField(fields, "priority", "0"));
-		//Util::identitifcation queueId = std::stoi((*(fields->find("queueId"))).second);
-		//Queue* queue = dynamic_cast<Queue*> (_model->elements()->element(Util::TypeOf<Queue>(), queueId));
-		std::string queueName = ((*(fields->find("queueName"))).second);
+		this->_allocationType = std::stoi(LoadField(fields, "allocationType", DEFAULT.allocationType));
+		this->_priority = std::stoi(LoadField(fields, "priority", DEFAULT.priority));
+		std::string queueName = LoadField(fields, "queueName", "");
 		Queue* queue = dynamic_cast<Queue*> (_parentModel->getElements()->getElement(Util::TypeOf<Queue>(), queueName));
 		this->_queue = queue;
-		//Util::identitifcation resourceId = std::stoi((*(fields->find("resourceId"))).second);
-		//Resource* resource = dynamic_cast<Resource*> (_model->elements()->element(Util::TypeOf<Resource>(), resourceId));
-
-		// \todo: next fields form a pair, and it should be a list of them
-		unsigned short numRequests = std::stoi((*(fields->find("seizeResquestSize"))).second);
+		unsigned short numRequests = std::stoi(LoadField(fields, "seizeResquestSize", 0));
 		for (unsigned short i = 0; i < numRequests; i++) {
-			//std::string resRequest = ((*(fields->find("resourceItemRequest"))).second);
-			SeizableItemRequest::ResourceType resourceType = static_cast<SeizableItemRequest::ResourceType> (std::stoi(LoadField(fields, "resourceType" + std::to_string(i), std::to_string(static_cast<int> (SeizableItemRequest::ResourceType::RESOURCE)))));
-			std::string resourceName = ((*(fields->find("resourceName" + std::to_string(i)))).second);
-			Resource* resource = dynamic_cast<Resource*> (_parentModel->getElements()->getElement(Util::TypeOf<Resource>(), resourceName));
-			std::string quantityExpression = LoadField(fields, "quantity" + std::to_string(i), "1");
-			SeizableItemRequest::SelectionRule rule = static_cast<SeizableItemRequest::SelectionRule> (std::stoi(LoadField(fields, "selectionRule" + std::to_string(i), std::to_string(static_cast<int> (SeizableItemRequest::SelectionRule::LARGESTREMAININGCAPACITY)))));
-			std::string saveAttribute = LoadField(fields, "saveAttribute" + std::to_string(i), "");
-			unsigned int index = std::stoi(LoadField(fields, "index" + std::to_string(i), "0"));
-			this->_seizeRequests->insert(new SeizableItemRequest(resource, quantityExpression, resourceType, rule, saveAttribute, index));
-			resource->addReleaseResourceEventHandler(Resource::SetResourceEventHandler<Seize>(&Seize::_handlerForResourceEvent, this));
+			SeizableItemRequest* itemRequest = new SeizableItemRequest(nullptr);
+			itemRequest->_loadInstance(fields, i);
+			this->_seizeRequests->insert(itemRequest);
 		}
 
 	}
@@ -172,23 +159,16 @@ bool Seize::_loadInstance(std::map<std::string, std::string>* fields) {
 
 std::map<std::string, std::string>* Seize::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance(); //Util::TypeOf<Seize>());
-	if (_allocationType != 0) fields->emplace("allocationType", std::to_string(this->_allocationType));
-	if (_priority != 0) fields->emplace("priority=", std::to_string(this->_priority));
-	fields->emplace("queueId", std::to_string(this->_queue->getId()));
-	fields->emplace("queueName", "\"" + (this->_queue->getName()) + "\"");
-	// \todo: put together as ResurceItemRequest ans it should be a list of them
-	//
-	fields->emplace("seizeResquestSize", std::to_string(_seizeRequests->size()));
+	SaveField(fields, "allocationType", _allocationType, DEFAULT.allocationType);
+	SaveField(fields, "priority=", _priority, DEFAULT.priority);
+	SaveField(fields, "queueId", _queue->getId());
+	SaveField(fields, "queueName", _queue->getName());
+	SaveField(fields, "seizeResquestSize", _seizeRequests->size(), 0u);
 	unsigned short i = 0;
 	for (std::list<SeizableItemRequest*>::iterator it = _seizeRequests->list()->begin(); it != _seizeRequests->list()->end(); it++, i++) {
-		//fields->emplace("resourceItemRequest" + std::to_string(i), "{" + map2str((*it)->_saveInstance()) + "}");
-		if ((*it)->getResourceType() != SeizableItemRequest::ResourceType::RESOURCE) fields->emplace("resourceType" + std::to_string(i), std::to_string(static_cast<int> ((*it)->getResourceType())));
-		fields->emplace("resourceId" + std::to_string(i), std::to_string((*it)->getResource()->getId()));
-		fields->emplace("resourceName" + std::to_string(i), ((*it)->getResource()->getName()));
-		if ((*it)->getQuantityExpression() != "1") fields->emplace("quantity" + std::to_string(i), "\"" + (*it)->getQuantityExpression() + "\"");
-		if ((*it)->getSelectionRule() != SeizableItemRequest::SelectionRule::LARGESTREMAININGCAPACITY) fields->emplace("selectionRule" + std::to_string(i), std::to_string(static_cast<int> ((*it)->getSelectionRule())));
-		if ((*it)->getSaveAttribute() != "") fields->emplace("saveAttribute" + std::to_string(i), "\"" + (*it)->getSaveAttribute() + "\"");
-		fields->emplace("index" + std::to_string(i), std::to_string((*it)->getIndex()));
+		std::map<std::string, std::string>* seizablefields = (*it)->_saveInstance(i);
+		fields->insert(seizablefields->begin(), seizablefields->end());
+
 	}
 	return fields;
 }

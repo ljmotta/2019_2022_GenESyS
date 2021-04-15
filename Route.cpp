@@ -112,10 +112,10 @@ void Route::_execute(Entity* entity) {
 bool Route::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelComponent::_loadInstance(fields);
 	if (res) {
-		this->_routeTimeExpression = LoadField(fields, "routeTimeExpression", "0.0");
-		this->_routeTimeTimeUnit = static_cast<Util::TimeUnit> (std::stoi((*fields->find("routeTimeTimeUnit")).second));
-		this->_routeDestinationType = static_cast<Route::DestinationType> (std::stoi(LoadField(fields, "routeDestinationType", std::to_string(static_cast<int> (DestinationType::Station)))));
-		std::string stationName = ((*(fields->find("stationName"))).second);
+		this->_routeTimeExpression = LoadField(fields, "routeTimeExpression", DEFAULT.routeTimeExpression);
+		this->_routeTimeTimeUnit = static_cast<Util::TimeUnit> (std::stoi(LoadField(fields, "routeTimeTimeUnit", DEFAULT.routeTimeTimeUnit)));
+		this->_routeDestinationType = static_cast<Route::DestinationType> (std::stoi(LoadField(fields, "routeDestinationType", static_cast<int> (DEFAULT.routeDestinationType))));
+		std::string stationName = LoadField(fields, "stationName", "");
 		Station* station = dynamic_cast<Station*> (_parentModel->getElements()->getElement(Util::TypeOf<Station>(), stationName));
 		this->_station = station;
 	}
@@ -128,11 +128,11 @@ void Route::_initBetweenReplications() {
 
 std::map<std::string, std::string>* Route::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
-	fields->emplace("stationId", std::to_string(this->_station->getId()));
-	fields->emplace("stationName", "\"" + (this->_station->getName()) + "\"");
-	if (_routeTimeExpression != "0.0") fields->emplace("routeTimeExpression", "\"" + this->_routeTimeExpression + "\"");
-	if (_routeTimeTimeUnit != Util::TimeUnit::second) fields->emplace("routeTimeTimeUnit", std::to_string(static_cast<int> (this->_routeTimeTimeUnit)));
-	if (_routeDestinationType != DestinationType::Station) fields->emplace("routeDestinationType", std::to_string(static_cast<int> (this->_routeDestinationType)));
+	SaveField(fields, "stationId", _station->getId());
+	SaveField(fields, "stationName", (this->_station->getName()));
+	SaveField(fields, "routeTimeExpression", _routeTimeExpression, DEFAULT.routeTimeExpression);
+	SaveField(fields, "routeTimeTimeUnit", _routeTimeTimeUnit, DEFAULT.routeTimeTimeUnit);
+	SaveField(fields, "routeDestinationType", static_cast<int> (_routeDestinationType), static_cast<int> (DEFAULT.routeDestinationType));
 	return fields;
 }
 

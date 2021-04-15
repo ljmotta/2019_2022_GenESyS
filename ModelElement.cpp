@@ -90,10 +90,10 @@ bool ModelElement::_loadInstance(std::map<std::string, std::string>* fields) {
 
 std::map<std::string, std::string>* ModelElement::_saveInstance() {
 	std::map<std::string, std::string>* fields = new std::map<std::string, std::string>();
-	fields->emplace("typename", this->_typename);
-	fields->emplace("id", std::to_string(this->_id));
-	fields->emplace("name", "\"" + this->_name + "\"");
-	if (this->_reportStatistics != Traits<ModelElement>::reportStatistics) fields->emplace("reportStatistics", std::to_string(this->_reportStatistics));
+	SaveField(fields, "typename", _typename);
+	SaveField(fields, "id", this->_id);
+	SaveField(fields, "name", _name);
+	SaveField(fields, "reportStatistics", _reportStatistics, Traits<ModelElement>::reportStatistics);
 	return fields;
 }
 

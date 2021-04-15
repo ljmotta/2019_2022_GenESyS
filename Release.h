@@ -83,8 +83,10 @@ protected:
 	virtual std::map<std::string, std::string>* _saveInstance();
 	virtual bool _check(std::string* errorMessage);
 private:
-	//	unsigned int _allocationType = 0; // uint ? enum?
-	unsigned short _priority = 0;
+	const struct DEFAULT_VALUES {
+		unsigned short priority = 0;
+	} DEFAULT;
+	unsigned short _priority = DEFAULT.priority;
 	List<SeizableItemRequest*>* _releaseRequests = new List<SeizableItemRequest*>();
 };
 

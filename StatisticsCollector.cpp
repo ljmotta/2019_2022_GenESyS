@@ -92,8 +92,8 @@ std::map<std::string, std::string>* StatisticsCollector::_saveInstance() {
 		parentId = std::to_string(_parent->getId());
 		parentTypename = _parent->getClassname();
 	}
-	fields->emplace("parentTypename", parentTypename);
-	fields->emplace("parentId", parentId);
+	SaveField(fields, "parentTypename", parentTypename);
+	SaveField(fields, "parentId", parentId);
 	return fields;
 }
 

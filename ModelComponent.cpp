@@ -105,13 +105,13 @@ bool ModelComponent::_loadInstance(std::map<std::string, std::string>* fields) {
 std::map<std::string, std::string>* ModelComponent::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelElement::_saveInstance();
 	if (true) {//(_connections->size() != 1) { // save nextSize only if it is != 1
-		fields->emplace("nextSize", std::to_string(_connections->size()));
+		SaveField(fields, "nextSize", _connections->size(), DEFAULT.nextSize);
 	}
 	unsigned short i = 0;
 	for (std::list<Connection*>::iterator it = _connections->list()->begin(); it != _connections->list()->end(); it++) {
-		fields->emplace("nextId" + std::to_string(i), std::to_string((*it)->first->_id));
+		SaveField(fields, "nextId" + std::to_string(i), (*it)->first->_id, 0);
 		if (true) {//((*it)->second != 0) { // save nextInputNumber only if it is != 0
-			fields->emplace("nextInputNumber" + std::to_string(i), std::to_string((*it)->second));
+			SaveField(fields, "nextInputNumber" + std::to_string(i), (*it)->second, DEFAULT.nextInputNumber);
 		}
 		i++;
 	}

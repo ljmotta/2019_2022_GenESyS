@@ -62,8 +62,8 @@ bool Set::_loadInstance(std::map<std::string, std::string>* fields) {
 
 std::map<std::string, std::string>* Set::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelElement::_saveInstance(); //Util::TypeOf<Set>());
-	//fields->emplace("orderRule", std::to_string(static_cast<int> (this->_orderRule)));
-	//fields->emplace("attributeName", "\""+this->_attributeName+"\"");
+	//SaveField(fields, "orderRule", std::to_string(static_cast<int> (this->_orderRule)));
+	//SaveField(fields, "attributeName", "\""+this->_attributeName+"\"");
 	return fields;
 }
 

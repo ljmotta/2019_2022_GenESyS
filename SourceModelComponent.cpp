@@ -35,7 +35,7 @@ bool SourceModelComponent::_loadInstance(std::map<std::string, std::string>* fie
 		this->_timeBetweenCreationsExpression = LoadField(fields, "timeBetweenCreations", DEFAULT.timeBetweenCreationsExpression);
 		this->_timeBetweenCreationsTimeUnit = static_cast<Util::TimeUnit> (std::stoi(LoadField(fields, "timeBetweenCreationsTimeUnit", DEFAULT.timeBetweenCreationsTimeUnit)));
 		this->_maxCreationsExpression = LoadField(fields, "maxCreations", DEFAULT.maxCreationsExpression);
-		std::string entityTypename = LoadField(fields, "entityTypename", "");
+		std::string entityTypename = LoadField(fields, "entityTypename");
 		this->_entityType = dynamic_cast<EntityType*> (_parentModel->getElements()->getElement(Util::TypeOf<EntityType>(), entityTypename));
 	}
 	return res;
@@ -47,19 +47,12 @@ void SourceModelComponent::_initBetweenReplications() {
 
 std::map<std::string, std::string>* SourceModelComponent::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
-	SaveField(fields, _entitiesPerCreation, DEFAULT.entitiesPerCreation, "entitiesPerCreation");
-	//if (_entitiesPerCreation != DEFAULT.entitiesPerCreation) fields->emplace("entitiesPerCreation", std::to_string(this->_entitiesPerCreation));
-	SaveField(fields, _firstCreation, DEFAULT.firstCreation, "firstCreation");
-	//if (_firstCreation != DEFAULT.firstCreation) fields->emplace("firstCreation", std::to_string(this->_firstCreation));
-	SaveField(fields, _timeBetweenCreationsExpression, DEFAULT.timeBetweenCreationsExpression, "timeBetweenCreations");
-	//if (_timeBetweenCreationsExpression != DEFAULT.timeBetweenCreationsExpression) fields->emplace("timeBetweenCreations", "\"" + this->_timeBetweenCreationsExpression + "\"");
-	SaveField(fields, _timeBetweenCreationsTimeUnit, DEFAULT.timeBetweenCreationsTimeUnit, "timeBetweenCreationsTimeUnit");
-	//if (_timeBetweenCreationsTimeUnit != DEFAULT.timeBetweenCreationsTimeUnit) fields->emplace("timeBetweenCreationsTimeUnit", std::to_string(static_cast<int> (this->_timeBetweenCreationsTimeUnit)));
-	SaveField(fields, _maxCreationsExpression, DEFAULT.maxCreationsExpression, "maxCreations");
-	//if (_maxCreationsExpression != DEFAULT.maxCreationsExpression) fields->emplace("maxCreations", "\"" + this->_maxCreationsExpression + "\"");
-	SaveField(fields, _entityType->getName(), "", "entityTypename");
-	//fields->emplace("entityTypename", (this->_entityType->getName())); // save the name
-	//fields->emplace("collectStatistics" , std::to_string(this->_collectStatistics));
+	SaveField(fields, "entitiesPerCreation", _entitiesPerCreation, DEFAULT.entitiesPerCreation);
+	SaveField(fields, "firstCreation", _firstCreation, DEFAULT.firstCreation);
+	SaveField(fields, "timeBetweenCreations", _timeBetweenCreationsExpression, DEFAULT.timeBetweenCreationsExpression);
+	SaveField(fields, "timeBetweenCreationsTimeUnit", _timeBetweenCreationsTimeUnit, DEFAULT.timeBetweenCreationsTimeUnit);
+	SaveField(fields, "maxCreations", _maxCreationsExpression, DEFAULT.maxCreationsExpression);
+	SaveField(fields, "entityTypename", _entityType->getName());
 	return fields;
 }
 

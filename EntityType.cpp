@@ -116,22 +116,22 @@ ModelElement* EntityType::LoadInstance(Model* model, std::map<std::string, std::
 bool EntityType::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelElement::_loadInstance(fields);
 	if (res) {
-		this->_initialNVACost = std::stod(LoadField(fields, "initialNVACost", "0.0"));
-		this->_initialOtherCost = std::stod(LoadField(fields, "initialOtherCost", "0.0"));
-		this->_initialPicture = (LoadField(fields, "initialPicture", "0.0"));
-		this->_initialVACost = std::stod(LoadField(fields, "initialVACost", "0.0"));
-		this->_initialWaitingCost = std::stod(LoadField(fields, "initialWaitingCost", "0.0"));
+		this->_initialNVACost = std::stod(LoadField(fields, "initialNVACost", DEFAULT.initialCost));
+		this->_initialOtherCost = std::stod(LoadField(fields, "initialOtherCost", DEFAULT.initialCost));
+		this->_initialVACost = std::stod(LoadField(fields, "initialVACost", DEFAULT.initialCost));
+		this->_initialWaitingCost = std::stod(LoadField(fields, "initialWaitingCost", DEFAULT.initialCost));
+		this->_initialPicture = (LoadField(fields, "initialPicture", DEFAULT.initialPicture));
 	}
 	return res;
 }
 
 std::map<std::string, std::string>* EntityType::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelElement::_saveInstance(); //Util::TypeOf<EntityType>());
-	if (_initialNVACost != 0.0) fields->emplace("initialNVACost", std::to_string(this->_initialNVACost));
-	if (_initialOtherCost != 0.0) fields->emplace("initialOtherCost", std::to_string(this->_initialOtherCost));
-	if (_initialPicture != "report") fields->emplace("initialPicture", this->_initialPicture);
-	if (_initialVACost != 0.0) fields->emplace("initialVACost", std::to_string(this->_initialVACost));
-	if (_initialWaitingCost != 0.0)fields->emplace("initialWaitingCost", std::to_string(this->_initialWaitingCost));
+	SaveField(fields, "initialNVACost", _initialNVACost, DEFAULT.initialCost);
+	SaveField(fields, "initialOtherCost", _initialOtherCost, DEFAULT.initialCost);
+	SaveField(fields, "initialVACost", _initialVACost, DEFAULT.initialCost);
+	SaveField(fields, "initialWaitingCost", _initialWaitingCost, DEFAULT.initialCost);
+	SaveField(fields, "initialPicture", _initialPicture, DEFAULT.initialPicture);
 	return fields;
 }
 

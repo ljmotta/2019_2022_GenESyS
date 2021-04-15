@@ -34,6 +34,7 @@ static inline std::string map2str(std::map<std::string, std::string>* mapss) {
 	return res;
 }
 
+/*
 static inline void ltrim(std::string &s) {
 	s.erase(s.begin(), std::find_if(s.begin(), s.end(), [](int ch) {
 		return !std::isspace(ch);
@@ -53,6 +54,14 @@ static inline void rtrim(std::string &s) {
 static inline void trim(std::string &s) {
 	ltrim(s);
 	rtrim(s);
+}
+*/
+
+static std::string trim(std::string str) {
+	const char* typeOfWhitespaces = " \t\n\r\f\v";
+	str.erase(str.find_last_not_of(typeOfWhitespaces) + 1);
+	str.erase(0,str.find_first_not_of(typeOfWhitespaces));
+	return str;
 }
 
 // trim all spaces within the string (in place) -- used to transform general names into valid literals
@@ -191,7 +200,7 @@ private:
 
 // \todo Implement it using templates (check impact on calling syntax)
 
-static inline std::string LoadField(std::map<std::string, std::string>* fields, std::string fieldName, std::string defaultValue) {
+static inline std::string LoadField(std::map<std::string, std::string>* fields, std::string fieldName, std::string defaultValue = "") {
 	return fields->find(fieldName) != fields->end() ? ((*(fields->find(fieldName))).second) : defaultValue;
 }
 
@@ -213,29 +222,33 @@ static inline std::string LoadField(std::map<std::string, std::string>* fields, 
 
 // \todo Implement it using templates (check impact on calling syntax)
 
-static inline void SaveField(std::map<std::string, std::string>* fields, std::string fieldValue, const std::string fieldDefaultValue, std::string fieldName) {
+static inline void SaveField(std::map<std::string, std::string>* fields, std::string fieldName, std::string fieldValue, const std::string fieldDefaultValue = "") {
 	if (fieldValue != fieldDefaultValue)
-		fields->emplace(fieldName, fieldValue);
+		fields->emplace(fieldName, "\"" + fieldValue + "\"");
 }
 
-static inline void SaveField(std::map<std::string, std::string>* fields, double fieldValue, const double fieldDefaultValue, std::string fieldName) {
+static inline void SaveField(std::map<std::string, std::string>* fields, std::string fieldName, double fieldValue, const double fieldDefaultValue) {
 	if (fieldValue != fieldDefaultValue)
 		fields->emplace(fieldName, std::to_string(fieldValue));
 }
 
-static inline void SaveField(std::map<std::string, std::string>* fields, unsigned int fieldValue, const unsigned int fieldDefaultValue, std::string fieldName) {
+static inline void SaveField(std::map<std::string, std::string>* fields, std::string fieldName, unsigned int fieldValue, const unsigned int fieldDefaultValue) {
 	if (fieldValue != fieldDefaultValue)
 		fields->emplace(fieldName, std::to_string(fieldValue));
 }
 
-static inline void SaveField(std::map<std::string, std::string>* fields, int fieldValue, const int fieldDefaultValue, std::string fieldName) {
+static inline void SaveField(std::map<std::string, std::string>* fields, std::string fieldName, unsigned int fieldValue) {
+	fields->emplace(fieldName, std::to_string(fieldValue));
+}
+
+static inline void SaveField(std::map<std::string, std::string>* fields, std::string fieldName, int fieldValue, const int fieldDefaultValue) {
 	if (fieldValue != fieldDefaultValue)
 		fields->emplace(fieldName, std::to_string(fieldValue));
 }
 
-static inline void SaveField(std::map<std::string, std::string>* fields, Util::TimeUnit fieldValue, const Util::TimeUnit fieldDefaultValue, std::string fieldName) {
+static inline void SaveField(std::map<std::string, std::string>* fields, std::string fieldName, Util::TimeUnit fieldValue, const Util::TimeUnit fieldDefaultValue) {
 	if (fieldValue != fieldDefaultValue)
-		fields->emplace(fieldName, std::to_string(static_cast<int>(fieldValue)));
+		fields->emplace(fieldName, std::to_string(static_cast<int> (fieldValue)));
 }
 
 //namespace\\}

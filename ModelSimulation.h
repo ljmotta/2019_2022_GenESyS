@@ -118,13 +118,21 @@ private:
 	bool _showReportsAfterSimulation = true;
 	bool _showReportsAfterReplication = true;
 private:
-	// replication and warmup duration
-	unsigned int _numberOfReplications = 1;
-	double _replicationLength = 3600.0; // by default, 3600 s = 1.0 h
-	Util::TimeUnit _replicationLengthTimeUnit = Util::TimeUnit::second;
-	double _warmUpPeriod = 0.0;
-	Util::TimeUnit _warmUpPeriodTimeUnit = Util::TimeUnit::second;
-	std::string _terminatingCondition = "";
+
+	const struct DEFAULT_VALUES {
+	unsigned int numberOfReplications = 1;
+		double replicationLength = 3600.0; // by default, 3600 s = 1.0 h
+		Util::TimeUnit replicationLengthTimeUnit = Util::TimeUnit::second;
+		double warmUpPeriod = 0.0;
+		Util::TimeUnit warmUpPeriodTimeUnit = Util::TimeUnit::second;
+		std::string terminatingCondition = "";
+	} DEFAULT;
+	unsigned int _numberOfReplications = DEFAULT.numberOfReplications;
+	double _replicationLength = DEFAULT.replicationLength;
+	Util::TimeUnit _replicationLengthTimeUnit = DEFAULT.replicationLengthTimeUnit;
+	double _warmUpPeriod = DEFAULT.warmUpPeriod;
+	Util::TimeUnit _warmUpPeriodTimeUnit = DEFAULT.warmUpPeriodTimeUnit;
+	std::string _terminatingCondition = DEFAULT.terminatingCondition;
 	bool _hasChanged = false;
 private:
 	Entity* _currentEntity;

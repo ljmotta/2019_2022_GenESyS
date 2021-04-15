@@ -26,28 +26,57 @@ SeizableItemRequest::SeizableItemRequest(ModelElement* resourceOrSet, std::strin
 bool SeizableItemRequest::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = true;
 	try {
-		_resourceType = static_cast<SeizableItemRequest::ResourceType> (std::stoi((*(fields->find("resourceType"))).second));
-		_resourceName = ((*(fields->find("resourceName"))).second);
-		//Resource* resource = dynamic_cast<Resource*> (_parentModel->getElements()->getElement(Util::TypeOf<Resource>(), resourceName));
-		_quantityExpression = ((*(fields->find("quantity"))).second);
-		_selectionRule = static_cast<SeizableItemRequest::SelectionRule> (std::stoi((*(fields->find("rule"))).second));
-		_saveAttribute = ((*(fields->find("saveAttribute"))).second);
-		_index = std::stoi((*(fields->find("index"))).second);
-	} catch (const std::exception& e) {
+		_resourceType = static_cast<SeizableItemRequest::ResourceType> (std::stoi(LoadField(fields, "resourceType", static_cast<int> (DEFAULT.resourceType))));
+		_resourceName = LoadField(fields, "resourceName", "");
+		_quantityExpression = LoadField(fields, "quantityExpression", DEFAULT.quantityExpression);
+		_selectionRule = static_cast<SeizableItemRequest::SelectionRule> (std::stoi(LoadField(fields, "selectionRule", static_cast<int> (DEFAULT.selectionRule))));
+		_saveAttribute = LoadField(fields, "saveAttribute", DEFAULT.saveAttribute);
+		_index = std::stoi(LoadField(fields, "index", DEFAULT.index));
+	} catch (...) {
 		res = false;
 	}
 	return res;
 }
 
+bool SeizableItemRequest::_loadInstance(std::map<std::string, std::string>* fields, unsigned int parentIndex) {
+	bool res = true;
+	std::string num = std::to_string(parentIndex);
+	try {
+		_resourceType = static_cast<SeizableItemRequest::ResourceType> (std::stoi(LoadField(fields, "resourceType" + num, static_cast<int> (DEFAULT.resourceType))));
+		_resourceName = LoadField(fields, "resourceName" + num, "");
+		_quantityExpression = LoadField(fields, "quantityExpression" + num, DEFAULT.quantityExpression);
+		_selectionRule = static_cast<SeizableItemRequest::SelectionRule> (std::stoi(LoadField(fields, "selectionRule" + num, static_cast<int> (DEFAULT.selectionRule))));
+		_saveAttribute = LoadField(fields, "saveAttribute" + num, DEFAULT.saveAttribute);
+		_index = std::stoi(LoadField(fields, "index" + num, DEFAULT.index));
+	} catch (...) {
+		res = false;
+	}
+	return res;
+}
+
+std::map<std::string, std::string>* SeizableItemRequest::_saveInstance(unsigned int parentIndex) {
+	std::map<std::string, std::string>* fields = new std::map<std::string, std::string>();
+	std::string num = std::to_string(parentIndex);
+	SaveField(fields, "resourceType" + num, static_cast<int> (_resourceType), static_cast<int> (DEFAULT.resourceType));
+	//SaveField(fields, "resourceId" + num, _resourceOrSet->getId());
+	SaveField(fields, "resourceName" + num, _resourceOrSet->getName(), "");
+	SaveField(fields, "quantityExpression" + num, _quantityExpression, DEFAULT.quantityExpression);
+	SaveField(fields, "selectionRule" + num, static_cast<int> (_selectionRule), static_cast<int> (DEFAULT.selectionRule));
+	SaveField(fields, "saveAttribute" + num, _saveAttribute, DEFAULT.saveAttribute);
+	SaveField(fields, "index" + num, _index, DEFAULT.index);
+	return fields;
+
+}
+
 std::map<std::string, std::string>* SeizableItemRequest::_saveInstance() {
 	std::map<std::string, std::string>* fields = new std::map<std::string, std::string>();
-	fields->emplace("resourceType", std::to_string(static_cast<int> (_resourceType)));
-	fields->emplace("resourceId", std::to_string(_resourceOrSet->getId()));
-	fields->emplace("resourceName", _resourceOrSet->getName());
-	fields->emplace("quantityExpression", _quantityExpression);
-	fields->emplace("selectionRule", std::to_string(static_cast<int> (_selectionRule)));
-	fields->emplace("saveAttribute", _saveAttribute);
-	fields->emplace("index", std::to_string(_index));
+	SaveField(fields, "resourceType", static_cast<int> (_resourceType), static_cast<int> (DEFAULT.resourceType));
+	SaveField(fields, "resourceId", _resourceOrSet->getId());
+	SaveField(fields, "resourceName", _resourceOrSet->getName(), "");
+	SaveField(fields, "quantityExpression", _quantityExpression, DEFAULT.quantityExpression);
+	SaveField(fields, "selectionRule", static_cast<int> (_selectionRule), static_cast<int> (DEFAULT.selectionRule));
+	SaveField(fields, "saveAttribute", _saveAttribute, DEFAULT.saveAttribute);
+	SaveField(fields, "index", _index, DEFAULT.index);
 	return fields;
 }
 

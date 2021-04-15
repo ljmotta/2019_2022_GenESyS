@@ -98,14 +98,14 @@ ModelElement* Variable::LoadInstance(Model* model, std::map<std::string, std::st
 bool Variable::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelElement::_loadInstance(fields);
 	if (res) {
-		///////////this->_numCols=std::stoi((*(fields->find("numCols"))).second);
-		///////////this->_numRows=std::stoi((*(fields->find("numRows"))).second);
-		unsigned int nv = std::stoi((*(fields->find("numValues"))).second);
+		///////////this->_numCols=std::stoi(LoadField(fields, "numCols"))).second);
+		///////////this->_numRows=std::stoi(LoadField(fields, "numRows"))).second);
+		unsigned int nv = std::stoi(LoadField(fields, "numValues", 0));
 		std::string pos;
 		double value;
 		for (unsigned int i = 0; i < nv; i++) {
-			pos = ((*(fields->find("pos" + std::to_string(i)))).second);
-			value = std::stod((*(fields->find("value" + std::to_string(i)))).second);
+			pos = LoadField(fields, "pos" + std::to_string(i), 0);
+			value = std::stod(LoadField(fields, "value" + std::to_string(i), 0));
 			this->_initialValues->emplace(pos, value);
 		}
 	}
@@ -114,14 +114,13 @@ bool Variable::_loadInstance(std::map<std::string, std::string>* fields) {
 
 std::map<std::string, std::string>* Variable::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelElement::_saveInstance(); //Util::TypeOf<Variable>());
-	///////////fields->emplace("numCols" , std::to_string(this->_numCols));
-	///////////fields->emplace("numRows" , std::to_string(this->_numRows));
-	fields->emplace("numValues", std::to_string(this->_initialValues->size()));
+	///////////SaveField(fields, "numCols" , std::to_string(this->_numCols));
+	///////////SaveField(fields, "numRows" , std::to_string(this->_numRows));
+	SaveField(fields, "numValues", _initialValues->size(), 0);
 	unsigned int i = 0;
-	for (std::map<std::string, double>::iterator it = this->_initialValues->begin(); it != _initialValues->end(); it++) {
-		fields->emplace("pos" + std::to_string(i), (*it).first);
-		fields->emplace("value" + std::to_string(i), std::to_string((*it).second));
-		i++;
+	for (std::map<std::string, double>::iterator it = this->_initialValues->begin(); it != _initialValues->end(); it++, i++) {
+		SaveField(fields, "pos" + std::to_string(i), (*it).first, 0);
+		SaveField(fields, "value" + std::to_string(i), (*it).second, 0.0);
 	}
 	return fields;
 }

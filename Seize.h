@@ -154,8 +154,12 @@ protected:
 private:
 	void _handlerForResourceEvent(Resource* resource);
 private:
-	unsigned int _allocationType = 0; // uint ? enum?
-	unsigned short _priority = 0;
+	const struct DEFAULT_VALUES {
+	unsigned int allocationType = 0; // uint ? enum?
+	unsigned short priority = 0;		
+	} DEFAULT;
+	unsigned int _allocationType = DEFAULT.allocationType; // uint ? enum?
+	unsigned short _priority = DEFAULT.priority;
 	Queue* _queue; // usually has a queue, but not always (it could be a hold) 
 	List<SeizableItemRequest*>* _seizeRequests = new List<SeizableItemRequest*>();
 private: // not gets or sets

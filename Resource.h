@@ -131,11 +131,17 @@ private:
 	//private:
 	//    ElementManager* _elems;
 private:
-	unsigned int _capacity = 1;
-	double _costBusyHour = 1.0;
-	double _costIdleHour = 1.0;
-	double _costPerUse = 1.0;
-	ResourceState _resourceState = ResourceState::IDLE;
+
+	const struct DEFAULT_VALUES {
+		unsigned int capacity = 1;
+		double cost = 1.0;
+		ResourceState resourceState = ResourceState::IDLE;
+	} DEFAULT;
+	unsigned int _capacity = DEFAULT.capacity;
+	double _costBusyHour = DEFAULT.cost;
+	double _costIdleHour = DEFAULT.cost;
+	double _costPerUse = DEFAULT.cost;
+	ResourceState _resourceState = DEFAULT.resourceState;
 private: // only gets
 	unsigned int _numberBusy = 0;
 	//unsigned int _numberOut = 0;

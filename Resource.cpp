@@ -151,21 +151,22 @@ ModelElement* Resource::LoadInstance(Model* model, std::map<std::string, std::st
 bool Resource::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelElement::_loadInstance(fields);
 	if (res) {
-		//this->_capacity = (fields->find("capacity") != fields->end() ? std::stoi((*(fields->find("capacity"))).second) : 1);
-		this->_capacity = std::stoi(LoadField(fields, "capacity", "1"));
-		this->_costBusyHour = std::stod(LoadField(fields, "costBusyHour", "1.0")); //(*(fields->find("costBusyHour"))).second);
-		this->_costIdleHour = std::stod(LoadField(fields, "costIdleHour", "1.0")); //(*(fields->find("costIdleHour"))).second);
-		this->_costPerUse = std::stod(LoadField(fields, "costPerUse", "1.0")); //(*(fields->find("costPerUse"))).second);
+		_capacity = std::stoi(LoadField(fields, "capacity", DEFAULT.capacity));
+		_costBusyHour = std::stod(LoadField(fields, "costBusyHour", DEFAULT.cost));
+		_costIdleHour = std::stod(LoadField(fields, "costIdleHour", DEFAULT.cost));
+		_costPerUse = std::stod(LoadField(fields, "costPerUse", DEFAULT.cost));
+		_resourceState = static_cast<Resource::ResourceState> (std::stoi(LoadField(fields, "resourceState", static_cast<int> (DEFAULT.resourceState))));
 	}
 	return res;
 }
 
 std::map<std::string, std::string>* Resource::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelElement::_saveInstance(); //Util::TypeOf<Resource>());
-	if (_capacity != 1) fields->emplace("capacity", std::to_string(this->_capacity));
-	if (_costBusyHour != 1.0) fields->emplace("costBusyHour", std::to_string(this->_costBusyHour));
-	if (_costIdleHour != 1.0) fields->emplace("costIdleHour", std::to_string(this->_costIdleHour));
-	if (_costPerUse != 1.0) fields->emplace("costPerUse", std::to_string(this->_costPerUse));
+	SaveField(fields, "capacity", _capacity, DEFAULT.capacity);
+	SaveField(fields, "costBusyHour", _costBusyHour, DEFAULT.cost);
+	SaveField(fields, "costIdleHour", _costIdleHour, DEFAULT.cost);
+	SaveField(fields, "costPerUse", _costPerUse, DEFAULT.cost);
+	SaveField(fields, "resourceState", static_cast<int> (_resourceState), static_cast<int> (DEFAULT.resourceState));
 	return fields;
 }
 
