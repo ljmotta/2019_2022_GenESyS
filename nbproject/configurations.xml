@@ -178,14 +178,10 @@
         <itemPath>File.h</itemPath>
         <itemPath>OLD_ODEelement.cpp</itemPath>
         <itemPath>OLD_ODEelement.h</itemPath>
-        <itemPath>Resource.cpp</itemPath>
-        <itemPath>Resource.h</itemPath>
         <itemPath>Schedule.cpp</itemPath>
         <itemPath>Schedule.h</itemPath>
         <itemPath>Sequence.cpp</itemPath>
         <itemPath>Sequence.h</itemPath>
-        <itemPath>Set.cpp</itemPath>
-        <itemPath>Set.h</itemPath>
         <itemPath>Station.cpp</itemPath>
         <itemPath>Station.h</itemPath>
         <itemPath>Storage.cpp</itemPath>
@@ -335,6 +331,8 @@
             <pElem>plugin/Variable.h</pElem>
             <pElem>plugin/Write.h</pElem>
             <pElem>plugin/Queue.h</pElem>
+            <pElem>plugin/Resource.h</pElem>
+            <pElem>plugin/Set.h</pElem>
           </incFile>
           <commandLine>-fpermissive -Wl,--export-dynamic -L../plugin/build/ -Wl,-rpath=./plugin/build/ -Wl,--no-as-needed -ldl</commandLine>
         </ccTool>
@@ -609,10 +607,6 @@
       </item>
       <item path="RequirementTester.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Resource.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Resource.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="Route.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Route.h" ex="false" tool="3" flavor2="0">
@@ -640,10 +634,6 @@
       <item path="Sequence.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Sequence.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Set.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Set.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Signal.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -1093,10 +1083,6 @@
       </item>
       <item path="RequirementTester.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Resource.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Resource.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="Route.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Route.h" ex="false" tool="3" flavor2="0">
@@ -1124,10 +1110,6 @@
       <item path="Sequence.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Sequence.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Set.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Set.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Signal.cpp" ex="false" tool="1" flavor2="0">
       </item>

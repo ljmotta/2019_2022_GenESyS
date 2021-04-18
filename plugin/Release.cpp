@@ -13,7 +13,7 @@
 
 #include "Release.h"
 #include "../Model.h"
-#include "../Resource.h"
+#include "Resource.h"
 #include "../Attribute.h"
 #include <assert.h>
 

@@ -16,7 +16,7 @@
 #include "../Model.h"
 #include "Variable.h"
 #include "../Attribute.h"
-#include "../Resource.h"
+#include "Resource.h"
 
 extern "C" StaticGetPluginInformation getPluginInformation() {
 	return &Assign::GetPluginInformation;

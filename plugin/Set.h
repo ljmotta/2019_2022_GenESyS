@@ -14,10 +14,10 @@
 #ifndef SET_H
 #define SET_H
 
-#include "ModelElement.h"
-#include "ElementManager.h"
-#include "ParserChangesInformation.h"
-#include "PluginInformation.h"
+#include "../ModelElement.h"
+#include "../ElementManager.h"
+#include "../ParserChangesInformation.h"
+#include "../PluginInformation.h"
 
 /*!
  Set module
@@ -54,25 +54,72 @@ Type is Entity Picture.
  */
 class Set : public ModelElement {
 public:
-	Set(Model* model, std::string name = "");
+	Set(Model* model, std::string name = "") : ModelElement(model, Util::TypeOf<Set>(), name) {};
 	virtual ~Set() = default;
 public: // static
-	static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
-	static ModelElement* CreateInstance(Model* model, std::string name);
-	static PluginInformation* GetPluginInformation();
+	static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+		Set* newElement = new Set(model);
+		try {
+			newElement->_loadInstance(fields);
+		} catch (const std::exception& e) {
+
+		}
+		return newElement;
+	}
+	static ModelElement* CreateInstance(Model* model, std::string name) {
+		return new Set(model, name);;
+	}
+	static PluginInformation* GetPluginInformation() {
+		PluginInformation* info = new PluginInformation(Util::TypeOf<Set>(), &Set::LoadInstance, &Set::CreateInstance);
+		return info;
+	}
 public:
-	virtual std::string show();
+	virtual std::string show() {
+		return ModelElement::show() +
+				"";
+	}
 public:
-	virtual void setSetOfType(std::string _setOfType);
-	virtual std::string getSetOfType() const;
-	virtual List<ModelElement*>* getElementSet() const;
+	virtual void setSetOfType(std::string _setOfType) {
+		this->_setOfType = _setOfType;
+	}
+	virtual std::string getSetOfType() const {
+		return _setOfType;
+	}
+	virtual List<ModelElement*>* getElementSet() const {
+		return _elementSet;
+	}
 
 protected: // must be overriden by derived classes
-	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
-	virtual std::map<std::string, std::string>* _saveInstance();
+	bool _loadInstance(std::map<std::string, std::string>* fields) {
+		bool res = ModelElement::_loadInstance(fields);
+		if (res) {
+			try {
+				//this->_attributeName = (*fields->find("attributeName")).second;
+				//this->_orderRule = static_cast<OrderRule> (std::stoi((*fields->find("orderRule")).second));
+			} catch (...) {
+			}
+		}
+		return res;
+	}
+	std::map<std::string, std::string>* _saveInstance() {
+		std::map<std::string, std::string>* fields = ModelElement::_saveInstance(); //Util::TypeOf<Set>());
+		//fields->emplace("orderRule", std::to_string(static_cast<int> (this->_orderRule)));
+		//fields->emplace("attributeName", this->_attributeName);
+		return fields;
+	}
 protected: // could be overriden by derived classes
-	virtual bool _check(std::string* errorMessage);
-	virtual ParserChangesInformation* _getParserChangesInformation();
+	bool _check(std::string* errorMessage) {
+		bool resultAll = true;
+		// resultAll |= ...
+		return resultAll;
+	}
+	ParserChangesInformation* _getParserChangesInformation() {
+		ParserChangesInformation* changes = new ParserChangesInformation();
+		//changes->getProductionToAdd()->insert(...);
+		//changes->getTokensToAdd()->insert(...);
+		return changes;
+	}
+
 private:
 	//ElementManager* _elems;
 	List<ModelElement*>* _elementSet = new List<ModelElement*>();

@@ -18,7 +18,6 @@
 
 // Model Components
 #include "Record.h"
-#include "Resource.h"
 #include "PluginLoader.h"
 
 // Model elements
@@ -27,7 +26,6 @@
 #include "Attribute.h"
 #include "ProbDistribDefaultImpl1.h"
 #include "EntityGroup.h"
-#include "Set.h"
 
 FourthExampleOfSimulation::FourthExampleOfSimulation() {
 }

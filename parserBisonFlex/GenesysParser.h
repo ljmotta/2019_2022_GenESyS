@@ -57,8 +57,8 @@
 #include "../Attribute.h"
 #include "../plugin/Queue.h"
 #include "../plugin/Formula.h"
-#include "../Resource.h"
-#include "../Set.h"
+#include "../plugin/Resource.h"
+#include "../plugin/Set.h"
 class genesyspp_driver;
 
 

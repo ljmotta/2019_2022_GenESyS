@@ -15,7 +15,7 @@
 #define RELEASE_H
 
 #include "../ModelComponent.h"
-#include "../Resource.h"
+#include "Resource.h"
 #include "../Plugin.h"
 #include <string>
 

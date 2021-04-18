@@ -12,7 +12,7 @@
  */
 
 #include "Seize.h"
-#include "../Resource.h"
+#include "Resource.h"
 #include "../Attribute.h"
 
 extern "C" StaticGetPluginInformation getPluginInformation() {

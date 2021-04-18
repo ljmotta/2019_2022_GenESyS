@@ -93,14 +93,12 @@ OBJECTFILES= \
 	${OBJECTDIR}/ProbDistribDefaultImpl1.o \
 	${OBJECTDIR}/Record.o \
 	${OBJECTDIR}/RequirementTester.o \
-	${OBJECTDIR}/Resource.o \
 	${OBJECTDIR}/Route.o \
 	${OBJECTDIR}/SamplerBoostImpl.o \
 	${OBJECTDIR}/SamplerDefaultImpl1.o \
 	${OBJECTDIR}/Schedule.o \
 	${OBJECTDIR}/SecondExampleOfSimulation.o \
 	${OBJECTDIR}/Sequence.o \
-	${OBJECTDIR}/Set.o \
 	${OBJECTDIR}/Signal.o \
 	${OBJECTDIR}/SimulationControl.o \
 	${OBJECTDIR}/SimulationReporterDefaultImpl1.o \
@@ -446,11 +444,6 @@ ${OBJECTDIR}/RequirementTester.o: RequirementTester.cpp nbproject/Makefile-${CND
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/RequirementTester.o RequirementTester.cpp
 
-${OBJECTDIR}/Resource.o: Resource.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Resource.o Resource.cpp
-
 ${OBJECTDIR}/Route.o: Route.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -480,11 +473,6 @@ ${OBJECTDIR}/Sequence.o: Sequence.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Sequence.o Sequence.cpp
-
-${OBJECTDIR}/Set.o: Set.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Set.o Set.cpp
 
 ${OBJECTDIR}/Signal.o: Signal.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

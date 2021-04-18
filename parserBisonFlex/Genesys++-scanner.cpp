@@ -4138,9 +4138,9 @@ char *yytext;
 # include "../plugin/Variable.h"
 # include "../plugin/Queue.h"
 # include "../plugin/Formula.h"
-# include "../Resource.h"
+# include "../plugin/Resource.h"
 # include "../StatisticsCollector.h"
-# include "../Set.h"
+# include "../plugin/Set.h"
 # include "../ModelElement.h"
 # include "../Attribute.h"
 

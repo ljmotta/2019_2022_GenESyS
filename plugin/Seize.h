@@ -17,7 +17,7 @@
 #include <string>
 #include "../ModelComponent.h"
 #include "../Model.h"
-#include "../Resource.h"
+#include "Resource.h"
 #include "Queue.h"
 #include "../Plugin.h"
 
