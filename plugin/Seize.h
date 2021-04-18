@@ -18,7 +18,7 @@
 #include "../ModelComponent.h"
 #include "../Model.h"
 #include "../Resource.h"
-#include "../Queue.h"
+#include "Queue.h"
 #include "../Plugin.h"
 
 class WaitingResource : public Waiting {

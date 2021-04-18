@@ -178,8 +178,6 @@
         <itemPath>File.h</itemPath>
         <itemPath>OLD_ODEelement.cpp</itemPath>
         <itemPath>OLD_ODEelement.h</itemPath>
-        <itemPath>Queue.cpp</itemPath>
-        <itemPath>Queue.h</itemPath>
         <itemPath>Resource.cpp</itemPath>
         <itemPath>Resource.h</itemPath>
         <itemPath>Schedule.cpp</itemPath>
@@ -336,6 +334,7 @@
             <pElem>plugin/Seize.h</pElem>
             <pElem>plugin/Variable.h</pElem>
             <pElem>plugin/Write.h</pElem>
+            <pElem>plugin/Queue.h</pElem>
           </incFile>
           <commandLine>-fpermissive -Wl,--export-dynamic -L../plugin/build/ -Wl,-rpath=./plugin/build/ -Wl,--no-as-needed -ldl</commandLine>
         </ccTool>
@@ -601,10 +600,6 @@
       <item path="ProbDistribDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Prob_Distrib_if.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Queue.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Queue.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Record.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -1089,10 +1084,6 @@
       <item path="ProbDistribDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Prob_Distrib_if.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Queue.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Queue.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Record.cpp" ex="false" tool="1" flavor2="0">
       </item>

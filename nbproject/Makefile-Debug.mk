@@ -91,7 +91,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/PluginManager.o \
 	${OBJECTDIR}/ProbDistribBoostImpl.o \
 	${OBJECTDIR}/ProbDistribDefaultImpl1.o \
-	${OBJECTDIR}/Queue.o \
 	${OBJECTDIR}/Record.o \
 	${OBJECTDIR}/RequirementTester.o \
 	${OBJECTDIR}/Resource.o \
@@ -160,482 +159,477 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/2019_2022_genesys: ${OBJECTFILES}
 ${OBJECTDIR}/Attribute.o: Attribute.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Attribute.o Attribute.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Attribute.o Attribute.cpp
 
 ${OBJECTDIR}/BaseConsoleGenesysApplication.o: BaseConsoleGenesysApplication.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/BaseConsoleGenesysApplication.o BaseConsoleGenesysApplication.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/BaseConsoleGenesysApplication.o BaseConsoleGenesysApplication.cpp
 
 ${OBJECTDIR}/CollectorDatafileDefaultImpl1.o: CollectorDatafileDefaultImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/CollectorDatafileDefaultImpl1.o CollectorDatafileDefaultImpl1.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/CollectorDatafileDefaultImpl1.o CollectorDatafileDefaultImpl1.cpp
 
 ${OBJECTDIR}/CollectorDefaultImpl1.o: CollectorDefaultImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/CollectorDefaultImpl1.o CollectorDefaultImpl1.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/CollectorDefaultImpl1.o CollectorDefaultImpl1.cpp
 
 ${OBJECTDIR}/ComponentManager.o: ComponentManager.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ComponentManager.o ComponentManager.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ComponentManager.o ComponentManager.cpp
 
 ${OBJECTDIR}/ConnectionManager.o: ConnectionManager.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ConnectionManager.o ConnectionManager.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ConnectionManager.o ConnectionManager.cpp
 
 ${OBJECTDIR}/Counter.o: Counter.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Counter.o Counter.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Counter.o Counter.cpp
 
 ${OBJECTDIR}/Dummy.o: Dummy.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Dummy.o Dummy.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Dummy.o Dummy.cpp
 
 ${OBJECTDIR}/ElementManager.o: ElementManager.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ElementManager.o ElementManager.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ElementManager.o ElementManager.cpp
 
 ${OBJECTDIR}/Enter.o: Enter.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Enter.o Enter.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Enter.o Enter.cpp
 
 ${OBJECTDIR}/Entity.o: Entity.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Entity.o Entity.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Entity.o Entity.cpp
 
 ${OBJECTDIR}/EntityGroup.o: EntityGroup.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/EntityGroup.o EntityGroup.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/EntityGroup.o EntityGroup.cpp
 
 ${OBJECTDIR}/EntityType.o: EntityType.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/EntityType.o EntityType.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/EntityType.o EntityType.cpp
 
 ${OBJECTDIR}/Event.o: Event.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Event.o Event.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Event.o Event.cpp
 
 ${OBJECTDIR}/ExperimentDesignDefaultImpl1.o: ExperimentDesignDefaultImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ExperimentDesignDefaultImpl1.o ExperimentDesignDefaultImpl1.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ExperimentDesignDefaultImpl1.o ExperimentDesignDefaultImpl1.cpp
 
 ${OBJECTDIR}/ExperimentDesignDummyImpl.o: ExperimentDesignDummyImpl.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ExperimentDesignDummyImpl.o ExperimentDesignDummyImpl.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ExperimentDesignDummyImpl.o ExperimentDesignDummyImpl.cpp
 
 ${OBJECTDIR}/ExperimentManagerDefaultImpl1.o: ExperimentManagerDefaultImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ExperimentManagerDefaultImpl1.o ExperimentManagerDefaultImpl1.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ExperimentManagerDefaultImpl1.o ExperimentManagerDefaultImpl1.cpp
 
 ${OBJECTDIR}/FactorOrInteractionContribution.o: FactorOrInteractionContribution.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FactorOrInteractionContribution.o FactorOrInteractionContribution.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FactorOrInteractionContribution.o FactorOrInteractionContribution.cpp
 
 ${OBJECTDIR}/Failure.o: Failure.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Failure.o Failure.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Failure.o Failure.cpp
 
 ${OBJECTDIR}/FifthExampleOfSimulation.o: FifthExampleOfSimulation.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FifthExampleOfSimulation.o FifthExampleOfSimulation.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FifthExampleOfSimulation.o FifthExampleOfSimulation.cpp
 
 ${OBJECTDIR}/File.o: File.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/File.o File.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/File.o File.cpp
 
 ${OBJECTDIR}/FirstExampleOfSimulation.o: FirstExampleOfSimulation.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FirstExampleOfSimulation.o FirstExampleOfSimulation.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FirstExampleOfSimulation.o FirstExampleOfSimulation.cpp
 
 ${OBJECTDIR}/FitterDefaultImpl1.o: FitterDefaultImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FitterDefaultImpl1.o FitterDefaultImpl1.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FitterDefaultImpl1.o FitterDefaultImpl1.cpp
 
 ${OBJECTDIR}/FourthExampleOfSimulation.o: FourthExampleOfSimulation.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FourthExampleOfSimulation.o FourthExampleOfSimulation.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FourthExampleOfSimulation.o FourthExampleOfSimulation.cpp
 
 ${OBJECTDIR}/FullSimulationOfComplexModel.o: FullSimulationOfComplexModel.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FullSimulationOfComplexModel.o FullSimulationOfComplexModel.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FullSimulationOfComplexModel.o FullSimulationOfComplexModel.cpp
 
 ${OBJECTDIR}/GenesysConsole.o: GenesysConsole.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/GenesysConsole.o GenesysConsole.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/GenesysConsole.o GenesysConsole.cpp
 
 ${OBJECTDIR}/GenesysGUI.o: GenesysGUI.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/GenesysGUI.o GenesysGUI.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/GenesysGUI.o GenesysGUI.cpp
 
 ${OBJECTDIR}/Hold.o: Hold.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Hold.o Hold.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Hold.o Hold.cpp
 
 ${OBJECTDIR}/HypothesisTesterBoostImpl.o: HypothesisTesterBoostImpl.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/HypothesisTesterBoostImpl.o HypothesisTesterBoostImpl.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/HypothesisTesterBoostImpl.o HypothesisTesterBoostImpl.cpp
 
 ${OBJECTDIR}/HypothesisTesterDefaultImpl1.o: HypothesisTesterDefaultImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/HypothesisTesterDefaultImpl1.o HypothesisTesterDefaultImpl1.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/HypothesisTesterDefaultImpl1.o HypothesisTesterDefaultImpl1.cpp
 
 ${OBJECTDIR}/IntegratorDefaultImpl1.o: IntegratorDefaultImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/IntegratorDefaultImpl1.o IntegratorDefaultImpl1.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/IntegratorDefaultImpl1.o IntegratorDefaultImpl1.cpp
 
 ${OBJECTDIR}/Leave.o: Leave.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Leave.o Leave.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Leave.o Leave.cpp
 
 ${OBJECTDIR}/LicenceManager.o: LicenceManager.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/LicenceManager.o LicenceManager.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/LicenceManager.o LicenceManager.cpp
 
 ${OBJECTDIR}/Match.o: Match.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Match.o Match.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Match.o Match.cpp
 
 ${OBJECTDIR}/MathMeth.o: MathMeth.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/MathMeth.o MathMeth.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/MathMeth.o MathMeth.cpp
 
 ${OBJECTDIR}/Model.o: Model.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Model.o Model.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Model.o Model.cpp
 
 ${OBJECTDIR}/ModelCheckerDefaultImpl1.o: ModelCheckerDefaultImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelCheckerDefaultImpl1.o ModelCheckerDefaultImpl1.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelCheckerDefaultImpl1.o ModelCheckerDefaultImpl1.cpp
 
 ${OBJECTDIR}/ModelComponent.o: ModelComponent.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelComponent.o ModelComponent.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelComponent.o ModelComponent.cpp
 
 ${OBJECTDIR}/ModelElement.o: ModelElement.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelElement.o ModelElement.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelElement.o ModelElement.cpp
 
 ${OBJECTDIR}/ModelInfo.o: ModelInfo.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelInfo.o ModelInfo.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelInfo.o ModelInfo.cpp
 
 ${OBJECTDIR}/ModelManager.o: ModelManager.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelManager.o ModelManager.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelManager.o ModelManager.cpp
 
 ${OBJECTDIR}/ModelPersistenceDefaultImpl1.o: ModelPersistenceDefaultImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelPersistenceDefaultImpl1.o ModelPersistenceDefaultImpl1.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelPersistenceDefaultImpl1.o ModelPersistenceDefaultImpl1.cpp
 
 ${OBJECTDIR}/ModelSimulation.o: ModelSimulation.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelSimulation.o ModelSimulation.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ModelSimulation.o ModelSimulation.cpp
 
 ${OBJECTDIR}/OLD_ODEelement.o: OLD_ODEelement.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/OLD_ODEelement.o OLD_ODEelement.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/OLD_ODEelement.o OLD_ODEelement.cpp
 
 ${OBJECTDIR}/OnEventManager.o: OnEventManager.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/OnEventManager.o OnEventManager.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/OnEventManager.o OnEventManager.cpp
 
 ${OBJECTDIR}/ParserChangesInformation.o: ParserChangesInformation.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ParserChangesInformation.o ParserChangesInformation.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ParserChangesInformation.o ParserChangesInformation.cpp
 
 ${OBJECTDIR}/ParserDefaultImpl1.o: ParserDefaultImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ParserDefaultImpl1.o ParserDefaultImpl1.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ParserDefaultImpl1.o ParserDefaultImpl1.cpp
 
 ${OBJECTDIR}/ParserManager.o: ParserManager.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ParserManager.o ParserManager.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ParserManager.o ParserManager.cpp
 
 ${OBJECTDIR}/PickUp.o: PickUp.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PickUp.o PickUp.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PickUp.o PickUp.cpp
 
 ${OBJECTDIR}/Plugin.o: Plugin.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Plugin.o Plugin.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Plugin.o Plugin.cpp
 
 ${OBJECTDIR}/PluginConnectorDummyImpl1.o: PluginConnectorDummyImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PluginConnectorDummyImpl1.o PluginConnectorDummyImpl1.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PluginConnectorDummyImpl1.o PluginConnectorDummyImpl1.cpp
 
 ${OBJECTDIR}/PluginInformation.o: PluginInformation.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PluginInformation.o PluginInformation.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PluginInformation.o PluginInformation.cpp
 
 ${OBJECTDIR}/PluginLoader.o: PluginLoader.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PluginLoader.o PluginLoader.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PluginLoader.o PluginLoader.cpp
 
 ${OBJECTDIR}/PluginManager.o: PluginManager.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PluginManager.o PluginManager.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PluginManager.o PluginManager.cpp
 
 ${OBJECTDIR}/ProbDistribBoostImpl.o: ProbDistribBoostImpl.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ProbDistribBoostImpl.o ProbDistribBoostImpl.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ProbDistribBoostImpl.o ProbDistribBoostImpl.cpp
 
 ${OBJECTDIR}/ProbDistribDefaultImpl1.o: ProbDistribDefaultImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ProbDistribDefaultImpl1.o ProbDistribDefaultImpl1.cpp
-
-${OBJECTDIR}/Queue.o: Queue.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Queue.o Queue.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ProbDistribDefaultImpl1.o ProbDistribDefaultImpl1.cpp
 
 ${OBJECTDIR}/Record.o: Record.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Record.o Record.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Record.o Record.cpp
 
 ${OBJECTDIR}/RequirementTester.o: RequirementTester.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/RequirementTester.o RequirementTester.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/RequirementTester.o RequirementTester.cpp
 
 ${OBJECTDIR}/Resource.o: Resource.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Resource.o Resource.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Resource.o Resource.cpp
 
 ${OBJECTDIR}/Route.o: Route.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Route.o Route.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Route.o Route.cpp
 
 ${OBJECTDIR}/SamplerBoostImpl.o: SamplerBoostImpl.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SamplerBoostImpl.o SamplerBoostImpl.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SamplerBoostImpl.o SamplerBoostImpl.cpp
 
 ${OBJECTDIR}/SamplerDefaultImpl1.o: SamplerDefaultImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SamplerDefaultImpl1.o SamplerDefaultImpl1.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SamplerDefaultImpl1.o SamplerDefaultImpl1.cpp
 
 ${OBJECTDIR}/Schedule.o: Schedule.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Schedule.o Schedule.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Schedule.o Schedule.cpp
 
 ${OBJECTDIR}/SecondExampleOfSimulation.o: SecondExampleOfSimulation.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SecondExampleOfSimulation.o SecondExampleOfSimulation.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SecondExampleOfSimulation.o SecondExampleOfSimulation.cpp
 
 ${OBJECTDIR}/Sequence.o: Sequence.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Sequence.o Sequence.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Sequence.o Sequence.cpp
 
 ${OBJECTDIR}/Set.o: Set.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Set.o Set.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Set.o Set.cpp
 
 ${OBJECTDIR}/Signal.o: Signal.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Signal.o Signal.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Signal.o Signal.cpp
 
 ${OBJECTDIR}/SimulationControl.o: SimulationControl.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SimulationControl.o SimulationControl.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SimulationControl.o SimulationControl.cpp
 
 ${OBJECTDIR}/SimulationReporterDefaultImpl1.o: SimulationReporterDefaultImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SimulationReporterDefaultImpl1.o SimulationReporterDefaultImpl1.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SimulationReporterDefaultImpl1.o SimulationReporterDefaultImpl1.cpp
 
 ${OBJECTDIR}/SimulationResponse.o: SimulationResponse.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SimulationResponse.o SimulationResponse.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SimulationResponse.o SimulationResponse.cpp
 
 ${OBJECTDIR}/SimulationScenario.o: SimulationScenario.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SimulationScenario.o SimulationScenario.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SimulationScenario.o SimulationScenario.cpp
 
 ${OBJECTDIR}/Simulator.o: Simulator.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Simulator.o Simulator.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Simulator.o Simulator.cpp
 
 ${OBJECTDIR}/SinkModelComponent.o: SinkModelComponent.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SinkModelComponent.o SinkModelComponent.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SinkModelComponent.o SinkModelComponent.cpp
 
 ${OBJECTDIR}/SourceModelComponent.o: SourceModelComponent.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SourceModelComponent.o SourceModelComponent.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SourceModelComponent.o SourceModelComponent.cpp
 
 ${OBJECTDIR}/Station.o: Station.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Station.o Station.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Station.o Station.cpp
 
 ${OBJECTDIR}/StatisticsCollector.o: StatisticsCollector.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/StatisticsCollector.o StatisticsCollector.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/StatisticsCollector.o StatisticsCollector.cpp
 
 ${OBJECTDIR}/StatisticsDataFileDefaultImpl.o: StatisticsDataFileDefaultImpl.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/StatisticsDataFileDefaultImpl.o StatisticsDataFileDefaultImpl.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/StatisticsDataFileDefaultImpl.o StatisticsDataFileDefaultImpl.cpp
 
 ${OBJECTDIR}/StatisticsDefaultImpl1.o: StatisticsDefaultImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/StatisticsDefaultImpl1.o StatisticsDefaultImpl1.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/StatisticsDefaultImpl1.o StatisticsDefaultImpl1.cpp
 
 ${OBJECTDIR}/Storage.o: Storage.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Storage.o Storage.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Storage.o Storage.cpp
 
 ${OBJECTDIR}/Submodel.o: Submodel.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Submodel.o Submodel.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Submodel.o Submodel.cpp
 
 ${OBJECTDIR}/TestEnterLeaveRoute.o: TestEnterLeaveRoute.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestEnterLeaveRoute.o TestEnterLeaveRoute.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestEnterLeaveRoute.o TestEnterLeaveRoute.cpp
 
 ${OBJECTDIR}/TestFunctions.o: TestFunctions.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestFunctions.o TestFunctions.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestFunctions.o TestFunctions.cpp
 
 ${OBJECTDIR}/TestMatricesOfAttributesAndVariables.o: TestMatricesOfAttributesAndVariables.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestMatricesOfAttributesAndVariables.o TestMatricesOfAttributesAndVariables.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestMatricesOfAttributesAndVariables.o TestMatricesOfAttributesAndVariables.cpp
 
 ${OBJECTDIR}/TestParser.o: TestParser.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestParser.o TestParser.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestParser.o TestParser.cpp
 
 ${OBJECTDIR}/TestSimulationControlAndSimulationResponse.o: TestSimulationControlAndSimulationResponse.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestSimulationControlAndSimulationResponse.o TestSimulationControlAndSimulationResponse.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestSimulationControlAndSimulationResponse.o TestSimulationControlAndSimulationResponse.cpp
 
 ${OBJECTDIR}/ThirdExampleOfSimulation.o: ThirdExampleOfSimulation.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ThirdExampleOfSimulation.o ThirdExampleOfSimulation.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ThirdExampleOfSimulation.o ThirdExampleOfSimulation.cpp
 
 ${OBJECTDIR}/ToolManager.o: ToolManager.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ToolManager.o ToolManager.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ToolManager.o ToolManager.cpp
 
 ${OBJECTDIR}/TraceManager.o: TraceManager.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TraceManager.o TraceManager.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TraceManager.o TraceManager.cpp
 
 ${OBJECTDIR}/Util.o: Util.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Util.o Util.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Util.o Util.cpp
 
 ${OBJECTDIR}/main.o: main.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
 
 ${OBJECTDIR}/parserBisonFlex/Genesys++-driver.o: parserBisonFlex/Genesys++-driver.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}/parserBisonFlex
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/parserBisonFlex/Genesys++-driver.o parserBisonFlex/Genesys++-driver.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/parserBisonFlex/Genesys++-driver.o parserBisonFlex/Genesys++-driver.cpp
 
 ${OBJECTDIR}/parserBisonFlex/Genesys++-scanner.o: parserBisonFlex/Genesys++-scanner.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}/parserBisonFlex
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/parserBisonFlex/Genesys++-scanner.o parserBisonFlex/Genesys++-scanner.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/parserBisonFlex/Genesys++-scanner.o parserBisonFlex/Genesys++-scanner.cpp
 
 ${OBJECTDIR}/parserBisonFlex/GenesysParser.o: parserBisonFlex/GenesysParser.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}/parserBisonFlex
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/parserBisonFlex/GenesysParser.o parserBisonFlex/GenesysParser.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/parserBisonFlex/GenesysParser.o parserBisonFlex/GenesysParser.cpp
 
 ${OBJECTDIR}/parserBisonFlex/ParserDefaultImpl2.o: parserBisonFlex/ParserDefaultImpl2.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}/parserBisonFlex
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/parserBisonFlex/ParserDefaultImpl2.o parserBisonFlex/ParserDefaultImpl2.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/parserBisonFlex/ParserDefaultImpl2.o parserBisonFlex/ParserDefaultImpl2.cpp
 
 ${OBJECTDIR}/parserBisonFlex/obj_t.o: parserBisonFlex/obj_t.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}/parserBisonFlex
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/parserBisonFlex/obj_t.o parserBisonFlex/obj_t.cpp
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/parserBisonFlex/obj_t.o parserBisonFlex/obj_t.cpp
 
 # Subprojects
 .build-subprojects:

@@ -91,7 +91,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/PluginManager.o \
 	${OBJECTDIR}/ProbDistribBoostImpl.o \
 	${OBJECTDIR}/ProbDistribDefaultImpl1.o \
-	${OBJECTDIR}/Queue.o \
 	${OBJECTDIR}/Record.o \
 	${OBJECTDIR}/RequirementTester.o \
 	${OBJECTDIR}/Resource.o \
@@ -436,11 +435,6 @@ ${OBJECTDIR}/ProbDistribDefaultImpl1.o: ProbDistribDefaultImpl1.cpp nbproject/Ma
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ProbDistribDefaultImpl1.o ProbDistribDefaultImpl1.cpp
-
-${OBJECTDIR}/Queue.o: Queue.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Queue.o Queue.cpp
 
 ${OBJECTDIR}/Record.o: Record.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
