@@ -60,7 +60,6 @@ std::map<std::string, std::string>* Decide::_saveInstance() {
 	SaveField(fields, "conditions", _conditions->size(), 0u);
 	unsigned short i = 0;
 	for (std::list<std::string>::iterator it = _conditions->list()->begin(); it != _conditions->list()->end(); it++, i++) {
-
 		SaveField(fields, "condition" + std::to_string(i), (*it), "");
 	}
 	return fields;

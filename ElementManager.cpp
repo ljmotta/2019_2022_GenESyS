@@ -20,32 +20,21 @@ ElementManager::ElementManager(Model* model) {
 	_parentModel = model;
 	/* \todo: -- Sort methods for elements should be a decorator */
 	_elements = new std::map<std::string, List<ModelElement*>*>(); /// Elements are organized as a map from a string (key), the type of an element, and a list of elements of that type
-	//_elements->setSortFunc([](const ModelElement* a, const ModelElement * b) {
-	//	return a->getId() < b->getId();
-	//});
-
 }
 
 bool ElementManager::insert(ModelElement* anElement) {
 	std::string elementTypename = anElement->getClassname();
-	bool res = insert(elementTypename, anElement);
-	/*
-	if (res)
-		_parentModel->tracer()->trace(Util::TraceLevel::elementResult, "Element " + anElement->name() + " successfully inserted");
-	else
-		_parentModel->tracer()->trace(Util::TraceLevel::elementResult, "Element " + anElement->name() + " could not be inserted");
-	 */
-	return res;
+	return insert(elementTypename, anElement);
 }
 
 bool ElementManager::insert(std::string elementTypename, ModelElement* anElement) {
 	List<ModelElement*>* listElements = getElementList(elementTypename);
 	if (listElements->find(anElement) == listElements->list()->end()) { //not found
 		listElements->insert(anElement);
-		this->_parentModel->getTracer()->trace(Util::TraceLevel::toolDetailed, "Element " + anElement->getClassname() + " \"" + anElement->getName() + "\" successfully inserted.");
+		this->_parentModel->getTracer()->trace(Util::TraceLevel::toolDetailed, anElement->getClassname() + /*" \"" + anElement->getName() + */ " successfully inserted.");
 		return true;
 	}
-	this->_parentModel->getTracer()->trace(Util::TraceLevel::toolDetailed, "Element \"" + anElement->getName() + "\" could not be inserted.");
+	this->_parentModel->getTracer()->trace(Util::TraceLevel::toolDetailed, anElement->getClassname() + /*anElement->getName() +*/ " could not be inserted.");
 	return false;
 }
 

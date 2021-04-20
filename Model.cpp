@@ -232,10 +232,10 @@ void Model::_createModelInternalElements() {
 	getTracer()->trace(Util::TraceLevel::modelInternal, "Creating internal elements");
 	Util::IncIndent();
 
-	for (std::list<ModelComponent*>::iterator it = _componentManager->begin(); it != _componentManager->end(); it++) {
-		getTracer()->trace(Util::TraceLevel::modelInternal, "Internals for " + (*it)->getClassname() + " \"" + (*it)->getName() + "\"");
+	for (ModelComponent* component : *_componentManager) {
+		getTracer()->trace(Util::TraceLevel::modelInternal, "Internals for " + component->getClassname() + " \"" + component->getName() + "\"");
 		Util::IncIndent();
-		ModelComponent::CreateInternalElements((*it));
+		ModelComponent::CreateInternalElements(component);
 		Util::DecIndent();
 	}
 

@@ -19,11 +19,11 @@ Delay::Delay(Model* model, std::string name) : ModelComponent(model, Util::TypeO
 
 	GetterMember getter = DefineGetterMember<Delay>(this, &Delay::delay);
 	SetterMember setter = DefineSetterMember<Delay>(this, &Delay::setDelay);
-	model->getControls()->insert(new SimulationControl(Util::TypeOf<Delay>(), _name + ".Delay", getter, setter));
+	model->getControls()->insert(new SimulationControl(Util::TypeOf<Delay>(), getName() + ".Delay", getter, setter));
 
 	//GetterMember getter2 = DefineGetterMember<Delay>(this, &Delay::delayTimeUnit);
 	//SetterMember setter2 = DefineSetterMember<Delay>(this, &Delay::setDelayTimeUnit);
-	//model->controls()->insert(new SimulationControl(Util::TypeOf<Delay>(), _name + ".DelayTimeUnit", getter2, setter2));
+	//model->controls()->insert(new SimulationControl(Util::TypeOf<Delay>(), getName() + ".DelayTimeUnit", getter2, setter2));
 
 
 }
@@ -118,7 +118,7 @@ bool Delay::_check(std::string* errorMessage) {
 
 void Delay::_createInternalElements() {
 	if (_reportStatistics && _cstatWaitTime == nullptr) {
-		_cstatWaitTime = new StatisticsCollector(_parentModel, _name + "." + "WaitTime", this);
+		_cstatWaitTime = new StatisticsCollector(_parentModel, getName() + "." + "WaitTime", this);
 		_childrenElements->insert({"WaitTime", _cstatWaitTime});
 		// include StatisticsCollector needed in EntityType 
 		ElementManager* elements = _parentModel->getElements();

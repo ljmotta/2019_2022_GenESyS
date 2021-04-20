@@ -60,9 +60,9 @@ void Seize::_handlerForResourceEvent(Resource* resource) {
 	Waiting* first = _queue->first();
 	if (first != nullptr) { // there are entities waiting in the queue
 		// find quantity requested for such resource
-		for (std::list<SeizableItemRequest*>::iterator it = _seizeRequests->list()->begin(); it != _seizeRequests->list()->end(); it++) {
-			if ((*it)->getResource() == resource) {
-				unsigned int quantity = _parentModel->parseExpression((*it)->getQuantityExpression());
+		for (SeizableItemRequest* request : *_seizeRequests->list()) {
+			if (request->getResource() == resource) {
+				unsigned int quantity = _parentModel->parseExpression(request->getQuantityExpression());
 				if ((resource->getCapacity() - resource->getNumberBusy()) >= quantity) { //enought quantity to seize
 					double tnow = _parentModel->getSimulation()->getSimulatedTime();
 					resource->seize(quantity, tnow);
@@ -150,6 +150,8 @@ bool Seize::_loadInstance(std::map<std::string, std::string>* fields) {
 		for (unsigned short i = 0; i < numRequests; i++) {
 			SeizableItemRequest* itemRequest = new SeizableItemRequest(nullptr);
 			itemRequest->_loadInstance(fields, i);
+			Resource* resource = static_cast<Resource*> (_parentModel->getElements()->getElement(Util::TypeOf<Resource>(), itemRequest->getResourceName()));
+			itemRequest->setResource(resource);
 			this->_seizeRequests->insert(itemRequest);
 		}
 
@@ -165,10 +167,10 @@ std::map<std::string, std::string>* Seize::_saveInstance() {
 	SaveField(fields, "queueName", _queue->getName());
 	SaveField(fields, "seizeResquestSize", _seizeRequests->size(), 0u);
 	unsigned short i = 0;
-	for (std::list<SeizableItemRequest*>::iterator it = _seizeRequests->list()->begin(); it != _seizeRequests->list()->end(); it++, i++) {
-		std::map<std::string, std::string>* seizablefields = (*it)->_saveInstance(i);
+	for (SeizableItemRequest* request : *_seizeRequests->list()) {
+		std::map<std::string, std::string>* seizablefields = request->_saveInstance(i);
 		fields->insert(seizablefields->begin(), seizablefields->end());
-
+		i++;
 	}
 	return fields;
 }

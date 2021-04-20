@@ -133,8 +133,8 @@ bool Queue::_check(std::string* errorMessage) {
 void Queue::_createInternalElements() {
 	if (_reportStatistics) {
 		if (_cstatNumberInQueue == nullptr) {
-			_cstatNumberInQueue = new StatisticsCollector(_parentModel, _name + "." + "NumberInQueue", this); /* \todo: ++ WHY THIS INSERT "DISPOSE" AND "10ENTITYTYPE" STATCOLL ?? */
-			_cstatTimeInQueue = new StatisticsCollector(_parentModel, _name + "." + "TimeInQueue", this);
+			_cstatNumberInQueue = new StatisticsCollector(_parentModel, getName() + "." + "NumberInQueue", this); /* \todo: ++ WHY THIS INSERT "DISPOSE" AND "10ENTITYTYPE" STATCOLL ?? */
+			_cstatTimeInQueue = new StatisticsCollector(_parentModel, getName() + "." + "TimeInQueue", this);
 			_childrenElements->insert({"NumberInQueue", _cstatNumberInQueue});
 			_childrenElements->insert({"TimeInQueue", _cstatTimeInQueue});
 		}

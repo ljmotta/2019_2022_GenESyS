@@ -15,7 +15,7 @@
 #include "Plugin.h"
 
 Variable::Variable(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Variable>(), name) {
-	_name = name;
+	setName(name);
 }
 
 std::string Variable::show() {

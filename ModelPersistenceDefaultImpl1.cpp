@@ -16,6 +16,8 @@
 #include <ctime>
 #include <regex>
 #include <cassert>
+#include <iterator>
+
 #include "ModelComponent.h"
 #include "Simulator.h"
 #include "Traits.h"
@@ -31,7 +33,7 @@ std::map<std::string, std::string>* ModelPersistenceDefaultImpl1::_getSimulatorI
 	std::map<std::string, std::string>* fields = new std::map<std::string, std::string>();
 	SaveField(fields, "typename", "SimulatorInfo");
 	SaveField(fields, "name", _model->getParentSimulator()->getName());
-	SaveField(fields, "versionNumber", std::to_string(_model->getParentSimulator()->getVersionNumber()));
+	SaveField(fields, "versionNumber", _model->getParentSimulator()->getVersionNumber());
 	SaveField(fields, "version", _model->getParentSimulator()->getVersion());
 	return fields;
 }
@@ -129,6 +131,26 @@ bool ModelPersistenceDefaultImpl1::_loadFields(std::string line) {
 	//std::regex regex{R"([=]+)"}; // split on space R"([\s]+)" \todo: HOW SEPARATOR WITH MORE THAN ONE CHAR
 	_model->getTracer()->trace(Util::TraceLevel::everythingMostDetailed, line);
 	bool res = true;
+	// replaces every "quoted" string by {stringX}
+	std::regex regexQuoted("\"([^\"]*)\"");
+	auto matches_begin = std::sregex_iterator(line.begin(), line.end(), regexQuoted);
+	auto matches_end = std::sregex_iterator();
+	std::list<std::string>* strings = new std::list<std::string>();
+	for (std::sregex_iterator it = matches_begin; it != matches_end; it++) {
+		std::string match_str = (*it).str();
+		strings->insert(strings->end(), match_str);
+	}
+	unsigned short i = 0;
+	for (std::list<std::string>::iterator it = strings->begin(); it != strings->end(); it++, i++) {
+		std::string match_str = (*it);
+		unsigned int pos = line.find(match_str, 0);
+		line.replace(pos, match_str.length(), "{string" + std::to_string(i) + "}");
+	}
+	//
+	//i = 0;
+	//for (std::list<std::string>::iterator it = strings->begin(); it != strings->end(); it++, i++) {
+	//	std::cout << "{string" << std::to_string(i) << "}=" << (*it) << std::endl;
+	//}
 	std::regex regex{R"([\s]+)"}; // split on " " \todo Should be _lineseparator
 	std::sregex_token_iterator tit{line.begin(), line.end(), regex, -1};
 	std::list<std::string> lstfields{tit,{}};
@@ -157,10 +179,10 @@ bool ModelPersistenceDefaultImpl1::_loadFields(std::string line) {
 					} else if (i == 1) {
 						fields->emplace("typename", veckeyval[0]);
 					} else if (i == 2) {
-						if (veckeyval[0].substr(0, 1) == "\"" && veckeyval[0].substr(veckeyval[0].length() - 1, 1) == "\"") { // remove ""
-							veckeyval[0] = veckeyval[0].substr(1, veckeyval[0].length() - 2);
-						}
-						veckeyval[0] = this->_convertLineseparatorReplacementBacktoLineseparator(veckeyval[0]);
+						///if (veckeyval[0].substr(0, 1) == "\"" && veckeyval[0].substr(veckeyval[0].length() - 1, 1) == "\"") { // remove ""
+						//	veckeyval[0] = veckeyval[0].substr(1, veckeyval[0].length() - 2);
+						//}
+						//veckeyval[0] = this->_convertLineseparatorReplacementBacktoLineseparator(veckeyval[0]);
 						fields->emplace("name", veckeyval[0]);
 					} else {
 						fields->emplace(veckeyval[0], "");
@@ -168,6 +190,17 @@ bool ModelPersistenceDefaultImpl1::_loadFields(std::string line) {
 				}
 			}
 		}
+		// replaces back {stringX} by the strings themselves
+		i = 0;
+		std::map<std::string, std::string>::iterator fieldsIt = fields->begin();
+		for (std::list<std::string>::iterator it = strings->begin(); it != strings->end(); it++, i++) {
+			while ((*fieldsIt).second != "{string" + std::to_string(i) + "}") {
+				fieldsIt++;
+			}
+			(*fieldsIt).second = (*it).substr(1, (*it).length() - 2);
+			fieldsIt = fields->begin();
+		}
+
 		// now the map<str,str> is ready. Look for the right class to load it
 		Util::IncIndent();
 		{
@@ -181,10 +214,10 @@ bool ModelPersistenceDefaultImpl1::_loadFields(std::string line) {
 				_model->getSimulation()->loadInstance(fields);
 			} else {
 				// this should be a ModelComponent or ModelElement.
-				//std::string thistypename = (*fields->find("typename")).second;
-				ModelElement* newTemUselessElement = ModelElement::LoadInstance(_model, fields, false);
-				if (newTemUselessElement != nullptr) {
-					newTemUselessElement->~ModelElement();
+				ModelElement* newUselessElement = ModelElement::LoadInstance(_model, fields, false);
+				if (newUselessElement != nullptr) {
+					// \todo how free newUselessElement without invoking destructor?
+					////newUselessElement->~ModelElement(false);
 					Plugin* plugin = this->_model->getParentSimulator()->getPlugins()->find(thistypename);
 					if (plugin != nullptr) {
 						res = plugin->loadAndInsertNew(_model, fields);
@@ -200,7 +233,6 @@ bool ModelPersistenceDefaultImpl1::_loadFields(std::string line) {
 					_model->getTracer()->trace(Util::TraceLevel::errorFatal, "Error loading file: Could not identity typename \"" + thistypename + "\"");
 					res = false;
 				}
-
 			}
 		}
 		Util::DecIndent();
@@ -214,7 +246,7 @@ void ModelPersistenceDefaultImpl1::_loadSimulatorInfoFields(std::map<std::string
 	unsigned int savedVersionNumber = std::stoi(LoadField(fields, "versionNumber", 0));
 	unsigned int simulatorVersionNumber = _model->getParentSimulator()->getVersionNumber();
 	if (savedVersionNumber != simulatorVersionNumber) {
-		_model->getTracer()->trace("The version of the saved model differs from the simulator. Loading may not be possible", Util::TraceLevel::errorRecover);
+		_model->getTracer()->trace("WARNING: The version of the saved model differs from the simulator. Loading may not be possible", Util::TraceLevel::errorRecover);
 	}
 }
 
@@ -329,14 +361,14 @@ std::list<std::string>* ModelPersistenceDefaultImpl1::_adjustFieldsToSave(std::m
 			idV2003 = (*it).second;
 		else if ((*it).first == "typename") {
 			if ((*it).second.substr(0, 1) == "\"" && (*it).second.substr((*it).second.length() - 1, 1) == "\"")
-				typenameV2003 = (*it).second.substr(1, (*it).second.length() - 2);
+				typenameV2003 = (*it).second.substr(1, (*it).second.length() - 2); // remove "" on the bounders
 			else
 				typenameV2003 = (*it).second;
 		} else if ((*it).first == "name")
-			nameV2003 = _convertLineseparatorToLineseparatorReplacement((*it).second); //(*it).second;
+			nameV2003 = (*it).second; //_convertLineseparatorToLineseparatorReplacement((*it).second);
 		else {
 			// version V210329: (*it).second should NEVER contain _linefieldseparator. So, replace it by _linefieldseparatorReplacement
-			attrValue = _convertLineseparatorToLineseparatorReplacement((*it).second);
+			attrValue = (*it).second; // _convertLineseparatorToLineseparatorReplacement((*it).second);
 			strV2003 += (*it).first + "=" + attrValue + _fieldseparator;
 		}
 	}

@@ -18,11 +18,11 @@
 Resource::Resource(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Resource>(), name) {
 	GetterMember getter = DefineGetterMember<Resource>(this, &Resource::getCapacity);
 	SetterMember setter = DefineSetterMember<Resource>(this, &Resource::setCapacity);
-	model->getControls()->insert(new SimulationControl(Util::TypeOf<Resource>(), _name + ".Capacity", getter, setter));
+	model->getControls()->insert(new SimulationControl(Util::TypeOf<Resource>(), getName() + ".Capacity", getter, setter));
 
 	GetterMember getter2 = DefineGetterMember<Resource>(this, &Resource::getCostPerUse);
 	SetterMember setter2 = DefineSetterMember<Resource>(this, &Resource::setCostPerUse);
-	model->getControls()->insert(new SimulationControl(Util::TypeOf<Resource>(), _name + ".CostPerUse", getter2, setter2));
+	model->getControls()->insert(new SimulationControl(Util::TypeOf<Resource>(), getName() + ".CostPerUse", getter2, setter2));
 	// ...
 }
 
@@ -176,9 +176,9 @@ bool Resource::_check(std::string* errorMessage) {
 
 void Resource::_createInternalElements() {
 	if (_reportStatistics && _cstatTimeSeized == nullptr) {
-		_cstatTimeSeized = new StatisticsCollector(_parentModel, _name + "." + "TimeSeized", this);
-		_numSeizes = new Counter(_parentModel, _name + "." + "Seizes", this);
-		_numReleases = new Counter(_parentModel, _name + "." + "Releases", this);
+		_cstatTimeSeized = new StatisticsCollector(_parentModel, getName() + "." + "TimeSeized", this);
+		_numSeizes = new Counter(_parentModel, getName() + "." + "Seizes", this);
+		_numReleases = new Counter(_parentModel, getName() + "." + "Releases", this);
 		_childrenElements->insert({"TimeSeized", _cstatTimeSeized});
 		_childrenElements->insert({"Seizes", _numSeizes});
 		_childrenElements->insert({"Releases", _numReleases});

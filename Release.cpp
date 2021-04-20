@@ -77,6 +77,8 @@ bool Release::_loadInstance(std::map<std::string, std::string>* fields) {
 		for (unsigned short i = 0; i < numRequests; i++) {
 			SeizableItemRequest* itemRequest = new SeizableItemRequest(nullptr);
 			itemRequest->_loadInstance(fields, i);
+			Resource* resource = static_cast<Resource*> (_parentModel->getElements()->getElement(Util::TypeOf<Resource>(), itemRequest->getResourceName()));
+			itemRequest->setResource(resource);
 			this->_releaseRequests->insert(itemRequest);
 		}
 	}
@@ -88,9 +90,10 @@ std::map<std::string, std::string>* Release::_saveInstance() {
 	if (_priority != 0) SaveField(fields, "priority", std::to_string(this->_priority));
 	SaveField(fields, "releaseResquestSize", std::to_string(_releaseRequests->size()));
 	unsigned short i = 0;
-	for (std::list<SeizableItemRequest*>::iterator it = _releaseRequests->list()->begin(); it != _releaseRequests->list()->end(); it++, i++) {
-		std::map<std::string, std::string>* seizablefields = (*it)->_saveInstance();
+	for (SeizableItemRequest* request : *_releaseRequests->list()) {
+		std::map<std::string, std::string>* seizablefields = request->_saveInstance(i);
 		fields->insert(seizablefields->begin(), seizablefields->end());
+		i++;
 	}
 	return fields;
 }

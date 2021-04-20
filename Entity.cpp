@@ -67,8 +67,8 @@ std::string Entity::show() {
 		} else {
 			// array or matrix
 			message += "[";
-			for (std::map<std::string, double>::iterator valIt = map->begin(); valIt != map->end(); valIt++) {
-				message += (*valIt).first + "=>" + std::to_string((*valIt).second) + ",";
+			for (std::pair<std::string, double> valIt : *map) {
+				message += valIt.first + "=>" + std::to_string(valIt.second) + ",";
 			}
 			message = message.substr(0, message.length() - 1);
 			message += "];";

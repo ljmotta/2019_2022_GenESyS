@@ -26,7 +26,7 @@ ModelComponent::~ModelComponent() {
 }
 
 void ModelComponent::Execute(Entity* entity, ModelComponent* component, unsigned int inputNumber) {
-	std::string msg = "Entity " + std::to_string(entity->entityNumber()) + " has arrived at component \"" + component->_name + "\"";
+	std::string msg = "Entity " + std::to_string(entity->entityNumber()) + " has arrived at component \"" + component->getName() + "\"";
 	// \todo: How can I know the number of inputs?
 	if (inputNumber > 0)
 		msg += " by input " + std::to_string(inputNumber);
@@ -50,7 +50,7 @@ void ModelComponent::CreateInternalElements(ModelComponent* component) {
 }
 
 std::map<std::string, std::string>* ModelComponent::SaveInstance(ModelComponent* component) {
-	component->_parentModel->getTracer()->trace(Util::TraceLevel::componentDetailed, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));
+	component->_parentModel->getTracer()->trace(Util::TraceLevel::componentDetailed, "Writing component \"" + component->getName() + "\""); //std::to_string(component->_id));
 	std::map<std::string, std::string>* fields = new std::map<std::string, std::string>();
 	try {
 		fields = component->_saveInstance();
@@ -60,8 +60,16 @@ std::map<std::string, std::string>* ModelComponent::SaveInstance(ModelComponent*
 	return fields;
 }
 
+void ModelComponent::setDescription(std::string _description) {
+	this->_description = _description;
+}
+
+std::string ModelComponent::getDescription() const {
+	return _description;
+}
+
 bool ModelComponent::Check(ModelComponent* component) {
-	component->_parentModel->getTracer()->trace(Util::TraceLevel::componentDetailed, "Checking " + component->_typename + ": \"" + component->_name + "\""); //std::to_string(component->_id));
+	component->_parentModel->getTracer()->trace(Util::TraceLevel::componentDetailed, "Checking " + component->_typename + ": \"" + component->getName() + "\""); //std::to_string(component->_id));
 	bool res = false;
 	std::string* errorMessage = new std::string();
 	Util::IncIndent();
@@ -90,6 +98,7 @@ std::string ModelComponent::show() {
 bool ModelComponent::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelElement::_loadInstance(fields);
 	if (res) {
+		_description = LoadField(fields, "description", DEFAULT.description);
 		// Now it should load nextComponents. The problem is that the nextComponent may not be loaded yet.
 		// So, what can be done is to temporarily load the ID of the nextComponents, and to wait until all the components have been loaded to update nextComponents based on the temporarilyIDs now being loaded
 		//unsigned short nextSize = std::stoi((*fields->find("nextSize")).second);
@@ -104,14 +113,15 @@ bool ModelComponent::_loadInstance(std::map<std::string, std::string>* fields) {
 
 std::map<std::string, std::string>* ModelComponent::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelElement::_saveInstance();
+	SaveField(fields, "description", _description, DEFAULT.description);
 	if (true) {//(_connections->size() != 1) { // save nextSize only if it is != 1
 		SaveField(fields, "nextSize", _connections->size(), DEFAULT.nextSize);
 	}
 	unsigned short i = 0;
-	for (std::list<Connection*>::iterator it = _connections->list()->begin(); it != _connections->list()->end(); it++) {
-		SaveField(fields, "nextId" + std::to_string(i), (*it)->first->_id, 0);
+	for (Connection* connection : *_connections->list()) {
+		SaveField(fields, "nextId" + std::to_string(i), connection->first->_id, 0);
 		if (true) {//((*it)->second != 0) { // save nextInputNumber only if it is != 0
-			SaveField(fields, "nextInputNumber" + std::to_string(i), (*it)->second, DEFAULT.nextInputNumber);
+			SaveField(fields, "nextInputNumber" + std::to_string(i), connection->second, DEFAULT.nextInputNumber);
 		}
 		i++;
 	}

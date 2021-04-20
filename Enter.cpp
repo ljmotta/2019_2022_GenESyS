@@ -84,7 +84,7 @@ PluginInformation* Enter::GetPluginInformation() {
 void Enter::_createInternalElements() {
 	if (_reportStatistics) {
 		if (_numberIn == nullptr) {
-			_numberIn = new Counter(_parentModel, _name + "." + "CountNumberIn", this);
+			_numberIn = new Counter(_parentModel, getName() + "." + "CountNumberIn", this);
 			_childrenElements->insert({"CountNumberIn", _numberIn});
 		}
 	} else
