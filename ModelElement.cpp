@@ -140,35 +140,37 @@ Util::identification ModelElement::getId() const {
 
 void ModelElement::setName(std::string name) {
 	// rename every "stuff" related to this element (controls, responses and childrenElements
-	std::string stuffName;
-	unsigned int pos;
-	for (std::pair<std::string, ModelElement*> child : *_childrenElements) {
-		stuffName = child.second->getName();
-		pos = stuffName.find(getName(), 0);
-		if (pos != std::string::npos) {
-			stuffName = stuffName.replace(pos, pos + getName().length(), name);
-			child.second->setName(stuffName);
+	if (name != _name) {
+		std::string stuffName;
+		unsigned int pos;
+		for (std::pair<std::string, ModelElement*> child : *_childrenElements) {
+			stuffName = child.second->getName();
+			pos = stuffName.find(getName(), 0);
+			if (pos != std::string::npos) {
+				stuffName = stuffName.replace(pos, pos + getName().length(), name);
+				child.second->setName(stuffName);
+			}
 		}
-	}
 
-	for (SimulationControl* control : *_parentModel->getControls()->list()) {
-		stuffName = control->getName();
-		pos = stuffName.find(getName(), 0);
-		if (pos != std::string::npos) {
-			stuffName = stuffName.replace(pos, pos + getName().length(), name);
-			control->setName(stuffName);
+		for (SimulationControl* control : *_parentModel->getControls()->list()) {
+			stuffName = control->getName();
+			pos = stuffName.find(getName(), 0);
+			if (pos != std::string::npos) {
+				stuffName = stuffName.replace(pos, pos + getName().length(), name);
+				control->setName(stuffName);
+			}
 		}
-	}
 
-	for (SimulationResponse* response : *_parentModel->getResponses()->list()) {
-		stuffName = response->getName();
-		pos = stuffName.find(getName(), 0);
-		if (pos != std::string::npos) {
-			stuffName = stuffName.replace(pos, pos + getName().length(), name);
-			response->setName(stuffName);
+		for (SimulationResponse* response : *_parentModel->getResponses()->list()) {
+			stuffName = response->getName();
+			pos = stuffName.find(getName(), 0);
+			if (pos != std::string::npos) {
+				stuffName = stuffName.replace(pos, pos + getName().length(), name);
+				response->setName(stuffName);
+			}
 		}
+		this->_name = name;
 	}
-	this->_name = name;
 }
 
 std::string ModelElement::getName() const {

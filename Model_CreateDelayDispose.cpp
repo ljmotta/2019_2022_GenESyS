@@ -41,6 +41,9 @@ int Model_CreateDelayDispose::main(int argc, char** argv) {
 	// insert "fake plugins" since plugins based on dynamic loaded library are not implemented yet
 	this->insertFakePluginsByHand(genesys);
 	Model* model = genesys->getModels()->newModel();
+	//model->load("./models/Model_CreateDelayDispose.txt");
+	//model->getSimulation()->start();
+	//return 0;
 	//
 	// build the simulation model
 	// if no ModelInfo is provided, then the model will be simulated once (one replication) and the replication length will be 3600 seconds (simulated time)

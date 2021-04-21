@@ -92,10 +92,11 @@ struct Traits {
  */
 
 template <> struct Traits<GenesysApplication_if> {
-	//typedef Model_CreateDelayDispose Application;
+	typedef Model_CreateDelayDispose Application;
 	//typedef Model_SeizeDelayRelease1 Application;
-	typedef Model_SeizeDelayReleaseMany Application;
-	//typedef Modelo_SistemaOperacional02 Application;
+	//typedef Model_SeizeDelayReleaseMany Application;
+	//typedef Model_AssignWrite3Seizes Application;
+	//typedef Model_StatationRouteSequence Application;
 };
 
 /*

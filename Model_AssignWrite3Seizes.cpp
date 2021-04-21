@@ -178,7 +178,7 @@ int Model_AssignWrite3Seizes::main(int argc, char** argv) {
 	delay3->getNextComponents()->insert(release3);
 	release3->getNextComponents()->insert(dispose1);
 	//
-	model->save("./temp/forthExampleOfSimulation.txt");
+	model->save("./models/Model_StatationRouteSequence.txt");
 	sim->start();
 	return 0;
 }

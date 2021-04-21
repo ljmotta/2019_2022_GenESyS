@@ -1,0 +1,27 @@
+0   SimulatorInfo "GenESyS - GENeric and Expansible SYstem Simulator" versionNumber=210408 
+0   ModelInfo  "Model 1" 
+0   ModelSimulation  numberOfReplications=5 replicationLength=100.000000 
+1   EntityType "Part" 
+10  Set        "Machine_Set" 
+12  Queue      "Queue_Seize_1" 
+16  Queue      "Queue_Seize_2" 
+20  Queue      "Queue_Seize_3" 
+4   Attribute  "index" 
+5   Variable   "varNextIndex" 
+7   Resource   "Machine_1" 
+8   Resource   "Machine_2" capacity=2 
+9   Resource   "Machine_3" capacity=3 
+11  Decide     "Decide_1" condition0="NR(Machine_1) < MR(Machine_1)" condition1="NR(Machine_2) < MR(Machine_2)" conditions=2 nextId0=13 nextId1=17 nextId2=21 nextSize=3 
+13  Seize      "Seize_1" nextId0=14 queueId=12 queueName="Queue_Seize_1" resourceName0="Machine_1" seizeResquestSize=1 
+14  Delay      "Delay_1" delayExpression="norm(15,1)" nextId0=15 
+15  Release    "Release_1" nextId0=24 releaseResquestSize="1" resourceName0="Machine_1" 
+17  Seize      "Seize_2" nextId0=18 queueId=16 queueName="Queue_Seize_2" resourceName0="Machine_2" seizeResquestSize=1 
+18  Delay      "Delay_2" delayExpression="norm(15,1)" nextId0=19 
+19  Release    "Release_2" nextId0=24 releaseResquestSize="1" resourceName0="Machine_2" 
+2   Create     "Create_1" entityTypename="Part" nextId0=3 timeBetweenCreations="norm(1.5,0.5)" 
+21  Seize      "Seize_3" nextId0=22 queueId=20 queueName="Queue_Seize_3" resourceName0="Machine_3" seizeResquestSize=1 
+22  Delay      "Delay_3" delayExpression="norm(15,1)" nextId0=23 
+23  Release    "Release_3" nextId0=24 releaseResquestSize="1" resourceName0="Machine_3" 
+24  Dispose    "Dispose_1" nextSize=0 
+3   Assign     "Assign_1" assignments=2 destination0="varNextIndex" destination1="index" expression0="varNextIndex + 1" expression1="varNextIndex" nextId0=6 
+6   Write      "Write_1" isExpression1=1 isExpression11=1 isExpression13=1 isExpression15=1 isExpression17=1 isExpression19=1 isExpression21=1 isExpression23=1 isExpression25=1 isExpression3=1 isExpression5=1 isExpression7=1 isExpression9=1 newline1=1 newline15=1 newline17=1 newline19=1 newline21=1 newline23=1 newline25=1 newline3=1 newline9=1 nextId0=11 text0="Atributo index: " text1="index" text10="Estado das máquinas: " text11="STATE(Machine_1)" text12=", " text13="STATE(Machine_2)" text14=", " text15="STATE(Machine_3)" text16="Quantidade de máquinas ocupadas no Set: " text17="SETSUM(Machine_Set)" text18="Quantidade de entidades na fila 3: " text19="NQ(Queue_Seize_3)" text2="Variável nextIndex: " text20="Somatório do atributo 'index' das entidades na fila 3: " text21="SAQUE(Queue_Seize_3,index)" text22="Valor do atributo 'index' da 2ª entidade na fila 3: " text23="AQUE(Queue_Seize_3,2,index)" text24="Tempo médio das entidades na fila 3: " text25="TAVG(Queue_Seize_3.TimeInQueue)" text3="varNextIndex" text4="Quantidade ocupada das máquinas: " text5="NR( Machine_1 )" text6=", " text7="NR(Machine_2)" text8=", " text9="NR(Machine_3)" writeToType=1 writesSize=26 

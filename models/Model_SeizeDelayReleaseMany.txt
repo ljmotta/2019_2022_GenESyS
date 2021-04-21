@@ -1,23 +1,14 @@
-# Genesys simulation model 
-# Last saved on Tue Apr 20 22:53:00 2021
-# simulator infos
-  0   SimulatorInfo "GenESyS - GENeric and Expansible SYstem Simulator" version="210408 (backtotrack)" versionNumber=210408 
-# model infos
-  0   ModelInfo  "Model 1" 
-# simulation infos / experimental design
-  0   ModelSimulation  replicationLength=60.000000 
-#
-# model elements
-  1   EntityType "EntityType_1" 
-  3   Resource   "Resource_1" 
-  4   Resource   "Resource_2" 
-  5   Resource   "Resource_3" 
-  6   Resource   "Resource_4" 
-  7   Queue      "Queue_1" 
-#
-# model components
-  10  Release    "Release_1" nextId0=11 releaseResquestSize="4" resourceName0="Resource_1" resourceName1="Resource_2" resourceName2="Resource_3" resourceName3="Resource_4" 
-  11  Dispose    "Dispose_1" nextSize=0 
-  2   Create     "Create_1" entityTypename="EntityType_1" nextId0=8 timeBetweenCreations="unif(1,2)" 
-  8   Seize      "Seize_1" nextId0=9 queueId=7 queueName="Queue_1" resourceName0="Resource_1" resourceName1="Resource_2" resourceName2="Resource_3" resourceName3="Resource_4" seizeResquestSize=4 
-  9   Delay      "Delay_1" delayExpression="unif(1,2)" nextId0=10 
+0   SimulatorInfo "GenESyS - GENeric and Expansible SYstem Simulator" versionNumber=210408 
+0   ModelInfo  "Model 1" 
+0   ModelSimulation  replicationLength=60.000000 
+1   EntityType "EntityType_1" 
+3   Resource   "Resource_1" 
+4   Resource   "Resource_2" 
+5   Resource   "Resource_3" 
+6   Resource   "Resource_4" 
+7   Queue      "Queue_1" 
+10  Release    "Release_1" nextId0=11 releaseResquestSize="4" resourceName0="Resource_1" resourceName1="Resource_2" resourceName2="Resource_3" resourceName3="Resource_4" 
+11  Dispose    "Dispose_1" nextSize=0 
+2   Create     "Create_1" entityTypename="EntityType_1" nextId0=8 timeBetweenCreations="unif(1,2)" 
+8   Seize      "Seize_1" nextId0=9 queueId=7 queueName="Queue_1" resourceName0="Resource_1" resourceName1="Resource_2" resourceName2="Resource_3" resourceName3="Resource_4" seizeResquestSize=4 
+9   Delay      "Delay_1" delayExpression="unif(1,2)" nextId0=10 

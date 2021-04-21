@@ -41,6 +41,10 @@ int Model_SeizeDelayReleaseMany::main(int argc, char** argv) {
 	genesys->getTracer()->setTraceLevel(Util::TraceLevel::everythingMostDetailed);
 	this->insertFakePluginsByHand(genesys);
 	Model* m = genesys->getModels()->newModel();
+	//m->load("./models/Model_SeizeDelayReleaseMany.txt");
+	//genesys->getModels()->current()->getSimulation()->start();
+	//return 0;
+
 	m->getSimulation()->setReplicationLength(60);
 	EntityType* customer = new EntityType(m);
 	Create* create1 = new Create(m);

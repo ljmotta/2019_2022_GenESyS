@@ -34,7 +34,7 @@ std::map<std::string, std::string>* ModelPersistenceDefaultImpl1::_getSimulatorI
 	SaveField(fields, "typename", "SimulatorInfo");
 	SaveField(fields, "name", _model->getParentSimulator()->getName());
 	SaveField(fields, "versionNumber", _model->getParentSimulator()->getVersionNumber());
-	SaveField(fields, "version", _model->getParentSimulator()->getVersion());
+	//SaveField(fields, "version", _model->getParentSimulator()->getVersion());
 	return fields;
 }
 
@@ -96,21 +96,21 @@ bool ModelPersistenceDefaultImpl1::save(std::string filename) {
 			// open file
 			std::ofstream savefile;
 			savefile.open(filename, std::ofstream::out);
-			savefile << "# Genesys simulation model " << std::endl;
+			//savefile << "# Genesys simulation model " << std::endl;
 			time_t now = time(0);
 			char* dt = ctime(&now);
-			savefile << "# Last saved on " << dt;
-			savefile << "# simulator infos" << std::endl;
+			//savefile << "# Last saved on " << dt;
+			//savefile << "# simulator infos" << std::endl;
 			_saveContent(simulatorInfosToSave, &savefile);
-			savefile << "# model infos" << std::endl;
+			//savefile << "# model infos" << std::endl;
 			_saveContent(modelInfosToSave, &savefile);
-			savefile << "# simulation infos / experimental design" << std::endl;
+			//savefile << "# simulation infos / experimental design" << std::endl;
 			_saveContent(simulationInfosToSave, &savefile);
-			savefile << "#" << std::endl;
-			savefile << "# model elements" << std::endl;
+			//savefile << "#" << std::endl;
+			//savefile << "# model elements" << std::endl;
 			_saveContent(modelElementsToSave, &savefile);
-			savefile << "#" << std::endl;
-			savefile << "# model components" << std::endl;
+			//savefile << "#" << std::endl;
+			//savefile << "# model components" << std::endl;
 			_saveContent(modelComponentsToSave, &savefile);
 			savefile.close();
 		}
@@ -376,7 +376,7 @@ std::list<std::string>* ModelPersistenceDefaultImpl1::_adjustFieldsToSave(std::m
 		idV2003 += _fieldseparator;
 	while (typenameV2003.length() < 10)
 		typenameV2003 += _fieldseparator;
-	strV2003 = "  " + idV2003 + _fieldseparator + typenameV2003 + _fieldseparator + nameV2003 + _fieldseparator + strV2003;
+	strV2003 = idV2003 + _fieldseparator + typenameV2003 + _fieldseparator + nameV2003 + _fieldseparator + strV2003;
 	_model->getTracer()->trace(Util::TraceLevel::toolDetailed, strV2003); //newStr
 	newList->push_back(strV2003); //newStr
 	return newList;
