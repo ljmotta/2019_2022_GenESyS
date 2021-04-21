@@ -24,7 +24,7 @@ Route::Route(Model* model, std::string name) : ModelComponent(model, Util::TypeO
 std::string Route::show() {
 	std::string msg = ModelComponent::show() +
 			",destinationType=" + std::to_string(static_cast<int> (this->_routeDestinationType)) +
-			",timeExpression=" + this->_routeTimeExpression + " " + Util::StrTimeUnit(this->_routeTimeTimeUnit);
+			",timeExpression=" + this->_routeTimeExpression + " " + Util::StrTimeUnitShort(this->_routeTimeTimeUnit);
 	if (_station != nullptr)
 		msg += ",station=" + this->_station->getName();
 	return msg;

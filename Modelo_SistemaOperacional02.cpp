@@ -37,7 +37,6 @@ int Modelo_SistemaOperacional02::main(int argc, char** argv) {
 	Simulator* genesys = new Simulator();
 	this->insertFakePluginsByHand(genesys);
 	this->setDefaultTraceHandlers(genesys->getTracer());
-	genesys->getTracer()->setTraceLevel(Util::TraceLevel::everythingMostDetailed);
 
 	Model* m = genesys->getModels()->newModel();
 	//m->load("./models/SistemaOperacional02.txt");
@@ -65,7 +64,7 @@ int Modelo_SistemaOperacional02::main(int argc, char** argv) {
 	a1->getNextComponents()->insert(sz1);
 	sz1->setQueue(q1);
 	sz1->getSeizeRequests()->insert(new SeizableItemRequest(mem, "memoriaOcupada"));
-	Station* st1 = new Station(m, "Estacao de Execucao");
+	Station* st1 = new Station(m, "Estacao_de_Execucao");
 	Route* r1 = new Route(m);
 	r1->setDescription("Processo é enviado para execução na CPU");
 	r1->setStation(st1);
@@ -94,7 +93,7 @@ int Modelo_SistemaOperacional02::main(int argc, char** argv) {
 	Assign* a3 = new Assign(m);
 	a3->setDescription("Executa até o final");
 	a3->getAssignments()->insert(new Assign::Assignment("fatiaTempo", "tempoExecucao"));
-	a3->getAssignments()->insert(new Assign::Assignment("tempoExecucao", "tempoExecucao-fatiaTempo"));
+	a3->getAssignments()->insert(new Assign::Assignment("tempoExecucao", "tempoExecucao - fatiaTempo"));
 	dec1->getNextComponents()->insert(a3);
 	Delay* dl1 = new Delay(m);
 	dl1->setDescription("Processo executa na CPU");
@@ -114,7 +113,7 @@ int Modelo_SistemaOperacional02::main(int argc, char** argv) {
 	r2->setDescription("Processo é enviado de volta para execução");
 	r2->setStation(st1);
 	dc2->getNextComponents()->insert(r2);
-	Station* st2 = new Station(m, "Estacao de liberação de memória");
+	Station* st2 = new Station(m, "Estacao_de_liberacao_de_memoria");
 	Route* r3 = new Route(m);
 	r3->setDescription("Processo é enviado para liberar memória");
 	r3->setStation(st2);
@@ -132,9 +131,14 @@ int Modelo_SistemaOperacional02::main(int argc, char** argv) {
 	rl2->getNextComponents()->insert(disp1);
 
 	ModelSimulation* sim = m->getSimulation();
-	sim->setReplicationLength(1);
-	sim->setReplicationLengthTimeUnit(Util::TimeUnit::second);
-	genesys->getTracer()->setTraceLevel(Util::TraceLevel::everythingMostDetailed);
+	sim->setReplicationLength(1e3);
+	sim->setReplicationLengthTimeUnit(Util::TimeUnit::milisecond);
+	sim->setNumberOfReplications(30);
 	m->save("./models/SistemaOperacional02.txt");
-	sim->start();
+	genesys->getTracer()->setTraceLevel(Util::TraceLevel::simulatorResult);
+	sim->setPauseOnReplication(true);
+	do {
+		sim->start();
+	} while (sim->isPaused());
+	return 0;
 }

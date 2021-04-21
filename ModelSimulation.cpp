@@ -37,9 +37,9 @@ ModelSimulation::ModelSimulation(Model* model) {
 
 std::string ModelSimulation::show() {
 	return "numberOfReplications=" + std::to_string(_numberOfReplications) +
-			",replicationLength=" + std::to_string(_replicationLength) + " " + Util::StrTimeUnit(this->_replicationLengthTimeUnit) +
+			",replicationLength=" + std::to_string(_replicationLength) + " " + Util::StrTimeUnitLong(this->_replicationLengthTimeUnit) +
 			",terminatingCondition=\"" + this->_terminatingCondition + "\"" +
-			",warmupTime=" + std::to_string(this->_warmUpPeriod) + " " + Util::StrTimeUnit(this->_warmUpPeriodTimeUnit);
+			",warmupTime=" + std::to_string(this->_warmUpPeriod) + " " + Util::StrTimeUnitLong(this->_warmUpPeriodTimeUnit);
 }
 
 bool ModelSimulation::_isReplicationEndCondition() {
@@ -103,6 +103,10 @@ void ModelSimulation::start() {
 			_currentReplicationNumber++;
 			if (_currentReplicationNumber <= _numberOfReplications) {
 				_initReplication();
+				if (_pauseOnReplication) {
+					_model->getTracer()->trace("End of replication. Simulation is paused.", Util::TraceLevel::simulatorInternal);
+					_pauseRequested = true;
+				}
 			}
 		}
 	} while (_currentReplicationNumber <= _numberOfReplications && !_pauseRequested);
@@ -203,7 +207,7 @@ void ModelSimulation::_showSimulationHeader() {
 	tm->traceReport("Analyst Name: " + _info->getAnalystName());
 	tm->traceReport("Project Title: " + _info->getProjectTitle());
 	tm->traceReport("Number of Replications: " + std::to_string(_numberOfReplications));
-	tm->traceReport("Replication Length: " + std::to_string(_replicationLength) + " " + Util::StrTimeUnit(_replicationLengthTimeUnit));
+	tm->traceReport("Replication Length: " + std::to_string(_replicationLength) + " " + Util::StrTimeUnitLong(_replicationLengthTimeUnit));
 	//tm->traceReport(Util::TraceLevel::simulation, "");
 	// model controls and responses
 	std::string controls;
@@ -404,7 +408,7 @@ bool ModelSimulation::_checkBreakpointAt(Event* event) {
 
 void ModelSimulation::_processEvent(Event* event) {
 	//	_model->tracer()->traceSimulation(Util::TraceLevel::modelSimulationEvent, event->time(), event->entity(), event->component(), "");
-	_model->getTracer()->trace(Util::TraceLevel::modelSimulationEvent, "Event: " + event->show() + "");
+	_model->getTracer()->trace(Util::TraceLevel::modelSimulationEvent, "Event {" + event->show() + "}");
 	Util::IncIndent();
 	_model->getTracer()->trace(Util::TraceLevel::modelSimulationInternal, "Entity: " + event->getEntity()->show());
 	this->_currentEntity = event->getEntity();

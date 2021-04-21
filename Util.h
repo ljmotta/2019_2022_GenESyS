@@ -145,7 +145,8 @@ public: // indentation and string
 	static void SepKeyVal(std::string str, std::string *key, std::string *value);
 	static std::string Indent();
 	static std::string SetW(std::string text, unsigned short width);
-	static std::string StrTimeUnit(Util::TimeUnit timeUnit);
+	static std::string StrTimeUnitShort(Util::TimeUnit timeUnit);
+	static std::string StrTimeUnitLong(Util::TimeUnit timeUnit);
 public: // identitification
 	static Util::identification GenerateNewId();
 	static Util::identification GenerateNewIdOfType(std::string objtype);

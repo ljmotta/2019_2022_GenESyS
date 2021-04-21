@@ -1,32 +1,23 @@
 # Genesys simulation model 
-# Last saved on Sat Apr 10 11:22:09 2021
+# Last saved on Tue Apr 20 22:53:00 2021
 # simulator infos
-0   SimulatorInfo   name="GenESyS\_-\_GENeric\_and\_Expansible\_SYstem\_Simulator" version="210408\_(backtotrack)" versionNumber=210408 
-
+  0   SimulatorInfo "GenESyS - GENeric and Expansible SYstem Simulator" version="210408 (backtotrack)" versionNumber=210408 
 # model infos
-0   ModelSimulation numberOfReplications=1 replicationLength=60.000000 replicationLengthTimeUnit=5 terminatingCondition="" warmUpTime=0.000000 warmUpTimeTimeUnit=5 
-
+  0   ModelInfo  "Model 1" 
+# simulation infos / experimental design
+  0   ModelSimulation  replicationLength=60.000000 
+#
 # model elements
-1   EntityType      initialNVACost=0.000000 initialOtherCost=0.000000 initialPicture=report initialVACost=0.000000 initialWaitingCost=0.000000 name=EntityType_1 reportStatistics=1 
-
-3   Resource        capacity=1 costBusyHour=1.000000 costIdleHour=1.000000 costPerUse=1.000000 name=Resource_1 reportStatistics=1 
-
-4   Resource        capacity=1 costBusyHour=1.000000 costIdleHour=1.000000 costPerUse=1.000000 name=Resource_2 reportStatistics=1 
-
-5   Resource        capacity=1 costBusyHour=1.000000 costIdleHour=1.000000 costPerUse=1.000000 name=Resource_3 reportStatistics=1 
-
-6   Resource        capacity=1 costBusyHour=1.000000 costIdleHour=1.000000 costPerUse=1.000000 name=Resource_4 reportStatistics=1 
-
-7   Queue           attributeName= name=Queue_1 orderRule=1 reportStatistics=1 
-
+  1   EntityType "EntityType_1" 
+  3   Resource   "Resource_1" 
+  4   Resource   "Resource_2" 
+  5   Resource   "Resource_3" 
+  6   Resource   "Resource_4" 
+  7   Queue      "Queue_1" 
+#
 # model components
-10  Release         name=Release_1 nextId0=11 nextInputNumber0=0 nextSize=1 priority=0 quantity0=1 quantity1=1 quantity2=1 quantity3=1 releaseResquestSize=4 reportStatistics=1 resourceId0=3 resourceId1=4 resourceId2=5 resourceId3=6 resourceName0=Resource_1 resourceName1=Resource_2 resourceName2=Resource_3 resourceName3=Resource_4 resourceType0=1 resourceType1=1 resourceType2=1 resourceType3=1 saveAttribute0= saveAttribute1= saveAttribute2= saveAttribute3= selectionRule0=4 selectionRule1=4 selectionRule2=4 selectionRule3=4 
-
-11  Dispose         name=Dispose_1 nextSize=0 reportStatistics=1 
-
-2   Create          entitiesPerCreation=1 entityTypename=EntityType_1 firstCreation=0.000000 maxCreations="4294967295" name=Create_1 nextId0=8 nextInputNumber0=0 nextSize=1 reportStatistics=1 timeBetweenCreations="unif(1,2)" timeBetweenCreationsTimeUnit=5 
-
-8   Seize           allocationType=0 name=Seize_1 nextId0=9 nextInputNumber0=0 nextSize=1 priority==0 quantity0=1 quantity1=1 quantity2=1 quantity3=1 queueId=7 queueName=Queue_1 reportStatistics=1 resourceId0=3 resourceId1=4 resourceId2=5 resourceId3=6 resourceName0=Resource_1 resourceName1=Resource_2 resourceName2=Resource_3 resourceName3=Resource_4 resourceType0=1 resourceType1=1 resourceType2=1 resourceType3=1 saveAttribute0= saveAttribute1= saveAttribute2= saveAttribute3= seizeResquestSize=4 selectionRule0=4 selectionRule1=4 selectionRule2=4 selectionRule3=4 
-
-9   Delay           delayExpression="unif(1,2)" delayExpressionTimeUnit=5 name=Delay_1 nextId0=10 nextInputNumber0=0 nextSize=1 reportStatistics=1 
-
+  10  Release    "Release_1" nextId0=11 releaseResquestSize="4" resourceName0="Resource_1" resourceName1="Resource_2" resourceName2="Resource_3" resourceName3="Resource_4" 
+  11  Dispose    "Dispose_1" nextSize=0 
+  2   Create     "Create_1" entityTypename="EntityType_1" nextId0=8 timeBetweenCreations="unif(1,2)" 
+  8   Seize      "Seize_1" nextId0=9 queueId=7 queueName="Queue_1" resourceName0="Resource_1" resourceName1="Resource_2" resourceName2="Resource_3" resourceName3="Resource_4" seizeResquestSize=4 
+  9   Delay      "Delay_1" delayExpression="unif(1,2)" nextId0=10 
