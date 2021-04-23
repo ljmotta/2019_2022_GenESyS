@@ -49,7 +49,7 @@ void Leave::_execute(Entity* entity) {
 bool Leave::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelComponent::_loadInstance(fields);
 	if (res) {
-		std::string stationName = LoadField(fields, "stationName", "");
+		std::string stationName = LoadField(fields, "station", "");
 		Station* station = dynamic_cast<Station*> (_parentModel->getElements()->getElement(Util::TypeOf<Station>(), stationName));
 		this->_station = station;
 	}
@@ -62,7 +62,7 @@ void Leave::_initBetweenReplications() {
 
 std::map<std::string, std::string>* Leave::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
-	SaveField(fields, "stationName", _station->getName(), "");
+	SaveField(fields, "station", _station->getName(), "");
 	return fields;
 }
 

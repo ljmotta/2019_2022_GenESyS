@@ -71,7 +71,7 @@
 #include "Model_SeizeDelayRelease1.h"
 #include "Model_SeizeDelayReleaseMany.h"
 #include "Model_StatationRouteSequence.h"
-//#include "Modelo_SistemaOperacional02.h"
+#include "Modelo_SistemaOperacional02.h"
 #include "TestEnterLeaveRoute.h"
 #include "TestFunctions.h"
 #include "TestSimulationControlAndSimulationResponse.h"
@@ -92,11 +92,12 @@ struct Traits {
  */
 
 template <> struct Traits<GenesysApplication_if> {
-	typedef Model_CreateDelayDispose Application;
+	//typedef Model_CreateDelayDispose Application;
 	//typedef Model_SeizeDelayRelease1 Application;
 	//typedef Model_SeizeDelayReleaseMany Application;
 	//typedef Model_AssignWrite3Seizes Application;
 	//typedef Model_StatationRouteSequence Application;
+	typedef Modelo_SistemaOperacional02 Application;
 };
 
 /*
@@ -106,6 +107,7 @@ template <> struct Traits<GenesysApplication_if> {
 
 template <> struct Traits<PluginConnector_if> {
 	typedef PluginConnectorDummyImpl1 Implementation;
+	static const Util::TraceLevel traceLevel = Util::TraceLevel::modelSimulationEvent;
 };
 
 template <> struct Traits<Parser_if> {

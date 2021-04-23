@@ -73,7 +73,7 @@ bool Release::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelComponent::_loadInstance(fields);
 	if (res) {
 		this->_priority = std::stoi(LoadField(fields, "priority", "0"));
-		unsigned short numRequests = std::stoi(LoadField(fields, "releaseResquestSize", 0));
+		unsigned short numRequests = LoadField(fields, "resquestSize", DEFAULT.releaseRequestSize);
 		for (unsigned short i = 0; i < numRequests; i++) {
 			SeizableItemRequest* itemRequest = new SeizableItemRequest(nullptr);
 			itemRequest->_loadInstance(fields, i);
@@ -88,7 +88,7 @@ bool Release::_loadInstance(std::map<std::string, std::string>* fields) {
 std::map<std::string, std::string>* Release::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance(); //Util::TypeOf<Release>());
 	if (_priority != 0) SaveField(fields, "priority", std::to_string(this->_priority));
-	SaveField(fields, "releaseResquestSize", std::to_string(_releaseRequests->size()));
+	SaveField(fields, "resquestSize", _releaseRequests->size(), DEFAULT.releaseRequestSize);
 	unsigned short i = 0;
 	for (SeizableItemRequest* request : *_releaseRequests->list()) {
 		std::map<std::string, std::string>* seizablefields = request->_saveInstance(i);

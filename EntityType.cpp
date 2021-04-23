@@ -114,11 +114,11 @@ ModelElement* EntityType::LoadInstance(Model* model, std::map<std::string, std::
 bool EntityType::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelElement::_loadInstance(fields);
 	if (res) {
-		this->_initialNVACost = std::stod(LoadField(fields, "initialNVACost", DEFAULT.initialCost));
-		this->_initialOtherCost = std::stod(LoadField(fields, "initialOtherCost", DEFAULT.initialCost));
-		this->_initialVACost = std::stod(LoadField(fields, "initialVACost", DEFAULT.initialCost));
-		this->_initialWaitingCost = std::stod(LoadField(fields, "initialWaitingCost", DEFAULT.initialCost));
-		this->_initialPicture = (LoadField(fields, "initialPicture", DEFAULT.initialPicture));
+		this->_initialNVACost = LoadField(fields, "initialNVACost", DEFAULT.initialCost);
+		this->_initialOtherCost = LoadField(fields, "initialOtherCost", DEFAULT.initialCost);
+		this->_initialVACost = LoadField(fields, "initialVACost", DEFAULT.initialCost);
+		this->_initialWaitingCost = LoadField(fields, "initialWaitingCost", DEFAULT.initialCost);
+		this->_initialPicture = LoadField(fields, "initialPicture", DEFAULT.initialPicture);
 	}
 	return res;
 }

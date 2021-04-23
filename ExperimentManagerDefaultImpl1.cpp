@@ -40,11 +40,11 @@ void ExperimentManagerDefaultImpl1::startSimulationOfScenario(SimulationScenario
 	// \todo: implement
 }
 
-void ExperimentManagerDefaultImpl1::startSimulation() {
+void ExperimentManagerDefaultImpl1::startExperiment() {
 	// \todo: implement
 }
 
-void ExperimentManagerDefaultImpl1::stopSimulation() {
+void ExperimentManagerDefaultImpl1::stopExperiment() {
 	// \todo: implement
 }
 

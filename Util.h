@@ -105,8 +105,12 @@ public:
 		errorFatal = 1,
 		errorRecover = 2,
 		warning = 3,
-		report = 4,
-
+		results = 4,
+		arrival = 5,
+		internal = 6,
+		detailed = 7,
+		mostDetailed = 8,
+		
 		simulatorResult = 10,
 		toolResult = 11,
 		modelResult = 12,
@@ -205,20 +209,20 @@ static inline std::string LoadField(std::map<std::string, std::string>* fields, 
 	return fields->find(fieldName) != fields->end() ? ((*(fields->find(fieldName))).second) : defaultValue;
 }
 
-static inline std::string LoadField(std::map<std::string, std::string>* fields, std::string fieldName, double defaultValue) {
-	return fields->find(fieldName) != fields->end() ? ((*(fields->find(fieldName))).second) : std::to_string(defaultValue);
+static inline double LoadField(std::map<std::string, std::string>* fields, std::string fieldName, double defaultValue) {
+	return std::stod(fields->find(fieldName) != fields->end() ? ((*(fields->find(fieldName))).second) : std::to_string(defaultValue));
 }
 
-static inline std::string LoadField(std::map<std::string, std::string>* fields, std::string fieldName, unsigned int defaultValue) {
-	return fields->find(fieldName) != fields->end() ? ((*(fields->find(fieldName))).second) : std::to_string(defaultValue);
+static inline unsigned int LoadField(std::map<std::string, std::string>* fields, std::string fieldName, unsigned int defaultValue) {
+	return std::stoi(fields->find(fieldName) != fields->end() ? ((*(fields->find(fieldName))).second) : std::to_string(defaultValue));
 }
 
-static inline std::string LoadField(std::map<std::string, std::string>* fields, std::string fieldName, int defaultValue) {
-	return fields->find(fieldName) != fields->end() ? ((*(fields->find(fieldName))).second) : std::to_string(defaultValue);
+static inline int LoadField(std::map<std::string, std::string>* fields, std::string fieldName, int defaultValue) {
+	return std::stoi(fields->find(fieldName) != fields->end() ? ((*(fields->find(fieldName))).second) : std::to_string(defaultValue));
 }
 
-static inline std::string LoadField(std::map<std::string, std::string>* fields, std::string fieldName, Util::TimeUnit defaultValue) {
-	return fields->find(fieldName) != fields->end() ? ((*(fields->find(fieldName))).second) : std::to_string(static_cast<int> (defaultValue));
+static inline Util::TimeUnit LoadField(std::map<std::string, std::string>* fields, std::string fieldName, Util::TimeUnit defaultValue) {
+	return static_cast<Util::TimeUnit>(std::stoi(fields->find(fieldName) != fields->end() ? ((*(fields->find(fieldName))).second) : std::to_string(static_cast<int> (defaultValue))));
 }
 
 // \todo Implement it using templates (check impact on calling syntax)

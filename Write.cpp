@@ -66,7 +66,7 @@ void Write::_execute(Entity* entity) {
 		}
 		if (msgElem->newline) {
 			if (this->_writeToType == Write::WriteToType::SCREEN) { //\todo: Write To FILE not implemented
-				_parentModel->getTracer()->trace(Util::TraceLevel::report, message);
+				_parentModel->getTracer()->trace(Util::TraceLevel::results, message);
 			} else if (this->_writeToType == Write::WriteToType::FILE) {
 				// open file
 				std::ofstream savefile;

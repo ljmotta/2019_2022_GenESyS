@@ -137,7 +137,7 @@
 	public: // traces (invoke trace handlers) SINCE 20191025 NEW TRACES JUST INVERTED THE PARAMETERS, MAKING TRACELEVEL OPTIONAL
 		void trace(std::string text, Util::TraceLevel level = Util::TraceLevel::componentInternal);
 		void traceError(std::string text, std::exception e);
-		void traceReport(std::string text, Util::TraceLevel level = Util::TraceLevel::report);
+		void traceReport(std::string text, Util::TraceLevel level = Util::TraceLevel::results);
 		void traceSimulation(double time, Entity* entity, ModelComponent* component, std::string text, Util::TraceLevel level = Util::TraceLevel::componentInternal);
 	public:
 		List<std::string>* errorMessages() const;

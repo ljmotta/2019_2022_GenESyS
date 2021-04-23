@@ -151,11 +151,11 @@ ModelElement* Resource::LoadInstance(Model* model, std::map<std::string, std::st
 bool Resource::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelElement::_loadInstance(fields);
 	if (res) {
-		_capacity = std::stoi(LoadField(fields, "capacity", DEFAULT.capacity));
-		_costBusyHour = std::stod(LoadField(fields, "costBusyHour", DEFAULT.cost));
-		_costIdleHour = std::stod(LoadField(fields, "costIdleHour", DEFAULT.cost));
-		_costPerUse = std::stod(LoadField(fields, "costPerUse", DEFAULT.cost));
-		_resourceState = static_cast<Resource::ResourceState> (std::stoi(LoadField(fields, "resourceState", static_cast<int> (DEFAULT.resourceState))));
+		_capacity = LoadField(fields, "capacity", DEFAULT.capacity);
+		_costBusyHour = LoadField(fields, "costBusyHour", DEFAULT.cost);
+		_costIdleHour = LoadField(fields, "costIdleHour", DEFAULT.cost);
+		_costPerUse = LoadField(fields, "costPerUse", DEFAULT.cost);
+				_resourceState = static_cast<Resource::ResourceState> (LoadField(fields, "resourceState", static_cast<int> (DEFAULT.resourceState)));
 	}
 	return res;
 }

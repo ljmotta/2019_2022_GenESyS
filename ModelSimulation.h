@@ -27,7 +27,7 @@ class Model;
  * The ModelSimulation controls the simulation of a model, alowing to start, pause, resume e stop a simulation, composed by 
  * a set of replications.
  */
-class ModelSimulation {
+class ModelSimulation { // 202104 to be subjected to SimulationScenario
 public:
 	ModelSimulation(Model* model);
 	virtual ~ModelSimulation() = default;
@@ -120,10 +120,10 @@ private:
 private:
 
 	const struct DEFAULT_VALUES {
-	unsigned int numberOfReplications = 1;
+		unsigned int numberOfReplications = 1;
 		double replicationLength = 3600.0; // by default, 3600 s = 1.0 h
 		Util::TimeUnit replicationLengthTimeUnit = Util::TimeUnit::second;
-		double warmUpPeriod = 0.0;
+		double warmUpPeriod = replicationLength * 0.10; // 0.0;
 		Util::TimeUnit warmUpPeriodTimeUnit = Util::TimeUnit::second;
 		std::string terminatingCondition = "";
 	} DEFAULT;

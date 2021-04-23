@@ -143,7 +143,7 @@ public: // get & set
 	std::string getQueueName() const;
 	void setQueue(Queue* queue);
 	Queue* getQueue() const;
-    List<SeizableItemRequest*>* getSeizeRequests() const;
+	List<SeizableItemRequest*>* getSeizeRequests() const;
 protected:
 	virtual void _execute(Entity* entity);
 	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
@@ -154,16 +154,18 @@ protected:
 private:
 	void _handlerForResourceEvent(Resource* resource);
 private:
+
 	const struct DEFAULT_VALUES {
-	unsigned int allocationType = 0; // uint ? enum?
-	unsigned short priority = 0;		
+		unsigned int allocationType = 0; // uint ? enum?
+		unsigned short priority = 0;
+		unsigned int seizeRequestSize = 1;
 	} DEFAULT;
 	unsigned int _allocationType = DEFAULT.allocationType; // uint ? enum?
 	unsigned short _priority = DEFAULT.priority;
 	Queue* _queue; // usually has a queue, but not always (it could be a hold) 
 	List<SeizableItemRequest*>* _seizeRequests = new List<SeizableItemRequest*>();
 private: // not gets or sets
-//	unsigned int _lastMemberSeized = 0; //  now _seizeRequest is a list and it was moved to SeizableItemRequest
+	//	unsigned int _lastMemberSeized = 0; //  now _seizeRequest is a list and it was moved to SeizableItemRequest
 };
 
 #endif /* SEIZE_H */

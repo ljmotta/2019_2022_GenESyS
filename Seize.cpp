@@ -141,12 +141,12 @@ void Seize::_initBetweenReplications() {
 bool Seize::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelComponent::_loadInstance(fields);
 	if (res) {
-		this->_allocationType = std::stoi(LoadField(fields, "allocationType", DEFAULT.allocationType));
-		this->_priority = std::stoi(LoadField(fields, "priority", DEFAULT.priority));
-		std::string queueName = LoadField(fields, "queueName", "");
+		this->_allocationType = LoadField(fields, "allocationType", DEFAULT.allocationType);
+		this->_priority = LoadField(fields, "priority", DEFAULT.priority);
+		std::string queueName = LoadField(fields, "queue", "");
 		Queue* queue = dynamic_cast<Queue*> (_parentModel->getElements()->getElement(Util::TypeOf<Queue>(), queueName));
 		this->_queue = queue;
-		unsigned short numRequests = std::stoi(LoadField(fields, "seizeResquestSize", 0));
+		unsigned short numRequests = LoadField(fields, "resquestSize", DEFAULT.seizeRequestSize);
 		for (unsigned short i = 0; i < numRequests; i++) {
 			SeizableItemRequest* itemRequest = new SeizableItemRequest(nullptr);
 			itemRequest->_loadInstance(fields, i);
@@ -163,9 +163,9 @@ std::map<std::string, std::string>* Seize::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance(); //Util::TypeOf<Seize>());
 	SaveField(fields, "allocationType", _allocationType, DEFAULT.allocationType);
 	SaveField(fields, "priority=", _priority, DEFAULT.priority);
-	SaveField(fields, "queueId", _queue->getId());
-	SaveField(fields, "queueName", _queue->getName());
-	SaveField(fields, "seizeResquestSize", _seizeRequests->size(), 0u);
+	//SaveField(fields, "queueId", _queue->getId());
+	SaveField(fields, "queue", _queue->getName());
+	SaveField(fields, "resquestSize", _seizeRequests->size(), DEFAULT.seizeRequestSize);
 	unsigned short i = 0;
 	for (SeizableItemRequest* request : *_seizeRequests->list()) {
 		std::map<std::string, std::string>* seizablefields = request->_saveInstance(i);

@@ -47,7 +47,7 @@ void Decide::_initBetweenReplications() {
 bool Decide::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelComponent::_loadInstance(fields);
 	if (res) {
-		unsigned int nv = std::stoi(LoadField(fields, "conditions", 0));
+		unsigned int nv = LoadField(fields, "conditions", 0);
 		for (unsigned int i = 0; i < nv; i++) {
 			this->_conditions->insert(LoadField(fields, "condition" + std::to_string(i), ""));
 		}

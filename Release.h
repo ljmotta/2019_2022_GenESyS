@@ -74,7 +74,7 @@ public: // get & set
 	void setPriority(unsigned short _priority);
 	unsigned short priority() const;
 public: // gets
-    List<SeizableItemRequest*>* getReleaseRequests() const;
+	List<SeizableItemRequest*>* getReleaseRequests() const;
 
 protected:
 	virtual void _execute(Entity* entity);
@@ -83,8 +83,10 @@ protected:
 	virtual std::map<std::string, std::string>* _saveInstance();
 	virtual bool _check(std::string* errorMessage);
 private:
+
 	const struct DEFAULT_VALUES {
 		unsigned short priority = 0;
+		unsigned int releaseRequestSize = 1;
 	} DEFAULT;
 	unsigned short _priority = DEFAULT.priority;
 	List<SeizableItemRequest*>* _releaseRequests = new List<SeizableItemRequest*>();

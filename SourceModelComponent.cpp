@@ -30,12 +30,12 @@ std::string SourceModelComponent::show() {
 bool SourceModelComponent::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelComponent::_loadInstance(fields);
 	if (res) {
-		this->_entitiesPerCreation = std::stoi(LoadField(fields, "entitiesPerCreation", DEFAULT.entitiesPerCreation));
-		this->_firstCreation = std::stod(LoadField(fields, "firstCreation", DEFAULT.firstCreation));
+		this->_entitiesPerCreation = LoadField(fields, "entitiesPerCreation", DEFAULT.entitiesPerCreation);
+		this->_firstCreation = LoadField(fields, "firstCreation", DEFAULT.firstCreation);
 		this->_timeBetweenCreationsExpression = LoadField(fields, "timeBetweenCreations", DEFAULT.timeBetweenCreationsExpression);
-		this->_timeBetweenCreationsTimeUnit = static_cast<Util::TimeUnit> (std::stoi(LoadField(fields, "timeBetweenCreationsTimeUnit", DEFAULT.timeBetweenCreationsTimeUnit)));
+		this->_timeBetweenCreationsTimeUnit = LoadField(fields, "timeBetweenCreationsTimeUnit", DEFAULT.timeBetweenCreationsTimeUnit);
 		this->_maxCreationsExpression = LoadField(fields, "maxCreations", DEFAULT.maxCreationsExpression);
-		std::string entityTypename = LoadField(fields, "entityTypename");
+		std::string entityTypename = LoadField(fields, "EntityType");
 		this->_entityType = dynamic_cast<EntityType*> (_parentModel->getElements()->getElement(Util::TypeOf<EntityType>(), entityTypename));
 	}
 	return res;
@@ -52,7 +52,7 @@ std::map<std::string, std::string>* SourceModelComponent::_saveInstance() {
 	SaveField(fields, "timeBetweenCreations", _timeBetweenCreationsExpression, DEFAULT.timeBetweenCreationsExpression);
 	SaveField(fields, "timeBetweenCreationsTimeUnit", _timeBetweenCreationsTimeUnit, DEFAULT.timeBetweenCreationsTimeUnit);
 	SaveField(fields, "maxCreations", _maxCreationsExpression, DEFAULT.maxCreationsExpression);
-	SaveField(fields, "entityTypename", _entityType->getName());
+	SaveField(fields, "EntityType", _entityType->getName());
 	return fields;
 }
 

@@ -100,12 +100,12 @@ bool Variable::_loadInstance(std::map<std::string, std::string>* fields) {
 	if (res) {
 		///////////this->_numCols=std::stoi(LoadField(fields, "numCols"))).second);
 		///////////this->_numRows=std::stoi(LoadField(fields, "numRows"))).second);
-		unsigned int nv = std::stoi(LoadField(fields, "numValues", 0));
+		unsigned int nv = LoadField(fields, "numValues", 0);
 		std::string pos;
 		double value;
 		for (unsigned int i = 0; i < nv; i++) {
 			pos = LoadField(fields, "pos" + std::to_string(i), 0);
-			value = std::stod(LoadField(fields, "value" + std::to_string(i), 0));
+			value = LoadField(fields, "value" + std::to_string(i), 0);
 			this->_initialValues->emplace(pos, value);
 		}
 	}

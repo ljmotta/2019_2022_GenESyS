@@ -70,7 +70,7 @@ void Assign::_initBetweenReplications() {
 bool Assign::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelComponent::_loadInstance(fields);
 	if (res) {
-		unsigned int nv = std::stoi(LoadField(fields, "assignments", 0));
+		unsigned int nv = LoadField(fields, "assignments", 0);
 		for (unsigned int i = 0; i < nv; i++) {
 			std::string dest = LoadField(fields, "destination" + std::to_string(i), "");
 			std::string exp = LoadField(fields, "expression" + std::to_string(i), "");

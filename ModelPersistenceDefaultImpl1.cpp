@@ -243,7 +243,7 @@ bool ModelPersistenceDefaultImpl1::_loadFields(std::string line) {
 }
 
 void ModelPersistenceDefaultImpl1::_loadSimulatorInfoFields(std::map<std::string, std::string>* fields) {
-	unsigned int savedVersionNumber = std::stoi(LoadField(fields, "versionNumber", 0));
+	unsigned int savedVersionNumber = LoadField(fields, "versionNumber", 0);
 	unsigned int simulatorVersionNumber = _model->getParentSimulator()->getVersionNumber();
 	if (savedVersionNumber != simulatorVersionNumber) {
 		_model->getTracer()->trace("WARNING: The version of the saved model differs from the simulator. Loading may not be possible", Util::TraceLevel::errorRecover);
@@ -302,7 +302,16 @@ bool ModelPersistenceDefaultImpl1::load(std::string filename) {
 					nextSize = std::stoi((*fields->find("nextSize")).second);
 				}
 				for (unsigned short i = 0; i < nextSize; i++) {
-					Util::identification nextId = std::stoi((*fields->find("nextId" + std::to_string(i))).second);
+					Util::identification nextId;
+					if (nextSize == 1) {
+						if (fields->find("nextId") != fields->end()) {
+							nextId = std::stoi((*fields->find("nextId")).second);
+						} else {
+							nextId = std::stoi((*fields->find("nextId" + std::to_string(i))).second);
+						}
+					} else {
+						nextId = std::stoi((*fields->find("nextId" + std::to_string(i))).second);
+					}
 					unsigned short nextInputNumber = 0; // default value if it is not found bellow
 					if (fields->find("nextInputNumber" + std::to_string(i)) != fields->end())
 						nextInputNumber = std::stoi((*fields->find("nextInputNumber" + std::to_string(i))).second);
@@ -352,7 +361,7 @@ std::string ModelPersistenceDefaultImpl1::_convertLineseparatorToLineseparatorRe
 
 std::list<std::string>* ModelPersistenceDefaultImpl1::_adjustFieldsToSave(std::map<std::string, std::string>* fields) {
 	std::list<std::string>* newList = new std::list<std::string>();
-	std::string newStr, strV2003, idV2003, typenameV2003, nameV2003; //, strV210329;
+	std::string newStr, strV2003, idV2003, typenameV2003, nameV2003, nextIDV2004; //, strV210329;
 	idV2003 = "0";
 	std::string attrValue;
 	for (std::map<std::string, std::string>::iterator it = fields->begin(); it != fields->end(); it++) {
@@ -366,6 +375,12 @@ std::list<std::string>* ModelPersistenceDefaultImpl1::_adjustFieldsToSave(std::m
 				typenameV2003 = (*it).second;
 		} else if ((*it).first == "name")
 			nameV2003 = (*it).second; //_convertLineseparatorToLineseparatorReplacement((*it).second);
+		else if ((*it).first.find("nextId", 0) != std::string::npos)
+			nextIDV2004 += (*it).first + "=" + (*it).second + _fieldseparator;
+		else if ((*it).first.find("nextInputNumber", 0) != std::string::npos)
+			nextIDV2004 += (*it).first + "=" + (*it).second + _fieldseparator;
+		else if ((*it).first.find("nextSize", 0) != std::string::npos)
+			nextIDV2004 = (*it).first + "=" + (*it).second + _fieldseparator + nextIDV2004;
 		else {
 			// version V210329: (*it).second should NEVER contain _linefieldseparator. So, replace it by _linefieldseparatorReplacement
 			attrValue = (*it).second; // _convertLineseparatorToLineseparatorReplacement((*it).second);
@@ -376,7 +391,7 @@ std::list<std::string>* ModelPersistenceDefaultImpl1::_adjustFieldsToSave(std::m
 		idV2003 += _fieldseparator;
 	while (typenameV2003.length() < 10)
 		typenameV2003 += _fieldseparator;
-	strV2003 = idV2003 + _fieldseparator + typenameV2003 + _fieldseparator + nameV2003 + _fieldseparator + strV2003;
+	strV2003 = idV2003 + _fieldseparator + typenameV2003 + _fieldseparator + nameV2003 + _fieldseparator + strV2003 + nextIDV2004;
 	_model->getTracer()->trace(Util::TraceLevel::toolDetailed, strV2003); //newStr
 	newList->push_back(strV2003); //newStr
 	return newList;

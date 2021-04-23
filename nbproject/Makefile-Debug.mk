@@ -108,6 +108,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Route.o \
 	${OBJECTDIR}/SamplerBoostImpl.o \
 	${OBJECTDIR}/SamplerDefaultImpl1.o \
+	${OBJECTDIR}/SamplerStudents20202g1.o \
 	${OBJECTDIR}/Schedule.o \
 	${OBJECTDIR}/SeizableItemRequest.o \
 	${OBJECTDIR}/Seize.o \
@@ -533,6 +534,11 @@ ${OBJECTDIR}/SamplerDefaultImpl1.o: SamplerDefaultImpl1.cpp nbproject/Makefile-$
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SamplerDefaultImpl1.o SamplerDefaultImpl1.cpp
+
+${OBJECTDIR}/SamplerStudents20202g1.o: SamplerStudents20202g1.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SamplerStudents20202g1.o SamplerStudents20202g1.cpp
 
 ${OBJECTDIR}/Schedule.o: Schedule.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

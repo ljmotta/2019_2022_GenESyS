@@ -85,8 +85,8 @@ void Route::_execute(Entity* entity) {
 			assert(seqStep != nullptr);
 		}
 		destinyStation = seqStep->getStation();
-		for (std::list<std::string>::iterator it = seqStep->getAssignments()->begin(); it != seqStep->getAssignments()->end(); it++) {
-			_parentModel->parseExpression((*it));
+		for (SequenceStep::Assignment* assignment : *seqStep->getAssignments()) {
+			_parentModel->parseExpression(assignment->getDestination() + "=" + assignment->getExpression());
 		}
 		entity->setAttributeValue("Entity.SequenceStep", step + 1.0);
 	}
@@ -113,11 +113,13 @@ bool Route::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelComponent::_loadInstance(fields);
 	if (res) {
 		this->_routeTimeExpression = LoadField(fields, "routeTimeExpression", DEFAULT.routeTimeExpression);
-		this->_routeTimeTimeUnit = static_cast<Util::TimeUnit> (std::stoi(LoadField(fields, "routeTimeTimeUnit", DEFAULT.routeTimeTimeUnit)));
-		this->_routeDestinationType = static_cast<Route::DestinationType> (std::stoi(LoadField(fields, "routeDestinationType", static_cast<int> (DEFAULT.routeDestinationType))));
-		std::string stationName = LoadField(fields, "stationName", "");
-		Station* station = dynamic_cast<Station*> (_parentModel->getElements()->getElement(Util::TypeOf<Station>(), stationName));
-		this->_station = station;
+		this->_routeTimeTimeUnit = LoadField(fields, "routeTimeTimeUnit", DEFAULT.routeTimeTimeUnit);
+		this->_routeDestinationType = static_cast<Route::DestinationType> (LoadField(fields, "destinationType", static_cast<int> (DEFAULT.routeDestinationType)));
+		if (_routeDestinationType == DestinationType::Station) {
+			std::string stationName = LoadField(fields, "station", "");
+			Station* station = dynamic_cast<Station*> (_parentModel->getElements()->getElement(Util::TypeOf<Station>(), stationName));
+			this->_station = station;
+		}
 	}
 	return res;
 }
@@ -128,11 +130,12 @@ void Route::_initBetweenReplications() {
 
 std::map<std::string, std::string>* Route::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
-	SaveField(fields, "stationId", _station->getId());
-	SaveField(fields, "stationName", (this->_station->getName()));
+	if (_routeDestinationType == DestinationType::Station) {
+		SaveField(fields, "station", (this->_station->getName()));
+	}
 	SaveField(fields, "routeTimeExpression", _routeTimeExpression, DEFAULT.routeTimeExpression);
 	SaveField(fields, "routeTimeTimeUnit", _routeTimeTimeUnit, DEFAULT.routeTimeTimeUnit);
-	SaveField(fields, "routeDestinationType", static_cast<int> (_routeDestinationType), static_cast<int> (DEFAULT.routeDestinationType));
+	SaveField(fields, "destinationType", static_cast<int> (_routeDestinationType), static_cast<int> (DEFAULT.routeDestinationType));
 	return fields;
 }
 

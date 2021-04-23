@@ -112,7 +112,7 @@ bool Queue::_loadInstance(std::map<std::string, std::string>* fields) {
 	if (res) {
 		try {
 			this->_attributeName = LoadField(fields, "attributeName", DEFAULT.attributeName);
-			this->_orderRule = static_cast<OrderRule> (std::stoi(LoadField(fields, "orderRule", static_cast<int> (DEFAULT.orderRule))));
+			this->_orderRule = static_cast<OrderRule> (LoadField(fields, "orderRule", static_cast<int> (DEFAULT.orderRule)));
 		} catch (...) {
 		}
 	}

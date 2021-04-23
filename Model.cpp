@@ -131,12 +131,12 @@ double Model::parseExpression(const std::string expression, bool* success, std::
 }
 
 void Model::show() {
-	getTracer()->trace(Util::TraceLevel::report, "Simulation Model:");
+	getTracer()->trace(Util::TraceLevel::results, "Simulation Model:");
 	Util::IncIndent();
 	{
-		getTracer()->trace(Util::TraceLevel::report, "Information:");
+		getTracer()->trace(Util::TraceLevel::results, "Information:");
 		Util::IncIndent();
-		getTracer()->trace(Util::TraceLevel::report, this->getInfos()->show());
+		getTracer()->trace(Util::TraceLevel::results, this->getInfos()->show());
 		Util::DecIndent();
 		_showConnections();
 		_showComponents();
@@ -145,7 +145,7 @@ void Model::show() {
 		_showSimulationResponses();
 	}
 	Util::DecIndent();
-	getTracer()->trace(Util::TraceLevel::report, "End of Simulation Model");
+	getTracer()->trace(Util::TraceLevel::results, "End of Simulation Model");
 }
 
 bool Model::insert(ModelElement* elemOrComp) {
@@ -165,7 +165,7 @@ void Model::remove(ModelElement* elemOrComp) {
 }
 
 void Model::_showElements() const {
-	getTracer()->trace(Util::TraceLevel::report, "Elements:");
+	getTracer()->trace(Util::TraceLevel::results, "Elements:");
 	Util::IncIndent();
 	{
 		std::string elementType;
@@ -174,12 +174,12 @@ void Model::_showElements() const {
 		for (std::list<std::string>::iterator typeIt = elementTypes->begin(); typeIt != elementTypes->end(); typeIt++) {
 			elementType = (*typeIt);
 			List<ModelElement*>* em = getElements()->getElementList(elementType);
-			getTracer()->trace(Util::TraceLevel::report, elementType + ":");
+			getTracer()->trace(Util::TraceLevel::results, elementType + ":");
 			Util::IncIndent();
 			{
 				for (std::list<ModelElement*>::iterator it = em->list()->begin(); it != em->list()->end(); it++) {
 					element = (*it);
-					getTracer()->trace(Util::TraceLevel::report, element->show());
+					getTracer()->trace(Util::TraceLevel::results, element->show());
 				}
 			}
 			Util::DecIndent();
@@ -193,28 +193,28 @@ void Model::_showConnections() const {
 }
 
 void Model::_showComponents() const {
-	getTracer()->trace(Util::TraceLevel::report, "Components:");
+	getTracer()->trace(Util::TraceLevel::results, "Components:");
 	Util::IncIndent();
 	for (std::list<ModelComponent*>::iterator it = getComponents()->begin(); it != getComponents()->end(); it++) {
-		getTracer()->trace(Util::TraceLevel::report, (*it)->show()); ////
+		getTracer()->trace(Util::TraceLevel::results, (*it)->show()); ////
 	}
 	Util::DecIndent();
 }
 
 void Model::_showSimulationControls() const {
-	getTracer()->trace(Util::TraceLevel::report, "Simulation Controls:");
+	getTracer()->trace(Util::TraceLevel::results, "Simulation Controls:");
 	Util::IncIndent();
 	for (std::list<SimulationControl*>::iterator it = _controls->list()->begin(); it != _controls->list()->end(); it++) {
-		getTracer()->trace(Util::TraceLevel::report, (*it)->show()); ////
+		getTracer()->trace(Util::TraceLevel::results, (*it)->show()); ////
 	}
 	Util::DecIndent();
 }
 
 void Model::_showSimulationResponses() const {
-	getTracer()->trace(Util::TraceLevel::report, "Simulation Responses:");
+	getTracer()->trace(Util::TraceLevel::results, "Simulation Responses:");
 	Util::IncIndent();
 	for (std::list<SimulationResponse*>::iterator it = _responses->list()->begin(); it != _responses->list()->end(); it++) {
-		getTracer()->trace(Util::TraceLevel::report, (*it)->show()); ////
+		getTracer()->trace(Util::TraceLevel::results, (*it)->show()); ////
 	}
 	Util::DecIndent();
 }

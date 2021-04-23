@@ -35,11 +35,12 @@ public:
 public:
 	SeizableItemRequest(ModelElement* resourceOrSet, std::string quantityExpression = "1", SeizableItemRequest::ResourceType resourceType = SeizableItemRequest::ResourceType::RESOURCE, SeizableItemRequest::SelectionRule selectionRule = SeizableItemRequest::SelectionRule::LARGESTREMAININGCAPACITY, std::string saveAttribute = "", unsigned int index = 0);
 
-public:
+public: // virtual
 	virtual bool _loadInstance(std::map<std::string, std::string>* fields, unsigned int parentIndex);
 	virtual std::map<std::string, std::string>* _saveInstance(unsigned int parentIndex);
 	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
 	virtual std::map<std::string, std::string>* _saveInstance();
+public:
 	std::string show();
 	void setIndex(unsigned int index);
 	unsigned int getIndex() const;
@@ -60,6 +61,7 @@ public:
 	unsigned int getLastMemberSeized() const;
 
 private:
+
 	const struct DEFAULT_VALUES {
 		const std::string quantityExpression = "1";
 		const SeizableItemRequest::ResourceType resourceType = SeizableItemRequest::ResourceType::RESOURCE;

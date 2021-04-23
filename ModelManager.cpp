@@ -11,6 +11,11 @@
  * Created on 31 de Maio de 2019, 08:37
  */
 
+#include <fstream>
+#include <stdio.h>
+#include <iostream>
+#include <cstdio>
+
 #include "ModelManager.h"
 #include "List.h"
 #include "Simulator.h"
@@ -63,6 +68,26 @@ bool ModelManager::loadModel(std::string filename) {
 		_simulator->getTracer()->trace(Util::TraceLevel::simulatorResult, "Model coud not be loaded");
 	}
 	return res;
+}
+
+bool ModelManager::createFromLanguage(std::string modelSpecification) {
+	std::string randomTempFilename = "_tmp";
+	const char alphanum[] =
+			"0123456789_."
+			"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+			"abcdefghijklmnopqrstuvwxyz";
+	unsigned short stringLength = sizeof (alphanum) - 1;
+	for (unsigned short i = 0; i < 16; i++) {
+		randomTempFilename += alphanum[rand() % stringLength];
+	}
+	std::ofstream savefile;
+	savefile.open("tmp_createfromlanguage.tmp" /*randomTempFilename*/, std::ofstream::out);
+	savefile << modelSpecification;
+	savefile.close();
+	bool result = this->loadModel(randomTempFilename);
+	//const std::string filename = randomTempFilename;
+	std::remove("tmp_createfromlanguage.tmp" /*randomTempFilename*/);
+	return result;
 }
 
 void ModelManager::setCurrent(Model* model) {

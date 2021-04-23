@@ -98,7 +98,7 @@ std::string ModelComponent::show() {
 bool ModelComponent::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelElement::_loadInstance(fields);
 	if (res) {
-		_description = LoadField(fields, "description", DEFAULT.description);
+		_description = LoadField(fields, "caption", DEFAULT.description);
 		// Now it should load nextComponents. The problem is that the nextComponent may not be loaded yet.
 		// So, what can be done is to temporarily load the ID of the nextComponents, and to wait until all the components have been loaded to update nextComponents based on the temporarilyIDs now being loaded
 		//unsigned short nextSize = std::stoi((*fields->find("nextSize")).second);
@@ -113,14 +113,18 @@ bool ModelComponent::_loadInstance(std::map<std::string, std::string>* fields) {
 
 std::map<std::string, std::string>* ModelComponent::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelElement::_saveInstance();
-	SaveField(fields, "description", _description, DEFAULT.description);
+	SaveField(fields, "caption", _description, DEFAULT.description);
 	if (true) {//(_connections->size() != 1) { // save nextSize only if it is != 1
 		SaveField(fields, "nextSize", _connections->size(), DEFAULT.nextSize);
 	}
 	unsigned short i = 0;
 	for (Connection* connection : *_connections->list()) {
-		SaveField(fields, "nextId" + std::to_string(i), connection->first->_id, 0);
-		if (true) {//((*it)->second != 0) { // save nextInputNumber only if it is != 0
+		if (_connections->list()->size() == 1) {
+			SaveField(fields, "nextId", connection->first->_id, 0);
+		} else {
+			SaveField(fields, "nextId" + std::to_string(i), connection->first->_id, 0);
+		}
+		if (connection->second != 0) {//((*it)->second != 0) { // save nextInputNumber only if it is != 0
 			SaveField(fields, "nextInputNumber" + std::to_string(i), connection->second, DEFAULT.nextInputNumber);
 		}
 		i++;

@@ -26,12 +26,12 @@ SeizableItemRequest::SeizableItemRequest(ModelElement* resourceOrSet, std::strin
 bool SeizableItemRequest::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = true;
 	try {
-		_resourceType = static_cast<SeizableItemRequest::ResourceType> (std::stoi(LoadField(fields, "resourceType", static_cast<int> (DEFAULT.resourceType))));
-		_resourceName = LoadField(fields, "resourceName", "");
+		_resourceType = static_cast<SeizableItemRequest::ResourceType> (LoadField(fields, "resourceType", static_cast<int> (DEFAULT.resourceType)));
+		_resourceName = LoadField(fields, "resource", "");
 		_quantityExpression = LoadField(fields, "quantityExpression", DEFAULT.quantityExpression);
-		_selectionRule = static_cast<SeizableItemRequest::SelectionRule> (std::stoi(LoadField(fields, "selectionRule", static_cast<int> (DEFAULT.selectionRule))));
+		_selectionRule = static_cast<SeizableItemRequest::SelectionRule> (LoadField(fields, "selectionRule", static_cast<int> (DEFAULT.selectionRule)));
 		_saveAttribute = LoadField(fields, "saveAttribute", DEFAULT.saveAttribute);
-		_index = std::stoi(LoadField(fields, "index", DEFAULT.index));
+		_index = LoadField(fields, "index", DEFAULT.index);
 	} catch (...) {
 		res = false;
 	}
@@ -42,12 +42,12 @@ bool SeizableItemRequest::_loadInstance(std::map<std::string, std::string>* fiel
 	bool res = true;
 	std::string num = std::to_string(parentIndex);
 	try {
-		_resourceType = static_cast<SeizableItemRequest::ResourceType> (std::stoi(LoadField(fields, "resourceType" + num, static_cast<int> (DEFAULT.resourceType))));
-		_resourceName = LoadField(fields, "resourceName" + num, "");
+		_resourceType = static_cast<SeizableItemRequest::ResourceType> (LoadField(fields, "resourceType" + num, static_cast<int> (DEFAULT.resourceType)));
+		_resourceName = LoadField(fields, "resource" + num, "");
 		_quantityExpression = LoadField(fields, "quantityExpression" + num, DEFAULT.quantityExpression);
-		_selectionRule = static_cast<SeizableItemRequest::SelectionRule> (std::stoi(LoadField(fields, "selectionRule" + num, static_cast<int> (DEFAULT.selectionRule))));
+		_selectionRule = static_cast<SeizableItemRequest::SelectionRule> (LoadField(fields, "selectionRule" + num, static_cast<int> (DEFAULT.selectionRule)));
 		_saveAttribute = LoadField(fields, "saveAttribute" + num, DEFAULT.saveAttribute);
-		_index = std::stoi(LoadField(fields, "index" + num, DEFAULT.index));
+		_index = LoadField(fields, "index" + num, DEFAULT.index);
 	} catch (...) {
 		res = false;
 	}
@@ -59,20 +59,19 @@ std::map<std::string, std::string>* SeizableItemRequest::_saveInstance(unsigned 
 	std::string num = std::to_string(parentIndex);
 	SaveField(fields, "resourceType" + num, static_cast<int> (_resourceType), static_cast<int> (DEFAULT.resourceType));
 	//SaveField(fields, "resourceId" + num, _resourceOrSet->getId());
-	SaveField(fields, "resourceName" + num, _resourceOrSet->getName(), "");
+	SaveField(fields, "resource" + num, _resourceOrSet->getName(), "");
 	SaveField(fields, "quantityExpression" + num, _quantityExpression, DEFAULT.quantityExpression);
 	SaveField(fields, "selectionRule" + num, static_cast<int> (_selectionRule), static_cast<int> (DEFAULT.selectionRule));
 	SaveField(fields, "saveAttribute" + num, _saveAttribute, DEFAULT.saveAttribute);
 	SaveField(fields, "index" + num, _index, DEFAULT.index);
 	return fields;
-
 }
 
 std::map<std::string, std::string>* SeizableItemRequest::_saveInstance() {
 	std::map<std::string, std::string>* fields = new std::map<std::string, std::string>();
 	SaveField(fields, "resourceType", static_cast<int> (_resourceType), static_cast<int> (DEFAULT.resourceType));
 	SaveField(fields, "resourceId", _resourceOrSet->getId());
-	SaveField(fields, "resourceName", _resourceOrSet->getName(), "");
+	SaveField(fields, "resource", _resourceOrSet->getName(), "");
 	SaveField(fields, "quantityExpression", _quantityExpression, DEFAULT.quantityExpression);
 	SaveField(fields, "selectionRule", static_cast<int> (_selectionRule), static_cast<int> (DEFAULT.selectionRule));
 	SaveField(fields, "saveAttribute", _saveAttribute, DEFAULT.saveAttribute);

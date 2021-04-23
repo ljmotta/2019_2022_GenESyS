@@ -34,9 +34,12 @@ int Model_StatationRouteSequence::main(int argc, char** argv) {
 	this->setDefaultTraceHandlers(genesys->getTracer());
 	genesys->getTracer()->setTraceLevel(Util::TraceLevel::modelSimulationEvent);
 
+	//genesys->getModels()->loadModel("./models/Model_StatationRouteSequence.txt");
+	//genesys->getModels()->current()->getSimulation()->start();
+	//return;
+
 	Model* m = genesys->getModels()->newModel();
 	m->getSimulation()->setReplicationLength(60);
-
 	Create* c1 = new Create(m);
 	c1->setEntityType(new EntityType(m));
 	c1->setTimeBetweenCreationsExpression("10");
