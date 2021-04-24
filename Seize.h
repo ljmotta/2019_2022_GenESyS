@@ -21,6 +21,7 @@
 #include "Queue.h"
 #include "Plugin.h"
 #include "SeizableItemRequest.h"
+#include "QueueableItemRequest.h"
 
 class WaitingResource : public Waiting {
 public:
@@ -139,11 +140,13 @@ public: // get & set
 	// indirect access to Queue* and Resource*
 	//void setResourceName(std::string _resourceName) throw ();
 	//std::string getResourceName() const;
-	void setQueueName(std::string queueName) throw ();
-	std::string getQueueName() const;
+	//void setQueueName(std::string queueName) throw ();
+	//std::string getQueueName() const;
 	void setQueue(Queue* queue);
-	Queue* getQueue() const;
+	//Queue* getQueue() const;
 	List<SeizableItemRequest*>* getSeizeRequests() const;
+    void setQueueableItem(QueueableItemRequest* _queueableItem);
+    QueueableItemRequest* getQueueableItem() const;
 protected:
 	virtual void _execute(Entity* entity);
 	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
@@ -153,6 +156,7 @@ protected:
 	//virtual void _createInternalElements(); 
 private:
 	void _handlerForResourceEvent(Resource* resource);
+	Queue* _getQueue() const ;
 private:
 
 	const struct DEFAULT_VALUES {
@@ -162,7 +166,7 @@ private:
 	} DEFAULT;
 	unsigned int _allocationType = DEFAULT.allocationType; // uint ? enum?
 	unsigned short _priority = DEFAULT.priority;
-	Queue* _queue; // usually has a queue, but not always (it could be a hold) 
+	QueueableItemRequest* _queueableItem; //Queue* _queue; // usually has a queue, but not always (it could be a hold or a set) 
 	List<SeizableItemRequest*>* _seizeRequests = new List<SeizableItemRequest*>();
 private: // not gets or sets
 	//	unsigned int _lastMemberSeized = 0; //  now _seizeRequest is a list and it was moved to SeizableItemRequest

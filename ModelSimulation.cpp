@@ -47,7 +47,7 @@ bool ModelSimulation::_isReplicationEndCondition() {
 	finish |= _model->parseExpression(_terminatingCondition) != 0.0;
 	if (_model->getFutureEvents()->size() > 0 && !finish) {
 		// replication length has not been achieve (sor far), but next event will happen after that, so it's just fine to set tnow as the replicationLength
-		finish |= _model->getFutureEvents()->front()->getTime() > _replicationLength;
+		finish |= _model->getFutureEvents()->front()->getTime() > _replicationLength * _replicationTimeScaleFactorToBase;
 	}
 	return finish;
 }
@@ -59,12 +59,12 @@ void ModelSimulation::_traceReplicationEnded() {
 	} else if (_stopRequested) {
 		causeTerminated = "user requested to stop";
 	} else if (_model->getFutureEvents()->front()->getTime() > _replicationLength) {
-		causeTerminated = "replication length " + std::to_string(_replicationLength) + " was achieved";
+		causeTerminated = "replication length " + std::to_string(_replicationLength) + " " + Util::StrTimeUnitLong(_replicationLengthTimeUnit) + " was achieved";
 	} else if (_model->parseExpression(_terminatingCondition)) {
 		causeTerminated = "termination condition was achieved";
 	} else causeTerminated = "unknown";
-	std::string message = "Replication " + std::to_string(_currentReplicationNumber) + " of " + std::to_string(_numberOfReplications) + " has finished with last event at time " + std::to_string(_simulatedTime) + " because " + causeTerminated;
-	_model->getTracer()->trace(Util::TraceLevel::modelSimulationEvent, message);
+	std::string message = "Replication " + std::to_string(_currentReplicationNumber) + " of " + std::to_string(_numberOfReplications) + " has finished with last event at time " + std::to_string(_simulatedTime) + " " + Util::StrTimeUnitLong(_replicationBaseTimeUnit) + " because " + causeTerminated;
+	_model->getTracer()->trace(Util::TraceLevel::L5_arrival, message);
 }
 
 /*!
@@ -74,16 +74,16 @@ void ModelSimulation::start() {
 	if (!_isPaused) { // begin of a new simulation
 		Util::SetIndent(0); //force indentation
 		if (!_model->check()) {
-			_model->getTracer()->trace(Util::TraceLevel::errorFatal, "Model check failed. Cannot start simulation.");
+			_model->getTracer()->trace(Util::TraceLevel::L1_errorFatal, "Model check failed. Cannot start simulation.");
 			return;
 		}
 		_initSimulation();
 		_model->getOnEvents()->NotifySimulationStartHandlers(new SimulationEvent(0, nullptr));
 		_currentReplicationNumber = 1;
-		Util::IncIndent();
-		_initReplication();
+		//Util::IncIndent();
+		//_initReplication();
 	} else { // continue after a pause
-		_model->getTracer()->trace("Replication resumed", Util::TraceLevel::modelSimulationEvent);
+		_model->getTracer()->trace("Replication resumed", Util::TraceLevel::L5_arrival);
 		_model->getOnEvents()->NotifySimulationPausedStartHandlers(new SimulationEvent(0, nullptr));
 	}
 	_isRunning = true;
@@ -92,6 +92,7 @@ void ModelSimulation::start() {
 	do {
 		Util::SetIndent(1);
 		_model->getOnEvents()->NotifyReplicationStartHandlers(new SimulationEvent(_currentReplicationNumber, nullptr));
+		_initReplication();
 		// main simulation loop
 		Util::IncIndent();
 		while (!_isReplicationEndCondition() && !_pauseRequested) {
@@ -102,20 +103,24 @@ void ModelSimulation::start() {
 			_replicationEnded();
 			_currentReplicationNumber++;
 			if (_currentReplicationNumber <= _numberOfReplications) {
-				_initReplication();
+				//_initReplication();
 				if (_pauseOnReplication) {
-					_model->getTracer()->trace("End of replication. Simulation is paused.", Util::TraceLevel::simulatorInternal);
+					_model->getTracer()->trace("End of replication. Simulation is paused.", Util::TraceLevel::L6_internal);
 					_pauseRequested = true;
 				}
 			}
 		}
 	} while (_currentReplicationNumber <= _numberOfReplications && !_pauseRequested);
-	if (!_pauseRequested) {
+	// all replications done (or paused during execution)
+	if (!_pauseRequested) { // done
 		if (this->_showReportsAfterSimulation)
 			_simulationReporter->showSimulationStatistics(); //_cStatsSimulation);
 		Util::DecIndent();
-
-		_model->getTracer()->trace(Util::TraceLevel::modelSimulationEvent, "Simulation of model \"" + _info->getName() + "\" has finished.\n");
+		// clear current event
+		_currentEntity = nullptr;
+		_currentComponent = nullptr;
+		//
+		_model->getTracer()->trace(Util::TraceLevel::L5_arrival, "Simulation of model \"" + _info->getName() + "\" has finished.\n");
 		_model->getOnEvents()->NotifySimulationEndHandlers(new SimulationEvent(0, nullptr));
 	} else {
 		_pauseRequested = false;
@@ -208,20 +213,21 @@ void ModelSimulation::_showSimulationHeader() {
 	tm->traceReport("Project Title: " + _info->getProjectTitle());
 	tm->traceReport("Number of Replications: " + std::to_string(_numberOfReplications));
 	tm->traceReport("Replication Length: " + std::to_string(_replicationLength) + " " + Util::StrTimeUnitLong(_replicationLengthTimeUnit));
+	tm->traceReport("Base TimeUnit: " + Util::StrTimeUnitLong(_replicationBaseTimeUnit));
 	//tm->traceReport(Util::TraceLevel::simulation, "");
 	// model controls and responses
 	std::string controls;
-	for (std::list<SimulationControl*>::iterator it = _model->getControls()->list()->begin(); it != _model->getControls()->list()->end(); it++) {
-		controls += (*it)->getName() + "(" + (*it)->getType() + ")=" + std::to_string((*it)->getValue()) + ", ";
+	for (SimulationControl* control : * _model->getControls()->list()) {
+		controls += control->getName() + "(" + control->getType() + ")=" + std::to_string(control->getValue()) + ", ";
 	}
 	controls = controls.substr(0, controls.length() - 2);
 	tm->traceReport("> Simulation controls: " + controls);
 	std::string responses;
-	for (std::list<SimulationResponse*>::iterator it = _model->getResponses()->list()->begin(); it != _model->getResponses()->list()->end(); it++) {
-		responses += (*it)->getName() + "(" + (*it)->getType() + "), ";
-	}
-	responses = responses.substr(0, responses.length() - 2);
-	tm->traceReport("> Simulation responses: " + responses);
+	//for (std::list<SimulationResponse*>::iterator it = _model->getResponses()->list()->begin(); it != _model->getResponses()->list()->end(); it++) {
+	//	responses += (*it)->getName() + "(" + (*it)->getType() + "), ";
+	//}
+	//responses = responses.substr(0, responses.length() - 2);
+	//tm->traceReport("> Simulation responses: " + responses);
 	tm->traceReport("");
 }
 
@@ -230,9 +236,11 @@ void ModelSimulation::_showSimulationHeader() {
  */
 void ModelSimulation::_initSimulation() {
 	_showSimulationHeader();
-	//model->tracer()->trace(Util::TraceLevel::modelSimulationEvent, "------------------------------");
-	_model->getTracer()->trace(Util::TraceLevel::modelSimulationEvent, "");
-	_model->getTracer()->trace(Util::TraceLevel::modelSimulationEvent, "Simulation of model \"" + _info->getName() + "\" is starting.");
+	//model->tracer()->trace(Util::TraceLevel::L5_arrival, "------------------------------");
+	_model->getTracer()->trace(Util::TraceLevel::L5_arrival, "");
+	_model->getTracer()->trace(Util::TraceLevel::L5_arrival, "Simulation of model \"" + _info->getName() + "\" is starting.");
+	// defines the time scale factor to adjust replicatonLength to replicationBaseTime
+	_replicationTimeScaleFactorToBase = Util::TimeUnitConvert(this->_replicationLengthTimeUnit, this->_replicationBaseTimeUnit);
 	// copy all CStats and Counters (used in a replication) to CStats and counters for the whole simulation
 	// \todo: Should not be CStats and Counters, but any element that generates report importation
 	this->_statsCountersSimulation->clear();
@@ -265,8 +273,8 @@ void ModelSimulation::_initSimulation() {
 
 void ModelSimulation::_initReplication() {
 	TraceManager* tm = _model->getTracer();
-	tm->trace(Util::TraceLevel::modelSimulationEvent, "");
-	tm->trace(Util::TraceLevel::modelSimulationEvent, "Replication " + std::to_string(_currentReplicationNumber) + " of " + std::to_string(_numberOfReplications) + " is starting.");
+	tm->trace(Util::TraceLevel::L5_arrival, "");
+	tm->trace(Util::TraceLevel::L5_arrival, "Replication " + std::to_string(_currentReplicationNumber) + " of " + std::to_string(_numberOfReplications) + " is starting.");
 
 	_model->getFutureEvents()->clear();
 	_simulatedTime = 0.0;
@@ -274,8 +282,10 @@ void ModelSimulation::_initReplication() {
 
 	//if (_currentReplicationNumber > 1) {
 	// init all components between replications
+	Util::IncIndent();
+	tm->trace(Util::TraceLevel::L7_detailed, "Initing Replication");
 	for (std::list<ModelComponent*>::iterator it = _model->getComponents()->begin(); it != _model->getComponents()->end(); it++) {
-		ModelElement::InitBetweenReplications((*it));
+		ModelComponent::InitBetweenReplications((*it));
 	}
 	// init all elements between replications
 	ModelElement* element;
@@ -290,6 +300,7 @@ void ModelSimulation::_initReplication() {
 			ModelElement::InitBetweenReplications(element);
 		}
 	}
+	Util::DecIndent();
 	//}
 	Util::ResetIdOfType(Util::TypeOf<Entity>());
 	Util::ResetIdOfType(Util::TypeOf<Event>());
@@ -338,10 +349,10 @@ void ModelSimulation::_initStatistics() {
 }
 
 void ModelSimulation::_checkWarmUpTime(Event* nextEvent) {
-	double warmupTime = Util::TimeUnitConvert(this->_warmUpPeriodTimeUnit, this->_replicationLengthTimeUnit);
+	double warmupTime = Util::TimeUnitConvert(_warmUpPeriodTimeUnit, _replicationBaseTimeUnit);
 	warmupTime *= _warmUpPeriod;
 	if (warmupTime > 0.0 && _model->getSimulation()->getSimulatedTime() <= warmupTime && nextEvent->getTime() > warmupTime) {// warmuTime. Time to initStats
-		_model->getTracer()->trace(Util::TraceLevel::modelInternal, "Warmup time reached. Statistics are being reseted.");
+		_model->getTracer()->trace(Util::TraceLevel::L6_internal, "Warmup time reached. Statistics are being reseted.");
 		_initStatistics();
 	}
 }
@@ -352,7 +363,7 @@ void ModelSimulation::_stepSimulation() {
 	nextEvent = _model->getFutureEvents()->front();
 	if (_warmUpPeriod > 0.0)
 		_checkWarmUpTime(nextEvent);
-	if (nextEvent->getTime() <= _replicationLength) {
+	if (nextEvent->getTime() <= _replicationLength * _replicationTimeScaleFactorToBase) {
 		if (_checkBreakpointAt(nextEvent)) {
 			this->_pauseRequested = true;
 		} else {
@@ -374,7 +385,7 @@ bool ModelSimulation::_checkBreakpointAt(Event* event) {
 		} else {
 			_justTriggeredBreakpointsOnComponent = event->getComponent();
 			_model->getOnEvents()->NotifyBreakpointHandlers(se);
-			_model->getTracer()->trace("Breakpoint found at component '" + event->getComponent()->getName() + "'. Replication is paused.", Util::TraceLevel::modelSimulationEvent);
+			_model->getTracer()->trace("Breakpoint found at component '" + event->getComponent()->getName() + "'. Replication is paused.", Util::TraceLevel::L5_arrival);
 
 			res = true;
 		}
@@ -385,7 +396,7 @@ bool ModelSimulation::_checkBreakpointAt(Event* event) {
 		} else {
 			_justTriggeredBreakpointsOnEntity = event->getEntity();
 			_model->getOnEvents()->NotifyBreakpointHandlers(se);
-			_model->getTracer()->trace("Breakpoint found at entity '" + event->getEntity()->getName() + "'. Replication is paused.", Util::TraceLevel::modelSimulationEvent);
+			_model->getTracer()->trace("Breakpoint found at entity '" + event->getEntity()->getName() + "'. Replication is paused.", Util::TraceLevel::L5_arrival);
 			res = true;
 		}
 	}
@@ -398,7 +409,7 @@ bool ModelSimulation::_checkBreakpointAt(Event* event) {
 			} else {
 				_justTriggeredBreakpointsOnTime = time;
 				_model->getOnEvents()->NotifyBreakpointHandlers(se);
-				_model->getTracer()->trace("Breakpoint found at time '" + std::to_string(event->getTime()) + "'. Replication is paused.", Util::TraceLevel::modelSimulationEvent);
+				_model->getTracer()->trace("Breakpoint found at time '" + std::to_string(event->getTime()) + "'. Replication is paused.", Util::TraceLevel::L5_arrival);
 				return true;
 			}
 		}
@@ -407,10 +418,10 @@ bool ModelSimulation::_checkBreakpointAt(Event* event) {
 }
 
 void ModelSimulation::_processEvent(Event* event) {
-	//	_model->tracer()->traceSimulation(Util::TraceLevel::modelSimulationEvent, event->time(), event->entity(), event->component(), "");
-	_model->getTracer()->trace(Util::TraceLevel::modelSimulationEvent, "Event {" + event->show() + "}");
+	//	_model->tracer()->traceSimulation(Util::TraceLevel::L5_arrival, event->time(), event->entity(), event->component(), "");
+	_model->getTracer()->trace(Util::TraceLevel::L5_arrival, "Event {" + event->show() + "}");
 	Util::IncIndent();
-	_model->getTracer()->trace(Util::TraceLevel::modelSimulationInternal, "Entity: " + event->getEntity()->show());
+	_model->getTracer()->trace(Util::TraceLevel::L6_internal, "Entity: " + event->getEntity()->show());
 	this->_currentEntity = event->getEntity();
 	this->_currentComponent = event->getComponent();
 	this->_currentInputNumber = event->getComponentInputNumber();
@@ -607,12 +618,13 @@ std::string ModelSimulation::getTerminatingCondition() const {
 }
 
 void ModelSimulation::loadInstance(std::map<std::string, std::string>* fields) {
-	this->_numberOfReplications = std::stoi(LoadField(fields, "numberOfReplications", DEFAULT.numberOfReplications));
-	this->_replicationLength = std::stod(LoadField(fields, "replicationLength", DEFAULT.replicationLength));
-	this->_replicationLengthTimeUnit = static_cast<Util::TimeUnit> (std::stoi(LoadField(fields, "replicationLengthTimeUnit", DEFAULT.replicationLengthTimeUnit)));
+	this->_numberOfReplications = LoadField(fields, "numberOfReplications", DEFAULT.numberOfReplications);
+	this->_replicationLength = LoadField(fields, "replicationLength", DEFAULT.replicationLength);
+	this->_replicationLengthTimeUnit = LoadField(fields, "replicationLengthTimeUnit", DEFAULT.replicationLengthTimeUnit);
+	this->_replicationBaseTimeUnit = LoadField(fields, "replicationBaseTimeUnit", DEFAULT.replicationBeseTimeUnit);
 	this->_terminatingCondition = LoadField(fields, "terminatingCondition", DEFAULT.terminatingCondition);
-	this->_warmUpPeriod = std::stod(LoadField(fields, "warmUpTime", DEFAULT.warmUpPeriod));
-	this->_warmUpPeriodTimeUnit = static_cast<Util::TimeUnit> (std::stoi(LoadField(fields, "warmUpTimeTimeUnit", DEFAULT.warmUpPeriodTimeUnit)));
+	this->_warmUpPeriod = LoadField(fields, "warmUpTime", DEFAULT.warmUpPeriod);
+	this->_warmUpPeriodTimeUnit = LoadField(fields, "warmUpTimeTimeUnit", DEFAULT.warmUpPeriodTimeUnit);
 	_hasChanged = false;
 }
 
@@ -621,12 +633,22 @@ void ModelSimulation::loadInstance(std::map<std::string, std::string>* fields) {
 std::map<std::string, std::string>* ModelSimulation::saveInstance() {
 	std::map<std::string, std::string>* fields = new std::map<std::string, std::string>();
 	SaveField(fields, "typename", "ModelSimulation");
+	SaveField(fields, "name", "fixed experiment name in ModelSimulation"); //getName());
 	SaveField(fields, "numberOfReplications", _numberOfReplications, DEFAULT.numberOfReplications);
 	SaveField(fields, "replicationLength", _replicationLength, DEFAULT.replicationLength);
 	SaveField(fields, "replicationLengthTimeUnit", _replicationLengthTimeUnit, DEFAULT.replicationLengthTimeUnit);
+	SaveField(fields, "replicationBaseTimeUnit", _replicationBaseTimeUnit, DEFAULT.replicationBeseTimeUnit);
 	SaveField(fields, "terminatingCondition", _terminatingCondition, DEFAULT.terminatingCondition);
 	SaveField(fields, "warmUpTime", _warmUpPeriod, DEFAULT.warmUpPeriod);
 	SaveField(fields, "warmUpTimeTimeUnit", _warmUpPeriodTimeUnit, DEFAULT.warmUpPeriodTimeUnit);
 	_hasChanged = false;
 	return fields;
+}
+
+void ModelSimulation::setReplicationReportBaseTimeUnit(Util::TimeUnit _replicationReportBaseTimeUnit) {
+	this->_replicationBaseTimeUnit = _replicationReportBaseTimeUnit;
+}
+
+Util::TimeUnit ModelSimulation::getReplicationBaseTimeUnit() const {
+	return _replicationBaseTimeUnit;
 }

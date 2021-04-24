@@ -32,12 +32,10 @@ int Model_StatationRouteSequence::main(int argc, char** argv) {
 	Simulator* genesys = new Simulator();
 	this->insertFakePluginsByHand(genesys);
 	this->setDefaultTraceHandlers(genesys->getTracer());
-	genesys->getTracer()->setTraceLevel(Util::TraceLevel::modelSimulationEvent);
-
+	genesys->getTracer()->setTraceLevel(Util::TraceLevel::L5_arrival);
 	//genesys->getModels()->loadModel("./models/Model_StatationRouteSequence.txt");
 	//genesys->getModels()->current()->getSimulation()->start();
 	//return;
-
 	Model* m = genesys->getModels()->newModel();
 	m->getSimulation()->setReplicationLength(60);
 	Create* c1 = new Create(m);
@@ -93,12 +91,13 @@ int Model_StatationRouteSequence::main(int argc, char** argv) {
 	l2->getNextComponents()->insert(r2);
 	e3->getNextComponents()->insert(dp1);
 
-
 	ModelSimulation* sim = m->getSimulation();
 	sim->getBreakpointsOnComponent()->insert(a1);
 	sim->getBreakpointsOnComponent()->insert(l2);
 	sim->getBreakpointsOnTime()->insert(40.0);
 	sim->getBreakpointsOnTime()->insert(20.0);
+	sim->setShowReportsAfterReplication(false);
+	sim->setShowReportsAfterSimulation(false);
 
 	m->save("./models/Model_StatationRouteSequence.txt");
 

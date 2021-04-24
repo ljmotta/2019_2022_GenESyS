@@ -88,6 +88,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Model_SeizeDelayReleaseMany.o \
 	${OBJECTDIR}/Model_StatationRouteSequence.o \
 	${OBJECTDIR}/Modelo_SistemaOperacional02.o \
+	${OBJECTDIR}/Modelo_SistemaOperacional03.o \
 	${OBJECTDIR}/OLD_ODEelement.o \
 	${OBJECTDIR}/OnEventManager.o \
 	${OBJECTDIR}/ParserChangesInformation.o \
@@ -101,6 +102,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/ProbDistribBoostImpl.o \
 	${OBJECTDIR}/ProbDistribDefaultImpl1.o \
 	${OBJECTDIR}/Queue.o \
+	${OBJECTDIR}/QueueableItemRequest.o \
 	${OBJECTDIR}/Record.o \
 	${OBJECTDIR}/Release.o \
 	${OBJECTDIR}/RequirementTester.o \
@@ -435,6 +437,11 @@ ${OBJECTDIR}/Modelo_SistemaOperacional02.o: Modelo_SistemaOperacional02.cpp nbpr
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Modelo_SistemaOperacional02.o Modelo_SistemaOperacional02.cpp
 
+${OBJECTDIR}/Modelo_SistemaOperacional03.o: Modelo_SistemaOperacional03.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Modelo_SistemaOperacional03.o Modelo_SistemaOperacional03.cpp
+
 ${OBJECTDIR}/OLD_ODEelement.o: OLD_ODEelement.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -499,6 +506,11 @@ ${OBJECTDIR}/Queue.o: Queue.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Queue.o Queue.cpp
+
+${OBJECTDIR}/QueueableItemRequest.o: QueueableItemRequest.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/QueueableItemRequest.o QueueableItemRequest.cpp
 
 ${OBJECTDIR}/Record.o: Record.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

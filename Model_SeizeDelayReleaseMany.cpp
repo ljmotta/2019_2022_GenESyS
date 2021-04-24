@@ -37,15 +37,14 @@ Model_SeizeDelayReleaseMany::Model_SeizeDelayReleaseMany() {
  */
 int Model_SeizeDelayReleaseMany::main(int argc, char** argv) {
 	Simulator* genesys = new Simulator();
-	this->setDefaultTraceHandlers(genesys->getTracer());
-	genesys->getTracer()->setTraceLevel(Util::TraceLevel::everythingMostDetailed);
 	this->insertFakePluginsByHand(genesys);
+	this->setDefaultTraceHandlers(genesys->getTracer());
+	genesys->getTracer()->setTraceLevel(Util::TraceLevel::L7_detailed);
 	Model* m = genesys->getModels()->newModel();
 	//m->load("./models/Model_SeizeDelayReleaseMany.txt");
 	//genesys->getModels()->current()->getSimulation()->start();
 	//return 0;
 
-	m->getSimulation()->setReplicationLength(60);
 	EntityType* customer = new EntityType(m);
 	Create* create1 = new Create(m);
 	create1->setEntityType(customer);
@@ -76,6 +75,9 @@ int Model_SeizeDelayReleaseMany::main(int argc, char** argv) {
 	delay1->getNextComponents()->insert(release1);
 	release1->getNextComponents()->insert(dispose1);
 	// save the model into a text file
+	ModelSimulation* sim = m->getSimulation();
+	sim->setReplicationLength(30);
+	sim->setNumberOfReplications(3);
 	m->save("./models/Model_SeizeDelayReleaseMany.txt");
 	genesys->getModels()->current()->getSimulation()->start();
 	return 0;

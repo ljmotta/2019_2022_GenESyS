@@ -28,9 +28,14 @@ ModelElement::ModelElement(Model* model, std::string thistypename, std::string n
 		_name = thistypename + "_" + std::to_string(Util::GenerateNewIdOfType(thistypename));
 	else
 		_name = name;
+	_hasChanged = false;
 	if (insertIntoModel) {
 		model->insert(this);
 	}
+}
+
+bool ModelElement::hasChanged() const {
+	return _hasChanged;
 }
 
 //ModelElement::ModelElement(const ModelElement &orig) {
@@ -40,7 +45,7 @@ ModelElement::ModelElement(Model* model, std::string thistypename, std::string n
 //}
 
 ModelElement::~ModelElement() {
-	_parentModel->getTracer()->trace(Util::TraceLevel::everythingMostDetailed, "Removing Element \"" + this->_name + "\" from the model");
+	_parentModel->getTracer()->trace(Util::TraceLevel::L8_mostDetailed, "Removing Element \"" + this->_name + "\" from the model");
 	_removeChildrenElements();
 	_parentModel->getElements()->remove(this);
 }
@@ -170,6 +175,7 @@ void ModelElement::setName(std::string name) {
 			}
 		}
 		this->_name = name;
+		_hasChanged = true;
 	}
 }
 
@@ -182,7 +188,7 @@ std::string ModelElement::getClassname() const {
 }
 
 void ModelElement::InitBetweenReplications(ModelElement* element) {
-	//component->_model->getTraceManager()->trace(Util::TraceLevel::blockArrival, "Writing component \"" + component->_name + "\""); //std::to_string(component->_id));
+	element->_parentModel->getTracer()->trace("Initing element \"" + element->getName() + "\"", Util::TraceLevel::L7_detailed); //std::to_string(component->_id));
 	try {
 		element->_initBetweenReplications();
 	} catch (const std::exception& e) {
@@ -218,7 +224,7 @@ std::map<std::string, std::string>* ModelElement::SaveInstance(ModelElement* ele
 }
 
 bool ModelElement::Check(ModelElement* element, std::string* errorMessage) {
-	//    element->_model->getTraceManager()->trace(Util::TraceLevel::mostDetailed, "Checking " + element->_typename + ": " + element->_name); //std::to_string(element->_id));
+	//    element->_model->getTraceManager()->trace(Util::TraceLevel::L8_mostDetailed, "Checking " + element->_typename + ": " + element->_name); //std::to_string(element->_id));
 	bool res = false;
 	Util::IncIndent();
 	{
@@ -250,7 +256,10 @@ void ModelElement::_createInternalElements() {
 }
 
 void ModelElement::setReportStatistics(bool reportStatistics) {
-	this->_reportStatistics = reportStatistics;
+	if (_reportStatistics != reportStatistics) {
+		this->_reportStatistics = reportStatistics;
+		_hasChanged = true;
+	}
 }
 
 bool ModelElement::isReportStatistics() const {

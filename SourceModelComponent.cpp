@@ -65,7 +65,7 @@ bool SourceModelComponent::_check(std::string* errorMessage) {
 		neededName = neededNames[i];
 		if (elements->getElement(Util::TypeOf<Attribute>(), neededName) == nullptr) {
 			Attribute* attr1 = new Attribute(_parentModel, neededName);
-			elements->insert(attr1);
+			//elements->insert(attr1);
 		}
 	}
 	bool resultAll = true;

@@ -101,15 +101,16 @@ public:
 	//static std::string ToStrTimeUnit(TimeUnit tu);
 
 	enum class TraceLevel : int {
-		noTraces = 0,
-		errorFatal = 1,
-		errorRecover = 2,
-		warning = 3,
-		results = 4,
-		arrival = 5,
-		internal = 6,
-		detailed = 7,
-		mostDetailed = 8,
+		L0_noTraces = 0,
+		L1_errorFatal = 1,
+		L2_errorRecover = 2,
+		L3_results = 3,
+		L4_warning = 4,
+		L5_arrival = 5,
+		L6_internal = 6,
+		L7_detailed = 7,
+		L8_mostDetailed = 8
+/*				,
 		
 		simulatorResult = 10,
 		toolResult = 11,
@@ -135,6 +136,7 @@ public:
 		elementDetailed = 35,
 
 		everythingMostDetailed = 99
+ */ 
 	};
 private:
 	static Util::identification _S_lastId;

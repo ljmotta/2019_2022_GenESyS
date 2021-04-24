@@ -93,7 +93,7 @@ void Route::_execute(Entity* entity) {
 	if (_reportStatistics)
 		_numberIn->incCountValue();
 	// adds the route time to the TransferTime statistics / attribute related to the Entitys
-	double routeTime = _parentModel->parseExpression(_routeTimeExpression) * Util::TimeUnitConvert(_routeTimeTimeUnit, _parentModel->getSimulation()->getReplicationLengthTimeUnit());
+	double routeTime = _parentModel->parseExpression(_routeTimeExpression) * Util::TimeUnitConvert(_routeTimeTimeUnit, _parentModel->getSimulation()->getReplicationBaseTimeUnit());
 	if (entity->getEntityType()->isReportStatistics())
 		entity->getEntityType()->addGetStatisticsCollector(entity->getEntityTypeName() + ".TransferTime")->getStatistics()->getCollector()->addValue(routeTime);
 	entity->setAttributeValue("Entity.TotalTransferTime", entity->getAttributeValue("Entity.TotalTransferTime") + routeTime);

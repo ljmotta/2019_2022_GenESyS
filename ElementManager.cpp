@@ -31,10 +31,12 @@ bool ElementManager::insert(std::string elementTypename, ModelElement* anElement
 	List<ModelElement*>* listElements = getElementList(elementTypename);
 	if (listElements->find(anElement) == listElements->list()->end()) { //not found
 		listElements->insert(anElement);
-		this->_parentModel->getTracer()->trace(Util::TraceLevel::toolDetailed, anElement->getClassname() + /*" \"" + anElement->getName() + */ " successfully inserted.");
+		_hasChanged = true;
+		this->_parentModel->getTracer()->trace(Util::TraceLevel::L7_detailed, anElement->getClassname() + " \"" + anElement->getName() + "\"" + " successfully inserted.");
 		return true;
+	} else {
+		this->_parentModel->getTracer()->trace(Util::TraceLevel::L7_detailed, anElement->getClassname() + " \"" + anElement->getName() + "\" already exists."); //could not be inserted.");
 	}
-	this->_parentModel->getTracer()->trace(Util::TraceLevel::toolDetailed, anElement->getClassname() + /*anElement->getName() +*/ " could not be inserted.");
 	return false;
 }
 
@@ -42,12 +44,14 @@ void ElementManager::remove(ModelElement* anElement) {
 	std::string elementTypename = anElement->getClassname();
 	List<ModelElement*>* listElements = getElementList(elementTypename);
 	listElements->remove(anElement);
-	_parentModel->getTracer()->trace(Util::TraceLevel::elementResult, "Element successfully removed");
+	_hasChanged = true;
+	_parentModel->getTracer()->trace(Util::TraceLevel::L3_results, "Element successfully removed");
 
 }
 
 void ElementManager::remove(std::string elementTypename, ModelElement* anElement) {
 	List<ModelElement*>* listElements = getElementList(elementTypename);
+	_hasChanged = true;
 	listElements->remove(anElement);
 }
 
@@ -75,6 +79,7 @@ bool ElementManager::check(std::string elementTypename, ModelElement* anElement,
 }
 
 void ElementManager::clear() {
+	_hasChanged = true;
 	this->_elements->clear();
 }
 
@@ -92,7 +97,7 @@ unsigned int ElementManager::getNumberOfElements() {
 }
 
 void ElementManager::show() {
-	_parentModel->getTracer()->trace(Util::TraceLevel::toolDetailed, "Model Elements:");
+	_parentModel->getTracer()->trace(Util::TraceLevel::L7_detailed, "Model Elements:");
 	//std::map<std::string, List<ModelElement*>*>* _elements;
 	std::string key;
 	List<ModelElement*>* list;
@@ -101,11 +106,11 @@ void ElementManager::show() {
 		for (std::map<std::string, List<ModelElement*>*>::iterator infraIt = _elements->begin(); infraIt != _elements->end(); infraIt++) {
 			key = (*infraIt).first;
 			list = (*infraIt).second;
-			_parentModel->getTracer()->trace(Util::TraceLevel::toolDetailed, key + ": (" + std::to_string(list->size()) + ")");
+			_parentModel->getTracer()->trace(Util::TraceLevel::L7_detailed, key + ": (" + std::to_string(list->size()) + ")");
 			Util::IncIndent();
 			{
 				for (std::list<ModelElement*>::iterator it = list->list()->begin(); it != list->list()->end(); it++) {
-					_parentModel->getTracer()->trace(Util::TraceLevel::toolDetailed, (*it)->show());
+					_parentModel->getTracer()->trace(Util::TraceLevel::L7_detailed, (*it)->show());
 				}
 			}
 			Util::DecIndent();
@@ -119,7 +124,18 @@ Model* ElementManager::getParentModel() const {
 }
 
 bool ElementManager::hasChanged() const {
-	return _hasChanged;
+	if (_hasChanged)
+		return _hasChanged;
+	else {
+		for (std::pair<std::string, List<ModelElement*>*> pair : *_elements) {
+			for (ModelElement* element : *pair.second->list()) {
+				if (element->hasChanged()) {
+					return true;
+				}
+			}
+		}
+	}
+	return false;
 }
 
 void ElementManager::setHasChanged(bool _hasChanged) {

@@ -72,6 +72,7 @@
 #include "Model_SeizeDelayReleaseMany.h"
 #include "Model_StatationRouteSequence.h"
 #include "Modelo_SistemaOperacional02.h"
+#include "Modelo_SistemaOperacional03.h"
 #include "TestEnterLeaveRoute.h"
 #include "TestFunctions.h"
 #include "TestSimulationControlAndSimulationResponse.h"
@@ -81,6 +82,7 @@
 
 template <typename T>
 struct Traits {
+	static const Util::TraceLevel traceLevel = Util::TraceLevel::L3_results;
 };
 
 /*
@@ -95,9 +97,10 @@ template <> struct Traits<GenesysApplication_if> {
 	//typedef Model_CreateDelayDispose Application;
 	//typedef Model_SeizeDelayRelease1 Application;
 	//typedef Model_SeizeDelayReleaseMany Application;
-	//typedef Model_AssignWrite3Seizes Application;
+	////typedef Model_AssignWrite3Seizes Application;
 	//typedef Model_StatationRouteSequence Application;
 	typedef Modelo_SistemaOperacional02 Application;
+	//typedef Modelo_SistemaOperacional03 Application;
 };
 
 /*
@@ -107,7 +110,7 @@ template <> struct Traits<GenesysApplication_if> {
 
 template <> struct Traits<PluginConnector_if> {
 	typedef PluginConnectorDummyImpl1 Implementation;
-	static const Util::TraceLevel traceLevel = Util::TraceLevel::modelSimulationEvent;
+	static const Util::TraceLevel traceLevel = Util::TraceLevel::L4_warning;
 };
 
 template <> struct Traits<Parser_if> {
@@ -119,30 +122,34 @@ template <> struct Traits<Parser_if> {
  */
 
 template <> struct Traits<Model> {
-	static const bool debugged = true;
-	static const Util::TraceLevel traceLevel = Util::TraceLevel::modelSimulationEvent;
+	static const Util::TraceLevel traceLevel = Util::TraceLevel::L4_warning;
 };
 
 template <> struct Traits<ModelPersistence_if> {
 	typedef ModelPersistenceDefaultImpl1 Implementation;
+	static const Util::TraceLevel traceLevel = Util::TraceLevel::L3_results;
 };
 
 template <> struct Traits<SimulationReporter_if> {
 	typedef SimulationReporterDefaultImpl1 Implementation;
 	typedef Counter CounterImplementation;
+	static const Util::TraceLevel traceLevel = Util::TraceLevel::L3_results;
 };
 
 template <> struct Traits<ModelChecker_if> {
 	typedef ModelCheckerDefaultImpl1 Implementation;
+	static const Util::TraceLevel traceLevel = Util::TraceLevel::L3_results;
 };
 
 template <> struct Traits<ModelComponent> {
 	typedef StatisticsDefaultImpl1 StatisticsCollector_StatisticsImplementation;
 	typedef CollectorDefaultImpl1 StatisticsCollector_CollectorImplementation;
 	static constexpr bool reportStatistics = true;
+	static const Util::TraceLevel traceLevel = Util::TraceLevel::L3_results;
 };
 template <> struct Traits<ModelElement> {
 	static constexpr bool reportStatistics = true;
+	static const Util::TraceLevel traceLevel = Util::TraceLevel::L3_results;
 };
 
 /*

@@ -16,6 +16,7 @@
 #include "Resource.h"
 #include "Attribute.h"
 #include <assert.h>
+#include <cmath>
 
 Release::Release(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Release>(), name) {
 }
@@ -53,20 +54,50 @@ List<SeizableItemRequest*>* Release::getReleaseRequests() const {
 //}
 
 void Release::_execute(Entity* entity) {
-	for (std::list<SeizableItemRequest*>::iterator it = _releaseRequests->list()->begin(); it != _releaseRequests->list()->end(); it++) {
-		Resource* resource = (*it)->getResource();
-		unsigned int quantity = _parentModel->parseExpression((*it)->getQuantityExpression());
-		assert((*it)->getResource()->getNumberBusy() >= quantity);
-		_parentModel->getTracer()->traceSimulation(_parentModel->getSimulation()->getSimulatedTime(), entity, this, "Entity frees " + std::to_string(quantity) + " units of resource \"" + resource->getName() + "\" seized on time " + std::to_string((*it)->getResource()->getLastTimeSeized()));
-		(*it)->getResource()->release(quantity, _parentModel->getSimulation()->getSimulatedTime()); //{releases and sets the 'LastTimeSeized'property}
+	for (SeizableItemRequest* seizable : *_releaseRequests->list()) {
+		Resource* resource;
+		if (seizable->getSeizableType() == SeizableItemRequest::SeizableType::RESOURCE) {
+			resource = seizable->getResource();
+		} else { // assume SET
+			SeizableItemRequest::SelectionRule rule = seizable->getSelectionRule();
+			Set* set = seizable->getSet();
+			unsigned int index = 0;
+			switch (rule) { // \todo: Rules for release are DIFFERENT (least and first member seized)
+				case SeizableItemRequest::SelectionRule::CYCLICAL:
+					index = (seizable->getLastMemberSeized() + 1) % _releaseRequests->list()->size();
+					break;
+				case SeizableItemRequest::SelectionRule::LARGESTREMAININGCAPACITY:
+					// \todo
+					break;
+				case SeizableItemRequest::SelectionRule::RANDOM:
+					index = trunc(rand() * _releaseRequests->list()->size());
+					break;
+				case SeizableItemRequest::SelectionRule::SMALLESTNUMBERBUSY:
+					// \todo
+					break;
+				case SeizableItemRequest::SelectionRule::SPECIFICMEMBER:
+					index = _parentModel->parseExpression(seizable->getIndex());
+					break;
+			}
+			_parentModel->getTracer()->trace("Member of set " + set->getName() + " chosen index " + std::to_string(index), Util::TraceLevel::L7_detailed);
+			resource = static_cast<Resource*> (set->getElementSet()->getAtRank(index));
+			assert(resource != nullptr);
+		}
+		unsigned int quantity = _parentModel->parseExpression(seizable->getQuantityExpression());
+		assert(resource->getNumberBusy() >= quantity); // 202104 ops. maybe not anymore
+		_parentModel->getTracer()->traceSimulation(_parentModel->getSimulation()->getSimulatedTime(), entity, this, "Entity frees " + std::to_string(quantity) + " units of resource \"" + resource->getName() + "\" seized on time " + std::to_string(resource->getLastTimeSeized()));
+		resource->release(quantity, _parentModel->getSimulation()->getSimulatedTime()); //{releases and sets the 'LastTimeSeized'property}
 	}
 	_parentModel->sendEntityToComponent(entity, this->getNextComponents()->getFrontConnection(), 0.0);
 }
 
 void Release::_initBetweenReplications() {
-	for (std::list<SeizableItemRequest*>::iterator it = _releaseRequests->list()->begin(); it != _releaseRequests->list()->end(); it++) {
-		(*it)->getResource()->initBetweenReplications();
-	}
+	//for (SeizableItemRequest* seizable : *_releaseRequests->list()) {
+	//	if (seizable->getSeizableType() == SeizableItemRequest::SeizableType::RESOURCE)
+	//		seizable->getResource()->initBetweenReplications();
+	//	else if (seizable->getSeizableType() == SeizableItemRequest::SeizableType::SET)
+	//		seizable->getSet()->initBetweenReplications();
+	//}
 }
 
 bool Release::_loadInstance(std::map<std::string, std::string>* fields) {
@@ -76,10 +107,11 @@ bool Release::_loadInstance(std::map<std::string, std::string>* fields) {
 		unsigned short numRequests = LoadField(fields, "resquestSize", DEFAULT.releaseRequestSize);
 		for (unsigned short i = 0; i < numRequests; i++) {
 			SeizableItemRequest* itemRequest = new SeizableItemRequest(nullptr);
-			itemRequest->_loadInstance(fields, i);
-			Resource* resource = static_cast<Resource*> (_parentModel->getElements()->getElement(Util::TypeOf<Resource>(), itemRequest->getResourceName()));
-			itemRequest->setResource(resource);
-			this->_releaseRequests->insert(itemRequest);
+			itemRequest->setComponentManager(_parentModel->getComponents());
+			itemRequest->loadInstance(fields, i);
+			//Resource* resource = static_cast<Resource*> (_parentModel->getElements()->getElement(Util::TypeOf<Resource>(), itemRequest->getResourceName()));
+			//itemRequest->setResource(resource);
+			//this->_releaseRequests->insert(itemRequest);
 		}
 	}
 	return res;
@@ -91,7 +123,7 @@ std::map<std::string, std::string>* Release::_saveInstance() {
 	SaveField(fields, "resquestSize", _releaseRequests->size(), DEFAULT.releaseRequestSize);
 	unsigned short i = 0;
 	for (SeizableItemRequest* request : *_releaseRequests->list()) {
-		std::map<std::string, std::string>* seizablefields = request->_saveInstance(i);
+		std::map<std::string, std::string>* seizablefields = request->saveInstance(i);
 		fields->insert(seizablefields->begin(), seizablefields->end());
 		i++;
 	}
@@ -101,10 +133,14 @@ std::map<std::string, std::string>* Release::_saveInstance() {
 bool Release::_check(std::string* errorMessage) {
 	bool resultAll = true;
 
-	for (std::list<SeizableItemRequest*>::iterator it = _releaseRequests->list()->begin(); it != _releaseRequests->list()->end(); it++) {
-		resultAll &= _parentModel->checkExpression((*it)->getQuantityExpression(), "quantity", errorMessage);
-		resultAll &= _parentModel->getElements()->check(Util::TypeOf<Resource>(), (*it)->getResource(), "Resource", errorMessage);
-		resultAll &= _parentModel->getElements()->check(Util::TypeOf<Attribute>(), (*it)->getSaveAttribute(), "SaveAttribute", false, errorMessage);
+	for (SeizableItemRequest* seizable : * _releaseRequests->list()) {
+		resultAll &= _parentModel->checkExpression(seizable->getQuantityExpression(), "quantity", errorMessage);
+		if (seizable->getSeizableType() == SeizableItemRequest::SeizableType::RESOURCE) {
+			resultAll &= _parentModel->getElements()->check(Util::TypeOf<Resource>(), seizable->getResource(), "Resource", errorMessage);
+		} else if (seizable->getSeizableType() == SeizableItemRequest::SeizableType::SET) {
+			resultAll &= _parentModel->getElements()->check(Util::TypeOf<Set>(), seizable->getSet(), "Set", errorMessage);
+		}
+		// \todo: Should be checking saveAttribute, index, etc
 	}
 	return resultAll;
 }

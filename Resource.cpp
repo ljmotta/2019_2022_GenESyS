@@ -66,7 +66,7 @@ void Resource::release(unsigned int quantity, double tnow) {
 	_notifyReleaseEventHandlers();
 }
 
-void Resource::initBetweenReplications() {
+void Resource::_initBetweenReplications() {
 	this->_lastTimeSeized = 0.0;
 	this->_numberBusy = 0;
 	if (_reportStatistics) {

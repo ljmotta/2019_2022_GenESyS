@@ -30,7 +30,7 @@ void ModelComponent::Execute(Entity* entity, ModelComponent* component, unsigned
 	// \todo: How can I know the number of inputs?
 	if (inputNumber > 0)
 		msg += " by input " + std::to_string(inputNumber);
-	component->_parentModel->getTracer()->trace(Util::TraceLevel::componentArrival, msg);
+	component->_parentModel->getTracer()->trace(Util::TraceLevel::L5_arrival, msg);
 	Util::IncIndent();
 	try {
 		component->_execute(entity);
@@ -50,7 +50,7 @@ void ModelComponent::CreateInternalElements(ModelComponent* component) {
 }
 
 std::map<std::string, std::string>* ModelComponent::SaveInstance(ModelComponent* component) {
-	component->_parentModel->getTracer()->trace(Util::TraceLevel::componentDetailed, "Writing component \"" + component->getName() + "\""); //std::to_string(component->_id));
+	component->_parentModel->getTracer()->trace(Util::TraceLevel::L7_detailed, "Writing component \"" + component->getName() + "\""); //std::to_string(component->_id));
 	std::map<std::string, std::string>* fields = new std::map<std::string, std::string>();
 	try {
 		fields = component->_saveInstance();
@@ -60,8 +60,11 @@ std::map<std::string, std::string>* ModelComponent::SaveInstance(ModelComponent*
 	return fields;
 }
 
-void ModelComponent::setDescription(std::string _description) {
-	this->_description = _description;
+void ModelComponent::setDescription(std::string description) {
+	if (_description != description) {
+		this->_description = description;
+		_hasChanged = true;
+	}
 }
 
 std::string ModelComponent::getDescription() const {
@@ -69,7 +72,7 @@ std::string ModelComponent::getDescription() const {
 }
 
 bool ModelComponent::Check(ModelComponent* component) {
-	component->_parentModel->getTracer()->trace(Util::TraceLevel::componentDetailed, "Checking " + component->_typename + ": \"" + component->getName() + "\""); //std::to_string(component->_id));
+	component->_parentModel->getTracer()->trace(Util::TraceLevel::L7_detailed, "Checking " + component->_typename + ": \"" + component->getName() + "\""); //std::to_string(component->_id));
 	bool res = false;
 	std::string* errorMessage = new std::string();
 	Util::IncIndent();
@@ -77,7 +80,7 @@ bool ModelComponent::Check(ModelComponent* component) {
 		try {
 			res = component->_check(errorMessage);
 			if (!res) {
-				component->_parentModel->getTracer()->trace(Util::TraceLevel::errorFatal, "Error: Checking has failed with message '" + *errorMessage + "'");
+				component->_parentModel->getTracer()->trace(Util::TraceLevel::L1_errorFatal, "Error: Checking has failed with message '" + *errorMessage + "'");
 			}
 		} catch (const std::exception& e) {
 			component->_parentModel->getTracer()->traceError(e, "Error verifying component " + component->show());
@@ -88,7 +91,7 @@ bool ModelComponent::Check(ModelComponent* component) {
 }
 
 ConnectionManager* ModelComponent::getNextComponents() const {
-	return _connections;
+	return _connections; // \todo How to know if it changes?
 }
 
 std::string ModelComponent::show() {

@@ -70,7 +70,7 @@ void Assign::_initBetweenReplications() {
 bool Assign::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelComponent::_loadInstance(fields);
 	if (res) {
-		unsigned int nv = LoadField(fields, "assignments", 0);
+		unsigned int nv = LoadField(fields, "assignments", DEFAULT.assignmentsSize);
 		for (unsigned int i = 0; i < nv; i++) {
 			std::string dest = LoadField(fields, "destination" + std::to_string(i), "");
 			std::string exp = LoadField(fields, "expression" + std::to_string(i), "");
@@ -84,7 +84,7 @@ bool Assign::_loadInstance(std::map<std::string, std::string>* fields) {
 std::map<std::string, std::string>* Assign::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance(); //Util::TypeOf<Assign>());
 	Assignment* let;
-	SaveField(fields, "assignments", _assignments->size(), 0u);
+	SaveField(fields, "assignments", _assignments->size(), DEFAULT.assignmentsSize);
 	unsigned short i = 0;
 	for (std::list<Assignment*>::iterator it = _assignments->list()->begin(); it != _assignments->list()->end(); it++, i++) {
 		let = (*it);
@@ -95,11 +95,9 @@ std::map<std::string, std::string>* Assign::_saveInstance() {
 }
 
 bool Assign::_check(std::string* errorMessage) {
-	Assignment* let;
 	bool resultAll = true;
 	// \todo: Reimplement it. Since 201910, attributes may have index, just like "atrrib1[2]" or "att[10,1]". Because of that, the string may contain not only the name of the attribute, but also its index and therefore, fails on the test bellow.
-	for (std::list<Assignment*>::iterator it = _assignments->list()->begin(); it != _assignments->list()->end(); it++) {
-		let = (*it);
+	for (Assignment* let : *_assignments->list()) {
 		resultAll &= _parentModel->checkExpression(let->getExpression(), "assignment", errorMessage);
 	}
 	return resultAll;

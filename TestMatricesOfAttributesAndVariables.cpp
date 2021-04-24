@@ -36,7 +36,7 @@ TestMatricesOfAttributesAndVariables::~TestMatricesOfAttributesAndVariables() {
 int TestMatricesOfAttributesAndVariables::main(int argc, char** argv) {
 	Simulator* genesys = new Simulator();
 	setDefaultTraceHandlers(genesys->getTracer());
-	genesys->getTracer()->setTraceLevel(Util::TraceLevel::modelSimulationInternal);
+	genesys->getTracer()->setTraceLevel(Util::TraceLevel::L6_internal);
 	insertFakePluginsByHand(genesys);
 	Model* m = new Model(genesys);
 	genesys->getModels()->insert(m);

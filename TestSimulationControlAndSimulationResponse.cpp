@@ -25,7 +25,7 @@ int TestSimulationControlAndSimulationResponse::main(int argc, char** argv) {
 	Simulator* simulator = new Simulator();
 	TraceManager* tm = simulator->getTracer();
 	this->setDefaultTraceHandlers(tm);
-	tm->setTraceLevel(Util::TraceLevel::everythingMostDetailed);
+	tm->setTraceLevel(Util::TraceLevel::L8_mostDetailed);
 	this->insertFakePluginsByHand(simulator);
 
 	simulator->getModels()->loadModel("./temp/forthExampleOfSimulation.txt");

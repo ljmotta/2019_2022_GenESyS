@@ -36,7 +36,7 @@ Model_CreateDelayDispose2::Model_CreateDelayDispose2() {
 int Model_CreateDelayDispose2::main(int argc, char** argv) {
 	Simulator* genesys = new Simulator();
 	// set the trace level of simulation to "blockArrival" level, which is an intermediate level of tracing
-	genesys->getTracer()->setTraceLevel(Util::TraceLevel::componentArrival);
+	genesys->getTracer()->setTraceLevel(Util::TraceLevel::L5_arrival);
 	// Handle traces and simulation events to output them
 	this->setDefaultTraceHandlers(genesys->getTracer());
 	// insert "fake plugins" since plugins based on dynamic loaded library are not implemented yet

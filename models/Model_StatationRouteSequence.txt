@@ -1,6 +1,6 @@
 0   SimulatorInfo "GenESyS - GENeric and Expansible SYstem Simulator" versionNumber=210420 
 0   ModelInfo  "Model 1" 
-0   ModelSimulation  replicationLength=60.000000 
+0   ModelSimulation "fixed experiment name in ModelSimulation" replicationLength=60.000000 
 13  Station    "Station_3" 
 17  Sequence   "Sequence_1" 
 2   EntityType "EntityType_1" 
@@ -13,7 +13,7 @@
 14  Route      "Route_3" destinationType=1 routeTimeExpression="0.3" nextSize=0 
 15  Enter      "Enter_3" station="Station_3" nextId=16 
 16  Dispose    "Dispose_1" nextSize=0 
-18  Assign     "Assign_1" assignments=1 destination0="Entity.Sequence" expression0="17" nextId=4 
+18  Assign     "Assign_1" destination0="Entity.Sequence" expression0="17" nextId=4 
 4   Route      "Route_1" destinationType=1 routeTimeExpression="0.1" nextSize=0 
 5   Enter      "Enter_1" station="Station_1" nextId=6 
 6   Delay      "Delay_1" nextId=8 

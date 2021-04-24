@@ -38,17 +38,17 @@ Model_SeizeDelayRelease1::Model_SeizeDelayRelease1() {
 int Model_SeizeDelayRelease1::main(int argc, char** argv) {
 	Simulator* genesys = new Simulator();
 	// Handle traces and simulation events to output them
-	this->setDefaultTraceHandlers(genesys->getTracer());
-	genesys->getTracer()->setTraceLevel(Util::TraceLevel::everythingMostDetailed);
 	// insert plugins
 	this->insertFakePluginsByHand(genesys);
+	this->setDefaultTraceHandlers(genesys->getTracer());
+	genesys->getTracer()->setTraceLevel(Util::TraceLevel::L6_internal);
 	Model* model = genesys->getModels()->newModel();
 	// build the simulation model
 	// set model infos
 	ModelSimulation* sim = model->getSimulation();
-	sim->setReplicationLength(3600);
+	sim->setReplicationLength(120);
 	sim->setReplicationLengthTimeUnit(Util::TimeUnit::second);
-	sim->setNumberOfReplications(30);
+	sim->setNumberOfReplications(2);
 	//
 	EntityType* customer = new EntityType(model, "Customer");
 	//

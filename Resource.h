@@ -103,7 +103,6 @@ public:
 public:
 	void seize(unsigned int quantity, double tnow);
 	void release(unsigned int quantity, double tnow);
-	void initBetweenReplications();
 public: // g&s
 	void setResourceState(ResourceState _resourceState);
 	Resource::ResourceState getResourceState() const;
@@ -125,7 +124,7 @@ protected:
 	virtual std::map<std::string, std::string>* _saveInstance();
 	virtual bool _check(std::string* errorMessage);
 	virtual void _createInternalElements();
-
+	virtual void _initBetweenReplications(); 
 private:
 	void _notifyReleaseEventHandlers(); ///< Notify observer classes that some of the resource capacity has been released. It is useful for allocation components (such as Seize) to know when an entity waiting into a queue can try to seize the resource again
 	//private:

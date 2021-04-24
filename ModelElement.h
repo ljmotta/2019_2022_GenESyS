@@ -54,6 +54,7 @@
 		virtual std::string show();
 		std::list<std::string>* getChildrenElementKeys() const;
 		ModelElement* getChildElement(std::string key) const;
+        bool hasChanged() const;
 	protected:
 		void _setChildElement(std::string key, ModelElement* child);
 		void _removeChildrenElements();
@@ -74,6 +75,7 @@
 		Util::identification _id;
 		std::string _typename;
 		bool _reportStatistics;
+		bool _hasChanged;
 		Model* _parentModel;
 	protected:
 		std::map<std::string, ModelElement*>* _childrenElements = new std::map<std::string, ModelElement*>();

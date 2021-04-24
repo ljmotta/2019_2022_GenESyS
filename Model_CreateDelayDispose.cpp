@@ -35,11 +35,11 @@ Model_CreateDelayDispose::Model_CreateDelayDispose() {
  */
 int Model_CreateDelayDispose::main(int argc, char** argv) {
 	Simulator* genesys = new Simulator();
-	// Handle traces and simulation events to output them
-	this->setDefaultTraceHandlers(genesys->getTracer());
-	genesys->getTracer()->setTraceLevel(Util::TraceLevel::componentDetailed);
 	// insert "fake plugins" since plugins based on dynamic loaded library are not implemented yet
 	this->insertFakePluginsByHand(genesys);
+	// Handle traces and simulation events to output them
+	this->setDefaultTraceHandlers(genesys->getTracer());
+	genesys->getTracer()->setTraceLevel(Util::TraceLevel::L5_arrival);
 	Model* model = genesys->getModels()->newModel();
 	//model->load("./models/Model_CreateDelayDispose.txt");
 	//model->getSimulation()->start();

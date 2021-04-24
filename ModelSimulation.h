@@ -45,6 +45,8 @@ public: // old modelInfos
 	double getReplicationLength() const;
 	void setReplicationLengthTimeUnit(Util::TimeUnit _replicationLengthTimeUnit);
 	Util::TimeUnit getReplicationLengthTimeUnit() const;
+    void setReplicationReportBaseTimeUnit(Util::TimeUnit _replicationReportBaseTimeUnit);
+    Util::TimeUnit getReplicationBaseTimeUnit() const;
 	void setWarmUpPeriod(double _warmUpPeriod);
 	double getWarmUpPeriod() const;
 	void setWarmUpPeriodTimeUnit(Util::TimeUnit _warmUpPeriodTimeUnit);
@@ -123,6 +125,8 @@ private:
 		unsigned int numberOfReplications = 1;
 		double replicationLength = 3600.0; // by default, 3600 s = 1.0 h
 		Util::TimeUnit replicationLengthTimeUnit = Util::TimeUnit::second;
+		Util::TimeUnit replicationBeseTimeUnit = Util::TimeUnit::second;
+		Util::TimeUnit replicationReportBaseTimeUnit = Util::TimeUnit::second;
 		double warmUpPeriod = replicationLength * 0.10; // 0.0;
 		Util::TimeUnit warmUpPeriodTimeUnit = Util::TimeUnit::second;
 		std::string terminatingCondition = "";
@@ -130,13 +134,15 @@ private:
 	unsigned int _numberOfReplications = DEFAULT.numberOfReplications;
 	double _replicationLength = DEFAULT.replicationLength;
 	Util::TimeUnit _replicationLengthTimeUnit = DEFAULT.replicationLengthTimeUnit;
+	Util::TimeUnit _replicationBaseTimeUnit = DEFAULT.replicationReportBaseTimeUnit;
 	double _warmUpPeriod = DEFAULT.warmUpPeriod;
 	Util::TimeUnit _warmUpPeriodTimeUnit = DEFAULT.warmUpPeriodTimeUnit;
 	std::string _terminatingCondition = DEFAULT.terminatingCondition;
 	bool _hasChanged = false;
+	double _replicationTimeScaleFactorToBase; // a scale that converts ReplicationLenghtTimeUnit to ReplicationBaseTimeUnit. Future events are in "times" of unit ReplicationBaseTimeUnit 
 private:
-	Entity* _currentEntity;
-	ModelComponent* _currentComponent;
+	Entity* _currentEntity = nullptr;
+	ModelComponent* _currentComponent = nullptr;
 	unsigned int _currentInputNumber;
 	unsigned int _currentReplicationNumber;
 	//std::chrono::steady_clock::time_point _replicationStartTime;

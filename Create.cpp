@@ -51,7 +51,7 @@ void Create::_execute(Entity* entity) {
 			newEntity->setEntityType(entity->getEntityType());
 			//_parentModel->elements()->insert(newEntity); // ->getEntities()->insert(newEntity);
 			timeBetweenCreations = _parentModel->parseExpression(this->_timeBetweenCreationsExpression);
-			timeScale = Util::TimeUnitConvert(this->_timeBetweenCreationsTimeUnit, _parentModel->getSimulation()->getReplicationLengthTimeUnit());
+			timeScale = Util::TimeUnitConvert(this->_timeBetweenCreationsTimeUnit, _parentModel->getSimulation()->getReplicationBaseTimeUnit());
 			newArrivalTime = tnow + timeBetweenCreations*timeScale;
 			Event* newEvent = new Event(newArrivalTime, newEntity, this);
 			_parentModel->getFutureEvents()->insert(newEvent);

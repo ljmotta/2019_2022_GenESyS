@@ -323,6 +323,7 @@ atributo    : ATRIB      {
 			// it could crach because there may be no current entity, if the parse is running before simulation and therefore there is no CurrentEntity
 			attributeValue = driver.getModel()->getSimulation()->getCurrentEntity()->getAttributeValue($1.id);
 		    }
+			//std::cout << "Passei" << std::endl;
 		    $$.valor = attributeValue; 
 		}
 	    | ATRIB LBRACKET expressao RBRACKET  {  

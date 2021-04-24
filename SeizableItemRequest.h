@@ -14,36 +14,34 @@
 #ifndef SEIZABLEITEMREQUEST_H
 #define SEIZABLEITEMREQUEST_H
 
-#include "PersistentObject_base.h"
 #include "Resource.h"
 #include "Set.h"
+#include "ComponentManager.h"
 
-class SeizableItemRequest : PersistentObject_base {
+// \todo should inhere from a common base to QueueableItemRequest
+class SeizableItemRequest  {
 public:
 
 	enum class SelectionRule : int {
 		CYCLICAL = 1, RANDOM = 2, SPECIFICMEMBER = 3, LARGESTREMAININGCAPACITY = 4, SMALLESTNUMBERBUSY = 5
 	};
 
-	enum class ResourceType : int {
+	enum class SeizableType : int {
 		RESOURCE = 1, SET = 2
 	};
 
 public:
+	SeizableItemRequest(ModelElement* resourceOrSet, std::string quantityExpression = "1", SeizableItemRequest::SeizableType resourceType = SeizableItemRequest::SeizableType::RESOURCE, SeizableItemRequest::SelectionRule selectionRule = SeizableItemRequest::SelectionRule::LARGESTREMAININGCAPACITY, std::string saveAttribute = "", std::string index = "0");
 
-
-public:
-	SeizableItemRequest(ModelElement* resourceOrSet, std::string quantityExpression = "1", SeizableItemRequest::ResourceType resourceType = SeizableItemRequest::ResourceType::RESOURCE, SeizableItemRequest::SelectionRule selectionRule = SeizableItemRequest::SelectionRule::LARGESTREMAININGCAPACITY, std::string saveAttribute = "", unsigned int index = 0);
-
-public: // virtual
-	virtual bool _loadInstance(std::map<std::string, std::string>* fields, unsigned int parentIndex);
-	virtual std::map<std::string, std::string>* _saveInstance(unsigned int parentIndex);
-	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
-	virtual std::map<std::string, std::string>* _saveInstance();
+public: 
+	bool loadInstance(std::map<std::string, std::string>* fields, unsigned int parentIndex);
+	std::map<std::string, std::string>* saveInstance(unsigned int parentIndex);
+	bool loadInstance(std::map<std::string, std::string>* fields);
+	std::map<std::string, std::string>* saveInstance();
 public:
 	std::string show();
-	void setIndex(unsigned int index);
-	unsigned int getIndex() const;
+	void setIndex(std::string index);
+	std::string getIndex() const;
 	void setSaveAttribute(std::string saveAttribute);
 	std::string getSaveAttribute() const;
 	void setSelectionRule(SelectionRule selectionRule);
@@ -55,29 +53,33 @@ public:
 	Resource* getResource() const;
 	void setSet(Set* set);
 	Set* getSet() const;
-	void setResourceType(ResourceType resourceType);
-	ResourceType getResourceType() const;
+	void setSeizableType(SeizableType resourceType);
+	SeizableType getSeizableType() const;
 	void setLastMemberSeized(unsigned int lastMemberSeized);
 	unsigned int getLastMemberSeized() const;
+    ModelElement* getSeizable() const;
+    void setComponentManager(ComponentManager* _componentManager);
 
 private:
 
 	const struct DEFAULT_VALUES {
 		const std::string quantityExpression = "1";
-		const SeizableItemRequest::ResourceType resourceType = SeizableItemRequest::ResourceType::RESOURCE;
+		const SeizableItemRequest::SeizableType seizableType = SeizableItemRequest::SeizableType::RESOURCE;
 		const SeizableItemRequest::SelectionRule selectionRule = SeizableItemRequest::SelectionRule::LARGESTREMAININGCAPACITY;
 		const std::string saveAttribute = "";
-		const unsigned int index = 0;
+		const std::string index = "0";
 	} DEFAULT;
 
-	ResourceType _resourceType;
+	SeizableType _seizableType;
 	ModelElement* _resourceOrSet;
-	std::string _resourceName;
+	std::string _seizableName;
 	std::string _quantityExpression;
 	SelectionRule _selectionRule;
 	std::string _saveAttribute;
-	unsigned int _index;
+	std::string _index;
 	unsigned int _lastMemberSeized = 0;
+private:
+	ComponentManager* _componentManager;
 };
 
 #endif /* SEIZABLEITEMREQUEST_H */
