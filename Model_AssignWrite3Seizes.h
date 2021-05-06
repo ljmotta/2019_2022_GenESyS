@@ -5,22 +5,23 @@
  */
 
 /* 
- * File:   ThirdExampleOfSimultion.h
+ * File:   FourthExampleOfSimulation.h
  * Author: rlcancian
  *
- * Created on 24 de Setembro de 2019, 16:43
+ * Created on 24 de Setembro de 2019, 20:56
  */
 
-#ifndef THIRDEXAMPLEOFSIMULTION_H
-#define THIRDEXAMPLEOFSIMULTION_H
+#ifndef FOURTHEXAMPLEOFSIMULATION_H
+#define FOURTHEXAMPLEOFSIMULATION_H
 
 #include "BaseConsoleGenesysApplication.h"
 
-class ThirdExampleOfSimulation : public BaseConsoleGenesysApplication {
+class Model_AssignWrite3Seizes : public BaseConsoleGenesysApplication {
 public:
-	ThirdExampleOfSimulation();
+	Model_AssignWrite3Seizes();
 public:
 	virtual int main(int argc, char** argv);
 };
-#endif /* THIRDEXAMPLEOFSIMULTION_H */
+
+#endif /* FOURTHEXAMPLEOFSIMULATION_H */
 

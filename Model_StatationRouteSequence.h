@@ -14,13 +14,13 @@
 #ifndef FIFTHEXAMPLEOFSIMULATION_H
 #define FIFTHEXAMPLEOFSIMULATION_H
 
-class FifthExampleOfSimulation {
-public:
-	FifthExampleOfSimulation();
-	FifthExampleOfSimulation(const FifthExampleOfSimulation& orig);
-	virtual ~FifthExampleOfSimulation();
-private:
+#include "BaseConsoleGenesysApplication.h"
 
+class Model_StatationRouteSequence : public BaseConsoleGenesysApplication {
+public:
+	Model_StatationRouteSequence();
+public:
+	virtual int main(int argc, char** argv);
 };
 
 #endif /* FIFTHEXAMPLEOFSIMULATION_H */

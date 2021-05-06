@@ -23,11 +23,11 @@ Delay::Delay(Model* model, std::string name) : ModelComponent(model, Util::TypeO
 
 	GetterMember getter = DefineGetterMember<Delay>(this, &Delay::delay);
 	SetterMember setter = DefineSetterMember<Delay>(this, &Delay::setDelay);
-	model->getControls()->insert(new SimulationControl(Util::TypeOf<Delay>(), _name + ".Delay", getter, setter));
+	model->getControls()->insert(new SimulationControl(Util::TypeOf<Delay>(), getName() + ".Delay", getter, setter));
 
 	//GetterMember getter2 = DefineGetterMember<Delay>(this, &Delay::delayTimeUnit);
 	//SetterMember setter2 = DefineSetterMember<Delay>(this, &Delay::setDelayTimeUnit);
-	//model->controls()->insert(new SimulationControl(Util::TypeOf<Delay>(), _name + ".DelayTimeUnit", getter2, setter2));
+	//model->controls()->insert(new SimulationControl(Util::TypeOf<Delay>(), getName() + ".DelayTimeUnit", getter2, setter2));
 
 
 }
@@ -39,7 +39,6 @@ void Delay::setDelay(double delay) {
 double Delay::delay() const {
 	return _parentModel->parseExpression(_delayExpression);
 }
-
 
 std::string Delay::show() {
 	return ModelComponent::show() +
@@ -74,24 +73,26 @@ Util::TimeUnit Delay::delayTimeUnit() const {
 }
 
 void Delay::_execute(Entity* entity) {
-	double waitTime = _parentModel->parseExpression(_delayExpression) * Util::TimeUnitConvert(_delayTimeUnit, _parentModel->getInfos()->getReplicationLengthTimeUnit());
+	double waitTime = _parentModel->parseExpression(_delayExpression);
+	Util::TimeUnit stu = _parentModel->getSimulation()->getReplicationBaseTimeUnit(); //getReplicationLengthTimeUnit();
+	waitTime *= Util::TimeUnitConvert(_delayTimeUnit, stu);
 	if (_reportStatistics) {
 		_cstatWaitTime->getStatistics()->getCollector()->addValue(waitTime);
 		if (entity->getEntityType()->isReportStatistics())
 			entity->getEntityType()->addGetStatisticsCollector(entity->getEntityTypeName() + ".WaitTime")->getStatistics()->getCollector()->addValue(waitTime);
 	}
-	entity->setAttributeValue("Entity.WaitTime", entity->attributeValue("Entity.WaitTime") + waitTime);
+	entity->setAttributeValue("Entity.TotalWaitTime", entity->getAttributeValue("Entity.TotalWaitTime") + waitTime);
 	double delayEndTime = _parentModel->getSimulation()->getSimulatedTime() + waitTime;
 	Event* newEvent = new Event(delayEndTime, entity, this->getNextComponents()->getFrontConnection());
 	_parentModel->getFutureEvents()->insert(newEvent);
-	_parentModel->getTracer()->trace("End of delay of entity " + std::to_string(entity->entityNumber()) + " scheduled to time " + std::to_string(delayEndTime));
+	_parentModel->getTracer()->trace("End of delay of entity " + std::to_string(entity->entityNumber()) + " scheduled to time " + std::to_string(delayEndTime) + Util::StrTimeUnitShort(stu) + " (wait time " + std::to_string(waitTime) + Util::StrTimeUnitShort(stu) + ") // " + _delayExpression);
 }
 
 bool Delay::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelComponent::_loadInstance(fields);
 	if (res) {
-		this->_delayExpression = (*fields->find("delayExpression")).second;
-		this->_delayTimeUnit = static_cast<Util::TimeUnit> (std::stoi((*fields->find("delayExpressionTimeUnit")).second));
+		this->_delayExpression = LoadField(fields, "delayExpression", DEFAULT.delayExpression);
+		this->_delayTimeUnit = LoadField(fields, "delayExpressionTimeUnit", DEFAULT.delayTimeUnit);
 	}
 	return res;
 }
@@ -101,15 +102,15 @@ void Delay::_initBetweenReplications() {
 
 std::map<std::string, std::string>* Delay::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance(); //Util::TypeOf<Delay>());
-	fields->emplace("delayExpression", "\"" + this->_delayExpression + "\"");
-	fields->emplace("delayExpressionTimeUnit", std::to_string(static_cast<int> (this->_delayTimeUnit)));
+	SaveField(fields, "delayExpression", this->_delayExpression, DEFAULT.delayExpression);
+	SaveField(fields, "delayExpressionTimeUnit", _delayTimeUnit, DEFAULT.delayTimeUnit);
 	return fields;
 }
 
 bool Delay::_check(std::string* errorMessage) {
 	//include attributes needed
 	ElementManager* elements = _parentModel->getElements();
-	std::vector<std::string> neededNames = {"Entity.WaitTime"};
+	std::vector<std::string> neededNames = {"Entity.TotalWaitTime"};
 	std::string neededName;
 	for (unsigned int i = 0; i < neededNames.size(); i++) {
 		neededName = neededNames[i];
@@ -123,9 +124,9 @@ bool Delay::_check(std::string* errorMessage) {
 
 void Delay::_createInternalElements() {
 	if (_reportStatistics && _cstatWaitTime == nullptr) {
-		_cstatWaitTime = new StatisticsCollector(_parentModel, _name + "." + "WaitTime", this);
+		_cstatWaitTime = new StatisticsCollector(_parentModel, getName() + "." + "WaitTime", this);
 		_childrenElements->insert({"WaitTime", _cstatWaitTime});
-		// include StatisticsCollector needed in EntityType \todo should insert if entityType reports statistics (?)
+		// include StatisticsCollector needed in EntityType 
 		ElementManager* elements = _parentModel->getElements();
 		std::list<ModelElement*>* enttypes = elements->getElementList(Util::TypeOf<EntityType>())->list();
 		for (std::list<ModelElement*>::iterator it = enttypes->begin(); it != enttypes->end(); it++) {

@@ -261,7 +261,7 @@ funcao      : funcaoArit                       { $$.valor = $1.valor; }
             ;
 
 funcaoKernel : fTNOW      { $$.valor = driver.getModel()->getSimulation()->getSimulatedTime();}
-             | fTFIN      { $$.valor = driver.getModel()->getInfos()->getReplicationLength();}
+             | fTFIN      { $$.valor = driver.getModel()->getSimulation()->getReplicationLength();}
              ;
 
 funcaoTrig  : fSIN   "(" expressao ")"         { $$.valor = sin($3.valor); }
@@ -321,8 +321,9 @@ atributo    : ATRIB      {
 		    double attributeValue = 0.0;
 		    if (driver.getModel()->getSimulation()->getCurrentEntity() != nullptr) {
 			// it could crach because there may be no current entity, if the parse is running before simulation and therefore there is no CurrentEntity
-			attributeValue = driver.getModel()->getSimulation()->getCurrentEntity()->attributeValue($1.id);
+			attributeValue = driver.getModel()->getSimulation()->getCurrentEntity()->getAttributeValue($1.id);
 		    }
+			//std::cout << "Passei" << std::endl;
 		    $$.valor = attributeValue; 
 		}
 	    | ATRIB LBRACKET expressao RBRACKET  {  
@@ -330,7 +331,7 @@ atributo    : ATRIB      {
 		    std::string index = std::to_string(static_cast<unsigned int>($3.valor));
 		    if (driver.getModel()->getSimulation()->getCurrentEntity() != nullptr) {
 			// it could crach because there may be no current entity, if the parse is running before simulation and therefore there is no CurrentEntity
-			attributeValue = driver.getModel()->getSimulation()->getCurrentEntity()->attributeValue(index, $1.id);
+			attributeValue = driver.getModel()->getSimulation()->getCurrentEntity()->getAttributeValue(index, $1.id);
 		    }
 		    $$.valor = attributeValue; 
 		}
@@ -339,7 +340,7 @@ atributo    : ATRIB      {
 		    std::string index = std::to_string(static_cast<unsigned int>($3.valor))+","+std::to_string(static_cast<unsigned int>($5.valor));
 		    if (driver.getModel()->getSimulation()->getCurrentEntity() != nullptr) {
 			// it could crach because there may be no current entity, if the parse is running before simulation and therefore there is no CurrentEntity
-			attributeValue = driver.getModel()->getSimulation()->getCurrentEntity()->attributeValue(index, $1.id);
+			attributeValue = driver.getModel()->getSimulation()->getCurrentEntity()->getAttributeValue(index, $1.id);
 		    }
 		    $$.valor = attributeValue; 
 		}
@@ -348,7 +349,7 @@ atributo    : ATRIB      {
 		    std::string index = std::to_string(static_cast<unsigned int>($3.valor))+","+std::to_string(static_cast<unsigned int>($5.valor))+","+std::to_string(static_cast<unsigned int>($7.valor));
 		    if (driver.getModel()->getSimulation()->getCurrentEntity() != nullptr) {
 			// it could crach because there may be no current entity, if the parse is running before simulation and therefore there is no CurrentEntity
-			attributeValue = driver.getModel()->getSimulation()->getCurrentEntity()->attributeValue(index, $1.id);
+			attributeValue = driver.getModel()->getSimulation()->getCurrentEntity()->getAttributeValue(index, $1.id);
 		    }
 		    $$.valor = attributeValue; 
 		}

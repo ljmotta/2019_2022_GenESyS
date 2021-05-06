@@ -27,11 +27,11 @@ TestMatricesOfAttributesAndVariables::~TestMatricesOfAttributesAndVariables() {
 }
 
 int TestMatricesOfAttributesAndVariables::main(int argc, char** argv) {
-	Simulator* sim = new Simulator();
-	setDefaultTraceHandlers(sim->getTracer());
-	sim->getTracer()->setTraceLevel(Util::TraceLevel::modelSimulationInternal);
+	Simulator* genesys = new Simulator();
+	setDefaultTraceHandlers(genesys->getTracer());
+	genesys->getTracer()->setTraceLevel(Util::TraceLevel::L6_internal);
 
-	PluginManager* pluginManager = sim->getPlugins();
+	PluginManager* pluginManager = genesys->getPlugins();
 
 	StaticComponentConstructor assign = pluginManager->insert("assign.so")->getPluginInfo()->GetComponentConstructor();
 	StaticComponentConstructor create = pluginManager->insert("create.so")->getPluginInfo()->GetComponentConstructor();
@@ -40,22 +40,18 @@ int TestMatricesOfAttributesAndVariables::main(int argc, char** argv) {
 	StaticComponentConstructor write = pluginManager->insert("write.so")->getPluginInfo()->GetComponentConstructor();
 
 	StaticElementConstructor variable = pluginManager->insert("variable.so")->getPluginInfo()->getElementConstructor();
-	StaticElementConstructor formula2 = pluginManager->insert("formula.so")->getPluginInfo()->getElementConstructor();
+	StaticElementConstructor formula = pluginManager->insert("formula.so")->getPluginInfo()->getElementConstructor();
 
-	auto insertPlugin = pluginManager->insert("formula.so");
-	auto getPlugin = insertPlugin->getPluginInfo();
-	auto formula = getPlugin->getElementConstructor();
-
-
-	Model* m = new Model(sim);
-	sim->getModels()->insert(m);
+	Model* m = new Model(genesys);
+	genesys->getModels()->insert(m);
 	m->getInfos()->setProjectTitle("Stochastic Simulation of Chemical Reactions");
-	m->getInfos()->setReplicationLength(500);
+	m->getSimulation()->setReplicationLength(500);
 	Create* cr1 = (Create*) create(m, "");
 	Write* w1 = (Write*) write(m, "");
 	Assign* as1 = (Assign*) assign(m, "Define próxima reação a ocorrer");
 	Delay* de1 = (Delay*) delay(m, "Aguarda tempo em que a reação ocorre");
 	Dispose* di1 = (Dispose*) dispose(m, "");
+
 	cr1->getNextComponents()->insert(w1);
 	w1->getNextComponents()->insert(as1);
 	as1->getNextComponents()->insert(de1);
@@ -91,20 +87,20 @@ int TestMatricesOfAttributesAndVariables::main(int argc, char** argv) {
 	w1->writeElements()->insert(new WriteElement("N[2]", true));
 	w1->writeElements()->insert(new WriteElement(" "));
 	w1->writeElements()->insert(new WriteElement("N[3]", true, true));
-	// w1->writeElements()->insert(new WriteElement("temp[6]",true, true));
-	// w1->writeElements()->insert(new WriteElement("tnow",true, true));
-	as1->assignments()->insert(new Assign::Assignment("temp[1]", "k[1]*N[1]*N[2]"));
-	as1->assignments()->insert(new Assign::Assignment("temp[2]", "k[2]*N[3]"));
-	// as1->assignments()->insert(new Assign::Assignment("temp[3]", "temp[1]+temp[2]"));
-	// as1->assignments()->insert(new Assign::Assignment("temp[4]", "if (temp[3]>0) temp[1]/temp[3] else 0"));
-	// as1->assignments()->insert(new Assign::Assignment("temp[5]", "if (temp[3]>0) (if (rnd<temp[4]) 1 else 2) else 0"));
-	// as1->assignments()->insert(new Assign::Assignment("N[1]", "N[1]+s[temp[5],1]"));
-	// as1->assignments()->insert(new Assign::Assignment("N[2]", "N[2]+s[temp[5],2]"));
-	// as1->assignments()->insert(new Assign::Assignment("N[3]", "N[3]+s[temp[5],3]"));
-	// //as1->assignments()->insert(new Assign::Assignment("temp[6]", "1-exp(-temp[3])"));
-	// as1->assignments()->insert(new Assign::Assignment("temp[7]", "expo(temp[6])"));
-	//de1->setDelayExpression("temp[7]");
-	m->getInfos()->setTerminatingCondition("(N[1]+N[2]+N[3])==0");
+	//w1->writeElements()->insert(new WriteElement("temp[6]",true, true));
+	//w1->writeElements()->insert(new WriteElement("tnow",true, true));
+	as1->getAssignments()->insert(new Assign::Assignment("temp[1]", "k[1]*N[1]*N[2]"));
+	as1->getAssignments()->insert(new Assign::Assignment("temp[2]", "k[2]*N[3]"));
+	as1->getAssignments()->insert(new Assign::Assignment("temp[3]", "temp[1]+temp[2]"));
+	as1->getAssignments()->insert(new Assign::Assignment("temp[4]", "if (temp[3]>0) temp[1]/temp[3] else 0"));
+	as1->getAssignments()->insert(new Assign::Assignment("temp[5]", "if (temp[3]>0) (if (rnd<temp[4]) 1 else 2) else 0"));
+	as1->getAssignments()->insert(new Assign::Assignment("N[1]", "N[1]+s[temp[5],1]"));
+	as1->getAssignments()->insert(new Assign::Assignment("N[2]", "N[2]+s[temp[5],2]"));
+	as1->getAssignments()->insert(new Assign::Assignment("N[3]", "N[3]+s[temp[5],3]"));
+	as1->getAssignments()->insert(new Assign::Assignment("temp[6]", "1-exp(-temp[3])"));
+	as1->getAssignments()->insert(new Assign::Assignment("temp[7]", "expo(temp[6])"));
+	de1->setDelayExpression("temp[7]");
+	m->getSimulation()->setTerminatingCondition("(N[1]+N[2]+N[3])==0");
 	m->getSimulation()->start();
 	return 0;
 

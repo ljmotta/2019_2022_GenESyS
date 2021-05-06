@@ -18,6 +18,7 @@
 #include "../ElementManager.h"
 #include "../ParserChangesInformation.h"
 #include "../PluginInformation.h"
+#include "../Model.h"
 
 /*!
  Set module
@@ -94,17 +95,32 @@ protected: // must be overriden by derived classes
 		bool res = ModelElement::_loadInstance(fields);
 		if (res) {
 			try {
-				//this->_attributeName = (*fields->find("attributeName")).second;
-				//this->_orderRule = static_cast<OrderRule> (std::stoi((*fields->find("orderRule")).second));
+				_setOfType = LoadField(fields, "type", DEFAULT.setOfType);
+				unsigned int memberSize = LoadField(fields, "memberSize", DEFAULT.membersSize);
+				for (unsigned int i = 0; i < memberSize; i++) {
+					std::string memberName = LoadField(fields, "member" + std::to_string(i));
+					ModelElement* member = _parentModel->getElements()->getElement(_setOfType, memberName);
+					if (member == nullptr) { // not found. That's a problem. Resource not loaded yet (or mismatch name
+						_parentModel->getTracer()->trace("ERROR: Could not found " + _setOfType + " set member named \"" + memberName + "\"", Util::TraceLevel::L1_errorFatal);
+					} else {//found
+						_elementSet->insert(member);
+					}
+				}
 			} catch (...) {
 			}
 		}
 		return res;
 	}
+
 	std::map<std::string, std::string>* _saveInstance() {
 		std::map<std::string, std::string>* fields = ModelElement::_saveInstance(); //Util::TypeOf<Set>());
-		//fields->emplace("orderRule", std::to_string(static_cast<int> (this->_orderRule)));
-		//fields->emplace("attributeName", this->_attributeName);
+		SaveField(fields, "type", _setOfType, DEFAULT.setOfType);
+		SaveField(fields, "membersSize", _elementSet->size(), DEFAULT.membersSize);
+		unsigned int i = 0;
+		for (ModelElement* element : *_elementSet->list()) {
+			SaveField(fields, "member" + std::to_string(i), element->getName());
+			i++;
+		}
 		return fields;
 	}
 protected: // could be overriden by derived classes
@@ -122,6 +138,10 @@ protected: // could be overriden by derived classes
 
 private:
 	//ElementManager* _elems;
+	const struct DEFAULT_VALUES {
+		unsigned int membersSize = 0;
+		std::string setOfType = Util::TypeOf<EntityType>();
+	} DEFAULT;
 	List<ModelElement*>* _elementSet = new List<ModelElement*>();
 	std::string _setOfType;
 };

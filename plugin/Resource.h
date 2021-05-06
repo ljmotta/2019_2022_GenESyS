@@ -22,35 +22,7 @@
 #include "../Counter.h"
 #include "../Model.h"
 
-class Resource;
-
-class ResourceItemRequest {
-public:
-
-	ResourceItemRequest(Resource* resource, std::string quantityExpression = "1") {
-		_resource = resource;
-		_quantityExpression = quantityExpression;
-	}
-
-	std::string quantityExpression() const {
-		return _quantityExpression;
-	}
-
-	Resource* resource() const {
-		return _resource;
-	}
-
-    void setQuantityExpression(std::string _quantityExpression) {
-    	this->_quantityExpression = _quantityExpression;
-    }
-
-    void setResource(Resource* _resource) {
-    	this->_resource = _resource;
-    }
-private:
-	Resource* _resource;
-	std::string _quantityExpression;
-};
+class SeizableItemRequest;
 
 /*!
 Resource module
@@ -134,11 +106,11 @@ public:
 	Resource(Model* model, std::string name = "") : ModelElement(model, Util::TypeOf<Resource>(), name) {
 		GetterMember getter = DefineGetterMember<Resource>(this, &Resource::getCapacity);
 		SetterMember setter = DefineSetterMember<Resource>(this, &Resource::setCapacity);
-		model->getControls()->insert(new SimulationControl(Util::TypeOf<Resource>(), _name + ".Capacity", getter, setter));
+		model->getControls()->insert(new SimulationControl(Util::TypeOf<Resource>(), getName() + ".Capacity", getter, setter));
 
 		GetterMember getter2 = DefineGetterMember<Resource>(this, &Resource::getCostPerUse);
 		SetterMember setter2 = DefineSetterMember<Resource>(this, &Resource::setCostPerUse);
-		model->getControls()->insert(new SimulationControl(Util::TypeOf<Resource>(), _name + ".CostPerUse", getter2, setter2));
+		model->getControls()->insert(new SimulationControl(Util::TypeOf<Resource>(), getName() + ".CostPerUse", getter2, setter2));
 		// ...
 
 	}
@@ -198,14 +170,7 @@ public:
 		_lastTimeSeized = timeSeized;
 		_notifyReleaseEventHandlers();
 	}
-	virtual void initBetweenReplications() {
-		this->_lastTimeSeized = 0.0;
-		this->_numberBusy = 0;
-		if (_reportStatistics) {
-			this->_numSeizes->clear();
-			this->_numReleases->clear();
-		}
-	}
+
 public: // g&s
 	virtual void setResourceState(ResourceState _resourceState) {
 		this->_resourceState = _resourceState;
@@ -254,19 +219,21 @@ protected:
 	bool _loadInstance(std::map<std::string, std::string>* fields) {
 		bool res = ModelElement::_loadInstance(fields);
 		if (res) {
-			this->_capacity = std::stoi((*(fields->find("capacity"))).second);
-			this->_costBusyHour = std::stod((*(fields->find("costBusyHour"))).second);
-			this->_costIdleHour = std::stod((*(fields->find("costIdleHour"))).second);
-			this->_costPerUse = std::stod((*(fields->find("costPerUse"))).second);
+			_capacity = LoadField(fields, "capacity", DEFAULT.capacity);
+			_costBusyHour = LoadField(fields, "costBusyHour", DEFAULT.cost);
+			_costIdleHour = LoadField(fields, "costIdleHour", DEFAULT.cost);
+			_costPerUse = LoadField(fields, "costPerUse", DEFAULT.cost);
+					_resourceState = static_cast<Resource::ResourceState> (LoadField(fields, "resourceState", static_cast<int> (DEFAULT.resourceState)));
 		}
 		return res;
 	}
 	std::map<std::string, std::string>* _saveInstance() {
 		std::map<std::string, std::string>* fields = ModelElement::_saveInstance(); //Util::TypeOf<Resource>());
-		fields->emplace("capacity", std::to_string(this->_capacity));
-		fields->emplace("costBusyHour", std::to_string(this->_costBusyHour));
-		fields->emplace("costIdleHour", std::to_string(this->_costIdleHour));
-		fields->emplace("costPerUse", std::to_string(this->_costPerUse));
+		SaveField(fields, "capacity", _capacity, DEFAULT.capacity);
+		SaveField(fields, "costBusyHour", _costBusyHour, DEFAULT.cost);
+		SaveField(fields, "costIdleHour", _costIdleHour, DEFAULT.cost);
+		SaveField(fields, "costPerUse", _costPerUse, DEFAULT.cost);
+		SaveField(fields, "resourceState", static_cast<int> (_resourceState), static_cast<int> (DEFAULT.resourceState));
 		return fields;
 	}
 	bool _check(std::string* errorMessage) {
@@ -274,9 +241,9 @@ protected:
 	}
 	void _createInternalElements() {
 		if (_reportStatistics && _cstatTimeSeized == nullptr) {
-			_cstatTimeSeized = new StatisticsCollector(_parentModel, _name + "." + "TimeSeized", this);
-			_numSeizes = new Counter(_parentModel, _name + "." + "Seizes", this);
-			_numReleases = new Counter(_parentModel, _name + "." + "Releases", this);
+			_cstatTimeSeized = new StatisticsCollector(_parentModel, getName() + "." + "TimeSeized", this);
+			_numSeizes = new Counter(_parentModel, getName() + "." + "Seizes", this);
+			_numReleases = new Counter(_parentModel, getName() + "." + "Releases", this);
 			_childrenElements->insert({"TimeSeized", _cstatTimeSeized});
 			_childrenElements->insert({"Seizes", _numSeizes});
 			_childrenElements->insert({"Releases", _numReleases});
@@ -284,7 +251,14 @@ protected:
 			_removeChildrenElements();
 		}
 	}
-
+	virtual void _initBetweenReplications() {
+		this->_lastTimeSeized = 0.0;
+		this->_numberBusy = 0;
+		if (_reportStatistics) {
+			this->_numSeizes->clear();
+			this->_numReleases->clear();
+		}
+	}
 private:
 	void _notifyReleaseEventHandlers() {
 		for (std::list<ResourceEventHandler>::iterator it = this->_resourceEventHandlers->list()->begin(); it != _resourceEventHandlers->list()->end(); it++) {
@@ -294,11 +268,16 @@ private:
 	//private:
 	//    ElementManager* _elems;
 private:
-	unsigned int _capacity = 1;
-	double _costBusyHour = 1.0;
-	double _costIdleHour = 1.0;
-	double _costPerUse = 1.0;
-	ResourceState _resourceState = ResourceState::IDLE;
+	const struct DEFAULT_VALUES {
+		unsigned int capacity = 1;
+		double cost = 1.0;
+		ResourceState resourceState = ResourceState::IDLE;
+	} DEFAULT;
+	unsigned int _capacity = DEFAULT.capacity;
+	double _costBusyHour = DEFAULT.cost;
+	double _costIdleHour = DEFAULT.cost;
+	double _costPerUse = DEFAULT.cost;
+	ResourceState _resourceState = DEFAULT.resourceState;
 private: // only gets
 	unsigned int _numberBusy = 0;
 	//unsigned int _numberOut = 0;

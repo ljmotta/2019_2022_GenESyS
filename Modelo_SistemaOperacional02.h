@@ -5,23 +5,23 @@
  */
 
 /* 
- * File:   FourthExampleOfSimulation.h
+ * File:   Modelo_SistemasOperacionais02.h
  * Author: rlcancian
  *
- * Created on 24 de Setembro de 2019, 20:56
+ * Created on 12 de abril de 2021, 21:54
  */
 
-#ifndef FOURTHEXAMPLEOFSIMULATION_H
-#define FOURTHEXAMPLEOFSIMULATION_H
+#ifndef MODELO_SISTEMASOPERACIONAIS02_H
+#define MODELO_SISTEMASOPERACIONAIS02_H
 
 #include "BaseConsoleGenesysApplication.h"
 
-class FourthExampleOfSimulation : public BaseConsoleGenesysApplication {
+class Modelo_SistemaOperacional02 :public BaseConsoleGenesysApplication  {
 public:
-	FourthExampleOfSimulation();
+	Modelo_SistemaOperacional02();
 public:
 	virtual int main(int argc, char** argv);
 };
 
-#endif /* FOURTHEXAMPLEOFSIMULATION_H */
+#endif /* MODELO_SISTEMASOPERACIONAIS02_H */
 

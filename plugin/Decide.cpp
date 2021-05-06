@@ -51,9 +51,9 @@ void Decide::_initBetweenReplications() {
 bool Decide::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelComponent::_loadInstance(fields);
 	if (res) {
-		unsigned int nv = std::stoi((*(fields->find("conditions"))).second);
+		unsigned int nv = LoadField(fields, "conditions", 0);
 		for (unsigned int i = 0; i < nv; i++) {
-			this->_conditions->insert((*(fields->find("condition" + std::to_string(i)))).second);
+			this->_conditions->insert(LoadField(fields, "condition" + std::to_string(i), ""));
 		}
 	}
 	return res;
@@ -61,10 +61,10 @@ bool Decide::_loadInstance(std::map<std::string, std::string>* fields) {
 
 std::map<std::string, std::string>* Decide::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance(); //Util::TypeOf<Decide>());
+	SaveField(fields, "conditions", _conditions->size(), 0u);
 	unsigned short i = 0;
-	fields->emplace("conditions", std::to_string(_conditions->size()));
-	for (std::list<std::string>::iterator it = _conditions->list()->begin(); it != _conditions->list()->end(); it++) {
-		fields->emplace("condition" + std::to_string(i++), "\"" + (*it) + "\"");
+	for (std::list<std::string>::iterator it = _conditions->list()->begin(); it != _conditions->list()->end(); it++, i++) {
+		SaveField(fields, "condition" + std::to_string(i), (*it), "");
 	}
 	return fields;
 }
@@ -73,6 +73,7 @@ bool Decide::_check(std::string* errorMessage) {
 	bool allResult = true;
 	std::string condition;
 	for (std::list<std::string>::iterator it = _conditions->list()->begin(); it != _conditions->list()->end(); it++) {
+
 		condition = (*it);
 		allResult &= _parentModel->checkExpression(condition, "condition", errorMessage);
 	}
@@ -80,8 +81,7 @@ bool Decide::_check(std::string* errorMessage) {
 }
 
 PluginInformation* Decide::GetPluginInformation() {
-	PluginInformation* info = new PluginInformation(Util::TypeOf<Decide>(), &Decide::LoadInstance, &Decide::CreateInstance);
-	return info;
+	return new PluginInformation(Util::TypeOf<Decide>(), &Decide::LoadInstance, &Decide::CreateInstance);
 }
 
 ModelComponent* Decide::CreateInstance(Model* model, std::string name) {

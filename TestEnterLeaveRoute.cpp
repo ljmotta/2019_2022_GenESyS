@@ -33,16 +33,16 @@ TestEnterLeaveRoute::TestEnterLeaveRoute() {
 }
 
 int TestEnterLeaveRoute::main(int argc, char** argv) {
-	Simulator* simulator = new Simulator();
+	Simulator* genesys = new Simulator();
 	// creates an empty model
-	Model* model = new Model(simulator);
+	Model* model = new Model(genesys);
 	// Handle traces and simulation events to output them
 	TraceManager* tm = model->getTracer();
 	this->setDefaultTraceHandlers(tm);
 	// set the trace level of simulation to "blockArrival" level, which is an intermediate level of tracing
-	tm->setTraceLevel(Util::TraceLevel::componentArrival);
+	tm->setTraceLevel(Util::TraceLevel::L5_arrival);
 	// insert "fake plugins" since plugins based on dynamic loaded library are not implemented yet
-	this->insertFakePluginsByHand(simulator);
+	this->insertFakePluginsByHand(genesys);
 	// get easy access to classes used to insert components and elements into a model
 	ComponentManager* components = model->getComponents();
 	ElementManager* elements = model->getElements();
@@ -50,9 +50,9 @@ int TestEnterLeaveRoute::main(int argc, char** argv) {
 	// build the simulation model
 	//
 	// set general info about the model
-	ModelInfo* infos = model->getInfos();
-	infos->setReplicationLength(30);
-	infos->setNumberOfReplications(3);
+	ModelSimulation* sim = model->getSimulation();
+	sim->setReplicationLength(30);
+	sim->setNumberOfReplications(3);
 	// create a (Source)ModelElement of type EntityType, used by a ModelComponent that follows
 	EntityType* entityType1 = new EntityType(model, "AnyEntityType");
 	elements->insert(entityType1);
@@ -130,7 +130,7 @@ int TestEnterLeaveRoute::main(int argc, char** argv) {
 	//delay3->getNextComponents()->insert(leave3);
 	// leave3->getNextComponents()->insert(dispose1);
 	// insert the model into the simulator
-	simulator->getModels()->insert(model);
+	genesys->getModels()->insert(model);
 	// check the model
 	model->check();
 	// save the model into a text file
@@ -138,7 +138,7 @@ int TestEnterLeaveRoute::main(int argc, char** argv) {
 	// show the model
 	model->show();
 	// execute the simulation
-	model->getSimulation()->start();
+	sim->start();
 	return 0;
 }
 

@@ -71,6 +71,7 @@
                 <itemPath>ModelComponent.h</itemPath>
                 <itemPath>ModelElement.cpp</itemPath>
                 <itemPath>ModelElement.h</itemPath>
+                <itemPath>PersistentObject_base.h</itemPath>
                 <itemPath>SinkModelComponent.cpp</itemPath>
                 <itemPath>SinkModelComponent.h</itemPath>
                 <itemPath>SourceModelComponent.cpp</itemPath>
@@ -127,6 +128,8 @@
           <itemPath>SamplerBoostImpl.h</itemPath>
           <itemPath>SamplerDefaultImpl1.cpp</itemPath>
           <itemPath>SamplerDefaultImpl1.h</itemPath>
+          <itemPath>SamplerStudents20202g1.cpp</itemPath>
+          <itemPath>SamplerStudents20202g1.h</itemPath>
           <itemPath>StatisticsDataFileDefaultImpl.cpp</itemPath>
           <itemPath>StatisticsDataFileDefaultImpl.h</itemPath>
           <itemPath>StatisticsDefaultImpl1.cpp</itemPath>
@@ -170,6 +173,12 @@
         <itemPath>Submodel.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="Elements" projectFiles="true">
+        <logicalFolder name="f1" displayName="Subelement" projectFiles="true">
+          <itemPath>QueueableItemRequest.cpp</itemPath>
+          <itemPath>QueueableItemRequest.h</itemPath>
+          <itemPath>SeizableItemRequest.cpp</itemPath>
+          <itemPath>SeizableItemRequest.h</itemPath>
+        </logicalFolder>
         <itemPath>EntityGroup.cpp</itemPath>
         <itemPath>EntityGroup.h</itemPath>
         <itemPath>Failure.cpp</itemPath>
@@ -246,16 +255,22 @@
                    displayName="User Program Interfaces"
                    projectFiles="true">
       <logicalFolder name="f3" displayName="ModelExamples" projectFiles="true">
-        <itemPath>FifthExampleOfSimulation.cpp</itemPath>
-        <itemPath>FifthExampleOfSimulation.h</itemPath>
-        <itemPath>FirstExampleOfSimulation.cpp</itemPath>
-        <itemPath>FirstExampleOfSimulation.h</itemPath>
-        <itemPath>FourthExampleOfSimulation.cpp</itemPath>
-        <itemPath>FourthExampleOfSimulation.h</itemPath>
-        <itemPath>SecondExampleOfSimulation.cpp</itemPath>
-        <itemPath>SecondExampleOfSimulation.h</itemPath>
-        <itemPath>ThirdExampleOfSimulation.cpp</itemPath>
-        <itemPath>ThirdExampleOfSimultion.h</itemPath>
+        <itemPath>Model_AssignWrite3Seizes.cpp</itemPath>
+        <itemPath>Model_AssignWrite3Seizes.h</itemPath>
+        <itemPath>Model_CreateDelayDispose.cpp</itemPath>
+        <itemPath>Model_CreateDelayDispose.h</itemPath>
+        <itemPath>Model_CreateDelayDispose2.cpp</itemPath>
+        <itemPath>Model_CreteDelayDispose2.h</itemPath>
+        <itemPath>Model_SeizeDelayRelease1.cpp</itemPath>
+        <itemPath>Model_SeizeDelayRelease1.h</itemPath>
+        <itemPath>Model_SeizeDelayReleaseMany.cpp</itemPath>
+        <itemPath>Model_SeizeDelayReleaseMany.h</itemPath>
+        <itemPath>Model_StatationRouteSequence.cpp</itemPath>
+        <itemPath>Model_StatationRouteSequence.h</itemPath>
+        <itemPath>Modelo_SistemaOperacional02.cpp</itemPath>
+        <itemPath>Modelo_SistemaOperacional02.h</itemPath>
+        <itemPath>Modelo_SistemaOperacional03.cpp</itemPath>
+        <itemPath>Modelo_SistemaOperacional03.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f1" displayName="SimpleTests" projectFiles="true">
         <logicalFolder name="f2"
@@ -318,7 +333,7 @@
       </toolsSet>
       <compileType>
         <ccTool>
-          <standard>8</standard>
+          <standard>11</standard>
           <incFile>
             <pElem>plugin/Assign.h</pElem>
             <pElem>plugin/Create.h</pElem>
@@ -431,27 +446,15 @@
       </item>
       <item path="Failure.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="FifthExampleOfSimulation.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="FifthExampleOfSimulation.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="File.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="File.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="FirstExampleOfSimulation.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="FirstExampleOfSimulation.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="FitterDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="FitterDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Fitter_if.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="FourthExampleOfSimulation.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="FourthExampleOfSimulation.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="FullSimulationOfComplexModel.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -541,6 +544,38 @@
       </item>
       <item path="ModelSimulation.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Model_AssignWrite3Seizes.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Model_AssignWrite3Seizes.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Model_CreateDelayDispose.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Model_CreateDelayDispose.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Model_CreateDelayDispose2.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Model_CreteDelayDispose2.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Model_SeizeDelayRelease1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Model_SeizeDelayRelease1.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Model_SeizeDelayReleaseMany.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Model_SeizeDelayReleaseMany.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Model_StatationRouteSequence.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Model_StatationRouteSequence.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Modelo_SistemaOperacional02.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Modelo_SistemaOperacional02.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Modelo_SistemaOperacional03.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Modelo_SistemaOperacional03.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="OLD_ODEelement.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="OLD_ODEelement.h" ex="false" tool="3" flavor2="0">
@@ -562,6 +597,8 @@
       <item path="ParserManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Parser_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PersistentObject_base.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="PickUp.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -599,6 +636,10 @@
       </item>
       <item path="Prob_Distrib_if.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="QueueableItemRequest.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="QueueableItemRequest.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Record.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Record.h" ex="false" tool="3" flavor2="0">
@@ -619,6 +660,10 @@
       </item>
       <item path="SamplerDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="SamplerStudents20202g1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SamplerStudents20202g1.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Sampler_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ScenarioExperiment_if.h" ex="false" tool="3" flavor2="0">
@@ -627,9 +672,9 @@
       </item>
       <item path="Schedule.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="SecondExampleOfSimulation.cpp" ex="false" tool="1" flavor2="0">
+      <item path="SeizableItemRequest.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="SecondExampleOfSimulation.h" ex="false" tool="3" flavor2="0">
+      <item path="SeizableItemRequest.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Sequence.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -728,10 +773,6 @@
             ex="false"
             tool="3"
             flavor2="0">
-      </item>
-      <item path="ThirdExampleOfSimulation.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ThirdExampleOfSimultion.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ToolManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -907,27 +948,15 @@
       </item>
       <item path="Failure.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="FifthExampleOfSimulation.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="FifthExampleOfSimulation.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="File.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="File.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="FirstExampleOfSimulation.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="FirstExampleOfSimulation.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="FitterDefaultImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="FitterDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Fitter_if.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="FourthExampleOfSimulation.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="FourthExampleOfSimulation.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="FullSimulationOfComplexModel.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -1017,6 +1046,38 @@
       </item>
       <item path="ModelSimulation.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Model_AssignWrite3Seizes.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Model_AssignWrite3Seizes.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Model_CreateDelayDispose.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Model_CreateDelayDispose.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Model_CreateDelayDispose2.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Model_CreteDelayDispose2.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Model_SeizeDelayRelease1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Model_SeizeDelayRelease1.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Model_SeizeDelayReleaseMany.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Model_SeizeDelayReleaseMany.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Model_StatationRouteSequence.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Model_StatationRouteSequence.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Modelo_SistemaOperacional02.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Modelo_SistemaOperacional02.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Modelo_SistemaOperacional03.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Modelo_SistemaOperacional03.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="OLD_ODEelement.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="OLD_ODEelement.h" ex="false" tool="3" flavor2="0">
@@ -1038,6 +1099,8 @@
       <item path="ParserManager.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Parser_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PersistentObject_base.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="PickUp.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -1075,6 +1138,10 @@
       </item>
       <item path="Prob_Distrib_if.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="QueueableItemRequest.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="QueueableItemRequest.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Record.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Record.h" ex="false" tool="3" flavor2="0">
@@ -1095,6 +1162,10 @@
       </item>
       <item path="SamplerDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="SamplerStudents20202g1.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="SamplerStudents20202g1.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Sampler_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ScenarioExperiment_if.h" ex="false" tool="3" flavor2="0">
@@ -1103,9 +1174,9 @@
       </item>
       <item path="Schedule.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="SecondExampleOfSimulation.cpp" ex="false" tool="1" flavor2="0">
+      <item path="SeizableItemRequest.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="SecondExampleOfSimulation.h" ex="false" tool="3" flavor2="0">
+      <item path="SeizableItemRequest.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Sequence.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -1204,10 +1275,6 @@
             ex="false"
             tool="3"
             flavor2="0">
-      </item>
-      <item path="ThirdExampleOfSimulation.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="ThirdExampleOfSimultion.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ToolManager.cpp" ex="false" tool="1" flavor2="0">
       </item>

@@ -101,7 +101,7 @@ public:
 	static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 	static ModelComponent* CreateInstance(Model* model, std::string name = "");
 public:
-	virtual List<Assignment*>* assignments() const;
+	virtual List<Assignment*>* getAssignments() const;
 protected:
 	virtual void _execute(Entity* entity);
 	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
@@ -110,6 +110,9 @@ protected:
 	virtual bool _check(std::string* errorMessage);
 private:
 private:
+	const struct DEFAULT_VALUES {
+		unsigned int assignmentsSize = 1;
+	} DEFAULT;
 	List<Assignment*>* _assignments = new List<Assignment*>();
 };
 

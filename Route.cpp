@@ -11,10 +11,12 @@
  * Created on 03 de Junho de 2019, 15:15
  */
 
+#include <cassert>
 #include "Route.h"
 #include "Model.h"
 #include "Attribute.h"
 #include "Simulator.h"
+#include "Sequence.h"
 
 Route::Route(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Route>(), name) {
 }
@@ -22,7 +24,7 @@ Route::Route(Model* model, std::string name) : ModelComponent(model, Util::TypeO
 std::string Route::show() {
 	std::string msg = ModelComponent::show() +
 			",destinationType=" + std::to_string(static_cast<int> (this->_routeDestinationType)) +
-			",timeExpression=" + this->_routeTimeExpression + " " + Util::StrTimeUnit(this->_routeTimeTimeUnit);
+			",timeExpression=" + this->_routeTimeExpression + " " + Util::StrTimeUnitShort(this->_routeTimeTimeUnit);
 	if (_station != nullptr)
 		msg += ",station=" + this->_station->getName();
 	return msg;
@@ -71,34 +73,53 @@ Route::DestinationType Route::getRouteDestinationType() const {
 }
 
 void Route::_execute(Entity* entity) {
+	Station* destinyStation = _station;
+	if (_routeDestinationType == Route::DestinationType::BySequence) {
+		unsigned int sequenceId = static_cast<unsigned int> (entity->getAttributeValue("Entity.Sequence"));
+		unsigned int step = static_cast<unsigned int> (entity->getAttributeValue("Entity.SequenceStep"));
+		Sequence* sequence = static_cast<Sequence*> (_parentModel->getElements()->getElement(Util::TypeOf<Sequence>(), sequenceId));
+		SequenceStep* seqStep = sequence->getSteps()->getAtRank(step);
+		if (seqStep == nullptr) {
+			step = 0;
+			seqStep = sequence->getSteps()->getAtRank(step);
+			assert(seqStep != nullptr);
+		}
+		destinyStation = seqStep->getStation();
+		for (SequenceStep::Assignment* assignment : *seqStep->getAssignments()) {
+			_parentModel->parseExpression(assignment->getDestination() + "=" + assignment->getExpression());
+		}
+		entity->setAttributeValue("Entity.SequenceStep", step + 1.0);
+	}
 	if (_reportStatistics)
 		_numberIn->incCountValue();
 	// adds the route time to the TransferTime statistics / attribute related to the Entitys
-	double routeTime = _parentModel->parseExpression(_routeTimeExpression) * Util::TimeUnitConvert(_routeTimeTimeUnit, _parentModel->getInfos()->getReplicationLengthTimeUnit());
+	double routeTime = _parentModel->parseExpression(_routeTimeExpression) * Util::TimeUnitConvert(_routeTimeTimeUnit, _parentModel->getSimulation()->getReplicationBaseTimeUnit());
 	if (entity->getEntityType()->isReportStatistics())
-		entity->getEntityType()->addGetStatisticsCollector("TransferTime")->getStatistics()->getCollector()->addValue(routeTime);
-	entity->setAttributeValue("Entity.TransferTime", entity->attributeValue("Entity.TransferTime") + routeTime);
+		entity->getEntityType()->addGetStatisticsCollector(entity->getEntityTypeName() + ".TransferTime")->getStatistics()->getCollector()->addValue(routeTime);
+	entity->setAttributeValue("Entity.TotalTransferTime", entity->getAttributeValue("Entity.TotalTransferTime") + routeTime);
 	if (routeTime > 0.0) {
 		// calculates when this Entity will reach the end of this route and schedule this Event
 		double routeEndTime = _parentModel->getSimulation()->getSimulatedTime() + routeTime;
-		Event* newEvent = new Event(routeEndTime, entity, _station->getEnterIntoStationComponent());
+		Event* newEvent = new Event(routeEndTime, entity, destinyStation->getEnterIntoStationComponent());
 		_parentModel->getFutureEvents()->insert(newEvent);
-		_parentModel->getTracer()->trace("End of route of entity " + std::to_string(entity->entityNumber()) + " to the component \"" + _station->getEnterIntoStationComponent()->getName() + "\" was scheduled to time " + std::to_string(routeEndTime));
+		_parentModel->getTracer()->trace("End of route of entity " + std::to_string(entity->entityNumber()) + " to the component \"" + destinyStation->getEnterIntoStationComponent()->getName() + "\" was scheduled to time " + std::to_string(routeEndTime));
 	} else {
 		// send without delay
-		_parentModel->sendEntityToComponent(entity, _station->getEnterIntoStationComponent(), 0.0);
+		_parentModel->sendEntityToComponent(entity, destinyStation->getEnterIntoStationComponent(), 0.0);
 	}
 }
 
 bool Route::_loadInstance(std::map<std::string, std::string>* fields) {
 	bool res = ModelComponent::_loadInstance(fields);
 	if (res) {
-		this->_routeTimeExpression = (*fields->find("routeTimeExpression")).second;
-		this->_routeTimeTimeUnit = static_cast<Util::TimeUnit> (std::stoi((*fields->find("routeTimeTimeUnit")).second));
-		this->_routeDestinationType = static_cast<Route::DestinationType> (std::stoi((*fields->find("routeDestinationType")).second));
-		std::string stationName = ((*(fields->find("stationName"))).second);
-		Station* station = dynamic_cast<Station*> (_parentModel->getElements()->getElement(Util::TypeOf<Station>(), stationName));
-		this->_station = station;
+		this->_routeTimeExpression = LoadField(fields, "routeTimeExpression", DEFAULT.routeTimeExpression);
+		this->_routeTimeTimeUnit = LoadField(fields, "routeTimeTimeUnit", DEFAULT.routeTimeTimeUnit);
+		this->_routeDestinationType = static_cast<Route::DestinationType> (LoadField(fields, "destinationType", static_cast<int> (DEFAULT.routeDestinationType)));
+		if (_routeDestinationType == DestinationType::Station) {
+			std::string stationName = LoadField(fields, "station", "");
+			Station* station = dynamic_cast<Station*> (_parentModel->getElements()->getElement(Util::TypeOf<Station>(), stationName));
+			this->_station = station;
+		}
 	}
 	return res;
 }
@@ -109,18 +130,19 @@ void Route::_initBetweenReplications() {
 
 std::map<std::string, std::string>* Route::_saveInstance() {
 	std::map<std::string, std::string>* fields = ModelComponent::_saveInstance();
-	fields->emplace("stationId", std::to_string(this->_station->getId()));
-	fields->emplace("stationName", (this->_station->getName()));
-	fields->emplace("routeTimeExpression", "\"" + this->_routeTimeExpression + "\"");
-	fields->emplace("routeTimeTimeUnit", std::to_string(static_cast<int> (this->_routeTimeTimeUnit)));
-	fields->emplace("routeDestinationType", std::to_string(static_cast<int> (this->_routeDestinationType)));
+	if (_routeDestinationType == DestinationType::Station) {
+		SaveField(fields, "station", (this->_station->getName()));
+	}
+	SaveField(fields, "routeTimeExpression", _routeTimeExpression, DEFAULT.routeTimeExpression);
+	SaveField(fields, "routeTimeTimeUnit", _routeTimeTimeUnit, DEFAULT.routeTimeTimeUnit);
+	SaveField(fields, "destinationType", static_cast<int> (_routeDestinationType), static_cast<int> (DEFAULT.routeDestinationType));
 	return fields;
 }
 
 bool Route::_check(std::string* errorMessage) {
 	//include attributes needed
 	ElementManager* elements = _parentModel->getElements();
-	std::vector<std::string> neededNames = {"Entity.TransferTime", "Entity.Station"};
+	std::vector<std::string> neededNames = {"Entity.TotalTransferTime", "Entity.Station"};
 	std::string neededName;
 	for (unsigned int i = 0; i < neededNames.size(); i++) {
 		neededName = neededNames[i];
@@ -133,15 +155,17 @@ bool Route::_check(std::string* errorMessage) {
 	std::list<ModelElement*>* enttypes = elements->getElementList(Util::TypeOf<EntityType>())->list();
 	for (std::list<ModelElement*>::iterator it = enttypes->begin(); it != enttypes->end(); it++) {
 		if ((*it)->isReportStatistics())
-			static_cast<EntityType*> ((*it))->addGetStatisticsCollector("TransferTime"); // force create this CStat before simulation starts
+			static_cast<EntityType*> ((*it))->addGetStatisticsCollector((*it)->getName() + ".TransferTime"); // force create this CStat before simulation starts
 	}
 	bool resultAll = true;
 	resultAll &= _parentModel->checkExpression(_routeTimeExpression, "Route time expression", errorMessage);
-	resultAll &= _parentModel->getElements()->check(Util::TypeOf<Station>(), _station, "Station", errorMessage);
-	if (resultAll) {
-		resultAll &= _station->getEnterIntoStationComponent() != nullptr;
-		if (!resultAll) {
-			errorMessage->append("Station has no component to enter into it");
+	if (this->_routeDestinationType == Route::DestinationType::Station) {
+		resultAll &= _parentModel->getElements()->check(Util::TypeOf<Station>(), _station, "Station", errorMessage);
+		if (resultAll) {
+			resultAll &= _station->getEnterIntoStationComponent() != nullptr;
+			if (!resultAll) {
+				errorMessage->append("Station has no component to enter into it");
+			}
 		}
 	}
 	//_model->getParent()->getPluginManager()->
@@ -158,7 +182,7 @@ PluginInformation* Route::GetPluginInformation() {
 void Route::_createInternalElements() {
 	if (_reportStatistics) {
 		if (_numberIn == nullptr) {
-			_numberIn = new Counter(_parentModel, _name + "." + "CountNumberIn", this);
+			_numberIn = new Counter(_parentModel, getName() + "." + "CountNumberIn", this);
 			_childrenElements->insert({"CountNumberIn", _numberIn});
 		}
 	} else

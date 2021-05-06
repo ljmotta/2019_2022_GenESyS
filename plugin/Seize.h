@@ -20,6 +20,9 @@
 #include "Resource.h"
 #include "Queue.h"
 #include "../Plugin.h"
+#include "../SeizableItemRequest.h"
+#include "../QueueableItemRequest.h"
+#include "Set.h"
 
 class WaitingResource : public Waiting {
 public:
@@ -132,16 +135,6 @@ public:
 	static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
 	static ModelComponent* CreateInstance(Model* model, std::string name);
 public: // get & set
-	virtual void setLastMemberSeized(unsigned int _lastMemberSeized);
-	virtual unsigned int getLastMemberSeized() const;
-	virtual void setSaveAttribute(std::string _saveAttribute);
-	virtual std::string getSaveAttribute() const;
-	virtual void setRule(Resource::ResourceRule _rule);
-	virtual Resource::ResourceRule getRule() const;
-	//void setQuantity(std::string _quantity);
-	//std::string getQuantity() const;
-	virtual void setResourceType(Resource::ResourceType _resourceType);
-	virtual Resource::ResourceType getResourceType() const;
 	virtual void setPriority(unsigned short _priority);
 	virtual unsigned short getPriority() const;
 	virtual void setAllocationType(unsigned int _allocationType);
@@ -149,14 +142,13 @@ public: // get & set
 	// indirect access to Queue* and Resource*
 	//void setResourceName(std::string _resourceName) throw ();
 	//std::string getResourceName() const;
-	virtual void setQueueName(std::string queueName) throw ();
-	virtual std::string getQueueName() const;
-	//void setResource(Resource* resource);
-	//Resource* getResource() const;
+	//void setQueueName(std::string queueName) throw ();
+	//std::string getQueueName() const;
 	virtual void setQueue(Queue* queue);
-	virtual Queue* getQueue() const;
-    virtual void setSeizeRequest(ResourceItemRequest* _seizeRequest);
-    virtual ResourceItemRequest* seizeRequest() const;
+	//Queue* getQueue() const;
+	virtual List<SeizableItemRequest*>* getSeizeRequests() const;
+    virtual void setQueueableItem(QueueableItemRequest* _queueableItem);
+    virtual QueueableItemRequest* getQueueableItem() const;
 protected:
 	void _execute(Entity* entity);
 	bool _loadInstance(std::map<std::string, std::string>* fields);
@@ -166,21 +158,20 @@ protected:
 	//virtual void _createInternalElements(); 
 private:
 	void _handlerForResourceEvent(Resource* resource);
+	Queue* _getQueue() const ;
 private:
-	unsigned int _allocationType = 0; // uint ? enum?
-	unsigned short _priority = 0;
-	Resource::ResourceType _resourceType = Resource::ResourceType::RESOURCE;
-	Resource::ResourceRule _rule = Resource::ResourceRule::SMALLESTBUSY;
-	std::string _saveAttribute = "";
-	Queue* _queue; // usually has a queue, but not always (it could be a hold) 
-	ResourceItemRequest* _seizeRequest; // todo: should be a list
-	//std::string _quantityExpression = "1";
-	//Resource* _resource; // usually has a resource, but not always (it could be a set)
-	//std::string _resourceName = "Resource 1";  // trying to access resource and queue indirectly
-	//std::string _queueName;
+
+	const struct DEFAULT_VALUES {
+		unsigned int allocationType = 0; // uint ? enum?
+		unsigned short priority = 0;
+		unsigned int seizeRequestSize = 1;
+	} DEFAULT;
+	unsigned int _allocationType = DEFAULT.allocationType; // uint ? enum?
+	unsigned short _priority = DEFAULT.priority;
+	QueueableItemRequest* _queueableItem; //Queue* _queue; // usually has a queue, but not always (it could be a hold or a set) 
+	List<SeizableItemRequest*>* _seizeRequests = new List<SeizableItemRequest*>();
 private: // not gets or sets
-	//Set* _set;
-	unsigned int _lastMemberSeized = 0;
+	//	unsigned int _lastMemberSeized = 0; //  now _seizeRequest is a list and it was moved to SeizableItemRequest
 };
 
 #endif /* SEIZE_H */
