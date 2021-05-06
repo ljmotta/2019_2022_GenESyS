@@ -33,10 +33,7 @@ int Modelo_SistemaOperacional02::main(int argc, char** argv) {
 	PluginManager* pluginManager = genesys->getPlugins();
 
 	pluginManager->insert("enter.so");
-	pluginManager->insert("leave.so");
-	pluginManager->insert("pickstation.so");
 	pluginManager->insert("route.so");
-	pluginManager->insert("sequence.so");
 	pluginManager->insert("station.so");
 	
 	StaticComponentConstructor create = pluginManager->insert("create.so")->getPluginInfo()->GetComponentConstructor();
