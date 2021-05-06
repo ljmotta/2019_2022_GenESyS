@@ -5,22 +5,22 @@
  */
 
 /*
- * File:   PluginConnectorDynamic.cpp
+ * File:   PluginConnectorDynamicImpl.cpp
  * Author: ljmotta
  *
  * Created on 5 de Maio de 2021, 23:18
  */
 
-#ifndef PLUGINCONNECTORDYNAMIC_H
-#define PLUGINCONNECTORDYNAMIC_H
+#ifndef PLUGINCONNECTORDYNAMICIMPL_H
+#define PLUGINCONNECTORDYNAMICIMPL_H
 
 #include "PluginConnector_if.h"
 //namespace GenesysKernel {
 
-	class PluginConnectorDynamic : public PluginConnector_if {
+	class PluginConnectorDynamicImpl : public PluginConnector_if {
 	public:
-		PluginConnectorDynamic();
-		virtual ~PluginConnectorDynamic() = default;
+		PluginConnectorDynamicImpl();
+		virtual ~PluginConnectorDynamicImpl() = default;
 	public:
 		virtual Plugin* check(const std::string dynamicLibraryFilename);
 		virtual Plugin* connect(const std::string dynamicLibraryFilename);
@@ -30,5 +30,5 @@
 
 	};
 //namespace\\}
-#endif /* PLUGINCONNECTORDYNAMIC_H */
+#endif /* PLUGINCONNECTORDYNAMICIMPL_H */
 

@@ -5,13 +5,13 @@
  */
 
 /*
- * File:   PluginConnectorDynamic.cpp
+ * File:   PluginConnectorDynamicImpl.cpp
  * Author: ljmotta
  *
  * Created on 5 de Maio de 2021, 23:18
  */
 
-#include "PluginConnectorDynamic.h"
+#include "PluginConnectorDynamicImpl.h"
 
 // Model Components
 #include "Record.h"
@@ -61,14 +61,14 @@
 
 //namespace GenesysKernel {
 
-	PluginConnectorDynamic::PluginConnectorDynamic() {
+	PluginConnectorDynamicImpl::PluginConnectorDynamicImpl() {
 	}
 
-	Plugin* PluginConnectorDynamic::check(const std::string dynamicLibraryFilename) {
+	Plugin* PluginConnectorDynamicImpl::check(const std::string dynamicLibraryFilename) {
 		return nullptr; /**@ \todo:To implement */
 	}
 
-	Plugin* PluginConnectorDynamic::connect(const std::string dynamicLibraryFilename) {
+	Plugin* PluginConnectorDynamicImpl::connect(const std::string dynamicLibraryFilename) {
 		PluginLoader* pluginLoader = new PluginLoader("./plugin/build/");
 
 		std::string fn = getFileName(dynamicLibraryFilename);
@@ -193,11 +193,11 @@
 		return pluginResult;
 	}
 
-	bool PluginConnectorDynamic::disconnect(const std::string dynamicLibraryFilename) {
+	bool PluginConnectorDynamicImpl::disconnect(const std::string dynamicLibraryFilename) {
 		return true;
 	}
 
-	bool PluginConnectorDynamic::disconnect(Plugin* plugin) {
+	bool PluginConnectorDynamicImpl::disconnect(Plugin* plugin) {
 		return true;
 }
 

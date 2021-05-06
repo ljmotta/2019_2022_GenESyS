@@ -47,6 +47,7 @@
 //simulator and parts
 #include "parserBisonFlex/ParserDefaultImpl2.h"
 #include "PluginConnectorDummyImpl1.h"
+#include "PluginConnectorDynamicImpl.h"
 //model and parts
 #include "ModelCheckerDefaultImpl1.h"
 #include "ModelPersistenceDefaultImpl1.h"
@@ -109,7 +110,7 @@ template <> struct Traits<GenesysApplication_if> {
 
 
 template <> struct Traits<PluginConnector_if> {
-	typedef PluginConnectorDummyImpl1 Implementation;
+	typedef PluginConnectorDynamicImpl Implementation;
 	static const Util::TraceLevel traceLevel = Util::TraceLevel::L4_warning;
 };
 

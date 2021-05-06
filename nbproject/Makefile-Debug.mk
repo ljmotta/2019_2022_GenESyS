@@ -91,6 +91,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/PickUp.o \
 	${OBJECTDIR}/Plugin.o \
 	${OBJECTDIR}/PluginConnectorDummyImpl1.o \
+	${OBJECTDIR}/PluginConnectorDynamicImpl.o \
 	${OBJECTDIR}/PluginInformation.o \
 	${OBJECTDIR}/PluginLoader.o \
 	${OBJECTDIR}/PluginManager.o \
@@ -439,6 +440,11 @@ ${OBJECTDIR}/PluginConnectorDummyImpl1.o: PluginConnectorDummyImpl1.cpp nbprojec
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -include plugin/Resource.h -include plugin/Set.h -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PluginConnectorDummyImpl1.o PluginConnectorDummyImpl1.cpp
+
+${OBJECTDIR}/PluginConnectorDynamicImpl.o: PluginConnectorDynamicImpl.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -include plugin/Assign.h -include plugin/Create.h -include plugin/Decide.h -include plugin/Delay.h -include plugin/Dispose.h -include plugin/Formula.h -include plugin/Release.h -include plugin/Seize.h -include plugin/Variable.h -include plugin/Write.h -include plugin/Queue.h -include plugin/Resource.h -include plugin/Set.h -std=c++14 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/PluginConnectorDynamicImpl.o PluginConnectorDynamicImpl.cpp
 
 ${OBJECTDIR}/PluginInformation.o: PluginInformation.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

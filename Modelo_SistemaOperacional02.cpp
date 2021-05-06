@@ -47,7 +47,6 @@ int Modelo_SistemaOperacional02::main(int argc, char** argv) {
 	StaticElementConstructor queue = pluginManager->insert("queue.so")->getPluginInfo()->getElementConstructor();
 	StaticElementConstructor resource = pluginManager->insert("resource.so")->getPluginInfo()->getElementConstructor();
 	StaticElementConstructor set = pluginManager->insert("set.so")->getPluginInfo()->getElementConstructor();
-	StaticElementConstructor variable = pluginManager->insert("variable.so")->getPluginInfo()->getElementConstructor();
 
 	this->setDefaultTraceHandlers(genesys->getTracer());
 	Model* model = genesys->getModels()->newModel();

@@ -33,6 +33,8 @@
               <itemPath>parserBisonFlex/ParserDefaultImpl2.h</itemPath>
               <itemPath>PluginConnectorDummyImpl1.cpp</itemPath>
               <itemPath>PluginConnectorDummyImpl1.h</itemPath>
+              <itemPath>PluginConnectorDynamicImpl.cpp</itemPath>
+              <itemPath>PluginConnectorDynamicImpl.h</itemPath>
             </logicalFolder>
             <logicalFolder name="f2" displayName="Interfaces" projectFiles="true">
               <itemPath>Parser_if.h</itemPath>
@@ -612,6 +614,10 @@
       </item>
       <item path="PluginConnectorDummyImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="PluginConnectorDynamicImpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PluginConnectorDynamicImpl.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="PluginConnector_if.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="PluginInformation.cpp" ex="false" tool="1" flavor2="0">
@@ -1113,6 +1119,10 @@
       <item path="PluginConnectorDummyImpl1.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="PluginConnectorDummyImpl1.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="PluginConnectorDynamicImpl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="PluginConnectorDynamicImpl.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="PluginConnector_if.h" ex="false" tool="3" flavor2="0">
       </item>
