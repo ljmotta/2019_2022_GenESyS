@@ -167,8 +167,6 @@
         <itemPath>PickUp.h</itemPath>
         <itemPath>Record.cpp</itemPath>
         <itemPath>Record.h</itemPath>
-        <itemPath>Route.cpp</itemPath>
-        <itemPath>Route.h</itemPath>
         <itemPath>Signal.cpp</itemPath>
         <itemPath>Signal.h</itemPath>
         <itemPath>Submodel.cpp</itemPath>
@@ -350,6 +348,7 @@
             <pElem>plugin/Queue.h</pElem>
             <pElem>plugin/Resource.h</pElem>
             <pElem>plugin/Set.h</pElem>
+            <pElem>plugin/Route.h</pElem>
           </incFile>
           <commandLine>-fpermissive -Wl,--export-dynamic -L../plugin/build/ -Wl,-rpath=./plugin/build/ -Wl,--no-as-needed -ldl</commandLine>
         </ccTool>
@@ -653,10 +652,6 @@
       <item path="RequirementTester.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="RequirementTester.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Route.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Route.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="SamplerBoostImpl.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -1159,10 +1154,6 @@
       <item path="RequirementTester.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="RequirementTester.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Route.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Route.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="SamplerBoostImpl.cpp" ex="false" tool="1" flavor2="0">
       </item>

@@ -16,7 +16,6 @@
 // Model Components
 #include "Record.h"
 #include "Dummy.h"
-#include "Route.h"
 #include "Enter.h"
 #include "Leave.h"
 // #include "LSODE.h"
@@ -123,7 +122,7 @@
 	else if (fn == "seize.so")
 		GetInfo = pluginLoader->GetPluginInfo("libseize.so");
 	else if (fn == "route.so")
-		GetInfo = &Route::GetPluginInformation;
+		GetInfo = pluginLoader->GetPluginInfo("libroute.so");
 	else if (fn == "enter.so")
 		GetInfo = &Enter::GetPluginInformation;
 	else if (fn == "leave.so")

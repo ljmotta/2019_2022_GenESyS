@@ -4,19 +4,23 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   Route.cpp
  * Author: rlcancian
- * 
+ *
  * Created on 03 de Junho de 2019, 15:15
  */
 
 #include <cassert>
 #include "Route.h"
-#include "Model.h"
-#include "Attribute.h"
-#include "Simulator.h"
-#include "Sequence.h"
+#include "../Model.h"
+#include "../Attribute.h"
+#include "../Simulator.h"
+#include "../Sequence.h"
+
+extern "C" StaticGetPluginInformation getPluginInformation() {
+	return &Route::GetPluginInformation;
+}
 
 Route::Route(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Route>(), name) {
 }
@@ -38,6 +42,10 @@ ModelComponent* Route::LoadInstance(Model* model, std::map<std::string, std::str
 
 	}
 	return newComponent;
+}
+
+ModelComponent* Route::CreateInstance(Model* model, std::string name) {
+	return new Route(model);
 }
 
 void Route::setStation(Station* _station) {
@@ -173,7 +181,7 @@ bool Route::_check(std::string* errorMessage) {
 }
 
 PluginInformation* Route::GetPluginInformation() {
-	PluginInformation* info = new PluginInformation(Util::TypeOf<Route>(), &Route::LoadInstance);
+	PluginInformation* info = new PluginInformation(Util::TypeOf<Route>(), &Route::LoadInstance, &Route::CreateInstance);
 	info->setSendTransfer(true);
 	info->insertDynamicLibFileDependence("station.so");
 	return info;

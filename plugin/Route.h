@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-/* 
+/*
  * File:   Route.h
  * Author: rlcancian
  *
@@ -14,16 +14,16 @@
 #ifndef ROUTE_H
 #define ROUTE_H
 
-#include "ModelComponent.h"
-#include "Station.h"
-#include "Counter.h"
+#include "../ModelComponent.h"
+#include "../Station.h"
+#include "../Counter.h"
 
 /*!
 Route module
 DESCRIPTION
 The Route module transfers an entity to a specified station or the next station in the
 station visitation sequence defined for the entity. A delay time to transfer to the next
-station may be defined. 
+station may be defined.
 When an entity enters the Route module, its Station attribute (Entity.Station) is set to
 the destination station. The entity is then sent to the destination station, using the
 route time specified.
@@ -64,15 +64,16 @@ public:
 public:
 	static PluginInformation* GetPluginInformation();
 	static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static ModelComponent* CreateInstance(Model* model, std::string name);
 public:
-	void setStation(Station* _station);
-	Station* getStation() const;
-	void setRouteTimeExpression(std::string _routeTimeExpression);
-	std::string getRouteTimeExpression() const;
-	void setRouteTimeTimeUnit(Util::TimeUnit _routeTimeTimeUnit);
-	Util::TimeUnit getRouteTimeTimeUnit() const;
-	void setRouteDestinationType(DestinationType _routeDestinationType);
-	Route::DestinationType getRouteDestinationType() const;
+	virtual void setStation(Station* _station);
+	virtual Station* getStation() const;
+	virtual void setRouteTimeExpression(std::string _routeTimeExpression);
+	virtual std::string getRouteTimeExpression() const;
+	virtual void setRouteTimeTimeUnit(Util::TimeUnit _routeTimeTimeUnit);
+	virtual Util::TimeUnit getRouteTimeTimeUnit() const;
+	virtual void setRouteDestinationType(DestinationType _routeDestinationType);
+	virtual Route::DestinationType getRouteDestinationType() const;
 public:
 protected:
 	virtual void _execute(Entity* entity);

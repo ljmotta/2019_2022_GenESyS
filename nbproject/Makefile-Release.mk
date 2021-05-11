@@ -100,7 +100,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/QueueableItemRequest.o \
 	${OBJECTDIR}/Record.o \
 	${OBJECTDIR}/RequirementTester.o \
-	${OBJECTDIR}/Route.o \
 	${OBJECTDIR}/SamplerBoostImpl.o \
 	${OBJECTDIR}/SamplerDefaultImpl1.o \
 	${OBJECTDIR}/SamplerStudents20202g1.o \
@@ -485,11 +484,6 @@ ${OBJECTDIR}/RequirementTester.o: RequirementTester.cpp nbproject/Makefile-${CND
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/RequirementTester.o RequirementTester.cpp
-
-${OBJECTDIR}/Route.o: Route.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Route.o Route.cpp
 
 ${OBJECTDIR}/SamplerBoostImpl.o: SamplerBoostImpl.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

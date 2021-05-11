@@ -15,7 +15,7 @@
 
 #include "Simulator.h"
 #include "Model.h"
-#include "Route.h"
+//#include "Route.h"
 #include "Enter.h"
 
 //#include "EntityType.h"
@@ -33,7 +33,6 @@ int Modelo_SistemaOperacional02::main(int argc, char** argv) {
 	PluginManager* pluginManager = genesys->getPlugins();
 
 	pluginManager->insert("enter.so");
-	pluginManager->insert("route.so");
 	pluginManager->insert("station.so");
 	
 	StaticComponentConstructor create = pluginManager->insert("create.so")->getPluginInfo()->GetComponentConstructor();
@@ -43,6 +42,7 @@ int Modelo_SistemaOperacional02::main(int argc, char** argv) {
 	StaticComponentConstructor delay = pluginManager->insert("delay.so")->getPluginInfo()->GetComponentConstructor();
 	StaticComponentConstructor release = pluginManager->insert("release.so")->getPluginInfo()->GetComponentConstructor();
 	StaticComponentConstructor dispose = pluginManager->insert("dispose.so")->getPluginInfo()->GetComponentConstructor();
+	StaticComponentConstructor route = pluginManager->insert("route.so")->getPluginInfo()->GetComponentConstructor();
 
 	StaticElementConstructor queue = pluginManager->insert("queue.so")->getPluginInfo()->getElementConstructor();
 	StaticElementConstructor resource = pluginManager->insert("resource.so")->getPluginInfo()->getElementConstructor();
@@ -83,7 +83,7 @@ int Modelo_SistemaOperacional02::main(int argc, char** argv) {
 	//
 	// ROUTE Processo é enviado para execução na CPU
 	Station* stationExecucao = new Station(model, "Estacao_de_Execucao");
-	Route* routeExecucao1 = new Route(model);
+	Route* routeExecucao1 = (Route*) route(model, "");
 	routeExecucao1->setDescription("Processo é enviado para execução na CPU");
 	routeExecucao1->setStation(stationExecucao);
 
@@ -152,14 +152,14 @@ int Modelo_SistemaOperacional02::main(int argc, char** argv) {
 	releaseCPU->getNextComponents()->insert(decideAindaExec);
 	//
 	// ROUTE Processo é enviado de volta para execução
-	Route* routeExecucao2 = new Route(model);
+	Route* routeExecucao2 = (Route*) route(model, "");
 	routeExecucao2->setDescription("Processo é enviado de volta para execução");
 	routeExecucao2->setStation(stationExecucao);
 
 	decideAindaExec->getNextComponents()->insert(routeExecucao2);
 	// ROUTE Processo é enviado para liberar memória
 	Station* stationLiberaMem = new Station(model, "Estacao_de_liberacao_de_memoria");
-	Route* routeLiberaMem = new Route(model);
+	Route* routeLiberaMem = (Route*) route(model, "");
 	routeLiberaMem->setDescription("Processo é enviado para liberar memória");
 	routeLiberaMem->setStation(stationLiberaMem);
 

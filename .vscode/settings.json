@@ -69,6 +69,10 @@
         "future": "cpp",
         "unordered_set": "cpp",
         "any": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "cfenv": "cpp",
+        "codecvt": "cpp",
+        "mutex": "cpp",
+        "thread": "cpp"
     }
 }
