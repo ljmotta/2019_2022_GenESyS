@@ -157,8 +157,6 @@
         <itemPath>Dummy.h</itemPath>
         <itemPath>Hold.cpp</itemPath>
         <itemPath>Hold.h</itemPath>
-        <itemPath>Leave.cpp</itemPath>
-        <itemPath>Leave.h</itemPath>
         <itemPath>Match.cpp</itemPath>
         <itemPath>Match.h</itemPath>
         <itemPath>PickUp.cpp</itemPath>
@@ -348,6 +346,7 @@
             <pElem>plugin/Set.h</pElem>
             <pElem>plugin/Route.h</pElem>
             <pElem>plugin/Enter.h</pElem>
+            <pElem>plugin/Leave.h</pElem>
           </incFile>
           <commandLine>-fpermissive -Wl,--export-dynamic -L../plugin/build/ -Wl,-rpath=./plugin/build/ -Wl,--no-as-needed -ldl</commandLine>
         </ccTool>
@@ -485,10 +484,6 @@
       <item path="IntegratorDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Integrator_if.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Leave.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Leave.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="LicenceManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -983,10 +978,6 @@
       <item path="IntegratorDefaultImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Integrator_if.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Leave.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Leave.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="LicenceManager.cpp" ex="false" tool="1" flavor2="0">
       </item>

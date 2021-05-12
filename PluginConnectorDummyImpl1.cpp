@@ -17,7 +17,7 @@
 #include "Record.h"
 #include "Dummy.h"
 //#include "Enter.h"
-#include "Leave.h"
+//#include "Leave.h"
 // #include "LSODE.h"
 // #include "MarkovChain.h"
 
@@ -126,7 +126,7 @@
 	else if (fn == "enter.so")
 		GetInfo = pluginLoader->GetPluginInfo("libenter.so");
 	else if (fn == "leave.so")
-		GetInfo = &Leave::GetPluginInformation;
+		GetInfo = pluginLoader->GetPluginInfo("libleave.so");
 		//	else if (fn == "lsode.so")
 		//		GetInfo = &LSODE::GetPluginInformation;
 		//	else if (fn == "markovchain.so")

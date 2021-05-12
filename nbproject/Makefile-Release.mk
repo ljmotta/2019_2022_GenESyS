@@ -62,7 +62,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/HypothesisTesterBoostImpl.o \
 	${OBJECTDIR}/HypothesisTesterDefaultImpl1.o \
 	${OBJECTDIR}/IntegratorDefaultImpl1.o \
-	${OBJECTDIR}/Leave.o \
 	${OBJECTDIR}/LicenceManager.o \
 	${OBJECTDIR}/Match.o \
 	${OBJECTDIR}/MathMeth.o \
@@ -293,11 +292,6 @@ ${OBJECTDIR}/IntegratorDefaultImpl1.o: IntegratorDefaultImpl1.cpp nbproject/Make
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/IntegratorDefaultImpl1.o IntegratorDefaultImpl1.cpp
-
-${OBJECTDIR}/Leave.o: Leave.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Leave.o Leave.cpp
 
 ${OBJECTDIR}/LicenceManager.o: LicenceManager.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

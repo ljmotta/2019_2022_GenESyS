@@ -20,9 +20,6 @@
 // GEnSyS Simulator
 #include "Simulator.h"
 
-// Model Components
-#include "Leave.h"
-
 // Model elements
 #include "EntityType.h"
 #include "Station.h"

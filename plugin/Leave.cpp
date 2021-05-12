@@ -12,7 +12,11 @@
  */
 
 #include "Leave.h"
-#include "Model.h"
+#include "../Model.h"
+
+extern "C" StaticGetPluginInformation getPluginInformation() {
+	return &Leave::GetPluginInformation;
+}
 
 Leave::Leave(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Leave>(), name) {
 }
@@ -29,6 +33,10 @@ ModelComponent* Leave::LoadInstance(Model* model, std::map<std::string, std::str
 
 	}
 	return newComponent;
+}
+
+ModelComponent* Leave::CreateInstance(Model* model, std::string name) {
+	return new Leave(model);
 }
 
 void Leave::setStation(Station* _station) {
@@ -73,7 +81,7 @@ bool Leave::_check(std::string* errorMessage) {
 }
 
 PluginInformation* Leave::GetPluginInformation() {
-	PluginInformation* info = new PluginInformation(Util::TypeOf<Leave>(), &Leave::LoadInstance);
+	PluginInformation* info = new PluginInformation(Util::TypeOf<Leave>(), &Leave::LoadInstance, &Leave::CreateInstance);
 	info->insertDynamicLibFileDependence("station.so");
 	return info;
 }
