@@ -18,6 +18,8 @@
 #include "../ElementManager.h"
 #include "../Plugin.h"
 #include "../Entity.h"
+#include "../Model.h"
+#include "../Attribute.h"
 
 /*
  Station module
@@ -63,25 +65,122 @@ its corresponding activity area.
  */
 class Station : public ModelElement {
 public:
-	Station(Model* model, std::string name = "");
-	virtual ~Station();
+	Station(Model* model, std::string name) : ModelElement(model, Util::TypeOf<Station>(), name) {}
+	virtual ~Station() {
+		//_parentModel->elements()->remove(Util::TypeOf<StatisticsCollector>(), _cstatNumberInStation);
+		//_parentModel->elements()->remove(Util::TypeOf<StatisticsCollector>(), _cstatTimeInStation);
+	}
 public:
-	virtual std::string show();
+	virtual std::string show() {
+		std::string msg = ModelElement::show() + ",enterIntoStationComponent=";
+		if (_enterIntoStationComponent == nullptr)
+			msg += "NULL";
+		else
+			msg += _enterIntoStationComponent->getName();
+		return msg;
+	}
 public: // static 
-	static PluginInformation* GetPluginInformation();
-	static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
-	static ModelElement* CreateInstance(Model* model, std::string name);
+	static PluginInformation* GetPluginInformation() {
+		PluginInformation* info = new PluginInformation(Util::TypeOf<Station>(), &Station::LoadInstance, &Station::CreateInstance);
+		return info;
+	}
+	static ModelElement* LoadInstance(Model* model, std::map<std::string, std::string>* fields) {
+		Station* newElement = new Station(model, "");
+		try {
+			newElement->_loadInstance(fields);
+		} catch (const std::exception& e) {
+
+		}
+		return newElement;
+	}
+
+	static ModelElement* CreateInstance(Model* model, std::string name) {
+		return new Station(model, name);
+	}
 public:
-	virtual void initBetweenReplications();
-	virtual void enter(Entity* entity);
-	virtual void leave(Entity* entity);
-	virtual void setEnterIntoStationComponent(ModelComponent* _enterIntoStationComponent);
-	virtual ModelComponent* getEnterIntoStationComponent() const;
+	virtual void initBetweenReplications() {
+		_cstatNumberInStation->getStatistics()->getCollector()->clear();
+		_cstatTimeInStation->getStatistics()->getCollector()->clear();
+
+	}
+	virtual void enter(Entity* entity) {
+		std::string attributeName = "Entity.ArrivalAt" + this->getName();
+		trimwithin(attributeName);
+		entity->setAttributeValue(attributeName, _parentModel->getSimulation()->getSimulatedTime());
+		entity->setAttributeValue("Entity.Station", _id);
+		_numberInStation++;
+		if (_reportStatistics)
+			this->_cstatNumberInStation->getStatistics()->getCollector()->addValue(_numberInStation);
+	}
+	virtual void leave(Entity* entity) {
+		std::string attributeName = "Entity.ArrivalAt" + this->getName();
+		trimwithin(attributeName);
+		double arrivalTime = entity->getAttributeValue(attributeName);
+		double timeInStation = _parentModel->getSimulation()->getSimulatedTime() - arrivalTime;
+		entity->setAttributeValue("Entity.Station", 0.0);
+		_numberInStation--;
+		if (_reportStatistics) {
+			_cstatNumberInStation->getStatistics()->getCollector()->addValue(_numberInStation);
+			_cstatTimeInStation->getStatistics()->getCollector()->addValue(timeInStation);
+			if (entity->getEntityType()->isReportStatistics())
+				entity->getEntityType()->addGetStatisticsCollector(entity->getEntityTypeName() + ".TimeInStations")->getStatistics()->getCollector()->addValue(timeInStation); // \todo: should check if entitytype reports (?)
+		}
+	}
+	virtual void setEnterIntoStationComponent(ModelComponent* _enterIntoStationComponent) {
+		this->_enterIntoStationComponent = _enterIntoStationComponent;
+	}
+	virtual ModelComponent* getEnterIntoStationComponent() const {
+		return _enterIntoStationComponent;
+	}
 protected:
-	virtual bool _loadInstance(std::map<std::string, std::string>* fields);
-	virtual std::map<std::string, std::string>* _saveInstance();
-	virtual bool _check(std::string* errorMessage);
-	virtual void _createInternalElements();
+	virtual bool _loadInstance(std::map<std::string, std::string>* fields) {
+		bool res = ModelElement::_loadInstance(fields);
+		if (res) {
+			try {
+			} catch (...) {
+			}
+		}
+		return res;
+	}
+	virtual std::map<std::string, std::string>* _saveInstance() {
+		std::map<std::string, std::string>* fields = ModelElement::_saveInstance(); //Util::TypeOf<Station>());
+		return fields;
+	}
+	virtual bool _check(std::string* errorMessage) {
+		/* include attributes needed */
+		std::vector<std::string> neededNames = {"Entity.Station"};
+		neededNames.insert(neededNames.begin(), "Entity.ArrivalAt" + this->getName());
+		std::string neededName;
+		for (unsigned int i = 0; i < neededNames.size(); i++) {
+			neededName = neededNames[i];
+			if (_parentModel->getElements()->getElement(Util::TypeOf<Attribute>(), neededName) == nullptr) {
+				new Attribute(_parentModel, neededName);
+			}
+		}
+		//
+		return true;
+	}
+	virtual void _createInternalElements() {
+		if (_reportStatistics) {
+			if (_cstatNumberInStation == nullptr) {
+				_cstatNumberInStation = new StatisticsCollector(_parentModel, getName() + "." + "NumberInStation", this);
+				_cstatTimeInStation = new StatisticsCollector(_parentModel, getName() + "." + "TimeInStation", this);
+				_childrenElements->insert({"NumberInStation", _cstatNumberInStation});
+				_childrenElements->insert({"TimeInStation", _cstatTimeInStation});
+				//
+				// include StatisticsCollector needed in EntityType
+				std::list<ModelElement*>* enttypes = _parentModel->getElements()->getElementList(Util::TypeOf<EntityType>())->list();
+				for (std::list<ModelElement*>::iterator it = enttypes->begin(); it != enttypes->end(); it++) {
+					if ((*it)->isReportStatistics())
+						static_cast<EntityType*> ((*it))->addGetStatisticsCollector((*it)->getName() + ".TimeInStations"); // force create this CStat before simulation starts
+				}
+
+			}
+		} else
+			if (_cstatNumberInStation != nullptr) {
+			_removeChildrenElements();
+		}
+	}
 private:
 	unsigned int _numberInStation = 0;
 	ModelComponent* _enterIntoStationComponent;
