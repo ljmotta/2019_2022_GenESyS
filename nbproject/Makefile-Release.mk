@@ -44,7 +44,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/Counter.o \
 	${OBJECTDIR}/Dummy.o \
 	${OBJECTDIR}/ElementManager.o \
-	${OBJECTDIR}/Enter.o \
 	${OBJECTDIR}/Entity.o \
 	${OBJECTDIR}/EntityGroup.o \
 	${OBJECTDIR}/EntityType.o \
@@ -204,11 +203,6 @@ ${OBJECTDIR}/ElementManager.o: ElementManager.cpp nbproject/Makefile-${CND_CONF}
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ElementManager.o ElementManager.cpp
-
-${OBJECTDIR}/Enter.o: Enter.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Enter.o Enter.cpp
 
 ${OBJECTDIR}/Entity.o: Entity.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

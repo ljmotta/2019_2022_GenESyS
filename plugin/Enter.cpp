@@ -12,8 +12,12 @@
  */
 
 #include "Enter.h"
-#include "Model.h"
-#include "Counter.h"
+#include "../Model.h"
+#include "../Counter.h"
+
+extern "C" StaticGetPluginInformation getPluginInformation() {
+	return &Enter::GetPluginInformation;
+}
 
 Enter::Enter(Model* model, std::string name) : ModelComponent(model, Util::TypeOf<Enter>(), name) {
 }
@@ -30,6 +34,10 @@ ModelComponent* Enter::LoadInstance(Model* model, std::map<std::string, std::str
 
 	}
 	return newComponent;
+}
+
+ModelComponent* Enter::CreateInstance(Model* model, std::string name) {
+	return new Enter(model);
 }
 
 void Enter::setStation(Station* _station) {
@@ -75,7 +83,7 @@ bool Enter::_check(std::string* errorMessage) {
 }
 
 PluginInformation* Enter::GetPluginInformation() {
-	PluginInformation* info = new PluginInformation(Util::TypeOf<Enter>(), &Enter::LoadInstance);
+	PluginInformation* info = new PluginInformation(Util::TypeOf<Enter>(), &Enter::LoadInstance, &Enter::CreateInstance);
 	info->setReceiveTransfer(true);
 	info->insertDynamicLibFileDependence("station.so");
 	return info;

@@ -17,7 +17,6 @@
 
 #include "Simulator.h"
 #include "Model.h"
-#include "Enter.h"
 
 #include "EntityType.h"
 #include "SeizableItemRequest.h"

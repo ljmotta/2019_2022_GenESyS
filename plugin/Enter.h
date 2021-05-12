@@ -14,9 +14,9 @@
 #ifndef ENTER_H
 #define ENTER_H
 
-#include "ModelComponent.h"
-#include "Station.h"
-#include "Counter.h"
+#include "../ModelComponent.h"
+#include "../Station.h"
+#include "../Counter.h"
 /*!
 Enter module
 DESCRIPTION
@@ -104,9 +104,10 @@ public:
 public:
 	static PluginInformation* GetPluginInformation();
 	static ModelComponent* LoadInstance(Model* model, std::map<std::string, std::string>* fields);
+	static ModelComponent* CreateInstance(Model* model, std::string name);
 public:
-	void setStation(Station* _station);
-	Station* getStation() const;
+	virtual void setStation(Station* _station);
+	virtual Station* getStation() const;
 protected:
 	virtual void _execute(Entity* entity);
 	virtual void _initBetweenReplications();

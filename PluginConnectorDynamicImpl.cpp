@@ -16,7 +16,6 @@
 // Model Components
 #include "Record.h"
 #include "Dummy.h"
-#include "Enter.h"
 #include "Leave.h"
 // #include "LSODE.h"
 // #include "MarkovChain.h"
@@ -124,7 +123,7 @@
 	else if (fn == "route.so")
 		GetInfo = pluginLoader->GetPluginInfo("libroute.so");
 	else if (fn == "enter.so")
-		GetInfo = &Enter::GetPluginInformation;
+		GetInfo = pluginLoader->GetPluginInfo("libenter.so");
 	else if (fn == "leave.so")
 		GetInfo = &Leave::GetPluginInformation;
 		//	else if (fn == "lsode.so")

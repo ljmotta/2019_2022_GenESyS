@@ -3,6 +3,7 @@ BUILD := build
 SHARED_OBJ_FILES := libassign.so \
 	libwrite.so \
 	libset.so \
+	libenter.so \
 	libroute.so \
 	libqueue.so \
 	librelease.so \
@@ -77,6 +78,10 @@ libformula.so: Formula.cpp
 libroute.so: Route.cpp
 	${CC} -fPIC -c Route.cpp -o build/Route.o
 	${CC} -shared -Wl,-soname,libroute.so -o build/libroute.so build/Route.o
+
+libenter.so: Enter.cpp
+	${CC} -fPIC -c Enter.cpp -o build/Enter.o
+	${CC} -shared -Wl,-soname,libenter.so -o build/libenter.so build/Enter.o
 
 clean:
 	$(RM) -r $(BUILD)

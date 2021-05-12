@@ -21,7 +21,6 @@
 #include "Simulator.h"
 
 // Model Components
-#include "Enter.h"
 #include "Leave.h"
 
 // Model elements

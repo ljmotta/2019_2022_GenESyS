@@ -16,7 +16,6 @@
 #include "Simulator.h"
 #include "Model.h"
 //#include "Route.h"
-#include "Enter.h"
 
 //#include "EntityType.h"
 //#include "Queue.h"
@@ -32,7 +31,6 @@ int Modelo_SistemaOperacional02::main(int argc, char** argv) {
 
 	PluginManager* pluginManager = genesys->getPlugins();
 
-	pluginManager->insert("enter.so");
 	pluginManager->insert("station.so");
 	
 	StaticComponentConstructor create = pluginManager->insert("create.so")->getPluginInfo()->GetComponentConstructor();
@@ -43,6 +41,7 @@ int Modelo_SistemaOperacional02::main(int argc, char** argv) {
 	StaticComponentConstructor release = pluginManager->insert("release.so")->getPluginInfo()->GetComponentConstructor();
 	StaticComponentConstructor dispose = pluginManager->insert("dispose.so")->getPluginInfo()->GetComponentConstructor();
 	StaticComponentConstructor route = pluginManager->insert("route.so")->getPluginInfo()->GetComponentConstructor();
+	StaticComponentConstructor enter = pluginManager->insert("enter.so")->getPluginInfo()->GetComponentConstructor();
 
 	StaticElementConstructor queue = pluginManager->insert("queue.so")->getPluginInfo()->getElementConstructor();
 	StaticElementConstructor resource = pluginManager->insert("resource.so")->getPluginInfo()->getElementConstructor();
@@ -90,7 +89,7 @@ int Modelo_SistemaOperacional02::main(int argc, char** argv) {
 	seizeMem->getNextComponents()->insert(routeExecucao1);
 	//
 	// ENTER Processo chega para ser executado
-	Enter* enterStationExecucao = new Enter(model);
+	Enter* enterStationExecucao = (Enter*) enter(model, "");
 	enterStationExecucao->setDescription("Processo chega para ser executado");
 	enterStationExecucao->setStation(stationExecucao);
 	//
@@ -166,7 +165,7 @@ int Modelo_SistemaOperacional02::main(int argc, char** argv) {
 	decideAindaExec->getNextComponents()->insert(routeLiberaMem);
 	//
 	// ENTER Processo chega para liberar memória
-	Enter* enterStationLibera = new Enter(model);
+	Enter* enterStationLibera = (Enter*) enter(model, "");
 	enterStationLibera->setDescription("Processo chega para liberar memória");
 	enterStationLibera->setStation(stationLiberaMem);
 	//

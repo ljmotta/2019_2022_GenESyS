@@ -155,8 +155,6 @@
       <logicalFolder name="f2" displayName="Components" projectFiles="true">
         <itemPath>Dummy.cpp</itemPath>
         <itemPath>Dummy.h</itemPath>
-        <itemPath>Enter.cpp</itemPath>
-        <itemPath>Enter.h</itemPath>
         <itemPath>Hold.cpp</itemPath>
         <itemPath>Hold.h</itemPath>
         <itemPath>Leave.cpp</itemPath>
@@ -349,6 +347,7 @@
             <pElem>plugin/Resource.h</pElem>
             <pElem>plugin/Set.h</pElem>
             <pElem>plugin/Route.h</pElem>
+            <pElem>plugin/Enter.h</pElem>
           </incFile>
           <commandLine>-fpermissive -Wl,--export-dynamic -L../plugin/build/ -Wl,-rpath=./plugin/build/ -Wl,--no-as-needed -ldl</commandLine>
         </ccTool>
@@ -399,10 +398,6 @@
       <item path="ElementManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ElementManager.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Enter.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Enter.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Entity.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -901,10 +896,6 @@
       <item path="ElementManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="ElementManager.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Enter.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Enter.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Entity.cpp" ex="false" tool="1" flavor2="0">
       </item>
