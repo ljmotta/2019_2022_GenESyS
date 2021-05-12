@@ -15,7 +15,7 @@
 #define ROUTE_H
 
 #include "../ModelComponent.h"
-#include "../Station.h"
+#include "Station.h"
 #include "../Counter.h"
 
 /*!

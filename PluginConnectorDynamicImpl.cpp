@@ -49,7 +49,7 @@
 #include "Attribute.h"
 #include "ProbDistribDefaultImpl1.h"
 #include "EntityGroup.h"
-#include "Station.h"
+#include "Counter.h"
 #// include "OLD_ODEelement.h"
 
 #include "Util.h"
@@ -97,7 +97,7 @@
 	else if (fn == "statisticscollector.so")
 		GetInfo = &StatisticsCollector::GetPluginInformation;
 	else if (fn == "station.so")
-		GetInfo = &Station::GetPluginInformation;
+		GetInfo = pluginLoader->GetPluginInfo("libstation.so");
 	else if (fn == "variable.so")
 		GetInfo = pluginLoader->GetPluginInfo("libvariable.so");
 		// model components

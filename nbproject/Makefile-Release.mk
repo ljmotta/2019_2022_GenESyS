@@ -112,7 +112,6 @@ OBJECTFILES= \
 	${OBJECTDIR}/Simulator.o \
 	${OBJECTDIR}/SinkModelComponent.o \
 	${OBJECTDIR}/SourceModelComponent.o \
-	${OBJECTDIR}/Station.o \
 	${OBJECTDIR}/StatisticsCollector.o \
 	${OBJECTDIR}/StatisticsDataFileDefaultImpl.o \
 	${OBJECTDIR}/StatisticsDefaultImpl1.o \
@@ -542,11 +541,6 @@ ${OBJECTDIR}/SourceModelComponent.o: SourceModelComponent.cpp nbproject/Makefile
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/SourceModelComponent.o SourceModelComponent.cpp
-
-${OBJECTDIR}/Station.o: Station.cpp nbproject/Makefile-${CND_CONF}.mk
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Station.o Station.cpp
 
 ${OBJECTDIR}/StatisticsCollector.o: StatisticsCollector.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

@@ -15,8 +15,8 @@
 #define ENTER_H
 
 #include "../ModelComponent.h"
-#include "../Station.h"
 #include "../Counter.h"
+#include "Station.h"
 /*!
 Enter module
 DESCRIPTION

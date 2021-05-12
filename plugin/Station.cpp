@@ -92,7 +92,7 @@ ModelElement* Station::LoadInstance(Model* model, std::map<std::string, std::str
 }
 
 ModelElement* Station::CreateInstance(Model* model, std::string name) {
-	return new Station(model);
+	return new Station(model);;
 }
 
 bool Station::_loadInstance(std::map<std::string, std::string>* fields) {

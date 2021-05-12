@@ -30,8 +30,6 @@ int Modelo_SistemaOperacional02::main(int argc, char** argv) {
 	Simulator* genesys = new Simulator();
 
 	PluginManager* pluginManager = genesys->getPlugins();
-
-	pluginManager->insert("station.so");
 	
 	StaticComponentConstructor create = pluginManager->insert("create.so")->getPluginInfo()->GetComponentConstructor();
 	StaticComponentConstructor assign = pluginManager->insert("assign.so")->getPluginInfo()->GetComponentConstructor();
@@ -46,6 +44,7 @@ int Modelo_SistemaOperacional02::main(int argc, char** argv) {
 	StaticElementConstructor queue = pluginManager->insert("queue.so")->getPluginInfo()->getElementConstructor();
 	StaticElementConstructor resource = pluginManager->insert("resource.so")->getPluginInfo()->getElementConstructor();
 	StaticElementConstructor set = pluginManager->insert("set.so")->getPluginInfo()->getElementConstructor();
+	StaticElementConstructor station = pluginManager->insert("station.so")->getPluginInfo()->getElementConstructor();
 
 	this->setDefaultTraceHandlers(genesys->getTracer());
 	Model* model = genesys->getModels()->newModel();
@@ -81,7 +80,7 @@ int Modelo_SistemaOperacional02::main(int argc, char** argv) {
 	assignProc->getNextComponents()->insert(seizeMem);
 	//
 	// ROUTE Processo é enviado para execução na CPU
-	Station* stationExecucao = new Station(model, "Estacao_de_Execucao");
+	Station* stationExecucao = (Station*) station(model, "Estacao_de_Execucao");
 	Route* routeExecucao1 = (Route*) route(model, "");
 	routeExecucao1->setDescription("Processo é enviado para execução na CPU");
 	routeExecucao1->setStation(stationExecucao);
@@ -157,7 +156,7 @@ int Modelo_SistemaOperacional02::main(int argc, char** argv) {
 
 	decideAindaExec->getNextComponents()->insert(routeExecucao2);
 	// ROUTE Processo é enviado para liberar memória
-	Station* stationLiberaMem = new Station(model, "Estacao_de_liberacao_de_memoria");
+	Station* stationLiberaMem = (Station*) station(model, "Estacao_de_liberacao_de_memoria");
 	Route* routeLiberaMem = (Route*) route(model, "");
 	routeLiberaMem->setDescription("Processo é enviado para liberar memória");
 	routeLiberaMem->setStation(stationLiberaMem);

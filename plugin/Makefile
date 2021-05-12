@@ -5,6 +5,7 @@ SHARED_OBJ_FILES := libassign.so \
 	libset.so \
 	libenter.so \
 	libleave.so \
+	libstation.so \
 	libroute.so \
 	libqueue.so \
 	librelease.so \
@@ -87,6 +88,10 @@ libenter.so: Enter.cpp
 libleave.so: Leave.cpp
 	${CC} -fPIC -c Leave.cpp -o build/Leave.o
 	${CC} -shared -Wl,-soname,libleave.so -o build/libleave.so build/Leave.o
+
+libstation.so: Station.cpp
+	${CC} -fPIC -c Station.cpp -o build/Station.o
+	${CC} -shared -Wl,-soname,libstation.so -o build/libstation.so build/Station.o
 
 clean:
 	$(RM) -r $(BUILD)

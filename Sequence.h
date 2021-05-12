@@ -17,7 +17,6 @@
 #include "ModelElement.h"
 #include "ElementManager.h"
 #include "PluginInformation.h"
-#include "Station.h"
 
 class SequenceStep : PersistentObject_base {
 public:

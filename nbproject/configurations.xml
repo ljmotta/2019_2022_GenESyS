@@ -187,8 +187,6 @@
         <itemPath>Schedule.h</itemPath>
         <itemPath>Sequence.cpp</itemPath>
         <itemPath>Sequence.h</itemPath>
-        <itemPath>Station.cpp</itemPath>
-        <itemPath>Station.h</itemPath>
         <itemPath>Storage.cpp</itemPath>
         <itemPath>Storage.h</itemPath>
       </logicalFolder>
@@ -347,6 +345,7 @@
             <pElem>plugin/Route.h</pElem>
             <pElem>plugin/Enter.h</pElem>
             <pElem>plugin/Leave.h</pElem>
+            <pElem>plugin/Station.h</pElem>
           </incFile>
           <commandLine>-fpermissive -Wl,--export-dynamic -L../plugin/build/ -Wl,-rpath=./plugin/build/ -Wl,--no-as-needed -ldl</commandLine>
         </ccTool>
@@ -704,10 +703,6 @@
       <item path="SourceModelComponent.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="SourceModelComponent.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Station.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Station.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="StatisticsCollector.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -1198,10 +1193,6 @@
       <item path="SourceModelComponent.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="SourceModelComponent.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Station.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Station.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="StatisticsCollector.cpp" ex="false" tool="1" flavor2="0">
       </item>
