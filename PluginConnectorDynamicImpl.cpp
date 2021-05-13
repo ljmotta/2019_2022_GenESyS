@@ -72,28 +72,26 @@
 		std::string fn = getFileName(dynamicLibraryFilename);
 		StaticGetPluginInformation GetInfo = nullptr;
 		Plugin* pluginResult = nullptr;
-	// model elements
-	if (fn == "attribute.so")
-		GetInfo = &Attribute::GetPluginInformation;
-	else if (fn == "counter.so")
-		GetInfo = &Counter::GetPluginInformation;
-	else if (fn == "entitygroup.so")
-		GetInfo = &EntityGroup::GetPluginInformation;
-	else if (fn == "entitytype.so")
-		GetInfo = &EntityType::GetPluginInformation;
-	else if (fn == "statisticscollector.so")
-		GetInfo = &StatisticsCollector::GetPluginInformation;
-	else if (fn == "dummy.so")
-		GetInfo = &Dummy::GetPluginInformation;
-	else if (fn == "record.so")
-		GetInfo = &Record::GetPluginInformation;
-	else if (fn == "submodel.so")
-		GetInfo = &Submodel::GetPluginInformation;
-	else if (fn == "sequence.so")
-		GetInfo = &Sequence::GetPluginInformation;
-
-	else
-		GetInfo = pluginLoader->GetPluginInfo(("lib"+fn).c_str());
+		if (fn == "attribute.so")
+			GetInfo = &Attribute::GetPluginInformation;
+		else if (fn == "counter.so")
+			GetInfo = &Counter::GetPluginInformation;
+		else if (fn == "entitygroup.so")
+			GetInfo = &EntityGroup::GetPluginInformation;
+		else if (fn == "entitytype.so")
+			GetInfo = &EntityType::GetPluginInformation;
+		else if (fn == "statisticscollector.so")
+			GetInfo = &StatisticsCollector::GetPluginInformation;
+		else if (fn == "dummy.so")
+			GetInfo = &Dummy::GetPluginInformation;
+		else if (fn == "record.so")
+			GetInfo = &Record::GetPluginInformation;
+		else if (fn == "submodel.so")
+			GetInfo = &Submodel::GetPluginInformation;
+		else if (fn == "sequence.so")
+			GetInfo = &Sequence::GetPluginInformation;
+		else
+			GetInfo = pluginLoader->GetPluginInfo(("lib"+fn).c_str());
 
 		if (GetInfo != nullptr) {
 			pluginResult = new Plugin(GetInfo);
