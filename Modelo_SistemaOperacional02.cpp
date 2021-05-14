@@ -15,12 +15,7 @@
 
 #include "Simulator.h"
 #include "Model.h"
-//#include "Route.h"
-
-//#include "EntityType.h"
-//#include "Queue.h"
 #include "SeizableItemRequest.h"
-//#include "Station.h"
 #include "Attribute.h"
 
 Modelo_SistemaOperacional02::Modelo_SistemaOperacional02() {

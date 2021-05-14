@@ -27,7 +27,6 @@ public:
 public:
 	void setDefaultTraceHandlers(TraceManager* tm);
 	void setDefaultEventHandlers(OnEventManager* oem);
-	void insertFakePluginsByHand(Simulator* simulator);
 protected:
 	// default Trace Handlers
 	virtual void traceHandler(TraceEvent e);

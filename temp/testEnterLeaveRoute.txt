@@ -1,0 +1,21 @@
+0   SimulatorInfo "GenESyS - GENeric and Expansible SYstem Simulator" versionNumber=210420 
+0   ModelInfo  "Model 1" 
+0   ModelSimulation "fixed experiment name in ModelSimulation" numberOfReplications=3 replicationLength=30.000000 
+1   EntityType "AnyEntityType" 
+2   Station    "Station 1" 
+3   Station    "Station 2" 
+30  Attribute  "Entity.TotalTransferTime" 
+31  Attribute  "Entity.Station" 
+33  Attribute  "Entity.ArrivalAtStation 1" 
+34  Attribute  "Entity.ArrivalAtStation 2" 
+35  Attribute  "Entity.ArrivalAtStation 3" 
+4   Station    "Station 3" 
+10  Leave      "Leave_3" station="Station 3" nextSize=0 
+11  Route      "Route_1" routeTimeExpression="0.5" station="Station 1" nextSize=0 
+12  Route      "Route_2" routeTimeExpression="0.5" station="Station 2" nextSize=0 
+13  Route      "Route_3" routeTimeExpression="0.5" station="Station 3" nextSize=0 
+5   Enter      "Enter_1" station="Station 1" nextSize=0 
+6   Enter      "Enter_2" station="Station 2" nextSize=0 
+7   Enter      "Enter_3" station="Station 3" nextSize=0 
+8   Leave      "Leave_1" station="Station 1" nextId=12 
+9   Leave      "Leave_2" station="Station 2" nextId=13 
