@@ -101,7 +101,7 @@ template <> struct Traits<GenesysApplication_if> {
 	// typedef Model_AssignWrite3Seizes Application;
 	// typedef Model_StatationRouteSequence Application;
 	// typedef Model_CreateDelayDispose2 Application;
-	// typedef Modelo_SistemaOperacional02 Application;
+	typedef Modelo_SistemaOperacional02 Application;
 	// typedef Modelo_SistemaOperacional03 Application;
 };
 
@@ -112,6 +112,7 @@ template <> struct Traits<GenesysApplication_if> {
 
 template <> struct Traits<PluginConnector_if> {
 	typedef PluginConnectorDynamicImpl Implementation;
+	// typedef PluginConnectorDummyImpl1 Implementation;
 	static const Util::TraceLevel traceLevel = Util::TraceLevel::L4_warning;
 };
 

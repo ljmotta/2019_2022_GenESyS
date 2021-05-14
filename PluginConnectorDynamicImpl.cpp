@@ -16,33 +16,8 @@
 // Model Components
 #include "Record.h"
 #include "Dummy.h"
-//#include "Leave.h"
-// #include "LSODE.h"
-// #include "MarkovChain.h"
-
-//?
-// #include "DropOff.h"
-// #include "Hold.h"
-// #include "Schedule.h"
-// #include "Batch.h"
-//#include "Separate.h"
 #include "Submodel.h"
-// #include "Match.h"
-// #include "PickUp.h"
-// #include "Remove.h"
-// #include "Search.h"
-// #include "Signal.h"
-// #include "Store.h"
-// #include "PickStation.h"
 #include "Sequence.h"
-// #include "Start.h"
-// #include "Stop.h"
-// #include "Unstore.h"
-// #include "Failure.h"
-// #include "File.h"
-// #include "Storage.h"
-// #include "Access.h"
-// #include "Exit.h"
 
 // Model elements
 #include "EntityType.h"

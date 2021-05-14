@@ -20,6 +20,7 @@
 //#include "Leave.h"
 // #include "LSODE.h"
 // #include "MarkovChain.h"
+#include "plugin/Assign.h"
 
 //?
 // #include "DropOff.h"
@@ -51,6 +52,11 @@
 #include "ProbDistribDefaultImpl1.h"
 #include "EntityGroup.h"
 #include "Counter.h"
+#include "plugin/Queue.h"
+#include "plugin/Set.h"
+#include "plugin/Resource.h"
+#include "plugin/Variable.h"
+#include "plugin/Formula.h"
 //#include "Station.h"
 #// include "OLD_ODEelement.h"
 
@@ -79,29 +85,28 @@
 		GetInfo = &Attribute::GetPluginInformation;
 	else if (fn == "assign.so") {
 		GetInfo = pluginLoader->GetPluginInfo("libassign.so");
-	}
-	else if (fn == "counter.so")
+	} else if (fn == "counter.so")
 		GetInfo = &Counter::GetPluginInformation;
 	else if (fn == "entitygroup.so")
 		GetInfo = &EntityGroup::GetPluginInformation;
 	else if (fn == "entitytype.so")
 		GetInfo = &EntityType::GetPluginInformation;
 	else if (fn == "formula.so")
-		GetInfo = pluginLoader->GetPluginInfo("libformula.so");
+		GetInfo = &Formula::GetPluginInformation;
 		//	else if (fn == "ode.so")
 		//		GetInfo = &OLD_ODEelement::GetPluginInformation;
 	else if (fn == "queue.so")
-		GetInfo = pluginLoader->GetPluginInfo("libqueue.so");
+		GetInfo = &Queue::GetPluginInformation;
 	else if (fn == "resource.so")
-		GetInfo = pluginLoader->GetPluginInfo("libresource.so");
+		GetInfo = &Resource::GetPluginInformation;
 	else if (fn == "set.so")
-		GetInfo = pluginLoader->GetPluginInfo("libset.so");
+		GetInfo = &Set::GetPluginInformation;
 	else if (fn == "statisticscollector.so")
 		GetInfo = &StatisticsCollector::GetPluginInformation;
 	else if (fn == "station.so")
 		GetInfo = pluginLoader->GetPluginInfo("libstation.so");
 	else if (fn == "variable.so")
-		GetInfo = pluginLoader->GetPluginInfo("libvariable.so");
+		GetInfo = &Variable::GetPluginInformation;
 		// model components
 	else if (fn == "create.so")
 		GetInfo = pluginLoader->GetPluginInfo("libcreate.so");
@@ -119,8 +124,7 @@
 		GetInfo = &Record::GetPluginInformation;
 	else if (fn == "release.so") {
 		GetInfo = pluginLoader->GetPluginInfo("librelease.so");
-	}
-	else if (fn == "seize.so")
+	} else if (fn == "seize.so")
 		GetInfo = pluginLoader->GetPluginInfo("libseize.so");
 	else if (fn == "route.so")
 		GetInfo = pluginLoader->GetPluginInfo("libroute.so");
