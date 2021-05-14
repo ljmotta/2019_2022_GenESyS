@@ -80,10 +80,6 @@
 	protected:
 		std::map<std::string, ModelElement*>* _childrenElements = new std::map<std::string, ModelElement*>();
 	};
-
-
-// typedef ModelElement* create_assign(Model* model);
-// typedef void destroy_assign(ModelElement* modelElement);
 //namespace\\}
 
 #endif /* MODELELEMENT_H */

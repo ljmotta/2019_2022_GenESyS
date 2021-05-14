@@ -7,7 +7,7 @@
 /* 
  * File:   PluginConnectorDummyImpl1.h
  * Author: rlcancian
- *
+ * 
  * Created on 9 de Setembro de 2019, 19:24
  */
 

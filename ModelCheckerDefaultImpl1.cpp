@@ -41,7 +41,6 @@ bool ModelCheckerDefaultImpl1::checkAll() {
 //}
 
 void ModelCheckerDefaultImpl1::_recursiveConnectedTo(PluginManager* pluginManager, ModelComponent* comp, List<ModelComponent*>* visited, List<ModelComponent*>* unconnected, bool* drenoFound) {
-	// model component insere na lista de visitados
 	visited->insert(comp);
 	_model->getTracer()->trace(Util::TraceLevel::L7_detailed, "Connected to component \"" + comp->getName() + "\"");
 	Plugin* plugin = pluginManager->find(comp->getClassname());
@@ -85,12 +84,8 @@ bool ModelCheckerDefaultImpl1::checkConnected() {
 		List<ModelComponent*>* visited = new List<ModelComponent*>();
 		List<ModelComponent*>* unconnected = new List<ModelComponent*>();
 		ModelComponent* comp;
-		// itera sob lista de model components;
 		for (std::list<ModelComponent*>::iterator it = _model->getComponents()->begin(); it != _model->getComponents()->end(); it++) {
-			// model component atual
 			comp = (*it);
-
-			// busca plugin no plugin manager a partir do model component.
 			plugin = pluginManager->find(comp->getClassname());
 			assert(plugin != nullptr);
 			if (plugin->getPluginInfo()->isSource() || plugin->getPluginInfo()->isReceiveTransfer()) { //(dynamic_cast<SourceModelComponent*> (comp) != nullptr) {
